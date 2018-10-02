@@ -29,6 +29,16 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
 
 
+
+--------------------------------------------------------------------------------------------------
+### Bash Scripting - With some used commands
+**Arrays in bash script:**
+
+        Ex: arr=(Helloworld)
+Prints: for `arr[0]`=`Hello`, for `arr[1]`=`world`
+         for : echo ${arr[0]} ${arr[1]}
+prints 'Hello world'
+
 --------------------------------------------------------------------------------------------------
 ### Used Python Scripting :
 
