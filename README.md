@@ -36,8 +36,10 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
         Ex: arr=(Helloworld)
 Prints: for `arr[0]`=`Hello`, for `arr[1]`=`world`
+
          for : echo ${arr[0]} ${arr[1]}
-prints 'Hello world'
+
+prints `Hello world`
 
 --------------------------------------------------------------------------------------------------
 ### Used Python Scripting :
