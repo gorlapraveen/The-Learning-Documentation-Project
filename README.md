@@ -41,6 +41,27 @@ Prints: for `arr[0]`=`Hello`, for `arr[1]`=`world`
 
 prints `Hello world`
 
+Extracting a Substring from Variabel:
+     
+         test="Welcome to the Land of Linux"
+         echo "Our variable test is ${#test} characters long"
+         test1=${test:0:7}
+         test2=${test:15:13}
+         test3=${test:0}
+         echo $test1
+         echo $test2
+         echo $test3
+
+Output:
+
+ 
+        Our variable test is 28 characters long
+        Welcome
+        Land of Linux
+        Welcome to the Land of Linux
+
+
+
 --------------------------------------------------------------------------------------------------
 ### Used Python Scripting :
 
