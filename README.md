@@ -16,6 +16,7 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
   AWk Command:
         for eaxmple to extract substring in a string .
+
             Ex: str1 =abcdefgh
 
   `awk substr($str1,2,4)`:output = `bcdef`
