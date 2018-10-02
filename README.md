@@ -41,7 +41,7 @@ Prints: for `arr[0]`=`Hello`, for `arr[1]`=`world`
 
 prints `Hello world`
 
-Extracting a Substring from Variabel:
+Extracting a Substring from Variable:
      
          test="Welcome to the Land of Linux"
          echo "Our variable test is ${#test} characters long"
