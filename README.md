@@ -15,14 +15,32 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 ### Advanced Used Linux Commnd - Utilization for scripting:
 
   **AWK Command:**
-        for eaxmple to extract substring in a string .
+  
+        For eaxmple to extract substring in a string .
 
             Ex: str1 =abcdefgh
   `awk substr($str1,2,4)`:output = `bcdef`
+ 
+  **SSH Keys:**
+  
+For generating, show existing list, shh-add etc..
+         
+* ssh key generation: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com" `. This creates a new ssh key, using the provided email as a label.
+`Generating public/private rsa key pair`.
+* ssh exsiting key presented check: Enter `ls -al ~/.ssh` to see if existing SSH keys are present:
+`
+* ssh existing public disply : `cat ~/.ssh/id_rsa.pub` its ssh key  should look like
+ 
+      ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local
 
-
-
-
+* Adding your SSH key to the ssh-agent :
+  - * Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. 
+     - * Start the ssh-agent in the background.`eval "$(ssh-agent -s)"` 
+     - * Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+        `ssh-add ~/.ssh/id_rsa`
+     - * If you are working in git directory and if you want to add ssh access, you need to past your ssh publice keys in your git server and initiate ssh authentication in your local repo by simply issuing command in local repo as `ssh-add` or `ssh-add agent_id_number`
+     
+` 
 
 
 
