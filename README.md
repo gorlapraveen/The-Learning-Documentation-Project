@@ -12,7 +12,7 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
 ---------------------------------------------------------------------------------------------------
 
-This repository is Licensed under [GNU Free Documentation License Version 1.3, 3 November 2008](https://www.gnu.org/licenses/fdl.txt)
+This repository is Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) Version 1.3, 3 November 2008
 
 ---------------------------------------------------------------------------------------------------
 
