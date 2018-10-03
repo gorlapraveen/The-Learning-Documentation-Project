@@ -51,8 +51,13 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 The intent of this manual is to explain how you can create and sign a GPG key. 
  
 * Generatin(creating) a RSA Keypair :`gpg --gen-key` or `gpg2 --gen-key` 
-
-
+ - * Select `(1) RSA and RSA (default)`
+ - * select `4096` for strong key(debian recomended)
+ - * Enter expiry date
+ - * Enter `Real name`, `Email[trusted]` and `comment`
+ - * After this gpg random key generation takes place and it looks something like this.
+ - * * 
+ 
 
 --------------------------------------------------------------------------------------------------
 ### Bash Scripting - With some used commands
