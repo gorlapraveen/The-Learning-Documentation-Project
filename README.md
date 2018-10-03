@@ -33,9 +33,9 @@ For generating, show existing list, shh-add etc..
          
 * ssh key generation: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com" `. This creates a new ssh key, using the provided email as a label.
 `Generating public/private rsa key pair`.
-* ssh exsiting key presented check: Enter `ls -al ~/.ssh` to see if existing SSH keys are present:
+* ssh exsiting key ID check: Enter `ls -al ~/.ssh` to see if existing SSH keys are present:
 `
-* ssh existing public disply : `cat ~/.ssh/id_rsa.pub` its ssh key  should look like
+* ssh existing public display : `cat ~/.ssh/id_rsa.pub` its ssh key  should look like
  
       ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSUGPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XAt3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/EnmZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbxNrRFi9wrf+M7Q== schacon@mylaptop.local
 
@@ -157,7 +157,13 @@ Output:
 
 
 
+-----------------------------------------------------------------------------------------------------
+### Articles :
 
+Articles at [Medium Page][Medium Page] and [Medium Publication - Open Thinking and Open Research][Medium Publication] 
+
+[Medium Page]:https://medium.com/@gorlapraveen "Medium Page"
+[Medium Publication]:https://medium.com/open-thinking-and-open-research "Medium Publication - Open Thinking and Open Research"
 
 
 
