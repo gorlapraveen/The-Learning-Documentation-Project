@@ -9,8 +9,11 @@
 It includes(or/with links): *Research topics(& resources), Programming(issues and code),  Advanced Linux commands, Networking commands, bash script command utilization, Linux packages(& scripts), Machinine learning, text documentation, images, tutorial(links) and gitlab links(Personal repository links).*
 
 Note : *This documentation is mainly intend to reduce time consumption for solving some issues which are already solved/used earlier, This is from my past experience of wasting my time for searching for issues solving* -- by @gorlapraveen
+
 ---------------------------------------------------------------------------------------------------
+
 This repository is Licensed under [GNU Free Documentation License Version 1.3, 3 November 2008](https://www.gnu.org/licenses/fdl.txt)
+
 ---------------------------------------------------------------------------------------------------
 
 ### Advanced Used Linux Commnd - Utilization for scripting:
