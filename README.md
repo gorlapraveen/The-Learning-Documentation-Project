@@ -39,12 +39,18 @@ For generating, show existing list, shh-add etc..
      - * Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
         `ssh-add ~/.ssh/id_rsa`
      - * If you are working in git directory and if you want to add ssh access, you need to past your ssh publice keys in your git server and initiate ssh authentication in your local repo by simply issuing command in local repo as `ssh-add` or `ssh-add agent_id_number`
-     
-` 
+     `
+
+For more vist https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
+ and 
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
 
+** GPG : Keysigning **
 
-
+The intent of this manual is to explain how you can create and sign a GPG key. 
+ 
+* Generatin(creating) a RSA Keypair :`gpg --gen-key` or `gpg2 --gen-key` 
 
 
 
