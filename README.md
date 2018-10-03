@@ -56,7 +56,31 @@ The intent of this manual is to explain how you can create and sign a GPG key.
  - * Enter expiry date
  - * Enter `Real name`, `Email[trusted]` and `comment`
  - * After this gpg random key generation takes place and it looks something like this.
- - * * 
+ 
+
+       `gpg: /home/user/.gnupg/trustdb.gpg: trustdb created`
+       
+     `gpg: key 23955501 marked as ultimately trusted`
+     
+     `public and secret key created and signed.`
+
+     `gpg: checking the trustdb`
+     
+     `gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model`
+     
+     `gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u`
+     
+     `gpg: next trustdb check due at 2021-05-11`
+     
+     `pub   4096R/23955501 2016-05-12 [expires: 2021-05-11]`
+     
+     `Key fingerprint = 519D 4592 3D31 56E6 B7A8  269E F9E2 35C3 2395 5501`
+     
+     `uid                  Test User <test@example.org>`
+     
+     `sub   4096R/653CA81D 2016-05-12 [expires: 2021-05-11] `
+ 
+ 
  
 
 --------------------------------------------------------------------------------------------------
