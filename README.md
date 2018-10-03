@@ -46,7 +46,7 @@ For more vist https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-S
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
 
-
+ ------------------------------------------------------------------------------------------
 **GPG : Keysigning**
 
 
@@ -83,7 +83,7 @@ The intent of this manual is to explain how you can create and sign a GPG key.
      `sub   4096R/653CA81D 2016-05-12 [expires: 2021-05-11] `
  
  
- **ADD other UID(other email to same key):**
+ **ADD other UID(other email to same GPG key):**
  
  If you need to add more than one email address to your key:
  
@@ -95,7 +95,7 @@ The intent of this manual is to explain how you can create and sign a GPG key.
  - * * * [ultimate] (2)  Test User <test@example.org>
  - * Finally save it by `gpg> save`.
 
-**SET primary UID(When two or more UID are associate with same key):**
+**SET primary UID(When two or more UID are associate with GPG same key):**
 
   - * Edit existing key: `gpg --edit-key '519D 4592 3D31 56E6 B7A8  269E F9E2 35C3 2395 5501'`
   - If you(we) want `uid 2` i.e `[ultimate] (2)  Test User <test@example.org>` to be used as primary key thwn 
@@ -104,7 +104,7 @@ The intent of this manual is to explain how you can create and sign a GPG key.
   
 
 Find more at https://keyring.debian.org/creating-key.html
-
+ ----------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------
 ### Bash Scripting - With some used commands
