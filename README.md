@@ -21,6 +21,8 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
             Ex: str1 =abcdefgh
   `awk substr($str1,2,4)`:output = `bcdef`
  
+  ---------------------------------------------------------------------------------------
+ 
   **SSH Keys:**
   
 For generating, show existing list, shh-add etc..
@@ -45,8 +47,10 @@ For more vist https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-S
  and 
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
-
- ------------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------------
+ 
+  ------------------------------------------------------------------------------------------
+ 
 **GPG : Keysigning**
 
 
@@ -104,7 +108,9 @@ The intent of this manual is to explain how you can create and sign a GPG key.
   
 
 Find more at https://keyring.debian.org/creating-key.html
- ----------------------------------------------------------------------------------------------
+
+  ----------------------------------------------------------------------------------------------
+
 
 --------------------------------------------------------------------------------------------------
 ### Bash Scripting - With some used commands
