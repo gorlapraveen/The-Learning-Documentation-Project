@@ -90,7 +90,21 @@ The intent of this manual is to explain how you can create and sign a GPG key.
  - * Edit existing key to associate other UID(emial) by `gpg --edit-key '519D 4592 3D31 56E6 B7A8  269E F9E2 35C3 2395 5501'`
  - * add user by `gpg> adduid` then `Real name`, `Email address`, `Comment`
  - * Give `previous passphrase` to unlock the existing key and associate this email to that key.
+ - * * It look that 2 of your UID is added:(like)
+ - * * * [ultimate] (1). Test User <test@business.example>
+ - * * * [ultimate] (2)  Test User <test@example.org>
  - * Finally save it by `gpg> save`.
+
+**SET primary UID(When two or more UID are associate with same key):**
+
+  - * Edit existing key: `gpg --edit-key '519D 4592 3D31 56E6 B7A8  269E F9E2 35C3 2395 5501'`
+  - If you(we) want `uid 2` i.e `[ultimate] (2)  Test User <test@example.org>` to be used as primary key thwn 
+  - * * Give `gpg> uid 2` and`gpg> primary`.
+  - * * Finally `gpg> save` .
+  
+
+Find more at https://keyring.debian.org/creating-key.html
+
 
 --------------------------------------------------------------------------------------------------
 ### Bash Scripting - With some used commands
