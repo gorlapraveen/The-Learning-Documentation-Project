@@ -16,7 +16,13 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
 
 ---------------------------------------------------------------------------------------------------
 
-### Advanced Used Linux Commnd - Utilization for scripting:
+### I). Advanced Used Linux Commnd - Utilization for scripting:
+
+ -------------------------------------------------------------------------------------------------
+ 
+ For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
+
+ ----------------------------------------------------------------------------------------------------
 
   **AWK Command:**
   
@@ -117,7 +123,7 @@ Find more at https://keyring.debian.org/creating-key.html
 
 
 --------------------------------------------------------------------------------------------------
-### Bash Scripting - With some used commands
+### II). Bash Scripting - With some used commands
 **Arrays in bash script:**
 
         Ex: arr=(Helloworld)
@@ -149,7 +155,7 @@ Output:
 
 
 --------------------------------------------------------------------------------------------------
-### Used Python Scripting :
+### III). Used Python Scripting :
 
 
 
@@ -158,7 +164,7 @@ Output:
 
 
 -----------------------------------------------------------------------------------------------------
-### Articles :
+### IV). Articles :
 
 Articles at [Medium Page][Medium Page] and [Medium Publication - Open Thinking and Open Research][Medium Publication] 
 
