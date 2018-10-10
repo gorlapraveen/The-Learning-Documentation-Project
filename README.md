@@ -1,4 +1,4 @@
-# Learning.PraveenGorla.org
+# The Learning Documentation Project 
 
 ## Documentation : ## 
 
@@ -124,6 +124,8 @@ Find more at https://keyring.debian.org/creating-key.html
 
 --------------------------------------------------------------------------------------------------
 ### II). Bash Scripting - With some used commands
+
+Execting Linux commands in bash: `basch -c $(Linux command)`
 **Arrays in bash script:**
 
         Ex: arr=(Helloworld)
