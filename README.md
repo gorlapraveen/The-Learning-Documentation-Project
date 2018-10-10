@@ -1,5 +1,7 @@
 # The Learning Documentation Project 
 
+------------------------------------------------------------------------------
+
 ## Documentation : ## 
 
 **Documentation started:** *02-oct-2018*
