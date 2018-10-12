@@ -81,5 +81,5 @@ However:
     Force: force overwrite of target file(s).
 
 
-
+A complete table of recommended options for the GNU utilities is available [HERE](/GNU_coding_standards.pdf)
 
