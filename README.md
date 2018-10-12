@@ -20,6 +20,17 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
 
 ### I). Advanced Used Linux Commnd - Utilization for scripting:
 
+ --------------------------------------------------------------------------
+ 
+ ### Table of Contents
+
+| Topic | Help |
+|:------|:-----|
+| GNU Standard Coding Guidelines | [Here](/GNU_coding_standards.pdf) |
+|Linux Standard Command-Line Options : GNU Compatible |[Here](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible)|
+| Standarad Command Line : Table of Long Options | [Here](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options)
+
+ 
  -------------------------------------------------------------------------------------------------
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
@@ -123,13 +134,6 @@ Find more at https://keyring.debian.org/creating-key.html
 
   ----------------------------------------------------------------------------------------------
 
-### Table of Contents
-
-| Topic | Help |
-|:------|:-----|
-| GNU Standard Coding Guidelines | [Here](/GNU_coding_standards.pdf) |
-|Linux Standard Command-Line Options : GNU Compatible |[Here](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible)|
-| Standarad Command Line : Table of Long Options | [Here](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options)
 
 
 
