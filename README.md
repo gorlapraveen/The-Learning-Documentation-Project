@@ -24,11 +24,11 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
  
  ### Table of Contents
 
-| Topic | Help |
-|:------|:-----|
-| GNU Standard Coding Guidelines | [Here](/GNU_coding_standards.pdf) |
-|Linux Standard Command-Line Options : GNU Compatible |[Here](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible)|
-| Standarad Command Line : Table of Long Options | [Here](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options)
+| Topic [In this Repo]|
+|:------|
+| [GNU Standard Coding Guidelines](/GNU_coding_standards.pdf) |
+|[Linux Standard Command-Line Options : GNU Compatible](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) |
+|[Standarad Command Line : Table of Long Options](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) |
 
  
  -------------------------------------------------------------------------------------------------
