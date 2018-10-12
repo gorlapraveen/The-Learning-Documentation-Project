@@ -29,7 +29,7 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
 | [GNU Standard Coding Guidelines](/GNU_coding_standards.pdf) | |
 |[Linux Standard Command-Line Options : GNU Compatible](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | |
 |[Standarad Command Line : Table of Long Options](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) | |
-| Security Scanner:[chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit) | Note-Please review source code, it may contains harmfiles |
+| Security Scanner:[chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit), [Lynis](https://packages.debian.org/stretch/lynis)| Note-Please review source code, it may contains harmfiles |
 
  
  -------------------------------------------------------------------------------------------------
