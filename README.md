@@ -14,7 +14,7 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
 ---------------------------------------------------------------------------------------------------
 
-This repository which contins documentation is  Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) Version 1.3, 3 November 2008 and Software - Codeis Licensed under [GNU General Public License](https://www.gnu.org/licenses/licenses.html#GPL)
+This repository which contins [documentation](#) is  Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) Version 1.3, 3 November 2008 and [Software - Code](#) is Licensed under [GNU General Public License](https://www.gnu.org/licenses/licenses.html#GPL)
 
 ---------------------------------------------------------------------------------------------------
 
