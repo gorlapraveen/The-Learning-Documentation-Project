@@ -15,9 +15,9 @@ So, We are very glad to have everyone on this board to access or/and contribute 
 * For Documenting, you can continue to write at [README.md](/README.md)(only Short Documentation) or else you can create a new file of your own choice in [docs](/docs) folder.
 * For Code contribution, Please create scripts or folders(For Multiple Script pages) in [Code](/code) folder.
 * Your contribution(s) is/are **Licensed** under the following guidelines:
- 1.  Code/Software is licensed under [GNU General Publice License 2+](https://www.gnu.org/licenses/licenses.html#GPL).
- 2.  Documentation is licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/licenses.html#FDL)
- 3.  Any Work that is adapted from other Sources (including text/images/Software Code) should have already been Licensed under either [1](#) or/and [2](#).
+  1.  Code/Software is licensed under [GNU General Publice License 2+](https://www.gnu.org/licenses/licenses.html#GPL).
+  2.  Documentation is licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/licenses.html#FDL)
+  3.  Any Work that is adapted from other Sources (including text/images/Software Code) should have already been Licensed under either [1](#) or/and [2](#).
 * Contributors must obey our [Code of Conduct](/CodeOFConduct.md)
 
 
