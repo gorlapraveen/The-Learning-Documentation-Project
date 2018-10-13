@@ -30,6 +30,7 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
 |[Linux Standard Command-Line Options : GNU Compatible](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | |
 |[Standarad Command Line : Table of Long Options](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) | |
 | Security Scanner:[ chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit), [Lynis (Debian)](https://packages.debian.org/stretch/lynis)| Note-Please review source code, it may contains harmfiles |
+| Text to Speech: [Festival-tts](http://www.cstr.ed.ac.uk/projects/festival/) | For: [Debian](https://packages.debian.org/stretch/festival) Package
 
  
  -------------------------------------------------------------------------------------------------
