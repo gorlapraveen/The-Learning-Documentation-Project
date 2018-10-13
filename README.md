@@ -14,7 +14,7 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
 ---------------------------------------------------------------------------------------------------
 
-This repository is Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) Version 1.3, 3 November 2008
+This repository which contins documentation is  Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) Version 1.3, 3 November 2008 and Software - Codeis Licensed under [GNU General Public License](https://www.gnu.org/licenses/licenses.html#GPL)
 
 ---------------------------------------------------------------------------------------------------
 
@@ -26,9 +26,9 @@ This repository is Licensed under [GNU Free Documentation License](https://www.g
 
 | Topic [In this Repo]| Remarks |
 |:------|:------ |
-| [GNU Standard Coding Guidelines](/GNU_coding_standards.pdf) | |
-|[Linux Standard Command-Line Options : GNU Compatible](/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | |
-|[Standarad Command Line : Table of Long Options](/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) | |
+| [GNU Standard Coding Guidelines](/docs/GNU_coding_standards.pdf) | |
+|[Linux Standard Command-Line Options : GNU Compatible](/docs/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | |
+|[Standarad Command Line : Table of Long Options](/docs/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) | |
 | Security Scanner:[ chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit), [Lynis (Debian)](https://packages.debian.org/stretch/lynis)| Note-Please review source code, it may contains harmfiles |
 | Text to Speech: [Festival-tts](http://www.cstr.ed.ac.uk/projects/festival/) | For: [Debian](https://packages.debian.org/stretch/festival) Package
 
