@@ -88,7 +88,7 @@ A complete table of recommended options for the GNU utilities is available [HERE
 
 ## Standard Command Line : Table of Long Options
 
-Here is a table of long options used by GNU programs. It is surely incomplete, but we aim to list all the options that a new program might want to be compatible with. If you use names not already in the table, please send bug-standards@gnu.org a list of them, with their meanings, so we can update the table.
+Here is a table of long options used by GNU programs. It is surely incomplete, but we aim to list all the options that a new program might want to be compatible with. If you use names not already in the table, please send bug-standards@gnu.org a list of them, with their meanings, so that GNU(FSF) will add your new names will be appended to the existing list.
 
 ‘after-date’
 
