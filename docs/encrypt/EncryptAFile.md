@@ -1,6 +1,6 @@
 ## Encrypt a file to send to your firend/other person
 
-**Note** : *If you Would like to know about generation and usage of* `ssh/gpg` *keys*. *please go to* [ssh/gpg](/docs/encrypt/ssh-gpg.md)
+**Note** : _*If you Would like to know about generation and usage of*_ `ssh/gpg` _*keys*_. _*please go to*_ [ssh/gpg](/docs/encrypt/ssh-gpg.md)
 -------------------------------------------------------
 1. **Import your friends publice key** and **verify the key** from global keyserers.
 
