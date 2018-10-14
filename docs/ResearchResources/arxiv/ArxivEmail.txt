@@ -1,0 +1,1203 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+MLPdf: An Effective Machine Learning Based Approach for PDF Malware Detection (Jason Zhang - 21 August, 2018)
+Due to the popularity of portable document format (PDF) and increasing number of vulnerabilities in major PDF viewer applications, malware writers continue to use it to deliver malware via web downloads, email attachments and other methods in both targeted and non-targeted attacks. A group of high quality features are extracted from two real-world datasets which comprise around 105000 benign and malicious PDF documents. Evaluation results indicate that the proposed MLPdf approach exhibits excellent performance which significantly outperforms all evaluated eight well known commercial anti-virus scanners with a much higher true positive rate of 95.12% achieved while maintaining a very low false positive rate of 0.08%.
+Link: https://arxiv.org/abs/1808.06991
+====================================================
+Crashing Privacy: An Autopsy of a Web Browser's Leaked Crash Reports (Kiavash Satvat - 5 August, 2018)
+Our analysis shows the presence of more than 20,000 sessions and token IDs, 600 passwords, 9,000 email addresses, an enormous amount of contact information, and other sensitive data
+Link: https://arxiv.org/abs/1808.01718
+====================================================
+Studying Preferences and Concerns about Information Disclosure in Email Notifications (Yongsung Kim - 1 August, 2018)
+Our results are compiled from an exploratory retrospective survey of 131 respondents, and a separate contextual-labeling study in which 169 participants labeled 1,040 meeting-email pairs. We find that, for 53% of people, at least 1 in 10 email notifications poses an information disclosure risk
+Link: https://arxiv.org/abs/1808.00356
+====================================================
+Power Networks: A Novel Neural Architecture to Predict Power Relations (Michelle Lam - 17 July, 2018)
+In this paper, we present a novel neural architecture that captures manifestations of power within individual emails which are then aggregated in an order-preserving way in order to infer the direction of power between pairs of participants in an email thread. We obtain an accuracy of 80.4%, a 10.1% improvement over state-of-the-art methods, in this task. We further apply our model to the task of predicting power relations between individuals based on the entire set of messages exchanged between them; here also, our model significantly outperforms the70.0% accuracy using prior state-of-the-art techniques, obtaining an accuracy of 83.0%.
+Link: https://arxiv.org/abs/1807.06557
+====================================================
+Network Classification in Temporal Networks Using Motifs (Kun Tu - 7 August, 2018)
+Experimental results show that our method improves accuracy by up $10\%$ compared to the state-of-the-art embedding method in network classification, for tasks such as classifying network type, identifying communities in email exchange network, and identifying users given their app-switching behaviors.
+Link: https://arxiv.org/abs/1807.03733
+====================================================
+A Deep Learning Model with Hierarchical LSTMs and Supervised Attention for Anti-Phishing (Minh Nguyen - 3 May, 2018)
+In this work, we investigate state-of-the-art techniques for text categorization in NLP to address the problem of anti-phishing for emails (i.e, predicting if an email is phishing or not)
+Link: https://arxiv.org/abs/1805.01554
+====================================================
+Communication channels in safety analysis: An industrial exploratory case study (Yang Wang - 24 April, 2018)
+Email, personal discussion, training, internal communication software and boards are also in use. We summarise 28 purposes of using these aforementioned communication channels
+Link: https://arxiv.org/abs/1804.08909
+====================================================
+MEADE: Towards a Malicious Email Attachment Detection Engine (Ethan M. Rudd - 22 April, 2018)
+While machine learning has been successfully applied to portable executable (PE) malware detection, we ask, can we extend similar approaches to detect malware across heterogeneous file types commonly found in email attachments? In this paper, we explore the feasibility of applying machine learning as a static countermeasure to detect several types of malicious email attachments including Microsoft Office documents and Zip archives. To this end, we collected a dataset of over 5 million malicious/benign Microsoft Office documents from VirusTotal for evaluation as well as a dataset of benign Microsoft Office documents from the Common Crawl corpus, which we use to provide more realistic estimates of thresholds for false positive rates on in-the-wild data. Using deep neural networks and gradient boosted decision trees, we are able to obtain ROC curves with > 0.99 AUC on both Microsoft Office document and Zip archive datasets
+Link: https://arxiv.org/abs/1804.08162
+====================================================
+Predicting Cyber Events by Leveraging Hacker Sentiment (Ashok Deb - 14 April, 2018)
+We consider 3 types of events: malicious software installation, malicious destination visits, and malicious emails that surpassed the target organizations' defenses. We analyze over 400K posts generated between January 2016 and January 2018 on over 100 hacking forums both on surface and Dark Web
+Link: https://arxiv.org/abs/1804.05276
+====================================================
+Reinforcement Learning on Web Interfaces Using Workflow-Guided Exploration (Evan Zheran Liu - 24 February, 2018)
+This has been a notable problem in training deep RL agents to perform web-based tasks, such as booking flights or replying to emails, where a single mistake can ruin the entire sequence of actions. From each demonstration, we induce high-level "workflows" which constrain the allowable actions at each time step to be similar to those in the demonstration (e.g., "Step 1: click on a textbox; Step 2: enter some text"). We achieve new state-of-the-art results, and show that workflow-guided exploration improves sample efficiency over behavioral cloning by more than 100x.
+Link: https://arxiv.org/abs/1802.08802
+====================================================
+Visualizing the Flow of Discourse with a Concept Ontology (Baoxu Shi - 23 February, 2018)
+Given an email thread or a transcript of a group discussion, our task is to extract the relevant concepts and understand how they are referenced and re-referenced throughout the discussion. From a user study, we found that our method achieved better results than 4 strong alternative approaches, and we illustrate our visualization method based on the extracted discourse flows.
+Link: https://arxiv.org/abs/1802.08614
+====================================================
+Generative Models for Spear Phishing Posts on Social Media (John Seymour - 14 February, 2018)
+We achieve state of the art success rates, tripling those of historic email attack campaigns, and outperform humans manually performing the same task.
+Link: https://arxiv.org/abs/1802.05196
+====================================================
+State of the Practice for GIS Software (W. Spencer Smith - 9 February, 2018)
+Three recommendations are presented as feedback to the GIS community: 1) Ensure each project has a requirements specification document, 2) Provide a wealth of support methods, such as an IRC (Internet Relay Chat) channel, a Stack Exchange tag for new questions, or opening the issue tracker for support requests, as well as the more traditional email-based methods, and, 3) Design product websites for maximum transparency (of the development process), for open source projects, provide a developer's guide.
+Link: https://arxiv.org/abs/1802.03422
+====================================================
+EMFET: E-mail Features Extraction Tool (Wadi&#39; Hijawi - 22 November, 2017)
+EMFET is an open source and flexible tool that can be used to extract a large number of features from any email corpus with emails saved in EML format. So far, 140 features can be extracted using EMFET
+Link: https://arxiv.org/abs/1711.08521
+====================================================
+Towards the Adoption of Anti-spoofing Protocols (Hang Hu - 6 February, 2018)
+In this paper, we conduct a qualitative study to explore why email spoofing is still possible after years of efforts to develop and deploy anti-spoofing protocols (e.g., SPF, DKIM, DMARC). First, we measure the protocol adoption by scanning 1 million Internet domains. We find the adoption rates are still low, especially for the new DMARC (3.1%). Second, to understand the reasons behind the low-adoption rate, we collect 4293 discussion threads (25.7K messages) from the Internet Engineering Task Force (IETF), a working group formed to develop and promote Internet standards
+Link: https://arxiv.org/abs/1711.06654
+====================================================
+Reply With: Proactive Recommendation of Email Attachments (Christophe Van Gysel - 16 November, 2017)
+Analysis of an enterprise email corpus reveals that 35% of the time when users include these items as part of their response, the attachable item is already present in their inbox or sent folder
+Link: https://arxiv.org/abs/1710.06061
+====================================================
+On the Challenges of Sentiment Analysis for Dynamic Events (Monireh Ebrahimi - 6 October, 2017)
+Furthermore, 24 percent reported use of social media posts of the two candidates as a source of news and information, which is more than the 15 percent who have used both candidates' websites or emails combined. The first presidential debate between Trump and Hillary was the most tweeted debate ever with 17.1 million tweets.
+Link: https://arxiv.org/abs/1710.02514
+====================================================
+RCD: Rapid Close to Deadline Scheduling for Datacenter Networks (Mohammad Noormohammadpour - 13 July, 2017)
+Datacenter-based Cloud Computing services provide a flexible, scalable and yet economical infrastructure to host online services such as multimedia streaming, email and bulk storage. Through simulations, we show that RCD is up to 15 times faster than Amoeba, provides high link utilization along with deadline guarantees, and is able to make quick decisions on whether a new request can be fully satisfied before its deadline.
+Link: https://arxiv.org/abs/1707.04019
+====================================================
+Generating Steganographic Text with LSTMs (Tina Fang - 30 May, 2017)
+We demonstrate our approach on the Twitter and Enron email datasets and show that it yields high-quality steganographic text while significantly improving capacity (encrypted bits per word) relative to the state-of-the-art.
+Link: https://arxiv.org/abs/1705.10742
+====================================================
+Content-based Approach for Vietnamese Spam SMS Filtering (Thai-Hoang Pham - 11 May, 2017)
+For Vietnamese, there is some research on spam email filtering but none focused on SMS. Our system achieves an accuracy of 94% when labelling spam messages while the misclassification rate of legitimate messages is relatively small, about only 0.4%
+Link: https://arxiv.org/abs/1705.04003
+====================================================
+Abnormal Working Hours: Effect of Rapid Releases and Implications to Work Content (MaÃ«lick Claes - 12 April, 2017)
+considering only individuals with Mozilla foundation email address, although, the effect sizes are smaller for weekends (Cohen's d = 0.64) and nights (Cohen's d = 0.23)
+Link: https://arxiv.org/abs/1704.03652
+====================================================
+Towards Effective Research-Paper Recommender Systems and User Modeling based on Mind Maps (Joeran Beel - 27 March, 2017)
+While user-modeling and recommender systems successfully utilize items like emails, news, and movies, they widely neglect mind-maps as a source for user modeling. When all variables are combined in a favorable way, this novel approach achieves click-through rates of 7.20%, which is nearly twice as effective as the best baseline
+Link: https://arxiv.org/abs/1703.09109
+====================================================
+Investigating the Application of Common-Sense Knowledge-Base for Identifying Term Obfuscation in Adversarial Communication (Swati Agarwal - 17 January, 2017)
+The test-bed to evaluate our proposed approach consists of Enron email dataset (having over 600000 emails generated by 158 employees of Enron Corporation) and Brown corpus (totaling about a million words drawn from a wide variety of sources)
+Link: https://arxiv.org/abs/1701.04934
+====================================================
+CrowdTone: Crowd-powered tone feedback and improvement system for emails (Rajan Vaish - 7 January, 2017)
+We evaluated CrowdTone with 22 participants, who provided a total of 29 emails that they had received in the past, and ran them through CrowdTone. Participants and professional writers assessed the quality of improvements finding a substantial increase in the percentage of emails deemed "appropriate" or "very appropriate" - from 25% to more than 90% by recipients, and from 45% to 90% by professional writers. Additionally, the recipients' feedback indicated that more than 90% of the CrowdTone processed emails showed improvement.
+Link: https://arxiv.org/abs/1701.01793
+====================================================
+Distributed Data Processing Frameworks for Big Graph Data (Afsin Akdogan - 18 December, 2016)
+This data comes from sensors used to gather traffic or climate information, posts to social media sites, photos, videos, emails, purchase transaction records, call logs of cellular networks, etc. In section 2, we introduce the programming models which are not specifically designed to handle graph data but we include them in this survey because we believe these are important frameworks and/or there have been studies to customize them for more efficient graph processing. In section 3, we discuss some techniques that yield up to 1340 times speedup for some certain graph problems when applied to Hadoop. In section 4, we discuss vertex-based programming model which is simply designed to process large graphs and the frameworks adapting it. In section 5, we implement two of the fundamental graph algorithms (Page Rank and Weight Bipartite Matching), and run them on a single node as the baseline approach to see how fast they are for large datasets and whether it is worth to partition them.
+Link: https://arxiv.org/abs/1612.05859
+====================================================
+Pretzel: Email encryption and provider-supplied functions are compatible (Trinabh Gupta - 27 February, 2017)
+Our experimental evaluation of a prototype demonstrates that email can be encrypted end-to-end \emph{and} providers can compute over it, at tolerable cost: clients must devote some storage and processing, and provider overhead is roughly 5 times versus the status quo.
+Link: https://arxiv.org/abs/1612.04265
+====================================================
+Macro-optimization of email recommendation response rates harnessing individual activity levels and group affinity trends (Mohammed Korayem - 19 September, 2016)
+The proposed technique has been applied successfully within CareerBuilder's job recommendation email system to generate a 50\% increase in total conversions while also decreasing sent emails by 72%
+Link: https://arxiv.org/abs/1609.05989
+====================================================
+Using Semantic Similarity for Input Topic Identification in Crawling-based Web Application Testing (Jun-Wei Lin - 23 August, 2016)
+However, in existing crawlers, rules for identifying the topics of input text fields, such as login ids, passwords, emails, dates and phone numbers, have to be manually configured. In our evaluation with 100 real-world forms, the proposed approach demonstrated comparable performance to the rule-based one. Our experiments also show that the accuracy of the rule-based approach can be improved by up to 19% when integrated with our approach.
+Link: https://arxiv.org/abs/1608.06549
+====================================================
+An intelligent classification model for phishing email detection (Adwan Yasin - 7 August, 2016)
+This paper introduces the concept of phishing terms weighting which evaluates the weight of phishing terms in each email. The model applied the knowledge discovery procedures using five popular classification algorithms and achieved a notable enhancement in classification accuracy, 0.991 accuracy was achieved using the Random Forest algorithm and 0.984 using J48, which is to our knowledge the highest accuracy rate for an accredited data set
+Link: https://arxiv.org/abs/1608.02196
+====================================================
+How Many Folders Do You Really Need? (Mihajlo Grbovic - 29 June, 2016)
+We report how we have discovered that a set of 6 "latent" categories (one for human- and the others for machine-generated messages) can explain a significant portion of email traffic. Experimental evaluation was performed on more than 500 billion messages received during a period of six months by users of Yahoo mail service, who elected to be part of such research studies. Our system achieved precision and recall rates close to 90% and the latent categories we discovered were shown to cover 70% of both email traffic and email search queries
+Link: https://arxiv.org/abs/1606.09296
+====================================================
+Going viral: Optimizing Discount Allocation in Social Networks for Influence Maximization (Shaojie Tang - 25 June, 2016)
+It has been reported that 40\% of consumers will share an email offer with their friend and 28\% of consumers will share deals via social media platforms. We propose a simple greedy policy with an approximation ratio of $\frac{1}{2}(1 - 1/e)$ in non-adaptive setting
+Link: https://arxiv.org/abs/1606.07916
+====================================================
+Revealing Hidden Connections in Recommendation Networks (Rogerio Minhano - 22 June, 2016)
+We analysed a dataset of a magazine publisher that uses email as the main marketing strategy and found out that networks emerging from those campaigns form a very sparse graph. Starting from a set of users, called seeders, we crawled Google's Orkut and collected about 20 million users and 80 million relationships
+Link: https://arxiv.org/abs/1606.07088
+====================================================
+Smart Reply: Automated Response Suggestion for Email (Anjuli Kannan - 15 June, 2016)
+It generates semantically diverse suggestions that can be used as complete email responses with just one tap on mobile. The system is currently used in Inbox by Gmail and is responsible for assisting with 10% of all mobile responses
+Link: https://arxiv.org/abs/1606.04870
+====================================================
+The Effect of ICT Self-Discipline in the Workplace (Balsam Al-Dabbagh - 27 May, 2016)
+ICTs such as smartphones, email and social media makes employees more connected than has ever been possible. This follow-on study reports the results of an online survey of 443 to New Zealand professionals regarding the influence of ICT self-discipline on the relationship between ICT connectivity and employee productivity
+Link: https://arxiv.org/abs/1606.00894
+====================================================
+Information Security Awareness at Oman Educational Institutions : An Academic Prespective (Rajasekar Ramalingam - 17 May, 2016)
+The survey focused on the following factors of IT Security: Demographics, Internet usage, Awareness about organizations network Security threats experience, Awareness on Password management, Email security awareness and Knowledge on security practices. The survey attracted 173 respondents: the level of information security awareness and knowledge on security practices were correlated and analyzed
+Link: https://arxiv.org/abs/1605.05580
+====================================================
+Understanding and Overcoming Biases in Customer Reviews (Georgios Askalidis - 1 April, 2016)
+We analyze data from four diverse major online retailers and find that verified customers who are prompted (by an email) to write a review, submit, on average, up to 0.5 star higher ratings than self-motivated web reviewers
+Link: https://arxiv.org/abs/1604.00417
+====================================================
+Detection under Privileged Information (Z. Berkay Celik - 30 March, 2018)
+An artifact (e.g., network event, potential malware sample, suspicious email) is deemed malicious or non-malicious based on its similarity to the learned model at runtime. An empirical evaluation shows that privileged information increases precision and recall over a system with no privileged information: we observe up to 7.7% relative decrease in detection error for fast-flux bot detection, 8.6% for malware traffic detection, 7.3% for malware classification, and 16.9% for face recognition
+Link: https://arxiv.org/abs/1603.09638
+====================================================
+A Multi-User Perspective for Personalized Email Communities (Waqas Nawaz - 1 February, 2016)
+The experimental results over two randomly selected users from email network, as constrained information, unveil partial interaction among 80% email users with 14% search space reduction where we notice 25% improvement in the clustering coefficient.
+Link: https://arxiv.org/abs/1602.00479
+====================================================
+Analyzing Locality of Mobile Messaging Traffic using the MATAdOR Framework (Quirin Scheitle - 19 January, 2016)
+Unlike conventional services like phone calls, text messages or email, they do not feature a standardized environment enabling a federated and potentially local service architecture. We present an extensive and large-scale analysis of communication patterns for four popular mobile messaging services between 28 countries and analyze the locality of communication and the resulting impact on user privacy
+Link: https://arxiv.org/abs/1601.04848
+====================================================
+"We're on the Same Page": A Usability Study of Secure Email Using Pairs of Novice Users (Scott Ruoti - 11 January, 2016)
+To determine whether secure email is for grassroots adoption, we employ a laboratory user study that recruits pairs of novice to install and use several of the latest systems to exchange secure messages. We present quantitative and qualitative results from 25 pairs of novice users as they use Pwm, Tutanota, and Virtru
+Link: https://arxiv.org/abs/1510.08554
+====================================================
+Private Webmail 2.0: Simple and Easy-to-Use Secure Email (Scott Ruoti - 8 August, 2016)
+Private Webmail 2.0 (Pwm 2.0) improves upon the current state of the art by increasing the usability and practical security of secure email for ordinary users. In this paper we describe user interface traits that positively affect the usability and security of Pwm 2.0: (1) an artificial delay to encryption that enhances user confidence in Pwm 2.0 while simultaneously instructing users on who can read their encrypted messages; (2) a modified composition interface that helps protect users from mistakenly sending sensitive information in the clear; (3) an annotated secure email composition interface that instructs users on how to correctly use secure email; and (4) inline, context-sensitive tutorials, which improved view rates for tutorials from less than 10% in earlier systems to over 90% for Pwm 2.0. In a user study involving 51 participants we validate these interface modifications, and also show that the use of manual encryption has no effect on usability or security.
+Link: https://arxiv.org/abs/1510.08435
+====================================================
+Assisting Composition of Email Responses: a Topic Prediction Approach (Spandana Gella - 7 October, 2015)
+The experimental results on a large email collection from a contact center in the tele- com domain show that the proposed ap- proach is effective in predicting the best topic of the agent's next sentence. In 80% of the cases, the correct topic is present among the top five recommended topics (out of fifty possible ones)
+Link: https://arxiv.org/abs/1510.02049
+====================================================
+Teaching Python programming with automatic assessment and feedback provision (Hans Fangohr - 11 September, 2015)
+With our implementation, students typically submit work for assessment, and receive feedback by email within a few minutes after submission. We include an evaluation of the system and data from using it in a class of 425 students.
+Link: https://arxiv.org/abs/1509.03556
+====================================================
+Characterizing Phishing Threats with Natural Language Processing (Michael C. Kotson - 31 August, 2015)
+Our phishing campaign data sample comprises 596 emails - all containing a web bug and a Curriculum Vitae (CV) PDF attachment - sent to our institution by a foreign IP space. Performing a semantic similarity analysis between the senders' CV attachments and the recipients' LinkedIn profiles, we conclude with high statistical certainty (p $< 10^{-4}$) that the attachments contain targeted rather than randomly selected material
+Link: https://arxiv.org/abs/1508.07885
+====================================================
+Evolution of Conversations in the Age of Email Overload (Farshad Kooti - 2 April, 2015)
+In this paper, we report results of a large-scale study of more than 2 million users exchanging 16 billion emails over several months
+Link: https://arxiv.org/abs/1504.00704
+====================================================
+Analyzing Social and Stylometric Features to Identify Spear phishing Emails (Prateek Dewan - 14 June, 2014)
+We then present a model to detect spear phishing emails sent to employees of 14 international organizations, by using social features extracted from LinkedIn. We applied various machine learning algorithms to this labeled data, and achieved an overall maximum accuracy of 97.76% in identifying spear phishing emails. However, we achieved a slightly better accuracy of 98.28% without the social features
+Link: https://arxiv.org/abs/1406.3692
+====================================================
+bit.ly/malicious: Deep Dive into Short URL based e-Crime Detection (Neha Gupta - 14 June, 2014)
+To counter the dissemination of long complex URLs in emails and character limit imposed on various OSM (like Twitter), the concept of URL shortening has gained a lot of traction. In this study, we analyzed a dataset of 763,160 short URLs marked suspicious by Bitly in the month of October 2013. We also identified some short URL based features and coupled them with two domain specific features to classify a Bitly URL as malicious or benign and achieved an accuracy of 86.41%
+Link: https://arxiv.org/abs/1406.3687
+====================================================
+Topic words analysis based on LDA model (Xi Qiu - 14 May, 2014)
+Our training and testing data are emails from the carbon-free server Datagreening.com. Running on two instances using paralleling tool BashReduce, our project contributes almost 30% speedup processing the raw contents, comparing with processing contents on one instance locally. Also, the experimental result shows that the LDA model applied in our project provides precision rate 53.96% higher than TF-IDF model finding target words, on the condition that appropriate size of topic words list is selected.
+Link: https://arxiv.org/abs/1405.3726
+====================================================
+Exploration of gaps in Bitly's spam detection and relevant counter measures (Neha Gupta - 7 May, 2014)
+To counter the dissemination issues associated with long complex URLs in emails and character limit imposed on various OSM (like Twitter), the concept of URL shortening gained a lot of traction. In this study, we analyzed a dataset marked as suspicious by Bitly in the month of October 2013 to highlight some ground issues in their spam detection mechanism. In addition, we identified some short URL based features and coupled them with two domain specific features to classify a Bitly URL as malicious / benign and achieved a maximum accuracy of 86.41%
+Link: https://arxiv.org/abs/1405.1511
+====================================================
+Inferring Social Status and Rich Club Effects in Enterprise Communication Networks (Yuxiao Dong - 14 April, 2015)
+To that end, we use two enterprise datasets with three communication channels --- voice call, short message, and email --- to demonstrate the social-behavioral differences among individuals with different status. Our model can predict social status of individuals with 93% accuracy.
+Link: https://arxiv.org/abs/1404.3708
+====================================================
+SNSAPI: A Cross-Platform Middleware for Rapid Deployment of Decentralized Social Networks (Pili Hu - 18 March, 2014)
+More importantly, as the SNSAPI middleware can be used to support decentralized social networking services via conventional communication channels such as RSS or Email, it enables the deployment of Decentralized Social Networks (DSN) in an incremental, ad hoc manner. Via 20 parameterized experiments on PlanetLab, we have found that the empirical measurement results match reasonably with the performance predicted by our analytical model.
+Link: https://arxiv.org/abs/1403.4482
+====================================================
+HoTT formalisation in Coq: Dependency Graphs \& ML4PG (JÃ³nathan Heras - 11 March, 2014)
+This note is a response to Bas Spitter's email of 28 February 2014 about ML4PG:
+Link: https://arxiv.org/abs/1403.2531
+====================================================
+Predicting Multi-actor collaborations using Hypergraphs (Ankit Sharma - 24 January, 2014)
+Social networks are now ubiquitous and most of them contain interactions involving multiple actors (groups) like author collaborations, teams or emails in an organizations, etc. Our results demonstrate the strength of hypergraph based approach to predict higher order collaborations (size>4) which is very difficult using dyadic graph based approach. Moreover, while predicting collaborations of size>2 hypergraphs in most cases provide better results with an average increase of approx. 45% in F-Score for different sizes = {3,4,5,6,7}.
+Link: https://arxiv.org/abs/1401.6404
+====================================================
+The availability of research data declines rapidly with article age (Timothy Vines - 19 December, 2013)
+In addition, the odds that we could find a working email address for the first, last or corresponding author fell by 7% per year
+Link: https://arxiv.org/abs/1312.5670
+====================================================
+CEAI: CCM based Email Authorship Identification Model (Sarwat Nizamani - 6 December, 2013)
+Experimental results reveal that the proposed CCM-based email authorship identification model, along with the proposed feature set, outperforms the state-of-the-art support vector machine (SVM)-based models, as well as the models proposed by Iqbal et al. [1, 2]. The proposed model attains an accuracy rate of 94% for 10 authors, 89% for 25 authors, and 81% for 50 authors, respectively on Enron dataset, while 89.5% accuracy has been achieved on authors' constructed real email dataset. [1, 2].
+Link: https://arxiv.org/abs/1312.2451
+====================================================
+Temporal stability in human interaction networks (Renato Fabbri - 28 October, 2017)
+The relative sizes of these three sectors are essentially the same for all email lists and the same along time. Typically, $<15\%$ of the vertices are hubs, 15-45\% are intermediary and $>45\%$ are peripheral vertices. Similar results for the distribution of participants in the three sectors and for the relative importance of the topological metrics were obtained for 12 additional networks from Facebook, Twitter and ParticipaBR
+Link: https://arxiv.org/abs/1310.7769
+====================================================
+A Comparative Usability Study of Two-Factor Authentication (Emiliano De Cristofaro - 31 January, 2014)
+We then present the results of a quantitative study based on a survey completed by 219 Mechanical Turk users, aiming to measure the usability of three popular 2F solutions: codes generated by security tokens, one-time PINs received via email or SMS, and dedicated smartphone apps (e.g., Google Authenticator)
+Link: https://arxiv.org/abs/1309.5344
+====================================================
+Communication Practices in a Distributed Scrum Project (Petteri Raety - 9 August, 2013)
+Initially students sent on average 21 emails per day. With the reduction to 16 emails, satisfaction with communication increased
+Link: https://arxiv.org/abs/1308.2260
+====================================================
+ChaMAILeon: Exploring the Usability of a Privacy Preserving Email Sharing System (Prateek Dewan - 2 June, 2013)
+To understand users' general password sharing behavior and practices, we conducted an online survey with 209 Indian participants and found that 64.35% of the participants felt a need to share their email passwords. Further, about 77% of the participants said that they would want to use a system which could provide them access control features, to maintain their privacy while sharing emails. We conducted a controlled experiment with 30 participants to evaluate the usability of the system. Each participant was required to perform 5 tasks. We found that, with a reasonable number of multiple attempts, all 30 participants were able to perform all 5 tasks given to them. The system usability score was found out to be 75.42. Moreover, 56.6% of the participants said that they would like to use ChaMAILeon frequently.
+Link: https://arxiv.org/abs/1306.0195
+====================================================
+"You Know Because I Know": a Multidimensional Network Approach to Human Resources Problem (Michele Coscia - 30 May, 2013)
+We test our algorithm over several real world networks, extracted from DBLP and the Enron email corpus, and we show its usefulness in providing less trivial and more flexible rankings than the current state of the art algorithms.
+Link: https://arxiv.org/abs/1305.7146
+====================================================
+PhishAri: Automatic Realtime Phishing Detection on Twitter (Anupama Aggarwal - 29 January, 2013)
+Further, it is difficult to detect phishing on Twitter unlike emails because of the quick spread of phishing links in the network, short size of the content, and use of URL obfuscation to shorten the URL. We use machine learning classification techniques and detect phishing tweets with an accuracy of 92.52%
+Link: https://arxiv.org/abs/1301.6899
+====================================================
+Does a Daily Deal Promotion Signal a Distressed Business? An Empirical Investigation of Small Business Survival (Ayman Farahat - 7 November, 2012)
+Daily deal sites such as Groupon and Livingsocial offer products and services at deep discounts to consumers via email and social networks. Our analysis consists of the survival of 985 small businesses that offered daily deals between January and July 2011 in the city of Chicago
+Link: https://arxiv.org/abs/1211.1694
+====================================================
+Quick Summary (Robert Wahlstedt - 12 October, 2012)
+The implementations of this technology are useful in a society of information overload when a person typically receives 42 emails a day (Microsoft). 31 Mar. 2012.
+Link: https://arxiv.org/abs/1210.3634
+====================================================
+The Effectiveness of Virtual R&D Teams in SMEs: Experiences of Malaysian SMEs (Nader Ale Ebrahim - 29 July, 2012)
+Online questionnaires were emailed to Malaysian manufacturing SMEs and 74 usable questionnaires were received, representing a 20.8 percent return rate
+Link: https://arxiv.org/abs/1207.6832
+====================================================
+Detecting Spammers via Aggregated Historical Data Set (Eitan Menahem - 7 May, 2012)
+Experiments show that proposed method detects more than 94% of the Spam emails that escaped the blacklist (i.e., TPR), while having less than 0.5% false-alarms. In addition, the proposed method, when used for updating both the black and white lists, eliminated the need in automatic content inspection of 4 out of 5 incoming emails, which resulted in dramatic reduction in the filtering computational load.
+Link: https://arxiv.org/abs/1205.1357
+====================================================
+An Empirical Study of Spam and Prevention Mechanisms in Online Video Chat Services (Xinyu Xing - 12 April, 2012)
+Our study indicates that spam carrying dating or pharmacy scams have much higher clickthrough rates than email spam carrying the same content. In particular, dating scams reach a clickthrough rate of 14.97%
+Link: https://arxiv.org/abs/1204.2774
+====================================================
+Spam filtering by quantitative profiles (M. GrendÃ¡r - 23 December, 2011)
+Email shape analysis. In \emph{LNCS}, 5935, pp. Performance of these profiles is studied on the TREC 2007, CEAS 2008 and a private corpuses
+Link: https://arxiv.org/abs/1201.0040
+====================================================
+Multilayer Approach to Defend Phishing Attacks (Cynthia Dhinakaran - 7 August, 2011)
+Phishing is a byproduct of email and causes financial loss to users and loss of reputation to financial institutions. In our study, we collected seven hundred thousand spam from a corporate server for a period of 13 months from February 2008 to February 2009. The proposed approach reduced more than 80% of the false negatives and more than 95% of phishing attacks in our network.
+Link: https://arxiv.org/abs/1108.1593
+====================================================
+An Application of Reinforcement Learning to Dialogue Strategy Selection in a Spoken Dialogue System for Email (M. A. Walker - 1 June, 2011)
+ We illustrate the method with a spoken dialogue system    named ELVIS (EmaiL Voice Interactive System), that supports access to    email over the phone.  We conduct a set of experiments for training an    optimal dialogue strategy on a corpus of 219 dialogues in which human    users interact with ELVIS over the phone. We then test that strategy    on a corpus of 18 dialogues
+Link: https://arxiv.org/abs/1106.0241
+====================================================
+An In-depth Analysis of Spam and Spammers (Dhinaharan Nagamalai - 7 December, 2010)
+Relatively new email accounts which are 14 months old do not receive spam. But in some special cases like DDoS attacks, we found that new email accounts receive spam and 14 months old heavy users email accounts have attracted more spam than 14 months old light users
+Link: https://arxiv.org/abs/1012.1665
+====================================================
+Toward a Push-Scalable Global Internet (Sachin Agarwal - 29 November, 2010)
+We apply our approach to a real email data set and our experiments demonstrate that the number of hours of active always-on connections can be cut by half while still achieving real-time message delivery for up to 90% of all messages.
+Link: https://arxiv.org/abs/1011.6129
+====================================================
+An Empirical Study of Spam and Spam Vulnerable email Accounts (Cynthia Dhinakaran - 2 November, 2010)
+Our goal is to present a definite figure about the characteristics of spam and spam vulnerable email accounts. We collected 400 thousand spam mails from a spam trap set up in a corporate mail server for a period of 14 months form January 2006 to February 2007. The 14 months old relatively new email accounts don't receive spam. During DDoS attack 14 months old heavy users email accounts have attracted more number of spam than 14 months old light users mail accounts.
+Link: https://arxiv.org/abs/1011.0792
+====================================================
+"Reminder: please update your details": Phishing Trends (Cynthia Dhinakaran - 13 October, 2010)
+Spam messes up users inbox, consumes resources and spread attacks like DDoS, MiM, Phishing etc., Phishing is a byproduct of email and causes financial loss to users and loss of reputation to financial institutions. We have collected seven hundred thousand spam from a corporate server for a period of 13 months from February 2008 to February 2009
+Link: https://arxiv.org/abs/1010.2802
+====================================================
+Machine Learning Approaches for Modeling Spammer Behavior (Md. Saiful Islam - 25 August, 2010)
+Keyword-based spam email filtering strategies will eventually be less successful to model spammer behavior as the spammer constantly changes their tricks to circumvent these filters. Preliminary experimental results demonstrate a promising detection rate of around 92%, which is considerably an enhancement of performance compared to similar spammer behavior modeling research.
+Link: https://arxiv.org/abs/1008.4249
+====================================================
+Modeling Spammer Behavior: NaÃ¯ve Bayes vs. Artificial Neural Networks (Md. Saiful Islam - 19 August, 2010)
+Keyword-based spam email filtering techniques fall short to model spammer behavior as the spammer constantly changes tactics to circumvent these filters. Experimental results demonstrate that both of them achieve a promising detection rate of around 92%, which is considerably an improvement of performance compared to the keyword-based contemporary filtering approaches.
+Link: https://arxiv.org/abs/1008.3282
+====================================================
+MÃ©todos para la SelecciÃ³n y el Ajuste de CaracterÃ­sticas en el Problema de la DetecciÃ³n de Spam (Carlos M. Lorenzetti - 14 October, 2010)
+In 2004, an estimated 62% of all email was attributed to spam
+Link: https://arxiv.org/abs/1006.0289
+====================================================
+Seeing Beyond the Surface, Understanding and Tracking Fraudulent Cyber Activities (O. B. Longe - 12 January, 2010)
+We demonstrate, using state of the art techniques, how users can detect and avoid fraudulent emails and conclude by making appropriate recommendations based on our findings.
+Link: https://arxiv.org/abs/1001.1993
+====================================================
+Positional Effects on Citation and Readership in arXiv (Asif-ul Haque - 27 July, 2009)
+arXiv.org mediates contact with the literature for entire scholarly communities, both through provision of archival access and through daily email and web announcements of new materials, potentially many screenlengths long. Astrophysics articles announced in position 1, for example, overall received a median number of citations 83\% higher, while those there accidentally had a 44\% visibility boost. For two large subcommunities of theoretical high energy physics, hep-th and hep-ph articles announced in position 1 had median numbers of citations 50\% and 100\% larger than for positions 5--15, and the subsets there accidentally had visibility boosts of 38\% and 71\%.
+Link: https://arxiv.org/abs/0907.4740
+====================================================
+SPAM over Internet Telephony and how to deal with it (Andreas U. Schmidt - 10 June, 2008)
+According to different sources email spam is considered to be 80 to 90 percent of the email traffic produced. As instance an email that hits the inbox at 4 p.m. In contrast a ringing phone at 4 p.m
+Link: https://arxiv.org/abs/0806.1610
+====================================================
+Between conjecture and memento: shaping a collective emotional perception of the future (Alberto Pepe - 24 January, 2008)
+Using an extension of the Profile of Mood States questionnaire, we have extracted mood indicators from 10,741 emails submitted in 2006 to futureme.org, a web service that allows its users to send themselves emails to be delivered at a later date
+Link: https://arxiv.org/abs/0801.3864
+====================================================
+CANE: The Content Addressed Network Environment (Paul Gardner-Stephen - 26 October, 2007)
+The collection of disjoint and often ad-hoc technologies currently in use are at least partially responsible for the magnitude and potency of the plagues besetting the information economy, of which spam and email borne virii are canonical examples. The proposed replacement for the internet, Internet Protocol Version 6 (IPv6), does little to tackle these underlying issues, instead concentrating on addressing the technical issues of a decade ago.
+Link: https://arxiv.org/abs/0710.5006
+====================================================
+Enforcing Bulk Mail Classification (Evan P. Greenberg - 19 May, 2005)
+Spam costs US corporations upwards of $8.9 billion a year, and comprises as much as 40% of all email received
+Link: https://arxiv.org/abs/cs/0501027
+====================================================
+Successful E-Business Systems - Paypal (Archil Avaliani - 2 December, 2004)
+Recipients are informed by email that they have received a payment. PayPal is also available to people in 38 countries
+Link: https://arxiv.org/abs/cs/0412011
+====================================================
+GridEmail: A Case for Economically Regulated Internet-based Interpersonal Communications (Manjuka Soysa - 12 December, 2003)
+Spam is a major problem for email users, with estimates of up to 56% of email falling into that category
+Link: https://arxiv.org/abs/cs/0312022
+====================================================
+Size Agnostic Change Point Detection Framework for Evolving Networks (Hadar Miller - 25 September, 2018)
+We use both synthetic data derived from dynamic models and two real datasets: Enron email exchange and Ask-Ubuntu forum
+Link: https://arxiv.org/abs/1809.09613
+====================================================
+Multi-Task Learning for Email Search Ranking with Auxiliary Query Clustering (Jiaming Shen - 14 September, 2018)
+These techniques, however, are not applicable when manual query labeling is not viable, and aggregated clicks are unavailable due to the private nature of the document collection, e.g., in email search scenarios. Our experiments on tens of millions of real-world email search queries demonstrate that the proposed multi-task model can significantly outperform the baseline neural ranking models, which either do not incorporate query type information or just simply feed query type as an additional feature.
+Link: https://arxiv.org/abs/1809.05618
+====================================================
+Reclaiming Data: Overcoming app identification barriers for exercising data protection rights (Chris Norval - 14 September, 2018)
+However, many mobile apps collect personal data, without requiring user registration or collecting details of a user's identity (email address, names, phone number, and so forth)
+Link: https://arxiv.org/abs/1809.05369
+====================================================
+Event Graphs: Advances and Applications of Second-Order Time-Unfolded Temporal Network Models (Andrew Mellor - 10 September, 2018)
+Much of this data comes in the form of 'events', or timestamped interactions, such as email and social media posts, website clickstreams, or protein-protein interactions
+Link: https://arxiv.org/abs/1809.03457
+====================================================
+Deep Neural Net with Attention for Multi-channel Multi-touch Attribution (Ning li - 6 September, 2018)
+Customers are usually exposed to online digital advertisement channels, such as email marketing, display advertising, paid search engine marketing, along their way to purchase or subscribe products( aka
+Link: https://arxiv.org/abs/1809.02230
+====================================================
+Network Alignment by Discrete Ollivier-Ricci Flow (Chien-Chun Ni - 7 September, 2018)
+The robustness of the graph metric makes it outperform other methods when tested on various complex graph models and real world network data sets (Emails, Internet, and protein interaction networks)\footnote{The source code of computing Ricci curvature and Ricci flow metric are available: https://github.com/saibalmars/GraphRicciCurvature}.
+Link: https://arxiv.org/abs/1809.00320
+====================================================
+Using Randomness to Improve Robustness of Machine-Learning Models Against Evasion Attacks (Fan Yang - 10 August, 2018)
+For example, an email spammer may guess what features spam detection models use and modify or remove those features to avoid detection
+Link: https://arxiv.org/abs/1808.03601
+====================================================
+Cognitive system to achieve human-level accuracy in automated assignment of helpdesk email tickets (Atri Mandal - 9 August, 2018)
+In this paper, we present an end-to-end automated helpdesk email ticket assignment system, which is also offered as a service. The objective of the system is to determine the nature of the problem mentioned in an incoming email ticket and then automatically dispatch it to an appropriate resolver group (or team) for resolution.
+Link: https://arxiv.org/abs/1808.02636
+====================================================
+A New Look at the Refund Mechanism in the Bitcoin Payment Protocol (Sepideh Avizheh - 6 July, 2018)
+Our solution does not rely on merchants storing refund requests, and unlike the previous solution, allows updating refund addresses through email
+Link: https://arxiv.org/abs/1807.01793
+====================================================
+Complying with Data Handling Requirements in Cloud Storage Systems (Martin Henze - 29 June, 2018)
+We implement PRADA on top of the distributed database Cassandra and show in our evaluation that complying with data handling requirements in cloud storage systems is practical in real-world deployments such as microblogging and distributed storage of email.
+Link: https://arxiv.org/abs/1806.11448
+====================================================
+Computer-aided proofs for multiparty computation with active security (Helene Haagh - 19 June, 2018)
+It has found applications in areas such as auctioning, email filtering, and secure teleconference. In the field of cryptography, EasyCrypt is the state of the art proof assistant
+Link: https://arxiv.org/abs/1806.07197
+====================================================
+Creating and understanding email communication networks to aid digital forensic investigations (Michael McCarrin - 13 June, 2018)
+We accomplish this by scanning the raw storage media for email addresses, constructing co-reference networks based on the proximity of email addresses to each other, then selecting connected components that correspond to real communication networks
+Link: https://arxiv.org/abs/1806.05327
+====================================================
+Impersonation: Modeling Persona in Smart Responses to Email (Rajeev Gupta - 12 June, 2018)
+To personalize email responses based on users style and personality, we model the users persona based on her past responses to emails. This model is added to the language-based model created across users using past responses of the all user emails.
+Link: https://arxiv.org/abs/1806.04456
+====================================================
+Robust identification of email tracking: A machine learning approach (Johannes Haupt - 11 June, 2018)
+Striving to increase privacy in email communication, this paper develops a detection engine to be the core of a selective tracking blocking mechanism in the form of three contributions. First, a large collection of email newsletters is analyzed to show the wide usage of tracking over different countries, industries and time
+Link: https://arxiv.org/abs/1806.04033
+====================================================
+Coherence Modeling of Asynchronous Conversations: A Neural Entity Grid Approach (Tasnim Mohiuddin - 6 May, 2018)
+We propose a novel coherence model for written asynchronous conversations (e.g., forums, emails), and show its applications in coherence assessment and thread reconstruction tasks. Our model achieves state of the art results on standard coherence assessment tasks in monologue and conversations outperforming existing models
+Link: https://arxiv.org/abs/1805.02275
+====================================================
+It is Free and Always Will Be - Trading Personal Information and Privacy for the Convenience of Online Services (Brandon Adams - 23 April, 2018)
+Internet users today are constantly giving away their personal information and privacy through social media, tracking cookies, 'free' email, and single sign-on authentication in order to access convenient online services
+Link: https://arxiv.org/abs/1804.08491
+====================================================
+Securing Email (Jeremy Clark - 20 April, 2018)
+However, email was not conceived with strong security guarantees, and the ensuing security enhancements are, by contrast, lacking in both ubiquity and interoperability. Our contributions include: (1) a systematization of secure email approaches taken by industry, academia, and independent developers; (2) an evaluation framework for proposed or deployed email security enhancements and a measurement of their security, deployability, and usability; (3) a stakeholder analysis and informed discussion of the current state of secure email; and (4) a research agenda highlighting open problems judged to be useful in pursuing secure email.
+Link: https://arxiv.org/abs/1804.07706
+====================================================
+A Metapolicy Framework for Enhancing Domain Expressiveness on the Internet (Gaurav Varshney - 11 April, 2018)
+Domains can specify a set of security policies (such as, email and trust security policies) that should be followed by clients while accessing the resources or services represented by them
+Link: https://arxiv.org/abs/1804.04274
+====================================================
+Modeling and Testing Implementations of Protocols with Complex Messages (Tom Tervoort - 11 April, 2018)
+As an example, this paper also presents a case study where APSL is used to model and test a subset of Courier IMAP email server.
+Link: https://arxiv.org/abs/1804.03927
+====================================================
+Domain transfer convolutional attribute embedding (Fang Su - 1 April, 2018)
+Experiments over benchmark data sets of person re-identification, bankruptcy prediction, and spam email detection, show the effectiveness of the proposed method.
+Link: https://arxiv.org/abs/1803.09733
+====================================================
+Stochastic bandits robust to adversarial corruptions (Thodoris Lykouris - 25 March, 2018)
+We introduce a new model of stochastic bandits with adversarial corruptions which aims to capture settings where most of the input follows a stochastic pattern but some fraction of it can be adversarially changed to trick the algorithm, e.g., click fraud, fake reviews and email spam
+Link: https://arxiv.org/abs/1803.09353
+====================================================
+Foundations of Temporal Text Networks (Davide Vega - 23 June, 2018)
+Three fundamental elements to understand human information networks are the individuals (actors) in the network, the information they exchange, that is often observable online as text content (emails, social media posts, etc.), and the time when these exchanges happen
+Link: https://arxiv.org/abs/1803.02592
+====================================================
+On Developers' Personality in Large-scale Distributed Projects: The Case of the Apache Ecosystem (Fabio Calefato - 24 September, 2018)
+We mine ecosystem-level data from the code commits and email messages contributed by the developers working on the Apache Software Foundation (ASF) projects, as representative of large scale-distributed projects
+Link: https://arxiv.org/abs/1803.01126
+====================================================
+Domain Modelling in Computational Persuasion for Behaviour Change in Healthcare (Lisa Chalaguine - 27 February, 2018)
+In current persuasion technology for behaviour change, the emphasis is on helping people to explore their issues (e.g., through questionnaires or game playing) or to remember to follow a behaviour change plan (e.g., diaries and email reminders)
+Link: https://arxiv.org/abs/1802.10054
+====================================================
+Email Classification into Relevant Category Using Neural Networks (Deepak Kumar Gupta - 12 February, 2018)
+In the real world, many online shopping websites or service provider have single email-id where customers can send their query, concern etc. At the back-end service provider receive million of emails every week, how they can identify which email is belonged of a particular department? This paper presents an artificial neural network (ANN) model that is used to solve this problem and experiments are carried out on user personal Gmail emails datasets
+Link: https://arxiv.org/abs/1802.03971
+====================================================
+Understanding Chatbot-mediated Task Management (Carlos Toxtli - 8 February, 2018)
+While the past decade has seen considerable innovation in systems that track and manage group tasks, these innovations have typically been outside of the principal communication channels: email, instant messenger, and group chat
+Link: https://arxiv.org/abs/1802.03109
+====================================================
+Revisiting Email Spoofing Attacks (Hang Hu - 2 January, 2018)
+The email system is the central battleground against phishing and social engineering attacks, and yet email providers still face key challenges to authenticate incoming emails. In this work, we study email spoofing to answer three key questions: (1) How do email providers detect and handle forged emails? (2) Under what conditions can forged emails penetrate the defense to reach user inbox? (3) Once the forged email gets in, how email providers warn users? Is the warning truly effective?
+Link: https://arxiv.org/abs/1801.00853
+====================================================
+Actionable Email Intent Modeling with Reparametrized RNNs (Chu-Cheng Lin - 26 December, 2017)
+On a collection of datasets consisting of IRC, Reddit, and email, our reparametrized RNNs outperform common multitask/multidomain approaches on several speech act related tasks. We also experiment with a minimally supervised scenario of email recipient action classification, and find the reparametrized RNNs learn a useful representation.
+Link: https://arxiv.org/abs/1712.09185
+====================================================
+Seasonal Stochastic Blockmodeling for Anomaly Detection in Dynamic Networks (Jace Robinson - 14 December, 2017)
+An outline of anomaly detection experiments to be completed over Enron emails and New York City taxi trips is presented.
+Link: https://arxiv.org/abs/1712.05359
+====================================================
+Mobile Encryption Gateway (MEG) for Email Encryption (Gregory B Rehm - 6 November, 2017)
+MEG is meant to be email-client-agnostic, enabling users to employ virtually any email service to send messages. As a result, we are hopeful that MEG will finally solve the problem of practical email encryption.
+Link: https://arxiv.org/abs/1711.02181
+====================================================
+My Home is My Post-Office: Evaluation of a decentralized email architecture on Internet-of-Things low-end device (Gregory Tsipenyuk - 1 September, 2017)
+This addresses the email reconciliation issue, optimizes the bandwidth usage, and intrinsically puts the user in control of her data. We analyze a number of stores and synchronization implementations and compare them with the open source Dovecot email server.
+Link: https://arxiv.org/abs/1709.00412
+====================================================
+An Email Attachment is Worth a Thousand Words, or Is It? (Gregory Tsipenyuk - 1 September, 2017)
+Consequently, we hypothesize that this approach might provide more insight into the social structure of the email archive. We extract the communication and shared attachments networks from Enron email corpus
+Link: https://arxiv.org/abs/1709.00362
+====================================================
+Community Targeted Phishing: A Middle Ground Between Massive and Spear Phishing through Natural Language Generation (Alberto Giaretta - 23 June, 2018)
+While nowadays these two worlds partially intersect, we envision a future where Natural Language Generation (NLG) techniques will enable attackers to target populous communities with machine-tailored emails. In this paper, we introduce what we call Community Targeted Phishing (CTP), alongside with some workflows that exhibit how NLG techniques can craft such emails
+Link: https://arxiv.org/abs/1708.07342
+====================================================
+Natural Language Processing: State of The Art, Current Trends and Challenges (Diksha Khurana - 17 August, 2017)
+It has spread its applications in various fields such as machine translation, email spam detection, information extraction, summarization, medical, and question answering etc. The paper distinguishes four phases by discussing different levels of NLP and components of Natural Language Generation (NLG) followed by presenting the history and evolution of NLP, state of the art presenting the various applications of NLP and current trends and challenges.
+Link: https://arxiv.org/abs/1708.05148
+====================================================
+A Unique One-Time Password Table Sequence Pattern Authentication: Application to Bicol University Union of Federated Faculty Association, Inc. (BUUFFAI) eVoting System (Benedicto B. Balilo Jr. - 1 August, 2017)
+This voting scheme used an algorithmic OTP scheme based on table sequence pattern schedule that randomly generates an XY coordinate unique to voters that will be sent to voter registered email address
+Link: https://arxiv.org/abs/1708.00562
+====================================================
+ClaimChain: Improving the Security and Privacy of In-band Key Distribution for Messaging (Bogdan Kulynych - 28 August, 2018)
+The social demand for email end-to-end encryption is barely supported by mainstream service providers. In Autocrypt the encryption keys are attached directly to messages, and thus the encryption can be implemented by email clients without any collaboration of the providers
+Link: https://arxiv.org/abs/1707.06279
+====================================================
+Improvement Of Email Threats Detection By User Training (P-Y. Cousin - 20 June, 2017)
+Current filters are very inefficient against spear phishing emails. It is proposed to improve the existing filters by taking advantage of user own analysis and feedback to detect all kinds of phishing emails
+Link: https://arxiv.org/abs/1706.09727
+====================================================
+NotiMind: Utilizing Responses to Smart Phone Notifications as Affective sensors (Eiman Kanjo - 7 June, 2017)
+Today's mobile phone users are faced with large numbers of notifications on social media, ranging from new followers on Twitter and emails to messages received from WhatsApp and Facebook
+Link: https://arxiv.org/abs/1706.03701
+====================================================
+Dialog Structure Through the Lens of Gender, Gender Environment, and Power (Vinodkumar Prabhakaran - 11 June, 2017)
+This corpus, which is made freely available, is orders of magnitude larger than previously existing gender identified corpora in the email domain. Finally, we show the utility of gender information in the problem of automatically predicting the direction of power between pairs of participants in email interactions.
+Link: https://arxiv.org/abs/1706.03441
+====================================================
+Defending against Phishing Attacks: Taxonomy of Methods, Current Issues and Future Directions (B. B. Gupta - 27 May, 2017)
+One such a serious threat is "phishing", in which, attackers attempt to steal the user's credentials using fake emails or websites or both
+Link: https://arxiv.org/abs/1705.09819
+====================================================
+Beyond Agile: Studying The Participatory Process in Software Development (Alexey Zagalsky - 15 May, 2017)
+We see that the collaborative and participatory nature of software development continues to evolve, shape and be shaped by communication channels that are used by developer communities of practice--both by traditional communication channels (e.g., telephone, in-person interactions), as well as social features that may be standalone or integrated with other development tools (e.g., email, chat, and forums)
+Link: https://arxiv.org/abs/1705.05450
+====================================================
+GQ($Î»$) Quick Reference and Implementation Guide (Adam White - 10 May, 2017)
+If you questions or concerns about the content in this document or the attached java code please email Adam White (adam.white@ualberta.ca).
+Link: https://arxiv.org/abs/1705.03967
+====================================================
+Rationale in Development Chat Messages: An Exploratory Study (Rana Alkadhi - 27 April, 2017)
+Chat messages of development teams play an increasingly significant role in software development, having replaced emails in some cases
+Link: https://arxiv.org/abs/1704.08500
+====================================================
+SpreadCluster: Recovering Versioned Spreadsheets through Similarity-Based Clustering (Liang Xu - 27 April, 2017)
+Existing approaches try to recover spreadsheet version information through clustering these similar spreadsheets based on spreadsheet filenames or related email conversation. However, the applicability and accuracy of existing clustering approaches are limited due to the necessary information (e.g., filenames and email conversation) is usually missing
+Link: https://arxiv.org/abs/1704.08476
+====================================================
+Email Babel: Does Language Affect Criminal Activity in Compromised Webmail Accounts? (Emeric Bernard-Jones - 25 April, 2017)
+We hid email messages about fake bank accounts in fifteen of the accounts to mimic real-world webmail users that sometimes store sensitive information in their accounts. We also extracted the important words among the emails that cybercriminals accessed (as an approximation of the keywords that they searched for within the honey accounts), and found that financial terms featured among the top words
+Link: https://arxiv.org/abs/1704.07759
+====================================================
+Making Sense of Unstructured Text Data (Lin Li - 18 April, 2017)
+Examples include email logs, friends and followers networks on social media, communication networks, etc
+Link: https://arxiv.org/abs/1704.05505
+====================================================
+From D2D to Ds2D: Prolonging the Battery Life of Mobile Devices via Ds2D Communications (Muhammad Z. Shakir - 30 March, 2017)
+It is anticipated that the owners of 5G-enabled smartphones use their devices more extensively to talk, text, email, and surf the Web more often than do customers with 4G smartphones or traditional handsets, which puts a significantly higher demand on the battery life
+Link: https://arxiv.org/abs/1703.10719
+====================================================
+Calendar.help: Designing a Workflow-Based Scheduling Agent with Humans in the Loop (Justin Cranshaw - 24 March, 2017)
+Users interact with the system via email, delegating their scheduling needs to the system as if it were a human personal assistant
+Link: https://arxiv.org/abs/1703.08428
+====================================================
+Automated U.S Diplomatic Cables Security Classification: Topic Model Pruning vs. Classification Based on Clusters (Khudran Alzhrani - 7 March, 2017)
+Just recently, former President Obama accused the Russian government of the leaking emails to Wikileaks and declared that the U.S
+Link: https://arxiv.org/abs/1703.02248
+====================================================
+Revealing Task Driven Knowledge Worker Behaviors in Open Source Software Communities (Hongrui Wu - 25 February, 2017)
+bug tracking data, emails, and comments) enables us to investigate this issue in a quantitative way
+Link: https://arxiv.org/abs/1702.07900
+====================================================
+Detecting Hierarchical Ties Using Link-Analysis Ranking at Different Levels of Time Granularity (Hend Kareem - 24 January, 2017)
+The approach is evaluated on two datasets: the Enron email data set, where the goal is to infer manager-subordinate relationships, and the Co-author data set, where the goal is to infer PhD advisor-advisee relations
+Link: https://arxiv.org/abs/1701.06861
+====================================================
+Toward sensitive document release with privacy guarantees (David SÃ¡nchez - 2 January, 2017)
+Nowadays, much of these data are texts (e.g., emails, messages posted in social media, healthcare outcomes, etc.) that, because of their unstructured and semantic nature, constitute a challenge for automatic data protection methods
+Link: https://arxiv.org/abs/1701.00436
+====================================================
+Scalable Compression of a Weighted Graph (Kifayat Ullah Khan - 9 November, 2016)
+Graph is a useful data structure to model various real life aspects like email communications, co-authorship among researchers, interactions among chemical compounds, and so on. By experimenting the proposed method on two real world and publically available datasets against a state of the art technique, we obtain order of magnitude performance gain and better summarization accuracy.
+Link: https://arxiv.org/abs/1611.03159
+====================================================
+Structure vs. Language: Investigating the Multi-factors of Asymmetric Opinions on Online Social Interrelationship with a Case Study (Bo Wang - 1 November, 2016)
+With statistical analysis on Enron email dataset, we find that individuals' opinions (measured by interactive language features) on their interrelationship are related to some of their important structural context in social network
+Link: https://arxiv.org/abs/1611.00457
+====================================================
+Measuring Asymmetric Opinions on Online Social Interrelationship with Language and Network Features (Bo Wang - 14 November, 2016)
+The experimental results with Enron email dataset provide multiple evidences of the asymmetric opinions on interrelationship, and also verify the effectiveness of the proposed model in measuring the degree of opinions' asymmetry.
+Link: https://arxiv.org/abs/1611.00456
+====================================================
+TrustBase: An Architecture to Repair and Strengthen Certificate-based Authentication (Mark O&#39;Neill - 26 October, 2016)
+This enables system administrators, for example, to require certificate revocation checks on all TLS connections, or require STARTTLS for email servers that support it
+Link: https://arxiv.org/abs/1610.08570
+====================================================
+Portable Ontological Expressions in NoSQL Queries (Suresh K. Damodaran - 19 October, 2016)
+We discuss an implementation of such queries over a MongoDB data store of the Enron email corpus with examples, and conduct a preliminary performance assessment.
+Link: https://arxiv.org/abs/1610.06084
+====================================================
+Security and Privacy Analysis of NSF Future Internet Architectures (Moreno Ambrosin - 10 October, 2016)
+Its original design envisaged supporting perhaps tens of thousands of static hosts operating in a friendly academic-like setting, mainly in order to facilitate email communication and remote access to scarce computing resources
+Link: https://arxiv.org/abs/1610.00355
+====================================================
+A framework for mining process models from emails logs (Diana Jlailaty - 20 September, 2016)
+Moreover, our method allows to semi-automatically label emails with activity names, that can be used for activity recognition in new incoming emails. A use case demonstrates the usefulness of the proposed solution using a modest in size, yet real-world, dataset containing emails that belong to two different process models.
+Link: https://arxiv.org/abs/1609.06127
+====================================================
+Authcoin: Validation and Authentication in Decentralized Networks (Benjamin Leiding - 16 September, 2016)
+It combines a challenge response-based validation and authentication process for domains, certificates, email accounts and public keys with the advantages of a block chain-based storage system
+Link: https://arxiv.org/abs/1609.04955
+====================================================
+Bring-Your-Own-Device (BYOD): An Evaluation of Associated Risks to Corporate Information Security (Ezer Osei Yeboah-Boateng - 5 September, 2016)
+BYOD is an emerging trend where employees bring and use personal computing devices on the companys network to access applications and sensitive data like emails, calendar and scheduling applications, documents, etc
+Link: https://arxiv.org/abs/1609.01821
+====================================================
+Network Composition from Multi-layer Data (Kristina Lerman - 6 September, 2016)
+It is common for people to access multiple social networks, for example, using phone, email, and social media
+Link: https://arxiv.org/abs/1609.01641
+====================================================
+Volume Raycasting mit OpenCL (Nils Kopal - 5 September, 2016)
+If this is no longer the case, those who are interested can also write an email to the author, hence, we can provide the source code.
+Link: https://arxiv.org/abs/1609.01317
+====================================================
+A Functional Package for Automatic Solution of Ordinary Differential Equations with Spectral Methods (Shaohui Liu - 4 November, 2016)
+(If you have any questions, please send me an email and I will reply ASAP
+Link: https://arxiv.org/abs/1608.04815
+====================================================
+Personal Information Leakage During Password Recovery of Internet Services (Mordechai Guri - 4 August, 2016)
+This information includes the full (or partial) email address, phone number, friends list, address, etc
+Link: https://arxiv.org/abs/1608.01492
+====================================================
+Are human interactivity times lognormal? (Norbert Blenn - 11 July, 2016)
+In this paper, we are analyzing the interactivity time, defined as the duration between two consecutive tasks such as sending emails, collecting friends and followers and writing comments in online social networks (OSNs). Here, we argue that the durations between writing emails or comments, adding friends and receiving followers are likely to follow a lognormal distribution.
+Link: https://arxiv.org/abs/1607.02952
+====================================================
+Discovering topically- and temporally-coherent events in interaction networks (Han Xiao - 3 July, 2016)
+With the increasing use of online communication platforms, such as email, twitter, and messaging applications, we are faced with a growing amount of data that combine content (what is said), time (when), and user (by whom) information. We compare and analyze our algorithms in both synthetic and real datasets, such as twitter and email communication
+Link: https://arxiv.org/abs/1606.09446
+====================================================
+Breaching the Human Firewall: Social engineering in Phishing and Spear-Phishing Emails (Marcus Butavicius - 28 May, 2016)
+Overall, users struggled to distinguish between genuine and spear-phishing emails. Finally, users who were less impulsive in making decisions generally were less likely to judge a link as safe in the fraudulent emails
+Link: https://arxiv.org/abs/1606.00887
+====================================================
+Cross Domain Adaptation by Learning Partially Shared Classifiers and Weighting Source Data Points in the Shared Subspaces (Hongqi Wang - 21 May, 2016)
+Experiments show its effectiveness over benchmark data sets, including travel destination review data set, face expression data set, spam email data set, etc.
+Link: https://arxiv.org/abs/1605.06673
+====================================================
+Do Users Focus on the Correct Cues to Differentiate Between Phishing and Genuine Emails? (Kathryn Parsons - 16 May, 2016)
+This revealed that participants often use cues that are not good indicators of whether an email is phishing or genuine. This includes the presence of legal disclaimers, the quality of visual presentation, and the positive consequences emphasised in the email
+Link: https://arxiv.org/abs/1605.04717
+====================================================
+Queuing Approaches to Principal-Agent Communication under Information Overload (Aseem Sharma - 3 May, 2016)
+In the information overload regime, human communication tasks such as responding to email are well-modeled as priority queues, where priority is determined by a mix of intrinsic motivation and extrinsic motivation corresponding to the task's importance to the sender
+Link: https://arxiv.org/abs/1605.00802
+====================================================
+Topic Modeling Using Distributed Word Embeddings (Ramandeep S Randhawa - 15 March, 2016)
+We find that it works better than existing topic modeling techniques such as Latent Dirichlet Allocation for identifying key topics in user-generated content, such as emails, chats, etc., where topics are diffused across the corpus
+Link: https://arxiv.org/abs/1603.04747
+====================================================
+Mining Valence, Arousal, and Dominance - Possibilities for Detecting Burnout and Productivity? (Mika MÃ¤ntylÃ¤ - 14 March, 2016)
+The emotional dimensions of Valence, Arousal and Dominance (VAD) are able to derive a person's interest (attraction), level of activation and perceived level of control for a particular situation from textual communication, such as emails
+Link: https://arxiv.org/abs/1603.04287
+====================================================
+General Tensor Spectral Co-clustering for Higher-Order Data (Tao Wu - 1 March, 2016)
+On tensors based on n-gram text data, we identify stop-words and semantically independent sets; on tensors from an airline-airport multimodal network, we find worldwide and regional co-clusters of airlines and airports; and on tensors from an email network, we identify daily-spam and focused-topic sets.
+Link: https://arxiv.org/abs/1603.00395
+====================================================
+EMFS: Repurposing SMTP and IMAP for Data Storage and Synchronization (William Woodruff - 29 January, 2016)
+In place of this consumer-unfriendly status quo, I propose using widely available, well standardized email protocols like SMTP and IMAP in conjunction with free email service providers to store, synchronize, and share files across discrete systems.
+Link: https://arxiv.org/abs/1602.00615
+====================================================
+Analysis of the temporal and structural features of threads in a mailing-list (NoÃ© Gaumont - 15 December, 2015)
+Link streams model many real-world situations like email exchanges between individuals, connections between devices, and others. We focus on emails exchanges in the Debian mailing-list, and show that threads of emails, like communities in graphs, are dense subsets loosely connected from a link stream perspective.
+Link: https://arxiv.org/abs/1512.05002
+====================================================
+Portrait of an Online Shopper: Understanding and Predicting Consumer Behavior (Farshad Kooti - 15 December, 2015)
+We analyze these data extracted from emails and combine them with demographic information to characterize, model, and predict consumer behavior
+Link: https://arxiv.org/abs/1512.04912
+====================================================
+A Survey on Security in Named Data Networking (Shuoshuo Chen - 13 December, 2015)
+However, current Internet usage requires more than a communication network due to a shift in the nature of Internet applications from simple email application to large content producers such as NetFlix, Google, Amazon, etc
+Link: https://arxiv.org/abs/1512.04127
+====================================================
+Hunting for Spammers: Detecting Evolved Spammers on Twitter (Nour El-Mawass - 15 December, 2015)
+Once an email problem, spam has nowadays branched into new territories with disruptive effects
+Link: https://arxiv.org/abs/1512.02573
+====================================================
+SWIM: Synthesizing What I Mean (Mukund Raghothaman - 13 February, 2016)
+Modern programming frameworks come with large libraries, with diverse applications such as for matching regular expressions, parsing XML files and sending email
+Link: https://arxiv.org/abs/1511.08497
+====================================================
+Master of Puppets: Analyzing And Attacking A Botnet For Fun And Profit (Genki Saito - 19 November, 2015)
+Many of these machines are infected without their owners' knowledge, and botnets are the driving force behind several misuses and criminal activities on the Internet (for example spam emails)
+Link: https://arxiv.org/abs/1511.06090
+====================================================
+Aadhaar-Based Unified Payment Solution (Sankalp Bagaria - 12 November, 2015)
+If the sender knows the receiver's email-id, s/he can transfer money to his/ her Aadhaar card linked virtual wallet using the email-id. And, if the sender knows receiver's mobile number but not email-id, s/he can use the mobile number to transfer the money to his/ her Aadhaar card linked virtual wallet
+Link: https://arxiv.org/abs/1511.04158
+====================================================
+TLS in the wild: an Internet-wide analysis of TLS-based protocols for electronic communication (Ralph Holz - 24 January, 2016)
+The majority of electronic communication today happens either via email or chat
+Link: https://arxiv.org/abs/1511.00341
+====================================================
+On The Evolution Of User Support Topics in Computational Science and Engineering Software (K. Rupp - 5 October, 2015)
+For this purpose we assign each email thread to one or several categories describing the type of support request. We find that despite several changes in hardware architecture as well programming models, the relative share of emails for the individual categories does not show a notable change over time
+Link: https://arxiv.org/abs/1510.01122
+====================================================
+Analysis of Communication Pattern with Scammers in Enron Corpus (Dinesh Balaji Sashikanth - 2 September, 2015)
+This paper is an exploratory analysis into fraud detection taking Enron email corpus as the case study
+Link: https://arxiv.org/abs/1509.00705
+====================================================
+Fighting Spam by Breaking the Econonmy of Advertisment by Unsolicited Emails (Alexander Schmidtke - 23 June, 2015)
+An implementation for the Thunderbird email client exist. The anti-spam approach presented in this paper breaks the economy of spam, hence makes advertisement by unsolicited emails unattractive.
+Link: https://arxiv.org/abs/1506.06990
+====================================================
+Towards Enhanced Usability of IT Security Mechanisms - How to Design Usable IT Security Mechanisms Using the Example of Email Encryption (Hans-Joachim Hof - 23 June, 2015)
+Based on these guidelines, the usability of email encryption is analyzed and an email encryption solution with increased usability is presented. The compliance of the proposed email encryption solution with the presented guidelines for usable security mechanisms is evaluated.
+Link: https://arxiv.org/abs/1506.06987
+====================================================
+Ranking the Importance Level of Intermediaries to a Criminal using a Reliance Measure (Pritheega Magalingam - 4 January, 2016)
+To illustrate our measure, we apply it to rank the nodes in the Enron email dataset and the Noordin Top Terrorist networks. While the ranking for the Noordin Top terrorist network nodes yields more extreme differences than for the Enron email transaction network, in the latter the reliance values for the set of finance managers immediately identified another employee convicted of money laundering.
+Link: https://arxiv.org/abs/1506.06221
+====================================================
+Steganography and Broadcasting (Fabrice P. Tachago - 15 June, 2015)
+Considering the different ways to communicate with the receiver, we propose two steganographic systems adapted to the email communication whose algorithms are deterministic
+Link: https://arxiv.org/abs/1506.04502
+====================================================
+Using Syntactic Features for Phishing Detection (Gilchan Park - 29 May, 2015)
+This paper reports on the comparison of the subject and object of verbs in their usage between phishing emails and legitimate emails
+Link: https://arxiv.org/abs/1506.00037
+====================================================
+Unauthorized Cross-App Resource Access on MAC OS X and iOS (Luyi Xing - 26 May, 2015)
+More specifically, we found that the inter-app interaction services, including the keychain, WebSocket and NSConnection on OS~X and URL Scheme on the MAC OS and iOS, can all be exploited by the malware to steal such confidential information as the passwords for iCloud, email and bank, and the secret token of Evernote
+Link: https://arxiv.org/abs/1505.06836
+====================================================
+A survey of SMS based Information Systems (Manish R. Joshi - 22 May, 2015)
+Short Message Service (SMS) based Information Systems (SMSbIS) provide an excellent alternative to a traditional approach of obtaining specific information by direct (through phone) or indirect (IVRS, Web, Email) probing
+Link: https://arxiv.org/abs/1505.06537
+====================================================
+Forensic Taxonomy of Popular Android mHealth Apps (Abdullah Azfar - 12 May, 2015)
+Artefacts of forensic interest recovered include user details and email addresses, chronology of user locations and food habits
+Link: https://arxiv.org/abs/1505.02905
+====================================================
+On Geo Location Services for Telecom Operators (Dmitry Namiot - 5 May, 2015)
+Geo messages let mobile users share location information as signatures to the standard messages (e.g., email, SMS)
+Link: https://arxiv.org/abs/1505.01111
+====================================================
+Harvesting Entities from the Web Using Unique Identifiers -- IBEX (Aliaksandr Talaika - 4 May, 2015)
+These are, e.g., ISBNs (for books), GTINs (for commercial products), DOIs (for documents), email addresses, and others
+Link: https://arxiv.org/abs/1505.00841
+====================================================
+On the Stability of Online Language Features: How Much Text do you Need to know a Person? (Eben M. Haber - 24 April, 2015)
+How do linguistic features vary across different online media, and how much text is required to have a representative sample for a person? In this paper, we examine several large sets of online, user-generated text, drawn from Twitter, email, blogs, and online discussion forums
+Link: https://arxiv.org/abs/1504.06391
+====================================================
+Statistical Network Topology for Crisis Informetrics (Liaquat Hossain - 28 March, 2015)
+We found that email communication network display a high degree of scale free behavior described by power law.
+Link: https://arxiv.org/abs/1503.08265
+====================================================
+Identifying a Criminal's Network of Trust (Pritheega Magalingam - 16 March, 2015)
+In this paper, trust networks using blind carbon copy (BCC) emails were formed. A group of BCC emails out of 1,887,305 Enron email transactions were isolated for this purpose
+Link: https://arxiv.org/abs/1503.04896
+====================================================
+CAPTCHaStar! A novel CAPTCHA based on interactive shape discovery (Mauro Conti - 17 December, 2015)
+Over the last years, most websites on which users can register (e.g., email providers and social networks) adopted CAPTCHAs (Completely Automated Public Turing test to tell Computers and Humans Apart) as a countermeasure against automated attacks
+Link: https://arxiv.org/abs/1503.00561
+====================================================
+Measuring Online Social Bubbles (Dimitar Nikolov - 28 October, 2015)
+Our analysis shows that collectively, people access information from a significantly narrower spectrum of sources through social media and email, compared to search
+Link: https://arxiv.org/abs/1502.07162
+====================================================
+Supporting Instructors in Collaborating with Researchers using MOOClets (Joseph Jay Williams - 14 February, 2015)
+We suggest a framework in which instructors specify what kinds of changes to lessons, exercises, and emails they would be willing to adopt, and what data they will collect and make available
+Link: https://arxiv.org/abs/1502.04247
+====================================================
+Extracting Hidden Groups and their Structure from Streaming Interaction Data (Mark K. Goldberg - 13 February, 2015)
+We validate our algorithms on real data (the Enron email corpus and Blog communication data)
+Link: https://arxiv.org/abs/1502.04154
+====================================================
+A connective differentiation of textual production in interaction networks (Renato Fabbri - 23 December, 2014)
+Four email lists were selected, in which measures were taken from the texts participants wrote
+Link: https://arxiv.org/abs/1412.7309
+====================================================
+Phishing Detection in IMs using Domain Ontology and CBA - An innovative Rule Generation Approach (Mohammad S. Qaseem - 8 December, 2014)
+User ignorance towards the use of communication services like Instant Messengers, emails, websites, social networks etc
+Link: https://arxiv.org/abs/1412.3056
+====================================================
+Security Evaluation for Mail Distribution Systems (Antonis S. Rizopoulos - 18 October, 2014)
+Email spoofing refers to alterations in the headers and/or the content of the message. Unfortunately, the broken link between certification and reliability of the information is unsolicited email (spam).
+Link: https://arxiv.org/abs/1411.4630
+====================================================
+Hierarchical and Matrix Structures in a Large Organizational Email Network: Visualization and Modeling Approaches (Benjamin H. Sims - 16 November, 2014)
+This model considers the influence of global email announcements sent from managers to all employees under their supervision, and the role support staff play in generating email traffic, acting as agents for managers. We also analyze patterns in email traffic volume over the course of a work week.
+Link: https://arxiv.org/abs/1411.4314
+====================================================
+That Ain't You: Detecting Spearphishing Emails Before They Are Sent (Gianluca Stringhini - 24 October, 2014)
+Our experiments on real world e-mail datasets demonstrate that our system can effectively block advanced email attacks sent from genuine email accounts, which traditional protection systems are unable to detect. To the best of our knowledge, IdentityMailer is the first system able to identify spearphishing emails that are sent from within an organization, by a skilled attacker having access to a compromised email account.
+Link: https://arxiv.org/abs/1410.6629
+====================================================
+Analysis of Phishing Attacks and Countermeasures (B. Issac - 17 October, 2014)
+One of the biggest problems with the Internet technology is the unwanted spam emails. The well disguised phishing email comes in as part of the spam and makes its entry into the inbox quite frequently nowadays
+Link: https://arxiv.org/abs/1410.4672
+====================================================
+Online Privacy as a Collective Phenomenon (Emre Sarigol - 22 September, 2014)
+Furthermore, because many users share their phone and email contact lists, this allows an OSN to create full shadow profiles for people who do not even have an account for this OSN.
+Link: https://arxiv.org/abs/1409.6197
+====================================================
+The proposal of improved component selection framework (Weam Gaoud Alghabban - 26 August, 2014)
+The questionnaire is distributed through social sites such as Twitter, Facebook and emails
+Link: https://arxiv.org/abs/1408.6125
+====================================================
+A Real-Time Detecting Algorithm for Tracking Community Structure of Dynamic Networks (Jiaxing Shang - 10 July, 2014)
+We test the algorithm on tracking community structure of Enron Email and three other real world datasets
+Link: https://arxiv.org/abs/1407.2683
+====================================================
+XRay: Enhancing the Web's Transparency with Differential Correlation (Mathias Lecuyer - 7 October, 2014)
+XRay predicts which data in an arbitrary Web account (such as emails, searches, or viewed products) is being used to target which outputs (such as ads, recommended products, or prices)
+Link: https://arxiv.org/abs/1407.2323
+====================================================
+Extraction of Multi-layered Social Networks from Activity Data (Katarzyna Musial - 3 July, 2014)
+an email sent from one user to another or post at the forum authored by one user and commented by others
+Link: https://arxiv.org/abs/1407.1056
+====================================================
+Global Internet-based Crisis Communication: A case Study on SARS (Ong Sing Goh - 26 June, 2014)
+Consequently, we would like to highlight the viability of incorporating an intelligent agent software robot into a crisis communication portal (CCNet) to send the alert news to subscribed users via email and others mobile services such as SMS, MMS and GPRS.
+Link: https://arxiv.org/abs/1406.7048
+====================================================
+A survey on phrase structure learning methods for text classification (Reshma Prasad - 21 June, 2014)
+Text classification is an important constituent in many information management tasks like topic identification, spam filtering, email routing, language identification, genre classification, readability assessment etc
+Link: https://arxiv.org/abs/1406.5598
+====================================================
+Analysis of Email Fraud detection using WEKA Tool (Tarushi Sharma - 5 May, 2014)
+Because of email mining, even inexperienced users can connect data and make responsive associations
+Link: https://arxiv.org/abs/1405.0787
+====================================================
+Online Group Feature Selection (Wang Jing - 22 October, 2014)
+However, in some real-world applications such as image analysis and email spam filtering, features may arrive by groups. Extensive experiments conducted on benchmark and real-world data sets demonstrate that our proposed approach outperforms other state-of-the-art online feature selection methods.
+Link: https://arxiv.org/abs/1404.4774
+====================================================
+Traffic Monitoring Using M2M Communication (Shiu Kumar - 31 March, 2014)
+The real-time traffic data is processed by the Personal Computer (PC) at the sub roadway station and the traffic flow rate data is transmitted to the main roadway station Arduino 3G via email, where the data is extracted and traffic flow rate displayed.
+Link: https://arxiv.org/abs/1404.0106
+====================================================
+Learning the Latent State Space of Time-Varying Graphs (Nesreen K. Ahmed - 14 March, 2014)
+We show how the framework can be used to find subsequences that correspond to global real-time events in the Email graph (e.g. We use the two representations as inputs to a mixture model to learn the latent state transitions that correspond to important changes in the Email graph structure over time.
+Link: https://arxiv.org/abs/1403.3707
+====================================================
+Ubiquitous Smart Home System Using Android Application (Shiu Kumar - 10 February, 2014)
+The smart home app is tested and it is able to successfully perform the smart home operations such as switching functionalities, automatic environmental control and intrusion detection, in the later case where an email is generated and the siren goes on.
+Link: https://arxiv.org/abs/1402.2114
+====================================================
+An Improved AIS Based E-mail Classification Technique for Spam Detection (Ismaila Idris - 5 February, 2014)
+An improved email classification method based on Artificial Immune System is proposed in this paper to develop an immune based system by using the immune learning, immune memory in solving complex problems in spam detection
+Link: https://arxiv.org/abs/1402.1242
+====================================================
+Topic Segmentation and Labeling in Asynchronous Conversations (Shafiq Rayhan Joty - 3 February, 2014)
+Our approach extends state-of-the-art methods by considering a fine-grained structure of an asynchronous conversation, along with other conversational features by applying recent graph-based methods for NLP. Empirical evaluation shows that the segmentation and the labeling performed by our best models beat the state-of-the-art, and are highly correlated with human annotations.
+Link: https://arxiv.org/abs/1402.0586
+====================================================
+Comparative study of Authorship Identification Techniques for Cyber Forensics Analysis (Smita Nirkhi - 24 December, 2013)
+Cybercriminals make misuse of online communication for sending blackmail or a spam email and then attempt to hide their true identities to void detection.Authorship Identification of online messages is the contemporary research issue for identity tracing in cyber forensics
+Link: https://arxiv.org/abs/1401.6118
+====================================================
+GreenMail: Reducing Email Service's Carbon Emission with Minimum Cost (Chen Li - 21 January, 2014)
+Besides, it offsets the carbon emitted by traditional backend email services. With GreenMail, users could set a carbon emission constraint and use traditional email service without breaking any code modification of user side and email server side.
+Link: https://arxiv.org/abs/1401.5546
+====================================================
+A Model for Privacy-enhanced Federated Identity Management (Rainer Hoerbe - 19 January, 2014)
+This paper proposes extended technical controls supporting three privacy requirements: a) Limit d Linkability: Two service providers cannot link data related to a user without the help of a third party, using neither an identifier nor other identifying attributes like email addresses or payment data; b) Limited Observability: An identity provider cannot trace which services a user is using without the help of a third party; c) Non-Disclosure: Attributes provided to the service provider by an attribute provider are not disclosed to the identity provider or an intermediate service broker
+Link: https://arxiv.org/abs/1401.4726
+====================================================
+Using temporal IDF for efficient novelty detection in text streams (Margarita Karkali - 9 November, 2014)
+Novelty detection in text streams is a challenging task that emerges in quite a few different scenarios, ranging from email thread filtering to RSS news feed recommendation on a smartphone
+Link: https://arxiv.org/abs/1401.1456
+====================================================
+Clustering online social network communities using genetic algorithms (Mustafa H. Hajeer - 8 December, 2013)
+This approach is efficient in handling different type of discussion topics in our studied OSN - comments, emails, chat expressions, etc
+Link: https://arxiv.org/abs/1312.2237
+====================================================
+Modeling Suspicious Email Detection using Enhanced Feature Selection (Sarwat Nizamani - 6 December, 2013)
+In the paper we proposed the use of feature selection strategies along with classification technique for terrorists email detection. The presented model focuses on the evaluation of machine learning algorithms such as decision tree (ID3), logistic regression, NaÃ¯ve Bayes (NB), and Support Vector Machine (SVM) for detecting emails containing suspicious content
+Link: https://arxiv.org/abs/1312.1971
+====================================================
+De-Virtualizing Social Events: Understanding the Gap between Online and Offline Participation for Event Invitations (Ai-Ju Huang - 4 November, 2013)
+The results show that people's event participation is shaped by their social perceptions of the event's nature (e.g., public or private), their relationships to others (e.g., the strength of their connections to other invitees), and the medium used to communicate event information (e.g., targeted invitation via email or spam communication via Facebook event page)
+Link: https://arxiv.org/abs/1311.0663
+====================================================
+Instant messaging an effective way of communication in workplace (Tirus Muya Maina - 31 October, 2013)
+Instant messaging is the multitasking tools of choice most people chatting over IM do other things at the same time.The use of IM in workplace is less intrusive than the use of phone, more immediate than email and has added advantage due to the ability to detect presence.In order for institution to maximize increased business productivity using instant messaging its imperative that organizations define and publish ICT policies, guidelines and regulations.Overall IM boosts business performance by making operations faster, more agile, and more efficient with very little additional cost thus Organizations that deploy IM would reap significant Return on Investment.Institutions should adopt IM meetings which are be more efficient and less prone to straying off topic, because of the relative effort of typing versus talking.
+Link: https://arxiv.org/abs/1310.8489
+====================================================
+Improving the methods of email classification based on words ontology (Foruzan Kiamarzpour - 22 October, 2013)
+Along with the numerous benefits of Email, one of the weaknesses of this service is that the number of received emails is continually being enhanced, thus the ways are needed to automatically filter these disturbing letters. We are seeking to increase the accuracy of Email classification by combining the output of several decision trees and the concept of ontology.
+Link: https://arxiv.org/abs/1310.5963
+====================================================
+CIDS country rankings: comparing documents and citations of USA, UK and China top researchers (Francisco M Couto - 25 October, 2013)
+The researchers were identified using their email suffix: edu, uk and cn
+Link: https://arxiv.org/abs/1310.5597
+====================================================
+Towards Internet of Things (IOTS):Integration of Wireless Sensor Network to Cloud Services for Data Collection and Sharing (Rajeev Piyare - 8 October, 2013)
+The alert feature has also been implemented to notify users via email or tweets for monitoring data when they exceed values and events of interest.
+Link: https://arxiv.org/abs/1310.2095
+====================================================
+Tracking Sentiment in Mail: How Genders Differ on Emotional Axes (Saif M. Mohammad - 24 September, 2013)
+We show that there are marked differences across genders in how they use emotion words in work-place email. Finally, we show visualizations that can help people track emotions in their emails.
+Link: https://arxiv.org/abs/1309.6347
+====================================================
+Integrating Communications and Merging Messaging via the eXtensible Messaging and Presence Protocol (Martin A. Coleman - 24 February, 2018)
+We present several methods for initiating a transition away from SMTP for email to rely upon the inherent benefits of XMPP with minimal disruption to existing networks and email infrastructure. We show that the system can be implemented and then deployed with a minimum of hassle and network disruption to demonstrate XMPP as a reliable and fast replacement for email as we know it today.
+Link: https://arxiv.org/abs/1309.5568
+====================================================
+The Pin-Bang Theory: Discovering The Pinterest World (Sudip Mittal - 18 July, 2013)
+Instances of Personally Identifiable Information (PII) leakage were also discovered in the form of phone numbers, BBM (Blackberry Messenger) pins, and email addresses
+Link: https://arxiv.org/abs/1307.4952
+====================================================
+Design of an Agent for Answering Back in Smart Phones (Sandeep Venkatesh - 1 January, 2014)
+The agent provides responses through text messages, email etc stating the most likely reason as to why the callee is unable to answer a call
+Link: https://arxiv.org/abs/1306.5884
+====================================================
+The Role of Emotions in Contributors Activity: A Case Study on the GENTOO Community (David Garcia - 20 June, 2013)
+We analyse how this event correlates with the negative emotions, both in bilateral email discussions with the central contributor, and at the level of the whole community of contributors
+Link: https://arxiv.org/abs/1306.3612
+====================================================
+Introducing LETOR 4.0 Datasets (Tao Qin - 9 June, 2013)
+If you have any questions or suggestions about the datasets, please kindly email us (letor@microsoft.com)
+Link: https://arxiv.org/abs/1306.2597
+====================================================
+Personalized Email Community Detection using Collaborative Similarity Measure (Waqas Nawaz - 6 June, 2013)
+We extract the personalized social graph from a set of emails by uniquely leveraging each node with communication behavior. Moreover, email strainer, dynamic group prediction, and fraudulent account detection are suggested as the potential applications from both the service provider and user's point of view.
+Link: https://arxiv.org/abs/1306.1300
+====================================================
+Social Network Generation and Role Determination Based on Smartphone Data (Mustafa Ilhan Akbas - 17 May, 2013)
+We start by assigning weights to the different types of interactions such as messaging, email, phone calls, chat and physical proximity
+Link: https://arxiv.org/abs/1305.4133
+====================================================
+Real Time Bid Optimization with Smooth Budget Delivery in Online Advertising (Kuang-Chih Lee - 13 May, 2013)
+A desired action (conversion), advertiser specific, includes purchasing a product, filling out a form, signing up for emails, etc
+Link: https://arxiv.org/abs/1305.3011
+====================================================
+Preventing Phishing Attacks using One Time Password and User Machine Identification (Ahmad Alamgir Khan - 13 May, 2013)
+Spoofed emails claiming to be from legitimate source are crafted in a way to lead victims to reveal their personal, financial data by misdirecting them to the counterfeit website.
+Link: https://arxiv.org/abs/1305.2704
+====================================================
+Revealing social networks of spammers through spectral clustering (Kevin S. Xu - 30 April, 2013)
+It has been observed that spammers conceal their identity to a lesser degree in the harvesting phase, so it may be possible to gain new insights into spammers' behavior by studying the behavior of harvesters, which are individuals or bots that collect email addresses. Our main findings are (1) that most spammers either send only phishing emails or no phishing emails at all, (2) that most communities of spammers also send only phishing emails or no phishing emails at all, and (3) that several groups of spammers within communities exhibit coherent temporal behavior and have similar IP addresses
+Link: https://arxiv.org/abs/1305.0051
+====================================================
+Exploration of Speech enabled System for English (Kamlesh Sharma - 29 March, 2013)
+Windows speech recognition have many innovative features for Windows operating system and efficiently assist the computer to control, dictate, navigate, selecting the words, sending emails and correcting the words or sentences
+Link: https://arxiv.org/abs/1304.8013
+====================================================
+Logging safely in public spaces using color PINs (Frank Nielsen - 24 April, 2013)
+Nowadays, we are increasingly logging on many different Internet sites to access private data like emails or photos remotely stored in the clouds
+Link: https://arxiv.org/abs/1304.6499
+====================================================
+Dynamic stochastic blockmodels: Statistical models for time-evolving networks (Kevin S. Xu - 22 April, 2013)
+We apply the procedure to analyze a dynamic social network of email communication.
+Link: https://arxiv.org/abs/1304.5974
+====================================================
+DELTACON: A Principled Massive-Graph Similarity Function (Danai Koutra - 16 April, 2013)
+Finally, we employ DeltaCon to real applications: (a) we classify people to groups of high and low creativity based on their brain connectivity graphs, and (b) do temporal anomaly detection in the who-emails-whom Enron graph.
+Link: https://arxiv.org/abs/1304.4657
+====================================================
+Group Evolution Discovery in Social Networks (Piotr BrÃ³dka - 15 April, 2013)
+Additionally, the results of the first experiments on the email based social network together with comparison with two other methods of group evolution discovery are presented.
+Link: https://arxiv.org/abs/1304.4137
+====================================================
+Graphical Analysis of Social Group Dynamics (Bogdan Gliwa - 23 July, 2013)
+In the final part of the paper, the experimental results performed using the benchmark data (Enron emails) provide an insight into usefulness of the proposed tool.
+Link: https://arxiv.org/abs/1303.6088
+====================================================
+Online Social Networks: Threats and Solutions (Michael Fire - 23 July, 2014)
+According to recent studies, OSN users readily expose personal and private details about themselves, such as relationship status, date of birth, school name, email address, phone number, and even home address
+Link: https://arxiv.org/abs/1303.3764
+====================================================
+The Value of User-Visible Internet Cryptography (Phillip J. Brooke - 8 March, 2013)
+Cryptographic mechanisms are used in a wide range of applications, including email clients, web browsers, document and asset management systems, where typical users are not cryptography experts
+Link: https://arxiv.org/abs/1303.1948
+====================================================
+IRS for Computer Character Sequences Filtration: a new software tool and algorithm to support the IRS at tokenization process (Ahmad Al Badawi - 2 March, 2013)
+Our proposed tool will filter out the three computer character Sequences: IP-Addresses, Web URLs, Date, and Email Addresses
+Link: https://arxiv.org/abs/1303.0407
+====================================================
+The Mesh of Civilizations and International Email Flows (Bogdan State - 10 March, 2013)
+In computing email flows we employ a novel rescaling procedure to account for differences due to uneven adoption of a particular Internet service across the world. Our analysis shows that email flows are consistent with Huntington's thesis
+Link: https://arxiv.org/abs/1303.0045
+====================================================
+Phishing Dynamic Evolving Neural Fuzzy Framework for Online Detection Zero-day Phishing Email (Ammar ALmomani - 4 February, 2013)
+Phishing is a kind of attack in which criminals use spoofed emails and fraudulent web sites to trick financial organization and customers
+Link: https://arxiv.org/abs/1302.0629
+====================================================
+Phishing, Personality Traits and Facebook (Tzipora Halevi - 7 February, 2013)
+Our study examines the correlation between the Big Five personality traits and email phishing response
+Link: https://arxiv.org/abs/1301.7643
+====================================================
+ChaMAILeon: Simplified email sharing like never before! (Prateek Dewan - 29 January, 2013)
+While passwords, by definition, are meant to be secret, recent trends in the Internet usage have witnessed an increasing number of people sharing their email passwords for both personal and professional purposes. To cater to this conflict of usability versus security and privacy, we introduce ChaMAILeon, an experimental service, which allows users to share their email passwords while maintaining their privacy and not compromising their security
+Link: https://arxiv.org/abs/1301.6843
+====================================================
+An alternative text representation to TF-IDF and Bag-of-Words ( Zhixiang - 28 January, 2013)
+emails or abstracts), many features are rarely observed within the training corpus
+Link: https://arxiv.org/abs/1301.6770
+====================================================
+Attention-Sensitive Alerting (Eric J. Horvitz - 23 January, 2013)
+After introducing principles of attention-sensitive alerting, we focus on the problem of guiding alerts about email messages. We dwell on the problem of inferring the expected criticality of email and discuss work on the Priorities system, centering on prioritizing email by criticality and modulating the communication of notifications to users about the presence and nature of incoming email.
+Link: https://arxiv.org/abs/1301.6707
+====================================================
+SWEET: Serving the Web by Exploiting Email Tunnels (Amir Houmansadr - 17 December, 2012)
+SWEET works by encapsulating a censored user's traffic to a proxy server inside email messages that are carried over by public email service providers, like Gmail and Yahoo Mail. As the operation of SWEET is not bound to specific email providers we argue that a censor will need to block all email communications in order to disrupt SWEET, which is infeasible as email constitutes an important part of today's Internet
+Link: https://arxiv.org/abs/1211.3191
+====================================================
+Novel Framework for Mobile Collaborative learning (MCL)to substantiate pedagogical activities (Abdul Razaque - 7 October, 2012)
+The applications running on this framework give substantial feedback for collaboration such as exchange for delivery of communication contents including platform for group discussion, short message service (SMS), emails, audio, video and video-on-demand to obtain on-line information to students and other persons who will be part of collaboration.
+Link: https://arxiv.org/abs/1210.2023
+====================================================
+Minimizing the Time of Spam Mail Detection by Relocating Filtering System to the Sender Mail Server (Alireza Nemaney Pour - 28 August, 2012)
+In this paper, we will introduce a new and efficient approach to prevent spam emails from being transferred. The result shows that if we focus on developing a filtering method for spams emails in the sender mail server rather than the receiver mail server, we can detect the spam emails in the shortest time consequently to avoid wasting network resources.
+Link: https://arxiv.org/abs/1208.5556
+====================================================
+Personal Safety Triggering System on Android Mobile Platform (Ashokkumar Ramalingam - 10 August, 2012)
+One in which, application uses a GPS to track the location information of the user and send those location information as a message via SMS, email and post it on Facebook wall Simultaneously, an emergency signal is sent to Arduino Microcontroller.This application is written in JAVA programming language which runs on Eclipse Integrated Development Kit.
+Link: https://arxiv.org/abs/1208.3138
+====================================================
+On Optimal Top-K String Retrieval (Rahul Shah - 17 November, 2012)
+In many applications like desktop or email search, the data resides on disk and hence disk-bound indexes are needed
+Link: https://arxiv.org/abs/1207.2632
+====================================================
+Space-Efficient Sampling from Social Activity Streams (Nesreen K. Ahmed - 20 June, 2012)
+Many large-scale network datasets, however, are too large and/or dynamic to be processed using main memory (e.g., email, tweets, wall posts)
+Link: https://arxiv.org/abs/1206.4952
+====================================================
+Finding Botnets Using Minimal Graph Clusterings (Peter Haider - 18 June, 2012)
+We study the problem of identifying botnets and the IP addresses which they comprise, based on the observation of a fraction of the global email spam traffic
+Link: https://arxiv.org/abs/1206.4675
+====================================================
+Learning to Identify Regular Expressions that Describe Email Campaigns (Paul Prasse - 18 June, 2012)
+This is motivated by our goal of automating the task of postmasters of an email service who use regular expressions to describe and blacklist email spam campaigns. We model this task as a learning problem with structured output spaces and an appropriate loss function, derive a decoder and the resulting optimization problem, and a report on a case study conducted with an email service.
+Link: https://arxiv.org/abs/1206.4637
+====================================================
+CensorSpoofer: Asymmetric Communication with IP Spoofing for Censorship-Resistant Web Browsing (Qiyan Wang - 9 March, 2012)
+The upstream channel hides the request contents using steganographic encoding within email or instant messages, whereas the downstream channel uses IP address spoofing so that the real address of the proxies is not revealed either to legitimate users or censors
+Link: https://arxiv.org/abs/1203.1673
+====================================================
+Fast Generation of Large Scale Social Networks with Clustering (Joseph J. Pfeiffer III - 21 February, 2012)
+We demonstrate the performance TCL on four real- world social networks, including an email dataset with hundreds of thousands of nodes and millions of edges, showing TCL generates graphs that match the degree distribution, clustering coefficients and hop plots of the original networks.
+Link: https://arxiv.org/abs/1202.4805
+====================================================
+Identifying Coordination Problems in Software Development: Finding Mismatches between Software and Project Team Structures (Chintan Amrit - 19 January, 2012)
+TESNA achieves this by analysing a project's evolving social and technical network structures using data from multiple sources, including CVS, email and chat repositories
+Link: https://arxiv.org/abs/1201.4142
+====================================================
+Phishing - A Growing Threat to E-Commerce (M. Tariq Banday - 24 December, 2011)
+In today's business environment, it is difficult to imagine a workplace without access to the web, yet a variety of email born viruses, spyware, adware, Trojan horses, phishing attacks, directory harvest attacks, DoS attacks, and other threats combine to attack businesses and customers
+Link: https://arxiv.org/abs/1112.5732
+====================================================
+The Disclosure of University Research for Third Parties: A Non-Market Perspective on an Italian University (Michelina Venditti - 11 February, 2013)
+The results were brought online in a thesaurus-like structure that enables users to access the university at the level of individual email address
+Link: https://arxiv.org/abs/1111.5684
+====================================================
+A Novel Approach For Intranet Mailing For Providing User Authentication (ASN Chakravarthy - 7 October, 2011)
+Various antidotes that are in fact inextricable with security issues are - Cryptography, Authentication, Integrity and Non Repudiation, Key Distribution and certification, Access control by implementing Firewalls etc.The main idea of this paper is to overcome the PGP's(Pretty Good Privacy) main limitation of incomplete non-repudiation Service, which increases the degree of security and efficiency of an email message communication through NRR(Non-Repudiation of Receipt) and including PGPs original feature of NRO(Non-Repudiation of Origin), and there it assures new security service of Mutual Non-Repudiation (MNR) .
+Link: https://arxiv.org/abs/1110.1497
+====================================================
+Implementing a Web Browser with Phishing Detection Techniques (Aanchal Jain - 3 October, 2011)
+We implemented a prototype web browser which can be used as an agent and processes each arriving email for phishing attacks. Using email data collected over a period time we demonstrate data that our approach is able to detect more phishing attacks than existing schemes.
+Link: https://arxiv.org/abs/1110.0360
+====================================================
+Common Knowledge in Email Exchanges (Floor Sietsma - 26 November, 2012)
+This allows us to find out what agents learn from the emails they receive and to determine when a group of agents acquires common knowledge of the fact that an email was sent. We also show that in our framework from the epistemic point of view the BCC feature of emails cannot be simulated using messages without BCC recipients.
+Link: https://arxiv.org/abs/1109.3322
+====================================================
+Flash-based Audio and Video Communication in the Cloud (Kundan Singh - 30 June, 2011)
+Recently, the web is evolving as a popular platform for everything we do on the Internet including email, text chat, voice calls, discussions, enterprise apps and multi-party collaboration
+Link: https://arxiv.org/abs/1107.0011
+====================================================
+Clasificarea distribuita a mesajelor de e-mail (Florin Pop - 27 June, 2011)
+The paper proposes a mechanism for automatically classifying emails and create dynamic groups that belong to these messages
+Link: https://arxiv.org/abs/1106.5308
+====================================================
+A Comparison of Trojan Virus Behavior in Linux and Windows Operating Systems (Ghossoon. M. W. Al-Saadoon - 24 May, 2011)
+The most common means of infection is through email attachments. This is accomplished by detecting and analyzing the Trojan infected packet from a network segment -which passes through email attachment- before attacking a host computer
+Link: https://arxiv.org/abs/1105.1234
+====================================================
+Privacy Preserving Spam Filtering (Manas A. Pathak - 18 September, 2011)
+Email is a private medium of communication, and the inherent privacy constraints form a major obstacle in developing effective spam filtering methods which require access to a large amount of email data belonging to multiple users. To mitigate this problem, we envision a privacy preserving spam filtering system, where the server is able to train and evaluate a logistic regression based spam classifier on the combined email data of all users without being able to observe any emails using primitives such as homomorphic encryption and randomization
+Link: https://arxiv.org/abs/1102.4021
+====================================================
+Good Friends, Bad News - Affect and Virality in Twitter (Lars Kai Hansen - 3 January, 2011)
+A quantitative study of emailing of articles from the NY Times finds a strong link between positive affect and virality, and, based on psychological theories it is concluded that this relation is universally valid. Twitter is different from email in that retweeting does not depend on pre-existing social relations, but often occur among strangers, thus in this respect Twitter may be more similar to traditional news media
+Link: https://arxiv.org/abs/1101.0510
+====================================================
+Bayesian Based Comment Spam Defending Tool (Dhinaharan Nagamalai - 14 November, 2010)
+Spam in blogs is called blog spam or comment spam.It is done by posting comments or flooding spams to the services such as blogs, forums,news,email archives and guestbooks
+Link: https://arxiv.org/abs/1011.3279
+====================================================
+A New Email Retrieval Ranking Approach (Samir AbdelRahman - 1 November, 2010)
+It ranks the retrieved emails based on a scoring function that depends on crucial email fields, namely subject, content, and sender. The experimental evaluation on Enron corpus prove that our approach outperforms known email retrieval ranking approaches.
+Link: https://arxiv.org/abs/1011.0502
+====================================================
+A New Email Retrieval Ranking Approach (Samir AbdelRahman - 1 November, 2010)
+It ranks the retrieved emails based on a scoring function that depends on crucial email fields, namely subject, content, and sender. The experimental evaluation on Enron corpus prove that our approach outperforms known email retrieval ranking approaches
+Link: https://arxiv.org/abs/1011.0404
+====================================================
+GraphDuplex: visualisation simultanÃ©e de N rÃ©seaux couplÃ©s 2 par 2 (Martine Hurault-Plantet - 29 October, 2010)
+While social network analysis often focuses on graph structure of social actors, an increasing number of communication networks now provide textual content within social activity (email, instant messaging, blogging, collaboration networks)
+Link: https://arxiv.org/abs/1010.6242
+====================================================
+The Emerging Web of Social Machines (Silvio R. L. Meira - 14 October, 2010)
+are most welcome and should be sent to the email of the first, corresponding author.
+Link: https://arxiv.org/abs/1010.3045
+====================================================
+Enhancing QOS and QOE in IMS enabled next generation networks (Kamaljit I. Lakhtaria - 11 August, 2010)
+email, video, and music downloads), keeping up to speed with fast-changing technology, and driving maximum value from existing networks - all while reducing CapEX and OpEX and ensuring Quality of Service (QoS) for the network and Quality of Experience (QoE) for the user
+Link: https://arxiv.org/abs/1008.1848
+====================================================
+Weblog patterns and human dynamics with decreasing interest (Jin-Li Guo - 7 September, 2010)
+Weblog is the fourth way of network exchange after Email, BBS and MSN
+Link: https://arxiv.org/abs/1008.0042
+====================================================
+Enhancing QoS and QoE in IMS Enabled Next Generation Networks (Kamaljit I. Lakhtaria - 17 June, 2010)
+email, video, and music downloads), keeping up to speed with fast-changing technology, and driving maximum value from existing networks - all while reducing CapEX and OpEX and ensuring Quality of Service (QoS) for the network and Quality of Experience (QoE) for the user
+Link: https://arxiv.org/abs/1006.3371
+====================================================
+On Secure Workflow Decentralisation on the Internet (Petteri Kaskenpalo - 8 June, 2010)
+Our research is motivated by a more general question of how to combine the positive enablers that email exchange enjoys, with the general benefits of workflow systems, and more specifically with the benefits that can be introduced in a decentralised environment. This aims to equip email users with a set of tools to manage the semantics of a message exchange, contents, participants and their roles in the exchange in an environment that provides inherent assurances of security and privacy
+Link: https://arxiv.org/abs/1006.1449
+====================================================
+Tools and techniques for Network Forensics (Natarajan Meghanathan - 5 April, 2010)
+Some of the tools discussed include: eMailTrackerPro to identify the physical location of an email sender; Web Historian to find the duration of each visit and the files uploaded and downloaded from the visited website; packet sniffers like Etherea to capture and analyze the data exchanged among the different computers in the network
+Link: https://arxiv.org/abs/1004.0570
+====================================================
+Cloud Computing (Shivaji P. Mirashe - 22 March, 2010)
+If you're using a web-based email program, such as Gmail or Hotmail, you're computing in the cloud
+Link: https://arxiv.org/abs/1003.4074
+====================================================
+Open Access Mandates and the "Fair Dealing" Button (Arthur Sale - 16 February, 2010)
+The Button allows individual users to request and authors to provide a single eprint via semi-automated email
+Link: https://arxiv.org/abs/1002.3074
+====================================================
+Detecting Bots Based on Keylogging Activities (Yousof Al-Hammadi - 5 February, 2010)
+Recent statistics show that bots represent one of the fastest growing threats to our network by performing malicious activities such as email spamming or keylogging
+Link: https://arxiv.org/abs/1002.1200
+====================================================
+Sequential anomaly detection in the presence of noise and limited feedback (Maxim Raginsky - 13 March, 2012)
+We validate the theory on synthetic data drawn from a time-varying distribution over binary vectors of high dimensionality, as well as on the Enron email dataset.
+Link: https://arxiv.org/abs/0911.2904
+====================================================
+GSM Security Using Identity-based Cryptography (Animesh Agarwal - 3 November, 2009)
+The rapid advancement of Internet technology facilitates online trading, banking, downloading, emailing using resource-constrained handheld devices such as personal digital assistants and cell phones
+Link: https://arxiv.org/abs/0911.0727
+====================================================
+Exception Agent Detection System for IP Spoofing Over Online Environments (Al-Sammarraie Hosam - 3 November, 2009)
+Over the recent years, IP and email spoofing gained much importance for security concerns due to the current changes in manipulating the system performance in different online environments
+Link: https://arxiv.org/abs/0911.0501
+====================================================
+Software Security Rules, SDLC Perspective (C. Banerjee - 2 November, 2009)
+Everyday, millions of people perform transaction through internet, ATM, mobile phone, they send email and Egreetings, and use word processing and spreadsheet for various purpose
+Link: https://arxiv.org/abs/0911.0494
+====================================================
+Dempster-Shafer for Anomaly Detection (Qi Chen - 11 March, 2008)
+We further show that by applying this approach to a real-world email dataset the algorithm works for email worm detection
+Link: https://arxiv.org/abs/0803.1568
+====================================================
+It's Not What You Have, But How You Use It: Compromises in Mobile Device Use (Manas Tungare - 28 January, 2008)
+email and IM)
+Link: https://arxiv.org/abs/0801.4423
+====================================================
+Escalating The War On SPAM Through Practical POW Exchange (Paul Gardner-Stephen - 28 October, 2007)
+I suggest that a non-uniform proof-of-work scheme on email may be a solution to this problem, and describe a framework that has the potential to limit SPAM, without unduly penalising legitimate senders, and is constructed using only current SPAM filter technology, and a small change to the SMTP (Simple Mail Transfer Protocol). Specifically, I argue that it is possible to make sending SPAM 1,000 times more expensive than sending "legitimate" email (so called HAM)
+Link: https://arxiv.org/abs/0710.5327
+====================================================
+Flexible Audio Streams (Paul Fodor - 2 May, 2007)
+By utilizing sing our system, the user can interact using voice or graphic commands, listen and watch digital content, such as news, blogs feeds, podcasts, and even access email and personal schedules
+Link: https://arxiv.org/abs/cs/0703070
+====================================================
+A Methodological Framework for Socio-Cognitive Analyses of Collaborative Design of Open Source Software (Warren Sack - 2 March, 2007)
+Moreover, OSS developers work in arbitrary locations and collaborate almost exclusively over the Internet, using simple tools such as email and software code tracking databases (e.g. The OSS design process relies on various types of actors: people with prescribed roles, but also elements coming from a variety of information spaces (such as email and software code)
+Link: https://arxiv.org/abs/cs/0703009
+====================================================
+Repository Replication Using NNTP and SMTP (Joan A. Smith - 2 November, 2006)
+We investigate how dissemination of repository contents can be ``piggybacked'' on top of existing email and Usenet traffic
+Link: https://arxiv.org/abs/cs/0606008
+====================================================
+Entangled messages (Arindam Mitra - 1 December, 2005)
+It is sometimes necessary to send copies of the same email to different parties, but it is impossible to ensure that if one party reads the message the other parties will bound to read it
+Link: https://arxiv.org/abs/cs/0512007
+====================================================
+Pathwords: a user-friendly schema for common passwords management (Michele Finelli - 16 November, 2005)
+Logging on a computer, reading email, accessing content on a web server are all examples of applications where the identification of the user is usually accomplished matching the data provided by the user with data known by the application.
+Link: https://arxiv.org/abs/cs/0511063
+====================================================
+A Fresh Look at the Reliability of Long-term Digital Storage (Mary Baker - 30 August, 2005)
+Many emerging Web services, such as email, photo sharing, and web site archives, need to preserve large amounts of quickly-accessible data indefinitely into the future
+Link: https://arxiv.org/abs/cs/0508130
+====================================================
+Improving Spam Detection Based on Structural Similarity (Luiz H. Gomes - 5 April, 2005)
+We propose a new detection algorithm that uses structural relationships between senders and recipients of email as the basis for the identification of spam messages
+Link: https://arxiv.org/abs/cs/0504012
+====================================================
+A Suffix Tree Approach to Email Filtering (Rajesh M. Pampapathi - 6 December, 2005)
+A method for the scoring of emails using the suffix tree is developed and a number of scoring and score normalisation functions are tested. Our results show that the character level representation of emails and classes facilitated by the suffix tree can significantly improve classification accuracy when compared with the currently popular methods, such as naive Bayes
+Link: https://arxiv.org/abs/cs/0503030
+====================================================
+"In vivo" spam filtering: A challenge problem for data mining (Tom Fawcett - 4 May, 2004)
+Spam, also known as Unsolicited Commercial Email (UCE), is the bane of email communication
+Link: https://arxiv.org/abs/cs/0405007
+====================================================
+Spam filter analysis (Flavio D. Garcia - 19 February, 2004)
+Unsolicited bulk email (aka. Our analysis was performed by simulating email traffic under different conditions
+Link: https://arxiv.org/abs/cs/0402046
+====================================================
+Improving spam filtering by combining Naive Bayes with simple k-nearest neighbor searches (Daniel Etzold - 30 November, 2003)
+Using naive Bayes for email classification has become very popular within the last few months. In this paper we want to present empirical results of email classification using a combination of naive Bayes and k-nearest neighbor searches
+Link: https://arxiv.org/abs/cs/0312004
+====================================================
+Untraceable Email Cluster Bombs: On Agent-Based Distributed Denial of Service (Markus Jakobsson - 23 May, 2003)
+We uncover a vulnerability that allows for an attacker to perform an email-based attack on selected victims, using only standard scripts and agents. We illustrate the potential impact of our attack by describing how an attacker can disable an email account by flooding its inbox; block competition during on-line auctions; harm competitors with an on-line presence; disrupt phone service to a given victim; cheat in SMS-based games; disconnect mobile corporate leaders from their networks; and disrupt electronic elections
+Link: https://arxiv.org/abs/cs/0305042
+====================================================
+A Historic Name-Trail Service (Petros Maniatis - 19 October, 2002)
+For example, a sensitive email message sent to my now obsolete work address at a former place of employment may reach my unfriendly former boss instead of me.
+Link: https://arxiv.org/abs/cs/0210019
+====================================================
+ENUM: The Collision of Telephony and DNS Policy (Robert Cannon - 22 October, 2001)
+This can be telephone numbers, email addresses, fax numbers, SIP addresses, or other information
+Link: https://arxiv.org/abs/cs/0110018
+====================================================
+Evaluating Competing Agent Strategies for a Voice Email Agent (Marilyn Walker - 13 June, 1997)
+This paper reports experimental results comparing a mixed-initiative to a system-initiative dialog strategy in the context of a personal voice email agent
+Link: https://arxiv.org/abs/cmp-lg/9706019
+====================================================

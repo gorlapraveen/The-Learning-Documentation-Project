@@ -1,0 +1,895 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Regulatory Options and Technical Challenges for the 5.9 GHz Spectrum: Survey and Analysis (Junsung Choi - 11 October, 2018)
+The FCC plans to work with the Department of Transportation (DoT), and the automotive and communications industries to evaluate potential sharing techniques in the ITS band between DSRC and Wi-Fi devices. We conclude that the most challenging issue is related to the interoperability between DSRC and C-V2X in the 5.9 GHz band and the detection and avoidance of harmful adjacent and co-channel interference.
+Link: https://arxiv.org/abs/1810.04846
+====================================================
+WiPIN: Operation-free Person Identification using WiFi Signals (Fei Wang - 5 October, 2018)
+We conducted extensive experiments over commodity off-the-shelf Wi-Fi devices. The results show WiPIN achieves 92% accuracy in person identification over a group of 30 users, with sufficient robustness to environment noises.
+Link: https://arxiv.org/abs/1810.04106
+====================================================
+DRIVESHAFT: Improving Perceived Mobile Web Performance (Ketan Bhardwaj - 24 September, 2018)
+Experimental evaluations using 200 representative websites on different networks (Wi-Fi and 4G), different devices (high-end and low-end phones) and different browsers, show a reduction of 5x in the time required to see a visually complete website while giving a perception of 5x-6x faster page loading.
+Link: https://arxiv.org/abs/1809.09292
+====================================================
+Mobility Mode Detection Using WiFi Signals (Arash Kalatian - 15 September, 2018)
+Wi-Fi sensors were deployed at four strategic locations in a closed loop on streets in downtown Toronto. Results show that the best prediction accuracy is achieved by Multilayer Perceptron, with 86.52% correct predictions of mobility modes.
+Link: https://arxiv.org/abs/1809.05788
+====================================================
+We Hear Your Activities through Wi-Fi Signals (Fang-Jing Wu - 2 August, 2018)
+We evaluate the applicability of the proposed approach using the StudentLife dataset which contains Wi-Fi, GPS, and accelerometer measurements collected from smartphones of 49 students within a three-month period
+Link: https://arxiv.org/abs/1808.01027
+====================================================
+Are You in the Line? RSSI-based Queue Detection in Crowds (Fang-Jing Wu - 2 August, 2018)
+We design a plug-and-play system solution to the queue detection problem based on Wi-Fi/Bluetooth Low Energy (BLE) received signal strength indicators (RSSIs) captured by multiple signal sniffers. The experimental results indicate that our approach can reach minimum accuracy of 77% and it significantly outperforms the camera-based face detection because people block each other's visibility whereas wireless signals can be detected without blocking.
+Link: https://arxiv.org/abs/1808.01018
+====================================================
+Smartphone-based user positioning in a multiple-user context with Wi-Fi and Bluetooth (Viet-Cuong Ta - 16 July, 2018)
+The results show that the proposed approaches could reach a distance error around 3.0m for 75 percent of time, which outperforms the positioning results of the standard Wi-Fi fingerprinting model.
+Link: https://arxiv.org/abs/1807.05716
+====================================================
+On the Fairness of Wi-Fi and LTE-LAA Coexistence (Morteza Mehrnoush - 28 April, 2018)
+14 has standardized LTE licensed assisted access (LAA) that seeks to make LTE more coexistence friendly with Wi-Fi by incorporating listen before talk (LBT). In this work, we first investigate the 3GPP definition of fair coexistence in [1] via new analytical models
+Link: https://arxiv.org/abs/1805.03501
+====================================================
+Modeling, Simulation and Fairness Analysis of Wi-Fi and Unlicensed LTE Coexistence (Morteza Mehrnoush - 28 April, 2018)
+Coexistence of small-cell LTE and Wi-Fi networks in unlicensed bands at $5$ GHz is a topic of active interest, primarily driven by industry groups affiliated with the two (cellular and Wi-Fi) segments. 13 defined LTE-Licensed Assisted Access (LTE-LAA) mechanism for coexistence is the unlicensed LTE (LTE-U) Forum \cite{lteuforum} that prescribed Carrier Sense Adaptive Transmission (CSAT) whereby LTE utilizes the unlicensed band as a supplemental downlink unlicensed carrier (to enhance downlink data rate) to normal operation using licensed spectrum. The results show that as the number of Wi-Fi nodes increases, the Wi-Fi network in coexistence with LTE-DC with 0.5 duty cycling achieves a higher throughput than with an identical Wi-Fi network.
+Link: https://arxiv.org/abs/1805.03011
+====================================================
+Discriminative Learning-based Smartphone Indoor Localization (Jose Luis V. Carrera - 11 April, 2018)
+Because our approach requires only discriminative learning-based room level landmark detections, the time spent in the learning phase is significantly reduced compared to traditional Wi-Fi fingerprinting or landmark-based approaches. Experiment results show that our system can significantly reduce the learning efforts, and the localization method can achieve performance with an average localization error of 1.55 meters.
+Link: https://arxiv.org/abs/1804.03961
+====================================================
+Analysis of CSAT performance in Wi-Fi and LTE-U Coexistence (Vanlin Sathya - 5 April, 2018)
+In this paper, we study energy-based Carrier Sense Adaptive Transmission (CSAT) for use with LTE-U and investigate the performance in Wi-Fi/LTE-U coexistence using theoretical analysis and experimental verification using NI USRPs. According to the LTE-U forum specification, if an LTE-U base station (BS) finds a vacant channel, it can transmit for up to 20 ms and turn OFF its transmission for only 1 ms, resulting in a maximum duty cycle of 95%. It will start transmission by trying to transmit association packets (using carrier sense multiple access with collision avoidance (CSMA/CA)) through the 1 ms LTE-U OFF duration. Once LTE-U, using CSAT, detects Wi-Fi, it should scale back the duty cycle to 50%. We demonstrate in this paper, using an experimental platform as well as theoretical analysis, that if LTE-U is using a 95% duty cycle, energy based CSAT will take a much longer time to scale back the duty cycle due to the beacon drops and delays in the reception. Hence, in order to maintain association fairness with Wi-Fi, we propose that a LTE-U BS should not transmit at maximum duty cycles (95%), even if the channel is sensed to be vacant.
+Link: https://arxiv.org/abs/1804.02994
+====================================================
+Proximity Verification Based on Acoustic Room Impulse Response (Hien Thi Thu Truong - 22 March, 2018)
+To achieve high ease-of-use, a recently proposed class of solutions exploit contextual information captured by onboard sensors including radio (Wi-Fi, Bluetooth and GPS receivers), ambient sounds (microphones), movement (accelerometers) and physical environment (light, temperature and humidity) to facilitate the verification process with minimal user involvement. In our experiments we show R-Prox to be sensitive, with false negative verdicts can be as low as 0.059 of the true copresence cases
+Link: https://arxiv.org/abs/1803.07211
+====================================================
+Listen Before Receive for Coexistence in Unlicensed mmWave Bands (Sandra Lagen - 12 March, 2018)
+Listen-Before-Talk (LBT) has been adopted as the spectrum sharing technique that guarantees a fair LTE/Wi-Fi coexistence in the unlicensed spectrum at the 5 GHz band
+Link: https://arxiv.org/abs/1803.04245
+====================================================
+Analytical Modeling of Wi-Fi and LTE-LAA Coexistence: Throughput and Impact of Energy Detection Threshold (Morteza Mehrnoush - 2 March, 2018)
+With both small-cell LTE and Wi-Fi networks available as alternatives for deployment in unlicensed bands (notably 5 GHz), the investigation into their coexistence is a topic of active interest, primarily driven by industry groups. The impact of various network parameters such as energy detection (ED) threshold on Wi-Fi and LTE-LAA coexistence is explored as a byproduct and corroborated via a National Instrument (NI) experimental testbed that validates the results for LTE-LAA access priority class 1 and 3.
+Link: https://arxiv.org/abs/1803.02444
+====================================================
+A DIRT-T Approach to Unsupervised Domain Adaptation (Rui Shu - 19 March, 2018)
+Extensive empirical results demonstrate that the combination of these two models significantly improve the state-of-the-art performance on the digit, traffic sign, and Wi-Fi recognition domain adaptation benchmarks.
+Link: https://arxiv.org/abs/1802.08735
+====================================================
+Energy-aware Adaptive Spectrum Access and Power Allocation in LAA Networks via Lyapunov Optimization (Yu Gu - 6 February, 2018)
+In this paper, jointly considering time-variant wireless channel conditions, dynamic traffic loads, and random numbers of Wi-Fi nodes, we address an adaptive spectrum access and power allocation problem that enables minimizing the system power consumption under a certain queue stability constraint in the LAA-enabled SBSs and Wi-Fi networks. The numerical results verify the tradeoff and show that our scheme can reduce the power consumption over the existing scheme by up to 72.1% under the same traffic delay.
+Link: https://arxiv.org/abs/1802.01803
+====================================================
+Association fairness in Wi-Fi and LTE-U coexistence (Vanlin Sathya - 8 January, 2018)
+In this paper we address the issue of association fairness when Wi-Fi and LTE unlicensed (LTE-U) coexist on the same channel in the unlicensed 5 GHz band. According to the LTE-U specification, if a LTE-U base station determines that a channel is vacant, it can transmit for up to 20 ms and turn OFF for only 1 ms, resulting in a duty cycle of 95%
+Link: https://arxiv.org/abs/1801.03817
+====================================================
+Adaptive antenna system by ESP32-PICO-D4 and its application to web radio system (Toshiro Kodera - 18 December, 2017)
+This chip is a system-in-chip containing all components for Wi-Fi and Bluetooth application except for antenna. Together with SP3T RF switch and dielectric antennas and high-resolution audio DAC, completed web-radio system is made in the size of 50 x 50 mm.
+Link: https://arxiv.org/abs/1712.06288
+====================================================
+Role of Deep LSTM Neural Networks And WiFi Networks in Support of Occupancy Prediction in Smart Buildings (Basheer Qolomany - 28 November, 2017)
+We use Wi-Fi data sets readily available in abundance for smart building services and train Auto Regression Integrating Moving Average (ARIMA) models and Long Short-Term Memory (LSTM) time series models. As a use case scenario of smart building services, these models allow forecasting of the number of people at a given time and location in 15, 30 and 60 minutes time intervals at building as well as Access Point (AP) level. Our experiments show that LSTM combined model reduced the computational resources with respect to the number of neurons by 74.48 % for the AP level, and by 67.13 % for the building level. Further, the root mean square error (RMSE) was reduced by 88.2% - 93.4% for LSTM in comparison to ARIMA for the building levels models and by 80.9% - 87% for the AP level models.
+Link: https://arxiv.org/abs/1711.10355
+====================================================
+Parameters Optimization of Deep Learning Models using Particle Swarm Optimization (Basheer Qolomany - 28 November, 2017)
+Specifically, we use a dataset collected from a Wi-Fi campus network to train deep learning models to predict the number of occupants and their locations. Our experiments illustrate that the exploration process of the landscape of configurations to find the optimal parameters is decreased by 77%-85%
+Link: https://arxiv.org/abs/1711.10354
+====================================================
+Pre-shared Key Agreement for Secure Public Wi-Fi (Seokseong Jeon - 29 November, 2017)
+The standard IEEE 802.11 security method, Robust Security Network Association, widely known as Wi-Fi Protected Access (WPA) and WPA2, derives a shared cryptographic key if and only if a user provides an identical password which an AP possesses, causing ofinconvenience of obtaining and entering the password
+Link: https://arxiv.org/abs/1711.02293
+====================================================
+Machine Learning Approach to RF Transmitter Identification (K. Youssef - 7 November, 2017)
+With the development and widespread use of wireless devices in recent years (mobile phones, Internet of Things, Wi-Fi), the electromagnetic spectrum has become extremely crowded. The A-LM MST method preconditioned by wavelets was by far the most accurate, achieving 100% classification accuracy of transmitters, as tested using data originating from 12 different transmitters
+Link: https://arxiv.org/abs/1711.01559
+====================================================
+Detecting LTE-U Duty Cycling Misbehavior for Fair Sharing with Wi-Fi in Shared Bands (Xuhang Ying - 4 October, 2017)
+In this paper, we propose a scheme that allows the spectrum manager managing the shared bands to estimate the duty cycle of a target LTE-U cell based on PHY layer observations from a nearby Wi-Fi AP, without interrupting normal Wi-Fi operations. Our results show that the proposed scheme provides an estimate within +/- 1% of the true duty cycle, and detects misbehavior with a duty cycle 2.8% higher than the limit with a detection probability of at least 95%, while keeping the false alarm probability less than or equal to 1%.
+Link: https://arxiv.org/abs/1710.01705
+====================================================
+A Framework for Wireless Broadband Network for Connecting the Unconnected (Meghna Khaturia - 25 July, 2017)
+A lot of work has been done in the area of long distance Wi-Fi networks. 1 W in India) which restricts the network design. In India, around 100 MHz of TV UHF band IV (470-585 MHz) is unused at any location and can be put to an effective use in these areas
+Link: https://arxiv.org/abs/1707.07811
+====================================================
+MFDL: A Multicarrier Fresnel Penetration Model based Device-Free Localization System leveraging Commodity Wi-Fi Cards (Hao Wang - 21 July, 2017)
+Extensive experimental results show that compared with the state-of-the-art work (LiFS), our MFDL system achieves better localization accuracy with much fewer number of Wi-Fi transceivers. Specifically, using only three transceivers, the median localization error of MFDL is as low as 45$cm$ in an outdoor environment of 36$m^2$, and 55$cm$ in indoor settings of 25$m^2$. Increasing the number of transceivers to four allows us to achieve 75$cm$ median localization error in a 72$m^2$ indoor area, compared with the 1.1$m$ median localization error achieved by LiFS using 11 transceivers in a 70$m^2$ area.
+Link: https://arxiv.org/abs/1707.07514
+====================================================
+Risk-Informed Interference Assessment for Shared Spectrum Bands: A Wi-Fi/LTE Coexistence Case Study (Andra M. Voicu - 8 June, 2017)
+Wi-Fi/LTE in the 5 GHz unlicensed band, and we demonstrate that this method comprehensively quantifies the interference impact. Our results show that no regulatory intervention is needed to ensure harmonious technical Wi-Fi/LTE coexistence: for the typically large number of channels available in the 5 GHz band, the risk for Wi-Fi from LTE is negligible, rendering policy and engineering concerns largely moot. For LTE intra-technology inter-operator coexistence, both variants typically coexist well in the 5 GHz band, but for dense deployments, implementing listen-before-talk causes less interference.
+Link: https://arxiv.org/abs/1706.02479
+====================================================
+Coexistence of Outdoor Wi-Fi and Radar at 3.5 GHz (Seungmo Kim - 31 May, 2017)
+Coexistence between radar and outdoor Wireless Fidelity (Wi-Fi) needs thorough study since the IEEE 802.11 Working Group (WG) opposed the latest rules in 3550-3700 MHz (the 3.5 GHz band) that require "exclusion zones." This letter proposes a method that suppresses Wi-Fi-to-radar (WtR) interference, in which a Wi-Fi transmitter (TX) is selected to avoid beam angles toward the victim radar
+Link: https://arxiv.org/abs/1705.11070
+====================================================
+A Geometric Analysis Method for Evaluation of Coexistence between DSRC and Wi-Fi at 5.9 GHz (Seungmo Kim - 31 May, 2017)
+Co-channel coexistence between Dedicated Short-Range Communications (DSRC) and Wi-Fi needs thorough study. The reason is that although the 5.850-5.925 GHz (5.9 GHz) band has been reserved for DSRC so far, the U.S
+Link: https://arxiv.org/abs/1705.08954
+====================================================
+Coverage and Rate Analysis of Super Wi-Fi Networks Using Stochastic Geometry (Neelakantan Nurani Krishnan - 26 April, 2017)
+Since regulations governing unlicensed use of these channels allow (a) mounting fixed devices up to a height of 30 m and operation at transmit powers of up to 4 W EIRP, and (b) operation at transmit powers of up to 100 mW EIRP for portable devices, such networks can provide extended coverage and higher rates than traditional Wi-Fi networks. Such an analysis reveals that (a) maximum coverage of no more than 700 m is obtained even when APs are deployed at 30 m height, and (b) operating APs at transmit power of more than 1 W is beneficial only at sparse deployment densities when rate is prioritized over coverage.
+Link: https://arxiv.org/abs/1704.08152
+====================================================
+Architectural Challenges and Solutions for Collocated LWIP - A Network Layer Perspective (Thomas S Valerrian Pasca - 12 April, 2017)
+Using extensive simulations, we verified the correctness of C-LWIP module in NS-3 and evaluated the aggregation benefits over standalone LTE and Wi-Fi networks with respect to varying number of users and traffic types. Our findings also include WoD-Link Aggregation Strategy which is shown to improve system throughput by 50% as compared to Naive-LAS in a densely populated indoor stadium environment.
+Link: https://arxiv.org/abs/1704.03873
+====================================================
+Towards Wi-Fi AP-Assisted Content Prefetching for On-Demand TV Series: A Reinforcement Learning Approach (Wen Hu - 9 March, 2017)
+The emergence of smart Wi-Fi APs (Access Point), which are equipped with huge storage space, opens a new research area on how to utilize these resources at the edge network to improve users' quality of experience (QoE) (e.g., a short startup delay and smooth playback). Remarkably, our learning-based algorithm achieves a better precision and hit ratio (e.g., 80%) with about 70% (resp. 50%) cost saving compared to the random (resp
+Link: https://arxiv.org/abs/1703.03530
+====================================================
+Understanding Performance of Edge Content Caching for Mobile Video Streaming (Ge Ma - 24 February, 2017)
+In this paper, we use real-world datasets containing 50 million trace items of nearly 2 million users viewing more than 0.3 million unique videos using mobile devices in a metropolis in China over 2 weeks, not only to understand the request patterns and user behaviors in mobile video streaming, but also to evaluate the effectiveness of Wi-Fi and cellular-based edge content caching solutions
+Link: https://arxiv.org/abs/1702.07627
+====================================================
+An SDN Approach for an Energy Efficient Heterogeneous Communication Network in Disaster Scenarios (Toan Nguyen-Duc - 9 January, 2017)
+In that cases, the victims need a heterogeneous communications network in which they can communicate, without a doubt, by using different wireless access technologies, i.e., Bluetooth or Wi-Fi. The obtained results show that the proposed vertical handover can save at least 24.42 per cent of the energy consumed by the wireless communication. Moreover, the network allows a device using Bluetooth to talk with another one using Wi-Fi over a heterogeneous connection where the end-to-end jitter is mainly below 20ms and the packet loss rate is as small as 0.2 per cent.
+Link: https://arxiv.org/abs/1701.02150
+====================================================
+Searching for giga-Jansky fast radio bursts from the Milky Way with a global array of low-cost radio receivers (Dan Maoz - 14 February, 2017)
+A typical Galactic FRB would produce a millisecond radio pulse with ~1 GHz flux density of ~3E10 Jy, comparable to the radio flux levels and frequencies of cellular communication devices (cell phones, Wi-Fi, GPS). Alternatively, numerous "software-defined radio" (SDR) devices, costing ~$10 US each, could be plugged into USB ports of personal computers around the world (particularly in radio quiet regions) to establish the global network of receivers.
+Link: https://arxiv.org/abs/1701.01475
+====================================================
+Operating Massive MIMO in Unlicensed Bands for Enhanced Coexistence and Spatial Reuse (Giovanni Geraci - 26 February, 2017)
+Compared to a system without interference suppression, Wi-Fi devices enjoy a median interference power reduction of between 3 dB with 16 antennas and 18 dB with 128 antennas
+Link: https://arxiv.org/abs/1612.04775
+====================================================
+Significance of Mobility on Received Signal Strength: An Experimental Investigation (Pavan Kumar Pedapolu - 21 November, 2016)
+The complexity of the algorithm in training and testing phase are quadratic and linear with the number of Wi-Fi samples respectively. The experimental results indicate that the average error in the estimated speed is 12 % when the maximum signal strength features are taken into account
+Link: https://arxiv.org/abs/1611.06682
+====================================================
+MAC Protocols for IEEE 802.11ax: Avoiding Collisions on Dense Networks (Rafael Araujo da Silva - 20 November, 2016)
+Wi-Fi is an important player in this change. Founded on IEEE 802.11, this technology has a crucial impact in how we share broadband access both in domestic and corporate networks. Then, in particular, this article overviews the MAC protocols used in the IEEE 802.11 standard and discusses solutions to mitigate collisions
+Link: https://arxiv.org/abs/1611.06609
+====================================================
+Revisiting 802.11 for User Fairness and Efficient Channel Utilization in Presence of LTE-U (Anand M. Baswade - 14 November, 2016)
+A promising solution satisfying the industry's demand to have minimum alterations in LTE for its operation in unlicensed spectrum is duty cycled LTE-U scheme, which adopts discontinuous transmission to ensure fair coexistence with 802.11 (Wi-Fi) WLANs. A propitious scheme is proposed for WLANs, with regard to ease of implementation, employing Point Coordination Function (PCF) mode of 802.11, promising fairness among Wi-Fi users with improvement in the channel utilization of Wi-Fi network
+Link: https://arxiv.org/abs/1611.04278
+====================================================
+LTE in Unlicensed Bands is neither Friend nor Foe to Wi-Fi (Ljiljana SimiÄ - 12 September, 2016)
+Proponents of deploying LTE in the 5 GHz band for providing additional cellular network capacity have claimed that LTE would be a better neighbour to Wi-Fi in the unlicensed band, than Wi-Fi is to itself. Our results show that, typically, harmonious coexistence between Wi-Fi and LTE is ensured by the large number of 5 GHz channels
+Link: https://arxiv.org/abs/1609.03498
+====================================================
+Economic Analysis of Crowdsourced Wireless Community Networks (Qian Ma - 31 August, 2016)
+Specifically, we formulate the interactions between the network operator and users as a two-layer Stackelberg model, where the operator determining the pricing scheme in Layer I, and then users determining their Wi-Fi sharing schemes in Layer II. Numerical results demonstrate that when using the partial pricing scheme with only two prices, we can increase the operator's revenue up to 124.44% comparing with the single pricing scheme, and can achieve an average of 80% of the maximum operator revenue under the complete price differentiation scheme.
+Link: https://arxiv.org/abs/1608.08744
+====================================================
+Mobile and Residential INEA Wi-Fi Hotspot Network (Bartosz Musznicki - 23 August, 2016)
+Since 2012 INEA has been developing and expanding the network of IEEE 802.11 compliant Wi-Fi hotspots (access points) located across the Greater Poland region. This network consists of 330 mobile (vehicular) access points carried by public buses and trams and over 20,000 fixed residential hotspots distributed throughout the homes of INEA customers to provide Internet access via the "community Wi-Fi" service. Therefore, this paper is aimed at sharing the insights gathered by INEA throughout 4 years of experience in providing hotspot-based Internet access
+Link: https://arxiv.org/abs/1608.06606
+====================================================
+RFID-Cloud Smart Cart System (Yerlan Berdaliyev - 12 August, 2016)
+It involves an embedded electronic hardware that consists of an OLED display, Arduino Mega 2560 board, a specifically designed PCB, a Wi-Fi module, 13.56 MHz HF RFID reader, a power supply and a shopping cart.
+Link: https://arxiv.org/abs/1608.03724
+====================================================
+Cooperative Wi-Fi Deployment: A One-to-Many Bargaining Framework (Haoran Yu - 5 August, 2016)
+More specifically, we categorize the VOs into three types based on the impact of the Wi-Fi deployment at their venues, and show that it is optimal for the MNO to bargain with these three types of VOs sequentially. Numerical results show that compared with the random and worst bargaining sequences, the optimal bargaining sequence improves the MNO's payoff by up to 14.8% and 45.3%, respectively.
+Link: https://arxiv.org/abs/1608.01827
+====================================================
+LWIP and Wi-Fi Boost Link Management (David Lopez-Perez - 27 July, 2016)
+3GPP LWIP Release 13 technology and its prestandard version Wi-Fi Boost have recently emerged as an efficient LTE and Wi-Fi integration at the IP layer, allowing uplink on LTE and downlink on Wi-Fi. Simulation results in a typical enterprise scenario show that LWIP R13 and Wi-Fi Boost can enhance network performance up to 5x and 6x over LTE-only, and 4x and 5x over Wi-Fi only networks, respectively, and that the the proposed radio link management can further improve Wi-Fi Boost performance over LWIP R13 up to 19 %
+Link: https://arxiv.org/abs/1607.08026
+====================================================
+Breaking Through the Full-Duplex Wi-Fi Capacity Gain (Saulo Queiroz - 31 May, 2016)
+2x the half-duplex throughput) in single-cell Wi-Fi networks. Since in single-cell Wi-Fi networks MAC performance is bounded by the PHY layer capacity, this implies gains strictly less than 2x over half-duplex at the MAC layer. To face this limitation, we argue for the 1:N design guideline. Under 1:N, FD MAC protocols 'see' the FD bandwidth through N>1 orthogonal narrow-channel PHY layers. Based on theoretical results and software defined radio experiments, we show the 1:N design can leverage the Wi-Fi capacity gain more than 2x at and below the MAC layer
+Link: https://arxiv.org/abs/1605.09624
+====================================================
+Efficient High-Speed WPA2 Brute Force Attacks using Scalable Low-Cost FPGA Clustering [Extended Version] (Markus Kammerstetter - 25 May, 2016)
+WPA2-Personal is widely used to protect Wi-Fi networks against illicit access. In this paper, we present a highly optimized low-cost FPGA cluster-based WPA-2 Personal password recovery system that can not only achieve similar performance at a cost affordable by amateurs, but in comparison our implementation would also be more than 5 times as fast on the original hardware. Our results indicate that our system could be used to break into each of more than 160,000 existing Wi-Fi networks requiring 3 days per network on our low-cost FPGA cluster in the worst case.
+Link: https://arxiv.org/abs/1605.07819
+====================================================
+Inter-Technology Coexistence in a Spectrum Commons: A Case Study of Wi-Fi and LTE in the 5 GHz Unlicensed Band (Andra M. Voicu - 10 October, 2016)
+Unlike in licensed bands, where multiple technologies could coexist only in a primary-secondary DSA mode, a spectrum commons offers competition opportunities between multiple dominant technologies, such as Wi-Fi and the recently proposed LTE in the 5 GHz unlicensed band. Finally, we present a case study of IEEE 802.11n Wi-Fi and LTE in the 5 GHz unlicensed band, in order to obtain generalizable insight into coexistence in a spectrum commons. Our extensive simulation results show that LTE/Wi-Fi coexistence in the 5 GHz band can be ensured simply through channel selection schemes, such that time-sharing MAC mechanisms are irrelevant
+Link: https://arxiv.org/abs/1605.06442
+====================================================
+Simulating LTE and Wi-Fi Coexistence in Unlicensed Spectrum with ns-3 (Lorenza Giupponi - 1 July, 2016)
+We illustrate the value of a system simulator by describing a simulation campaign for the indoor scenario designed by 3GPP RAN1 using new ns-3 models for Release 13 LTE Listen Before Talk (LBT) techniques, intended for fair coexistence with Wi-Fi
+Link: https://arxiv.org/abs/1604.06826
+====================================================
+Wi-Fi Scaling and Performance in Dense Frequency Planned Networks (Jonathan Ling - 19 December, 2016)
+The capacity scaling of a Wi-Fi network with fixed transmit power is investigated. The 802.11 MAC appears to impose a hard limit on the area capacity by enforcing single transmissions in overlapped cell coverage areas
+Link: https://arxiv.org/abs/1604.06482
+====================================================
+Cascading Denial of Service Attacks on Wi-Fi Networks (Liangxiao Xin - 17 March, 2018)
+The model predicts that a phase transition (and hence a cascading attack) is possible when the retry limit parameter of Wi-Fi is greater or equal to 7, and explicitly characterizes the phase transition region in terms of the system parameters.
+Link: https://arxiv.org/abs/1604.05255
+====================================================
+Energy-Aware Cooperative Computation in Mobile Devices (Ajita Singh - 13 February, 2016)
+In this setup, a group of cooperative mobile devices, within proximity of each other, (i) use their cellular or Wi-Fi (802.11) links as their primary networking interfaces, and (ii) exploit their device-to-device connections (e.g., Wi-Fi Direct) to overcome processing power and energy bottlenecks
+Link: https://arxiv.org/abs/1602.04400
+====================================================
+NexMon: A Cookbook for Firmware Modifications on Smartphones to Enable Monitor Mode (Matthias Schulz - 24 December, 2015)
+This work focuses on bringing monitor mode to Nexus 5 smartphones to enhance the interoperability between applications that require monitor mode and BCM4339 Wi-Fi chips
+Link: https://arxiv.org/abs/1601.07077
+====================================================
+Wi-Fi/WiGig Coordination for Optimal WiGig Concurrent Transmissions in Random Access Scenario (Ehab Mahmoud Mohamed - 18 January, 2016)
+The proposed coordinated Wi-Fi/WiGig WLAN is based on a tight coordination between the 5 GHz (Wi-Fi) and the 60 GHz (WiGig) unlicensed frequency bands
+Link: https://arxiv.org/abs/1601.04797
+====================================================
+"The Good, The Bad And The Ugly": Evaluation of Wi-Fi Steganography (Krzysztof Szczypiorski - 9 September, 2015)
+To illustrate this method we chose Wi-Fi steganography as a solid family of information hiding protocols. We present the state of the art in this area covering well-known hiding techniques for 802.11 networks
+Link: https://arxiv.org/abs/1508.04978
+====================================================
+Vulnerability Analysis of GWireless (Benjamin Lim - 9 August, 2015)
+As more and more employees demand for Wi-Fi access for their devices, more companies have been jumping onto the "Bring Your Own Device" (BYOD) bandwagon[1] to appease their employees
+Link: https://arxiv.org/abs/1508.02082
+====================================================
+Analyzing Web Behavior in Indoor Retail Spaces (Yongli Ren - 18 June, 2015)
+We analyze 18 million rows of Wi-Fi access logs collected over a one year period from over 120,000 anonymized users at an inner-city shopping mall. We find: (1) the use of Wi-Fi network maps the opening hours of the mall; (2) there is a weekly periodicity in users' visits to the mall; (3) around 60% of registered Wi-Fi users actively browse the Web and around 10% of them use Wi-Fi for accessing Web search engines; (4) people are likely to spend a relatively constant amount of time browsing the Web while their visiting duration may vary; (5) people tend to visit similar mall locations and Web content during their repeated visits to the mall; (6) the physical spatial context has a small but significant influence on the Web content that indoor users browse; (7) accompanying users tend to access resources from the same Web domains.
+Link: https://arxiv.org/abs/1506.05628
+====================================================
+Powering the Next Billion Devices with Wi-Fi (Vamsi Talla - 26 May, 2015)
+Building on our design we prototype, for the first time, battery-free temperature and camera sensors that are powered using Wi-Fi chipsets with ranges of 20 and 17 feet respectively. We also demonstrate the ability to wirelessly recharge nickel-metal hydride and lithium-ion coin-cell batteries at distances of up to 28 feet
+Link: https://arxiv.org/abs/1505.06815
+====================================================
+Incentive Design and Market Evolution of Mobile User-Provided Networks (Mohammad Mahdi Khalili - 19 April, 2015)
+In this paper, we consider such a network where the network operator encourages some of her subscribers to operate as mobile Wi-Fi hotspots (hosts), providing Internet connectivity for other subscribers (clients). Our theoretical and numerical results show that the operator's maximum profit increases with the user density under the proposed hybrid pricing mechanism, and the profit gain can be up to 50\% in a dense network comparing with a pricing-only approach with no incentives.
+Link: https://arxiv.org/abs/1502.06327
+====================================================
+Coexistence of Wi-Fi and Heterogeneous Small Cell Networks Sharing Unlicensed Spectrum (Haijun Zhang - 5 May, 2015)
+In view of this, recent standardization developments have started to consider the opportunities for cellular networks to use the unlicensed spectrum bands, including the 2.4 GHz and 5 GHz bands that are currently used by Wi-Fi, Zigbee and some other communication systems
+Link: https://arxiv.org/abs/1502.04165
+====================================================
+Rigorous and Practical Proportional-fair Allocation for Multi-rate Wi-Fi (Paul Patras - 19 May, 2015)
+Recent experimental studies confirm the prevalence of the widely known performance anomaly problem in current Wi-Fi networks, and report on the severe network utility degradation caused by this phenomenon. Although a large body of work addressed this issue, we attribute the refusal of prior solutions to their poor implementation feasibility with off-the-shelf hardware and their imprecise modelling of the 802.11 protocol. Unlike earlier approaches, in this paper we introduce the first rigorous analytical model of 802.11 stations' throughput and airtime in multi-rate settings, without sacrificing accuracy for tractability. Results demonstrate that our proposal achieves up to 100\% utility gains, can double video streaming goodput and reduces TCP download times by 8x.
+Link: https://arxiv.org/abs/1411.6685
+====================================================
+Wi-Fi Gesture Recognition on Existing Devices (Rajalakshmi Nandakumar - 19 November, 2014)
+We demonstrate the feasibility of our design using a prototype implementation on off-the-shelf Wi-Fi devices. Our results show that we can achieve a classification accuracy of 91% while classifying four gestures across six participants, without the need for per-participant training
+Link: https://arxiv.org/abs/1411.5394
+====================================================
+The Role of Client Isolation in Protecting Wi-Fi Users from ARP Spoofing Attacks (Dr. Timur Mirzoev - 8 April, 2014)
+This study investigates the role of the client isolation technology Public Secure Packet Forwarding (PSPF) in defending 802.11 wireless (Wi-Fi) clients, connected to a public wireless access point, from Address Resolution Protocol (ARP)cache poisoning attacks, or ARP spoofing
+Link: https://arxiv.org/abs/1404.2172
+====================================================
+Saving Energy in Mobile Devices for On-Demand Multimedia Streaming -- A Cross-Layer Approach (Mohammad Ashraful Hoque - 14 March, 2014)
+EStreamer can improve battery lifetime by 3x, 1.5x and 2x while streaming over Wi-Fi, 3G and 4G respectively.
+Link: https://arxiv.org/abs/1403.3710
+====================================================
+Communicating Is Crowdsourcing: Wi-Fi Indoor Localization with CSI-based Speed Estimation (Zhiping Jiang - 24 July, 2013)
+Numerous indoor localization techniques have been proposed recently to meet the intensive demand for location based service, and Wi-Fi fingerprint-based approaches are the most popular and inexpensive solutions. Our extensive evaluations show that the moving distance estimation error of our scheme is within 3% of the actual moving distance regardless of varying speeds and environment. Extensive evaluation results indicate that our scheme C2 IL provides accurate localization with error 2m at 80% at very complex indoor environment with minimal overhead.
+Link: https://arxiv.org/abs/1307.6349
+====================================================
+A Factor Graph Approach to Joint OFDM Channel Estimation and Decoding in Impulsive Noise Environments (Marcel Nassar - 7 June, 2013)
+Impulsive noise arises in many modern wireless and wireline communication systems, such as Wi-Fi and powerline communications, due to uncoordinated interference that is much stronger than thermal noise. Numerical results indicate that the proposed receiver drastically outperforms existing receivers under impulsive noise and comes within 1 dB of the matched-filter bound
+Link: https://arxiv.org/abs/1306.1851
+====================================================
+Adaptive Modulation (QPSK, QAM) (Rao Farhat Masood - 28 February, 2013)
+These modulation techniques are the basis of communications for systems like cable modems, DSL modems, CDMA, 3G, Wi-Fi* (IEEE 802.11) and WiMAX* (IEEE 802.16).
+Link: https://arxiv.org/abs/1302.7145
+====================================================
+Wi-Fi & WiMAX: A Comparative Study (Sourangsu Banerji - 9 March, 2014)
+It provides detailed technical differences between 802.11 (Wi-FI) wireless networks with 802.16 (WiMAX), a new technology that solves many of the difficulties in last-mile implementations.
+Link: https://arxiv.org/abs/1302.2247
+====================================================
+Simplifying the Configuration of 802.11 Wireless Networks with Effective SNR (Daniel Chaim Halperin - 28 January, 2013)
+Advances in the price, performance, and power consumption of Wi-Fi (IEEE 802.11) technology have led to the adoption of wireless functionality in diverse consumer electronics
+Link: https://arxiv.org/abs/1301.6644
+====================================================
+Bulk content delivery using co-operating end-nodes with upload/download limits (A. Majumder - 10 September, 2012)
+Wi-Fi access points with a cache) deployed over a city to serve content to mobile users. Our goal is to develop a mechanism to optimally 1) place data into the caches and 2) route requests to caches to reduce the overall cost of content delivery.
+Link: https://arxiv.org/abs/1209.1887
+====================================================
+WiMAX or Wi-Fi: The Best Suited Candidate Technology for Building Wireless Access Infrastructure (A. F. M Sultanul Kabir - 18 August, 2012)
+This paper presents a description of the existing wireless technology Wi-Fi and WiMAX, and try to compare Wi-Fi (IEEE 802.11) and WiMAX (IEEE 802.16), with respect to which technology provides a better solution to build a wireless access infrastructure
+Link: https://arxiv.org/abs/1208.3769
+====================================================
+The Common Difference Between MIMO With Other Antennas (M. D. Sirajul Huque - 19 August, 2012)
+In past 802.11 systems there is a single Radio Frequency (RF) chain on the Wi-Fi device
+Link: https://arxiv.org/abs/1207.0665
+====================================================
+Push-and-Track: Saving Infrastructure Bandwidth Through Opportunistic Forwarding (John Whitbeck - 18 February, 2012)
+At the same time, 3G-enabled devices increasingly benefit from ad hoc radio connectivity (e.g., Wi-Fi). Based on a realistic large-scale vehicular dataset from the city of Bologna composed of more than 10,000 vehicles, we demonstrate that Push-and-Track consistently meets its delivery objectives while reducing the use of the 3G network by about 90%.
+Link: https://arxiv.org/abs/1201.4292
+====================================================
+SVM and Dimensionality Reduction in Cognitive Radio with Experimental Validation (Shujie Hou - 12 June, 2011)
+The DOF of Wi-Fi signals is extracted by dimensionality reduction techniques. The error rates of classification with only one feature of the proposed algorithm can match the error rates of 13 features of the original data
+Link: https://arxiv.org/abs/1106.2325
+====================================================
+A Dynamic Multimedia User-Weight Classification Scheme for IEEE_802.11 WLANs (Ahmed Riadh Rebai - 17 March, 2011)
+Obviously, over a Wi-Fi link and to better serve these applications - which normally have strict bounded transmission delay or minimum link rate requirement - a service differentiation technique can be applied to the media traffic transmitted by the same mobile node using the well-known 802.11e Enhanced Distributed Channel Access (EDCA) protocol. We provide performance evaluations to compare the proposed access model with the basic EDCA 802.11 MAC protocol mode to elucidate the quality improvement achieved for multimedia communication over 802.11 WLANs.
+Link: https://arxiv.org/abs/1103.3340
+====================================================
+ARQ Security in Wi-Fi and RFID Networks (Mohamed Elsabagh - 15 October, 2010)
+Thus, our Wi-Fi scheme can be readily implemented via only minor modifications over the IEEE 802.11 standards
+Link: https://arxiv.org/abs/1010.3294
+====================================================
+Relieving the Wireless Infrastructure: When Opportunistic Networks Meet Guaranteed Delays (John Whitbeck - 30 May, 2011)
+At the same time, 3G-enabled devices increasingly benefit from ad hoc radio connectivity (e.g., Wi-Fi). Based on a realistic large-scale vehicular dataset from the city of Bologna composed of more than 10,000 vehicles, we demonstrate that Push-and-Track consistently meets its delivery objectives while reducing the use of the 3G network by over 90%.
+Link: https://arxiv.org/abs/1007.5459
+====================================================
+Keys through ARQ: Theory and Practice (Yara Abdallah - 28 May, 2010)
+Building on this theoretical foundation, we propose a unified framework for ARQ-based secrecy in Wi-Fi networks. By exploiting the existing ARQ mechanism in the IEEE 802.11 standard, we develop security overlays that offer strong security guarantees at the expense of only minor modifications in the medium access layer
+Link: https://arxiv.org/abs/1005.5063
+====================================================
+On Tracking the Physicality of Wi-Fi: A Subspace Approach (Mohammed Alloulah - 9 October, 2018)
+Wi-Fi channel state information (CSI) has emerged as a plausible modality for sensing different human activities as a function of modulations in the wireless signal that travels between wireless devices. Our results demonstrate that proposed channel statistics alone can robustly reproduce state of the art application-specific feature engineering baseline, however, across multiple usage scenarios
+Link: https://arxiv.org/abs/1810.04302
+====================================================
+Trends in smart lighting for the Internet of Things (Jorge Higuera - 29 August, 2018)
+The ultimate feature is of additional advanced services serving as the hub for optical communications that allows coexistence with traditional Wi-Fi gateways in indoor environments
+Link: https://arxiv.org/abs/1809.00986
+====================================================
+Energy Efficient and Fair Resource Allocation for LTE-Unlicensed Uplink Networks: A Two-sided Matching Approach with Partial Information (Yuan Gao - 26 August, 2018)
+As there may exist other conventional unlicensed band users, such as Wi-Fi users, LTE-U users have to share the same unlicensed bands with them
+Link: https://arxiv.org/abs/1808.08508
+====================================================
+Implementation and Evaluation of a Cooperative Vehicle-to-Pedestrian Safety Application (Amin Tahmasbi-Sarvestani - 1 August, 2018)
+Recent developments in Wi-Fi Direct and DSRC-enabled smartphones are changing this perspective
+Link: https://arxiv.org/abs/1808.06463
+====================================================
+Criminal Fishing System Based on Wireless Local Area Network Access Points - Can Media Access Control address assist criminal investigation? (Hiroaki Togashi - 16 August, 2018)
+Currently, many Wi-Fi access points are being installed in urban areas
+Link: https://arxiv.org/abs/1808.05346
+====================================================
+One Billion Apples' Secret Sauce: Recipe for the Apple Wireless Direct Link Ad hoc Protocol (Milan Stute - 9 August, 2018)
+While we have found that AWDL drives popular applications such as AirPlay and AirDrop on more than one billion end-user devices, neither the protocol itself nor potential security and Wi-Fi coexistence issues have been studied. Outside the AWs, nodes can tune their Wi-Fi radio to a different channel to communicate with an access point, or could turn it off to save energy
+Link: https://arxiv.org/abs/1808.03156
+====================================================
+Information and Energy Transfer with Experimentally-Sampled Harvesting Functions (Daewon Seo - 17 July, 2018)
+We further show the same principle applies in multicast settings such as medium access in the Wi-Fi protocol
+Link: https://arxiv.org/abs/1807.06493
+====================================================
+Eavesdropping Whilst You're Shopping: Balancing Personalisation and Privacy in Connected Retail Spaces (Vasilios Mavroudis - 14 July, 2018)
+To illustrate challenging tensions in this space we consider the feasibility of technical and legal approaches to both a) the recent `Go' store concept from Amazon which requires fine-grained, multi-modal tracking to function as a shop, and b) current challenges in opting in or out of increasingly pervasive passive Wi-Fi tracking
+Link: https://arxiv.org/abs/1807.05381
+====================================================
+Ethical Implications of Social Internet of Vehicles Systems (Ricardo Silva - 24 June, 2018)
+In SIoV, vehicles can communicate with other vehicles and infrastructure through traditional communication technologies like Wi-Fi, Cellular networks or through Dedicated Short Range Communication (DSRC) etc
+Link: https://arxiv.org/abs/1806.09081
+====================================================
+Holographic Automata for Ambient Immersive A. I. via Reservoir Computing (Theophanes E. Raptis - 20 June, 2018)
+We also examine the significance of their dual representation on a frequency or wavelength domain as a superposition of plane waves for distributed computing applications including a new proposal for a "Hologrid" that could be realized with present Wi-Fi,Li-Fi technologies.
+Link: https://arxiv.org/abs/1806.05108
+====================================================
+Responsive Content-Centric Delivery in Large Urban Communication Networks: A LinkNYC Use-Case (Hassan Sinky - 30 May, 2018)
+LinkNYC is a first-of-its-kind urban communications network aiming to replace all payphones in the five boroughs of New York City (NYC) with kiosk-like structures providing free public Wi-Fi
+Link: https://arxiv.org/abs/1805.12268
+====================================================
+SAS-Assisted Coexistence-Aware Dynamic Channel Assignment in CBRS Band (Xuhang Ying - 18 July, 2018)
+Extensive simulations using a real-world Wi-Fi hotspot location dataset are conducted to evaluate the proposed algorithms
+Link: https://arxiv.org/abs/1805.06053
+====================================================
+Room Recognition Using Discriminative Ensemble Learning with Hidden Markov Models for Smartphones (Jose Luis Carrera V. - 24 April, 2018)
+The localization algorithms are designed for a terminal-based system, which consists of commercial smartphones and Wi-Fi access points
+Link: https://arxiv.org/abs/1804.09005
+====================================================
+SWAM: SDN-based Wi-Fi Small Cells with Joint Access-Backhaul and Multi-Tenant Capabilities (Matteo Grandi - 19 April, 2018)
+In this paper we present SWAM, a system that builds on commodity Wi-Fi routers with multiple wireless interfaces to provide a wireless access infrastructure supporting multi-tenancy, mobility, and integrated wireless access and backhaul
+Link: https://arxiv.org/abs/1804.07106
+====================================================
+AF-DCGAN: Amplitude Feature Deep Convolutional GAN for Fingerprint Construction in Indoor Localization System (Qiyue Li - 15 April, 2018)
+Wi-Fi positioning is currently the mainstream indoor positioning method, and the construction of fingerprint database is crucial to Wi-Fi based localization system
+Link: https://arxiv.org/abs/1804.05347
+====================================================
+Cooperative Strategies for {UAV}-Enabled Small Cell Networks Sharing Unlicensed Spectrum (Yujae Song - 13 April, 2018)
+Wi-Fi) to transmit to the GTs
+Link: https://arxiv.org/abs/1804.04818
+====================================================
+Leveraging Chaos for Wave-Based Analog Computation: Demonstration with Indoor Wireless Communication Signals (Philipp del Hougne - 21 August, 2018)
+We conclude that off-the-shelf wireless communication infrastructure in combination with a simple reflect-array suffices to perform analog computation with Wi-Fi waves reverberating in a room.
+Link: https://arxiv.org/abs/1804.03860
+====================================================
+Lightweight Mobile Ad-hoc Network Routing Protocols for Smartphones (Md Shahzamal - 6 April, 2018)
+As the mobile phones and other modern electronic devices are increasingly equipped with efficient wireless Wi-Fi devices, phone based MANET implementation will open new horizons for off-the-self services for phones as well as IoT implementations
+Link: https://arxiv.org/abs/1804.02139
+====================================================
+A Guide of Fingerprint Based Radio Emitter Localization using Multiple Sensors (Tao Yu - 5 April, 2018)
+They have been successfully used for many location-based applications.From the viewpoint of practical applications, in this paper, four different typical approaches of fingerprint-based radio emitter localization system are introduced with four different representative applications: localization of LTE smart phone used for anti-cheating in exams, indoor localization of Wi-Fi terminals, localized light control in BEMS using location information of occupants, and illegal radio localization in outdoor environments
+Link: https://arxiv.org/abs/1804.02124
+====================================================
+Curiosity-driven Exploration for Mapless Navigation with Deep Reinforcement Learning (Oleksii Zhelo - 14 May, 2018)
+We test our approach in a mapless navigation setting, where the autonomous agent is required to navigate without the occupancy map of the environment, to targets whose relative locations can be easily acquired through low-cost solutions (e.g., visible light localization, Wi-Fi signal localization)
+Link: https://arxiv.org/abs/1804.00456
+====================================================
+QoE-Oriented Resource Allocation for 360-degree Video Transmission over Heterogeneous Networks (Wei Huang - 21 March, 2018)
+To better explore the usage of resource and achieve better quality of experience (QoE) perceived by users, this paper develops an application-layer scheme to jointly exploit the available bandwidth from the LTE and Wi-Fi networks in 360-degree video streaming. This newly proposed scheme and the corresponding solution algorithms utilize the saliency of video, prediction of users' view and the status information of users to obtain an optimal association of the users with different Wi-Fi access points (APs) for maximizing the system's utility
+Link: https://arxiv.org/abs/1803.07789
+====================================================
+End-to-end 5G services via an SDN/NFV-based multi-tenant network and cloud testbed (Raul MuÃ±oz - 20 March, 2018)
+This requirement can be met by efficiently integrating all network segments (radio access, aggregation and core) with heterogeneous wireless and optical technologies (5G, mmWave, LTE/LTE-A, Wi-Fi, Ethernet, MPLS, WDM, software-defined optical transmission, etc.), and massive computing and storage cloud services (offered in edge/core data centers)
+Link: https://arxiv.org/abs/1803.07328
+====================================================
+Analysing the Potential of BLE to Support Dynamic Broadcasting Scenarios (Miran BoriÄ - 6 March, 2018)
+We propose a dynamic method that uses a combination of Wi-Fi and BLE technology where every technology plays a part in a user discovery and broadcasting process
+Link: https://arxiv.org/abs/1803.02309
+====================================================
+Technical Report for "Incentivizing Wi-Fi Network Crowdsourcing: A Contract Theoretic Approach" (Qian Ma - 28 February, 2018)
+Our analysis shows that a user who provides a higher Wi-Fi access quality is more likely to choose a higher Wi-Fi access price and subscription fee, regardless of the user mobility pattern. Simulation results further show that when increasing the average Wi-Fi access quality of users, the operator can gain more profit, but (counter-intuitively) offer lower Wi-Fi access prices and subscription fees for users.
+Link: https://arxiv.org/abs/1802.09391
+====================================================
+Spectrum Sensing Strategy to Enhance the QoS in White-Fi Networks (Nabil Giweli - 11 February, 2018)
+Combining CR and Wi-Fi to form the socalled White-Fi networks, has been proposed for achieving higher spectrum utilization
+Link: https://arxiv.org/abs/1802.03843
+====================================================
+MAGNETO: Covert Channel between Air-Gapped Systems and Nearby Smartphones via CPU-Generated Magnetic Fields (Mordechai Guri - 7 February, 2018)
+The proposed covert channel works even if a smartphone is kept inside a Faraday shielding case, which aims to block any type of inbound and outbound wireless communication (Wi-Fi, cellular, Bluetooth, etc.)
+Link: https://arxiv.org/abs/1802.02317
+====================================================
+Exposing Vulnerabilities in Mobile Networks: A Mobile Data Consumption Attack (Dean Wasil - 24 January, 2018)
+The attack is based on switching the victim's smartphones from the Wi-Fi network to the cellular network while downloading a large data file
+Link: https://arxiv.org/abs/1801.08185
+====================================================
+Wi-Fi Teeter-Totter: Overclocking OFDM for Internet of Things (Wei Wang - 9 January, 2018)
+While the IoT Wi-Fi standard offers many new features to improve power and spectrum efficiency, the basic physical layer (PHY) structure of transceiver design still conforms to its conventional design rationale where access points (AP) and clients employ the same OFDM PHY. In this paper, we argue that current Wi-Fi PHY design does not take full advantage of the inherent asymmetry between AP and IoT
+Link: https://arxiv.org/abs/1801.02811
+====================================================
+Device-to-Device Networking Meets Cellular via Network Coding (Yasaman Keshtkarjahromi - 8 December, 2017)
+In particular, when mobile devices are in close proximity of each other and are interested in the same content, D2D connections such as Wi-Fi Direct can be opportunistically used to construct a cooperative (and jointly operating) cellular and D2D networking system
+Link: https://arxiv.org/abs/1712.03290
+====================================================
+A Scalable Deep Neural Network Architecture for Multi-Building and Multi-Floor Indoor Localization Based on Wi-Fi Fingerprinting (Kyeong Soo Kim - 5 December, 2017)
+Exploiting the hierarchical nature of the building/floor estimation and floor-level coordinates estimation of a location, we propose a new DNN architecture consisting of a stacked autoencoder for the reduction of feature space dimension and a feed-forward classifier for multi-label classification of building/floor/location, on which the multi-building and multi-floor indoor localization system based on Wi-Fi fingerprinting is built. Experimental results for the performance of building/floor estimation and floor-level coordinates estimation of a given location demonstrate the feasibility of the proposed DNN-based indoor localization system, which can provide near state-of-the-art performance using a single DNN, for the implementation with lower complexity and energy consumption at mobile devices.
+Link: https://arxiv.org/abs/1712.01990
+====================================================
+Wi-Fi CSI based Behavior Recognition: From Signals, Actions to Activities (Zhu Wang - 30 November, 2017)
+Recent advances in the wireless technology (e.g., Wi-Fi Channel State Information, i.e., CSI) enable a new behavior recognition paradigm, which is able to recognize behaviors in a device-free and non-intrusive manner. In this article, we first provide an overview of the basics of Wi-Fi CSI based behavior recognition
+Link: https://arxiv.org/abs/1712.00146
+====================================================
+A topology-oblivious routing protocol for NDN-VANETs (Eirini Kalogeiton - 27 November, 2017)
+We minimize the broadcasting nature of Wi-Fi by adding new fields to Interest and Data messages (MMM-VNDN) and also, we deployed a second algorithm that performs the forwarding decisions in the strategy layer of NDN (iMMM-VNDN)
+Link: https://arxiv.org/abs/1711.09870
+====================================================
+Antenna Current Optimization and Realizations for Far-Field Pattern Shaping (Shuai Shi - 24 August, 2018)
+Far-field shaping is in particular interesting for Internet-of-things (IoT) and Wi-Fi applications since e.g
+Link: https://arxiv.org/abs/1711.09709
+====================================================
+A novel JXTA-based architecture for implementing heterogenous Networks of Things (Filippo Battaglia - 22 November, 2017)
+jxCOAP-E enables to realize a RESTful service architecture for peer-to-peer narrowband or broadband networks composed of devices connected via Ethernet, Wi-Fi, Bluetooth, BLE or IEEE 802.15.4. The paper presents EmbJXTAChord, discusses all the relevant design challenges and presents a comparative experimental performance assessment with state-of-the-art solutions on commercial-off-the-shelf devices.
+Link: https://arxiv.org/abs/1711.08218
+====================================================
+A cross-vendor and cross-state analysis of the GPS-probe data latency (Zhongxiang Wang - 17 January, 2018)
+This paper uses high-quality independent Bluetooth/Wi-Fi re-identification data collected on multiple freeway segments in three different states, to measure the latency of the vehicle probe data provided by three major vendors
+Link: https://arxiv.org/abs/1711.02688
+====================================================
+CollabLoc: Privacy-Preserving Multi-Modal Localization via Collaborative Information Fusion (Vidyasagar Sadhu - 29 September, 2017)
+In this paper, a privacy-preserving, multi-modal, cross-building, collaborative localization platform is proposed based on Wi-Fi RSSI (existing infrastructure), Cellular RSSI, sound and light levels, that enables room-level localization as main application (though sub room level granularity is possible)
+Link: https://arxiv.org/abs/1710.08306
+====================================================
+Hybrid Precoder and Combiner Design with Low Resolution Phase Shifters in mmWave MIMO Systems (Zihuan Wang - 17 October, 2017)
+Millimeter wave (mmWave) communications have been considered as a key technology for next generation cellular systems and Wi-Fi networks because of its advances in providing orders-of-magnitude wider bandwidth than current wireless networks
+Link: https://arxiv.org/abs/1710.06192
+====================================================
+Large-Scale Location-Aware Services in Access: Hierarchical Building/Floor Classification and Location Estimation using Wi-Fi Fingerprinting Based on Deep Neural Networks (Kyeong Soo Kim - 10 October, 2017)
+In this paper, we report preliminary results from our investigation on the use of deep neural networks (DNNs) for hierarchical building/floor classification and floor-level location estimation based on Wi-Fi fingerprinting, which we carried out as part of a feasibility study project on Xi'an Jiaotong-Liverpool University (XJTLU) Campus Information and Visitor Service System. The preliminary results for both building/floor classification and floor-level location estimation clearly show the strengths of DNN-based approaches, which can provide near state-of-the-art performance with less parameter tuning and higher scalability.
+Link: https://arxiv.org/abs/1710.00951
+====================================================
+The SysML/KAOS Domain Modeling Approach (Steve Tueno - 2 October, 2017)
+The case study deals with the specification of a localization software component that uses GPS,Wi-Fi and sensor technologies for the realtime localization of the Cycab vehicle, an autonomous ground transportation system designed to be robust and completely independent.
+Link: https://arxiv.org/abs/1710.00903
+====================================================
+Spatial Resource Allocation for Spectrum Reuse in Unlicensed LTE Systems (Rui Yin - 30 August, 2017)
+Based on the analysis, we derive the throughputs of the small cell and the Wi-Fi systems, respectively. Accordingly, a spatial DoF allocation scheme is proposed to balance the throughput between the small cell and the Wi-Fi systems
+Link: https://arxiv.org/abs/1708.09155
+====================================================
+LTE and Wi-Fi Coexistence in Unlicensed Spectrum with Application to Smart Grid: A Review (Yemeserach Mekonnen - 15 August, 2017)
+The challenges of deploying LTE and Wi-Fi in the same band are clearly addressed based on the papers reviewed. The performance of various network architectures such as listenbefore- talk (LBT) based LTE, carrier sense multiple access with collision avoidance (CSMA/CA) based Wi-Fi is briefly compared
+Link: https://arxiv.org/abs/1708.09005
+====================================================
+Device-Aware Routing and Scheduling in Multi-Hop Device-to-Device Networks (Yuxuan Xing - 21 August, 2017)
+We develop (i) a device-aware routing and scheduling algorithm (DARS) by taking into account device capabilities, and (ii) a multi-hop D2D testbed using Android-based smartphones and tablets by exploiting Wi-Fi Direct and legacy Wi-Fi connections. We show that DARS significantly improves throughput in our testbed as compared to state-of-the-art.
+Link: https://arxiv.org/abs/1708.06475
+====================================================
+Massive MIMO Unlicensed for High-Performance Indoor Networks (Adrian Garcia-Rodriguez - 18 August, 2017)
+We demonstrate the spectrum reuse and data rate improvements attained by mMIMO-U by comparing three practical deployments: single-antenna Wi-Fi, where an indoor operator deploys three single-antenna Wi-Fi access points (APs), and two other scenarios where the central AP is replaced by either a mMIMO AP or the proposed mMIMO-U AP
+Link: https://arxiv.org/abs/1708.05575
+====================================================
+Wisture: RNN-based Learning of Wireless Signals for Gesture Recognition in Unmodified Smartphones (Mohamed Abudulaziz Ali Haseeb - 28 July, 2017)
+Wisture relies on the standard Wi-Fi Received Signal Strength (RSS) using a Long Short-Term Memory (LSTM) Recurrent Neural Network (RNN), thresholding filters and traffic induction. Unlike other Wi-Fi based gesture recognition methods, the proposed method does not require a modification of the smartphone hardware or the operating system, and performs the gesture recognition without interfering with the normal operation of other smartphone applications.
+Link: https://arxiv.org/abs/1707.08569
+====================================================
+Non-Saturated Throughput Analysis of Coexistence of Wi-Fi and Cellular With Listen-Before-Talk in Unlicensed Spectrum (Yongjae Kim - 25 July, 2017)
+This paper analyzes the coexistence performance of Wi-Fi and cellular networks conditioned on non-saturated traffic in the unlicensed spectrum. Under the condition, the time-domain behavior of a cellular small-cell base station (SCBS) with a listen-before-talk (LBT) procedure is modeled as a Markov chain, and it is combined with a Markov chain which describes the time-domain behavior of a Wi-Fi access point
+Link: https://arxiv.org/abs/1707.07843
+====================================================
+Secure Location-Aided Routing Protocols With Wi-Fi Direct For Vehicular Ad Hoc Networks (Ma&#39;en Saleh - 3 July, 2017)
+The protocols integrate the security authentication process with the Location-Aided Routing (LAR) protocol to support Wi-Fi Direct communications between the vehicles. The Diffie-Hellman protocol is used with a short authentication string (SAS)-based key agreement over Wi-Fi Direct out-of-band communication channels
+Link: https://arxiv.org/abs/1707.00654
+====================================================
+Look No Further: Adapting the Localization Sensory Window to the Temporal Characteristics of the Environment (Jake Bruce - 23 July, 2017)
+We evaluate this approach on benchmark datasets using visual and Wi-Fi sensor modalities and a variety of sensory comparison front-ends under in-order and out-of-order traversals of the environment
+Link: https://arxiv.org/abs/1706.05772
+====================================================
+Optimal performance of heterogeneous networks bases on the bit rate (Dethie Dione - 14 June, 2017)
+Networks Lte(4G) and Wi-Fi complementarity establishes a heterogeneous system of wireless and mobile networks
+Link: https://arxiv.org/abs/1706.04714
+====================================================
+Classification of Smart Environment Scenarios in combination with a Human-Wearable-Environment-Communication using wireless connectivity (Kristof Friess - 14 June, 2017)
+This article lays out the idea of identifying and re-identifying wearable computing devices by listening to their wireless communication connectivity like Wi-Fi and Bluetooth and building a classification of interaction scenarios for the combination of human-wearable-environment.
+Link: https://arxiv.org/abs/1706.04427
+====================================================
+Pricing and Revenue Sharing for Secondary Data Market (Hengky Susanto - 14 May, 2017)
+To address this, in this paper we propose a dynamic pricing scheme and a revenue sharing mechanism that provide incentives for ISP to support establishment and individual Wi-Fi providers offering Internet access to users. Importantly, our proposed revenue sharing mechanism captures the power negotiation between ISP and Wi-Fi providers, and how shifts in the power balance between the two entities influence revenue division
+Link: https://arxiv.org/abs/1705.04940
+====================================================
+From D2D to Ds2D: Prolonging the Battery Life of Mobile Devices via Ds2D Communications (Muhammad Z. Shakir - 30 March, 2017)
+Smartphones are currently equipped with multiple radio interfaces that enable them to access different types of wireless networks including LTE-direct and Wi-Fi-direct, besides cellular networks
+Link: https://arxiv.org/abs/1703.10719
+====================================================
+Enhancing Coexistence in the Unlicensed Band with Massive MIMO (Giovanni Geraci - 16 March, 2017)
+We evaluate the performance of the so-designed mMIMO-U, showing that it allows simultaneous cellular and Wi-Fi transmissions by keeping their mutual interference below the regulatory threshold. As a result, mMIMO-U boosts the aggregate cellular-plus-Wi-Fi data rate in the unlicensed band with respect to conventional LBT, exhibiting increasing gains as the number of BS antennas grows.
+Link: https://arxiv.org/abs/1703.05690
+====================================================
+Guardian of the HAN: Thwarting Mobile Attacks on Smart-Home Devices Using OS-level Situation Awareness (Soteris Demetriou - 6 March, 2017)
+Those systems tend to rely on the Wi-Fi router to authenticate other devices; as verified in our study, IoT vendors tend to trust all devices connected to the HAN
+Link: https://arxiv.org/abs/1703.01537
+====================================================
+Congestion-Aware Distributed Network Selection for Integrated Cellular and Wi-Fi Networks (Man Hon Cheung - 1 March, 2017)
+Intelligent network selection plays an important role in achieving an effective data offloading in the integrated cellular and Wi-Fi networks. However, previously proposed network selection schemes mainly focused on offloading as much data traffic to Wi-Fi as possible, without systematically considering the Wi-Fi network congestion and the ping-pong effect, both of which may lead to a poor overall user quality of experience
+Link: https://arxiv.org/abs/1703.00216
+====================================================
+Access Strategy in Super WiFi Network Powered by Solar Energy Harvesting: A POMDP Method (Tingwu Wang - 1 January, 2017)
+As traditional cable-connected power supply system becomes impractical or costly for a wide range wireless network, new infrastructure deployment for Super Wi-Fi is required. In this paper, we propose a practical and efficient framework for multiple base stations access strategy in an EH powered Super Wi-Fi network
+Link: https://arxiv.org/abs/1701.00241
+====================================================
+Practical LTE and Wi-Fi Coexistence Techniques beyond LBT (Jonathan Ling - 19 December, 2016)
+Currently Wi-Fi is agnostic of LTE presence in the unlicensed spectrum. Legacy Wi-Fi APs may be programmed to interpret and respond by firmware upgrade at the AP to enhance its channel selection algorithm
+Link: https://arxiv.org/abs/1612.06262
+====================================================
+Performance Analysis of License Assisted Access LTE with Asymmetric Hidden Terminals (H. R. Lee - 13 December, 2016)
+In this paper, we consider an LAA network consisting of an LTE-LAA eNB coexisting with a Wi-Fi STA, and capture the {\em asymmetric hidden terminal problem} where the eNB recognizes the STA while the opposite is not true, which is caused by the asymmetric CCA thresholds between them. First, LTE-LAA should design its contention window (CW) doubling policy by considering Wi-Fi's packet duration and subframe-dependent collision probabilities
+Link: https://arxiv.org/abs/1612.04244
+====================================================
+Activity Recognition Based on Micro-Doppler Signature with In-Home Wi-Fi (Qingchao Chen - 6 November, 2016)
+This paper proposes a novel framework for in-home Wi-Fi signal-based activity recognition in e-healthcare applications using passive micro-Doppler (m-D) signature classification
+Link: https://arxiv.org/abs/1611.01801
+====================================================
+Emerging Wireless Technologies in the Internet of Things: a Comparative Study (Mahmoud Elkhodr - 2 November, 2016)
+Particularly, it focuses on ZigBee, 6LoWPAN, Bluetooth Low Energy, LoRa, and the different versions of Wi-Fi including the recent IEEE 802.11ah protocol
+Link: https://arxiv.org/abs/1611.00861
+====================================================
+D2D-U: Device-to-Device Communications in Unlicensed Bands for 5G and Beyond (Hongliang Zhang - 6 March, 2017)
+We further investigate the subchannel allocation problem to maximize the sum rate of LTE and D2D users while taking into account their interference to the existing Wi-Fi systems
+Link: https://arxiv.org/abs/1610.04982
+====================================================
+Peer provided cell-like networks built out of thin air (Andres Arcia-Moret - 24 September, 2016)
+The success of Wi-Fi technology as an efficient and low-cost last-mile access solution has enabled massive spontaneous deployments generating storms of beacons all across the globe
+Link: https://arxiv.org/abs/1609.07643
+====================================================
+Simulating device-to-device communications in OMNeT++ with SimuLTE: scenarios and configurations (Giovanni Nardini - 16 September, 2016)
+Wi-Fi)
+Link: https://arxiv.org/abs/1609.05173
+====================================================
+WiFi-Direct Simulation for INET in OMNeT++ (Syphax Iskounen - 15 September, 2016)
+In this paper, we present the implementation of Wi-Fi Direct in the INET framework of OMNeT++. We have implemented the main procedures of Wi-Fi Direct such as discovery, negotiation and group formation
+Link: https://arxiv.org/abs/1609.04604
+====================================================
+Android and Wireless data-extraction using Wi-Fi (Bert Busstra - 9 September, 2016)
+In this paper, we study the possibility of extracting data from mobile devices using a Wi-Fi connection
+Link: https://arxiv.org/abs/1609.02966
+====================================================
+Auction-Based Coopetition between LTE Unlicensed and Wi-Fi (Haoran Yu - 8 November, 2016)
+Because the LTE network works in an interference-free manner in the cooperation mode, it can achieve a much larger data rate than that in the competition mode, which allows it to effectively serve both its own users and the Wi-Fi users. We design a second-price reverse auction mechanism, which enables the LTE provider and the Wi-Fi access point owners (APOs) to effectively negotiate the operation mode
+Link: https://arxiv.org/abs/1609.01961
+====================================================
+Public Wi-Fi Monetization via Advertising (Haoran Yu - 21 February, 2017)
+Second, both the VOs' Wi-Fi prices and advertising prices are non-decreasing in the advertising concentration level and non-increasing in the MU visiting frequency. Numerical results further show that the VOs are capable of generating large revenues through mainly providing one type of Wi-Fi access (the premium access or advertising sponsored access), depending on their advertising concentration levels and MU visiting frequencies.
+Link: https://arxiv.org/abs/1609.01951
+====================================================
+Modelling and evaluation of a multi-tag LED-ID platform (Grzegorz Blinowski - 25 August, 2016)
+Low complexity LED-ID installations, being a subset of an emerging class of visible light communication (VLC) systems, may be considered as a replacement of popular RFID tags, Bluetooth tags and Wi-Fi beacons
+Link: https://arxiv.org/abs/1608.07103
+====================================================
+We Can "See" You via Wi-Fi - WiFi Action Recognition via Vision-based Methods (Jen-Yin Chang - 3 April, 2017)
+In this paper, we offer an comprehensive overview on these two topics in Wi-Fi. Observing the great resemblance of Channel State Information (CSI, a fine-grained information captured from the received Wi-Fi signal) to texture, we proposed a brand-new framework based on computer vision methods
+Link: https://arxiv.org/abs/1608.05461
+====================================================
+Fronthauling for 5G LTE-U Ultra Dense Cloud Small Cell Networks (Haijun Zhang - 24 July, 2016)
+We survey the advantages and challenges for various candidate fronthaul technologies such as optical fiber, millimeter-wave based unlicensed spectrum, Wi-Fi based unlicensed spectrum, sub 6GHz based licensed spectrum, and free-space optical based unlicensed spectrum.
+Link: https://arxiv.org/abs/1607.07015
+====================================================
+Embedding LTE-U within Wi-Fi Bands for Spectrum Efficiency Improvement (Qimei Chen - 16 July, 2016)
+We further propose a novel hyper access-point (HAP) that integrates the functionalities of LTE small cell base station and commercial Wi-Fi AP for deployment by cellular network operators. Our proposed LTE-U access embedding within the Wi-Fi protocol is non-disruptive to unlicensed Wi-Fi nodes and demonstrates performance benefits as a seamless and novel LTE and Wi-Fi coexistence technology in unlicensed band
+Link: https://arxiv.org/abs/1607.04729
+====================================================
+Inter-Technology Backscatter: Towards Internet Connectivity for Implanted Devices (Vikram Iyer - 15 July, 2016)
+Specifically, we show for the first time that Bluetooth transmissions can be used to create Wi-Fi and ZigBee-compatible signals using backscatter communication. Since Bluetooth, Wi-Fi and ZigBee radios are widely available, this approach enables a backscatter design that works using only commodity devices.
+Link: https://arxiv.org/abs/1607.04663
+====================================================
+Wi-Fi Coexistence with Duty Cycled LTE-U (Yimin Pang - 2 December, 2016)
+The average throughput and average service time of Wi-Fi are both formulated as functions of Wi-Fi and LTE-U system parameters using probability theory. Lastly, we use the Monte Carlo analysis to demonstrate the fairness of Wi-Fi and LTE-U air time sharing.
+Link: https://arxiv.org/abs/1606.07972
+====================================================
+Light fidelity (LI-FI) based indoor communication system (Farooq Aftab - 9 June, 2016)
+Li-Fi which is an emerging branch of optical wireless communication can be useful in future as a replacement and backup of Wireless Fidelity (Wi-Fi)for indoor communication because it can provide high data rate of transmission along with high capacity to utilize more users as its spectrum bandwidth is much broader than the radio spectrum
+Link: https://arxiv.org/abs/1606.02831
+====================================================
+Drone Streaming with Wi-Fi Grid Aggregation for Virtual Tour (Chenglei Wu - 30 May, 2016)
+To provide a live, active and high-quality virtual touring streaming experience, we propose an unmanned drone stereoscopic streaming paradigm using a control and streaming infrastructure of a 2.4GHz Wi-Fi grid. Our system allows users to actively control the streaming captured by a drone, receive and watch the streaming using a head mount display (HMD); a Wi-Fi grid is deployed across the remote scene with multi-channel support to enable high-bitrate stream- ing broadcast from the drones
+Link: https://arxiv.org/abs/1605.09486
+====================================================
+Improving Crowdsourced Live Streaming with Aggregated Edge Networks (Chenglei Wu - 29 May, 2016)
+In such user-generated video services, crowdsourced live streaming (e.g., Periscope, Twitch) has significantly challenged today's edge network infrastructure: today's edge networks (e.g., 4G, Wi-Fi) have limited uplink capacity support, making high-bitrate live streaming over such links fundamentally impossible
+Link: https://arxiv.org/abs/1605.08969
+====================================================
+Achievable information rates of ambient backscatter communications (Donatella Darsena - 16 May, 2016)
+Ambient backscattering devices reflect existing RF signals emitted by legacy communications systems, such as digital TV broadcasting, cellular or Wi-Fi ones, which would be otherwise treated as harmful sources of interference
+Link: https://arxiv.org/abs/1605.04805
+====================================================
+Detecting Relative Anomaly (Richard Neuberg - 16 May, 2016)
+We illustrate using data sets of potential scraping attempts and Wi-Fi channel utilization, both from Google, Inc.
+Link: https://arxiv.org/abs/1605.03805
+====================================================
+Towards Enabling Broadband for a Billon Plus Population with TV White Spaces (Animesh Kumar - 7 March, 2016)
+The villages can form local Wi-Fi clusters. The problem of connecting the Wi-Fi clusters to the optical fiber points can be addressed using a TV white space based backhaul (middle-mile) network.
+Link: https://arxiv.org/abs/1603.01999
+====================================================
+Refining Wi-Fi Based Indoor Localization with Li-Fi Assisted Model Calibration in Smart Buildings (Qian Huang - 23 February, 2016)
+The proposed technique leverages indoor existing Li-Fi lighting and Wi-Fi infrastructure, and results in a cost-effective and user-convenient indoor accurate localization framework. The results substantiate the concept of refining Wi-Fi based indoor localization with Li-Fi assisted computation calibration.
+Link: https://arxiv.org/abs/1602.07399
+====================================================
+Cognitive Network Cooperation for Green Cellular Networks (Jia Zhu - 18 February, 2016)
+Considering the fact that contemporary terminals (e.g., smart phones) support various wireless access interfaces, we exploit either the Bluetooth or the Wi-Fi network operating within the spectrum holes for supporting cellular communications with the intention of achieving energy savings
+Link: https://arxiv.org/abs/1602.05835
+====================================================
+Spectrum graph coloring and applications to WiFi channel assignment (David Orden - 19 July, 2017)
+We introduce and explore a family of vertex-coloring problems which, surprisingly enough, have not been considered before despite stemming from the problem of Wi-Fi channel assignment. We propose a DSATUR-based heuristic and study its performance to minimize the maximum vertex interference in Wi-Fi channel assignment, both for randomly generated graphs and for a real-world scenario
+Link: https://arxiv.org/abs/1602.05038
+====================================================
+Cellular Communications on License-Exempt Spectrum: A Tutorial (Binyin Ren - 15 January, 2016)
+This tutorial examines the benefits of this concept, the technical challenges, and provides a conceptual LTE-based design example that helps to show how a traditional cellular system like the LTE can adapt itself to a different spectrum type, conform to the regulatory requirements, and harmoniously co-exist with the incumbent systems such as Wi-Fi
+Link: https://arxiv.org/abs/1601.03829
+====================================================
+Power-Delay Tradeoff with Predictive Scheduling in Integrated Cellular and Wi-Fi Networks (Haoran Yu - 28 December, 2015)
+In this paper, we focus on the energy-aware design of the network selection, subchannel, and power allocation in cellular and Wi-Fi networks, while taking into account the traffic delay of mobile users
+Link: https://arxiv.org/abs/1512.06428
+====================================================
+Modeling and Analyzing the Coexistence of Wi-Fi and LTE in Unlicensed Spectrum (Yingzhe Li - 19 February, 2016)
+Compared to the baseline scenario where one Wi-Fi network coexists with an additional Wi-Fi network, our results show that Wi-Fi performance is severely degraded when LTE transmits continuously. However, LTE is able to improve the DST and rate coverage probability of Wi-Fi while maintaining acceptable data rate performance when it adopts one or more of the following coexistence features: a shorter transmission duty cycle, lower channel access priority, or more sensitive clear channel assessment (CCA) thresholds.
+Link: https://arxiv.org/abs/1510.01392
+====================================================
+UB-ANC Drone: A Flexible Airborne Networking and Communications Testbed (Jalil Modares - 21 July, 2018)
+This is in contrast to existing airborne network testbeds, which rely on standard inflexible wireless technologies, e.g., Wi-Fi or Zigbee
+Link: https://arxiv.org/abs/1509.08346
+====================================================
+On Practical Aspects of Mobile Data Offloading to Wi-Fi Networks (Adnan Aijaz - 8 August, 2015)
+Though offloading to Wi-Fi networks has matured over the years, a number of challenges are still being faced by operators to its realization. In this article, we carry out a survey of the practical challenges faced by operators in data traffic offloading to Wi-Fi networks
+Link: https://arxiv.org/abs/1508.01926
+====================================================
+A Green Perspective on Wi-Fi Offloading (Adnan Aijaz - 27 July, 2015)
+On the other hand, Wi-Fi networks are undergoing a paradigm shift towards ubiquity
+Link: https://arxiv.org/abs/1507.07490
+====================================================
+Coordinated Dynamic Spectrum Management of LTE-U and Wi-Fi Networks (Shweta Sagari - 24 July, 2015)
+Further, inter-network coordination with logically centralized radio resource management across Wi-Fi and LTE systems is proposed as a possible solution for improved co-existence. Numerical results are presented showing significant gains in both Wi-Fi and LTE performance with the proposed inter-network coordination approach.
+Link: https://arxiv.org/abs/1507.06881
+====================================================
+Millimeter-wave Wireless LAN and its Extension toward 5G Heterogeneous Networks (Kei Sakaguchi - 16 July, 2015)
+One is the distributed antenna type architecture to realize centralized coordination, while the other is an autonomous coordination with the assistance of legacy Wi-Fi signaling
+Link: https://arxiv.org/abs/1507.04518
+====================================================
+Classical noise, Quantum noise and Secure communication (C. Tannous - 16 September, 2016)
+Secure communication based on message encryption might be performed by combining the message with controlled noise (called pseudo-noise) as performed in Spread-Spectrum communication used presently in Wi-Fi and Smartphone Telecommunication systems
+Link: https://arxiv.org/abs/1506.01889
+====================================================
+A Survey on Wireless Security: Technical Challenges, Recent Advances and Future Trends (Yulong Zou - 23 April, 2016)
+We also provide a survey of the existing security protocols and algorithms that are adopted in the existing wireless network standards, such as the Bluetooth, Wi-Fi, WiMAX, and the long-term evolution (LTE) systems. Then, we discuss the state-of-the-art in physical-layer security, which is an emerging technique of securing the open communications environment against eavesdropping attacks at the physical layer
+Link: https://arxiv.org/abs/1505.07919
+====================================================
+Sub-Nanosecond Time of Flight on Commercial Wi-Fi Cards (Deepak Vasisht - 13 May, 2015)
+In particular, many existing approaches need receivers with large antenna arrays while commercial Wi-Fi nodes have two or three antennas. More fundamentally, none of these methods support indoor positioning between a pair of Wi-Fi devices without~third~party~support.
+Link: https://arxiv.org/abs/1505.03446
+====================================================
+A Game-Theoretic Analysis of User Behaviors in Crowdsourced Wireless Community Networks (Qian Ma - 23 February, 2016)
+A crowdsourced wireless community network can effectively alleviate the limited coverage issue of Wi-Fi access points (APs), by encouraging individuals (users) to share their private residential Wi-Fi APs with each other
+Link: https://arxiv.org/abs/1503.01539
+====================================================
+DAWN: Delay-Aware Wi-Fi Offloading and Network Selection (Man Hon Cheung - 27 February, 2015)
+In this paper, we study the Wi-Fi offloading problem with delay-tolerant applications under usage-based pricing. We first propose a general Delay-Aware Wi-Fi Offloading and Network Selection (DAWN) algorithm for a general single-user decision scenario
+Link: https://arxiv.org/abs/1502.07839
+====================================================
+Content-centric Routing in Wi-Fi Direct Multi-group Networks (Claudio Casetti - 2 December, 2014)
+In this paper, we address the implementation of content-centric routing in a D2D architecture for Android devices based on WiFi Direct, a protocol recently standardised by the Wi-Fi Alliance
+Link: https://arxiv.org/abs/1412.0880
+====================================================
+The ArduSiPM a compact trasportable Software/Hardware Data Acquisition system for SiPM detector (Valerio Bocci - 28 November, 2014)
+A TCP/IP Wi-Fi or Ethernet connection is used both to control and to acquire the ArduSiPM remotely with either a PC software or a Tablet APP (depending on the application).
+Link: https://arxiv.org/abs/1411.7814
+====================================================
+Distributed Discovery Clients for Spectrum Allocation (Torleiv Maseng - 14 November, 2014)
+By using a distributed P2P system where the agents reside in in microprocessors already present in most radio nodes like Wi-Fi access points, base stations, TVs connected to Internet etc, these agents can discover other agents over the back-haul network
+Link: https://arxiv.org/abs/1411.3908
+====================================================
+Secure Key Establishment for Device-to-Device Communications (Wenlong Shen - 9 October, 2014)
+We also integrate our proposed protocol into the existing Wi-Fi Direct protocol, and implement it using Android smartphones.
+Link: https://arxiv.org/abs/1410.2620
+====================================================
+Comparative Performance Analysis of Wireless Communication Protocols for Intelligent Sensors and Their Applications (Saad Chakkor - 24 September, 2014)
+The comparison between the different wireless technologies (Wi-Fi, Wi-Max, UWB, Bluetooth, ZigBee, ZigBeeIP, GSM/GPRS) focuses on their performance which depends on the areas of utilization
+Link: https://arxiv.org/abs/1409.6884
+====================================================
+A Secure TFTP Protocol with Security Proofs (Mohd Anuar Mat Isa - 29 August, 2014)
+The target implementation of secure TFTP is for embedded devices such as Wi-Fi Access Points (AP) and remote Base Stations (BS)
+Link: https://arxiv.org/abs/1409.0060
+====================================================
+Enhanced capacity & coverage by Wi-Fi LTE Integration (Jonathan Ling - 12 June, 2014)
+Data rates, over the Wi-Fi interface, are influenced by the media access protocol, which loses throughput due to delays and unintended collisions when a large number of users are active. This uplink redirection or diversion is achieved by simultaneous use of the Wi-Fi and LTE radio interfaces
+Link: https://arxiv.org/abs/1406.3147
+====================================================
+Indoor Navigation on Google Maps and Indoor Localization Using RSS Fingerprinting (Sagar V. Ramani - 22 May, 2014)
+An attempt has been made to provide solution for indoor navigation on Google maps and to provide location of a user in a building using Wi-Fi signal strength on android Smartphone.
+Link: https://arxiv.org/abs/1405.5669
+====================================================
+Wireless Fidelity Real Time Security System (V. C. K. P. Arul Oli - 26 March, 2014)
+Otherwise an unsecured Wi-Fi connection makes it easier for hackers to access your private files and information, and it allows strangers to use your internet connection. Here are some simple steps you can take to help make sure your data is safe on open public Wi-Fi.
+Link: https://arxiv.org/abs/1405.1019
+====================================================
+MIMO Beamforming in Millimeter-Wave Directional Wi-Fi (Keang-Po Ho - 29 March, 2014)
+Beamforming is indispensable in the operation of 60-GHz millimeter-wave directional multi-gigabit Wi-Fi. To further improve the spectral efficiency in future 60-GHz directional Wi-Fi, alternating least square (ALS) algorithm can form multiple beams between the transmitter and receiver for multi-input-multi-output (MIMO) operations
+Link: https://arxiv.org/abs/1403.7697
+====================================================
+WiFiPos: An In/Out-Door Positioning Tool (Juan Toloza - 6 February, 2014)
+For indoor positioning, the most commonly used technology to calculate the position of mobile devices is Wi-Fi. In this article, we present a positioning tool called WiFiPos based on Wi-Fi signal processing
+Link: https://arxiv.org/abs/1402.1399
+====================================================
+UCAT: Ubiquitous Context Awareness Tools for The Blind (Ivo Rafael - 6 February, 2014)
+Nowadays, mobile devices present significant computing and technological capacity which has been increasing to the point where it is very common for most people to have access to a device with Bluetooth, GPS, Wi-Fi, and both high processing and storage capacities
+Link: https://arxiv.org/abs/1402.1324
+====================================================
+The Power of Smartphones (Feng Xia - 23 December, 2013)
+Additionally, it avoids the long periods in idle state and greatly reduces the number of unnecessary Wi-Fi scans on the mobile device. Our experiments and simulations demonstrate that our scheme effectively saves energy for smartphones integrated with Wi-Fi and cellular interfaces.
+Link: https://arxiv.org/abs/1312.6740
+====================================================
+Mobile Multimedia Streaming Techniques : QoE and Energy Consumption Perspective (Mohammad Ashraful Hoque - 24 May, 2014)
+The energy consumption mostly depends on the delivery techniques and on the power management techniques of wireless access technologies (Wi-Fi, 3G, and 4G). In order to provide insights on what kind of streaming techniques exist, how they work on different mobile platforms, their efforts in providing smooth quality of experience, and their impact on energy consumption of mobile phones, we did a large set of active measurements with several smartphones having both Wi-Fi and cellular network access
+Link: https://arxiv.org/abs/1311.4317
+====================================================
+Combining smart card data and household travel survey to analyze jobs-housing relationships in Beijing (Ying Long - 23 September, 2013)
+Research has investigated urban dynamics using GSM (Global System for Mobile Communications), GPS (Global Positioning System), SNS (Social Networking Services) and Wi-Fi techniques
+Link: https://arxiv.org/abs/1309.5993
+====================================================
+Improved Quality of Service Protocol for Real Time Traffic in MANET (Iftikhar Ahmad - 13 August, 2013)
+The technologies like Wi-Fi, Blue tooth, WiMax etc
+Link: https://arxiv.org/abs/1308.2797
+====================================================
+Investigation of indoor localization with ambient FM radio stations (Andrei Popleteev - 6 August, 2013)
+The de-facto standard for indoor positioning is based on Wi-Fi and while other localization alternatives exist, they either require expensive hardware or provide a low accuracy. The experimental results show that FM radio can be used for indoor localization, while providing longer battery life than Wi-Fi, making FM an alternative to consider for positioning.
+Link: https://arxiv.org/abs/1308.1606
+====================================================
+Wi-Fi Offload: Tragedy of the Commons or Land of Milk and Honey? (Patrick Zwickl - 29 July, 2013)
+We will closely compare the prospects and strategic positioning of fixed line operators offering Wi-Fi services with respect to competing mobile network operators utilizing unlicensed spectrum. Our results highlight important dependencies upon inter-operator collaboration models, and more importantly, upon the ratio between backhaul and Wi-Fi access bit-rates
+Link: https://arxiv.org/abs/1307.7612
+====================================================
+Context-aware QR-codes (Dmitry Namiot - 5 July, 2013)
+We present a novelty mobile mashup which combines Wi-Fi proximity measurements with QR-codes
+Link: https://arxiv.org/abs/1307.7597
+====================================================
+Security for Smart Mobile Networks: The NEMESYS Approach (Erol Gelenbe - 2 July, 2013)
+Furthermore, complementary access methods such as Wi-Fi and femtocells introduce additional vulnerabilities for the mobile users as well as the core network
+Link: https://arxiv.org/abs/1307.0687
+====================================================
+Mobile Services and Network Proximity (Dmitry Namiot - 19 May, 2013)
+All applications share the same approach and use the common platform, based on the Wi-Fi proximity
+Link: https://arxiv.org/abs/1305.4348
+====================================================
+Local Messages for Smartphones (Dmitry Namiot - 17 May, 2013)
+We present a novelty mobile mashup which combines Wi-Fi proximity measurements with Cloud Messaging
+Link: https://arxiv.org/abs/1305.4163
+====================================================
+Energy Efficiency of Network Cooperation for Cellular Uplink Transmissions (Yulong Zou - 31 January, 2013)
+Since today's wireless terminals are typically equipped with multiple network access interfaces such as Bluetooth, Wi-Fi, and cellular networks, this paper investigates user terminals cooperating with each other in transmitting their data packets to a base station (BS) by exploiting the multiple network access interfaces, referred to as inter-network cooperation, to improve the energy efficiency in cellular uplink transmission
+Link: https://arxiv.org/abs/1301.7515
+====================================================
+Cost Efficient High Capacity Indoor Wireless Access: Denser Wi-Fi or Coordinated Pico-cellular? (Du Ho Kang - 19 November, 2012)
+Numerical results show that dense Wi-Fi is the cheapest solution at a relatively low demand level. Beyond this Wi-Fi network limit, the conventional pico-cellular network works and is cheaper than the joint processing in obstructed environments, e.g., furnished offices with walls
+Link: https://arxiv.org/abs/1211.4392
+====================================================
+Exploiting Network Cooperation in Green Wireless Communication (Yulong Zou - 14 October, 2012)
+Since today's wireless terminals are typically equipped with multiple network access interfaces such as Bluetooth, Wi-Fi, and cellular networks, this paper investigates user terminals cooperating with each other in transmitting their data packets to the base station (BS), by exploiting the multiple network access interfaces, called inter-network cooperation
+Link: https://arxiv.org/abs/1210.3835
+====================================================
+Large-Scale Distributed Internet-based Discovery Mechanism for Dynamic Spectrum Allocation (Magnus Skjegstad - 18 March, 2014)
+The protocol has also been implemented as proof-of-concept in real Wi-Fi routers.
+Link: https://arxiv.org/abs/1210.3552
+====================================================
+A Simultaneous-Movement Mobile Multiplayer Game Design based on Adaptive Background Partitioning Technique (Samuel King Opoku - 13 September, 2012)
+The proposed design is implemented and tested using Bluetooth and Wi-Fi communication technologies
+Link: https://arxiv.org/abs/1209.3052
+====================================================
+Investigating Streaming Techniques and Energy Efficiency of Mobile Video Services (Mohammad Ashraful Hoque - 13 September, 2012)
+We measure and analyze the traffic and energy consumption when streaming different quality videos over Wi-Fi and 3G
+Link: https://arxiv.org/abs/1209.2855
+====================================================
+Personal Safety Triggering System on Android Mobile Platform (Ashokkumar Ramalingam - 10 August, 2012)
+Smart phones are equipped with various sophisticated features such as Wi-Fi, GPS navigation, high resolution camera, touch screen with broadband access which helps the mobile phone users to keep in touch with the modern world
+Link: https://arxiv.org/abs/1208.3138
+====================================================
+Rejecting the Attack: Source Authentication for Wi-Fi Management Frames using CSI Information (Zhiping Jiang - 22 May, 2013)
+Comparing to well protected data frames, Wi-Fi management frames (MFs) are extremely vulnerable to various attacks
+Link: https://arxiv.org/abs/1208.0412
+====================================================
+Bluetooth Navigation System using Wi-Fi Access Points (Rohit Agrawal - 8 April, 2012)
+There have been various navigation and tracking systems being developed with the help of technologies like GPS, GSM, Bluetooth, IR, Wi-Fi and Radar. The system that has been introduced here uses Bluetooth primarily for positioning and tracking in combination with Wi-Fi access points
+Link: https://arxiv.org/abs/1204.1748
+====================================================
+Mobile P2P Trusted On-Demand Video Streaming (Thava Iyer - 31 March, 2012)
+Our proposed solution uses a combination of 3G and ad-hoc Wi-Fi connections, to enable mobile devices to download content from a centralised server in a way that minimises the 3G bandwidth use and cost
+Link: https://arxiv.org/abs/1204.0094
+====================================================
+"Performance Evaluation of Wi-Fi comparison with WiMAX Networks" (M. Sreerama Murty - 13 February, 2012)
+It's evaluated the Quality of Service (Qos) in Wi-Fi compare with WiMAX and provides the various kinds of security Mechanisms. Take necessary actions and configurations that are needed in order to deploy Wi-Fi -WiMAX with increased levels of security and privacy
+Link: https://arxiv.org/abs/1202.2634
+====================================================
+Mobile Advertisement in Vehicular Ad-Hoc Networks (Ciprian Dobre - 12 February, 2012)
+The results show that the application can be used for transferring a significant amount of data even under difficult conditions, such as when cars are moving at increased speeds, or the congested Wi-Fi network causes significant packet loss.
+Link: https://arxiv.org/abs/1202.2573
+====================================================
+A-GPS Assisted Wi-Fi Access Point Discovery on Mobile Devices for Energy Saving (Feng Xia - 30 December, 2011)
+Therefore, it avoids the long periods in idle state and greatly reduces the number of unnecessary Wi-Fi scans on the mobile device. The experimental results demonstrate that our scheme effectively saves energy for mobile devices integrated with Wi-Fi and cellular interfaces.
+Link: https://arxiv.org/abs/1201.0219
+====================================================
+E-DTN : A Multi-Interface Energy DTN Gateway (T. V Prabhakar - 17 July, 2011)
+Our multi-interface WSN gateway is equipped with Bluetooth, Wi-Fi and GPRS technologies
+Link: https://arxiv.org/abs/1107.3294
+====================================================
+Personal Marks and Community Certificates: Detecting Clones in Mobile Wireless Networks of Smart-Phones (Marco Valerio Barbera - 18 May, 2011)
+These networks are composed by nodes that have the capability of using short-range communication technology like blue-tooth or Wi-Fi, where nodes are carried by mobile users, and where links appear and disappear according to the social relationships between the users
+Link: https://arxiv.org/abs/1105.3716
+====================================================
+An Autonomous Long Range Monitoring System For Emergency Operators (Matteo Lanati - 28 February, 2011)
+The LRS infrastructure is based on Wi-Fi protocol and modular architecture
+Link: https://arxiv.org/abs/1102.5670
+====================================================
+Distributed Resource Allocation for Proportional Fairness in Multi-Band Wireless Systems (I-Hong Hou - 12 February, 2011)
+A challenging problem in multi-band multi-cell self-organized wireless systems, such as multi-channel Wi-Fi networks, femto/pico cells in 3G/4G cellular networks, and more recent wireless networks over TV white spaces, is of distributed resource allocation
+Link: https://arxiv.org/abs/1102.2553
+====================================================
+Multicriteria Steiner Tree Problem for Communication Network (Mark Sh. Levin - 12 February, 2011)
+An illustrative numerical example corresponds to designing a covering long-distance Wi-Fi network (static Ad-Hoc network)
+Link: https://arxiv.org/abs/1102.2524
+====================================================
+Secure Routing in Wireless Mesh Networks (Jaydip Sen - 6 February, 2011)
+Unlike traditional Wi-Fi networks, with each access point (AP) connected to the wired network, in WMNs only a subset of the APs are required to be connected to the wired network
+Link: https://arxiv.org/abs/1102.1226
+====================================================
+Modeling and Solving AP Location and Frequency Assignment for Maximizing Access Efficiency in Wi-Fi Networks (Sandro Bosio - 26 January, 2011)
+In this paper, we present optimization approaches for Access Point (AP) location and frequency assignment, two major planning tasks in deploying Wi-Fi networks
+Link: https://arxiv.org/abs/1101.5027
+====================================================
+Seamless Flow Migration on Smartphones without Network Support (Ahmad Rahmati - 14 December, 2010)
+AutoSwitch improves the Wi-Fi user experience by intelligently migrating TCP flows between Wi-Fi and cellular networks
+Link: https://arxiv.org/abs/1012.3071
+====================================================
+A Longitudinal Study of Non-Voice Mobile Phone Usage by Teens from an Underserved Urban Community (Ahmad Rahmati - 13 December, 2010)
+We report a user study of over four months on the non-voice usage of mobile phones by teens from an underserved urban community in the USA where a community-wide, open-access Wi-Fi network exists
+Link: https://arxiv.org/abs/1012.2832
+====================================================
+Interference Alignment Through User Cooperation for Two-cell MIMO Interfering Broadcast Channels (Wonjae Shin - 16 November, 2010)
+It corresponds to a downlink scenario for cellular networks with two base stations (BSs), and $K$ users equipped with Wi-Fi interfaces enabling to cooperate among users on a peer-to-peer basis
+Link: https://arxiv.org/abs/1011.3867
+====================================================
+Weighted Max-Min Resource Allocation for Frequency Selective Channels (Ephi Zehavi - 7 August, 2010)
+The solution is relevant to many communication systems that are limited by a power spectral density mask constraint such as WiMax, Wi-Fi and UWB.
+Link: https://arxiv.org/abs/1008.1372
+====================================================
+Analysis of Frequency-Agile CSMA Wireless Networks (Soung Chang Liew - 29 July, 2010)
+Furthermore, the MAC can be implemented on the existing multiple-frequency setup in Wi-Fi using multi-radio technology, and it can co-exist with the legacy MAC using single radio
+Link: https://arxiv.org/abs/1007.5255
+====================================================
+Flexible Authentication Technique for Ubiquitous Wireless Communication using Passport and Visa Tokens (Abdullah M. Almuhaideb - 29 March, 2010)
+The development of mobile devices (CPU, memory, and storage) and the introduction of mobile networks (Ad-Hoc, Wi-Fi, WiMAX, and 3.5G) have opened new opportunities for next generation of mobile services
+Link: https://arxiv.org/abs/1003.5619
+====================================================
+Geometric and Signal Strength Dilution of Precision (DoP)Wi-Fi (Soumaya Zirari - 12 September, 2009)
+In this paper we present Geometric and Signal Strength Dilution of Precision (DOP) for positioning systems based on Wi-Fi and Signal Strength measurements.
+Link: https://arxiv.org/abs/0909.2377
+====================================================
+Inquiring the Potential of Evoking Small-World Properties for Self-Organizing Communication Networks (Matthias R. Brust - 11 June, 2007)
+using Wi-Fi or Bluetooth-and additionally also with arbitrary remote devices-e.g
+Link: https://arxiv.org/abs/0706.1096
+====================================================
+The heterogeneity of inter-contact time distributions: its importance for routing in delay tolerant networks (Vania Conan - 5 January, 2007)
+We demonstrate the presence of such heterogeneity in the often-used Dartmouth Wi-Fi data set
+Link: https://arxiv.org/abs/cs/0609068
+====================================================
