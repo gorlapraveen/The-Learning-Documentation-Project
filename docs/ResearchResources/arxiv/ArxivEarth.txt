@@ -1,0 +1,975 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+DuPLO: A DUal view Point deep Learning architecture for time series classificatiOn (Roberto Interdonato - 20 September, 2018)
+Nowadays, modern Earth Observation systems continuously generate huge amounts of data. A notable example is represented by the Sentinel-2 mission, which provides images at high spatial resolution (up to 10m) with high temporal revisit period (every 5 days), which can be organized in Satellite Image Time Series (SITS)
+Link: https://arxiv.org/abs/1809.07589
+====================================================
+The largest cognitive systems will be optoelectronic (Jeffrey M. Shainline - 7 September, 2018)
+At frequencies of cortex-wide integration in the human brain ($4$\,Hz, theta band), optoelectronic systems could integrate information across the surface of the earth.
+Link: https://arxiv.org/abs/1809.02572
+====================================================
+Current potentials and challenges using Sentinel-1 for broadacre field remote sensing (Martin Peter Christiansen - 4 September, 2018)
+ESA operates the Sentinel-1 satellites, which provides Synthetic Aperture Radar (SAR) data of Earth. The presented application examples are all based on Denmark, where we have processed all sentinel-1 scan from since 2016.
+Link: https://arxiv.org/abs/1809.01652
+====================================================
+Automatic Ship Detection of Remote Sensing Images from Google Earth in Complex Scenes Based on Multi-Scale Rotation Dense Feature Pyramid Networks (Xue Yang - 12 June, 2018)
+Experiments based on remote sensing images from Google Earth for ship detection show that our detection method based on R-DFPN representation has a state-of-the-art performance.
+Link: https://arxiv.org/abs/1806.04331
+====================================================
+Federated Learning with Non-IID Data (Yue Zhao - 2 June, 2018)
+We further show that this accuracy reduction can be explained by the weight divergence, which can be quantified by the earth mover's distance (EMD) between the distribution over classes on each device and the population distribution. Experiments show that accuracy can be increased by 30% for the CIFAR-10 dataset with only 5% globally shared data.
+Link: https://arxiv.org/abs/1806.00582
+====================================================
+Environment-Aware Deployment of Wireless Drones Base Stations with Google Earth Simulator (Aaron French - 26 May, 2018)
+Simulation results using a real area of the Virginia Tech campus show that the proposed environment-aware drone deployment framework with Google Earth input significantly enhances the network performance in terms of coverage and energy consumption, compared to classical deployment approaches that do not exploit geographical information. In particular, the results show that the proposed approach yields a coverage enhancement by a factor of 2, and a 65% improvement in energy-efficiency
+Link: https://arxiv.org/abs/1805.10424
+====================================================
+30m resolution Global Annual Burned Area Mapping based on Landsat images and Google Earth Engine (Tengfei Long - 7 May, 2018)
+By utilizing the huge catalog of satellite imagery as well as the high-performance computing capacity of Google Earth Engine, we proposed an automated pipeline for generating 30-meter resolution global-scale annual burned area map from time-series of Landsat images, and a novel 30-meter resolution global annual burned area map of 2015 (GABAM 2015) is released. GABAM 2015 consists of spatial extent of fires that occurred during 2015 and not of fires that occurred in previous years. Cross-comparison with recent Fire_cci version 5.0 BA product found a similar spatial distribution and a strong correlation ($R^2=0.74$) between the burned areas from the two products, although differences were found in specific land cover categories (particularly in agriculture land). Preliminary global validation showed the commission and omission error of GABAM 2015 are 13.17% and 30.13%, respectively.
+Link: https://arxiv.org/abs/1805.02579
+====================================================
+Learning Spectral-Spatial-Temporal Features via a Recurrent Convolutional Neural Network for Change Detection in Multispectral Imagery (Lichao Mou - 7 March, 2018)
+Change detection is one of the central problems in earth observation and was extensively investigated over recent decades. In comparison with previous approaches to change detection, the proposed network architecture possesses three distinctive properties: 1) It is end-to-end trainable, in contrast to most existing methods whose components are separately trained or computed; 2) it naturally harnesses spatial information that has been proven to be beneficial to change detection task; 3) it is capable of adaptively learning the temporal dependency between multitemporal images, unlike most of algorithms that use fairly simple operation like image differencing or stacking
+Link: https://arxiv.org/abs/1803.02642
+====================================================
+M3Fusion: A Deep Learning Architecture for Multi-{Scale/Modal/Temporal} satellite data fusion (P. Benedetti - 5 March, 2018)
+Modern Earth Observation systems provide sensing data at different temporal and spatial resolutions. Among optical sensors, today the Sentinel-2 program supplies high-resolution temporal (every 5 days) and high spatial resolution (10m) images that can be useful to monitor land cover dynamics
+Link: https://arxiv.org/abs/1803.01945
+====================================================
+Multi-Temporal Land Cover Classification with Sequential Recurrent Encoders (Marc RuÃwurm - 7 April, 2018)
+Earth observation (EO) sensors deliver data with daily or weekly temporal resolution. Inspired by these sequence-to-sequence models, we adapt an encoder structure with convolutional recurrent layers in order to approximate a phenological model for vegetation classes based on a temporal sequence of Sentinel 2 (S2) images
+Link: https://arxiv.org/abs/1802.02080
+====================================================
+SPIN: A Fast and Scalable Matrix Inversion Method in Apache Spark (Chandan Misra - 15 January, 2018)
+The growth of big data in domains such as Earth Sciences, Social Networks, Physical Sciences, etc. In this paper, we propose a different scheme based on Strassen's matrix inversion algorithm (mentioned in Strassen's original paper in 1969), which uses far fewer operations at each level of recursion
+Link: https://arxiv.org/abs/1801.04723
+====================================================
+DOTA: A Large-scale Dataset for Object Detection in Aerial Images (Gui-Song Xia - 27 January, 2018)
+To advance object detection research in Earth Vision, also known as Earth Observation and Remote Sensing, we introduce a large-scale Dataset for Object deTection in Aerial images (DOTA). To this end, we collect $2806$ aerial images from different sensors and platforms. These DOTA images are then annotated by experts in aerial image interpretation using $15$ common object categories. The fully annotated DOTA images contains $188,282$ instances, each of which is labeled by an arbitrary (8 d.o.f.) quadrilateral To build a baseline for object detection in Earth Vision, we evaluate state-of-the-art object detection algorithms on DOTA
+Link: https://arxiv.org/abs/1711.10398
+====================================================
+The Galactic Dependencies Treebanks: Getting More Data by Synthesizing New Languages (Dingquan Wang - 10 October, 2017)
+We release Galactic Dependencies 1.0---a large set of synthetic languages not found on Earth, but annotated in Universal Dependencies format
+Link: https://arxiv.org/abs/1710.03838
+====================================================
+Small Satellite Constellation Separation using Linear Programming based Differential Drag Commands (Emmanuel Sin - 29 September, 2017)
+We demonstrate the ability to control a cluster of 100+ satellites starting at the same initial conditions in a circular low Earth orbit to form an equally spaced constellation (with a relative angular separation error tolerance of one-tenth a degree). The constellation separation task can be executed in 71 days, a time frame that is competitive for the state-of-the-practice
+Link: https://arxiv.org/abs/1710.00104
+====================================================
+An Information Theoretic Approach to Sample Acquisition and Perception in Planetary Robotics (Garrett Fleetwood - 14 September, 2017)
+An important and emerging component of planetary exploration is sample retrieval and return to Earth. The approach shows robustness to simulated sensor noise of up to 20%
+Link: https://arxiv.org/abs/1709.04617
+====================================================
+Learning Populations of Parameters (Kevin Tian - 22 November, 2017)
+cumulative density function) of the $p_i$'s? While the empirical estimates would recover the histogram to earth mover distance $Î(\frac{1}{\sqrt{t}})$ (equivalently, $\ell_1$ distance between the CDFs), we show that, provided $n$ is sufficiently large, we can achieve error $O(\frac{1}{t})$ which is information theoretically optimal
+Link: https://arxiv.org/abs/1709.02707
+====================================================
+EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification (Patrick Helber - 31 August, 2017)
+For this challenging task, we use the openly and freely accessible Sentinel-2 satellite images provided within the scope of the Earth observation program Copernicus. We present a novel dataset based on satellite images covering 13 different spectral bands and consisting of 10 classes with in total 27,000 labeled images. With the proposed novel dataset, we achieved an overall classification accuracy of 98.57%
+Link: https://arxiv.org/abs/1709.00029
+====================================================
+Deep-Learning Convolutional Neural Networks for scattered shrub detection with Google Earth Imagery (Emilio Guirado - 3 June, 2017)
+This paper analyzes the potential of CNNs-based methods for plant species detection using free high-resolution Google Earth T M images and provides an objective comparison with the state-of-the-art OBIA-methods
+Link: https://arxiv.org/abs/1706.00917
+====================================================
+City-Scale Intelligent Systems and Platforms (Klara Nahrstedt - 4 May, 2017)
+As of 2014, 54% of the earth's population resides in urban areas, and it is steadily increasing, expecting to reach 66% by 2050. Urban areas range from small cities with tens of thousands of people to megacities with greater than 10 million people. Roughly 12% of the global population today lives in 28 megacities, and at least 40 are projected by 2030
+Link: https://arxiv.org/abs/1705.01990
+====================================================
+DeepSD: Generating High Resolution Climate Change Projections through Single Image Super-Resolution (Thomas Vandal - 8 March, 2017)
+However, contemporary Earth System Models (ESM) are run at spatial resolutions too coarse for assessing effects this localized. We provide a comparison with Bias Correction Spatial Disaggregation as well as three Automated-Statistical Downscaling approaches in downscaling daily precipitation from 1 degree (~100km) to 1/8 degrees (~12.5km) over the Continental United States. Furthermore, a framework using the NASA Earth Exchange (NEX) platform is discussed for downscaling more than 20 ESM models with multiple emission scenarios.
+Link: https://arxiv.org/abs/1703.03126
+====================================================
+Building up user confidence for the spaceborne derived global and continental land cover products for the Mediterranean region: the case of Thessaly (Ioannis Manakos - 25 February, 2017)
+Google Earth imagery was employed to assess the accuracy of three land cover products, i.e., Globeland30, HRLs and CLC 2012, for the years 2010 and 2012. Reported rates indicate a minimum weighted overall accuracy of 84%. By integrating confidence levels during the ground truth annotation, stratified sampling on the several Corine Level 3 subclasses and the weighted overall accuracy assessment, the different aspects of the considered land cover products can be highlighted more objectively.
+Link: https://arxiv.org/abs/1702.07890
+====================================================
+Control of a Bucket-Wheel for Surface Mining of Asteroids and Small-Bodies (Ravi teja Nallapu - 21 February, 2017)
+Near Earth Asteroids (NEAs) are thought to contain a wealth of resources, including water, iron, titanium, nickel, platinum and silicates. Regolith is excavated and heated to 1000 C to extract water
+Link: https://arxiv.org/abs/1702.00335
+====================================================
+Attitude Control of the Asteroid Origins Satellite 1 (AOSAT 1) (Raviteja Nallapu - 25 January, 2017)
+Exploration of asteroids and small-bodies can provide valuable insight into the origins of the solar system, into the origins of Earth and the origins of the building blocks of life. The Asteroid Origins Satellite 1 (AOSAT 1) is a CubeSat centrifuge laboratory that spins at up to 4 rpm to simulate the milligravity conditions of sub 1 km asteroids. AOSAT 1 will be the first in a series of low-cost CubeSat centrifuges that will be launched setting the stage for a larger, permanent, on-orbit centrifuge laboratory for experiments in planetary science, life sciences and manufacturing.
+Link: https://arxiv.org/abs/1701.09094
+====================================================
+Optimized Bucket Wheel Design for Asteroid Excavation (Ravi Teja Nallapu - 25 January, 2017)
+We show that a return trip from Deimos to Earth is possible for a 12 kg craft using ISRU processed fuel.
+Link: https://arxiv.org/abs/1701.07547
+====================================================
+Methods for Mapping Forest Disturbance and Degradation from Optical Earth Observation Data: a Review (Manuela Hirschmugl - 22 March, 2017)
+Purpose of review: This paper presents a review of the current state of the art in remote sensing based monitoring of forest disturbances and forest degradation from optical Earth Observation data
+Link: https://arxiv.org/abs/1701.02470
+====================================================
+Stage 4 validation of the Satellite Image Automatic Mapper lightweight computer program for Earth observation Level 2 product generation, Part 2 Validation (Andrea Baraldi - 8 January, 2017)
+The European Space Agency (ESA) defines an Earth Observation (EO) Level 2 product as a multispectral (MS) image corrected for geometric, atmospheric, adjacency and topographic effects, stacked with its scene classification map (SCM) whose legend includes quality layers such as cloud and cloud-shadow. No ESA EO Level 2 product has ever been systematically generated at the ground segment. To contribute toward filling an information gap from EO big sensory data to the ESA EO Level 2 product, a Stage 4 validation (Val) of an off the shelf Satellite Image Automatic Mapper (SIAM) lightweight computer program for prior knowledge based MS color naming was conducted by independent means. National Land Cover Data (NLCD) 2006 map. The previous Part 1 Theory provided the multidisciplinary background of a priori color naming. The present Part 2 Validation presents and discusses Stage 4 Val results collected from the test SIAM WELD map time series and the reference NLCD map by an original protocol for wall to wall thematic map quality assessment without sampling, where the test and reference map legends can differ in agreement with the Part 1. Conclusions are that the SIAM-WELD maps instantiate a Level 2 SCM product whose legend is the FAO Land Cover Classification System (LCCS) taxonomy at the Dichotomous Phase (DP) Level 1 vegetation/nonvegetation, Level 2 terrestrial/aquatic or superior LCCS level.
+Link: https://arxiv.org/abs/1701.01932
+====================================================
+Stage 4 validation of the Satellite Image Automatic Mapper lightweight computer program for Earth observation Level 2 product generation, Part 1 Theory (Andrea Baraldi - 8 January, 2017)
+The European Space Agency (ESA) defines an Earth Observation (EO) Level 2 product as a multispectral (MS) image corrected for geometric, atmospheric, adjacency and topographic effects, stacked with its scene classification map (SCM), whose legend includes quality layers such as cloud and cloud-shadow. No ESA EO Level 2 product has ever been systematically generated at the ground segment. To contribute toward filling an information gap from EO big data to the ESA EO Level 2 product, an original Stage 4 validation (Val) of the Satellite Image Automatic Mapper (SIAM) lightweight computer program was conducted by independent means on an annual Web-Enabled Landsat Data (WELD) image composite time-series of the conterminous U.S. The present Part 1 Theory provides the multidisciplinary background of a priori color naming in cognitive science, from linguistics to computer vision. The subsequent Part 2 Validation discusses Stage 4 Val results collected by an original protocol for wall-to-wall thematic map quality assessment without sampling where the test and reference map legends can differ. Conclusions are that the SIAM-WELD maps instantiate a Level 2 SCM product whose legend is the 4 class taxonomy of the FAO Land Cover Classification System at the Dichotomous Phase Level 1 vegetation/nonvegetation and Level 2 terrestrial/aquatic.
+Link: https://arxiv.org/abs/1701.01930
+====================================================
+An In Situ Measurement System for Characterizing Orbital Debris (Michael A. Tsao - 12 December, 2016)
+The DRAGONS system is designed to detect impacts caused by particles ranging from 50 micrometers to 1 mm at both low-earth and geostationary orbits. Laboratory results demonstrate that in addition to having the ability to detect an impact event, the DRAGONS system can determine impact location, speed, and angle of impact with a mean error of 1.4 cm, 0.2 km/s, and 5Â°
+Link: https://arxiv.org/abs/1612.03971
+====================================================
+Kernel classification of connectomes based on earth mover's distance between graph spectra (Yulia Dodonova - 27 November, 2016)
+We introduce a kernel that is based on earth mover's distance (EMD) between spectral distributions of brain networks. Classification quality (area under the ROC-curve) obtained with the EMD-based kernel on spectral distributions is 0.71, which is higher than that based on simpler graph embedding methods.
+Link: https://arxiv.org/abs/1611.08812
+====================================================
+Multiple Regularizations Deep Learning for Paddy Growth Stages Classification from LANDSAT-8 (Ines Heidieni Ikasari - 6 October, 2016)
+This study uses remote sensing technology that can provide information about the condition of the earth's surface area, fast, and spatially. We address a paddy growth stages classification using LANDSAT 8 image data obtained from multi-sensor remote sensing image taken in October 2015 to August 2016
+Link: https://arxiv.org/abs/1610.01795
+====================================================
+Semantic Segmentation of Earth Observation Data Using Multimodal and Multi-scale Deep Networks (Nicolas Audebert - 22 September, 2016)
+This work investigates the use of deep fully convolutional neural networks (DFCNN) for pixel-wise scene labeling of Earth Observation images. Our contributions are the following: 1) we transfer efficiently a DFCNN from generic everyday images to remote sensing images; 2) we introduce a multi-kernel convolutional layer for fast aggregation of predictions at multiple scales; 3) we perform data fusion from heterogeneous sensors (optical and laser) using residual correction
+Link: https://arxiv.org/abs/1609.06846
+====================================================
+Frequency of Arrival-based Interference Localization Using a Single Satellite (Ashkan Kalantari - 1 August, 2016)
+Multiple location-related equations obtained based on the FoA measurements, (at least two), along with the equation of the earth surface are used to localize the unknown interference. Simulations show that increasing the number of these equations, and the satellite velocity can improve the localization accuracy by 80% and 95%, respectively.
+Link: https://arxiv.org/abs/1608.00350
+====================================================
+Large Scale GPU Accelerated PPMLR-MHD Simulations for Space Weather Forecast (Xiangyu Guo - 7 July, 2016)
+PPMLR-MHD is a new magnetohydrodynamics (MHD) model used to simulate the interactions of the solar wind with the magnetosphere, which has been proved to be the key element of the space weather cause-and-effect chain process from the Sun to Earth. We demonstrate that our optimized implementation alleviates the data transfer overhead by using GPU Direct technology and can scale up to 151 processes and achieve significant performance gains by distributing the workload among the CPUs and GPUs on Titan at Oak Ridge National Laboratory
+Link: https://arxiv.org/abs/1607.02214
+====================================================
+Fast and robust mesh generation on the sphere Application to coastal domains (Jean-FranÃ§ois Remacle - 7 July, 2016)
+This paper presents a fast an robust mesh generation procedure that is able to generate meshes of the earth system (ocean and continent) in matters of seconds. The refinement scheme is also multi-threaded at a fine grain level, allowing to generate about a million points per second on 8 threads
+Link: https://arxiv.org/abs/1607.02052
+====================================================
+Multi-feature combined cloud and cloud shadow detection in GaoFen-1 wide field of view imagery (Zhiwei Li - 4 February, 2017)
+The wide field of view (WFV) imaging system onboard the Chinese GaoFen-1 (GF-1) optical satellite has a 16-m resolution and four-day revisit cycle for large-scale Earth observation. The method was validated using 108 globally distributed scenes. The results indicate that MFC performs well under most conditions, and the average overall accuracy of MFC cloud detection is as high as 96.8%
+Link: https://arxiv.org/abs/1606.05415
+====================================================
+PlaNet - Photo Geolocation with Convolutional Neural Networks (Tobias Weyand - 17 February, 2016)
+In contrast, we pose the problem as one of classification by subdividing the surface of the earth into thousands of multi-scale geographic cells, and train a deep network using millions of geotagged images. By learning to exploit temporal coherence to geolocate uncertain photos, we demonstrate that this model achieves a 50% performance improvement over the single-image model.
+Link: https://arxiv.org/abs/1602.05314
+====================================================
+Cloud Computation and Google Earth Visualization of Heat/Cold Waves: A Nonanticipative Long-Range Forecasting Case Study (Dmytro Zubov - 18 December, 2015)
+Visualization of the forecasted data is based on the Google Earth Pro virtual globe in ASP.NET web-site against http://gearth.azurewebsites.net (prototype), where KMZ file represents geographic placemarks. Up to 36.4% of heat waves are specifically predicted. Up to 33.3% of cold waves are specifically predicted for other four locations around the world. The proposed approach is 100% accurate if the signs of predicted and actual values are compared according to climatological baseline
+Link: https://arxiv.org/abs/1512.06017
+====================================================
+Estimating snow cover from publicly available images (Roman Fedorov - 5 August, 2015)
+In this paper we study the problem of estimating snow cover in mountainous regions, that is, the spatial extent of the earth surface covered by snow. We created a manually labelled dataset to assess the accuracy of the image snow covered area estimation, achieving 90.0% precision at 91.1% recall
+Link: https://arxiv.org/abs/1508.01055
+====================================================
+Experiences with efficient methodologies for teaching computer programming to geoscientists (Christian T. Jacobs - 9 June, 2016)
+This paper considers an undergraduate computer programming course, run during the last 5 years in the Department of Earth Science and Engineering at Imperial College London
+Link: https://arxiv.org/abs/1505.05425
+====================================================
+Distributed mining of large scale remote sensing image archives on public computing infrastructures (Luigi Mascolo - 17 January, 2015)
+Earth Observation (EO) mining aims at supporting efficient access and exploration of petabyte-scale space- and airborne remote sensing archives that are currently expanding at rates of terabytes per day. To this end, we propose an interactive region-oriented content-based image mining system in which 1) unsupervised ingestion processes are distributed onto virtual machines in elastic, on-demand computing infrastructures 2) archive-scale content hierarchical indexing is implemented in terms of a "big data" analytics cluster-computing framework 3) query processing amounts to traversing the generated binary tree index, computing distances that correspond to descriptor-based similarity measures between image groups and a query image tile
+Link: https://arxiv.org/abs/1501.05286
+====================================================
+The myth of the Digital Earth between fragmentation and wholeness (Andrea Ballatore - 3 December, 2014)
+Among the prophetic visions that encouraged and accompanied the development of new communication technologies was the "Digital Earth," described in a 1998 speech by Al Gore as a high-resolution representation of the planet to share and analyze detailed information about its state
+Link: https://arxiv.org/abs/1412.2078
+====================================================
+Building Sustainable Software - The CSDMS Approach (Eric W. H. Hutton - 15 November, 2014)
+To this end, CSDMS develops, integrates, archives and disseminates earth-system models and tools to an international (67 country) community with the goal of building the set of tools necessary to model the earth system
+Link: https://arxiv.org/abs/1407.4106
+====================================================
+Energy-Delay Tradeoffs of Virtual Base Stations With a Computational-Resource-Aware Energy Consumption Model (Tao Zhao - 21 October, 2014)
+Numerical results validate our theoretical analyses and under a typical simulation setting we find more than 60% energy savings can be achieved by VBSs compared with conventional base stations under the EARTH model, which demonstrates the great potential of VBSs in 5G cellular systems.
+Link: https://arxiv.org/abs/1407.2322
+====================================================
+Comparative analysis of common edge detection techniques in context of object extraction (S. K. Katiyar - 4 February, 2014)
+Edges characterize boundaries and are therefore a problem of practical importance in remote sensing.In this paper a comparative study of various edge detection techniques and band wise analysis of these algorithms in the context of object extraction with regard to remote sensing satellite images from the Indian Remote Sensing Satellite (IRS) sensors LISS 3, LISS 4 and Cartosat1 as well as Google Earth is presented.
+Link: https://arxiv.org/abs/1405.6132
+====================================================
+Improved Approximation Algorithms for Earth-Mover Distance in Data Streams (Arman Yousefi - 24 April, 2014)
+The sketching complexity of approximating earth-mover distance in the two-dimensional grid is mentioned as one of the open problems in the literature. Our first algorithm gives a $(1+Îµ)$-approximation using $O(kÎµ^{-2}\log^{4}n)$ space and works only in the insertion-only model. The second algorithm gives a $O(\min(k^3,\logÎ))$-approximation using $O(\log^{3}Î\cdot\log\logÎ\cdot\log n)$-space in the turnstile model.
+Link: https://arxiv.org/abs/1404.6287
+====================================================
+Image Fusion Techniques in Remote Sensing (Reham Gharbia - 10 March, 2014)
+Most earth satellites such as SPOT, Landsat 7, IKONOS and QuickBird provide both panchromatic (Pan) images at a higher spatial resolution and multispectral (MS) images at a lower spatial resolution and many remote sensing applications require both high spatial and high spectral resolutions, especially for GIS based applications
+Link: https://arxiv.org/abs/1403.5473
+====================================================
+Strategy For Assessment Of Land And Complex Fields Type Analysis Through GIS In Bangladesh (Yeasir Fathah Rumi - 22 August, 2013)
+The system will integrate with GIS project data in Google Earth, first finds highly accurate cluster images and partial images, obtains user feedback to merge or correct these digests, and then the supplementary visual analysis complete the partitioning of the data. This study was conducted at the software laboratory, Computer Science and Engineering department, Jahangirnagar University, Dhaka, Bangladesh in 2013.
+Link: https://arxiv.org/abs/1308.4862
+====================================================
+Services in Android can Share Your Personal Information in Background (Manoj Kumar - 21 August, 2013)
+Mobile phones have traveled a very long journey in a very short span of time since its inception in 1973.This wonderful toy of 20th century has started playing significant role in daily life.More than 5 billion mobile users are there around the world and almost 90 percent of the entire earth is under the mobile coverage now.These days smart phones are equipped with numerous features,faster processors and high storage capacity.Android is a latest trend in this series whose popularity is growing by leaps and bounds.Android has a number of components which helps Application developers to embed distinguish features in applications.This paper explains how the Service component of Android can share your personal information to others without users interaction.
+Link: https://arxiv.org/abs/1308.4486
+====================================================
+Merging Satellite Measurements of Rainfall Using Multi-scale Imagery Technique (Seyed Hamed Alemohammad - 11 April, 2013)
+Several passive microwave satellites orbit the Earth and measure rainfall. The algorithm is implemented on two datasets for 7 years of half-hourly data
+Link: https://arxiv.org/abs/1304.3406
+====================================================
+Enhanced MAC Parameters to Support Hybrid Dynamic Prioritization in MANETs (J. Hannah Monisha - 24 June, 2012)
+Quality of Service (QoS) for MANETs becomes a necessity because of its applications in decisive situations such as battle fields, flood and earth quake. We compare our results with IEEE 802.11e and show that, 16% more throughput is achieved by H-MAC during extensive collision
+Link: https://arxiv.org/abs/1206.5505
+====================================================
+The JASMIN super-data-cluster (B. N. Lawrence - 16 April, 2012)
+Physical colocation of the core JASMIN resource with significant components of the facility for Climate and Environmental Monitoring from Space (CEMS) provides additional support for the earth observation community, as well as facilitating further comparison and evaluation of models with data. JASMIN and CEMS together centrally deploy 9.3 PB of storage - 4.6 PB of Panasas fast disk storage alongside the STFC Atlas Tape Store. Over 370 computing cores provide local computation
+Link: https://arxiv.org/abs/1204.3553
+====================================================
+Investigating operation of the Internet in orbit: Five years of collaboration around CLEO (Lloyd Wood - 15 April, 2012)
+The Cisco router in Low Earth Orbit (CLEO) was launched into space as an experimental secondary payload onboard the UK Disaster Monitoring Constellation (UK-DMC) satellite in September 2003. It was possible to integrate the Cisco mobile access router into the UK-DMC satellite as a result of the DMC satellites' adoption of existing commercial networking standards, using IP over Frame Relay over standard High-Level Data Link Control, or HDLC (ISO 13239) on standard serial interfaces
+Link: https://arxiv.org/abs/1204.3261
+====================================================
+A review of EO image information mining (Marco Quartulli - 19 June, 2012)
+We analyze the state of the art of content-based retrieval in Earth observation image archives focusing on complete systems showing promise for operational implementation
+Link: https://arxiv.org/abs/1203.0747
+====================================================
+Nimble@ITCEcnoGrid: A Grid in Research Domain for Weather Forecasting (Vijay Dhir - 11 January, 2012)
+SETI@home (Used to detect radio waves emitted by intelligent civilizations outside earth) has 4.6 million participants computers. Nimble@ITCEcnoGrid Framework (A Fast Grid with Inter-thread communication with Economic Based Policy) was tested for computation of 'PI' up to 120 decimal points
+Link: https://arxiv.org/abs/1201.2288
+====================================================
+K-Median Clustering, Model-Based Compressive Sensing, and Sparse Recovery for Earth Mover Distance (Piotr Indyk - 11 October, 2012)
+We initiate the study of sparse recovery problems under the Earth-Mover Distance (EMD). One construction yields m = O(k log(n/k)) and a 1 + epsilon approximation factor, which matches the best achievable bound for other error measures, such as the L_1 norm
+Link: https://arxiv.org/abs/1104.4674
+====================================================
+Sistem Pengambilan Keputusan Penanganan Bencana Alam Gempa Bumi Di Indonesia (H. L. H Spits Warnars - 9 June, 2010)
+Actually an everyday occurrence on earth and more than 3 million earthquakes occur every year, about 8,000 a day, or one every 11 seconds in Indonesia there are 5 to 30 quakes prediction everyday
+Link: https://arxiv.org/abs/1006.1704
+====================================================
+Prediction of Retained Capacity and EODV of Li-ion Batteries in LEO Spacecraft Batteries (S. Ramakrishnan - 26 April, 2010)
+Low earth orbit (LEO)space craft batteries undergo large number of charge discharge cycles (about 25000 cycles)compared to other ground level or space applications. This study is indented to develop ANN model for about 25000 cycles, cycled under various temperature, Depth Of Discharge (DOD) settings with constant charge voltage limit to predict the retained capacity and End of Discharge Voltage (EODV)
+Link: https://arxiv.org/abs/1004.4480
+====================================================
+The morpho-topographic and cartographic analysis of the archaeological site Cornesti "Iarcuri", Timis County, Romania, using computer sciences methods (GIS and Remote Sensing techniques) (Dorel Micle - 9 June, 2009)
+The archaeological site Cornesti "Iarcuri" is the largest earth fortification in Romania, made out of four concentric compounds, spreading over 1780 hectares. It is known since 1700, but it had only a few small attempts of systematic research, the fortress gained interest only after the publishing of some satellite images by Google Earth. Through our work we try not to date the site as this objective will be achieved only after completing the systematic excavations which started in 2007, but only to analyze the co-relationship with the environment.
+Link: https://arxiv.org/abs/0906.1644
+====================================================
+Sublinear Time Algorithms for Earth Mover's Distance (Khanh Do Ba - 1 April, 2009)
+We study the problem of estimating the Earth Mover's Distance (EMD) between probability distributions when given access only to samples. We give closeness testers and additive-error estimators over domains in $[0, Î]^d$, with sample complexities independent of domain size - permitting the testability even of continuous distributions over infinite domains
+Link: https://arxiv.org/abs/0904.0292
+====================================================
+The Earth System Grid: Supporting the Next Generation of Climate Modeling Research (David Bernholdt - 13 December, 2007)
+Understanding the earth's climate system and how it might be changing is a preeminent scientific challenge. The resulting data archive, spread over several sites, currently contains upwards of 100 TB of simulation data and is growing rapidly
+Link: https://arxiv.org/abs/0712.2262
+====================================================
+TerraServer SAN-Cluster Architecture and Operations Experience (Tom Barclay - 1 February, 2005)
+Microsoft TerraServer displays aerial, satellite, and to-pographic images of the earth in a SQL database available via the Internet. Initially de-ployed in 1998, the system demonstrated the scalability of PC hardware and software - Windows and SQL Server - on a single, mainframe-class processor. In September 2000, the back-end database application was migrated to 4-node active/passive cluster connected to an 18 terabyte Storage Area Network (SAN). The new configuration was designed to achieve 99.99% availability for the back-end application
+Link: https://arxiv.org/abs/cs/0502010
+====================================================
+The Google Similarity Distance (Rudi Cilibrasi - 30 May, 2007)
+The world-wide-web is the largest database on earth, and the context information entered by millions of independent users averages out to provide automatic semantics of useful quality. We conduct a massive randomized trial in binary classification using support vector machines to learn categories based on our Google distance, resulting in an a mean agreement of 87% with the expert crafted WordNet categories.
+Link: https://arxiv.org/abs/cs/0412098
+====================================================
+Microsoft TerraServer: A Spatial Data Warehouse (Tom Barclay Jim Gray Don Slutz - 9 July, 1999)
+The TerraServer stores aerial, satellite, and topographic images of the earth in a SQL database available via the Internet. It also reports usage and operations results over the last year -- over 2 billion web hits and over 20 Terabytes of imagry served over the Internet
+Link: https://arxiv.org/abs/cs/9907016
+====================================================
+Future Architecture of the Interplanetary Internet (Ahmad Alhilal - 2 October, 2018)
+Future space exploration and space station missions will require specific networks to interconnect Earth with other objects and planets in the solar system
+Link: https://arxiv.org/abs/1810.01093
+====================================================
+Enabling FAIR Research in Earth Science through Research Objects (Andres Garcia-Silva - 27 September, 2018)
+This paper provides an account of the challenges, experiences and solutions involved in the adoption of FAIR around research objects over several Earth Science disciplines. During this journey, our work has been comprehensive, with outcomes including: an extended research object model adapted to the needs of earth scientists; the provisioning of digital object identifiers (DOI) to enable persistent identification and to give due credit to authors; the generation of content-based, semantically rich, research object metadata through natural language processing, enhancing visibility and reuse through recommendation systems and third-party search engines; and various types of checklists that provide a compact representation of research object quality as a key enabler of scientific reuse
+Link: https://arxiv.org/abs/1809.10617
+====================================================
+Content Based Image Retrieval from AWiFS Images Repository of IRS Resourcesat-2 Satellite Based on Water Bodies and Burnt Areas (Suraj Kothawade - 26 September, 2018)
+Different objects in all the spheres of the earth have the inherent capability of absorbing electromagnetic waves of distant wavelengths
+Link: https://arxiv.org/abs/1809.10190
+====================================================
+Distances for WiFi Based Topological Indoor Mapping (Bastian SchÃ¤fermeier - 19 September, 2018)
+In particular, we show that among the considered distance measures the Earth Mover's Distance seems the most beneficial for the localization task
+Link: https://arxiv.org/abs/1809.07405
+====================================================
+On-Orbit Smart Camera System to Observe Illuminated and Unilluminated Space Objects (Steve Morad - 6 September, 2018)
+In our earlier work, we proposed development of SWIMSat (Space based Wide-angle Imaging of Meteors) a 3U CubeSat demonstrator that is designed to observe illuminated objects entering the Earth's atmosphere. An extension of this smart camera capability is to track unilluminated objects utilizing capabilities we have been developing to track and navigate to Near Earth Objects (NEOs)
+Link: https://arxiv.org/abs/1809.02042
+====================================================
+Satellite Capture and Servicing Using Networks of Tethered Robots Supported by Ground Surveillance (Himangshu Kalita - 6 September, 2018)
+There is ever growing demand for satellite constellations that perform global positioning, remote sensing, earth-imaging and relay communication
+Link: https://arxiv.org/abs/1809.02028
+====================================================
+Design of an Autonomous Precision Pollination Robot (Nicholas Ohi - 29 August, 2018)
+Precision robotic pollination systems can not only fill the gap of declining natural pollinators, but can also surpass them in efficiency and uniformity, helping to feed the fast-growing human population on Earth. Partially inspired by the ecology and behavior of bees, BrambleBee employs state-of-the-art localization and mapping, visual perception, path planning, motion control, and manipulation techniques to create an efficient and robust autonomous pollination system.
+Link: https://arxiv.org/abs/1808.10010
+====================================================
+Distance Based Source Domain Selection for Sentiment Classification (Lex Razoux Schultz - 28 August, 2018)
+Earth Mover's distance and Kullback-Leibler divergence)
+Link: https://arxiv.org/abs/1808.09271
+====================================================
+CPlaNet: Enhancing Image Geolocalization by Combinatorial Partitioning of Maps (Paul Hongsuck Seo - 6 August, 2018)
+To tackle this issue, we propose a simple but effective algorithm, combinatorial partitioning, which generates a large number of fine-grained output classes by intersecting multiple coarse-grained partitionings of the earth. Our algorithm achieves the state-of-the-art performance in location recognition on multiple benchmark datasets.
+Link: https://arxiv.org/abs/1808.02130
+====================================================
+Devito: an embedded domain-specific language for finite differences and geophysical exploration (Mathias Louboutin - 6 August, 2018)
+The motivating application is exploration seismology where methods such as Full-Waveform Inversion and Reverse-Time Migration are used to invert terabytes of seismic data to create images of the earth's subsurface
+Link: https://arxiv.org/abs/1808.01995
+====================================================
+Robust Set Reconciliation via Locality Sensitive Hashing (Michael Mitzenmacher - 25 July, 2018)
+More specifically, in one variation we examine the goal is for Bob to end with a set of points that is close to Alice's in earth mover's distance, and in another the goal is for Bob to have a point that is close to each of Alice's
+Link: https://arxiv.org/abs/1807.09694
+====================================================
+An Adaptive Groundtrack Maintenance Scheme for Spacecraft with Electric Propulsion (Mirko Leomanni - 21 July, 2018)
+A numerical study of a low Earth orbit mission confirms the effectiveness of the method.
+Link: https://arxiv.org/abs/1807.08109
+====================================================
+Learning Transferable Deep Models for Land-Use Classification with High-Resolution Remote Sensing Images (Xin-Yi Tong - 16 July, 2018)
+Experiments on multi-source HRRS images, including Gaofen-2, Gaofen-1, Jilin-1, Ziyuan-3, and Google Earth images, show encouraging results and demonstrate the efficiency of the proposed scheme.
+Link: https://arxiv.org/abs/1807.05713
+====================================================
+Caching at the Edge with Fountain Codes (Estefania Recayte - 15 July, 2018)
+We consider a system composed of multiple hubs and a geostationary Earth orbit satellite
+Link: https://arxiv.org/abs/1807.05619
+====================================================
+A Semi-Analytical Method for Calculating Revisit Time for Satellite Constellations with Discontinuous Coverage (Nicholas H. Crisp - 5 July, 2018)
+This paper presents a unique approach to the problem of calculating revisit time metrics for different satellite orbits, sensor geometries, and constellation configurations with application to early lifecycle design and optimisation processes for Earth observation missions. Using the developed method, extensive plots of maximum revisit time are presented for varying altitude, inclination, target latitudes, sensor capabilities, and constellation configuration, providing valuable reference for Earth observation system design.
+Link: https://arxiv.org/abs/1807.02021
+====================================================
+SpaceNet: A Remote Sensing Dataset and Challenge Series (Adam Van Etten - 25 September, 2018)
+We propose that the frequent revisits of earth imaging satellite constellations may accelerate existing efforts to quickly update foundational maps when combined with advanced machine learning techniques
+Link: https://arxiv.org/abs/1807.01232
+====================================================
+MRFusion: A Deep Learning architecture to fuse PAN and MS imagery for land cover mapping (Raffaele Gaetano - 29 June, 2018)
+Nowadays, Earth Observation systems provide a multitude of heterogeneous remote sensing data
+Link: https://arxiv.org/abs/1806.11452
+====================================================
+Shifted Laplacian multigrid for the elastic Helmholtz equation (Eran Treister - 29 June, 2018)
+Such a case arises in geophysical seismic imaging applications, where the earth's subsurface is the elastic medium
+Link: https://arxiv.org/abs/1806.11277
+====================================================
+Large Scale Fine-Grained Categorization and Domain-Specific Transfer Learning (Yin Cui - 16 June, 2018)
+We propose a measure to estimate domain similarity via Earth Mover's Distance and demonstrate that transfer learning benefits from pre-training on a source domain that is similar to the target domain by this measure. Our proposed transfer learning outperforms ImageNet pre-training and obtains state-of-the-art results on multiple commonly used FGVC datasets.
+Link: https://arxiv.org/abs/1806.06193
+====================================================
+Robust Model-Aided Inertial Localization for Autonomous Underwater Vehicles (Sascha Arnold - 21 May, 2018)
+The filter is capable of observing and utilizing the Earth rotation for heading estimation with a tactical grade IMU, and utilizes information from the vehicle model during DVL drop outs
+Link: https://arxiv.org/abs/1805.08011
+====================================================
+A novel real time geolocation tracking tool (Mehmet Serdar GÃ¼zel - 22 March, 2018)
+Global Positioning System (GPS) is a satellite network that transmits regularly encoded information and makes it possible to pinpoint the exact location on Earth by measuring the distance between satellites and the receiver
+Link: https://arxiv.org/abs/1803.08325
+====================================================
+Renewable Energy Integration in Distribution System -- Synchrophasor Sensor based Big Data Analysis, Visualization, and System Operation (Yi Gu - 16 March, 2018)
+Google Earth and global geographic information system (GIS) are used to design the visualization platform and realize the result with the test bench.
+Link: https://arxiv.org/abs/1803.06076
+====================================================
+Targeted change detection in remote sensing images (Vladimir Ignatiev - 14 March, 2018)
+Recent developments in the remote sensing systems and image processing made it possible to propose a new method of the object classification and detection of the specific changes in the series of satellite Earth images (so called targeted change detection)
+Link: https://arxiv.org/abs/1803.05482
+====================================================
+Localization under Topological Uncertainty for Lane Identification of Autonomous Vehicles (Samer B. Nashed - 4 March, 2018)
+In addition, we present an extension to the Earth Mover's Distance which allows uncertainty to be taken into account when computing the distance between belief distributions on simplices of arbitrary relative sizes.
+Link: https://arxiv.org/abs/1803.01378
+====================================================
+Machine learning based hyperspectral image analysis: A survey (Utsav B. Gewali - 23 February, 2018)
+Hence, hyperspectral images captured from earth observing satellites and aircraft have been increasingly important in agriculture, environmental monitoring, urban planning, mining, and defense
+Link: https://arxiv.org/abs/1802.08701
+====================================================
+Towards Realisation of Heterogeneous Earth-Observation Sensor Database Framework for the Sensor Observation Service based on PostGIS (Maduako N. Ikechukwu - 16 February, 2018)
+Keywords: Earth-Observation, Heterogeneous Earth-Observation Sensor Database, PostGIS , Sensor Observation Service.
+Link: https://arxiv.org/abs/1802.06183
+====================================================
+Economic Impact of Discoverability of Localities and Addresses in India (Santanu Bhattacharya - 13 February, 2018)
+Most of the earth's population has a poorly defined addressing system, thus having a poorly discoverable residence, property or business locations on a map
+Link: https://arxiv.org/abs/1802.04625
+====================================================
+Systems of Global Governance in the Era of Human-Machine Convergence (Eugenio Maria Battaglia - 14 February, 2018)
+Besides, human activities already proved to have a significant impact on the Earth system which in turn generates complex feedback loops between social and ecological systems. We argue that wise general solutions to such interrelated issues should embed the deep understanding of how to elicit mutual incentives in the socio-economic subsystems of Earth system in order to jointly concur to a global utility function (e.g
+Link: https://arxiv.org/abs/1802.04255
+====================================================
+Machine learning and evolutionary techniques in interplanetary trajectory design (Dario Izzo - 28 September, 2018)
+The results, limited to the chosen test case of an Earth-Mars orbital transfer, extend the findings made previously for landing scenarios and quadcopter dynamics, opening a new research area in interplanetary trajectory planning.
+Link: https://arxiv.org/abs/1802.00180
+====================================================
+Mobility and Science operations On An Asteroid Using a Hopping Small Spacecraft on Stilts (H. Kalita - 29 January, 2018)
+There are thousands of asteroids in near-Earth space and millions in the Main Belt
+Link: https://arxiv.org/abs/1801.09482
+====================================================
+Cloud Detection From RGB Color Remote Sensing Images With Deep Pyramid Networks (Savas Ozkan - 26 January, 2018)
+In particular, this problem becomes even harder for RGB color images, since there is no distinct spectral pattern for clouds, which is directly separable from the Earth surface
+Link: https://arxiv.org/abs/1801.08706
+====================================================
+A Tutorial on Modeling and Inference in Undirected Graphical Models for Hyperspectral Image Analysis (Utsav B. Gewali - 24 January, 2018)
+Undirected graphical models have been successfully used to jointly model the spatial and the spectral dependencies in earth observing hyperspectral images. Moreover, they can easily be combined with other state-of-the-art approaches, such as deep learning
+Link: https://arxiv.org/abs/1801.08268
+====================================================
+Multiview Deep Learning for Predicting Twitter Users' Location (Tien Huu Do - 21 December, 2017)
+Considering the natural distribution of Twitter users across the concerned geographical area, we subdivide the surface of the earth into multi-scale cells and train MENET with the labels of the cells. We show that our method outperforms the state of the art by a large margin on three benchmark datasets.
+Link: https://arxiv.org/abs/1712.08091
+====================================================
+ORBIT: Ordering Based Information Transfer Across Space and Time for Global Surface Water Monitoring (Ankush Khandelwal - 15 November, 2017)
+Many earth science applications require data at both high spatial and temporal resolution for effective monitoring of various ecosystem resources. Earth observation data is often plagued with spatially and temporally correlated noise, outliers and missing data due to atmospheric disturbances which pose a challenge in learning the mapping from a local neighborhood at individual timesteps
+Link: https://arxiv.org/abs/1711.05799
+====================================================
+Spatio-Temporal Data Mining: A Survey of Problems and Methods (Gowtham Atluri - 17 November, 2017)
+Large volumes of spatio-temporal data are increasingly collected and studied in diverse domains including, climate science, social sciences, neuroscience, epidemiology, transportation, mobile health, and Earth sciences
+Link: https://arxiv.org/abs/1711.04710
+====================================================
+Characterizing in-text citations in scientific articles: A large-scale analysis (Kevin W. Boyack - 9 October, 2017)
+In general, the fields of Biomedical and Health Sciences, Life and Earth Sciences, and Physical Sciences and Engineering have similar reference distributions, although they vary in their specifics
+Link: https://arxiv.org/abs/1710.03094
+====================================================
+Muon Trigger for Mobile Phones (Maxim Borisyak - 25 September, 2017)
+Upon interacting with Earth's atmosphere, these events produce extensive particle showers which can be detected by cameras on mobile phones
+Link: https://arxiv.org/abs/1709.08605
+====================================================
+Shadow Detection and Geo-tagged Image Information Based Strategic Infrastructure Characterization (E. MD. Abdelrahim - 19 March, 2018)
+Our proposed method applies shadow detection and shadow feature along with geo-tagged information retrieved through Google Earth tools, to estimate the structural dimension of the man-made infrastructure. To characterize the dimensional features of the man-made structure, we have considered Google Earth satellite images with precise and crisp edge as well as shadow length information, which have been obtained using freely available Google Earth information retrieval tool
+Link: https://arxiv.org/abs/1709.08375
+====================================================
+Statistical Parametric Speech Synthesis Incorporating Generative Adversarial Networks (Yuki Saito - 23 September, 2017)
+Furthermore, we investigated the effect of the divergence of various GANs, and found that a Wasserstein GAN minimizing the Earth-Mover's distance works the best in terms of improving synthetic speech quality.
+Link: https://arxiv.org/abs/1709.08041
+====================================================
+Correlating Satellite Cloud Cover with Sky Cameras (Shilpa Manandhar - 24 August, 2017)
+The role of clouds is manifold in understanding the various events in the atmosphere, and also in studying the radiative balance of the earth
+Link: https://arxiv.org/abs/1709.05283
+====================================================
+Analyzing Cloud Optical Properties Using Sky Cameras (Shilpa Manandhar - 24 August, 2017)
+Clouds play a significant role in the fluctuation of solar radiation received by the earth's surface. It is important to study the various cloud properties, as it impacts the total solar irradiance falling on the earth's surface
+Link: https://arxiv.org/abs/1708.08995
+====================================================
+A European research roadmap for optimizing societal impact of big data on environment and energy efficiency (MartÃ­ Cuquet - 25 August, 2017)
+It builds upon a case study focused on the impact of big data practices in the context of Earth Observation that reveals both positive and negative effects in the areas of economy, society and ethics, legal frameworks and political issues
+Link: https://arxiv.org/abs/1708.07871
+====================================================
+Golden Angle Modulation: Geometric- and Probabilistic-shaping (Peter Larsson - 24 August, 2017)
+Transmitter resource limited links, such as space probe-to-earth, satellite, and mobile-to-basestation, are scenarios where capacity achieving GAM could be of particular value.
+Link: https://arxiv.org/abs/1708.07321
+====================================================
+Golden Angle Modulation (Peter Larsson - 20 August, 2017)
+Transmitter resource limited links, such as space probe-to-earth, and mobile-to-basestation, are cases where GAM could be particularly valuable.
+Link: https://arxiv.org/abs/1708.05947
+====================================================
+Object Detection of Satellite Images Using Multi-Channel Higher-order Local Autocorrelation (Kazuki Uehara - 27 July, 2017)
+The Earth observation satellites have been monitoring the earth's surface for a long time, and the images taken by the satellites contain large amounts of valuable data
+Link: https://arxiv.org/abs/1707.09099
+====================================================
+Spatio-temporal profiling of public transport delays based on large scale vehicle positioning data from GPS in WrocÅaw (Piotr SzymaÅski - 25 July, 2017)
+We then calculate distances between such matrices using earth mover's distance and cluster them using hierarchical agglomerative clustering with Ward's linkage method
+Link: https://arxiv.org/abs/1707.07913
+====================================================
+Applying MAPP Algorithm for Cooperative Path Finding in Urban Environments (Anton Andreychuk - 20 July, 2017)
+Decentralized planner - MAPP is described and applied to the task of finding trajectories for dozens UAVs performing nap-of-the-earth flight in urban environments
+Link: https://arxiv.org/abs/1707.06607
+====================================================
+Local Differential Privacy for Physical Sensor Data and Sparse Recovery (Anna C. Gilbert - 23 March, 2018)
+We design a locally differentially private recovery algorithm for the 1-dimensional, discrete heat source location problem and analyse its performance in terms of the Earth Mover Distance error
+Link: https://arxiv.org/abs/1706.05916
+====================================================
+LEOS-assisted Inter-GEOS Communication via Distributed-storage Coding (Haisheng Xu - 23 July, 2018)
+We consider a space communication network consisting of Geosynchronous Earth Orbit satellites (GEOSs) and Low Earth Orbit satellites (LEOSs)
+Link: https://arxiv.org/abs/1706.03105
+====================================================
+Optical Communication in Space: Challenges and Mitigation Techniques (Hemani Kaushal - 28 May, 2017)
+FSO communication uses the optical carrier in the near infrared band to establish either terrestrial links within the Earth's atmosphere or inter-satellite or deep space links or ground-to-satellite or satellite-to-ground links. It also uniquely presents a recently developed technique using orbital angular momentum for utilizing the high capacity advantage of the optical carrier in case of space-based and near-Earth optical communication links
+Link: https://arxiv.org/abs/1705.10630
+====================================================
+Near-linear time approximation algorithms for optimal transport via Sinkhorn iteration (Jason Altschuler - 7 February, 2018)
+Computing optimal transport distances such as the earth mover's distance is a fundamental problem in machine learning, statistics, and computer vision
+Link: https://arxiv.org/abs/1705.09634
+====================================================
+Distributed Precoding Systems in Multi-Gateway Multibeam Satellites: Regularization and Coarse Beamforming (Carlos Mosquera - 23 May, 2017)
+This paper deals with the problem of beamforming design in a multibeam satellite, which is shared by different groups of terminals -clusters-, each served by an Earth station or gateway
+Link: https://arxiv.org/abs/1705.08339
+====================================================
+Towards seamless multi-view scene analysis from satellite to street-level (SÃ©bastien LefÃ¨vre - 23 May, 2017)
+We show that cross-fertilization between remote sensing, computer vision and machine learning is very valuable to make the best of geographic data available from Earth Observation sensors and ground imagery
+Link: https://arxiv.org/abs/1705.08101
+====================================================
+Joint Learning from Earth Observation and OpenStreetMap Data to Get Faster Better Semantic Maps (Nicolas Audebert - 17 May, 2017)
+In this work, we investigate the use of OpenStreetMap data for semantic labeling of Earth Observation images
+Link: https://arxiv.org/abs/1705.06057
+====================================================
+Using Satellite Imagery for Good: Detecting Communities in Desert and Mapping Vaccination Activities (Anza Shakeel - 12 May, 2017)
+A Fully Convolution Network (FCN) is trained on low resolution Google earth satellite imagery in order to achieve end result
+Link: https://arxiv.org/abs/1705.04451
+====================================================
+Proof of Concept of Wireless TERS Monitoring (Michael Allen - 10 May, 2017)
+Temporary earth retaining structures (TERS) help prevent collapse during construction excavation
+Link: https://arxiv.org/abs/1705.03705
+====================================================
+Energy Efficient Adaptive Network Coding Schemes for Satellite Communications (Ala Eddine Gharsellaoui - 16 April, 2017)
+We evaluate such schemes under a realistic channel model for open area environments and Geostationary Earth Orbit (GEO) satellites
+Link: https://arxiv.org/abs/1704.04789
+====================================================
+Land Cover Classification via Multi-temporal Spatial Data by Recurrent Neural Networks (Dino Ienco - 13 April, 2017)
+Nowadays, modern earth observation programs produce huge volumes of satellite images time series (SITS) that can be useful to monitor geographical areas through time. The obtained results show that Recurrent Neural Networks are competitive compared to state-of-the-art classifiers, and may outperform classical approaches in presence of low represented and/or highly mixed classes
+Link: https://arxiv.org/abs/1704.04055
+====================================================
+Learning Where to Look: Data-Driven Viewpoint Set Selection for 3D Scenes (Kyle Genova - 7 April, 2017)
+Results of experiments with these algorithms on SUNCG indicate that they are indeed able to produce view distributions similar to an example set from NYUDv2 according to the earth mover's distance
+Link: https://arxiv.org/abs/1704.02393
+====================================================
+Constellation Queries over Big Data (Fabio Porto - 7 March, 2017)
+For example, a particularly interesting geometric pattern in astronomy is the Einstein cross, which is an astronomical phenomenon in which a single quasar is observed as four distinct sky objects (due to gravitational lensing) when captured by earth telescopes
+Link: https://arxiv.org/abs/1703.02638
+====================================================
+High Accuracy Mantle Convection Simulation through Modern Numerical Methods. II: Realistic Models and Problems (Timo Heister - 7 May, 2017)
+Computations have helped elucidate the dynamics of Earth's mantle for several decades already
+Link: https://arxiv.org/abs/1702.05075
+====================================================
+A clustering approach to heterogeneous change detection (Luigi Tommaso Luppino - 10 February, 2017)
+Change detection in heterogeneous multitemporal satellite images is a challenging and still not much studied topic in remote sensing and earth observation
+Link: https://arxiv.org/abs/1702.03176
+====================================================
+Spatial Projection of Multiple Climate Variables using Hierarchical Multitask Learning (AndrÃ© R. GonÃ§alves - 30 January, 2017)
+Future projection of climate is typically obtained by combining outputs from multiple Earth System Models (ESMs) for several climate variables such as temperature and precipitation
+Link: https://arxiv.org/abs/1701.08840
+====================================================
+Fast and Accurate Time Series Classification with WEASEL (Patrick SchÃ¤fer - 26 January, 2017)
+Time series (TS) occur in many scientific and commercial applications, ranging from earth surveillance to industry automation to the smart grids. However, current methods to time series classification (TSC) cannot cope with such data volumes at acceptable accuracy; they are either scalable but offer only inferior classification quality, or they achieve state-of-the-art classification quality but cannot scale to large data volumes.
+Link: https://arxiv.org/abs/1701.07681
+====================================================
+Improved Algorithms For Structured Sparse Recovery (Lingxiao Huang - 19 January, 2017)
+The other is the Constrained Earth Mover Distance (CEMD) model, which is useful to model the situation where the positions of the nonzero coefficients of a signal do not change significantly as a function of spatial (or temporal) locations
+Link: https://arxiv.org/abs/1701.05674
+====================================================
+Automatic Spatial Context-Sensitive Cloud/Cloud-Shadow Detection in Multi-Source Multi-Spectral Earth Observation Images: AutoCloud+ (Andrea Baraldi - 16 January, 2017)
+The proposed Earth observation (EO) based value adding system (EO VAS), hereafter identified as AutoCloud+, consists of an innovative EO image understanding system (EO IUS) design and implementation capable of automatic spatial context sensitive cloud/cloud shadow detection in multi source multi spectral (MS) EO imagery, whether or not radiometrically calibrated, acquired by multiple platforms, either spaceborne or airborne, including unmanned aerial vehicles (UAVs)
+Link: https://arxiv.org/abs/1701.04256
+====================================================
+Multi-spectral Image Panchromatic Sharpening, Outcome and Process Quality Assessment Protocol (Andrea Baraldi - 8 January, 2017)
+Their aim is to sharpen a coarse spatial resolution MS image with a fine spatial resolution PAN image acquired simultaneously by a spaceborne or airborne Earth observation (EO) optical imaging sensor pair. Unfortunately, to date, no standard evaluation procedure for MS image PAN sharpening outcome and process is community agreed upon, in contrast with the Quality Assurance Framework for Earth Observation (QA4EO) guidelines proposed by the intergovernmental Group on Earth Observations (GEO)
+Link: https://arxiv.org/abs/1701.01942
+====================================================
+Multi-Objective Software Suite of Two-Dimensional Shape Descriptors for Object-Based Image Analysis (Andrea Baraldi - 2 February, 2017)
+To comply with the Quality Assurance Framework for Earth Observation guidelines, the proposed suite of geometric functions is validated by means of a novel quantitative quality assurance policy, centered on inter feature dependence (causality) assessment
+Link: https://arxiv.org/abs/1701.01941
+====================================================
+Automated Linear-Time Detection and Quality Assessment of Superpixels in Uncalibrated True- or False-Color RGB Images (Andrea Baraldi - 8 January, 2017)
+Constrained by the Calibration Validation (CalVal) requirements of the Quality Assurance Framework for Earth Observation (QA4EO) guidelines, RGBIAM requires as mandatory an uncalibrated RGB image pre processing first stage, consisting of an automated statistical model based color constancy algorithm
+Link: https://arxiv.org/abs/1701.01940
+====================================================
+A green program lifecycle supporting energy-efficient applications (Nadia Gamez - 21 June, 2017)
+So, developers should be more aware of the energy consumed by these systems during their lifetime, and think about the long-term consequences in the sustainability of our planet Earth
+Link: https://arxiv.org/abs/1612.08073
+====================================================
+A Novel Approach for Modeling Complex Deep Futures (Edwin Upchurch - 2 December, 2016)
+These domains include elements such as the physical earth and its atmosphere, world demography, world economy, level of globalization, and politics
+Link: https://arxiv.org/abs/1612.00878
+====================================================
+An Integrated approach for the Secure Transmission of Images based on DNA Sequences (Grasha Jacob - 24 November, 2016)
+As long as human beings exist on this earth, there will be confidential images intended for limited audience
+Link: https://arxiv.org/abs/1611.08252
+====================================================
+Relaxed Earth Mover's Distances for Chain- and Tree-connected Spaces and their use as a Loss Function in Deep Learning (Manuel Martinez - 22 November, 2016)
+The Earth Mover's Distance (EMD) computes the optimal cost of transforming one distribution into another, given a known transport metric between them
+Link: https://arxiv.org/abs/1611.07573
+====================================================
+Squared Earth Mover's Distance-based Loss for Training Deep Neural Networks (Le Hou - 2 April, 2017)
+We demonstrate that on datasets with strong inter-class relationships such as an ordering between classes, our exact squared EMD losses yield new state-of-the-art results. Finally, we show that our method can be generalized to applications that lack strong inter-class relationships and still maintain state-of-the-art performance
+Link: https://arxiv.org/abs/1611.05916
+====================================================
+Selective De-noising of Sparse-Coloured Images (Arjun Chaudhuri - 29 October, 2016)
+Most of the time, we encounter images from astronomical sources being distorted with noise maximally as they travel long distance from telescopes in outer space to Earth
+Link: https://arxiv.org/abs/1610.09455
+====================================================
+Ten Blue Links on Mars (Charles L. A. Clarke - 20 October, 2016)
+Is it possible to overcome orders-of-magnitude longer latency to provide a tolerable user experience on Mars? In this paper, we formulate the searching from Mars problem as a tradeoff between "effort" (waiting for responses from Earth) and "data transfer" (pre-fetching or caching data on Mars). We intend for this research problem to be aspirational and inspirational - even if one is not convinced by the premise of Mars colonization, there are Earth-based scenarios such as searching from a rural village in India that share similar constraints, thus making the problem worthy of exploration and attention from researchers.
+Link: https://arxiv.org/abs/1610.06468
+====================================================
+Application of Global Route-Planning Algorithms with Geodesy (William C. da Rosa - 14 October, 2016)
+Global Route-Planning Algorithms (GRPA) are required to compute paths between several points located on Earth's surface
+Link: https://arxiv.org/abs/1610.04597
+====================================================
+A generic framework for the development of geospatial processing pipelines on clusters (Remi Cresson - 28 September, 2016)
+Consequently, tackling computational complexity in Earth Observation information extraction is rising as a major challenge
+Link: https://arxiv.org/abs/1609.08893
+====================================================
+A Transportation $L^p$ Distance for Signal Analysis (Matthew Thorpe - 27 September, 2016)
+Transport based distances, such as the Wasserstein distance and earth mover's distance, have been shown to be an effective tool in signal and image analysis
+Link: https://arxiv.org/abs/1609.08669
+====================================================
+On the usability of deep networks for object-based image analysis (Nicolas Audebert - 22 September, 2016)
+Especially, we want to show that deep learning is also suitable for object-oriented analysis of Earth Observation data
+Link: https://arxiv.org/abs/1609.06845
+====================================================
+Toward a Science of Autonomy for Physical Systems: Aerial Earth Science (M. Ani Hsieh - 19 September, 2016)
+Surface processes act at spatial scales on the order of a meter to produce intricate landforms and UAVs equipped with these sensors are able to measure the three dimensional spatio-temporal geometry of the earths surface and overlying anthropogenic features and vegetation at resolutions appropriate to document these processes. In addition, surface changes due to erosion, transport and sedimentation, as well as earthquakes, landslides, volcanoes can be quantified with this data.
+Link: https://arxiv.org/abs/1609.05783
+====================================================
+Warped Convolutions: Efficient Invariance to Spatial Transformations (JoÃ£o F. Henriques - 18 April, 2018)
+We show encouraging results in realistic scenarios, including the estimation of vehicle poses in the Google Earth dataset (rotation and scale), and face poses in Annotated Facial Landmarks in the Wild (3D rotations under perspective).
+Link: https://arxiv.org/abs/1609.04382
+====================================================
+Stochastic Learning of Multi-Instance Dictionary for Earth Mover's Distance based Histogram Comparison (Jihong Fan - 3 September, 2016)
+Earth mover's distance (EMD) is the most effective histogram distance metric for the application of multi-instance retrieval
+Link: https://arxiv.org/abs/1609.00817
+====================================================
+Machine Learning Techniques and Applications For Ground-based Image Analysis (Soumyabrata Dev - 8 June, 2016)
+Ground-based whole sky cameras have opened up new opportunities for monitoring the earth's atmosphere
+Link: https://arxiv.org/abs/1606.02811
+====================================================
+Preliminaries of a Space Situational Awareness Ontology (Robert John Rovetto - 22 June, 2016)
+By improving SSA via data- and knowledge-sharing, we can (iv) expand our scientific knowledge of the space environment, (v) advance our capacity for planetary defense from near-Earth objects, and (vi) ensure the future of safe space flight for generations to come.
+Link: https://arxiv.org/abs/1606.01924
+====================================================
+The Matsu Wheel: A Cloud-based Framework for Efficient Analysis and Reanalysis of Earth Satellite Imagery (Maria T Patterson - 22 February, 2016)
+Project Matsu is a collaboration between the Open Commons Consortium and NASA focused on developing open source technology for the cloud-based processing of Earth satellite imagery
+Link: https://arxiv.org/abs/1602.06888
+====================================================
+The Singularity May Never Be Near (Toby Walsh - 20 February, 2016)
+Both the optimists and the pessimists often appeal to the idea of a technological singularity, a point in time where machine intelligence starts to run away, and a new, more intelligent species starts to inhabit the earth
+Link: https://arxiv.org/abs/1602.06462
+====================================================
+The Design of a Community Science Cloud: The Open Science Data Cloud Perspective (Robert L. Grossman - 3 January, 2016)
+We also describe some of the research projects in biology, the earth sciences, and social sciences enabled by the OSDC.
+Link: https://arxiv.org/abs/1601.00323
+====================================================
+Energy Consumption Forecasting for Smart Meters (Anshul Bansal - 18 December, 2015)
+Earth, water, air, food, shelter and energy are essential factors required for human being to survive on the planet
+Link: https://arxiv.org/abs/1512.05979
+====================================================
+BayesDB: A probabilistic programming system for querying the probable implications of data (Vikash Mansinghka - 15 December, 2015)
+BayesDB is illustrated using three applications: cleaning and exploring a public database of Earth satellites; assessing the evidence for temporal dependence between macroeconomic indicators; and analyzing a salary survey.
+Link: https://arxiv.org/abs/1512.05006
+====================================================
+A Distributed System for Storing and Processing Data from Earth-observing Satellites: System Design and Performance Evaluation of the Visualisation Tool (Marek Szuba - 10 February, 2016)
+We present a distributed system for storage, processing, three-dimensional visualisation and basic analysis of data from Earth-observing satellites
+Link: https://arxiv.org/abs/1511.07693
+====================================================
+Implementation and comparative quantitative assessment of different multispectral image pansharpening approches (Shailesh Panchal - 14 November, 2015)
+In remote sensing, images acquired by various earth observation satellites tend to have either a high spatial and low spectral resolution or vice versa
+Link: https://arxiv.org/abs/1511.04659
+====================================================
+On the Definiteness of Earth Mover's Distance and Its Relation to Set Intersection (Andrew Gardner - 21 August, 2018)
+In this paper we develop a set-theoretic interpretation of the Earth Mover's Distance (EMD) and propose Earth Mover's Intersection (EMI), a positive definite analog to EMD for sets of different sizes
+Link: https://arxiv.org/abs/1510.02833
+====================================================
+VERCE delivers a productive e-Science environment for seismology research (Malcolm Atkinson - 7 October, 2015)
+This paper presents the motivation for building such systems, it reviews how solid-Earth scientists can make significant research progress using them and explains the architecture and mechanisms that make their construction and operation achievable. We conclude with a summary of the achievements to date and identify the crucial steps needed to extend the capabilities for seismologists, for solid-Earth scientists and for similar disciplines.
+Link: https://arxiv.org/abs/1510.01989
+====================================================
+Numerical Study on Secrecy Capacity and Code Length Dependence of the Performances in Optical Wiretap Channels (Hiroyuki Endo - 14 September, 2015)
+It is shown that under reasonable degraded conditions on a wiretapper, information theoretically secure communications should be possible in a much wider distance range than a range limit of quantum key distribution, enabling secure optical links between geostationary earth orbit satellites and ground stations with currently available technologies
+Link: https://arxiv.org/abs/1509.04006
+====================================================
+Generalized Multicast Multibeam Precoding for Satellite Communications (Vahid Joroughi - 4 September, 2015)
+Second, when the data traffic is generated by several Earth stations (gateways), the precoding matrix must be distributively computed and attain additional payload restrictions
+Link: https://arxiv.org/abs/1509.01377
+====================================================
+Mobile Internet from the Heavens (Farooq Khan - 9 August, 2015)
+Our proposal is based on deploying thousands of low-cost micro-satellites in Low-Earth Orbit (LEO), each capable of providing Terabit/s data rates with signal latencies better than or equal to ground based systems.
+Link: https://arxiv.org/abs/1508.02383
+====================================================
+RBIR Based on Signature Graph (Thanh The Van - 16 July, 2015)
+Since then, the paper builds the image retrieval algorithm on SG through the similar measure EMD (earth mover's distance) between the image's binary signatures
+Link: https://arxiv.org/abs/1507.04816
+====================================================
+Free Space Optical Communication: Challenges and Mitigation Techniques (Hemani Kaushal - 16 June, 2015)
+FSO communication uses optical carrier in the near infrared (IR) and visible band to establish either terrestrial links within the Earths atmosphere or inter-satellite or deep space links or ground to satellite or satellite to ground links
+Link: https://arxiv.org/abs/1506.04836
+====================================================
+Smart Geographic object: Toward a new understanding of GIS Technology in Ubiquitous Computing (Sakyoud Zakaria - 5 June, 2015)
+And then investigate how this instrumentation can meet the current limitations of GIS technology, and offers a new stage of rapprochement between the earth and its abstraction
+Link: https://arxiv.org/abs/1506.01943
+====================================================
+Image Retrieval System Base on EMD Similarity Measure and S-Tree (Thanh Manh Le - 3 June, 2015)
+The paper approaches the binary signature for each image based on the percentage of the pixels in each color images, at the same time the paper builds a similar measure between images based on EMD (Earth Mover's Distance)
+Link: https://arxiv.org/abs/1506.01165
+====================================================
+Can network coding bridge the digital divide in the Pacific? (Ulrich Speidel - 2 June, 2015)
+We report on a feasibility study aimed at determining expected goodput gain across such TCP/NC tunnels into island targets on geostationary and medium earth orbit satellite links.
+Link: https://arxiv.org/abs/1506.01048
+====================================================
+Soft Computing Techniques for Change Detection in remotely sensed images : A Review (Madhu Khurana - 25 September, 2018)
+Change detection in remotely sensed images has been an active research area as it helps us understand the transitions that are taking place on the Earths surface
+Link: https://arxiv.org/abs/1506.00768
+====================================================
+RBIR using Interest Regions and Binary Signatures (Thanh The Van - 1 June, 2015)
+Furthermore, this paper also provides an algorithm for image retrieval on S-tree by comparing the images' signatures on a metric similarly to EMD (earth mover's distance)
+Link: https://arxiv.org/abs/1506.00368
+====================================================
+Spacecraft Attitude Stabilization with Piecewise-constant Magnetic Dipole Moment (Fabio Celani - 15 May, 2015)
+In actual implementations of magnetic control laws for spacecraft attitude stabilization, the time in which Earth magnetic field is measured must be separated from the time in which magnetic dipole moment is generated
+Link: https://arxiv.org/abs/1505.04000
+====================================================
+Shape Representation and Classification through Pattern Spectrum and Local Binary Pattern - A Decision Level Fusion Approach (B. H. Shekar - 27 April, 2015)
+This method makes use of Earth Movers Distance(EMD) as the measure in feature matching and shape retrieval process. In the third phase, the comparison and matching of the features, which are represented in the form of histograms, is done using Earth Movers Distance(EMD) as metric
+Link: https://arxiv.org/abs/1504.07082
+====================================================
+Nearly-optimal bounds for sparse recovery in generic norms, with applications to $k$-median sketching (Arturs Backurs - 4 April, 2015)
+By applying our result to specific norms, we cast known measurement bounds in our general framework (for the $\ell_p$ norms, $p \in [1,2]$) as well as provide new, measurement-efficient schemes (for the Earth-Mover Distance norm)
+Link: https://arxiv.org/abs/1504.01076
+====================================================
+A Comparative Analysis of Tensor Decomposition Models Using Hyper Spectral Image (Ankit Gupta - 23 March, 2015)
+It deals with capturing continuum of images of the earth surface from different angles
+Link: https://arxiv.org/abs/1503.06561
+====================================================
+Sparse Coding with Earth Mover's Distance for Multi-Instance Histogram Representation (Mohua Zhang - 14 March, 2016)
+We argue that for the data type of histogram, using $L_2$ norm distance is not suitable, and propose to use the earth mover's distance (EMD) instead of $L_2$ norm distance as a measure of the reconstruction error
+Link: https://arxiv.org/abs/1502.02377
+====================================================
+Unsupervised Segmentation of Multispectral Images with Cellular Automata (Wuilian Torres - 23 January, 2015)
+Multispectral images acquired by satellites are used to study phenomena on the Earth's surface
+Link: https://arxiv.org/abs/1501.05854
+====================================================
+Optimal Energy Allocation Policy for Wireless Networks in the Sky (Dinh Thai Hoang - 21 January, 2015)
+In the Loon network, balloons travel around the Earth and bring access points to the users who cannot connect directly to the global wired Internet. The signals from the users will be transmitted through the balloon network to the base stations connected to the Internet service provider (ISP) on Earth
+Link: https://arxiv.org/abs/1501.05057
+====================================================
+Seismic Earth Pressure Development in Sheet Pile Retaining Walls: A Numerical Study (P. Rajeev - 16 January, 2015)
+The numerically predicted dynamic earth pressure was compared with the M-O model prediction. Finally, the applicability of M-O methods to compute the seismic earth pressure was discussed.
+Link: https://arxiv.org/abs/1501.04006
+====================================================
+Performance of Compressive Parameter Estimation via K-Median Clustering (Dian Mo - 11 May, 2017)
+We propose the use of earth mover's distance (EMD), as applied to a pair of true and estimated PD coefficient vectors, to measure the parameter estimation error
+Link: https://arxiv.org/abs/1412.6724
+====================================================
+It's the Human that Matters: Accurate User Orientation Estimation for Mobile Computing Applications (Nesma Mohssen - 8 November, 2014)
+In this paper we present Humaine, a novel system to reliably and accurately estimate the user orientation relative to the Earth coordinate system.
+Link: https://arxiv.org/abs/1411.2156
+====================================================
+Link Reassignment based Snapshot Partition for Polar-orbit LEO Satellite Networks (Zhu Tang - 20 December, 2014)
+Snapshot is a fundamental notion proposed for routing in mobile low earth orbit (LEO) satellite networks which is characterized with predictable topology dynamics
+Link: https://arxiv.org/abs/1411.0372
+====================================================
+Renewal Strings for Cleaning Astronomical Databases (Amos J. Storkey - 7 August, 2014)
+Large astronomical databases obtained from sky surveys such as the SuperCOSMOS Sky Surveys (SSS) invariably suffer from a small number of spurious records coming from artefactual effects of the telescope, satellites and junk objects in orbit around earth and physical defects on the photographic plate or CCD
+Link: https://arxiv.org/abs/1408.1489
+====================================================
+A Taxonomy and Survey on eScience as a Service in the Cloud (Amelie Chi Zhou - 28 July, 2014)
+In particular, we introduce a taxonomy specifically designed for scientific computing in the cloud, and further review the taxonomy with four major kinds of science applications, including life sciences, physics sciences, social and humanities sciences, and climate and earth sciences
+Link: https://arxiv.org/abs/1407.7360
+====================================================
+The Shortlist Method for Fast Computation of the Earth Mover's Distance and Finding Optimal Solutions to Transportation Problems (Carsten Gottschlich - 30 May, 2014)
+Especially the Earth Mover's Distance is used in a plethora of applications ranging from content-based image retrieval, shape matching, fingerprint recognition, object tracking and phishing web page detection to computing color differences in linguistics and biology. Tests on simulated benchmarks demonstrate a considerable reduction in computation time for the new method as compared to the usual revised simplex algorithm implemented with state-of-the-art initialization and pivot strategies
+Link: https://arxiv.org/abs/1405.7903
+====================================================
+DEM Registration and Error Analysis using ASCII values (Suma Dawn - 30 May, 2014)
+Digital Elevation Model (DEM), while providing a bare earth look, is heavily used in many applications including construction modeling, visualization, and GIS
+Link: https://arxiv.org/abs/1405.7771
+====================================================
+ChromaPhy - A Living Wearable Connecting Humans and Their Environment (Theresa Schubert - 26 March, 2014)
+The underpin-ning idea is that in a future far away or close, on planet earth or in outer space, humans will need some tools to help them in their social life and day-to-day routine
+Link: https://arxiv.org/abs/1403.6823
+====================================================
+Compressive Hyperspectral Imaging Using Progressive Total Variation (Simeon Kamdem Kuiteing - 7 March, 2014)
+Compressed Sensing (CS) is suitable for remote acquisition of hyperspectral images for earth observation, since it could exploit the strong spatial and spectral correlations, llowing to simplify the architecture of the onboard sensors
+Link: https://arxiv.org/abs/1403.1697
+====================================================
+An adaptive Simulated Annealing-based satellite observation scheduling method combined with a dynamic task clustering strategy (Guohua Wu - 14 January, 2014)
+First, we develop a formal model for the scheduling of Earth observing satellites
+Link: https://arxiv.org/abs/1401.6098
+====================================================
+Tensor Representation and Manifold Learning Methods for Remote Sensing Images (Lefei Zhang - 13 January, 2014)
+One of the main purposes of earth observation is to extract interested information and knowledge from remote sensing (RS) images with high efficiency and accuracy
+Link: https://arxiv.org/abs/1401.2871
+====================================================
+Satellite image classification and segmentation using non-additive entropy (Lucas Assirati - 10 January, 2014)
+Here we compare the Boltzmann-Gibbs-Shannon (standard) with the Tsallis entropy on the pattern recognition and segmentation of coloured images obtained by satellites, via "Google Earth"
+Link: https://arxiv.org/abs/1401.2416
+====================================================
+A review of security attacks and Intrusion Detection Schemes in Wireless Sensor Networks (Y. Maleh - 9 January, 2014)
+Wireless Sensor Networks (WSNs) are currently used in different industrial and consumer applications, such as earth monitoring, health related applications, natural disaster prevention, and many other areas
+Link: https://arxiv.org/abs/1401.1982
+====================================================
+A Survey of Techniques For Improving Energy Efficiency in Embedded Computing Systems (Sparsh Mittal - 3 January, 2014)
+With the number of just mobile devices now reaching nearly equal to the population of earth, embedded systems have truly become ubiquitous
+Link: https://arxiv.org/abs/1401.0765
+====================================================
+Multi-Parameter Decision Support with Data Transmission over GSM/GPRS Network: a Case Study of Landslide Monitoring (Satyajit Rath - 1 August, 2014)
+There are different types of sensors to measure the behavioral aspects of earth. This paper briefly addresses earth observation and areas of critical importance to people and society
+Link: https://arxiv.org/abs/1312.4179
+====================================================
+A Multi-stage Collaborative 3D GIS to Support Public Participation (Yingjie Hu - 2 December, 2013)
+Applying the concept of Digital Earth, the proposed system also features a virtual globe-based user interface
+Link: https://arxiv.org/abs/1312.0638
+====================================================
+Integration of a city GIS data with Google Map API and Google Earth API for a web based 3D Geospatial Application (Adeyinka K. Akanbi - 30 November, 2013)
+Therefore, effective utilization of web based information system can only be realized by representing the world in its original view, where attributes data of spatial objects are integrated with spatial object and available for the user on the web, using integrated Google API and Google Earth API. Using Google Map API and Google Earth API, the attribute data of the study area stored in XML databases will be integrated with the corresponding existing spatial data of the study area; to create a web based 3D geospatial application
+Link: https://arxiv.org/abs/1312.0130
+====================================================
+New Ways to Promote Sustainability and Social Well-Being in a Complex, Strongly Interdependent World: The FuturICT Approach (Dirk Helbing - 13 October, 2013)
+This requires us to mine large datasets ("Big Data") and to develop new methods and tools: a Planetary Nervous System (PNS) to answer "What is (the state of the world)..." questions, a Living Earth Simulator (LES) to study "What ..
+Link: https://arxiv.org/abs/1310.3498
+====================================================
+Low-rank approximation in the numerical modeling of the Farley-Buneman instability in ionospheric plasma (S. V. Dolgov - 27 August, 2013)
+We consider the numerical modeling of the Farley-Buneman instability development in the earth's ionosphere plasma
+Link: https://arxiv.org/abs/1308.5952
+====================================================
+Major Limitations of Satellite images (Firouz A. Al-Wassai - 9 July, 2013)
+Remote sensing has proven to be a powerful tool for the monitoring of the Earth surface to improve our perception of our surroundings has led to unprecedented developments in sensor and information technologies
+Link: https://arxiv.org/abs/1307.2434
+====================================================
+A Face-like Structure Detection on Planet and Satellite Surfaces using Image Processing (Kazutaka Kurihara - 13 June, 2013)
+Huge amount of satellite images of the Earth, the Moon, the Mars are explored and many interesting face-like structure are detected
+Link: https://arxiv.org/abs/1306.3032
+====================================================
+An Analysis of issues against the adoption of Dynamic Carpooling (Daniel Graziotin - 3 June, 2013)
+However, it causes different problems such as overuse of oil, traffic jams causing earth pollution, health problems and an inefficient use of personal time. This paper reviews the state of the art of dynamic carpooling
+Link: https://arxiv.org/abs/1306.0361
+====================================================
+Filament and Flare Detection in HÎ± image sequences (Gernot Riegler - 26 April, 2013)
+Solar storms can have a major impact on the infrastructure of the earth
+Link: https://arxiv.org/abs/1304.7132
+====================================================
+GUI Database for the Equipment Store of the Department of Geomatic Engineering, KNUST (J. A. Quaye-Ballard - 9 April, 2013)
+The geospatial analyst is required to apply art, science, and technology to measure relative positions of natural and man-made features above or beneath the earths surface, and to present this information either graphically or numerically
+Link: https://arxiv.org/abs/1304.3120
+====================================================
+Decision Methods for Adaptive Task-Sharing in Associate Systems (Thomas S. Paterson - 13 March, 2013)
+ The paper describes results for a specific scenario where MRMA examines the benefits and costs of consulting human experts on Earth to assist a Mars rover with a complex resource management decision.
+Link: https://arxiv.org/abs/1303.5423
+====================================================
+A Fuzzy Logic based Method for Efficient Retrieval of Vague and Uncertain Spatial Expressions in Text Exploiting the Granulation of the Spatial Event Queries (Kanagavalli. V. R - 26 February, 2013)
+Spatial data consists of values that denote the location and shape of objects and areas on the earths surface
+Link: https://arxiv.org/abs/1302.6340
+====================================================
+3D Geological Modeling and Visualization of Rock Masses Based on Google Earth: A Case Study (Gang Mei - 15 January, 2013)
+Google Earth (GE) has become a powerful tool for geological modeling and visualization
+Link: https://arxiv.org/abs/1301.3455
+====================================================
+Discrete Surface Modeling Based on Google Earth: A Case Study (Gang Mei - 25 December, 2012)
+Google Earth (GE) has become a powerful tool for geological, geophysical and geographical modeling; yet GE can be accepted to acquire elevation data of terrain
+Link: https://arxiv.org/abs/1212.6048
+====================================================
+Project G.N.O.S.I.S.: Geographical Network Of Synoptic Information System (Pietro Oliva - 3 November, 2012)
+This doesn't mean we simply aim to add history to Google Earth (though it could be already a nice goal): the main idea behind GNOSIS project is to produce applications to "dress up" the Globe with a set of skin-maps representing the most various different kind of histories like the evolution of geology, genetics, agriculture, ethnology, linguistics, musicology, metallurgy and so forth, in time. It may be interesting in the near future to have such a possibility to watch on the map the positions and movements of the armies during the battles of Waterloo or Thermopylae, the spreading of the cultivation of corn in time, the rise and fall of Roman Empire or the diffusion of Smallpox together with the spread of a religion, a specific dialect, the early pottery techniques or the natural resources available to pre-Columbian civilizations on a Google-Earth-map-like, that is to say to have at one's hand the ultimate didactic-enciclopedic tool
+Link: https://arxiv.org/abs/1211.0645
+====================================================
+SchrÃ¶dinger Diffusion for Shape Analysis with Texture (Jose A. Iglesias - 2 October, 2012)
+As an application, we introduce a method for retrieval of textured shapes through comparison of SchrÃ¶dinger diffusion distance histograms with the earth's mover distance, and present some numerical experiments showing superior performance compared to an analogous method that ignores the texture.
+Link: https://arxiv.org/abs/1210.0880
+====================================================
+Sensor Webs for Environmental research (K. A. Nishadh - 4 September, 2012)
+The ongoing massive global environmental changes and the past learnings have highlighted the urgency and importance of further detailed understanding of the earth system and implementation of social ecological sustainability measures in a much more effective and transparent manner
+Link: https://arxiv.org/abs/1209.0622
+====================================================
+C-Band VSAT Data Communication System and RF Impairments (T. P. Surekha - 8 June, 2012)
+The performance of the system is analysed by the error probability called BER (Bit Error Rate) and results are derived from Earth station to hub and hub to Earth station using satellite Transponder as the media of communication channel
+Link: https://arxiv.org/abs/1206.1722
+====================================================
+Evidence-Based Robust Design of Deflection Actions for Near Earth Objects (Federico Zuiani - 6 June, 2012)
+This paper presents a novel approach to the robust design of deflection actions for Near Earth Objects (NEO). The basic idea behind Laser ablation is that of inducing a sublimation of the NEO surface, which produces a low thrust thereby slowly deviating the asteroid from its initial Earth threatening trajectory
+Link: https://arxiv.org/abs/1206.1309
+====================================================
+On probabilities of Risk type board game combats (Manu Harju - 18 April, 2012)
+Gameplay is based on battles between armies located in adjacent territories on the map of Earth
+Link: https://arxiv.org/abs/1204.4082
+====================================================
+Distributed computing of Seismic Imaging Algorithms (Masnida Emami - 5 April, 2012)
+The primary use of technical computing in the oil and gas industries is for seismic imaging of the earth's subsurface, driven by the business need for making well-informed drilling decisions during petroleum exploration and production
+Link: https://arxiv.org/abs/1204.1225
+====================================================
+Critical Task Re-assignment under Hybrid Scheduling Approach in Multiprocessor Real-Time Systems (Gopalakrishnan T. R. Nair - 30 March, 2012)
+Embedded hard real time systems require substantial amount of emergency processing power for the management of large scale systems like a nuclear power plant under the threat of an earth quake or a future transport systems under a peril
+Link: https://arxiv.org/abs/1203.6719
+====================================================
+A tour about Isaac Newton's life (A. C. Sparavigna - 22 March, 2012)
+KML language and Google Earth, with its Street View and 3D images are powerful tools to create this virtual tour.
+Link: https://arxiv.org/abs/1203.4966
+====================================================
+Performance Evaluation of Realistic Vanet Using Traffic Light Scenario ( Nidhi - 9 March, 2012)
+The paper contributes by generating a real world road Map of JNU using existing Google Earth and GIS tools
+Link: https://arxiv.org/abs/1203.2195
+====================================================
+Georeferenced lives (A. C. Sparavigna - 2 March, 2012)
+To give a georeference means to give a reference as existing in the physical space of Earth
+Link: https://arxiv.org/abs/1203.0500
+====================================================
+Hybrid GPS-GSM Localization of Automobile Tracking System (Mohammad A. Al-Khedher - 12 January, 2012)
+An integrated GPS-GSM system is proposed to track vehicles using Google Earth application. After data processing, Google Earth application is used to view the current location and status of each vehicle
+Link: https://arxiv.org/abs/1201.2630
+====================================================
+Indexing the Earth Mover's Distance Using Normal Distributions (Brian E. Ruttenberg - 30 November, 2011)
+The Earth Mover's Distance (EMD) has increasingly been employed to compare uncertain data due to its ability to effectively capture the differences between two distributions
+Link: https://arxiv.org/abs/1111.7168
+====================================================
+Modelling Spatial Interactions in the Arbuscular Mycorrhizal Symbiosis using the Calculus of Wrapped Compartments (Cristina Calcagno - 7 September, 2011)
+Arbuscular mycorrhiza (AM) is the most wide-spread plant-fungus symbiosis on earth
+Link: https://arxiv.org/abs/1109.1363
+====================================================
+A Linear-Time Approximation of the Earth Mover's Distance (Min-Hee Jang - 9 August, 2011)
+For image retrieval based on DCD, the earth mover's distance and the optimal color composition distance are proposed to measure the dissimilarity between two images. To solve the problem, we propose a new distance function that calculates an approximate earth mover's distance in linear time
+Link: https://arxiv.org/abs/1106.1521
+====================================================
+The detection of "hot regions" in the geography of science: A visualization approach by using density maps (Lutz Bornmann - 12 April, 2011)
+We also briefly discuss the use of Google Earth.
+Link: https://arxiv.org/abs/1102.3862
+====================================================
+From Social Data Mining to Forecasting Socio-Economic Crisis (Dirk Helbing - 26 July, 2011)
+They can be imagined as laboratories devoted to the gathering and processing of enormous volumes of data on both natural systems such as the Earth and its ecosystem, as well as on human techno-socio-economic systems, so as to gain early warnings of impending events
+Link: https://arxiv.org/abs/1012.0178
+====================================================
+A Joint Initiative to Support the Semantic Interoperability within the GIIDA Project (Paolo Plini - 1 December, 2010)
+Within GIIDA the goal is to make available the EARTh thesaurus (Environmental Applications Reference Thesaurus), developed by the CNR-IIA-EKOLab. Within a collaborative initiative with the CNR-Institute of Applied Mathematics and Information Technology (IMATI) a SKOS (Simple Knowledge Organization System) version of EARTh was developed
+Link: https://arxiv.org/abs/1012.0160
+====================================================
+From Social Simulation to Integrative System Design (Dirk Helbing - 24 February, 2011)
+The Centers belonging to this network of Integrative Systems Design Centers would be focused on a particular field, but they would be part of an attempt to eventually cover all relevant areas of society and economy and integrate them within a "Living Earth Simulator"
+Link: https://arxiv.org/abs/1011.3970
+====================================================
+Tensor-SIFT based Earth Mover's Distance for Contour Tracking (Peihua Li - 13 November, 2010)
+First, we formulate a region functional based on robust Earth Mover's distance (EMD) with kernel density for distribution modeling, and propose a two-phase method for its optimization
+Link: https://arxiv.org/abs/1011.3174
+====================================================
+Resource-Optimal Planning For An Autonomous Planetary Vehicle (Giuseppe Della Penna - 29 July, 2010)
+Therefore, when offline planning of the vehicle activities is required, for example for rovers that operate without a continuous Earth supervision, such planning is often performed on simplified models that are not completely realistic
+Link: https://arxiv.org/abs/1007.5130
+====================================================
+Classification of LULC Change Detection using Remotely Sensed Data for Coimbatore City, Tamilnadu, India (Y. Babykalpana - 23 May, 2010)
+of India has devised a generalized LULC classification system respect to the Indian conditions based on the various categories of Earth surface features , resolution of available satellite data, capabilities of sensors and present and future applications. The profusion information of the earth surface offered by the high resolution satellite images for remote sensing applications
+Link: https://arxiv.org/abs/1005.4216
+====================================================
+Autoplot: A browser for scientific data on the web (J. Faden - 14 April, 2010)
+Although originally developed for viewing heliophysics-related time series and spectrograms, its flexible and generic data representation model makes it potentially useful for the Earth sciences.
+Link: https://arxiv.org/abs/1004.2447
+====================================================
+On constant factor approximation for earth mover distance over doubling metrics (Shi Li - 21 February, 2010)
+Given a metric space $(X,d_X)$, the earth mover distance between two distributions over $X$ is defined as the minimum cost of a bipartite matching between the two distributions. We study efficient algorithms for approximating earth mover distance over metrics with bounded doubling dimension.
+Link: https://arxiv.org/abs/1002.4034
+====================================================
+Mapping the Geography of Science: Distribution Patterns and Networks of Relations among Cities and Institutes (Loet Leydesdorff - 27 January, 2010)
+Using Google Earth, Google Maps and/or network visualization programs such as Pajek, one can overlay the network of relations among addresses in scientific publications on the geographic map
+Link: https://arxiv.org/abs/1001.5016
+====================================================
+A Formal Framework of Virtual Organisations as Agent Societies (Jarred McGinnis - 25 January, 2010)
+We illustrate the proposed framework with an earth observation scenario.
+Link: https://arxiv.org/abs/1001.4405
+====================================================
+Finding top-k similar pairs of objects annotated with terms from an ontology (Arnab Bhattacharya - 6 March, 2010)
+The third and most useful distance measure, earth mover's distance, finds the best way of matching the terms and computes the distance corresponding to this best matching. We develop lower bounds that can be aggregated progressively and utilize them to speed up the search for top-k object pairs when the earth mover's distance is used
+Link: https://arxiv.org/abs/1001.2625
+====================================================
+The Role of Head-Up Display in Computer- Assisted Instruction (Kikuo Asai - 3 January, 2010)
+We have developed an HUD-based CAI system for effectively presenting instructions of the equipment in the transportable earth station
+Link: https://arxiv.org/abs/1001.0420
+====================================================
+Exploration of Periodically Varying Graphs (Paola Flocchini - 24 September, 2009)
+These graphs naturally model highly dynamic infrastructure-less networks such as public transports with fixed timetables, low earth orbiting (LEO) satellite systems, security guards' tours, etc
+Link: https://arxiv.org/abs/0909.4369
+====================================================
+A preliminary XML-based search system for planetary data (Francesco Carraro - 31 July, 2009)
+ground-based or near Earth-based observations, space missions and laboratory experiments
+Link: https://arxiv.org/abs/0907.5538
+====================================================
+Intelligent Unmanned Explorer for Deep Space Exploration (T. Kubota - 29 April, 2008)
+JAXA ISAS is promoting MUSES C mission, which is the worlds first sample and return attempt to or from the near earth asteroid
+Link: https://arxiv.org/abs/0804.4717
+====================================================
+Image Processing in Optical Guidance for Autonomous Landing of Lunar Probe (Ding Meng - 24 April, 2008)
+Because of the communication delay between earth and moon, the GNC technology of lunar probe is becoming more important than ever
+Link: https://arxiv.org/abs/0804.3862
+====================================================
+NCore: Architecture and Implementation of a Flexible, Collaborative Digital Library (Dean B. Krafft - 10 March, 2008)
+This paper describes NCore, presents and analyzes its architecture, tools and services; and reports on the experience of NSDL in building and operating a major digital library on it over the past year and the experience of the Digital Library for Earth Systems Education in porting their existing digital library and tools to the NCore platform.
+Link: https://arxiv.org/abs/0803.1500
+====================================================
+Techniques for Fast Transient Fault Grading Based on Autonomous Emulation (Celia Lopez-Ongil - 25 October, 2007)
+Soft errors are currently appearing into ICs working at earth surface
+Link: https://arxiv.org/abs/0710.4757
+====================================================
+Exploring Logic Artificial Chemistries: An Illogical Attempt? (Christof Teuscher - 29 March, 2007)
+Robustness to a wide variety of negative factors and the ability to self-repair is an inherent and natural characteristic of all life forms on earth
+Link: https://arxiv.org/abs/cs/0703149
+====================================================
+Indexing the Sphere with the Hierarchical Triangular Mesh (Alexander S. Szalay - 25 January, 2007)
+The HTM provides the basis for an efficient geospatial indexing scheme in relational databases where the data have an inherent location on either the celestial sphere or the Earth
+Link: https://arxiv.org/abs/cs/0701164
+====================================================
+A Survey of Congestion Control Techniques and Data Link Protocols in Satellite Networks (Sonia Fahmy - 23 September, 1998)
+The long propagation delay of the earth-satellite link further imposes severe demands and constraints on the congestion control schemes, as well as the media access control techniques and retransmission protocols that can be employed in a satellite network
+Link: https://arxiv.org/abs/cs/9809076
+====================================================
+Analysis and Simulation of Delay and Buffer Requirements of satellite-ATM Networks for TCP/IP Traffic (Rohit Goyal - 23 September, 1998)
+We model LEO constellations as satellites evenly spaced in circular orbits around the earth
+Link: https://arxiv.org/abs/cs/9809052
+====================================================
+Microsoft TerraServer (Tom Barclay - 4 September, 1998)
+The Microsoft TerraServer stores aerial and satellite images of the earth in a SQL Server Database served to the public via the Internet
+Link: https://arxiv.org/abs/cs/9809011
+====================================================

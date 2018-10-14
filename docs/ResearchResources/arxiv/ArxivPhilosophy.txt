@@ -1,0 +1,927 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+An Occam's Razor View on Learning Audiovisual Emotion Recognition with Small Training Sets (Valentin Vielzeuf - 8 August, 2018)
+To design this model, the authors  followed a philosophy of simplicity, drastically limiting the number of parameters to learn from the target datasets, always choosing the simplest  earning methods: i) transfer learning and low-dimensional space embedding allows to reduce the dimensionality of the representations. We also highlight the inherent challenges of the AFEW dataset and the difficulty of model selection with as few as 383 validation  equences. The proposed real-time emotion classifier achieved a state-of-the-art accuracy of 60.64 % on the test set of AFEW, and ranked 4th at  he Emotion in the Wild 2018 challenge.
+Link: https://arxiv.org/abs/1808.02668
+====================================================
+AXNet: ApproXimate computing using an end-to-end trainable neural network (Zhenghao Peng - 27 July, 2018)
+Leveraging the philosophy of multi-task learning, AXNet can tremendously improve the invocation (proportion of safe-to-approximate samples) and reduce the approximation error. Experiment results show 50.7% more invocation and substantial cuts of training time when compared to existing neural network based approximate computing framework.
+Link: https://arxiv.org/abs/1807.10458
+====================================================
+Memory Matching Networks for One-Shot Image Recognition (Qi Cai - 23 April, 2018)
+Specifically, we present Memory Matching Networks (MM-Net) --- a novel deep architecture that explores the training procedure, following the philosophy that training and test conditions must match. More remarkably, our MM-Net improves one-shot accuracy on Omniglot from 98.95% to 99.28% and from 49.21% to 53.37% on \emph{mini}ImageNet.
+Link: https://arxiv.org/abs/1804.08281
+====================================================
+Optimizing Bloom Filter: Challenges, Solutions, and Comparisons (Lailong Luo - 12 April, 2018)
+The existing reviews or surveys mainly focus on the applications of BF, but fall short in covering the current trends, thereby lacking intrinsic understanding of their design philosophy. To summarize the existing efforts, we conduct an in-depth study of the existing literature on BF optimization, covering more than 60 variants
+Link: https://arxiv.org/abs/1804.04777
+====================================================
+Accumulation of Knowledge in Para-Scientific Areas. The Case of Analytic Philosophy (Eugenio Petrovich - 15 May, 2018)
+A sample of 60 papers published in leading Analytic Philosophy journals between 1950 and 2009 is analyzed, and a specific classsificatory scheme is developed to classify citations according to their epistemological function
+Link: https://arxiv.org/abs/1802.05941
+====================================================
+GapFlyt: Active Vision Based Minimalist Structure-less Gap Detection For Quadrotor Flight (Nitin J Sanket - 1 July, 2018)
+We use this philosophy to design a minimalist sensori-motor framework for a quadrotor to fly though unknown gaps without a 3D reconstruction of the scene using only a monocular camera and onboard sensing. We successfully evaluate and demonstrate the proposed approach in many real-world experiments with different settings and window shapes, achieving a success rate of 85% at 2.5ms$^{-1}$ even with a minimum tolerance of just 5cm
+Link: https://arxiv.org/abs/1802.05330
+====================================================
+Astor: Exploring the Design Space of Generate-and-Validate Program Repair beyond GenProg (Matias Martinez - 9 August, 2018)
+Repair approaches can be loosely characterized along the main design philosophy such generate- and-validate or synthesis-based. Astor includes 6 Java implementation of repair approaches, including one of the pioneer: GenProg. The implementations of the repair approaches built over Astor are capable of repair, in total, 98 real bugs from 5 large Java programs.
+Link: https://arxiv.org/abs/1802.03365
+====================================================
+Fuzzy-Based Dialectical Non-Supervised Image Classification and Clustering (Wellington Pinheiro dos Santos - 3 December, 2017)
+Dialectics has experienced considerable progress in the 19th century, with Hegel's dialectics and, in the 20th century, with the works of Marx, Engels, and Gramsci, in Philosophy and Economics. As a case study, we used ODC to classify 181 magnetic resonance synthetic multispectral images composed by proton density, $T_1$- and $T_2$-weighted synthetic brain images
+Link: https://arxiv.org/abs/1712.01694
+====================================================
+The mind as a computational system (Christoph Adami - 1 December, 2017)
+The essay's full title was "Some Topics in Philosophy and Computer Science". I am making this text (unchanged from 1985, preserving the typesetting as much as possible) available now in memory of Jerry Fodor, whose writings had influenced me significantly at the time (even though I did not always agree).
+Link: https://arxiv.org/abs/1712.01093
+====================================================
+Learning Spatio-Temporal Representation with Pseudo-3D Residual Networks (Zhaofan Qiu - 28 November, 2017)
+Furthermore, we propose a new architecture, named Pseudo-3D Residual Net (P3D ResNet), that exploits all the variants of blocks but composes each in different placement of ResNet, following the philosophy that enhancing structural diversity with going deep could improve the power of neural networks. Our P3D ResNet achieves clear improvements on Sports-1M video classification dataset against 3D CNN and frame-based 2D CNN by 5.3% and 1.8%, respectively
+Link: https://arxiv.org/abs/1711.10305
+====================================================
+The Topology of Statistical Verifiability (Konstantin Genin - 27 July, 2017)
+They have emerged in such diverse fields as domain theory [1, 16], formal learning theory [18], epistemology and philosophy of science [10, 15, 8, 9, 2], statistics [6, 7] and modal logic [17, 4]
+Link: https://arxiv.org/abs/1707.09378
+====================================================
+Ideological Sublations: Resolution of Dialectic in Population-based Optimization (S. Hossein Hosseini - 3 September, 2017)
+A population-based optimization algorithm was designed, inspired by two main thinking modes in philosophy, both based on dialectic concept and thesis-antithesis paradigm. The proposed algorithm is evaluated by a testbed of 12 single-objective continuous benchmark functions
+Link: https://arxiv.org/abs/1707.06992
+====================================================
+Connecting every bit of knowledge: The structure of Wikipedia's First Link Network (Mark Ibrahim - 6 December, 2016)
+Apples, porcupines, and the most obscure Bob Dylan song---is every topic a few clicks from Philosophy? Within Wikipedia, the surprising answer is yes: nearly all paths lead to Philosophy. By following the first link in each article, we algorithmically construct a directed network of all 4.7 million articles: Wikipedia's First Link Network
+Link: https://arxiv.org/abs/1605.00309
+====================================================
+Individual Bibliometric Assessment @ University of Vienna: From Numbers to Multidimensional Profiles (Juan Gorraiz - 23 February, 2016)
+According to the department's philosophy, bibliometrics is not only a helpful evaluation instrument in order to complement the peer review system. In total, 33 bibliometric reports have been delivered so far
+Link: https://arxiv.org/abs/1601.08049
+====================================================
+Scale-aware Pixel-wise Object Proposal Networks (Zequn Jie - 23 July, 2016)
+To solve the challenge of localizing objects at small scale, two localization networks which are specialized for localizing objects with different scales are introduced, following the divide-and-conquer philosophy. Extensive evaluations on PASCAL VOC 2007 show the SPOP network is superior over the state-of-the-art models. Finally, the SPOP network (trained on PASCAL VOC) shows great generalization performance when testing it on ILSVRC 2013 validation set.
+Link: https://arxiv.org/abs/1601.04798
+====================================================
+A critical cluster analysis of 44 indicators of author-level performance (Lorna Wildgaard - 18 May, 2015)
+Publication and citation data for 741 researchers across Astronomy, Environmental Science, Philosophy and Public Health was collected in Web of Science (WoS). A two-step cluster analysis using IBM SPSS version 22 was performed, followed by a risk analysis and ordinal logistic regression to explore cluster membership
+Link: https://arxiv.org/abs/1505.04565
+====================================================
+Philosophy of science viewed through the lense of "References Publication Years spectrosopy" (RPYS) (K. Brad Wray - 13 October, 2014)
+Further, Einstein's famous 1905 papers created a citation peak in the philosophy of science literature
+Link: https://arxiv.org/abs/1410.3461
+====================================================
+Exercises for Children with Dyslalia-Software Infrastructure (Cristian-Eduard Belciug - 5 September, 2014)
+This set has a unitary software block (data base, programming language, programming philosophy). As programming language we used C#, implemented in Visual Studio 2005
+Link: https://arxiv.org/abs/1409.1699
+====================================================
+Coolhunting for the World's Thought Leaders (Karin Frick - 5 August, 2013)
+The influencers in philosophy, sociology, economics, and the "hard sciences" have been identified by a Delphi process, asking 50 thought leaders to name their peers
+Link: https://arxiv.org/abs/1308.1160
+====================================================
+Obesity Heuristic, New Way On Artificial Immune Systems (Mohammed El-Dosuky - 23 November, 2012)
+The algorithm works with Just-In-Time philosophy; by starting only when desired. With experiments conducted on standard tables, results show that Obesity Heuristic outperforms other algorithms, with 100% recall
+Link: https://arxiv.org/abs/1211.6409
+====================================================
+Computing Nature: A Network of Networks of Concurrent Information Processes (Gordana Dodig Crnkovic - 29 October, 2012)
+The articles discussed consist a selection of works from the Symposium on Natural Computing at AISB-IACAP (British Society for the Study of Artificial Intelligence and the Simulation of Behaviour and The International Association for Computing and Philosophy) World Congress 2012, held at the University of Birmingham, celebrating Turing centenary
+Link: https://arxiv.org/abs/1210.7784
+====================================================
+Correction Trees as an Alternative to Turbo Codes and Low Density Parity Check Codes (JarosÅaw Duda - 24 May, 2012)
+The size of the system state space completely changes the correction philosophy, as state collisions are virtually impossible and the decoding procedure becomes a correction tree. The correction process remains practically cost-free for channel error rates below 0.05 and 0.13 for the 1/2 and 1/4 rate codes, respectively. For the considered resource limit, the output bit error rates reach the order of $10^{-3}$ for channel error rates 0.08 and 0.18
+Link: https://arxiv.org/abs/1204.5317
+====================================================
+Multi source feedback based performance appraisal system using Fuzzy logic decision support system (G. Meenakshi - 8 March, 2012)
+The 360-Degree Feedback approach provides a consistent management philosophy meeting the criterion outlined previously. Hence anyone who comes into contact with the employee, the 360 degree appraisal has four components that include self-appraisal, superior's appraisal, subordinate's appraisal student's appraisal and peer's appraisal .The proposed system is an attempt to implement the 360 degree feedback based appraisal system in academics especially engineering colleges.
+Link: https://arxiv.org/abs/1203.1882
+====================================================
+Can Intelligence Explode? (Marcus Hutter - 28 February, 2012)
+David Chalmers' (JCS 2010) article is the first comprehensive philosophical analysis of the singularity in a respected philosophy journal
+Link: https://arxiv.org/abs/1202.6177
+====================================================
+A Methodology for assessing Agile Software Development Approaches (Shvetha Soundararajan - 1 August, 2011)
+The Framework identifies (1) objectives of the agile philosophy, (2) principles that support the objectives, (3) practices that are reflective of the principles, (4) the linkages between the objectives, principles and practices, and (5) indicators for each practice to assess the effectiveness of the practice and the extent to which the organization supports its implementation
+Link: https://arxiv.org/abs/1108.0427
+====================================================
+Understanding the Tenets of Agile Software Engineering: Lecturing, Exploration and Critical Thinking (Shvetha Soundararajan - 27 May, 2010)
+At best, students have only limited exposure to the agile philosophy, principles and practices at the graduate and undergraduate levels of education. In an effort to address this concern, we offered a graduate-level course entitled "Agile Software Engineering" in the Department of Computer Science at Virginia Tech in Fall 2009
+Link: https://arxiv.org/abs/1005.5060
+====================================================
+Quantum Complexity: restrictions on algorithms and architectures (Daniel James Shepherd - 9 May, 2010)
+A dissertation submitted to the University of Bristol in accordance with the requirements of the degree of Doctor of Philosophy (PhD) in the Faculty of Engineering, Department of Computer Science, July 2009.
+Link: https://arxiv.org/abs/1005.1425
+====================================================
+The finite-dimensional Witsenhausen counterexample (Pulkit Grover - 2 March, 2010)
+By applying a large-deviation "sphere-packing" philosophy, a lower bound to the optimal cost for the finite dimensional case is derived that uses appropriate shadows of the infinite-length bound. For Witsenhausen's original problem -- the scalar case -- the gap between regular lattice-based strategies and the lower bound is numerically never more than a factor of 8.
+Link: https://arxiv.org/abs/1003.0514
+====================================================
+The Import and Export of Cognitive Science (Rob Goldstone - 18 November, 2009)
+In 2005, psychology was a keyword for 51% of submissions, followed distantly by linguistics (17%), artificial intelligence (13%), neuroscience (10%), computer science (9%), and philosophy (8%). By studying the patterns of citations among journals that cite and are cited by Cognitive Science, we can better: 1) appreciate the scholarly ecology surrounding the journal and the journals role within this ecology, 2) establish competitor and alternate journals, and 3) determine the natural clustering of fields related to cognitive science.
+Link: https://arxiv.org/abs/0911.3641
+====================================================
+Fast and Near-Optimal Matrix Completion via Randomized Basis Pursuit (Zhisu Zhu - 14 May, 2009)
+Motivated by the philosophy and phenomenal success of compressed sensing, the problem of reconstructing a matrix from a sampling of its entries has attracted much attention recently. Moreover, the runtime of the RBP algorithm is bounded by $O(nr^2\log n+n^2r)$, which compares very favorably with the $Î©(n^4r^2\log^{12}n)$ runtime of the SDP-based algorithm
+Link: https://arxiv.org/abs/0905.1546
+====================================================
+Scientific impact quantity and quality: Analysis of two sources of bibliographic data (Richard K. Belew - 11 April, 2005)
+Attempts to understand the consequence of any individual scientist's activity within the long-term trajectory of science is one of the most difficult questions within the philosophy of science. In the end of 2004, Google introduced a new service, GoogleScholar, making much of this same data available. Here we analyze 203 publications, collectively cited by more than 4000 other publications
+Link: https://arxiv.org/abs/cs/0504036
+====================================================
+Propositional computability logic I (Giorgi Japaridze - 21 June, 2004)
+While not technically necessary, however, familiarity with the foundational paper "Introduction to computability logic" [Annals of Pure and Applied Logic 123 (2003), pp.1-99] would greatly help the reader in understanding the philosophy, underlying motivations, potential and utility of computability logic, -- the context that determines the value of the present results
+Link: https://arxiv.org/abs/cs/0404023
+====================================================
+Architecture of an Open-Sourced, Extensible Data Warehouse Builder: InterBase 6 Data Warehouse Builder (IB-DWB) (Maurice HT Ling - 10 June, 2006)
+The architectural philosophy of IB-DWB centers around providing a base platform that is extensible, which is functionally supported by expansion modules. IB-DWB is currently being hosted by sourceforge.net (Project Unix Name: ib-dwb), licensed under GNU General Public License, Version 2.
+Link: https://arxiv.org/abs/cs/0307015
+====================================================
+A Moral Framework for Understanding of Fair ML through Economic Models of Equality of Opportunity (Hoda Heidari - 10 September, 2018)
+Equality of opportunity (EOP) is an extensively studied conception of fairness in political philosophy
+Link: https://arxiv.org/abs/1809.03400
+====================================================
+PyDraw: a GUI drawing generator based on Tkinter and its design concept (Jinwei Lin - 27 August, 2018)
+With PyDraw's GUI design philosophy, it can easily design a visual GUI rendering generator for any GUI framework with canvas functionality or programming language with screen display control
+Link: https://arxiv.org/abs/1808.09094
+====================================================
+New Approaches and Trends in the Philosophy of Educational Technology for Learning and Teaching Environments (Ismail Ipek - 18 August, 2018)
+In the study, authors discuss the strategies and steps that a design team should follow when designing learning environments in industry, business and military scenarios, based on the philosophy of educational technology and latest technologies, which should give way to effective learning environments. At the end of the study, integrated technologies in e-learning were discussed and presented, based on foundations of IDT and the philosophy of educational technology.
+Link: https://arxiv.org/abs/1808.06063
+====================================================
+Analysis of Average Consensus Algorithm for Asymmetric Regular Networks (Sateeshkrishna Dhuli - 18 August, 2018)
+Simple execution, decentralized philosophy make these algorithms suitable for WSN scenarios
+Link: https://arxiv.org/abs/1806.03932
+====================================================
+A Survey on Trust Modeling from a Bayesian Perspective (Bin Liu - 11 June, 2018)
+One is to gain insights about Bayesian philosophy in modeling trust
+Link: https://arxiv.org/abs/1806.03916
+====================================================
+Vehicle Instance Segmentation from Aerial Image and Video Using a Multi-Task Learning Residual Fully Convolutional Network (Lichao Mou - 26 May, 2018)
+More specifically, we utilize the philosophy of residual learning (ResNet) to construct a fully convolutional network that is capable of harnessing multi-level contextual feature representations learned from different residual blocks
+Link: https://arxiv.org/abs/1805.10485
+====================================================
+How To Solve Moral Conundrums with Computability Theory (Jongmin Jerome Baek - 21 May, 2018)
+First, I do a very brief survey of the history of computability theory in moral philosophy
+Link: https://arxiv.org/abs/1805.08347
+====================================================
+Category coding with neural network application (Qizhi Zhang - 21 May, 2018)
+In this paper, we present a novel method called category coding (CC), where the design philosophy follows the principle of minimal collision to reduce the input and output dimension effectively. Experimental results show that all three proposed methods outperform the existing state-of-the-art coding methods, such as standard cut-off and error-correct output coding (ECOC) methods.
+Link: https://arxiv.org/abs/1805.07927
+====================================================
+Towards a Design Philosophy for Interoperable Blockchain Systems (Thomas Hardjono - 15 May, 2018)
+In this paper we discuss a design philosophy for interoperable blockchain systems, using the design philosophy of the Internet architecture as the basis to identify key design principles
+Link: https://arxiv.org/abs/1805.05934
+====================================================
+O.D.E.S. : An Online Dynamic Examination System based on a CMS Wordpress plugin (George F. Fragulis - 7 May, 2018)
+This paper describes the online dynamic examination application plugin named O.D.E.S., developed according to the open source software philosophy, where the CMS Wordpress is used as programmers/coders are given the potential to develop applications from scratch with safety and ease
+Link: https://arxiv.org/abs/1805.05426
+====================================================
+To Create What You Tell: Generating Videos from Captions (Yingwei Pan - 23 April, 2018)
+In particular, the discriminator network consists of three discriminators: video discriminator classifying realistic videos from generated ones and optimizes video-caption matching, frame discriminator discriminating between real and fake frames and aligning frames with the conditioning caption, and motion discriminator emphasizing the philosophy that the adjacent frames in the generated videos should be smoothly connected as in real ones
+Link: https://arxiv.org/abs/1804.08264
+====================================================
+Evolving Event-driven Programs with SignalGP (Alexander Lalejini - 15 April, 2018)
+Event-driven programming is a software design philosophy that simplifies the development of reactive programs by automatically triggering program modules (event-handlers) in response to external events, such as signals from the environment or messages from other programs
+Link: https://arxiv.org/abs/1804.05445
+====================================================
+Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy (Guanglu Song - 2 June, 2018)
+Based on this philosophy, a novel method named scale estimation and spatial attention proposal ($S^2AP$) is proposed to pay attention to some specific scales and valid locations in the image pyramid. Experiments show that FCN-based method RPN can be accelerated by about $4\times$ with the help of $S^2AP$ and masked-FCN and at the same time it can also achieve the state-of-the-art on FDDB, AFW and MALF face detection benchmarks as well.
+Link: https://arxiv.org/abs/1804.05197
+====================================================
+What we talk about when we talk about monads (Tomas Petricek - 27 March, 2018)
+To answer these questions, we review the history of monads in the context of programming and study the development through the perspectives of philosophy of science, philosophy of mathematics and cognitive sciences. We base such observations on established results about the scientific method and mathematical entities -- cognitive sciences suggest that the metaphors used when thinking about monads are more important than widely accepted, while philosophy of science explains how the research paradigm from which monads originate influences and restricts their use
+Link: https://arxiv.org/abs/1803.10195
+====================================================
+|{Math, Philosophy, Programming, Writing}| = 1 (Attila Egri-Nagy - 18 September, 2018)
+This can be the case with Mathematics, Programming, Writing and Philosophy itself
+Link: https://arxiv.org/abs/1803.05998
+====================================================
+Control Inversion: A Clustering-Based Method for Distributed Wide-Area Control of Power Systems (Nan Xue - 15 March, 2018)
+The basic philosophy behind this method is to project the original power system model into a lower-dimensional state-space through clustering and aggregation of generator states, and then designing an LQR controller for the lower-dimensional model
+Link: https://arxiv.org/abs/1803.05947
+====================================================
+A Brandom-ian view of Reinforcement Learning towards strong-AI (Atrisha Sarkar - 7 March, 2018)
+The analytic philosophy of Robert Brandom, based on the ideas of pragmatism, paints a picture of sapience, through inferentialism. In this paper, we present a theory, that utilizes essential elements of Brandom's philosophy, towards the objective of achieving strong-AI
+Link: https://arxiv.org/abs/1803.02912
+====================================================
+Resource Polymorphism (Guillaume Munch-Maccagnoni - 7 March, 2018)
+We present a resource-management model for ML-style programming languages, designed to be compatible with the OCaml philosophy and runtime model
+Link: https://arxiv.org/abs/1803.02796
+====================================================
+Leveraging Coding Techniques for Speeding up Distributed Computing (Konstantinos Konstantinidis - 8 February, 2018)
+The philosophy in these methods is to partition the overall job into smaller tasks that are executed on different servers; this is called the map phase
+Link: https://arxiv.org/abs/1802.03049
+====================================================
+Model Based Desgin Environment for Launcher Upper Stage GNC Development (Hans Strauch - 30 January, 2018)
+The model-based-design (MBD) philosophy presents an attractive solution in addressing the multi-disciplinary nature of the flight algorithm design task
+Link: https://arxiv.org/abs/1801.09950
+====================================================
+Towards an Understanding of Neural Networks in Natural-Image Spaces (Yifei Fan - 27 January, 2018)
+The explanation consists of two parts: the philosophy of neural networks and a hypothetic model of natural-image spaces
+Link: https://arxiv.org/abs/1801.09097
+====================================================
+On Scale-out Deep Learning Training for Cloud and HPC (Srinivas Sridharan - 24 January, 2018)
+In this paper, we describe the philosophy, design, and implementation of Intel Machine Learning Scalability Library (MLSL) and present proof-points demonstrating scaling DL training on 100s to 1000s of nodes across Cloud and HPC systems.
+Link: https://arxiv.org/abs/1801.08030
+====================================================
+A Machine Learning Framework for Resource Allocation Assisted by Cloud Computing (Jun-Bo Wang - 16 December, 2017)
+To facilitate the application of new design philosophy, a machine learning framework is proposed for resource allocation assisted by cloud computing
+Link: https://arxiv.org/abs/1712.05929
+====================================================
+Rasa: Open Source Language Understanding and Dialogue Management (Tom Bocklisch - 15 December, 2017)
+In terms of design philosophy, we aim for ease of use, and bootstrapping from minimal (or no) initial training data
+Link: https://arxiv.org/abs/1712.05181
+====================================================
+Fairness in Machine Learning: Lessons from Political Philosophy (Reuben Binns - 2 January, 2018)
+This paper draws on existing work in moral and political philosophy in order to elucidate emerging debates about fair machine learning.
+Link: https://arxiv.org/abs/1712.03586
+====================================================
+Multi-cell Massive MIMO Beamforming in Assuring QoS for Large Numbers of Users (Long D. Nguyen - 10 December, 2017)
+This paper reassesses this beamforming philosophy, to instead consider the maximization of the energy efficiency of massive MIMO systems in assuring the quality-of- service (QoS) for as many users as possible
+Link: https://arxiv.org/abs/1712.03548
+====================================================
+Dialectical Multispectral Classification of Diffusion-Weighted Magnetic Resonance Images as an Alternative to Apparent Diffusion Coefficients Maps to Perform Anatomical Analysis (Wellington Pinheiro dos Santos - 3 December, 2017)
+Here we claim that Philosophy can be also considered as a source of inspiration. This work proposes the Objective Dialectical Method (ODM): a method for classification based on the Philosophy of Praxis
+Link: https://arxiv.org/abs/1712.01697
+====================================================
+AvaliaÃ§Ã£o do mÃ©todo dialÃ©tico na quantizaÃ§Ã£o de imagens multiespectrais (Wellington Pinheiro dos Santos - 3 December, 2017)
+Several studies have shown that Philosophy, especially the Dialectical Method, has served as an important inspiration for the construction of new computational methods
+Link: https://arxiv.org/abs/1712.01696
+====================================================
+Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences (Tim Miller - 4 December, 2017)
+But explainable AI is more likely to succeed if researchers and practitioners understand, adopt, implement, and improve models from the vast and valuable bodies of research in philosophy, psychology, and cognitive science, and if evaluation of these models is focused more on people than on technology
+Link: https://arxiv.org/abs/1712.00547
+====================================================
+Explanation of an Invisible Common Constraint of Mind, Mathematics and Computational Complexity (Asad Malik - 11 December, 2017)
+This study gives a completely new perspective that goes well beyond Cognitive Science, Mathematics, Physics, Computer Sciences and Philosophy
+Link: https://arxiv.org/abs/1711.10874
+====================================================
+Self-Reinforced Cascaded Regression for Face Alignment (Xin Fan - 23 November, 2017)
+The reinforced term evaluates the example quality upon the consistence on both local appearance and global geometry of human faces, and constitutes the example evolution by the philosophy of "survival of the fittest"
+Link: https://arxiv.org/abs/1711.08624
+====================================================
+From Algorithmic Black Boxes to Adaptive White Boxes: Declarative Decision-Theoretic Ethical Programs as Codes of Ethics (Martijn van Otterlo - 16 November, 2017)
+Ethics of algorithms is an emerging topic in various disciplines such as social science, law, and philosophy, but also artificial intelligence (AI)
+Link: https://arxiv.org/abs/1711.06035
+====================================================
+Using experimental game theory to transit human values to ethical AI (Yijia Wang - 15 November, 2017)
+Knowing the reflection of game theory and ethics, we develop a mathematical representation to bridge the gap between the concepts in moral philosophy (e.g., Kantian and Utilitarian) and AI ethics industry technology standard (e.g., IEEE P7000 standard series for Ethical AI)
+Link: https://arxiv.org/abs/1711.05905
+====================================================
+Neural-Symbolic Learning and Reasoning: A Survey and Interpretation (Tarek R. Besold - 10 November, 2017)
+The study and understanding of human behaviour is relevant to computer science, artificial intelligence, neural computation, cognitive science, philosophy, psychology, and several other areas
+Link: https://arxiv.org/abs/1711.03902
+====================================================
+RCNF: Real-time Collaborative Network Forensic Scheme for Evidence Analysis (Nour Moustafa - 7 November, 2017)
+However, with the high speed and large sizes of current networks, and the sophisticated philosophy of attackers, in particular mimicking normal behaviour and/or erasing traces to avoid detection, investigating such crimes demands intelligent network forensic techniques. We provide a case study using the UNSW-NB15 dataset for evaluating the scheme, showing its high performance in terms of accuracy and false alarm rate compared with three recent state-of-the-art mechanisms.
+Link: https://arxiv.org/abs/1711.02824
+====================================================
+On the Philosophy of Bitcoin/Blockchain Technology: Is it a Chaotic, Complex System? (Renato P. dos Santos - 14 October, 2017)
+The philosophy of blockchain technology is concerned, among other things, with blockchain ontology, how it might be characterised, how it is being created, implemented, and adopted, how it operates in the world, and how it evolves over time
+Link: https://arxiv.org/abs/1711.00509
+====================================================
+Is Epicurus the father of Reinforcement Learning? (Eleni Vasilaki - 12 October, 2017)
+The Epicurean Philosophy is commonly thought as simplistic and hedonistic
+Link: https://arxiv.org/abs/1710.04582
+====================================================
+On Preemption and Overdetermination in Formal Theories of Causality (Sjur K Dyrkolbotn - 9 October, 2017)
+In philosophy, the concept of overdetermination and the concept of preemption serve an important purpose in this regard, although their exact meaning tends to remain elusive
+Link: https://arxiv.org/abs/1710.03390
+====================================================
+Quantitative Perspectives on Fifty Years of the Journal of the History of Biology (B. R. Erick Peirson - 5 October, 2017)
+Drawing on the dataset generated in the course of this analysis, as well as web services in the emerging digital history and philosophy of science ecosystem, we have developed an interactive web platform for exploring the content of JHB, and we provide a brief overview of the platform in this article
+Link: https://arxiv.org/abs/1710.01966
+====================================================
+e-Sem: Dynamic Seminar Management System for Primary, Secondary and Tertiary Education (Ioannis A. Skordas - 29 September, 2017)
+This paper describes the dynamic seminar management system named 'e-Sem', developed according to the opensource software philosophy
+Link: https://arxiv.org/abs/1709.09409
+====================================================
+Ultra-Dense HetNets Meet Big Data: Green Frameworks, Techniques, and Approaches (Yuzhou Li - 25 September, 2017)
+However, counter to the 5G vision, ultra-dense deployment of networks would significantly increase energy consumption and thus decrease network energy efficiency suffering from the conventional worst-case network design philosophy
+Link: https://arxiv.org/abs/1709.08797
+====================================================
+Privacy Guidelines for Internet of Things: A Cheat Sheet (Charith Perera - 12 August, 2017)
+First, we describe the philosophy behind each guideline in general
+Link: https://arxiv.org/abs/1708.05261
+====================================================
+Understanding tree: a tool for estimating an individual's understanding of conceptual knowledge (Gangli Liu - 24 August, 2018)
+People learn whenever and wherever possible, and whatever they like or encounter--Mathematics, Drama, Art, Languages, Physics, Philosophy, and so on
+Link: https://arxiv.org/abs/1708.00335
+====================================================
+Explanation in Artificial Intelligence: Insights from the Social Sciences (Tim Miller - 14 August, 2018)
+There exists vast and valuable bodies of research in philosophy, psychology, and cognitive science of how people define, generate, select, evaluate, and present explanations, which argues that people employ certain cognitive biases and social expectations towards the explanation process. This paper argues that the field of explainable artificial intelligence should build on this existing research, and reviews relevant papers from philosophy, cognitive psychology/science, and social psychology, which study these topics
+Link: https://arxiv.org/abs/1706.07269
+====================================================
+A Strategy for an Uncompromising Incremental Learner (Ragav Venkatesan - 17 July, 2017)
+To avoid this, generous leeways have to be made to the philosophy of incremental learning that either forces a part of the machine to not learn, or to retrain the machine again with a selection of the historic data
+Link: https://arxiv.org/abs/1705.00744
+====================================================
+Modeling Events as Machines (Sabah Al-Fedaghi - 26 April, 2017)
+The notion of events has occupied a central role in modeling and has an influence in computer science and philosophy
+Link: https://arxiv.org/abs/1704.08588
+====================================================
+On the Impossibility of Supersized Machines (Ben Garfinkel - 31 March, 2017)
+In recent years, a number of prominent computer scientists, along with academics in fields such as philosophy and physics, have lent credence to the notion that machines may one day become as large as humans
+Link: https://arxiv.org/abs/1703.10987
+====================================================
+Towards Moral Autonomous Systems (Vicky Charisi - 31 October, 2017)
+We first discuss the main challenges which, in our view, machine ethics posses to moral philosophy
+Link: https://arxiv.org/abs/1703.04741
+====================================================
+A Visual Representation of Wittgenstein's Tractatus Logico-Philosophicus (Anca Bucur - 13 March, 2017)
+In this paper we present a data visualization method together with its potential usefulness in digital humanities and philosophy of language
+Link: https://arxiv.org/abs/1703.04336
+====================================================
+Multi-level computational methods for interdisciplinary research in the HathiTrust Digital Library (Jaimie Murdock - 7 June, 2017)
+Our test domain is the history and philosophy of scientific work on animal mind and cognition
+Link: https://arxiv.org/abs/1702.01090
+====================================================
+Topic Modeling the HÃ n diÄn Ancient Classics (Colin Allen - 2 February, 2017)
+It contains classics of ancient Chinese philosophy, documents of historical and biographical significance, and literary works
+Link: https://arxiv.org/abs/1702.00860
+====================================================
+The Causal Frame Problem: An Algorithmic Perspective (Ardavan Salehi Nobandegani - 26 January, 2017)
+The Frame Problem (FP) is a puzzle in philosophy of mind and epistemology, articulated by the Stanford Encyclopedia of Philosophy as follows: "How do we account for our apparent ability to make decisions on the basis only of what is relevant to an ongoing situation without having explicitly to consider all that is not relevant?" In this work, we focus on the causal variant of the FP, the Causal Frame Problem (CFP)
+Link: https://arxiv.org/abs/1701.08100
+====================================================
+A Framework for Validating IS Research Based on a Pluralist Account of Truth and Correctness (John Mingers - 27 December, 2016)
+Within philosophy, there has been much debate about truth, is it correspondence, coherence, consensual or pragmatic, and in fact current views revolve around the idea of a pluralist view of truth: it is one and many
+Link: https://arxiv.org/abs/1701.04676
+====================================================
+Stoic Ethics for Artificial Agents (Gabriel Murray - 28 March, 2017)
+We present a position paper advocating the notion that Stoic philosophy and ethics can inform the development of ethical A.I
+Link: https://arxiv.org/abs/1701.02388
+====================================================
+Understanding Tree: a tool to estimate one's understanding of knowledge (Gangli Liu - 22 December, 2016)
+People learn whenever and wherever possible, and whatever they like or encounter--Mathematics, Drama, Art, Languages, Physics, Philosophy, and so on
+Link: https://arxiv.org/abs/1612.07714
+====================================================
+A survey of computability logic (Giorgi Japaridze - 14 December, 2016)
+This article presents a survey of computability logic: its philosophy and motivations, main concepts and most significant results obtained so far
+Link: https://arxiv.org/abs/1612.04513
+====================================================
+Performance Evaluation of Caching Policies in NDN - an ICN Architecture (Samar Shailendra - 1 December, 2016)
+Information Centric Networking (ICN) advocates the philosophy of accessing the content independent of its location
+Link: https://arxiv.org/abs/1612.00352
+====================================================
+The Bricklayer Ecosystem - Art, Math, and Code (Victor Winter - 28 November, 2016)
+Bricklayer is designed in accordance with a "low-threshold infinite ceiling" philosophy and has been successfully used to teach coding to primary school students, middle school students, university freshmen, and in-service secondary math teachers
+Link: https://arxiv.org/abs/1611.09472
+====================================================
+Visualizing Linguistic Shift (Salman Mahmood - 20 November, 2016)
+We will train a neural language model on texts from a diverse set of disciplines philosophy, religion, fiction etc
+Link: https://arxiv.org/abs/1611.06478
+====================================================
+Virtual Embodiment: A Scalable Long-Term Strategy for Artificial Intelligence Research (Douwe Kiela - 24 October, 2016)
+Meaning has been called the "holy grail" of a variety of scientific disciplines, ranging from linguistics to philosophy, psychology and the neurosciences
+Link: https://arxiv.org/abs/1610.07432
+====================================================
+Role of Free and Open Source Software in Computer and Internet Security (Muhammad Farooq-i-Azam - 3 October, 2016)
+Philosophy of free and open source software as against this provides everyone an opportunity to view the source code for any possible vulnerabilities and compile and change it according to ones need. This paper discusses this philosophy in length with some examples and also some open source tools that help maintain computer and Internet security.
+Link: https://arxiv.org/abs/1610.00640
+====================================================
+Formalizing Neurath's Ship: Approximate Algorithms for Online Causal Learning (Neil R. Bramley - 26 May, 2017)
+A powerful class of approximations that focuses on the sequential absorption of successive inputs is captured by the Neurath's ship metaphor in philosophy of science, where theory change is cast as a stochastic and gradual process shaped as much by people's limited willingness to abandon their current theory when considering alternatives as by the ground truth they hope to approach
+Link: https://arxiv.org/abs/1609.04212
+====================================================
+Computing with Dynamical Systems Based on Insulator-Metal-Transition Oscillators (Abhinav Parihar - 19 August, 2016)
+By harnessing the dynamics of complex, connected systems we embrace the philosophy of "let physics do the computing" and demonstrate how complex phase and frequency dynamics of such systems can be controlled, programmed and observed to solve computationally hard problems. Although our discussion in this paper is limited to Insulator-to-Metallic (IMT) state transition devices, the general philosophy of such computing paradigms can be translated to other mediums including optical systems
+Link: https://arxiv.org/abs/1608.05648
+====================================================
+Pilot Decontamination via PDP Alignment (Xiliang Luo - 26 July, 2016)
+Computer simulations further convince us PDP aligning can serve as the new baseline design philosophy for the UL pilots in massive MIMO.
+Link: https://arxiv.org/abs/1607.07537
+====================================================
+Towards Anthropo-inspired Computational Systems: the $P^3$ Model (Michael W. Bridges - 10 June, 2016)
+Abstracting from human physiology, psychology, and philosophy we create the $P^3$ model to be used as a multi-tier approach to deal with complex class of problems
+Link: https://arxiv.org/abs/1606.03229
+====================================================
+A Conceptual Framework to Assess the Effectiveness of Rubric Tool (Phil Smith - 4 June, 2016)
+This is a research in progress paper which adds to the literature on integrating information systems theory, learning theory, political philosophy and communication theory to examine the effectiveness of Rubric Tool in student learning.
+Link: https://arxiv.org/abs/1606.01348
+====================================================
+On Polynomial Time Approximation Bounded Solution for TSP and NP Complete Problems (Wenhong Tian - 18 December, 2016)
+The question of whether all problems in NP class are also in P class is generally considered one of the most important open questions in mathematics and theoretical computer science as it has far-reaching consequences to other problems in mathematics, computer science, biology, philosophy and cryptography
+Link: https://arxiv.org/abs/1605.06183
+====================================================
+A declarative Language for Rapid Business Development (Nabarun Mondal - 11 May, 2018)
+It's philosophy is to expose the existing Java echo system in a declarative fashion for the purpose of System Integration and software validation
+Link: https://arxiv.org/abs/1604.05903
+====================================================
+Transdisciplinarity seen through Information, Communication, Computation, (Inter-)Action and Cognition (Gordana Dodig-Crnkovic - 16 April, 2016)
+We depict different facets of transdisciplinarity as we see it from our different research fields that include information studies, computability, human-computer interaction, multi-operating-systems environments and philosophy.
+Link: https://arxiv.org/abs/1604.04711
+====================================================
+A (Basis for a) Philosophy of a Theory of Fuzzy Computation (Apostolos Syropoulos - 16 March, 2016)
+Based on the properties of this and other models of vague computing, it is aimed to formulate a basis for a philosophy of a theory of fuzzy computation.
+Link: https://arxiv.org/abs/1603.05162
+====================================================
+Autoregressive Moving Average Graph Filtering (Elvin Isufi - 21 September, 2016)
+The design philosophy, which allows us to design the ARMA coefficients independently from the underlying graph, renders the ARMA graph filters suitable in static and, particularly, time-varying settings
+Link: https://arxiv.org/abs/1602.04436
+====================================================
+Deep Learning on FPGAs: Past, Present, and Future (Griffin Lacey - 12 February, 2016)
+The rapid growth of data size and accessibility in recent years has instigated a shift of philosophy in algorithm design for artificial intelligence
+Link: https://arxiv.org/abs/1602.04283
+====================================================
+A Review of Control Algorithms for Autonomous Quadrotors (Andrew Zulu - 8 February, 2016)
+The conclusion of this work is a proposal of hybrid systems to be considered as they combine advantages from more than one control philosophy.
+Link: https://arxiv.org/abs/1602.02622
+====================================================
+RPYS i/o: A web-based tool for the historiography and visualization of citation classics, sleeping beauties, and research fronts (Jordan A. Comins - 9 February, 2016)
+We demonstrate the features of the tool by analyzing--as an example--the references in documents published in the journal Philosophy of Science.
+Link: https://arxiv.org/abs/1602.01950
+====================================================
+Multi-agent System Design for Dummies (Siyao Li - 23 January, 2016)
+Goal Net methodology attempts to solve these issues with a goal-oriented approach that resembles human behaviours, and an agent designer that supports agent development using this philosophy
+Link: https://arxiv.org/abs/1601.06244
+====================================================
+Detecting and Extracting Events from Text Documents (Jugal Kalita - 15 January, 2016)
+The paper starts by giving an overview of how events are treated in linguistics and philosophy
+Link: https://arxiv.org/abs/1601.04012
+====================================================
+A C++ library for Multimodal Deep Learning (Jian Jin - 12 April, 2016)
+MDL, Multimodal Deep Learning Library, is a deep learning framework that supports multiple models, and this document explains its philosophy and functionality
+Link: https://arxiv.org/abs/1512.06927
+====================================================
+Scale-aware Fast R-CNN for Pedestrian Detection (Jianan Li - 25 June, 2016)
+Taking pedestrian detection as an example, we illustrate how we can leverage this philosophy to develop a Scale-Aware Fast R-CNN (SAF R-CNN) framework. Particularly, our method achieves state-of-the-art performance on Caltech, INRIA, and ETH, and obtains competitive results on KITTI.
+Link: https://arxiv.org/abs/1510.08160
+====================================================
+New Optimisation Methods for Machine Learning (Aaron Defazio - 18 March, 2016)
+A thesis submitted for the degree of Doctor of Philosophy of The Australian National University.
+Link: https://arxiv.org/abs/1510.02533
+====================================================
+On Summarizing Graph Streams (Nan Tang - 8 October, 2015)
+This paper discusses a fundamentally different philosophy for summarizing graph streams
+Link: https://arxiv.org/abs/1510.02219
+====================================================
+Citizen Science practices for Computational Social Sciences research: The conceptualization of Pop-Up Experiments (Oleguer Sagarra - 22 September, 2015)
+We present our experience in bridging Computational Social Sciences with Citizen Science philosophy, which in our case has taken the form of what we call Pop-Up Experiments: Non-permanent, highly participatory collective experiments which blend features developed by Big Data methodologies and Behavioural Experiments protocols with ideals of Citizen Science
+Link: https://arxiv.org/abs/1509.06575
+====================================================
+A Novice Guide towards Human Motion Analysis and Understanding (Ahmed Nabil Mohamed - 3 September, 2015)
+The first one investigates various aspects of some disciplines (e.g., arts, philosophy, psychology, and neuroscience) that are interested in the subject and review some of their contributions stressing on those that can be useful for computer vision researchers
+Link: https://arxiv.org/abs/1509.01074
+====================================================
+Distributed Autoregressive Moving Average Graph Filters (Andreas Loukas - 24 April, 2015)
+Our graph filter design philosophy is independent of the particular graph, meaning that the filter coefficients are derived irrespective of the graph
+Link: https://arxiv.org/abs/1508.05808
+====================================================
+Towards Enabling Overture as a Platform for Formal Notation IDEs (LuÃ­s Diogo Couto - 16 August, 2015)
+ This paper presents the Overture platform where such a reuse philosophy is present
+Link: https://arxiv.org/abs/1508.03893
+====================================================
+FactorBase: SQL for Learning A Multi-Relational Graphical Model (Oliver Schulte - 10 August, 2015)
+We adopt the BayesStore design philosophy: statistical models are stored and managed as first-class citizens inside a database
+Link: https://arxiv.org/abs/1508.02428
+====================================================
+Teaching natural deduction in the right order with Natural Deduction Planner (Jeremy Seligman - 13 July, 2015)
+Our approach is aimed at students with little exposure to mathematical method and has been developed while teaching undergraduate classes for philosophy students over the last ten years.
+Link: https://arxiv.org/abs/1507.03681
+====================================================
+Why teach an introductory course in Mathematical Logic in the Philosophy curriculum? (Carlos Oller - 13 July, 2015)
+This paper tries to justify the relevance of an introductory course in Mathematical Logic in the Philosophy curriculum for analyzing philosophical arguments in natural language
+Link: https://arxiv.org/abs/1507.03679
+====================================================
+The method of artificial systems (Christopher A. Tucker - 21 May, 2017)
+As the literature is rife and it is apparent we, as scientists and engineers, have not found the solution, this document will attempt the solution by grounding its intellectual arguments within tenets of human cognition in Western philosophy
+Link: https://arxiv.org/abs/1507.01384
+====================================================
+SQL for SRL: Structure Learning Inside a Database System (Oliver Schulte - 2 July, 2015)
+The design philosophy of FACTORBASE is to manage statistical models as first-class citizens inside a database
+Link: https://arxiv.org/abs/1507.00646
+====================================================
+pyMOR - Generic Algorithms and Interfaces for Model Order Reduction (RenÃ© Milk - 31 March, 2016)
+Besides an in-depth discussion of pyMOR's design philosophy and architecture, we present several benchmark results and numerical examples showing the feasibility of our approach.
+Link: https://arxiv.org/abs/1506.07094
+====================================================
+Why Bother With Syntax? (Joseph Y. Halpern - 17 June, 2015)
+semantics and the interplay between logic, philosophy, and language in computer science and game theory.
+Link: https://arxiv.org/abs/1506.05282
+====================================================
+A Logic of Knowing How (Yanjing Wang - 9 July, 2015)
+In this paper, we propose a single-agent modal logic framework for reasoning about goal-direct "knowing how" based on ideas from linguistics, philosophy, modal logic and automated planning
+Link: https://arxiv.org/abs/1505.06651
+====================================================
+Advances in Artificial Intelligence: Deep Intentions, Shallow Achievements (Emanuel Diamant - 18 May, 2015)
+The paper points on the consequences of this turn for the AI design philosophy.
+Link: https://arxiv.org/abs/1505.04578
+====================================================
+Release Early, Release Often: Predicting Change in Versioned Knowledge Organization Systems on the Web (Albert MeroÃ±o-PeÃ±uela - 15 September, 2015)
+Consequently, we argue for adopting a release early, release often philosophy in Web KOS development cycles.
+Link: https://arxiv.org/abs/1505.03101
+====================================================
+Transforming NP to P: An Approach to Solve NP Complete Problems (Wenhong Tian - 28 April, 2015)
+The question of whether all problems in NP are also in P is generally considered one of the most important open questions in mathematics and theoretical computer science as it has far-reaching consequences to other problems in mathematics, computer science, biology, philosophy and cryptography
+Link: https://arxiv.org/abs/1505.00058
+====================================================
+Formalising Hypothesis Virtues in Knowledge Graphs: A General Theoretical Framework and its Validation in Literature-Based Discovery Experiments (Vit Novacek - 28 April, 2015)
+The framework is based on a classic work in philosophy of science, and naturally progresses from mostly informative foundational notions to actionable specifications of measures corresponding to particular virtues
+Link: https://arxiv.org/abs/1503.09137
+====================================================
+GAIL---Guaranteed Automatic Integration Library in MATLAB: Documentation for Version 2.1 (Sou-Cheng T. Choi - 23 March, 2015)
+Our purpose is to create an open-source MATLAB package, Guaranteed Automatic Integration Library (GAIL), following the philosophy of reproducible research and sustainable practices of robust scientific software development
+Link: https://arxiv.org/abs/1503.06544
+====================================================
+Automated Reasoning for Robot Ethics (Ulrich Furbach - 20 February, 2015)
+Deontic logic is a very well researched branch of mathematical logic and philosophy
+Link: https://arxiv.org/abs/1502.05838
+====================================================
+Advances in Artificial Intelligence: Are you sure, we are on the right track? (Emanuel Diamant - 16 February, 2015)
+That dramatically removes the need for AI systems to emulate the human brain complexity! The paper tries to explore this shift in AI systems design philosophy.
+Link: https://arxiv.org/abs/1502.04791
+====================================================
+Monitoring Term Drift Based on Semantic Consistency in an Evolving Vector Field (Peter Wittek - 5 February, 2015)
+Our method is highly scalable, with interpretations in philosophy.
+Link: https://arxiv.org/abs/1502.01753
+====================================================
+Designing Traceability into Big Data Systems (Richard McClatchey - 5 February, 2015)
+The design philosophy advocated in this paper is to drive the design process using a so-called description-driven approach which enriches models with meta-data and description and focuses the design process on Item re-use, thereby promoting traceability
+Link: https://arxiv.org/abs/1502.01545
+====================================================
+Toward Fully Coordinated Multi-level Multi-carrier Energy Efficient Networks (Piotr Wiecek - 4 February, 2015)
+Enabling coordination between products from different vendors is a key characteristic of the design philosophy behind future wireless communication networks
+Link: https://arxiv.org/abs/1502.01157
+====================================================
+Automated Reasoning in Deontic Logic (Ulrich Furbach - 18 November, 2014)
+Deontic logic is a very well researched branch of mathematical logic and philosophy
+Link: https://arxiv.org/abs/1411.4823
+====================================================
+Competitive analysis via benchmark decomposition (Ning Chen - 7 November, 2014)
+Our philosophy is to view the benchmark function as a variable parameter of the model and study a broad class of functions instead of a individual target benchmark
+Link: https://arxiv.org/abs/1411.2079
+====================================================
+Convergence Analysis for Regular Wireless Consensus Networks (Sateeshkrishna Dhuli - 22 September, 2016)
+Simple execution, robustness to global topology changes due to frequent node failures and underlying distributed philosophy has made consensus algorithms more suitable to WSNs
+Link: https://arxiv.org/abs/1411.0968
+====================================================
+An introduction to Docker for reproducible research, with examples from the R environment (Carl Boettiger - 2 October, 2014)
+I then examine how the popular emerging technology Docker combines several areas from systems research - such as operating system virtualization, cross-platform portability, modular re-usable elements, versioning, and a `DevOps' philosophy, to address these challenges
+Link: https://arxiv.org/abs/1410.0846
+====================================================
+Reclaiming human machine nature (Didier Fass - 29 September, 2014)
+Inspired by philosophy, behaviorist psychology and the information treatment metaphor, the cognitive system paradigm requires a function view and a functional analysis in human systems design process
+Link: https://arxiv.org/abs/1409.8280
+====================================================
+Weighted Shortest Path Models: A Revisit to the Simulation of Internet Routing (Mingming Chen - 28 September, 2014)
+This behavior actually reflects the design philosophy of Internet routing, balancing between network efficiency and traffic congestion.
+Link: https://arxiv.org/abs/1409.7984
+====================================================
+Possibilities of technologization of philosophical knowledge (Sergey Kulikov - 10 July, 2014)
+The leading role in this process is played by philosophy of science which creates conditions for such transformation. At the same time there is justified an appeal to branch combination theory of the directions of scientific knowledge and partial refusal of understanding of philosophy as synthetic knowledge in which the main task is permission, instead of generation of paradoxes.
+Link: https://arxiv.org/abs/1407.2873
+====================================================
+Evaluating topic coherence measures (Frank Rosner - 25 March, 2014)
+For the first time, we include coherence measures from scientific philosophy that score pairs of more complex word subsets and apply them to topic scoring.
+Link: https://arxiv.org/abs/1403.6397
+====================================================
+Language Heedless of Logic - Philosophy Mindful of What? Failures of Distributive and Absorption Laws (Arthur Merin - 18 March, 2014)
+Much of philosophical logic and all of philosophy of language make empirical claims about the vernacular natural language
+Link: https://arxiv.org/abs/1403.3668
+====================================================
+Levels of Abstraction and the Apparent Contradictory Philosophical Legacy of Turing and Shannon (Hector Zenil - 5 February, 2014)
+While Floridi's concept of Levels of Abstraction is related to the novel methodology of Turing's imitation game for tackling the question of machine intelligence, Turing's other main contribution to the philosophy of information runs contrary to it. How might we reconcile these apparently contradictory contributions? I will argue that Turing's contribution should prompt us to plot some directions for a philosophy of information and computation, one that closely parallels the most important developments in computer science, one that understands the profound implications of the works of Turing, Shannon and others.
+Link: https://arxiv.org/abs/1402.1099
+====================================================
+A Distributed IP-Based Telecommunication System using SIP (Carlton A. Thompson - 9 December, 2013)
+This paper describes the design, philosophy and implementation of a prototype for a fully distributed IP-based Telecommunication System (IPTS) that provides the essential feature set for office and home telecommunications, including IP-based long-distance and local calling, and with the support for video as well as data and text
+Link: https://arxiv.org/abs/1312.2625
+====================================================
+Efficient Opportunistic Sensing using Mobile Collaborative Platform MOSDEN (Prem Prakash Jayaraman - 15 October, 2013)
+MOSDEN follows a component-based design philosophy promoting reuse for easy and quick opportunistic sensing application deployments
+Link: https://arxiv.org/abs/1310.4052
+====================================================
+Graded Causation and Defaults (Joseph Y. Halpern - 4 September, 2013)
+Recent work in psychology and experimental philosophy has shown that judgments of actual causation are often influenced by consideration of defaults, typicality, and normality
+Link: https://arxiv.org/abs/1309.1226
+====================================================
+Genetic Algorithm for Solving Simple Mathematical Equality Problem (Denny Hermawanto - 29 June, 2017)
+Basic philosophy of genetic algorithm and its flowchart are described
+Link: https://arxiv.org/abs/1308.4675
+====================================================
+Space as an invention of biological organisms (Alexander V. Terekhov - 9 August, 2013)
+Our findings suggest that the question of the nature of space, currently exclusive to philosophy and physics, should also be addressed from the standpoint of neuroscience and artificial intelligence.
+Link: https://arxiv.org/abs/1308.2124
+====================================================
+Epistemology of Modeling and Simulation: How can we gain Knowledge from Simulations? (Andreas Tolk - 21 June, 2013)
+Epistemology is the branch of philosophy that deals with gaining knowledge
+Link: https://arxiv.org/abs/1306.5215
+====================================================
+Design Based Teaching for Science and Engineering Students (Yousef R. Shayan - 7 June, 2013)
+Wireless communications will be used as an example to explain this new teaching philosophy.
+Link: https://arxiv.org/abs/1306.1604
+====================================================
+MathGR: a tensor and GR computation package to keep it simple (Yi Wang - 6 December, 2016)
+The package is built around the philosophy to "keep it simple", and makes use of latest tensor technologies of Mathematica.
+Link: https://arxiv.org/abs/1306.1295
+====================================================
+A probabilistic framework for analysing the compositionality of conceptual combinations (Peter D. Bruza - 20 November, 2014)
+While the systematicity and productivity of language provide a strong argument in favor of assuming compositionality, this very assumption is still regularly questioned in both cognitive science and philosophy
+Link: https://arxiv.org/abs/1305.5753
+====================================================
+General Belief Measures (Emil Weydert - 27 February, 2013)
+* Cumulative measures, which combine the probabilistic and the ranking philosophy, allowing thereby a fine-grained account of static and dynamic belief.
+Link: https://arxiv.org/abs/1302.6851
+====================================================
+A Qualitative Markov Assumption and its Implications for Belief Change (Nir Friedman - 13 February, 2013)
+The study of belief change has been an active area in philosophy and AI
+Link: https://arxiv.org/abs/1302.3578
+====================================================
+New Dimension Value Introduction for In-Memory What-If Analysis (Gaurav Saxena - 11 June, 2013)
+Philosophy and techniques of what-if analysis on data warehouse and in-memory data store based OLAP systems have been covered in great detail before but exploration of new dimension value (attribute) introduction has been limited in the context of what-if analysis
+Link: https://arxiv.org/abs/1302.0351
+====================================================
+Choosing Among Interpretations of Probability (Henry E. Kyburg Jr. - 23 January, 2013)
+ These methods are discussed in the literature of artificial intelligence, as well as in the literature of philosophy of science
+Link: https://arxiv.org/abs/1301.6713
+====================================================
+Risk Agoras: Dialectical Argumentation for Scientific Reasoning (Peter McBurney - 16 January, 2013)
+Our framework is grounded in a philosophy of scientific enquiry and discourse, and uses a model of dialectical argumentation
+Link: https://arxiv.org/abs/1301.3874
+====================================================
+Towards common-sense reasoning via conditional simulation: legacies of Turing in Artificial Intelligence (Cameron E. Freer - 9 October, 2013)
+The problem of replicating the flexibility of human common-sense reasoning has captured the imagination of computer scientists since the early days of Alan Turing's foundational work on computation and the philosophy of artificial intelligence
+Link: https://arxiv.org/abs/1212.4799
+====================================================
+Hash in a Flash: Hash Tables for Solid State Devices (Tyler Clemons - 19 November, 2012)
+Specifically, we focus on three designs based on this general philosophy and evaluate the trade-offs among them along the axes of query performance, insert and update times and I/O time through an implementation of the TF-IDF algorithm.
+Link: https://arxiv.org/abs/1211.4521
+====================================================
+LAGE: A Java Framework to reconstruct Gene Regulatory Networks from Large-Scale Continues Expression Data (Yang Lu - 9 November, 2012)
+The basic idea of our framework is motivated by the philosophy of divideand-conquer
+Link: https://arxiv.org/abs/1211.2073
+====================================================
+CS Circles: An In-Browser Python Course for Beginners (David Pritchard - 10 December, 2012)
+We discuss the philosophy behind the course and its design, we describe how it was implemented, and we give statistics on its use.
+Link: https://arxiv.org/abs/1209.2166
+====================================================
+Adding Methodological Testing to Naur's Anti-formalism (S. J. Meyer - 18 August, 2012)
+Lakatosian philosophy of the methodology of scientific research programmes (MSRP) is added to Naur's studies to allow testing of computing theories. After discussing Naur's criticism of mechanical cognitive information processing, I show how to add MSRP competition to Naur's descriptive philosophy
+Link: https://arxiv.org/abs/1208.3739
+====================================================
+Alan Turing's Legacy: Info-Computational Philosophy of Nature (Gordana Dodig-Crnkovic - 3 July, 2012)
+Turing's natural philosophy differs importantly from Galileo's view that the book of nature is written in the language of mathematics (The Assayer, 1623). This article presents the framework of Natural Info-computationalism as a contemporary natural philosophy that builds on the legacy of Turing's computationalism
+Link: https://arxiv.org/abs/1207.1033
+====================================================
+Info-Computationalism and Philosophical Aspects of Research in Information Sciences (Gordana Dodig-Crnkovic - 3 July, 2012)
+The historical development has lead to the decay of Natural Philosophy which until 19th century included all of our knowledge about the physical world into the growing multitude of specialized sciences
+Link: https://arxiv.org/abs/1207.1032
+====================================================
+MOMCC: Market-Oriented Architecture for Mobile Cloud Computing Based on Service Oriented Architecture (Saeid Abolfazli - 27 June, 2012)
+Service Oriented Architecture (SOA) is a promising design philosophy embraced by mobile computing and cloud computing communities to stimulate portable, complex application using prefabricated building blocks called Services
+Link: https://arxiv.org/abs/1206.6209
+====================================================
+An Adaptive XP-based approach to Agile Development (Gang Liao - 23 July, 2012)
+Agile development is a philosophy. And agile methods are processes that support the agile philosophy
+Link: https://arxiv.org/abs/1205.5373
+====================================================
+The Temporal Logic of Causal Structures (Samantha Kleinberg - 9 May, 2012)
+For this purpose, we have been developing a novel algorithm based on a framework that combines notions of causality in philosophy with algorithmic approaches built on model checking and statistical techniques for multiple hypotheses testing
+Link: https://arxiv.org/abs/1205.2634
+====================================================
+Critical Task Re-assignment under Hybrid Scheduling Approach in Multiprocessor Real-Time Systems (Gopalakrishnan T. R. Nair - 30 March, 2012)
+Hybrid scheduling usually engages a combined scheduling philosophy comprising of a static scheduling of a set of tasks and a highly pre-emptive scheduling for another set of tasks in different situations of process control
+Link: https://arxiv.org/abs/1203.6719
+====================================================
+Outlier Detection Techniques for SQL and ETL Tuning (Saptarsi Goswami - 19 March, 2012)
+The same philosophy we have used for optimization of extraction, transform, load (ETL) jobs in one of our previous work
+Link: https://arxiv.org/abs/1203.4163
+====================================================
+A framework for integrated design of algorithmic architectural forms (Ladislav Svoboda - 19 January, 2013)
+In order to provide a flexible tool, the proposed design philosophy involves two open source utilities Donkey and MIDAS written in Grasshopper algorithm editor and C++, respectively, that are to be linked with a scripting-based architectural modellers Rhinoceros, IntelliCAD and the open source Finite Element solver OOFEM
+Link: https://arxiv.org/abs/1203.2499
+====================================================
+The Mind Grows Circuits (Rina Panigrahy - 17 March, 2012)
+Some studies in psychology and philosophy approach it from an inner perspective in terms of experiences and percepts
+Link: https://arxiv.org/abs/1203.0088
+====================================================
+Towards quantitative measures in applied ontology (Robert Hoehndorf - 16 February, 2012)
+Applied ontology is a relatively new field which aims to apply theories and methods from diverse disciplines such as philosophy, cognitive science, linguistics and formal logics to perform or improve domain-specific tasks
+Link: https://arxiv.org/abs/1202.3602
+====================================================
+Joint Robust Weighted LMMSE Transceiver Design for Dual-Hop AF Multiple-Antenna Relay Systems (Chengwen Xing - 13 January, 2012)
+Precoder matrix at source, forwarding matrix at relay and equalizer matrix at destination are jointly designed with channel estimation errors taken care of by Bayesian philosophy
+Link: https://arxiv.org/abs/1201.2984
+====================================================
+Being, space and time in the Web (Michalis Vafopoulos - 5 April, 2012)
+Philosophy should be in the front line by forming the salient questions and analysis
+Link: https://arxiv.org/abs/1112.2250
+====================================================
+MyZone: A Next-Generation Online Social Network (Alireza Mahdian - 24 October, 2011)
+We describe our design in detail and identify the property of resiliency as a key objective for the overall design philosophy.
+Link: https://arxiv.org/abs/1110.5371
+====================================================
+Rejecting Adaptive Interface (Sergey Andreyev - 14 September, 2011)
+Users can move and resize each and all of the screen objects while an application is running, and this changes the whole programming philosophy.
+Link: https://arxiv.org/abs/1109.2997
+====================================================
+Specific "scientific" data structures, and their processing (Jerzy Karczmarczuk - 4 September, 2011)
+ Here we present a functional approach to this philosophy
+Link: https://arxiv.org/abs/1109.0783
+====================================================
+Complexity (Carlos Gershenson - 31 August, 2011)
+This lack of separability is at odds with the classical scientific method - which has been used since the times of Galileo, Newton, Descartes, and Laplace - and has also influenced philosophy and engineering. In recent decades, the scientific study of complexity and complex systems has proposed a paradigm shift in science and philosophy, proposing novel methods that take into account relevant interactions.
+Link: https://arxiv.org/abs/1109.0214
+====================================================
+Translating Answer-Set Programs into Bit-Vector Logic (Mai Nguyen - 30 August, 2011)
+The satisfiability modulo theories (SMT) framework follows a similar modelling philosophy but the syntax is based on extensions of propositional logic rather than rules
+Link: https://arxiv.org/abs/1108.5837
+====================================================
+Network Localization on Unit Disk Graphs (Phisan Kaewprapha - 3 August, 2011)
+Exploiting the property that the radius $r$ sets clear cut on the connectivity of two nodes, we propose an essential philosophy that "no connectivity is also useful information just like the information being connected" in unit disk graphs. Exercising this philosophy, we show that the conventional network localization problem can be re-formulated to significantly reduce the search space, and that global rigidity, a necessary and sufficient condition for the existence of unique solution in general graphs, is no longer necessary
+Link: https://arxiv.org/abs/1108.0972
+====================================================
+Diverse Consequences of Algorithmic Probability (Eray Ãzkural - 7 November, 2011)
+We reminisce and discuss applications of algorithmic probability to a wide range of problems in artificial intelligence, philosophy and technological society. We also relate to our own work in incremental machine learning and philosophy of complexity.
+Link: https://arxiv.org/abs/1107.2788
+====================================================
+A Philosophical Treatise of Universal Induction (Samuel Rathmanner - 28 May, 2011)
+This problem is relevant to a wide range of fields and is integral to the philosophy of science
+Link: https://arxiv.org/abs/1105.5721
+====================================================
+Compressed k2-Triples for Full-In-Memory RDF Engines (Sandra Ãlvarez-GarcÃ­a - 19 May, 2011)
+Although this is a realistic philosophy for global data publishing, its query performance is diminished when the RDF engines (behind the endpoints) manage these huge datasets. We show that k2-triples clearly outperforms state-of-the-art compressibility and traditional vertical-partitioning query resolution, remaining very competitive with multi-index solutions.
+Link: https://arxiv.org/abs/1105.4004
+====================================================
+Notes on a New Philosophy of Empirical Science (Daniel Burfoot - 28 April, 2011)
+This book presents a methodology and philosophy of empirical science based on large scale lossless data compression. Because of this, the philosophy provides a way to reformulate fields such as computer vision and computational linguistics as empirical sciences: the former by attempting to compress databases of natural images, the latter by attempting to compress large text databases
+Link: https://arxiv.org/abs/1104.5466
+====================================================
+Distributed Self-Organization Of Swarms To Find Globally $Îµ$-Optimal Routes To Locally Sensed Targets (Ishanu Chattopadhyay - 21 April, 2011)
+The fundamental philosophy of the proposed approach is to percolate local information across the swarm, enabling agents to indirectly access the global context
+Link: https://arxiv.org/abs/1104.4251
+====================================================
+Well structured program equivalence is highly undecidable (Robert Goldblatt - 7 March, 2011)
+We show that strict deterministic propositional dynamic logic with intersection is highly undecidable, solving a problem in the Stanford Encyclopedia of Philosophy
+Link: https://arxiv.org/abs/1103.1433
+====================================================
+An overview of Ciao and its design philosophy (M. V. Hermenegildo - 27 February, 2011)
+It aims at illustrating the design philosophy rather than at being exhaustive, which would be impossible in a single journal paper, pointing instead to previous Ciao literature.
+Link: https://arxiv.org/abs/1102.5497
+====================================================
+Algorithmic Randomness as Foundation of Inductive Reasoning and Artificial Intelligence (Marcus Hutter - 11 February, 2011)
+It is written for a general audience interested in science and philosophy
+Link: https://arxiv.org/abs/1102.2468
+====================================================
+An Algebraic View to Gradient Descent Decoding (M. Borges Quintana - 26 August, 2010)
+Liebler in his paper mentions that both algorithms have the same philosophy but in fact they are rather different
+Link: https://arxiv.org/abs/1008.4474
+====================================================
+Compression Rate Method for Empirical Science and Application to Computer Vision (Daniel Burfoot - 27 May, 2010)
+The method also provides a new way of thinking about two longstanding issues in the philosophy of science: the problem of induction and the problem of demarcation.
+Link: https://arxiv.org/abs/1005.5181
+====================================================
+A Structured Framework for Assessing the "Goodness" of Agile Methods (Shvetha Soundararajan - 22 May, 2010)
+While that flexibility is consistent with the agile philosophy, it can lead to the adoption of principles and practices that can be sub-optimal relative to the desired objectives
+Link: https://arxiv.org/abs/1005.4123
+====================================================
+A Dialogue Concerning Two World Systems: Info-Computational vs. Mechanistic (Gordana Dodig-Crnkovic - 26 October, 2009)
+We investigate whether pancomputationalism can possibly provide the basic causal structure to the world, whether the overall research programme appears productive and whether it can revigorate computationalism in the philosophy of mind.
+Link: https://arxiv.org/abs/0910.5001
+====================================================
+Can we debug the Universe? (Apostolos Syropoulos - 26 October, 2009)
+This note is a justification of this answer and its deeper meaning based on arguments from physics, the philosophy of the mind, and, of course, (hyper)computability theory.
+Link: https://arxiv.org/abs/0910.2859
+====================================================
+Philosophical Survey of Passwords (M Atif Qureshi - 12 September, 2009)
+This paper studies and takes a careful look at this issue from the angle of philosophy and cognitive science
+Link: https://arxiv.org/abs/0909.2367
+====================================================
+On Implementation of a Safer C Library, ISO/IEC TR 24731 (Marc-AndrÃ© LaverdiÃ¨re - 27 July, 2009)
+We first introduce our architectural philosophy before informing the reader about the Siemens Four View Model, an architectural methodology for the conception of large-scale software systems
+Link: https://arxiv.org/abs/0906.2512
+====================================================
+Towards an explanatory and computational theory of scientific discovery (Chaomei Chen - 8 April, 2009)
+The theory is derived from a recurring theme found in a diverse range of scientific change, scientific discovery, and knowledge diffusion theories in philosophy of science, sociology of science, social network analysis, and information science
+Link: https://arxiv.org/abs/0904.1439
+====================================================
+Hilbert's epsilon as an Operator of Indefinite Committed Choice (Claus-Peter Wirth - 16 January, 2012)
+Moreover, our semantics for the epsilon supports proof search optimally and is natural in the sense that it does not only mirror some cases of referential interpretation of indefinite articles in natural language, but may also contribute to philosophy of language
+Link: https://arxiv.org/abs/0902.3749
+====================================================
+Entropy, Perception, and Relativity (Stefan Jaeger - 2 November, 2008)
+I claim that our perception is the result of two opposing forces similar to the two famous antagonists in Chinese philosophy: Yin and Yang
+Link: https://arxiv.org/abs/0811.0139
+====================================================
+A Distributed Process Infrastructure for a Distributed Data Structure (Marko A. Rodriguez - 24 July, 2008)
+While the seamless integration of RDF data sets is important, at the scale of the data sets that currently exist and will ultimately grow to become, the "download and index" philosophy of the World Wide Web will not so easily map over to the Semantic Web
+Link: https://arxiv.org/abs/0807.3908
+====================================================
+Collaborative model of interaction and Unmanned Vehicle Systems' interface (Sylvie Saget - 4 June, 2008)
+In this paper, we show that recent works in pragmatics and philosophy provide a suitable theoretical framework for the next generation of UV System's interface
+Link: https://arxiv.org/abs/0806.0784
+====================================================
+Distributed Slicing in Dynamic Systems (Antonio Fernandez - 26 December, 2007)
+Peer to peer (P2P) systems are moving from application specific architectures to a generic service oriented design philosophy
+Link: https://arxiv.org/abs/0712.3980
+====================================================
+Spectrum Sensing in Wideband OFDM Cognitive Radios (Chien-Hwa Hwang - 6 October, 2008)
+According to the prior knowledge of the PU signal known to the detector, three detection algorithms based on the Neyman-Pearson philosophy are proposed
+Link: https://arxiv.org/abs/0709.0259
+====================================================
+Reductionism, emergence, and levels of abstractions (Russ Abbott - 27 July, 2007)
+Can there be independent higher level laws of nature if everything is reducible to the fundamental laws of physics? The computer science notion of level of abstraction explains why there can -- illustrating how computational thinking can solve one of philosophy's most vexing problems.
+Link: https://arxiv.org/abs/0707.4198
+====================================================
+Redesigning Computer-based Learning Environments: Evaluation as Communication (Matthias R. Brust - 8 June, 2007)
+The first task is to relocate our field by building upon recent results from philosophy, psychology, social sciences, and engineering
+Link: https://arxiv.org/abs/0706.1127
+====================================================
+On the Development of Text Input Method - Lessons Learned (Mike Tian-Jian Jiang - 27 April, 2007)
+We propose a design philosophy that regards IM as a text service platform, and treats the study of IM as a cross disciplinary subject from the perspectives of software engineering, human-computer interaction (HCI), and natural language processing (NLP)
+Link: https://arxiv.org/abs/0704.3665
+====================================================
+Algorithmic Information Theory: a brief non-technical guide to the field (Marcus Hutter - 6 March, 2007)
+This article is a brief guide to the field of algorithmic information theory (AIT), its underlying philosophy, and the most important concepts
+Link: https://arxiv.org/abs/cs/0703024
+====================================================
+Gnutella: Topology Dynamics On Phase Space (Chunxi Li - 4 February, 2007)
+That opens a challenge to the basic design philosophy of this network.
+Link: https://arxiv.org/abs/cs/0702022
+====================================================
+The Unix KISS: A Case Study (Franco Milicchio - 5 July, 2013)
+In this paper we show that the initial philosophy used in designing and developing UNIX in early times has been forgotten due to "fast practices"
+Link: https://arxiv.org/abs/cs/0701021
+====================================================
+Distributed Slicing in Dynamic Systems (Antonio Fernandez - 6 December, 2006)
+Peer to peer (P2P) systems are moving from application specific architectures to a generic service oriented design philosophy
+Link: https://arxiv.org/abs/cs/0612035
+====================================================
+Understanding Design Fundamentals: How Synthesis and Analysis Drive Creativity, Resulting in Emergence (V. V. Kryssanov - 25 May, 2006)
+Reviewing related work in philosophy, psychology, and cognitive science provides a general and encompassing vision of the creativity phenomenon
+Link: https://arxiv.org/abs/cs/0605120
+====================================================
+Designing a Multi-petabyte Database for LSST (Jacek Becla - 27 April, 2006)
+This paper describes the LSST requirements, the challenges they impose, the data access philosophy, results to date from evaluating available database technologies against LSST requirements, and the proposed database architecture to meet the data challenges.
+Link: https://arxiv.org/abs/cs/0604112
+====================================================
+Complexity and Philosophy (Francis Heylighen - 19 April, 2006)
+The science of complexity is based on a new way of thinking that stands in sharp contrast to the philosophy underlying Newtonian science, which is based on reductionism, determinism, and objective knowledge. Although different philosophers, and in particular the postmodernists, have voiced similar ideas, the paradigm of complexity still needs to be fully assimilated by philosophy
+Link: https://arxiv.org/abs/cs/0604072
+====================================================
+OpenVanilla - A Non-Intrusive Plug-In Framework of Text Services (Tian-Jian Jiang - 29 June, 2006)
+This paper proposes a philosophy of input method design by seeing it as a nonintrusive plug-in text service framework
+Link: https://arxiv.org/abs/cs/0508041
+====================================================
+Space-time databases modeling global semantic networks (A. A. Prikhod&#39;ko - 29 March, 2005)
+This paper represents an approach to creating global knowledge systems, using new philosophy and infrastructure of global distributed semantic network (frame knowledge representation system) based on the space-time database construction
+Link: https://arxiv.org/abs/cs/0503079
+====================================================
+Pattern Reification as the Basis for Description-Driven Systems (Florida Estrella - 12 February, 2004)
+A practical example of this philosophy, the CRISTAL project, is used to demonstrate the use of description-driven data objects to handle system evolution.
+Link: https://arxiv.org/abs/cs/0402024
+====================================================
+Modeling Belief in Dynamic Systems, Part II: Revisions and Update (Nir Friedman - 30 July, 2003)
+The study of belief change has been an active area in philosophy and AI
+Link: https://arxiv.org/abs/cs/0307071
+====================================================
+D0 Regional Analysis Center Concepts (L. Lueking - 19 June, 2003)
+The philosophy and function of these centers is discussed and details of their composition and operation are outlined
+Link: https://arxiv.org/abs/cs/0306115
+====================================================
+The ESRF TANGO control system status (JM. Chaize - 9 November, 2001)
+IN this paper, the TANGO philosophy is briefly presented
+Link: https://arxiv.org/abs/cs/0111028
+====================================================
+Computer Security: Competing Concepts (Helen Nissenbaum - 26 October, 2001)
+Our project draws on the methods and perspectives of empirical social science, computer science, and philosophy to identify values embodied in existing web-browser security and also to prescribe changes to existing systems (in particular, Mozilla) so that values relevant to web-browser systems are better served than presently they are
+Link: https://arxiv.org/abs/cs/0110001
+====================================================
+Questions for a Materialist Philosophy Implying the Equivalence of Computers and Human Cognition (Douglas M. Snyder - 11 December, 2000)
+Issues related to a materialist philosophy are explored as concerns the implied equivalence of computers running software and human observers. Some difficulties stemming from a materialist philosophy as regards these issues are pointed out
+Link: https://arxiv.org/abs/cs/0012003
+====================================================
+Compositionality, Synonymy, and the Systematic Representation of Meaning (Shalom Lappin - 9 January, 2000)
+In a recent issue of Linguistics and Philosophy Kasmi and Pelletier (1998) (K&P), and Westerstahl (1998) criticize Zadrozny's (1994) argument that any semantics can be represented compositionally
+Link: https://arxiv.org/abs/cs/0001006
+====================================================
+Modeling Belief in Dynamic Systems, Part II: Revision and Update (N Friedman - 23 March, 1999)
+The study of belief change has been an active area in philosophy and AI
+Link: https://arxiv.org/abs/cs/9903016
+====================================================
+Autocatalytic Theory of Meaning (Mark D. Roberts - 16 February, 1999)
+Here possible application to a theory of meaning in the philosophy of language, called radical interpretation, is commented upon and compared to previous applications.
+Link: https://arxiv.org/abs/cs/9902027
+====================================================
+Name Strategy: Its Existence and Implications (Mark D. Roberts - 4 December, 1998)
+Some consequences of the existence of a name strategy for the philosophy of language and mathematics are discussed
+Link: https://arxiv.org/abs/cs/9812004
+====================================================
+Set-Theoretic Completeness for Epistemic and Conditional Logic (Joseph Y. Halpern - 30 May, 2000)
+The standard approach to logic in the literature in philosophy and mathematics, which has also been adopted in computer science, is to define a language (the syntax), an appropriate class of models together with an interpretation of formulas in the language (the semantics), a collection of axioms and rules of inference characterizing reasoning (the proof theory), and then relate the proof theory to the semantics via soundness and completeness results
+Link: https://arxiv.org/abs/cs/9808006
+====================================================
+A Computational Approach to Aspectual Composition (Michael White - 1 July, 1995)
+In this paper, I argue, contrary to the prevailing opinion in the linguistics and philosophy literature, that a sortal approach to aspectual composition can indeed be explanatory
+Link: https://arxiv.org/abs/cmp-lg/9506026
+====================================================
+Provably Bounded-Optimal Agents (S. J. Russell - 30 April, 1995)
+We conclude with a discussion of the prospects for bounded optimality as a theoretical basis for AI, and relate it to similar trends in philosophy, economics, and game theory.
+Link: https://arxiv.org/abs/cs/9505103
+====================================================
+An Implemented Formalism for Computing Linguistic Presuppositions and Existential Commitments (Daniel Marcu - 25 April, 1995)
+We use a rich ontology and a set of methodological principles that embed the essence of Meinong's philosophy and Grice's conversational principles into a stratified logic, under an unrestricted interpretation of the quantifiers
+Link: https://arxiv.org/abs/cmp-lg/9504018
+====================================================

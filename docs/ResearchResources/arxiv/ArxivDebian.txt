@@ -1,0 +1,91 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Adapting Neural Text Classification for Improved Software Categorization (Alexander LeClair - 15 June, 2018)
+We propose a set of adaptations to a state-of-the-art neural classification algorithm and perform two evaluations: one with reference data from Debian end-user programs, and one with a set of C/C++ libraries that we hired professional programmers to annotate
+Link: https://arxiv.org/abs/1806.01742
+====================================================
+Quasi-Optimal Partial Order Reduction (Huyen T. T Nguyen - 20 April, 2018)
+Experiments with Dpu, including Debian packages, show that optimality is achieved with low values of k, outperforming state-of-the-art tools.
+Link: https://arxiv.org/abs/1802.03950
+====================================================
+Software Distribution Transparency and Auditability (Benjamin Hof - 20 November, 2017)
+Our implementation is evaluated by replaying over 3000 updates of the Debian operating system over the course of two years, demonstrating its viability and identifying numerous irregularities.
+Link: https://arxiv.org/abs/1711.07278
+====================================================
+Source File Set Search for Clone-and-Own Reuse Analysis (Takashi Ishio - 26 April, 2017)
+The tool took about two hours to report the original components from 10 million files in Debian GNU/Linux packages. Recall of the top-five components in the extracted lists is 0.907, while recall of a baseline using SHA-1 file hash is 0.773, according to the ground truth recorded in the source code repositories.
+Link: https://arxiv.org/abs/1704.08395
+====================================================
+Sound Static Deadlock Analysis for C/Pthreads (Extended Version) (Daniel Kroening - 23 July, 2016)
+In our experimental evaluation, we succeeded to prove deadlock-freedom for 262 programs from the Debian GNU/Linux distribution with in total 2.6 MLOC in less than 11 hours.
+Link: https://arxiv.org/abs/1607.06927
+====================================================
+Don't sit on the fence: A static analysis approach to automatic fence insertion (Jade Alglave - 9 June, 2014)
+We implement it in our new musketeer tool, and detail experiments on more than 350 executables of packages found in Debian Linux 7.1, e.g. memcached (about 10000 LoC).
+Link: https://arxiv.org/abs/1312.1411
+====================================================
+Empirical Tests of Zipf's law Mechanism In Open Source Linux Distribution (T. Maillart - 30 June, 2008)
+We present three tests of the usually assumed ingredients of stochastic growth models that have been previously conjectured to be at the origin of Zipf's law: (i) the growth observed between successive releases of the number of in-directed links of packages obeys Gibrat's law of proportional growth; (ii) the average growth increment of the number of in-directed links of packages over a time interval $Ît$ is proportional to $Ît$, while its standard deviation is proportional to $\sqrt{Ît}$; (iii) the distribution of the number of in-directed links of new packages appearing in evolving versions of Debian Linux distributions has a tail thinner than Zipf's law, with an exponent which converges to the Zipf's law value 1 as the time $Ît$ between releases increases.
+Link: https://arxiv.org/abs/0807.0014
+====================================================
+Measuring Woody: The Size of Debian 3.0 (Juan Jose Amor - 15 June, 2005)
+Debian is possibly the largest free software distribution, with well over 4,500 source packages in the latest stable release (Debian 3.0) and more than 8,000 source packages in the release currently in preparation. Wheeler's SLOCCount system to determine the number of physical source lines of code (SLOC) of Debian 3.0 (aka woody). We show that Debian 3.0 includes more than 105,000,000 physical SLOC (almost twice than Red Hat 9, released about 8 months later), showing that the Debian development model (based on the work of a large group of voluntary developers spread around the world) is at least as capable as other development methods (like the more centralized one, based on the work of employees, used by Red Hat or Microsoft) to manage distributions of this size.
+Link: https://arxiv.org/abs/cs/0506067
+====================================================
+Learning Embeddings of Directed Networks with Text-Associated Nodes---with Applications in Software Package Dependency Networks (Shudan Zhong - 11 September, 2018)
+We create two new labeled directed networks with text-associated node: The package dependency networks in two popular GNU/Linux distributions, Debian and Fedora
+Link: https://arxiv.org/abs/1809.02270
+====================================================
+Automated Localization for Unreproducible Builds (Zhilei Ren - 18 March, 2018)
+Due to the need of quality assurance and the benefit of better detecting attacks against build environments, the practice of reproducible builds has gained popularity in many open-source software repositories such as Debian and Bitcoin
+Link: https://arxiv.org/abs/1803.06766
+====================================================
+Contour: A Practical System for Binary Transparency (Mustafa Al-Bassam - 7 August, 2018)
+We also demonstrate, via benchmarks and a test deployment for the Debian software repository, that Contour is the only system for binary transparency that satisfies the efficiency and coordination requirements that would make it possible to deploy today.
+Link: https://arxiv.org/abs/1712.08427
+====================================================
+DSN Transient Observatory (T. B. H. Kuiper - 1 March, 2017)
+Each ROACH1 has a 10~GBe interface with a GPU-equipped Debian Linux workstation for additional processing
+Link: https://arxiv.org/abs/1703.00584
+====================================================
+Debian Astro: An open computing platform for astronomy (Ole Streicher - 22 November, 2016)
+Debian Astro is a Debian Pure Blend that aims to distribute the available astronomy software within the Debian operating system. Using Debian as the foundation has unique advantages for end-users and developers such as an easy installation and upgrading of packages, an open distribution and development model, or the reproducibility due to the standardized build system.
+Link: https://arxiv.org/abs/1611.07203
+====================================================
+Homemade assembly and parameterization of a High Performance Cluster using PelicanHPC with Flops testing and controlled temperature thanks to MCUs Arduino project (T. Maquart - 20 March, 2016)
+This article shows a lower cost realization of a compute cluster using Debian distribution such as PelicanHPC
+Link: https://arxiv.org/abs/1603.06241
+====================================================
+Analysis of the temporal and structural features of threads in a mailing-list (NoÃ© Gaumont - 15 December, 2015)
+We focus on emails exchanges in the Debian mailing-list, and show that threads of emails, like communities in graphs, are dense subsets loosely connected from a link stream perspective.
+Link: https://arxiv.org/abs/1512.05002
+====================================================
+Structural Cohesion: Visualization and Heuristics for Fast Computation (Jordi Torrents - 15 March, 2015)
+We analyze three large collaboration networks (co-maintenance of Debian packages, co-authorship in Nuclear Theory and High-Energy Theory) and show how our approach can help researchers measure structural cohesion in relatively large networks
+Link: https://arxiv.org/abs/1503.04476
+====================================================
+Coalitional Manipulation for Schulze's Rule (Serge Gaspers - 3 April, 2013)
+Schulze's rule is used in the elections of a large number of organizations including Wikimedia and Debian
+Link: https://arxiv.org/abs/1304.0844
+====================================================
+Evolution of a Modular Software Network (Miguel A. Fortuna - 22 November, 2011)
+The Debian GNU/Linux operating system allows us to explore the evolution of a complex network in a novel way
+Link: https://arxiv.org/abs/1111.5251
+====================================================
+Sources of Inter-package Conflicts in Debian (Cyrille Artho - 6 October, 2011)
+A case study of inter-package conflicts in Debian has shown that with more detailed package meta-data, at least one third of all package conflicts could be prevented relatively easily, while another one third could be found by targeted testing of packages that share common resources or characteristics
+Link: https://arxiv.org/abs/1110.1354
+====================================================
+Solving package dependencies: from EDOS to Mancoosi (Ralf Treinen - 21 November, 2008)
+Debian is represented by a small group of Debian Developers who are working in the ranks of the involved universities to drive and integrate back achievements into Debian. This paper presents relevant results from EDOS in dependency management and gives an overview of the Mancoosi project and its objectives, with a particular focus on the prospective benefits for Debian.
+Link: https://arxiv.org/abs/0811.3620
+====================================================
+Are scale-free regulatory networks larger than random ones? (Miguel A. Fortuna - 19 January, 2005)
+Network of packages with regulatory interactions (dependences and conflicts) from Debian GNU/Linux operating system is compiled and used as analogy of a gene regulatory network
+Link: https://arxiv.org/abs/q-bio/0501027
+====================================================

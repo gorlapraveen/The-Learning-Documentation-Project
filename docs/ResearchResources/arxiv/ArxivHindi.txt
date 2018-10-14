@@ -1,0 +1,418 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Adapting Word Embeddings to New Languages with Morphological and Phonological Subword Representations (Aditi Chaudhary - 28 August, 2018)
+We demonstrate the effectiveness of our approaches on Named Entity Recognition for four languages, namely Uyghur, Turkish, Bengali and Hindi, of which Uyghur and Bengali are low resource languages, and also perform experiments on Machine Translation. We also show improvements in the monolingual setting where we achieve (avg.) +3 F1 and (avg.) +1.35 BLEU.
+Link: https://arxiv.org/abs/1808.09500
+====================================================
+RiTUAL-UH at TRAC 2018 Shared Task: Aggression Identification (Niloofar Safi Samghabadi - 31 July, 2018)
+We obtained weighted F1- measures of 0.5921 for the English Facebook task (ranked 12th), 0.5663 for the English Social Media task (ranked 6th), 0.6292 for the Hindi Facebook task (ranked 1st), and 0.4853 for the Hindi Social Media task (ranked 2nd).
+Link: https://arxiv.org/abs/1807.11712
+====================================================
+Bag-of-Visual-Words for Signature-Based Multi-Script Document Retrieval (Ranju Mandal - 18 July, 2018)
+The `Tobacco' document database and an Indian script database containing 560 documents of Devanagari (Hindi) and Bangla scripts were used for the performance evaluation
+Link: https://arxiv.org/abs/1807.06772
+====================================================
+Discriminating between Indo-Aryan Languages Using SVM Ensembles (Alina Maria Ciobanu - 9 July, 2018)
+In this paper we present a system based on SVM ensembles trained on characters and words to discriminate between five similar languages of the Indo-Aryan family: Hindi, Braj Bhasha, Awadhi, Bhojpuri, and Magahi. The system competed in the Indo-Aryan Language Identification (ILI) shared task organized within the VarDial Evaluation Campaign 2018. Our best entry in the competition, named ILIdentification, scored 88:95% F1 score and it was ranked 3rd out of 8 teams.
+Link: https://arxiv.org/abs/1807.03108
+====================================================
+Gender Prediction in English-Hindi Code-Mixed Social Media Content : Corpus and Baseline System (Ankush Khandelwal - 14 June, 2018)
+There are very few English-Hindi code-mixed annotated datasets of social media content present online \cite{4}
+Link: https://arxiv.org/abs/1806.05600
+====================================================
+A Corpus of English-Hindi Code-Mixed Tweets for Sarcasm Detection (Sahil Swami - 30 May, 2018)
+We present the first English-Hindi code-mixed dataset of tweets marked for presence of sarcasm and irony where each token is also annotated with a language tag. We present a baseline su- pervised classification system developed using the same dataset which achieves an average F-score of 78.4 after using random forest classifier and performing 10-fold cross validation.
+Link: https://arxiv.org/abs/1805.11869
+====================================================
+An English-Hindi Code-Mixed Corpus: Stance Annotation and Baseline System (Sahil Swami - 30 May, 2018)
+We present a new dataset that consists of 3545 English-Hindi code-mixed tweets with opinion towards Demoneti- sation that was implemented in India in 2016 which was followed by a large countrywide debate. We present a baseline supervised classification system for stance detection developed using the same dataset that uses various machine learning techniques to achieve an accuracy of 58.7% on 10-fold cross validation.
+Link: https://arxiv.org/abs/1805.11868
+====================================================
+Demo of Sanskrit-Hindi SMT System (Rajneesh Pandey - 13 April, 2018)
+43k sentences of Sanskrit-Hindi parallel corpus and 56k sentences of a monolingual corpus in the target language (Hindi) have been used. This system gives 57 BLEU score.
+Link: https://arxiv.org/abs/1804.06716
+====================================================
+Synthetic data generation for Indic handwritten text recognition (Partha Pratim Roy - 17 April, 2018)
+The framework is tested on 2 Indic scripts - Devanagari (Hindi) and Bengali (Bangla), for numeral, character and word recognition
+Link: https://arxiv.org/abs/1804.06254
+====================================================
+Universal Dependency Parsing for Hindi-English Code-switching (Irshad Ahmad Bhat - 24 April, 2018)
+We present a treebank of Hindi-English code-switching tweets under Universal Dependencies scheme and propose a neural stacking model for parsing that efficiently leverages part-of-speech tag and syntactic tree annotations in the code-switching treebank and the preexisting Hindi and English treebanks. Results show that our neural stacking parser is 1.5% LAS points better than the augmented parsing model and our decoding process improves results by 3.8% LAS points over the first-best normalization and/or back-transliteration.
+Link: https://arxiv.org/abs/1804.05868
+====================================================
+Automatic Language Identification System for Hindi and Magahi (Priya Rani - 13 April, 2018)
+In this paper, we present a rule-based language identifier tool for two closely related Indo-Aryan languages: Hindi and Magahi. This system has currently achieved an accuracy of approx 86.34%
+Link: https://arxiv.org/abs/1804.05095
+====================================================
+Automatic Identification of Closely-related Indian Languages: Resources and Experiments (Ritesh Kumar - 26 March, 2018)
+In this paper, we discuss an attempt to develop an automatic language identification system for 5 closely-related Indo-Aryan languages of India, Awadhi, Bhojpuri, Braj, Hindi and Magahi. Using these corpora, a language identification system was developed, which currently gives state of the art accuracy of 96.48\%. We also used these corpora to study the similarity between the 5 languages at the lexical level, which is the first data-based study of the extent of closeness of these languages.
+Link: https://arxiv.org/abs/1803.09405
+====================================================
+Aggression-annotated Corpus of Hindi-English Code-mixed Data (Ritesh Kumar - 25 March, 2018)
+In this paper, we discuss the development of an aggression tagset and an annotated corpus of Hindi-English code-mixed data from two of the most popular social networking and social media platforms in India, Twitter and Facebook. The corpus is annotated using a hierarchical tagset of 3 top-level tags and 10 level 2 tags
+Link: https://arxiv.org/abs/1803.09402
+====================================================
+Learning Word Vectors for 157 Languages (Edouard Grave - 28 March, 2018)
+We also introduce three new word analogy datasets to evaluate these word vectors, for French, Hindi and Polish. Finally, we evaluate our pre-trained word vectors on 10 languages for which evaluation datasets exists, showing very strong performance compared to previous models.
+Link: https://arxiv.org/abs/1802.06893
+====================================================
+An Unsupervised Approach for Mapping between Vector Spaces (Syed Sarfaraz Akhtar - 20 November, 2017)
+We initially evaluate our approach via word similarity tasks on a similar language pair - Hindi as source and Urdu as the target language, while we also evaluate our method on French and German as target languages and English as source language. Our approach improves the current state of the art results - by 13% for French and 19% for German. For Urdu, we saw an increment of 16% over our initial baseline score
+Link: https://arxiv.org/abs/1711.05680
+====================================================
+Analyzing Gender Stereotyping in Bollywood Movies (Nishtha Madaan - 11 October, 2017)
+In this paper, we focus on studying such stereotypes and bias in Hindi movie industry (Bollywood). We analyze movie plots and posters for all movies released since 1970. The silver lining is that our system was able to identify 30 movies over last 3 years where such stereotypes were broken.
+Link: https://arxiv.org/abs/1710.04117
+====================================================
+The IIT Bombay English-Hindi Parallel Corpus (Anoop Kunchukuttan - 19 May, 2018)
+We present the IIT Bombay English-Hindi Parallel Corpus. The corpus contains 1.49 million parallel segments, of which 694k segments were not previously available in the public domain. This corpus has been used in two editions of shared tasks at the Workshop on Asian Language Translation (2016 and 2017)
+Link: https://arxiv.org/abs/1710.02855
+====================================================
+A Finite State and Rule-based Akshara to Prosodeme (A2P) Converter in Hindi (Somnath Roy - 4 May, 2017)
+In addition to that, it also uses a set of nonlinear phonological rules proposed for foot formation in Hindi, which encompass solutions to schwa-deletion in simple, compound, derived and inflected words. The testing of the software for syllabification, syllable labeling, schwa deletion and prosodic labeling yield an accuracy of more than 99% on a lexicon of size 28664 words.
+Link: https://arxiv.org/abs/1705.01833
+====================================================
+Joining Hands: Exploiting Monolingual Treebanks for Parsing of Code-mixing Data (Irshad Ahmad Bhat - 31 March, 2017)
+Besides, we also present a data set of 450 Hindi and English code-mixed tweets of Hindi multilingual speakers for evaluation
+Link: https://arxiv.org/abs/1703.10772
+====================================================
+Machine Translation Approaches and Survey for Indian Languages (Nadeem Jadoon Khan - 16 January, 2017)
+We report the performance of baseline systems translating from Indian languages (Bengali, Guajarati, Hindi, Malayalam, Punjabi, Tamil, Telugu and Urdu) into English with average 10% accurate results for all the language pairs.
+Link: https://arxiv.org/abs/1701.04290
+====================================================
+A POS Tagger for Code Mixed Indian Social Media Text - ICON-2016 NLP Tools Contest Entry from Surukam (Sree Harsha Ramesh - 31 December, 2016)
+This paper describes the POS tagger built at Surukam to predict the coarse-grained and fine-grained POS tags for three language pairs - Bengali-English, Telugu-English and Hindi-English, with the text spanning three popular social media platforms - Facebook, WhatsApp and Twitter. Our submissions in the constrained environment,i.e., without making any use of monolingual POS taggers or the like, obtained an overall average F1-score of 76.45%, which is comparable to the 2015 winning score of 76.79%.
+Link: https://arxiv.org/abs/1701.00066
+====================================================
+KS_JU@DPIL-FIRE2016:Detecting Paraphrases in Indian Languages Using Multinomial Logistic Regression Model (Kamal Sarkar - 24 December, 2016)
+Our system achieves the highest f-measure of 0.95 on task1 in Punjabi language.The performance of our system on task1 in Hindi language is f-measure of 0.90. Out of 11 teams participated in the shared task, only four teams participated in all four languages, Hindi, Punjabi, Malayalam and Tamil, but the remaining 7 teams participated in one of the four languages. The overall average performance of our system including task1 and task2 overall four languages is F1-score of 0.81 which is the second highest score among the four systems that participated in all four languages.
+Link: https://arxiv.org/abs/1612.08171
+====================================================
+A CRF Based POS Tagger for Code-mixed Indian Social Media Text (Kamal Sarkar - 23 December, 2016)
+We participated only in constrained mode contest for all three language pairs, Bengali-English, Hindi-English and Telegu-English. Our system achieves the overall average F1 score of 79.99, which is the highest overall average F1 score among all 16 systems participated in constrained mode contest.
+Link: https://arxiv.org/abs/1612.07956
+====================================================
+Towards Sub-Word Level Compositions for Sentiment Analysis of Hindi-English Code Mixed Text (Ameya Prabhu - 2 November, 2016)
+We introduce a Hindi-English (Hi-En) code-mixed dataset for sentiment analysis and perform empirical analysis comparing the suitability and performance of various state-of-the-art SA methods in social media.
+Link: https://arxiv.org/abs/1611.00472
+====================================================
+Towards Deep Learning in Hindi NER: An approach to tackle the Labelled Data Scarcity (Vinayak Athavale - 16 November, 2016)
+Our model attained state of the art performance in both English and Hindi without the use of any morphological analysis or without using gazetteers of any sort.
+Link: https://arxiv.org/abs/1610.09756
+====================================================
+Enabling Medical Translation for Low-Resource Languages (Ahmad Musleh - 9 October, 2016)
+In particular, we present the first steps towards the development of a real-world Hindi-English machine translation system for doctor-patient communication. Moreover, we developed a method for automatically augmenting the training data with synthetically generated variants, which yielded a very sizable improvement of more than 3 BLEU points absolute.
+Link: https://arxiv.org/abs/1610.02633
+====================================================
+UsingWord Embeddings for Query Translation for Hindi to English Cross Language Information Retrieval (Paheli Bhattacharya - 4 August, 2016)
+We experiment with Forum for Information Retrieval and Evaluation (FIRE) 2008 and 2012 datasets for Hindi to English CLIR. The proposed word embedding based approach outperforms the basic dictionary based approach by 70% and when the word embeddings are combined with the dictionary, the hybrid approach beats the baseline dictionary based method by 77%. It outperforms the English monolingual baseline by 15%, when combined with the translations obtained from Google Translate and Dictionary.
+Link: https://arxiv.org/abs/1608.01561
+====================================================
+Labeling of Query Words using Conditional Random Field (Satanu Ghosh - 29 July, 2016)
+The strict F-measure scores for the identification of token level language labels for Bengali, English and Hindi are 0.7486, 0.892 and 0.7972 respectively. The overall weighted F-measure of our system was 0.7498.
+Link: https://arxiv.org/abs/1607.08883
+====================================================
+Prepositional Attachment Disambiguation Using Bilingual Parsing and Alignments (Geetanjali Rakshit - 28 March, 2016)
+Experiments were performed on the English-Hindi language pair and the performance improved by 10% over the baseline, where the baseline is the attachment predicted by the MSTParser model trained for English.
+Link: https://arxiv.org/abs/1603.08594
+====================================================
+Part-of-Speech Tagging for Code-mixed Indian Social Media Text at ICON 2015 (Kamal Sarkar - 6 January, 2016)
+We submitted runs for Bengali-English, Hindi-English and Tamil-English Language pairs. Our system has been trained and tested on the datasets released for ICON 2015 shared task: POS Tagging For Code-mixed Indian Social Media Text. In constrained mode, our system obtains average overall accuracy (averaged over all three language pairs) of 75.60% which is very close to other participating two systems (76.79% for IIITH and 75.79% for AMRITA_CEN) ranked higher than our system. In unconstrained mode, our system obtains average overall accuracy of 70.65% which is also close to the system (72.85% for AMRITA_CEN) which obtains the highest average overall accuracy.
+Link: https://arxiv.org/abs/1601.01195
+====================================================
+Words are not Equal: Graded Weighting Model for building Composite Document Vectors (Pranjal Singh - 11 December, 2015)
+Since these are language free models and can be obtained in an unsupervised manner, they are of interest also for under-resourced languages such as Hindi as well and many more languages. We demonstrate the language free aspects by showing a gain of 12% for two review datasets over earlier results, and also release a new larger dataset for future testing (Singh,2015).
+Link: https://arxiv.org/abs/1512.03549
+====================================================
+Query Expansion Strategy based on Pseudo Relevance Feedback and Term Weight Scheme for Monolingual Retrieval (Rekha Vaidyanathan - 18 February, 2015)
+The experiments were performed on FIRE 2011 Adhoc Hindi and English test collections on 50 queries each, using Terrier as retrieval engine.
+Link: https://arxiv.org/abs/1502.05168
+====================================================
+CRF-based Named Entity Recognition @ICON 2013 (Arjun Das - 29 September, 2014)
+Next the use of gazetteer is explored for Bengali, Hindi and English. Test results show that the system achieves the highest F measure of 88% for English and the lowest F measure of 69% for both Tamil and Telugu. NER in Bengali and Hindi finds accuracy (F measure) of 87% and 79%, respectively.
+Link: https://arxiv.org/abs/1409.8008
+====================================================
+Translation Of Telugu-Marathi and Vice-Versa using Rule Based Machine Translation (Siddhartha Ghosh - 16 June, 2014)
+Whereas Babel Fish supports a good number of foreign languages and only Hindi from Indian languages, the Google Translator takes care of about 10 Indian languages
+Link: https://arxiv.org/abs/1406.3969
+====================================================
+An HMM Based Named Entity Recognition System for Indian Languages: The JU System at ICON 2013 (Vivekananda Gayen - 28 May, 2014)
+We submitted runs for Bengali, English, Hindi, Marathi, Punjabi, Tamil and Telugu. The system has been trained and tested on the NLP TOOLS CONTEST: ICON 2013 datasets. Our system obtains F-measures of 0.8599, 0.7704, 0.7520, 0.4289, 0.5455, 0.4466, and 0.4003 for Bengali, English, Hindi, Marathi, Punjabi, Tamil and Telugu respectively.
+Link: https://arxiv.org/abs/1405.7397
+====================================================
+Hybrid Approach to English-Hindi Name Entity Transliteration (Shruti Mathur - 28 March, 2014)
+At first we have processed English words using a rule based approach which extracts individual phonemes from the words and then we have applied statistical approach which converts the English into its equivalent Hindi phoneme and in turn the corresponding Hindi word. Through this approach we have attained 83.40% accuracy.
+Link: https://arxiv.org/abs/1403.7455
+====================================================
+Improving Performance Of English-Hindi Cross Language Information Retrieval Using Transliteration Of Query Terms (Saurabh Varshney - 15 January, 2014)
+We used all possible combination of Hindi translated query using transliteration of English query terms and choosing the best query among them for retrieval of documents. The experiment is performed on FIRE 2010 (Forum of Information Retrieval Evaluation) datasets
+Link: https://arxiv.org/abs/1401.3510
+====================================================
+Statistical Texture Features based Handwritten and Printed Text Classification in South Indian Documents (Mallikarjun Hangarge - 13 March, 2013)
+Scripts like Kannada, Telugu, Malayalam and Hindi i.e., Devanagari are primarily employed where an average classification rate of 99.26% is achieved
+Link: https://arxiv.org/abs/1303.3087
+====================================================
+FST Based Morphological Analyzer for Hindi Language (Deepak Kumar - 23 July, 2012)
+Hindi being a highly inflectional language, FST (Finite State Transducer) based approach is most efficient for developing a morphological analyzer for this language. The morphological analyzer gives approximately 97% correct results. POS tagger gives an accuracy of approximately 87% for the sentences that have the words known to the trained model file, and 80% accuracy for the sentences that have the words unknown to the trained model file.
+Link: https://arxiv.org/abs/1207.5409
+====================================================
+Discrimination of English to other Indian languages (Kannada and Hindi) for OCR system (Ankit Kumar - 10 May, 2012)
+We analysed 700 different words of Kannada, English and Hindi in order to extract the discrimination features and for the development of knowledge base. The proposed system is tested on 100 different document images containing more than 1000 text words of each script and a classification rate of 98.25%, 99.25% and 98.87% is achieved for Kannada, English and Hindi respectively.
+Link: https://arxiv.org/abs/1205.2164
+====================================================
+Syllable Analysis to Build a Dictation System in Telugu language (N. Kalyani - 13 January, 2010)
+There are systems developed for continuous speech recognition in English and in few Indian languages like Hindi and Tamil. This approach is applied on the CIIL Mysore text corpus which is of 3 million words.
+Link: https://arxiv.org/abs/1001.2263
+====================================================
+Evaluation of Hindi to Punjabi Machine Translation System (Vishal Goyal - 9 October, 2009)
+Recently, Punjabi University, Patiala, India has developed Punjabi to Hindi Machine translation system with high accuracy of about 92%. After evaluation, the accuracy of the system is found to be about 95%.
+Link: https://arxiv.org/abs/0910.1868
+====================================================
+Cross Script Hindi English NER Corpus from Wikipedia (Mohd Zeeshan Ansari - 8 October, 2018)
+The paper presents the preparation of a Cross Script Hindi-English Corpora from Wikipedia category pages
+Link: https://arxiv.org/abs/1810.03430
+====================================================
+Hindi-English Code-Switching Speech Corpus (Ganji Sreeram - 23 September, 2018)
+For that purpose, we have created a Hindi-English code-switching speech database
+Link: https://arxiv.org/abs/1810.00662
+====================================================
+Mind Your Language: Abuse and Offense Detection for Code-Switched Languages (Raghav Kapoor - 23 September, 2018)
+In this paper, we study offense and abuse detection in the code-switched pair of Hindi and English (i.e. This model surpasses the performance shown by the current best models to establish itself as the state-of-the-art in the unexplored domain of Hinglish offensive text classification.We also release our model and the embeddings trained for research purposes
+Link: https://arxiv.org/abs/1809.08652
+====================================================
+OntoSenseNet: A Verb-Centric Ontological Resource for Indian Languages (Jyoti Jha - 2 August, 2018)
+The paper aims to capture such intrinsic and extrinsic meanings of words for two major Indian languages, namely, Hindi and Telugu. The resource has collection of Hindi and Telugu lexicons, which has been manually annotated by native speakers of the languages following our annotation guidelines
+Link: https://arxiv.org/abs/1808.00694
+====================================================
+LSTMs with Attention for Aggression Detection (Nishant Nikhil - 16 July, 2018)
+Our system ranks 6th and 4th in the Hindi subtask for Facebook comments and subtask for generalized social media data respectively
+Link: https://arxiv.org/abs/1807.06151
+====================================================
+Neural Machine Translation for Low Resource Languages using Bilingual Lexicon Induced from Comparable Corpora (Sree Harsha Ramesh - 25 June, 2018)
+Subsequently, we have showed that using the harvested dataset improved BLEU scores on both NMT and phrase-based SMT systems for the low-resource language pairs: English--Hindi and English--Tamil, when compared to training exclusively on the limited bilingual corpora collected for these language pairs.
+Link: https://arxiv.org/abs/1806.09652
+====================================================
+A Dataset for Building Code-Mixed Goal Oriented Conversation Systems (Suman Banerjee - 15 June, 2018)
+Specifically, we take the text from the DSTC2 restaurant reservation dataset and create code-mixed versions of it in Hindi-English, Bengali-English, Gujarati-English and Tamil-English. We also establish initial baselines on this dataset using existing state of the art models
+Link: https://arxiv.org/abs/1806.05997
+====================================================
+Humor Detection in English-Hindi Code-Mixed Social Media Content : Corpus and Baseline System (Ankush Khandelwal - 14 June, 2018)
+In this paper, we analyze the task of humor detection in texts and describe a freely available corpus containing English-Hindi code-mixed tweets annotated with humorous(H) or non-humorous(N) tags. We also tagged the words in the tweets with Language tags (English/Hindi/Others)
+Link: https://arxiv.org/abs/1806.05513
+====================================================
+An Ensemble Model for Sentiment Analysis of Hindi-English Code-Mixed Data (Madan Gopal Jhanwar - 12 June, 2018)
+In this paper, we propose an ensemble of character-trigrams based LSTM model and word-ngrams based Multinomial Naive Bayes (MNB) model to identify the sentiments of Hindi-English (Hi-En) code-mixed data. Experiments on reallife user code-mixed data reveals that our approach yields state-of-the-art results as compared to several baselines and other deep learning based proposed methods.
+Link: https://arxiv.org/abs/1806.04450
+====================================================
+Context and Humor: Understanding Amul advertisements of India (Radhika Mamidi - 15 April, 2018)
+In this paper, we will discuss the importance of contextual knowledge in understanding the humor present in the cartoon based Amul advertisements in India.In the process, we will analyze these advertisements and also see if humor is an effective tool for advertising and thereby, for marketing.These bilingual advertisements also expect the audience to have the appropriate linguistic knowledge which includes knowledge of English and Hindi vocabulary, morphology and syntax
+Link: https://arxiv.org/abs/1804.05398
+====================================================
+Learning Multilingual Embeddings for Cross-Lingual Information Retrieval in the Presence of Topically Aligned Corpora (Mitodru Niyogi - 12 April, 2018)
+We test our proposed approach for bilingual IR on standard FIRE datasets for Bangla, Hindi and English. The proposed method is superior to the state-of-the-art method not only for IR evaluation measures but also in terms of time requirements
+Link: https://arxiv.org/abs/1804.04475
+====================================================
+Vision as an Interlingua: Learning Multilingual Semantic Embeddings of Untranscribed Speech (David Harwath - 9 April, 2018)
+Using spoken captions collected in English and Hindi, we show that the same model architecture can be successfully applied to both languages
+Link: https://arxiv.org/abs/1804.03052
+====================================================
+Sentiment Analysis of Code-Mixed Indian Languages: An Overview of SAIL_Code-Mixed Shared Task @ICON-2017 (Braja Gopal Patra - 18 March, 2018)
+This paper presents overview of the shared task on sentiment analysis of code-mixed data pairs of Hindi-English and Bengali-English collected from the different social media platform
+Link: https://arxiv.org/abs/1803.06745
+====================================================
+JU_KS@SAIL_CodeMixed-2017: Sentiment Analysis for Indian Code Mixed Social Media Texts (Kamal Sarkar - 15 February, 2018)
+We have tested our system on Hindi-English and Bengali-English code mixed social media data sets released for the contest. For both Bengali-English and Hindi-English runs, our system was ranked at the 3rd position out of all submitted runs and awarded the 3rd prize in the contest.
+Link: https://arxiv.org/abs/1802.05737
+====================================================
+Review of Design of Speech Recognition and Text Analytics based Digital Banking Customer Interface and Future Directions of Technology Adoption (Amal K Saha - 13 December, 2017)
+The paper reviews the progress of technology adoption in the field and comments on the maturity level of solutions involving less studied or low-resource languages like Hindi and also other Indian, regional languages
+Link: https://arxiv.org/abs/1712.04640
+====================================================
+Language Modeling for Code-Switched Data: Challenges and Approaches (Ganji Sreeram - 9 November, 2017)
+The salient contributions of this paper includes: (i) the creation of Hindi-English code-switching text corpus by crawling a few blogging sites educating about the usage of the Internet (ii) the exploration of the parts-of-speech features towards more effective modeling of Hindi-English code-switched data by the monolingual language model (LM) trained on native (Hindi) language data, and (iii) the proposal of a novel textual factor referred to as the code-switch factor (CS-factor), which allows the LM to predict the code-switching instances
+Link: https://arxiv.org/abs/1711.03541
+====================================================
+Bilingual Words and Phrase Mappings for Marathi and Hindi SMT (Sreelekha S - 10 November, 2017)
+We have described the case studies, evaluations and detailed error analysis for both Marathi to Hindi and Hindi to Marathi machine translation systems
+Link: https://arxiv.org/abs/1710.02398
+====================================================
+Phrase Pair Mappings for Hindi-English Statistical Machine Translation (Sreelekha S - 10 November, 2017)
+In this paper, we present our work on the creation of lexical resources for the Machine Translation between English and Hindi. We have described the case studies, automatic and subjective evaluations, detailed error analysis for both the English to Hindi and Hindi to English machine translation systems
+Link: https://arxiv.org/abs/1710.02100
+====================================================
+Morphology Generation for Statistical Machine Translation (Sreelekha S - 10 November, 2017)
+We use this method with the phrase-based and factor-based experiments on two morphologically rich languages: Hindi and Marathi when translating from English
+Link: https://arxiv.org/abs/1710.02093
+====================================================
+Role of Morphology Injection in Statistical Machine Translation (Sreelekha S - 16 September, 2017)
+Hence, the objective of this work is to handle morphological inflections in Hindi and Marathi using Factored translation models while translating from English. We verify this with the experiments on two morphologically rich languages: Hindi and Marathi, while translating from English.
+Link: https://arxiv.org/abs/1709.05487
+====================================================
+A Systematic Review of Hindi Prosody (Somnath Roy - 9 May, 2017)
+The aim of this study is to summarize the existing works on Hindi prosody carried out in different domain of language and speech processing
+Link: https://arxiv.org/abs/1705.03247
+====================================================
+A Generative Model of a Pronunciation Lexicon for Hindi (Pramod Pandey - 6 May, 2017)
+The present paper describes the model of pronunciation lexicon of Hindi developed to automatically generate the output forms of Hindi at two levels, the <phoneme> and the <PS> (PS, in short for Prosodic Structure). The paper describes the tool developed for generating the two-level outputs of lexica in Hindi.
+Link: https://arxiv.org/abs/1705.02452
+====================================================
+Comparison of SMT and RBMT; The Requirement of Hybridization for Marathi-Hindi MT (Sreelekha. S - 10 March, 2017)
+We present in this paper our work on comparison between Statistical Machine Translation (SMT) and Rule-based machine translation for translation from Marathi to Hindi. We describe the development of a basic Marathi-Hindi SMT system and evaluate its performance
+Link: https://arxiv.org/abs/1703.03666
+====================================================
+Lexical Resources for Hindi Marathi MT (Sreelekha S - 4 March, 2017)
+We have described case studies, evaluations and detailed error analysis for both Marathi to Hindi and Hindi to Marathi machine translation systems
+Link: https://arxiv.org/abs/1703.01485
+====================================================
+SMPOST: Parts of Speech Tagger for Code-Mixed Indic Social Media Text (Deepak Gupta - 2 February, 2017)
+English-Hindi, English-Bengali and English-Telugu on three different social media platforms, Twitter, Facebook & WhatsApp
+Link: https://arxiv.org/abs/1702.00167
+====================================================
+Structural Analysis of Hindi Phonetics and A Method for Extraction of Phonetically Rich Sentences from a Very Large Hindi Text Corpus (Shrikant Malviya - 6 February, 2017)
+First, this paper presents a statistical analysis of Hindi phonetics by observing the structural characteristics. Further a two stage algorithm is proposed to extract phonetically rich sentences with a high variety of triphones from the EMILLE Hindi corpus
+Link: https://arxiv.org/abs/1701.08655
+====================================================
+Grammatical Constraints on Intra-sentential Code-Switching: From Theories to Working Models (Gayatri Bhat - 14 December, 2016)
+We conduct a detailed theoretical analysis, and a small-scale empirical study of the two models for Hindi-English CS
+Link: https://arxiv.org/abs/1612.04538
+====================================================
+Recurrent Neural Network based Part-of-Speech Tagger for Code-Mixed Social Media Text (Raj Nath Patel - 15 November, 2016)
+We submitted the results for Hindi-English (hi-en), Bengali-English (bn-en), and Telugu-English (te-en) code-mixed data.
+Link: https://arxiv.org/abs/1611.04989
+====================================================
+Experiments with POS Tagging Code-mixed Indian Social Media Text (Prakash B. Pimpale - 31 October, 2016)
+We submitted results for Hindi (hi), Bengali (bn), and Telugu (te) languages mixed with English (en)
+Link: https://arxiv.org/abs/1610.09799
+====================================================
+Statistical Machine Translation for Indian Languages: Mission Hindi 2 (Raj Nath Patel - 25 October, 2016)
+In this paper, we report our work on all five language pairs, namely Bengali-Hindi (\bnhi), Marathi-Hindi (\mrhi), Tamil-Hindi (\tahi), Telugu-Hindi (\tehi), and English-Hindi (\enhi) for Health, Tourism, and General domains
+Link: https://arxiv.org/abs/1610.08000
+====================================================
+Statistical Machine Translation for Indian Languages: Mission Hindi (Raj Nath Patel - 24 October, 2016)
+We have also shown that the factored model with reordering outperforms the phrase-based SMT for English-Hindi (\enhi). We report our work on all five pairs of languages, namely Bengali-Hindi (\bnhi), Marathi-Hindi (\mrhi), Tamil-Hindi (\tahi), Telugu-Hindi (\tehi), and \enhi for Health, Tourism, and General domains.
+Link: https://arxiv.org/abs/1610.07418
+====================================================
+A Bayesian Approach to Estimation of Speaker Normalization Parameters (Dhananjay Ram - 19 October, 2016)
+Experimental results on recognition of vowels and Hindi phrases from a medium vocabulary indicate that the Bayesian method improves the performance by a considerable margin.
+Link: https://arxiv.org/abs/1610.05948
+====================================================
+Feasibility of Post-Editing Speech Transcriptions with a Mismatched Crowd (Purushotam Radadia - 7 September, 2016)
+Hence, we consider five languages, Arabic, German, Hindi, Russian and Spanish
+Link: https://arxiv.org/abs/1609.02043
+====================================================
+DNN-based Speech Synthesis for Indian Languages from ASCII text (Srikanth Ronanki - 18 August, 2016)
+Our experiments on Hindi, Tamil and Telugu demonstrate that our models generate speech of competetive quality from ASCII text compared to the speech synthesized from the native scripts
+Link: https://arxiv.org/abs/1608.05374
+====================================================
+Automatic text extraction and character segmentation using maximally stable extremal regions (Nitigya Sambyal - 11 August, 2016)
+The algorithm is tested along a set of various JPEG, PNG and BMP images over four different character sets; English, Russian, Hindi and Urdu. The algorithm gives good results for English and Russian character set; however character segmentation in Urdu and Hindi language is not much accurate
+Link: https://arxiv.org/abs/1608.03374
+====================================================
+Shallow Parsing Pipeline for Hindi-English Code-Mixed Social Media Text (Arnav Sharma - 11 April, 2016)
+In this study, the problem of shallow parsing of Hindi-English code-mixed social media text (CSMT) has been addressed. The pipeline developed has been made available to the research community with the goal of enabling better text analysis of Hindi English CSMT
+Link: https://arxiv.org/abs/1604.03136
+====================================================
+Classifier-Based Text Simplification for Improved Machine Translation (Shruti Tyagi - 12 July, 2015)
+For this reason, we have developed a Classifier based Text Simplification Model for English-Hindi Machine Translation Systems
+Link: https://arxiv.org/abs/1507.03223
+====================================================
+Hindi to English Transfer Based Machine Translation System (Akanksha Gehlot - 7 July, 2015)
+Still there is a little work done for Hindi to other languages. In this paper we focus on designing a system, that translate the document from Hindi to English by using transfer based approach
+Link: https://arxiv.org/abs/1507.02012
+====================================================
+Polarity detection movie reviews in hindi language (Richa Sharma - 13 September, 2014)
+In this paper a Hindi language opinion mining system is proposed. The system classifies the reviews as positive, negative and neutral for Hindi language
+Link: https://arxiv.org/abs/1409.3942
+====================================================
+Quality Estimation Of Machine Translation Outputs Through Stemming (Pooja Gupta - 10 July, 2014)
+The correct translated sentence for Hindi language is rarely found. In this paper, we are emphasizing on English-Hindi language pair, so in order to preserve the correct MT output we present a ranking system, which employs some machine learning techniques and morphological features
+Link: https://arxiv.org/abs/1407.2694
+====================================================
+What is India speaking: The "Hinglish" invasion (Rana D. Parshad - 18 December, 2015)
+Based on predator-prey, sociolinguistic theories, salient local ecological factors and the rural-urban divide in India, we propose a new mathematical model of interacting monolingual Hindi speakers, Hindi/English bilinguals and Hinglish speakers. To validate our model, sociolinguistic data from different Indian classes are contrasted with census reports: We see that purported urban Hindi/English bilinguals are unable to maintain fluent Hindi speech and instead produce Hinglish, whereas rural speakers evidence monolingual Hindi
+Link: https://arxiv.org/abs/1406.4824
+====================================================
+Seismic Hazard and Public Safety (Lalliana Mualchin - 4 June, 2014)
+The position of ISSO is available now in English, Italian, Russian, Hebrew, Spanish, and Hindi at http://www.issoquake.org
+Link: https://arxiv.org/abs/1406.1047
+====================================================
+Opinion Mining In Hindi Language: A Survey (Richa Sharma - 19 April, 2014)
+Research in opinion mining mostly carried out in English language but it is very important to perform the opinion mining in Hindi language also as large amount of information in Hindi is also available on the Web. This paper gives an overview of the work that has been done Hindi language.
+Link: https://arxiv.org/abs/1404.4935
+====================================================
+Assessing the Quality of MT Systems for Hindi to English Translation (Aditi Kalyani - 15 April, 2014)
+This paper evaluates the translation quality of different MT Engines for Hindi-English (Hindi data is provided as input and English is obtained as output) using various automatic metrics like BLEU, METEOR etc
+Link: https://arxiv.org/abs/1404.3992
+====================================================
+Evaluation and Ranking of Machine Translated Output in Hindi Language using Precision and Recall Oriented Metrics (Aditi Kalyani - 7 April, 2014)
+We here present the implementation results of different metrics when used on Hindi language along with their comparisons, illustrating how effective are these metrics on languages like Hindi (free word order language).
+Link: https://arxiv.org/abs/1404.1847
+====================================================
+Auto Spell Suggestion for High Quality Speech Synthesis in Hindi (Shikha Kabra - 15 February, 2014)
+However, for a particular language like Hindi, which is a highly confusing language (due to very close spellings), it is not an easy task to identify errors/mistakes in input text and an incorrect text degrade the quality of output speech hence this paper is a contribution to the development of high quality speech synthesis with the involvement of Spellchecker which generates spell suggestions for misspelled words automatically
+Link: https://arxiv.org/abs/1402.3648
+====================================================
+A new keyphrases extraction method based on suffix tree data structure for arabic documents clustering (Issam Sahmoudi - 22 January, 2014)
+This problem occurs with different degree for any language such as English, European, Hindi, Chinese, and Arabic Language
+Link: https://arxiv.org/abs/1401.5644
+====================================================
+Does Syntactic Knowledge help English-Hindi SMT? (Taraka Rama - 20 January, 2014)
+In this paper we explore various parameter settings of the state-of-art Statistical Machine Translation system to improve the quality of the translation for a `distant' language pair like English-Hindi
+Link: https://arxiv.org/abs/1401.4869
+====================================================
+Rule Based Stemmer in Urdu (Vaishali Gupta - 2 October, 2013)
+Urdu is a combination of several languages like Arabic, Hindi, English, Turkish, Sanskrit etc
+Link: https://arxiv.org/abs/1310.0581
+====================================================
+Improving the quality of Gujarati-Hindi Machine Translation through part-of-speech tagging and stemmer-assisted transliteration (Juhi Ameta - 11 July, 2013)
+The effectiveness of translation can be improved if we use part-of-speech tagging and stemming assisted transliteration.We have shown that much of the content in Gujarati gets transliterated while being processed for translation to Hindi language.
+Link: https://arxiv.org/abs/1307.3310
+====================================================
+Conversion of Braille to Text in English, Hindi and Tamil Languages (S. Padmavathi - 11 July, 2013)
+In this paper mapping of English, Hindi and Tamil are considered.
+Link: https://arxiv.org/abs/1307.2997
+====================================================
+An Overview of Hindi Speech Recognition (Neema Mishra - 9 May, 2013)
+There are five pairs of vowels in Hindi languages; one member is longer than the other one. This paper describes an overview of speech recognition system that includes how speech is produced and the properties and characteristics of Hindi Phoneme.
+Link: https://arxiv.org/abs/1305.2847
+====================================================
+A Hindi Speech Actuated Computer Interface for Web Search (Kamlesh Sharma - 12 November, 2012)
+This paper describes a Hindi Speech Actuated Computer Interface for Web search (HSACIWS), which accepts spoken queries in Hindi language and provides the search result on the screen
+Link: https://arxiv.org/abs/1211.2741
+====================================================
+Input Scheme for Hindi Using Phonetic Mapping (Nisheeth Joshi - 18 August, 2012)
+To resolve this issue we have developed a scheme to input text in Hindi using phonetic mapping scheme
+Link: https://arxiv.org/abs/1209.1300
+====================================================
+Devnagari document segmentation using histogram approach (Vikas J Dongre - 6 September, 2011)
+It is used for writing Hindi, Marathi, Sanskrit and Nepali languages. Moreover, Hindi is the third most popular language in the world
+Link: https://arxiv.org/abs/1109.1247
+====================================================
+A Framework for Devanagari Script-based Captcha (Sushma Yalamanchili - 1 September, 2011)
+Our selection of Devanagari script-based CAPTCHA is based on the fact that it is used by a large number of Indian languages including Hindi which is the third most spoken language
+Link: https://arxiv.org/abs/1109.0132
+====================================================
+Topographic Feature Extraction for Bengali and Hindi Character Images (Soumen Bag - 14 July, 2011)
+We have tested the proposed method on printed and handwritten Bengali and Hindi character images
+Link: https://arxiv.org/abs/1107.2723
+====================================================
+Implementation of Rule Based Algorithm for Sandhi-Vicheda Of Compound Hindi Words (Priyanka Gupta - 12 September, 2009)
+Sandhi- Vicheda is an easy and interesting way that can give entirely new dimension that add new way to traditional approach to Hindi Teaching
+Link: https://arxiv.org/abs/0909.2379
+====================================================
+How Difficult is it to Develop a Perfect Spell-checker? A Cross-linguistic Analysis through Complex Network Approach (Monojit Choudhury - 21 March, 2007)
+We construct SpellNets for three languages - Bengali, English and Hindi. We make many interesting observations, the most significant among them being that the probability of making a real word error in a language is propotionate to the average weighted degree of SpellNet, which is found to be highest for Hindi, followed by Bengali and English.
+Link: https://arxiv.org/abs/physics/0703198
+====================================================
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 

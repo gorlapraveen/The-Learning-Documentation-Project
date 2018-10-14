@@ -1,0 +1,1343 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+CoverBLIP: accelerated and scalable iterative matched-filtering for Magnetic Resonance Fingerprint reconstruction (Mohammad Golbabaee - 3 October, 2018)
+We address this shortcoming by arranging dictionary atoms in the form of cover tree structures and adopt the corresponding fast approximate nearest neighbour searches to accelerate matched-filtering. Our further examinations on both synthetic and real-world datasets and using different sampling strategies, indicates between 2 to 3 orders of magnitude reduction in total search computations
+Link: https://arxiv.org/abs/1810.01967
+====================================================
+Molecular Hypergraph Grammar with its Application to Molecular Optimization (Hiroshi Kajino - 7 September, 2018)
+While it achieves the state-of-the-art performance, it requires several neural networks to be trained, which predict which atoms are used to connect fragments and stereochemistry of each bond
+Link: https://arxiv.org/abs/1809.02745
+====================================================
+On discovering functions in actin filament automata (Andrew Adamatzky - 17 July, 2018)
+In semi-totalistic Game of Life like actin filament automaton atoms take binary states `0' and `1' and update their states depending on a ratio of neighbours in the state `1'
+Link: https://arxiv.org/abs/1807.06352
+====================================================
+Domain Aware Markov Logic Networks (Happy Mittal - 7 July, 2018)
+While defin- ing the ground network distribution, DA-MLNs divide the ground feature weight by a scaling factor which is a function of the number of connections the ground atoms appearing in the feature are involved in. We show that standard MLNs fall out as a special case of our formalism when this func- tion evaluates to a constant equal to 1
+Link: https://arxiv.org/abs/1807.01082
+====================================================
+Dynamically Hierarchy Revolution: DirNet for Compressing Recurrent Neural Network on Mobile Devices (Jie Zhang - 8 June, 2018)
+To guarantee minimum accuracy loss with higher compression rate and driven by the mobile resource requirement, we introduce a novel model compression approach DirNet based on an optimized fast dictionary learning algorithm, which 1) dynamically mines the dictionary atoms of the projection dictionary matrix within layer to adjust the compression rate 2) adaptively changes the sparsity of sparse codes cross the hierarchical layers
+Link: https://arxiv.org/abs/1806.01248
+====================================================
+Embedding with a Rigid Substructure (Igor Najfeld - 29 April, 2018)
+This paper presents a new distance geometry algorithm for calculating atomic coordinates from estimates of the interatomic distances, which maintains the positions of the atoms in a known rigid substructure. Given an $M \times 3$ matrix of coordinates for the rigid substructure $\mathbf X$, this problem consists of finding the $N \times 3$ matrix $\mathbf Y$ that yields of global minimum of the so-called STRAIN, i.e
+Link: https://arxiv.org/abs/1804.10953
+====================================================
+Task-parallel Analysis of Molecular Dynamics Trajectories (Ioannis Paraskevakos - 10 June, 2018)
+A typical large-scale MD simulation of a physical system of O(100k) atoms over Î¼secs can produce from O(10) GB to O(1000) GBs of data
+Link: https://arxiv.org/abs/1801.07630
+====================================================
+Perspectival Knowledge in PSOA RuleML: Representation, Model Theory, and Translation (Harold Boley - 1 May, 2018)
+This perspectivity dimension refines the space between oidless, positional atoms (relationships) and oidful, slotted atoms (frames): While relationships use only a predicate-scope-sensitive (predicate-dependent) tuple and frames use only predicate-scope-insensitive (predicate-independent) slots, PSOA RuleML 1.0 uses a systematics of orthogonal constructs also permitting atoms with (predicate-)independent tuples and atoms with (predicate-)dependent slots. The presentation and (XML-)serialization syntaxes of PSOA RuleML 1.0 are introduced. The open PSOATransRun system since Version 1.3 realizes PSOA RuleML 1.0 by a translator to runtime predicates, including for dependent tuples (prdtupterm) and slots (prdsloterm)
+Link: https://arxiv.org/abs/1712.02869
+====================================================
+Near-optimal sample complexity for convex tensor completion (Navid Ghadermarzy - 14 November, 2017)
+In this paper, we show that by using an atomic-norm whose atoms are rank-$1$ sign tensors, one can obtain a sample complexity of $O(dN)$
+Link: https://arxiv.org/abs/1711.04965
+====================================================
+DASHMM Accelerated Adaptive Fast Multipole Poisson-Boltzmann Solver on Distributed Memory Architecture (B. Zhang - 17 October, 2017)
+To demonstrate the updated code, we applied the new version to a dengue virus system with more than one million atoms and a mesh with approximately 20 million triangles, and were able to reduce the time-to-solution from 10 hours reported in the previous release on a shared memory computer to less than 30 seconds on a Cray XC30 cluster using 12, 288 cores.
+Link: https://arxiv.org/abs/1710.06316
+====================================================
+Predicting Organic Reaction Outcomes with Weisfeiler-Lehman Network (Wengong Jin - 29 December, 2017)
+Since only a small number of atoms contribute to reaction center, we can directly enumerate candidate products. Our framework outperforms the top-performing template-based approach with a 10\% margin, while running orders of magnitude faster
+Link: https://arxiv.org/abs/1709.04555
+====================================================
+Sparsity-Based Super Resolution for SEM Images (Shahar Tsiper - 29 August, 2017)
+The electrons interact with the atoms in the sample, which emit secondary electrons that contain information about the surface topography and composition. Since its invention in 1942, SEMs have become paramount in the discovery and understanding of the nanometer world, and today it is extensively used for both research and in industry
+Link: https://arxiv.org/abs/1709.02235
+====================================================
+Porting of the DBCSR library for Sparse Matrix-Matrix Multiplications to Intel Xeon Phi systems (Iain Bethune - 21 August, 2017)
+Multiplication of two sparse matrices is a key operation in the simulation of the electronic structure of systems containing thousands of atoms and electrons. We find that the DBCSR on Cray XC40 KNL-based systems is 11%-14% slower than on a hybrid Cray XC50 with Nvidia P100 cards, at the same number of nodes. When compared to a Cray XC40 system equipped with dual-socket Intel Xeon CPUs, the KNL is up to 24% faster.
+Link: https://arxiv.org/abs/1708.03604
+====================================================
+Dictionary Learning with Equiprobable Matching Pursuit (Fredrik Sandin - 28 November, 2016)
+Sparse signal representations based on linear combinations of learned atoms have been used to obtain state-of-the-art results in several practical signal processing applications
+Link: https://arxiv.org/abs/1611.09333
+====================================================
+High Resolution Compressed Sensing Radar using Difference Set Codes (Iman Taghavi - 17 May, 2016)
+We propose a novel sub-Nyquist sampling method in the Fourier domain based on difference sets (DS), called DS-sampling, to create dictionaries with highly incoherent atoms. The proposed method allows us to design sub-Nyquist radars, which require less than 2% of Nyquist samples and recover targets without resolution degradation in comparison to the conventional Nyquist processing.
+Link: https://arxiv.org/abs/1605.05379
+====================================================
+Efficient Dictionary Learning with Sparseness-Enforcing Projections (Markus Thom - 16 April, 2016)
+It is demonstrated that despite its simplicity, the proposed learning algorithm is able to generate a rich variety of dictionaries, in particular a topographic organization of atoms or separable atoms. EZDL learns approximately 30 % faster than the already very efficient Online Dictionary Learning algorithm, and is therefore eligible for rapid data set analysis and problems with vast quantities of learning samples.
+Link: https://arxiv.org/abs/1604.04767
+====================================================
+Linear Algebraic Structure of Word Senses, with Applications to Polysemy (Sanjeev Arora - 20 July, 2018)
+A novel aspect of our technique is that each extracted word sense is accompanied by one of about 2000 "discourse atoms" that gives a succinct description of which other words co-occur with that word sense
+Link: https://arxiv.org/abs/1601.03764
+====================================================
+A dictionary learning and source recovery based approach to classify diverse audio sources (K V Vijay Girish - 27 October, 2015)
+Cosine similarity measure is used to select the atoms during dictionary learning. Based on three objective measures proposed, namely, signal to distortion ratio (SDR), the number of non-zero weights and the sum of weights, a frame-wise source classification accuracy of 98.2% is obtained for twelve different sources. Cent percent accuracy has been obtained using moving SDR accumulated over six successive frames for ten of the audio sources tested, while the two other sources require accumulation of 10 and 14 frames.
+Link: https://arxiv.org/abs/1510.07774
+====================================================
+A characterization of b-chromatic and partial Grundy numbers by induced subgraphs (Brice Effantin - 29 April, 2016)
+and Zaker have proven that the Grundy number of a graph $G$ satisfies $Î(G)\ge t$ if and only if $G$ contains an induced subgraph called a $t$-atom.The family of $t$-atoms has bounded order and contains a finite number of graphs.In this article, we introduce equivalents of $t$-atoms for b-coloring and partial Grundy coloring.This concept is used to prove that determining if $\varphi(G)\ge t$ and $\partialÎ(G)\ge t$ (under conditions for the b-coloring), for a graph $G$, is in XP with parameter $t$.We illustrate the utility of the concept of $t$-atoms by giving results on b-critical vertices and edges, on b-perfect graphs and on graphs of girth at least $7$.
+Link: https://arxiv.org/abs/1505.07780
+====================================================
+Convergence radius and sample complexity of ITKM algorithms for dictionary learning (Karin Schnass - 8 August, 2016)
+In this work we show that iterative thresholding and K-means (ITKM) algorithms can recover a generating dictionary with K atoms from noisy $S$ sparse signals up to an error $\tilde \varepsilon$ as long as the initialisation is within a convergence radius, that is up to a $\log K$ factor inversely proportional to the dynamic range of the signals, and the sample size is proportional to $K \log K \tilde \varepsilon^{-2}$
+Link: https://arxiv.org/abs/1503.07027
+====================================================
+A two-stage video coding framework with both self-adaptive redundant dictionary and adaptively orthonormalized DCT basis (Yuanyi Xue - 12 February, 2015)
+We further propose a complete context adaptive entropy coder to efficiently code the locations and the coefficients of chosen first stage atoms. More importantly, the two-stage coder, using a fixed block size and inter-prediction only, outperforms the H.264 coder (x264) and is competitive with the HEVC reference coder (HM) over a large rate range.
+Link: https://arxiv.org/abs/1502.03802
+====================================================
+A Study on Clustering for Clustering Based Image De-Noising (Hossein Bakhshi Golestani - 6 January, 2015)
+By obtaining sparse decomposition of the noisy image blocks in terms of the dictionary atoms, the de-noised version is achieved. In addition to our framework, 7 popular dictionary learning methods are simulated and compared
+Link: https://arxiv.org/abs/1501.01106
+====================================================
+$\ell_1$-K-SVD: A Robust Dictionary Learning Algorithm With Simultaneous Update (Subhadip Mukherjee - 2 March, 2015)
+We also show that, for fixed values of sparsity, number of dictionary atoms, and data-dimension, the $\ell_1$-K-SVD algorithm outperforms the K-SVD and RDL algorithms when the training set available is small. The images denoised using $\ell_1$-K-SVD are observed to have slightly higher peak signal-to-noise ratio (PSNR) over K-SVD for Laplacian noise, but the improvement in structural similarity index (SSIM) is significant (approximately $0.1$) for lower values of input PSNR, indicating the efficacy of the $\ell_1$ metric.
+Link: https://arxiv.org/abs/1410.0311
+====================================================
+A tableau for set-satisfiability for extended fuzzy logic BL (Agnieszka Kulacka - 11 July, 2014)
+The aforementioned tableau calculus for BL is used to prove that a formula A of the extended BL is valid with respect to all continuous t-norms or to find a continuous t-norm * and assignment V of propositional atoms to [0,1] such that *-evaluation V*(A)<1
+Link: https://arxiv.org/abs/1407.3128
+====================================================
+Complexity of Atoms, Combinatorially (Szabolcs Ivan - 2 June, 2015)
+Atoms of a (regular) language $L$ were introduced by Brzozowski and Tamm in 2011 as intersections of complemented and uncomplemented quotients of $L$. They derived tight upper bounds on the complexity of atoms in 2013. In 2014, Brzozowski and Davies characterized the regular languages meeting these bounds. To achieve these results, they used the so-called "atomaton" of a language, introduced by Brzozowski and Tamm in 2011
+Link: https://arxiv.org/abs/1404.6632
+====================================================
+Solvers for $\mathcal{O} (N)$ Electronic Structure in the Strong Scaling Limit (Nicolas Bock - 20 October, 2015)
+the number of matrix rows/columns, basis functions, atoms, molecules, etc. 35 C72, 2013], and involves a recursive, task-parallel algorithm, often employed by generalized $N$-Body solvers, to occlusion and culling of negligible products in the case of matrices with decay. Employing classic technologies associated with generalized $N$-Body solvers, including over-decomposition, recursive task parallelism, orderings that preserve locality, and persistence-based load balancing, we obtain scaling beyond hundreds of cores per molecule for small water clusters ([H${}_2$O]${}_N$, $N \in \{ 30, 90, 150 \}$, $P/N \approx \{ 819, 273, 164 \}$) and find support for an increasingly strong scalability with increasing system size $N$.
+Link: https://arxiv.org/abs/1403.7458
+====================================================
+Properties of Answer Set Programming with Convex Generalized Atoms (Mario Alviano - 20 December, 2013)
+In this paper, we analyze the class of programs that have convex generalized atoms (originally proposed by Liu and Truszczynski in [10]) in rule bodies and show that for this class many of the proposed semantics coincide
+Link: https://arxiv.org/abs/1312.6096
+====================================================
+Most Complex Regular Right-Ideal Languages (Janusz Brzozowski - 18 November, 2013)
+We show that there exists a stream (sequence) (R_n : n \ge 3) of regular right ideal languages, where R_n has n left quotients and is most complex under the following measures of complexity: the state complexities of the left quotients, the number of atoms (intersections of complemented and uncomplemented left quotients), the state complexities of the atoms, the size of the syntactic semigroup, the state complexities of the operations of reversal, star, and product, and the state complexities of all binary boolean operations
+Link: https://arxiv.org/abs/1311.4448
+====================================================
+Non-monotonic Pre-fixed Points and Learning (Stefano Berardi - 3 September, 2013)
+Realizers are then used to define operators that extend a given state by adding and possibly removing atoms: in a learning process states of knowledge change nonmonotonically. In this paper we generalize our previous results in the case of level 2 knowledge spaces and deterministic operators to the case of omega-level knowledge spaces and of non-deterministic operators.
+Link: https://arxiv.org/abs/1309.0890
+====================================================
+Maximally Atomic Languages (Janusz Brzozowski - 21 May, 2014)
+Tight upper bounds on the number of atoms of a language and on the quotient complexities of atoms are known. We prove the following result: If L is a regular language of quotient complexity n and G is the subgroup of permutations in the transition semigroup T of the minimal DFA of L, then L is maximally atomic if and only if G is transitive on k-subsets of 1,...,n for 0 <= k <= n and T contains a transformation of rank n-1.
+Link: https://arxiv.org/abs/1308.4368
+====================================================
+Improved Bounds on RIP for Generalized Orthogonal Matching Pursuit (Siddhartha Satpathi - 3 February, 2013)
+Generalized Orthogonal Matching Pursuit (gOMP) is a natural extension of OMP algorithm where unlike OMP, it may select $N (\geq1)$ atoms in each iteration. Moreover, we present another bound for gOMP of order $NK+1$ with $Î´_{NK+1} < \frac {\sqrt{N}}{\sqrt{K}+\sqrt{N}}$ which exactly relates to the near optimal bound of $Î´_{K+1} < \frac {1}{\sqrt{K}+1}$ for OMP (N=1) as shown in \cite{wang_2012a}.
+Link: https://arxiv.org/abs/1302.0490
+====================================================
+The performance of orthogonal multi-matching pursuit under RIP (Zhiqiang Xu - 17 July, 2013)
+The main difference between OMP and OMMP(M) is that OMMP(M) selects $M$ atoms per iteration, while OMP only adds one atom to the optimal atom set. In particular, we show that, when the measurement matrix A satisfies $(9s, 1/10)$-RIP, there exists an absolutely constant $M_0\leq 8$ so that OMMP(M_0) can recover $s$-sparse signal within $s$ iterations
+Link: https://arxiv.org/abs/1210.5323
+====================================================
+Building Blocks of Physical-layer Network Coding (Jianghao He - 22 May, 2014)
+2) We identify nine PNC atoms, with TWRC being one of them. For example, under heavy traffic volume, PNC can achieve 100% throughput gain relative to the traditional multi-hop scheme
+Link: https://arxiv.org/abs/1207.5298
+====================================================
+Bayesian network learning by compiling to weighted MAX-SAT (James Cussens - 13 June, 2012)
+The largest dataset has 10,000 datapoints and 60 variables producing (for the 'ancestor' encoding) a weighted CNF input file with 19,932 atoms and 269,367 clauses
+Link: https://arxiv.org/abs/1206.3244
+====================================================
+Expressing Preferences using Preference Set Constraint Atoms (Alex Brik - 2 March, 2012)
+PSC programming extends Set Constraint Programming introduced by Marek and Remmel (Marek and Remmel 2004) by introducing two types of preference set constraint atoms, measure preference set constraint atoms and pre-ordered preference set constraint atoms, which are extensions of set constraint atoms. We give examples of the uses of the preference set constraint atoms and show that Answer Set Optimization (Brewka, NiemelÃ¤, and Truszczynski 2003) and General Preference (Son and Pontelli 2006) can be expressed using preference set constraint atoms.
+Link: https://arxiv.org/abs/1203.0587
+====================================================
+Quotient Complexities of Atoms of Regular Languages (Janusz Brzozowski - 8 March, 2012)
+For each n\ge 1, we exhibit a language whose atoms meet these bounds.
+Link: https://arxiv.org/abs/1201.0295
+====================================================
+Partition distances (Giovanni Rossi - 22 June, 2011)
+Two of the new measures obtain through the size, a function mapping every partition into the number of atoms finer than that partition. After carefully framing the environment, a main comparison finally results from the following bounding problem: for every value k, with 0<k<n, of partition-distance D(.,.), determine the minimum and maximum of the 'indicator-Hamming' distance d(P,Q) proposed here over all pairs of partitions P,Q such that D(P,Q)=k.
+Link: https://arxiv.org/abs/1106.4579
+====================================================
+Biomolecular electrostatics using a fast multipole BEM on up to 512 GPUs and a billion unknowns (Rio Yokota - 10 February, 2011)
+The largest application run, with over 20 million atoms and one billion unknowns, required only one minute on 512 GPUs
+Link: https://arxiv.org/abs/1007.4591
+====================================================
+Controlled non uniform random generation of decomposable structures (Alain Denise - 1 June, 2010)
+We address the random generation of such structures with respect to a size $n$ and a targeted distribution in $k$ of its \emph{distinguished} atoms. In the first alternative, the targeted distribution is given by $k$ real numbers $\TargFreq_1, \ldots, \TargFreq_k$ such that $0 < \TargFreq_i < 1$ for all $i$ and $\TargFreq_1+\cdots+\TargFreq_k \leq 1$. In the second alternative, the targeted distribution is given by a $k$ natural numbers $n_1, \ldots, n_k$ such that $n_1+\cdots+n_k+r=n$ where $r \geq 0$ is the number of undistinguished atoms. The structures must be generated uniformly among the set of structures of size $n$ that contain {\em exactly} $n_i$ atoms $\At_i$ ($1 \leq i \leq k$)
+Link: https://arxiv.org/abs/1006.0423
+====================================================
+The 1958 Pekeris-Accad-WEIZAC Ground-Breaking Collaboration that Computed Ground States of Two-Electron Atoms (and its 2010 Redux) (Christoph Koutschan - 26 June, 2011)
+Pekeris's seminal 1958 work on the ground state energies of two-electron atoms. We went through all the computations ab initio with today's software and hardware, with a special emphasis on the symbolic computations which in 1958 had to be made by hand, and which nowadays can be automated and generalized.
+Link: https://arxiv.org/abs/1006.0200
+====================================================
+Propositional computability logic I (Giorgi Japaridze - 21 June, 2004)
+The logical vocabulary of this fragment contains operators for the so called parallel and choice operations, and its atoms represent elementary problems, i.e. While not technically necessary, however, familiarity with the foundational paper "Introduction to computability logic" [Annals of Pure and Applied Logic 123 (2003), pp.1-99] would greatly help the reader in understanding the philosophy, underlying motivations, potential and utility of computability logic, -- the context that determines the value of the present results
+Link: https://arxiv.org/abs/cs/0404023
+====================================================
+The Minimum Expectation Selection Problem (David Eppstein - 3 October, 2001)
+We assume each distribution has finitely many atoms. We show that if d is a constant greater than 2, the min-min expectation problem is NP-complete but admits a fully polynomial time approximation scheme
+Link: https://arxiv.org/abs/cs/0110011
+====================================================
+Spontaneous Facial Expression Recognition using Sparse Representation (Dawood Al Chanti - 30 September, 2018)
+Facial images are represented as a sparse linear combination of prototype atoms via Orthogonal Matching Pursuit algorithm. It is also estimated on the well-known acted facial expressions JAFFE database for a purpose of comparison with state-of-the-art methods.
+Link: https://arxiv.org/abs/1810.00362
+====================================================
+Sampling Theory for Graph Signals on Product Graphs (Rohan Varma - 26 September, 2018)
+Product graphs are graphs that are composed from smaller graph atoms; we motivate how this model is a flexible and useful way to model richer classes of data that can be multi-modal in nature
+Link: https://arxiv.org/abs/1809.10049
+====================================================
+Average performance of Orthogonal Matching Pursuit (OMP) for sparse approximation (Karin Schnass - 18 September, 2018)
+For signals, that are generated from a dictionary with $K$ atoms and coherence $Î¼$ and coefficients corresponding to a geometric sequence with parameter~$Î±$, we show that OMP is successful with high probability as long as the sparsity level $S$ scales as $SÎ¼^2 \log K \lesssim 1-Î±$
+Link: https://arxiv.org/abs/1809.06684
+====================================================
+Computer Vision-aided Atom Tracking in STEM Imaging (Yawei Hui - 13 September, 2018)
+With the help of nearest neighbor analysis, we then found and labeled every atom center common to all the STEM frames and tracked their movements through the given time interval for both Molybdenum or Selenium atoms.
+Link: https://arxiv.org/abs/1809.05076
+====================================================
+Deep Micro-Dictionary Learning and Coding Network (Hao Tang - 11 September, 2018)
+In this way, a more informative and discriminative low-level representation of the dictionary atoms can be obtained. The experimental results on four popular benchmark datasets demonstrate that the proposed DDLCN achieves competitive results compared with state-of-the-art approaches.
+Link: https://arxiv.org/abs/1809.04185
+====================================================
+Minimum Eccentric Connectivity Index for Graphs with Fixed Order and Fixed Number of Pending Vertices (Gauvain Devillez - 10 September, 2018)
+This index is helpful for the prediction of biological activities of diverse nature, a molecule being modeled as a graph where atoms are represented by vertices and chemical bonds by edges
+Link: https://arxiv.org/abs/1809.03158
+====================================================
+Fast greedy algorithms for dictionary selection with generalized sparsity constraints (Kaito Fujii - 7 September, 2018)
+In dictionary selection, several atoms are selected from finite candidates that successfully approximate given data points in the sparse representation
+Link: https://arxiv.org/abs/1809.02314
+====================================================
+Efficient Loop Detection in Forwarding Networks and Representing Atoms in a Field of Sets (Laurent Viennot - 6 September, 2018)
+Our main tool is a canonical representation of the atoms (i.e. The atoms then correspond to classes of headers with same behavior in the network
+Link: https://arxiv.org/abs/1809.01896
+====================================================
+A theory of finite structures (Daniel Leivant - 14 August, 2018)
+A "finite structure" is here a finite collection of finite partial-functions, over a common universe of atoms
+Link: https://arxiv.org/abs/1808.04949
+====================================================
+Finding Minimal Cost Herbrand Models with Branch-Cut-and-Price (James Cussens - 14 August, 2018)
+Given (1) a set of clauses $T$ in some first-order language $\cal L$ and (2) a cost function $c : B_{\cal L} \rightarrow \mathbb{R}_{+}$, mapping each ground atom in the Herbrand base $B_{\cal L}$ to a non-negative real, then the problem of finding a minimal cost Herbrand model is to either find a Herbrand model $\cal I$ of $T$ which is guaranteed to minimise the sum of the costs of true ground atoms, or establish that there is no Herbrand model for $T$
+Link: https://arxiv.org/abs/1808.04758
+====================================================
+Proving Program Properties as First-Order Satisfiability (Salvador Lucas - 13 August, 2018)
+Recently, we have shown that properties $\varphi$ expressed as the existential closure of a boolean combination of atoms can be disproved by just finding a model of S and the negation $\neg\varphi$ of $\varphi$
+Link: https://arxiv.org/abs/1808.04111
+====================================================
+Super Resolution Phase Retrieval for Sparse Signals (Gilles Baechler - 6 August, 2018)
+We propose an algorithm that resolves the phase retrieval problem in three stages: i) we leverage the finite rate of innovation sampling theory to super-resolve the auto-correlation function from a limited number of samples, ii) we design a greedy algorithm that identifies the locations of a sparse solution given the super-resolved auto-correlation function, iii) we recover the amplitudes of the atoms given their locations and the measured auto-correlation function
+Link: https://arxiv.org/abs/1808.01961
+====================================================
+Solutions of partition function-based TU games for cooperative communication networking (Giovanni Rossi - 7 September, 2018)
+The novelty is grounded on the combinatorial definition of such solutions as lattice functions whose MÃ¶bius inversion lives only on atoms, i.e. While simply rephrasing the traditional solution concept for standard coalitional games, this leads to distribute the surplus generated by partitions across the edges of the network, as the atoms among partitions are unordered pairs of players
+Link: https://arxiv.org/abs/1808.01563
+====================================================
+Inlining External Sources in Answer Set Programs (Christoph Redl - 2 August, 2018)
+In this paper we present an alternative evaluation approach based on inlining of external atoms, motivated by existing but less general approaches for specialized formalisms such as DL-programs. External atoms are then compiled away such that no verification calls are necessary
+Link: https://arxiv.org/abs/1808.00727
+====================================================
+Sparse Range-constrained Learning and Its Application for Medical Image Grading (Jun Cheng - 11 July, 2018)
+Then in the second step, the selected atoms are used as references to compute the grades of the testing images. It aims to find a sparse representation of the testing image based on atoms that are most similar in both the data or feature representation and the medical grading scores
+Link: https://arxiv.org/abs/1807.10571
+====================================================
+Sparse Representation and Non-Negative Matrix Factorization for image denoise (R. M. Farouk - 5 July, 2018)
+In sparse representation, signals represented as a linear combination of a redundant dictionary atoms
+Link: https://arxiv.org/abs/1807.03694
+====================================================
+Lifted Marginal MAP Inference (Vishal Sharma - 8 July, 2018)
+Lifted inference reduces the complexity of inference in relational probabilistic models by identifying groups of constants (or atoms) which behave symmetric to each other
+Link: https://arxiv.org/abs/1807.00589
+====================================================
+Binary Classification in Unstructured Space With Hypergraph Case-Based Reasoning (Alexandre Quemy - 16 June, 2018)
+It does not require structured information, each case being represented by a set of {\it agnostic information} atoms
+Link: https://arxiv.org/abs/1806.06232
+====================================================
+Finding GEMS: Multi-Scale Dictionaries for High-Dimensional Graph Signals (Yael Yankelevsky - 14 June, 2018)
+We incorporate the underlying graph topology both implicitly, by forcing the learned dictionary atoms to be sparse combinations of graph-wavelet functions, and explicitly, by adding direct graph constraints to promote smoothness in both the feature and manifold domains. The resulting atoms are thus adapted to the data of interest while adhering to the underlying graph structure and possessing a desired multi-scale property
+Link: https://arxiv.org/abs/1806.05356
+====================================================
+Technical Report: Inconsistency in Answer Set Programs and Extensions (Christoph Redl - 31 May, 2018)
+HEX-programs extend ASP with external atoms for accessing arbitrary external information, which can introduce values that do not appear in the input program
+Link: https://arxiv.org/abs/1806.00119
+====================================================
+Deeply learning molecular structure-property relationships using attention- and gate-augmented graph convolutional network (Seongok Ryu - 8 October, 2018)
+The attention mechanism enables a GCN to identify atoms in different environments
+Link: https://arxiv.org/abs/1805.10988
+====================================================
+Object Localization and Motion Transfer learning with Capsules (Weitang Liu - 20 May, 2018)
+Inspired by CapsNet's routing-by-agreement mechanism, with its ability to learn object properties, and by center-of-mass calculations from physics, we propose a CapsNet architecture with object coordinate atoms and an LSTM network for evaluation
+Link: https://arxiv.org/abs/1805.07706
+====================================================
+Automated Process Planning for Hybrid Manufacturing (Morad Behandish - 17 May, 2018)
+The FBA's canonical intersection terms (i.e., 'atoms') provide the complete domain decomposition to reframe manufacturability analysis and process planning into purely symbolic reasoning, once a subcollection of atoms is found to be interchangeable with the design target
+Link: https://arxiv.org/abs/1805.07035
+====================================================
+Dictionary Learning and Sparse Coding on Statistical Manifolds (Rudrasis Chakraborty - 3 May, 2018)
+Further, we prove that the weighted KL-center is a sparse combination of the dictionary atoms. Performance of the proposed algorithm is demonstrated by comparing it to several state-of-the-art methods in terms of reconstruction and classification accuracy as well as sparsity of the chosen representation.
+Link: https://arxiv.org/abs/1805.02505
+====================================================
+Binary reachability of timed pushdown automata via quantifier elimination and cyclic order atoms (Lorenzo Clemente - 28 April, 2018)
+As key technical tools, we use quantifier elimination for a fragment of hybrid linear arithmetic and for cyclic order atoms, and a reduction to register pushdown automata over cyclic order atoms.
+Link: https://arxiv.org/abs/1804.10772
+====================================================
+On the satisfiability problem for fragments of the two-variable logic with one transitive relation (WiesÅaw Szwast - 25 April, 2018)
+% We show that the problem is decidable in 2-NExpTime for the fragment consisting of formulas where existential quantifiers are guarded by transitive atoms
+Link: https://arxiv.org/abs/1804.09447
+====================================================
+Cautious reasoning in ASP via minimal models and unsatisfiable cores (Mario Alviano - 23 April, 2018)
+In the propositional case, query answering amounts to computing cautious consequences of the input program among the atoms in a given set of candidates, where a cautious consequence is an atom belonging to all stable models. The algorithms are implemented in WASP, and experiments on benchmarks from the latest ASP competitions show that the new algorithms perform better than the state of the art
+Link: https://arxiv.org/abs/1804.08480
+====================================================
+Subatomic systems need not be subatomic (Luca Roversi - 22 April, 2018)
+Their atomic formulas become instances of sub-atoms, non-commutative self-dual relations among logical constants, and their rules are derivable by means of a unique deductive scheme, the medial shape
+Link: https://arxiv.org/abs/1804.08105
+====================================================
+On the structure of C-algebras through atomicity and if-then-else (Gayatri Panicker - 2 April, 2018)
+This paper introduces the notions of atoms and atomicity in $C$-algebras and obtains a characterisation of atoms in the $C$-algebra of transformations
+Link: https://arxiv.org/abs/1804.00568
+====================================================
+Scalar and Vectorial mu-calculus with Atoms (Bartek Klin - 18 March, 2018)
+We study an extension of modal mu-calculus to sets with atoms and we study its basic properties. We also show expressive limitations of atom-enriched mu-calculi, and explain how their expressive power depends on the structure of atoms used, and on the choice between basic or vectorial syntax.
+Link: https://arxiv.org/abs/1803.06752
+====================================================
+Semi-Supervised Online Structure Learning for Composite Event Recognition (Evangelos Michelioudakis - 1 March, 2018)
+In order to adapt graph cut minimisation to first order logic, we employ a suitable structural distance for measuring the distance between sets of logical atoms
+Link: https://arxiv.org/abs/1803.00546
+====================================================
+Definable isomorphism problem (Khadijeh Keshvardoost - 23 February, 2018)
+We investigate the isomorphism problem in the setting of definable sets (equivalent to sets with atoms): given two definable relational structures, are they related by a definable isomorphism? Under mild assumptions on the underlying structure of atoms, we prove decidability of the problem
+Link: https://arxiv.org/abs/1802.08500
+====================================================
+A Dual Certificates Analysis of Compressive Off-the-Grid Recovery (Clarice Poon - 24 July, 2018)
+We prove both exact support stability (the number of recovered atoms matches that of the measure of interest) and approximate stability (localization of the atoms) by extending two classical proof techniques (minimal norm dual certificate and golfing scheme certificate).
+Link: https://arxiv.org/abs/1802.08464
+====================================================
+Pointwise Partial Information Decomposition using the Specificity and Ambiguity Lattices (Conor Finn - 3 May, 2018)
+Then based upon an operational interpretation of redundancy, we define measures of redundant specificity and ambiguity enabling us to evaluate the partial information atoms in each lattice. These atoms can be recombined to yield the sought-after multivariate information decomposition
+Link: https://arxiv.org/abs/1801.09010
+====================================================
+Acceleration of Mean Square Distance Calculations with Floating Close Structure in Metadynamics Simulations (Jana PazÃºrikovÃ¡ - 8 January, 2018)
+Molecular dynamics simulates the~movements of atoms
+Link: https://arxiv.org/abs/1801.02362
+====================================================
+Laguerre-Intersection Method for Implicit Solvation (Michelle Hatch Hummel - 9 December, 2017)
+Implicit methods model the solvent via continuous corrections to the force field based on estimates of the solvent exposed surface areas of individual atoms, gaining speed at the expense of accuracy. However, Laguerre cells of exterior atoms tend to be overly large or unbounded
+Link: https://arxiv.org/abs/1712.06956
+====================================================
+Most Complex Deterministic Union-Free Regular Languages (Janusz A. Brzozowski - 2 January, 2018)
+Furthermore, we prove that the maximal syntactic semigroup of a union-free language has $n^n$ elements, as in the case of regular languages, and that the maximal state complexities of atoms of union-free languages are the same as those for regular languages
+Link: https://arxiv.org/abs/1711.09149
+====================================================
+Separation-Free Super-Resolution from Compressed Measurements is Possible: an Orthonormal Atomic Norm Minimization Approach (Weiyu Xu - 4 November, 2017)
+More specifically, we show that, in traditional atomic norm minimization, the underlying parameter values $\textbf{must}$ be well separated to achieve successful signal recovery, if the atoms are changing continuously with respect to the continuously-valued parameter. In contrast, for the OANM, it is possible the OANM is successful even though the original atoms can be arbitrarily close.
+Link: https://arxiv.org/abs/1711.01396
+====================================================
+Joint Screening Tests for LASSO (C. Herzet - 9 November, 2017)
+Motivated by the need for low-complexity algorithms, we propose a new approach, dubbed "joint" screening test, allowing to screen a set of atoms by carrying out one single test. The approach is particularized to two different sets of atoms, respectively expressed as sphere and dome regions
+Link: https://arxiv.org/abs/1710.09809
+====================================================
+An Atomistic Fingerprint Algorithm for Learning Ab Initio Molecular Force Fields (Yu-Hang Tang - 14 December, 2017)
+The fingerprint is essentially a continuous density field formed through the superimposition of smoothing kernels centered on the atoms. Rotational invariance of the fingerprint is achieved by aligning, for each fingerprint instance, the neighboring atoms onto a local canonical coordinate frame computed from a kernel minisum optimization procedure
+Link: https://arxiv.org/abs/1709.09235
+====================================================
+Joint Dictionaries for Zero-Shot Learning (Soheil Kolouri - 12 September, 2017)
+In this paper, we propose to learn a visual feature dictionary that has semantically meaningful atoms. We demonstrate that our approach provides superior or comparable performance to that of the state of the art on benchmark datasets.
+Link: https://arxiv.org/abs/1709.03688
+====================================================
+Timed Epistemic Knowledge Bases for Social Networks (Extended Version) (RaÃºl Pardo - 9 May, 2018)
+We present an epistemic logic equipped with time-stamps in the atoms and epistemic operators, which allows to reason not only about information available to the different agents, but also about the moments at which events happens and new knowledge is acquired or deduced
+Link: https://arxiv.org/abs/1708.04070
+====================================================
+Learning Discriminative Alpha-Beta-divergence for Positive Definite Matrices (Extended Version) (Anoop Cherian - 5 August, 2017)
+We propose a novel IDDL objective, that learns the parameters of the divergence and the dictionary atoms jointly in a discriminative setup and is solved efficiently using Riemannian optimization. We showcase extensive experiments on eight computer vision datasets, demonstrating state-of-the-art performances.
+Link: https://arxiv.org/abs/1708.01741
+====================================================
+Correlation and Class Based Block Formation for Improved Structured Dictionary Learning (Nagendra Kumar - 6 August, 2017)
+First, we propose a novel block structuring approach that makes use of the correlation among dictionary atoms. Unlike the SAC approach, which groups diverse atoms, in the proposed approach the blocks are formed by grouping the top most correlated atoms in the dictionary
+Link: https://arxiv.org/abs/1708.01448
+====================================================
+Group Re-Identification via Unsupervised Transfer of Sparse Features Encoding (Giuseppe Lisanti - 28 July, 2017)
+First, a dictionary of sparse atoms is learned using patches extracted from single person images. Extensive experiments on the i-LIDS groups and two newly collected datasets show that the proposed solution outperforms state-of-the-art approaches.
+Link: https://arxiv.org/abs/1707.09173
+====================================================
+Relaxing Exclusive Control in Boolean Games (Francesco Belardinelli - 27 July, 2017)
+In the typical framework for boolean games (BG) each player can change the truth value of some propositional atoms, while attempting to make her goal true. Both notions of BG are characterised by the fact that agents have exclusive control over their set of atoms, meaning that no two agents can control the same atom
+Link: https://arxiv.org/abs/1707.08736
+====================================================
+Hybrid Conditional Planning using Answer Set Programming (Ibrahim Faruk Yalciner - 18 July, 2017)
+In particular, thanks to external atoms, continuous feasibility checks (like collision checks) are embedded into formal representations of actuation actions and sensing actions in ASP; and thus each branch of a hybrid conditional plan describes a feasible execution of actions to reach their goals
+Link: https://arxiv.org/abs/1707.05904
+====================================================
+Graph learning under sparsity priors (Hermina Petric Maretic - 18 July, 2017)
+This is exactly the problem that we address in this paper, under the assumption that the graph signals can be represented as a sparse linear combination of a few atoms of a structured graph dictionary
+Link: https://arxiv.org/abs/1707.05587
+====================================================
+When You Must Forget: beyond strong persistence when forgetting in answer set programming (Ricardo GonÃ§alves - 17 July, 2017)
+Recently, it has been shown that it is not always possible to forget a set of atoms from a program while obeying this property, and a precise criterion regarding what can be forgotten has been presented, accompanied by a class of forgetting operators that return the correct result when forgetting is possible.
+Link: https://arxiv.org/abs/1707.05152
+====================================================
+Elementary-base cirquent calculus I: Parallel and choice connectives (Giorgi Japaridze - 16 July, 2017)
+Using it, this article constructs a sound and complete axiomatization CL16 of the propositional fragment of computability logic (the game-semantically conceived logic of computational problems - see http://www.csc.villanova.edu/~japaridz/CL/ ) whose logical vocabulary consists of negation and parallel and choice connectives, and whose atoms represent elementary, i.e
+Link: https://arxiv.org/abs/1707.04823
+====================================================
+Invariant components of synergy, redundancy, and unique information among three variables (Giuseppe Pica - 27 June, 2017)
+In a system of three stochastic variables, the Partial Information Decomposition (PID) of Williams and Beer dissects the information that two variables (sources) carry about a third variable (target) into nonnegative information atoms that describe redundant, unique, and synergistic modes of dependencies among the variables. By comparing different PID lattices of the same system, we unveil a finer PID structure made of seven nonnegative information subatoms that are invariant to different target/source classifications and that are sufficient to construct any PID lattice
+Link: https://arxiv.org/abs/1706.08921
+====================================================
+Maxent-Stress Optimization of 3D Biomolecular Models (Michael Wegner - 21 June, 2017)
+These technologies do not directly provide 3D structures; instead they typically yield noisy and erroneous distance information between specific entities such as atoms or residues, which have to be translated into consistent 3D models.
+Link: https://arxiv.org/abs/1706.06805
+====================================================
+On Generalizing Decidable Standard Prefix Classes of First-Order Logic (Marco Voigt - 13 June, 2017)
+Its defining principle is that universally and existentially quantified variables may not occur together in atoms
+Link: https://arxiv.org/abs/1706.03949
+====================================================
+Greedy Algorithms for Cone Constrained Optimization with Convergence Guarantees (Francesco Locatello - 19 November, 2017)
+MP and FW address optimization over the linear span and the convex hull of a set of atoms, respectively. In particular, we derive sublinear ($\mathcal{O}(1/t)$) convergence on general smooth and convex objectives, and linear convergence ($\mathcal{O}(e^{-t})$) on strongly convex objectives, in both cases for general sets of atoms
+Link: https://arxiv.org/abs/1705.11041
+====================================================
+Joint Sparse Recovery With Semisupervised MUSIC (Zaidao Wen - 26 May, 2017)
+From this viewpoint, we develop a semisupervised MUSIC (SS-MUSIC) in the spirit of machine learning, which declares that the insufficient supervised information in the training samples can be compensated from those unlabeled atoms. Instead of constructing a classifier in a fully supervised manner, we iteratively refine a semisupervised classifier by exploiting the labeled MMVs and some reliable unlabeled atoms simultaneously
+Link: https://arxiv.org/abs/1705.09446
+====================================================
+Fiber Orientation Estimation Guided by a Deep Network (Chuyang Ye - 19 May, 2017)
+To estimate the mixture fractions of the dictionary atoms (and thus coarse FOs), a deep network is designed specifically for solving the sparse reconstruction problem. FORDN was evaluated and compared with state-of-the-art algorithms that estimate FOs using sparse reconstruction on simulated and real dMRI data, and the results demonstrate the benefit of using a deep network for FO estimation.
+Link: https://arxiv.org/abs/1705.06870
+====================================================
+A Dual Sparse Decomposition Method for Image Denoising (Hong Sun - 24 April, 2017)
+The sub-dictionary decomposition makes use of a novel criterion based on the occurrence frequency of atoms of the over-complete dictionary over the data set
+Link: https://arxiv.org/abs/1704.07063
+====================================================
+Learning a collaborative multiscale dictionary based on robust empirical mode decomposition (Rui Chen - 3 April, 2017)
+This dictionary is refined by selecting optimal oscillating atoms based on frequency clustering
+Link: https://arxiv.org/abs/1704.04422
+====================================================
+Polyteam Semantics (Miika Hannula - 8 September, 2017)
+We begin by defining a novel polyteam variant of dependence atoms and give a finite axiomatisation for the associated implication problem
+Link: https://arxiv.org/abs/1704.02158
+====================================================
+A Fine-Grained Hierarchy of Hard Problems in the Separated Fragment (Marco Voigt - 7 April, 2017)
+Its defining principle is that universally and existentially quantified variables may not occur together in atoms. We derive an upper and a lower bound in terms of the degree of interaction of existential variables (short: degree)}---a novel measure of how many separate existential quantifier blocks in a sentence are connected via joint occurrences of variables in atoms
+Link: https://arxiv.org/abs/1704.02145
+====================================================
+Dynamic Conjunctive Queries (Thomas Zeume - 5 April, 2017)
+Starting from the basic language of quantifier-free conjunctions of positive atoms, it studies the impact of additional operators and features - such as union, atomic negation and quantification - on the dynamic expressiveness, for the standard semantics as well as for Delta-semantics.
+Link: https://arxiv.org/abs/1704.01286
+====================================================
+Joining Extractions of Regular Expressions (Dominik D. Freydenberger - 30 March, 2017)
+In particular, UCQs can be evaluated with polynomial delay, provided that every CQ has a bounded number of atoms (while unions and projection can be arbitrary)
+Link: https://arxiv.org/abs/1703.10350
+====================================================
+Subatomic Proof Systems: Splittable Systems (Andrea Aler Tubella - 4 December, 2017)
+By considering atoms as self-dual non-commutative connectives, we are able to classify a vast class of inference rules in a uniform and very simple way
+Link: https://arxiv.org/abs/1703.10258
+====================================================
+Efficient Two-Dimensional Sparse Coding Using Tensor-Linear Combination (Fei Jiang - 28 March, 2017)
+2DSC learns much more concise dictionaries because it uses the circular convolution operator, since the shifted versions of atoms learned by conventional SC are treated as the same ones. Moreover, for mutli-spectral images denoising, the proposed 2DSC reduces computational costs with competitive performance in comparison with the state-of-the-art algorithms.
+Link: https://arxiv.org/abs/1703.09690
+====================================================
+Subsumption Algorithms for Three-Valued Geometric Resolution (Hans de Nivelle - 18 May, 2018)
+The interpretation contains only atoms with constants. Because the atoms have no term structure, matching for geometric resolution is hard
+Link: https://arxiv.org/abs/1703.02830
+====================================================
+Finite Model Reasoning in Expressive Fragments of First-Order Logic (Lidia Tendera - 6 March, 2017)
+ This applies most notably to the guarded fragment, where quantifiers are appropriately relativized by atoms, and the fragment  defined by restricting the number of variables to two
+Link: https://arxiv.org/abs/1703.02194
+====================================================
+A Unified Optimization View on Generalized Matching Pursuit and Frank-Wolfe (Francesco Locatello - 7 March, 2017)
+In this paper, we take a unified view on both classes of methods, leading to the first explicit convergence rates of matching pursuit methods in an optimization sense, for general sets of atoms
+Link: https://arxiv.org/abs/1702.06457
+====================================================
+Towards a Theory of Complexity of Regular Languages (Janusz A. Brzozowski - 16 February, 2017)
+In addition to the quotient complexity of the language -- which is the number of its (left) quotients, and is the same as its state complexity -- we also consider the size of its syntactic semigroup and the quotient complexity of its atoms -- basic components of every regular language
+Link: https://arxiv.org/abs/1702.05024
+====================================================
+Most Complex Non-Returning Regular Languages (Janusz A. Brzozowski - 14 January, 2017)
+We find the maximal state complexities of atoms of non-returning languages
+Link: https://arxiv.org/abs/1701.03944
+====================================================
+Complexity of regular bifix-free languages (Robert Ferens - 13 January, 2017)
+Then we present a stream of bifix-free languages that is most complex in terms of all basic operations, syntactic complexity, and the number of atoms and their complexities, which requires a superexponential alphabet.
+Link: https://arxiv.org/abs/1701.03768
+====================================================
+Robust method for finding sparse solutions to linear inverse problems using an L2 regularization (Gonzalo H Otazu - 22 March, 2017)
+We analyzed the performance of a biologically inspired algorithm called the Corrected Projections Algorithm (CPA) when a sparseness constraint is required to unambiguously reconstruct an observed signal using atoms from an overcomplete dictionary. The smoother L2 regularization of CPA makes it very robust to noise, and CPA outperforms other methods in identifying known atoms in the presence of strong novel atoms in the signal.
+Link: https://arxiv.org/abs/1701.00573
+====================================================
+Unified Theory for Recovery of Sparse Signals in a General Transform Domain (Kiryung Lee - 2 August, 2017)
+Moreover, we also provide extensions of our results to the scenarios where the atoms in the transform has varying incoherence parameters and the unknown signal exhibits a structured sparsity pattern
+Link: https://arxiv.org/abs/1612.09565
+====================================================
+Joint denoising and distortion correction of atomic scale scanning transmission electron microscopy images (Benjamin Berkels - 24 December, 2016)
+Thus, an important ingredient in the image analysis is to locate the centers of the atoms shown in micrographs as precisely as possible
+Link: https://arxiv.org/abs/1612.08170
+====================================================
+The geometric lattice of embedded subsets (Giovanni Rossi - 17 December, 2016)
+The lattice structure proposed in a recent contribution relies on ad-hoc definitions of both the join operator and the bottom element, while also including join-irreducible elements distinct from atoms
+Link: https://arxiv.org/abs/1612.05814
+====================================================
+Sar image despeckling based on nonlocal similarity sparse decomposition (Chengwei Sang - 22 November, 2016)
+In the sparse decomposition, we propose a novel method to identify principal atoms from over-complete dictionary to form a principal dictionary. Despeckling is performed on each data set over the principal dictionary with principal atoms
+Link: https://arxiv.org/abs/1611.07559
+====================================================
+Approximate eigenvalue distribution of a cylindrically isotropic noise sample covariance matrix (Saurav R. Tuladhar - 26 October, 2016)
+The EDF of the ensemble covariance matrix (ECM) is modeled as an atomic density with many fewer atoms than the SCM size
+Link: https://arxiv.org/abs/1610.08274
+====================================================
+Automatic chemical design using a data-driven continuous representation of molecules (Rafael GÃ³mez-Bombarelli - 5 December, 2017)
+We demonstrate our method in the domain of drug-like molecules and also in the set of molecules with fewer that nine heavy atoms.
+Link: https://arxiv.org/abs/1610.02415
+====================================================
+Complexity of Left-Ideal, Suffix-Closed and Suffix-Free Regular Languages (Janusz Brzozowski - 3 October, 2016)
+In particular, we study the quotient/state complexity of boolean operations, product (concatenation), star, and reversal on these languages, as well as the size of their syntactic semigroups, and the quotient complexity of their atoms.
+Link: https://arxiv.org/abs/1610.00728
+====================================================
+Rain Removal via Shrinkage-Based Sparse Coding and Learned Rain Dictionary (Chang-Hwan Son - 2 October, 2016)
+Then, the sparse codes corresponding to the highly correlated signal-atoms in the rain and non-rain dictionaries are shrunk jointly to improve the removal of the rain structures
+Link: https://arxiv.org/abs/1610.00386
+====================================================
+On Quantified Propositional Logics and the Exponential Time Hierarchy (Miika Hannula - 13 September, 2016)
+We show that DQBF formulae correspond naturally to quantified propositional dependence logic and present a general NEXPTIME upper bound for quantified propositional logic with a large class of generalized dependence atoms.  Moreover we show AEXPTIME(poly)-completeness for extensions of propositional team logic with generalized dependence atoms.
+Link: https://arxiv.org/abs/1609.04097
+====================================================
+Improving the Correlation Lower Bound for Simultaneous Orthogonal Matching Pursuit (Jean-FranÃ§ois Determe - 13 October, 2016)
+This paper provides, for each iteration of SOMP, a novel lower bound of the aforementioned metric for the atoms belonging to the correct and common joint support of the multiple signals. Finally, it is shown for specific signal patterns that the proposed bound outperforms state-of-the-art results for SOMP, and orthogonal matching pursuit (OMP) as a special case.
+Link: https://arxiv.org/abs/1608.08454
+====================================================
+A Scalable $M$-Channel Critically Sampled Filter Bank for Graph Signals (Shuni Li - 1 June, 2018)
+The resulting transform is critically sampled, the dictionary atoms are orthogonal to those supported on different bands, and graph signals are perfectly reconstructable from their analysis coefficients. We empirically explore the joint vertex-frequency localization of the dictionary atoms, the sparsity of the analysis coefficients for different classes of signals, the ability of the proposed transform to compress piecewise-smooth graph signals, and the reconstruction error resulting from the numerical approximations.
+Link: https://arxiv.org/abs/1608.03171
+====================================================
+Minimax Lower Bounds on Dictionary Learning for Tensor Data (Zahra Shakeri - 18 February, 2018)
+It is assumed the data are generated by linear combinations of these structured dictionary atoms and observed through white Gaussian noise
+Link: https://arxiv.org/abs/1608.02792
+====================================================
+Stable Models for Infinitary Formulas with Extensional Atoms (Amelia Harrison - 4 August, 2016)
+In this note, we enhance that definition by introducing a distinction between intensional and extensional atoms
+Link: https://arxiv.org/abs/1608.01603
+====================================================
+Analyzing Linear Dynamical Systems: From Modeling to Coding and Learning (Wenbing Huang - 26 February, 2017)
+We then make use of the two-fold LDSs to derive an analytical form for updating atoms of an LDS dictionary, i.e., each atom is an LDS itself. Compared to several baselines and state-of-the-art methods, the proposed methods yield higher accuracies in various classification tasks including video classification and tactile recognition.
+Link: https://arxiv.org/abs/1608.01059
+====================================================
+Computing the atom graph of a graph and the union join graph of a hypergraph (Anne Berry - 11 July, 2016)
+The atom graph of a graph is the graph whose vertices are the atoms obtained by clique minimal separator decomposition of this graph, and whose edges are the edges of all possible atom trees of this graph. We provide two efficient algorithms for computing this atom graph, with a complexity in $O(min(n^Î±\log n, nm, n(n+\overline{m}))$ time, which is no more than the complexity of computing the atoms in the general case
+Link: https://arxiv.org/abs/1607.02911
+====================================================
+Non Local Spatial and Angular Matching : Enabling higher spatial resolution diffusion MRI datasets through adaptive denoising (Samuel St-Jean - 23 June, 2016)
+Each volume is first decomposed in small 4D overlapping patches to capture the structure of the diffusion data and a dictionary of atoms is learned on those patches. We compare against three other state-of-the-art denoising methods and show quantitative local and connectivity results on a synthetic phantom and on an in-vivo high resolution dataset
+Link: https://arxiv.org/abs/1606.07239
+====================================================
+Benchmarking Python Tools for Automatic Differentiation (Andrei Turkin - 20 June, 2016)
+In order to assess the difference in performance and precision, the problem of finding the optimal geometrical structure of the cluster with identical atoms is used as follows
+Link: https://arxiv.org/abs/1606.06311
+====================================================
+Complexity of Prefix-Convex Regular Languages (Janusz Brzozowski - 24 June, 2016)
+In particular, we find the quotient/state complexity of boolean operations, product (concatenation), star, and reversal, the size of the syntactic semigroup, and the quotient complexity of atoms
+Link: https://arxiv.org/abs/1605.06697
+====================================================
+Minimax Lower Bounds for Kronecker-Structured Dictionary Learning (Zahra Shakeri - 17 May, 2016)
+The focus of this paper is on second-order tensor data, with the underlying dictionaries constructed by taking the Kronecker product of two smaller dictionaries and the observed data generated by sparse linear combinations of dictionary atoms observed through white Gaussian noise
+Link: https://arxiv.org/abs/1605.05284
+====================================================
+Semi-supervised Vocabulary-informed Learning (Yanwei Fu - 24 April, 2016)
+Specifically, we propose a maximum margin framework for semantic manifold-based recognition that incorporates distance constraints from (both supervised and unsupervised) vocabulary atoms, ensuring that labeled samples are projected closest to their correct prototypes, in the embedding space, than to others
+Link: https://arxiv.org/abs/1604.07093
+====================================================
+An information theoretic formulation of the Dictionary Learning and Sparse Coding Problems on Statistical Manifolds (Rudrasis Chakraborty - 3 February, 2017)
+Further, {\it we proved that this KL-center is a sparse combination of the dictionary atoms}. Further, we demonstrate the performance of our algorithm by comparing it to several state-of-the-art methods both in terms of classification accuracy and sparsity.
+Link: https://arxiv.org/abs/1604.06939
+====================================================
+An improved analysis of the ER-SpUD dictionary learning algorithm (JarosÅaw BÅasiok - 18 February, 2016)
+The matrix $A$ is referred to as a {\em dictionary}, and its columns as {\em atoms}. The motivation is that in many applications data is expected to sparse when represented by atoms in the "right" dictionary $A$ (e.g.\ images in the Haar wavelet basis), and the goal is to learn $A$ from the data to then use it for other applications.
+Link: https://arxiv.org/abs/1602.05719
+====================================================
+Pursuits in Structured Non-Convex Matrix Factorizations (Rajiv Khanna - 12 February, 2016)
+The algorithm approximates a given matrix by a linear combination of few rank-1 matrices, each factorized into an outer product of two vector atoms of the desired structure. For the non-convex subproblems of obtaining good rank-1 structured matrix atoms, we employ and analyze a general atomic power method
+Link: https://arxiv.org/abs/1602.04208
+====================================================
+Trainlets: Dictionary Learning in High Dimensions (Jeremias Sulam - 12 May, 2016)
+This work shows that dictionary learning can be up-scaled to tackle a new level of signal dimensions, obtaining large adaptable atoms that we call trainlets.
+Link: https://arxiv.org/abs/1602.00212
+====================================================
+Modeling Variations of First-Order Horn Abduction in Answer Set Programming (Peter SchÃ¼ller - 31 January, 2018)
+We identify term equivalence as a main instantiation bottleneck, and improve the efficiency of our approach with on-demand constraints that were used to eliminate the same bottleneck in state-of-the-art solvers. Our encodings are publicly available, modular, and our approach is more efficient than state-of-the-art solvers on the ACCEL benchmark.
+Link: https://arxiv.org/abs/1512.08899
+====================================================
+Sparse Coding with Fast Image Alignment via Large Displacement Optical Flow (Xiaoxia Sun - 21 December, 2015)
+In this paper, having both training and test images misaligned, we introduce a novel sparse coding framework that is able to efficiently adapt the dictionary atoms to the test image via large displacement optical flow. In the proposed algorithm, every dictionary atom is automatically aligned with the input image and the sparse code is then recovered using the adapted dictionary atoms
+Link: https://arxiv.org/abs/1512.06709
+====================================================
+Perfect Recovery Conditions For Non-Negative Sparse Modeling (Yuki Itoh - 19 September, 2016)
+The former defines the minimum weight for each of the correct atoms present in the signal and the latter defines the tolerable deviation from the linear model relative to the positive subset coherence (PSC), a novel type of "coherence" metric
+Link: https://arxiv.org/abs/1512.02743
+====================================================
+Deciding First-Order Satisfiability when Universal and Existential Variables are Separated (Thomas Sturm - 20 June, 2016)
+The defining principle is the syntactic separation of universally quantified variables from existentially quantified ones at the level of atoms
+Link: https://arxiv.org/abs/1511.08999
+====================================================
+Cross-scale predictive dictionaries (Vishwanath Saragadam - 3 September, 2018)
+However, solving inverse problems with sparsifying dictionaries can be computationally expensive, especially when the dictionary under consideration has a large number of atoms
+Link: https://arxiv.org/abs/1511.05174
+====================================================
+Multiple Instance Dictionary Learning using Functions of Multiple Instances (Changzhe Jiao - 3 August, 2016)
+Given inaccurate training labels, DL-FUMI learns a set of target dictionary atoms that describe the most distinctive and representative features of the true positive class as well as a set of nontarget dictionary atoms that account for the shared information found in both the positive and negative instances. Experimental results show that the estimated target dictionary atoms found by DL-FUMI are more representative prototypes and identify better discriminative features of the true positive class than existing methods in the literature
+Link: https://arxiv.org/abs/1511.02825
+====================================================
+Statistical physics and approximate message-passing algorithms for sparse linear estimation problems in signal processing and coding theory (Jean Barbier - 5 November, 2015)
+In supercooled water, a weak localized perturbation is enough to create a crystal nucleus that will propagate in all the medium thanks to the physical couplings between closeby atoms
+Link: https://arxiv.org/abs/1511.01650
+====================================================
+Most Complex Regular Ideal Languages (Janusz Brzozowski - 13 October, 2016)
+We show that there exist sequences ($L_n \mid n \ge k $) of right, left, and two-sided regular ideals, where $L_n$ has quotient complexity (state complexity) $n$, such that $L_n$ is most complex in its class under the following measures of complexity: the size of the syntactic semigroup, the quotient complexities of the left quotients of $L_n$, the number of atoms (intersections of complemented and uncomplemented left quotients), the quotient complexities of the atoms, and the quotient complexities of reversal, star, product (concatenation), and all binary boolean operations
+Link: https://arxiv.org/abs/1511.00157
+====================================================
+Approximation and Dependence via Multiteam Semantics (Arnaud Durand - 21 December, 2015)
+In particular, we define natural probabilistic versions of inclusion and independence atoms and certain approximation operators motivated by approximate dependence atoms of VÃ¤Ã¤nÃ¤nen.
+Link: https://arxiv.org/abs/1510.09040
+====================================================
+The expressive power of modal logic with inclusion atoms (Lauri Hella - 23 September, 2015)
+Modal inclusion logic is the extension of basic modal logic with inclusion atoms, and its semantics is defined on Kripke models with teams
+Link: https://arxiv.org/abs/1509.07204
+====================================================
+Overcomplete Dictionary Learning with Jacobi Atom Updates (Paul Irofti - 16 September, 2015)
+We propose instead a Jacobi version, in which groups of atoms are updated independently, in parallel. Extensive numerical evidence for sparse image representation shows that the parallel algorithms, especially when all atoms are updated simultaneously, give better dictionaries than their sequential counterparts.
+Link: https://arxiv.org/abs/1509.05054
+====================================================
+Equivalence of two Fixed-Point Semantics for Definitional Higher-Order Logic Programs (Angelos Charalambidis - 10 September, 2015)
+Wadge, the two approaches coincide (with respect to ground atoms that involve symbols of the program)
+Link: https://arxiv.org/abs/1509.03013
+====================================================
+Dictionary Learning and Sparse Coding for Third-order Super-symmetric Tensors (Piotr Koniusz - 9 September, 2015)
+Our goal is to approximate these tensors as sparse conic combinations of atoms from a learned dictionary, where each atom is a symmetric positive semi-definite matrix. Apart from the significant benefits to tensor compression that this framework provides, our experiments demonstrate that the sparse coefficients produced by the scheme lead to better aggregation of high-dimensional data, and showcases superior performance on two common computer vision tasks compared to the state-of-the-art.
+Link: https://arxiv.org/abs/1509.02970
+====================================================
+Weighted paths between partitions (Giovanni Rossi - 10 December, 2016)
+Firstly, by focusing on the atoms of the lattice, one well-known partition distance is recognized to be in fact the analog of the Hamming distance between subsets, with weights on edges of the Hasse diagram determined through the number of atoms in the unique maximal join-decomposition of partitions
+Link: https://arxiv.org/abs/1509.01852
+====================================================
+Efficient Face Alignment via Locality-constrained Representation for Robust Recognition (Yandong Wen - 31 October, 2015)
+Specifically, the locality constraint that activates the most correlated atoms and suppresses the uncorrelated ones, is applied to construct the dictionary for face alignment. Experimental results on public data sets show that MRLR significantly outperforms several state-of-the-art approaches in terms of efficiency and scalability with even better performance.
+Link: https://arxiv.org/abs/1507.07073
+====================================================
+Decision Maker based on Atomic Switches (Song-Ju Kim - 21 July, 2015)
+We propose a simple model for an atomic switch-based decision maker (ASDM), and show that, as long as its total volume of precipitated Ag atoms is conserved when coupled with suitable operations, an atomic switch system provides a sophisticated "decision-making" capability that is known to be one of the most important intellectual abilities in human beings. These decisions are made as dictated by each volume of precipitated Ag atoms, which is moved in a manner similar to the fluctuations of a rigid body in a tug-of-war game
+Link: https://arxiv.org/abs/1507.05895
+====================================================
+Dual-normal Logic Programs - the Forgotten Class (Johannes K. Fichte - 20 July, 2015)
+One of such classes consists of dual-normal programs, where the number of positive body atoms in proper rules is at most one
+Link: https://arxiv.org/abs/1507.05388
+====================================================
+Riemannian Dictionary Learning and Sparse Coding for Positive Definite Matrices (Anoop Cherian - 16 December, 2015)
+Inspired by the great success of dictionary learning and sparse coding for vector-valued data, our goal in this paper is to represent data in the form of SPD matrices as sparse conic combinations of SPD atoms from a learned dictionary via a Riemannian geometric approach
+Link: https://arxiv.org/abs/1507.02772
+====================================================
+SAT-based Explicit LTL Reasoning (Jianwen Li - 4 December, 2015)
+Furthermore, we show that the framework can be extended from propositional LTL to assertional LTL (where we allow theory atoms), by replacing MiniSAT with the Z3 SMT solver, and demonstrating that this can yield an exponential improvement in performance.
+Link: https://arxiv.org/abs/1507.02519
+====================================================
+Forgetting complex propositions (David FernÃ¡ndez-Duque - 4 July, 2015)
+The generalization poses some challenges, since in order to forget whether a complex proposition $Ï$ is the case, the agent must also lose information about the propositional atoms that appear in it, and there is no unambiguous way to go about this.
+Link: https://arxiv.org/abs/1507.01111
+====================================================
+Approximating Sampled Sinusoids and Multiband Signals Using Multiband Modulated DPSS Dictionaries (Zhihui Zhu - 25 July, 2016)
+Many signal processing problems--such as analysis, compression, denoising, and reconstruction--can be facilitated by expressing the signal as a linear combination of atoms from a well-chosen dictionary. We also show that the multiband modulated DPSS dictionary not only provides a very high degree of approximation accuracy in an MSE sense for multiband sample vectors (using a number of atoms comparable to the information level), but also that it can provide high-quality approximations of all sampled sinusoids within the bands of interest.
+Link: https://arxiv.org/abs/1507.00029
+====================================================
+Simultaneous Orthogonal Matching Pursuit With Noise Stabilization: Theoretical Analysis (J. F. Determe - 17 June, 2015)
+The simultaneous orthogonal matching pursuit (SOMP) algorithm is generalized to weight the impact of each measurement vector on the choice of the atoms to be picked according to their noise levels
+Link: https://arxiv.org/abs/1506.05324
+====================================================
+Tropically convex constraint satisfaction (Manuel Bodirsky - 22 March, 2017)
+This extends the corresponding complexity result for scheduling under and-or precedence constraints, or equivalently the max-atoms problem
+Link: https://arxiv.org/abs/1506.04184
+====================================================
+Discriminative Bayesian Dictionary Learning for Classification (Naveed Akhtar - 27 March, 2015)
+This association signifies the selection probabilities of the dictionary atoms in the expansion of class-specific data. We performed experiments for face and action recognition; and object and scene-category classification using five public datasets and compared the results with state-of-the-art discriminative sparse representation approaches
+Link: https://arxiv.org/abs/1503.07989
+====================================================
+ASPeRiX, a First Order Forward Chaining Approach for Answer Set Computing (Claire LefÃ¨vre - 16 November, 2016)
+The methodology applies a forward chaining of first order rules that are grounded on the fly by means of previously produced atoms
+Link: https://arxiv.org/abs/1503.07717
+====================================================
+Designing A Composite Dictionary Adaptively From Joint Examples (Zhangyang Wang - 8 September, 2015)
+The dictionary atoms in both parts are further adaptively weighted to emphasize their model statistics
+Link: https://arxiv.org/abs/1503.03621
+====================================================
+Timed pushdown automata revisited (Lorenzo Clemente - 17 April, 2015)
+Motivated by this result, we advocate the framework of first-order definable PDA, a specialization of PDA in sets with atoms, as the right setting to define and investigate timed extensions of PDA
+Link: https://arxiv.org/abs/1503.02422
+====================================================
+Quotient Complexities of Atoms in Regular Ideal Languages (Janusz Brzozowski - 23 May, 2015)
+We compute the maximal number of atoms and the maximal quotient complexities of atoms of right, left and two-sided regular ideals.
+Link: https://arxiv.org/abs/1503.02208
+====================================================
+CLP(H): Constraint Logic Programming for Hedges (Besik Dundua - 1 March, 2015)
+Constraints involve equations between unranked terms and atoms for regular hedge language membership
+Link: https://arxiv.org/abs/1503.00336
+====================================================
+eOMP: Finding Sparser Representation by Recursively Orthonormalizing the Remaining Atoms (Yuanyi Xue - 12 February, 2015)
+The key ingredient of the eOMP is recursively performing one-step orthonormalization on the remaining atoms, and evaluating correlations between residual and orthonormalized atoms
+Link: https://arxiv.org/abs/1502.03805
+====================================================
+Task-Driven Dictionary Learning for Hyperspectral Image Classification with Structured Sparsity Constraints (Xiaoxia Sun - 3 February, 2015)
+Sparse representation models a signal as a linear combination of a small number of dictionary atoms
+Link: https://arxiv.org/abs/1502.00836
+====================================================
+Cloud K-SVD: A Collaborative Dictionary Learning Algorithm for Big, Distributed Data (Haroon Raja - 17 August, 2015)
+The goal of cloud K-SVD is to learn a common overcomplete dictionary at each individual site such that every sample in the distributed data can be represented through a small number of atoms of the learned dictionary
+Link: https://arxiv.org/abs/1412.7839
+====================================================
+Matrix Coherency Graph: A Tool for Improving Sparse Coding Performance (Mohsen Joneidi - 30 November, 2014)
+The idea is based on partitioning the dictionary into atoms which are in some sense well-conditioned and those which are ill-conditioned
+Link: https://arxiv.org/abs/1412.6125
+====================================================
+GreMuTRRR: A Novel Genetic Algorithm to Solve Distance Geometry Problem for Protein Structures (Md. Lisul Islam - 16 November, 2014)
+However, NMR machines are only able to report approximate and partial distances between pair of atoms
+Link: https://arxiv.org/abs/1411.4246
+====================================================
+Greedy metrics in orthogonal greedy learning (Lin Xu - 13 November, 2014)
+Orthogonal greedy learning (OGL) is a stepwise learning scheme that adds a new atom from a dictionary via the steepest gradient descent and build the estimator via orthogonal projecting the target function to the space spanned by the selected atoms in each greedy step
+Link: https://arxiv.org/abs/1411.3553
+====================================================
+Entropy of Overcomplete Kernel Dictionaries (Paul Honeine - 1 November, 2014)
+Relevant sparse representations are obtained by relaxing the orthogonality condition of the atoms, yielding overcomplete dictionaries with an extended number of atoms. More generally than the linear decomposition, overcomplete kernel dictionaries provide an elegant nonlinear extension by defining the atoms through a mapping kernel function (e.g., the gaussian kernel)
+Link: https://arxiv.org/abs/1411.0161
+====================================================
+Automated Cryptanalysis of Bloom Filter Encryptions of Health Records (Martin Kroll - 24 October, 2014)
+The three steps of this procedure constitute our main contributions: (1) a new method for the detection of Bloom filter encrytions of bigrams (so-called atoms), (2) the use of an optimization algorithm for the assignment of atoms to bigrams, (3) the reconstruction of the original attribute values by linkage against bigram sets obtained from lists of frequent attribute values in the underlying population
+Link: https://arxiv.org/abs/1410.6739
+====================================================
+KCRC-LCD: Discriminative Kernel Collaborative Representation with Locality Constrained Dictionary for Visual Categorization (Weiyang Liu - 17 October, 2014)
+We then measure the similarities between the query and atoms in the global dictionary in order to construct a locality constrained dictionary (LCD) for KCRC. Comprehensive experiments on many public datasets also show that KCRC-LCD is a robust discriminative classifier with both excellent performance and good scalability, being comparable or outperforming many other state-of-the-art approaches.
+Link: https://arxiv.org/abs/1410.4673
+====================================================
+Pattern Encoding on the Poincare Sphere (Aleksandra Pizurica - 1 October, 2014)
+This paper presents a convenient graphical tool for encoding visual patterns (such as image patches and image atoms) as point constellations in a space spanned by perceptual features and with a clear geometrical interpretation. Here, three possible applications are illustrated, in clustering perceptually similar patterns, visualizing properties of learned dictionaries of image atoms and generating new dictionaries of image atoms from spherical codes.
+Link: https://arxiv.org/abs/1410.0243
+====================================================
+Active Dictionary Learning in Sparse Representation Based Classification (Jin Xu - 26 September, 2014)
+Sparse representation, which uses dictionary atoms to reconstruct input vectors, has been studied intensively in recent years. In this paper, an active dictionary learning (ADL) method is introduced, in which classification error and reconstruction error are considered as the active learning criteria in selection of the atoms for dictionary construction
+Link: https://arxiv.org/abs/1409.5763
+====================================================
+Hyperspectral and Multispectral Image Fusion based on a Sparse Representation (Qi Wei - 19 September, 2014)
+The dictionary atoms and the corresponding supports of active coding coefficients are learned from the observed images. Simulation results demonstrate the efficiency of the proposed algorithm when compared with the state-of-the-art fusion methods.
+Link: https://arxiv.org/abs/1409.5729
+====================================================
+Learning and approximation capability of orthogonal super greedy algorithm (Jian Fang - 18 September, 2014)
+OSGA is concerned with selecting more than one atoms in each iteration step, which, of course, greatly reduces the computational burden when compared with the conventional orthogonal greedy algorithm (OGA)
+Link: https://arxiv.org/abs/1409.5330
+====================================================
+Sparse Coding on Symmetric Positive Definite Manifolds using Bregman Divergences (Mehrtash Harandi - 30 August, 2014)
+Unlike traditional sparse coding schemes that work in vector spaces, in this paper we discuss how SPD matrices can be described by sparse combination of dictionary atoms, where the atoms are also SPD matrices. Our proposed algorithms outperform state-of-the-art methods on a wide range of classification tasks, including face recognition, action recognition, material classification and texture categorization.
+Link: https://arxiv.org/abs/1409.0083
+====================================================
+Dependent Nonparametric Bayesian Group Dictionary Learning for online reconstruction of Dynamic MR images (Dornoosh Zonoobi - 11 February, 2015)
+Moreover, we use a Dependent Hierarchical Beta-process as the prior for the group-based dictionary learning, which adaptively infers the dictionary size and the sparsity of each patch; and also ensures that similar patches are manifested in terms of similar dictionary atoms
+Link: https://arxiv.org/abs/1408.5667
+====================================================
+Off-the-Grid Line Spectrum Denoising and Estimation with Multiple Measurement Vectors (Yuanxin Li - 22 July, 2015)
+One example is the spectrally-sparse signal, which is composed of a small number of spectral atoms with arbitrary frequencies on the unit interval
+Link: https://arxiv.org/abs/1408.2242
+====================================================
+Sparse and spurious: dictionary learning with noise and outliers (RÃ©mi Gribonval - 22 August, 2015)
+A popular approach within the signal processing and machine learning communities consists in modelling signals as sparse linear combinations of atoms selected from a learned dictionary. The analysis we conduct is non-asymptotic and makes it possible to understand how the key quantities of the problem, such as the coherence or the level of noise, can scale with respect to the dimension of the signals, the number of atoms, the sparsity and the number of observations.
+Link: https://arxiv.org/abs/1407.5155
+====================================================
+Random Logic Programs: Linear Model (Kewen Wang - 23 June, 2014)
+It is mathematically shown that the average number of answer sets for a random program converges to a constant when the number of atoms approaches infinity. It is also experimentally shown that, under this model, the size distribution of answer sets for random programs tends to a normal distribution when the number of atoms is sufficiently large.
+Link: https://arxiv.org/abs/1406.6102
+====================================================
+Structured Dictionary Learning for Classification (Yuanming Suo - 7 June, 2014)
+Its benefits are two-fold: (i) the label consistency between dictionary atoms and training data are implicitly enforced; and (ii) the classification performance is more robust in the cases of a small dictionary size or limited training data than other techniques
+Link: https://arxiv.org/abs/1406.1943
+====================================================
+Anomaly-Sensitive Dictionary Learning for Unsupervised Diagnostics of Solid Media (Jeffrey M. Druce - 11 May, 2014)
+The resulting sparse coding problem is recast as a modified dictionary learning task with additional spatial sparsity constraints enforced on the atoms of the learned dictionaries, which provides them with a prescribed spatial topology that is designed to unveil anomalous regions in the physical domain
+Link: https://arxiv.org/abs/1405.2496
+====================================================
+Semantics and Compilation of Answer Set Programming with Generalized Atoms (Mario Alviano - 6 May, 2014)
+We show that it is equivalent to the major previously proposed semantics for programs with convex generalized atoms, and that it in general admits more intended models than other semantics in the presence of non-convex generalized atoms. Given these complexity results, we provide a compilation method that compactly transforms programs with generalized atoms in disjunctive normal form to programs without generalized atoms
+Link: https://arxiv.org/abs/1405.1287
+====================================================
+On the Relative Expressiveness of Argumentation Frameworks, Normal Logic Programs and Abstract Dialectical Frameworks (Hannes Strass - 5 May, 2014)
+By expressiveness we mean the ability to encode a desired set of two-valued interpretations over a given propositional signature using only atoms from that signature
+Link: https://arxiv.org/abs/1405.0805
+====================================================
+Forward - Backward Greedy Algorithms for Atomic Norm Regularization (Nikhil Rao - 22 July, 2015)
+Fundamental elements of the basis known as "atoms" allow us to define "atomic norms" that can be used to formulate convex regularizations for the reconstruction problem
+Link: https://arxiv.org/abs/1404.5692
+====================================================
+On Independence Atoms and Keys (Miika Hannula - 17 April, 2014)
+However, the situation changes drastically when keys and independence atoms are combined. We show that the finite and the general implication problems are already different for keys and unary independence atoms
+Link: https://arxiv.org/abs/1404.4468
+====================================================
+Modal Independence Logic (Juha Kontinen - 1 April, 2014)
+Making use of a new form of bisimulation, we extend these expressivity results to modal logics extended by various generalized dependence atoms
+Link: https://arxiv.org/abs/1404.0144
+====================================================
+More on Descriptive Complexity of Second-Order HORN Logics (Shiguang Feng - 26 March, 2014)
+We introduce revisions of SO-HORN and DATALOG by adding first-order universal quantifiers over the second-order atoms in the bodies of HORN clauses and DATALOG rules
+Link: https://arxiv.org/abs/1403.6611
+====================================================
+Towards Active Logic Programming (Stefania Costantini - 21 March, 2014)
+Special atoms and rules have been introduced, for representing: external events, to which the agent is able to respond (reactivity); actions (reactivity and proactivity); internal events (previous conclusions which can trigger further activity); past and present events (to be aware of what has happened)
+Link: https://arxiv.org/abs/1403.5508
+====================================================
+Interactive Debugging of ASP Programs (Kostyantyn Shchekotykhin - 28 October, 2014)
+The system queries a programmer whether a set of ground atoms must be true in all (cautiously) or some (bravely) answer sets of the program
+Link: https://arxiv.org/abs/1403.5142
+====================================================
+Large-Scale Molecular Dynamics Simulations for Highly Parallel Infrastructures (Jana PazÃºrikovÃ¡ - 28 February, 2014)
+Molecular dynamics with molecular mechanics model of interactions simulates N-body problem of atoms$-$it computes movements of atoms according to Newtonian physics and empirical descriptions of atomic electrostatic interactions
+Link: https://arxiv.org/abs/1402.7216
+====================================================
+Inductive Logic Boosting (Wang-Zhou Dai - 25 February, 2014)
+The biggest challenge of integrating these two machine learning frameworks is how to estimate the probability of a logic clause only from the observation of grounded logic atoms. Experimental evaluation on benchmark datasets demonstrates that the AUC-PR and AUC-ROC value of ILP learned rules are higher than current state-of-the-art SRL methods.
+Link: https://arxiv.org/abs/1402.6077
+====================================================
+A study of Monte-Carlo method in a teachers' training institute (R. V. Mayer - 9 January, 2014)
+They include transmission of information via a communication link, oscillation of a pendulum in an air stream, deflection of alpha particles by Au atoms, formation of a percolating cluster, etc
+Link: https://arxiv.org/abs/1401.2001
+====================================================
+Automated Reasoning over Deontic Action Logics with Finite Vocabularies (Pablo F. Castro - 5 January, 2014)
+This tableaux system uses atoms (of a given boolean algebra of action terms) as labels of formulae, this allows us to embrace parallel execution of actions and action complement, two action operators that may present difficulties in their treatment
+Link: https://arxiv.org/abs/1401.0969
+====================================================
+Learning parametric dictionaries for graph signals (Dorina Thanou - 5 January, 2014)
+Experimental results on both synthetic and real datasets demonstrate that the dictionaries learned by the proposed algorithm are competitive with and often better than unstructured dictionaries learned by state-of-the-art numerical learning algorithms in terms of sparse approximation of graph signals. In contrast to the unstructured dictionaries, however, the dictionaries learned by the proposed algorithm feature localized atoms and can be implemented in a computationally efficient manner in signal processing tasks such as compression, denoising, and classification.
+Link: https://arxiv.org/abs/1401.0887
+====================================================
+Negation in the Head of CP-logic Rules (Joost Vennekens - 20 December, 2013)
+The reason is that both CP-logic and FO(ID) have a constructive semantics in which all atoms start out as false, and may only become true as the result of a rule application
+Link: https://arxiv.org/abs/1312.6156
+====================================================
+Geometric lattice structure of covering and its application to attribute reduction through matroids (Aiping Huang - 4 January, 2014)
+Then its atoms are studied and used to describe the lattice
+Link: https://arxiv.org/abs/1312.4232
+====================================================
+Top-k Query Answering in Datalog+/- Ontologies under Subjective Reports (Technical Report) (Thomas Lukasiewicz - 29 November, 2013)
+We finally present more general reports, which are associated with sets of atoms rather than single atoms.
+Link: https://arxiv.org/abs/1312.0032
+====================================================
+Implementing program extraction from CL1-proofs (Meixia Qu - 25 November, 2013)
+The logical vocabulary contains all of the operators of classical logic and choice operators, the atoms represent elementary games i.e
+Link: https://arxiv.org/abs/1311.6542
+====================================================
+Learning Sparsely Used Overcomplete Dictionaries via Alternating Minimization (Alekh Agarwal - 28 July, 2014)
+We consider the problem of sparse coding, where each sample consists of a sparse linear combination of a set of dictionary atoms, and the task is to learn both the dictionary elements and the mixing coefficients
+Link: https://arxiv.org/abs/1310.7991
+====================================================
+Reasoning Under the Principle of Maximum Entropy for Modal Logics K45, KD45, and S5 (Tivadar Papai - 23 October, 2013)
+However, in contrast to Markov logic, in our framework we use the knowledge base to define a probability distribution over non-equivalent epistemic situations (pointed Kripke structures) rather than over atoms, and use this distribution to assign probabilities to modal formulas
+Link: https://arxiv.org/abs/1310.6439
+====================================================
+Ceteris Paribus Structure in Logics of Game Forms (Davide Grossi - 23 October, 2013)
+The article introduces a ceteris paribus modal logic interpreted on the equivalence classes induced by sets of propositional atoms
+Link: https://arxiv.org/abs/1310.6416
+====================================================
+Non-negative Matrix Factorization with Linear Constraints for Single-Channel Speech Enhancement (Nikolay Lyubimov - 24 September, 2013)
+The proposed method relies on sinusoidal model of speech production which is integrated inside NMF framework using linear constraints on dictionary atoms. It has been shown that the proposed method outperforms some of the state-of-the-art noise suppression techniques in terms of signal-to-noise ratio.
+Link: https://arxiv.org/abs/1309.6047
+====================================================
+Optimized projections for compressed sensing via rank-constrained nearest correlation matrix (Nicolae Cleju - 14 September, 2013)
+Optimizing the acquisition matrix is useful for compressed sensing of signals that are sparse in overcomplete dictionaries, because the acquisition matrix can be adapted to the particular correlations of the dictionary atoms
+Link: https://arxiv.org/abs/1309.3676
+====================================================
+Parallel-in-time method for calculation of long-range electrostatic interactions (Jana PazÃºrikovÃ¡ - 18 October, 2013)
+Large molecular dynamics simulations (millions of atoms, tens of microseconds, thousands of processors) hit the strong scalability wall: simulation on twice as many processors does not take half the time
+Link: https://arxiv.org/abs/1309.1889
+====================================================
+Interning Ground Terms in XSB (David S. Warren - 17 July, 2013)
+I describe the concept of interning atoms and discuss the issues around interning ground structured terms, motivating why tabling Prolog systems may change the cost-benefit tradeoffs from those of traditional Prolog systems
+Link: https://arxiv.org/abs/1307.4644
+====================================================
+Towards an Efficient Use of the BLAS Library for Multilinear Tensor Contractions (Edoardo Di Napoli - 8 July, 2013)
+In the last century, thanks to the advances in tensor calculus, it was possible to uncover new research fields and make remarkable progress in the existing ones, from electromagnetism to the dynamics of fluids and from the mechanics of rigid bodies to quantum mechanics of many atoms
+Link: https://arxiv.org/abs/1307.2100
+====================================================
+Optimization of Clustering for Clustering-based Image Denoising (Mohsen Joneidi - 28 October, 2013)
+By obtaining sparse decomposition of the noisy image blocks in terms of the dictionary atoms, the de-noised version is achieved
+Link: https://arxiv.org/abs/1306.2967
+====================================================
+Exact Recovery Conditions for Sparse Representations with Partial Support Information (C. Herzet - 17 May, 2013)
+This partial information takes the form of either a subset of the true support or an approximate subset including wrong atoms as well. It reads mu<1/(2k-g+b-1) when the informed support is composed of g good atoms and b wrong atoms
+Link: https://arxiv.org/abs/1305.4008
+====================================================
+Wave Atom Based Watermarking (Ijaz Bukhari - 7 August, 2015)
+Preference of Wave Atoms on other transformations has been due to its sparser expansion, adaptability to the direction of local pattern, and sharp frequency localization
+Link: https://arxiv.org/abs/1305.3021
+====================================================
+Dictionary learning based image enhancement for rarity detection (Hui Li - 12 September, 2016)
+Particularly, the proposed method adjusts the image by manipulating the rarity of dictionary atoms. Secondly, compute the rarity of dictionary atoms on statistics of the corresponding sparse coefficients
+Link: https://arxiv.org/abs/1305.0871
+====================================================
+One condition for solution uniqueness and robustness of both l1-synthesis and l1-analysis minimizations (Hui Zhang - 29 October, 2014)
+The solution of former is a sparse sum of dictionary atoms, and that of the latter makes sparse correlations with dictionary atoms
+Link: https://arxiv.org/abs/1304.5038
+====================================================
+Automated Identification and Classification of Stereochemistry: Chirality and Double Bond Stereoisomerism (Ana L. Teixeira - 7 March, 2013)
+Due to the complexity of the underlying issue, specification of stereochemical information is currently limited to explicit stereochemistry and to the two most common types of stereochemistry caused by asymmetry around carbon atoms: chiral atom and double bond
+Link: https://arxiv.org/abs/1303.1724
+====================================================
+Multivariate Temporal Dictionary Learning for EEG (Quentin BarthÃ©lemy - 4 March, 2013)
+Multivariate learned kernels are informative (a few atoms code plentiful energy) and interpretable (the atoms can have a physiological meaning)
+Link: https://arxiv.org/abs/1303.0742
+====================================================
+Learning Stable Multilevel Dictionaries for Sparse Representations (Jayaraman J. Thiagarajan - 25 September, 2013)
+We also propose an information-theoretic scheme to estimate the number of atoms needed in each level of learning and develop an ensemble approach to learn robust dictionaries
+Link: https://arxiv.org/abs/1303.0448
+====================================================
+An event-based model for contracts (Massimo Bartoletti - 26 February, 2013)
+ More precisely, we show that the reachable events are exactly those which correspond to provable atoms in the logic
+Link: https://arxiv.org/abs/1302.6330
+====================================================
+Maximal Syntactic Complexity of Regular Languages Implies Maximal Quotient Complexities of Atoms (Janusz Brzozowski - 22 May, 2013)
+A regular language has at most 2^n atoms and this bound is tight. We prove that if a language has maximal syntactic complexity, then it has 2^n atoms and each atom has maximal quotient complexity, but the converse is false.
+Link: https://arxiv.org/abs/1302.3906
+====================================================
+Minimal Nondeterministic Finite Automata and Atoms of Regular Languages (Janusz Brzozowski - 23 January, 2013)
+We examine the NFA minimization problem in terms of atomic NFA's, that is, NFA's in which the right language of every state is a union of atoms, where the atoms of a regular language are non-empty intersections of complemented and uncomplemented left quotients of the language. We also formulate the Kameda-Weiner NFA minimization in terms of quotients and atoms.
+Link: https://arxiv.org/abs/1301.5585
+====================================================
+Computational Aspects of the Calculus of Structure (MÃ¡rio S. Alvim - 21 January, 2013)
+We introduce the concept of incoherence number of substructures inside structures and we use this concept to achieve our main result: there is an algorithm that, according to our conjecture, corresponds to a proof search strategy to every provable structure in the subsystem of FBV (the multiplicative linear logic MLL plus the rule mix) containing only pairwise distinct atoms
+Link: https://arxiv.org/abs/1301.4910
+====================================================
+Backdoors to Normality for Disjunctive Logic Programs (Johannes Klaus Fichte - 2 May, 2013)
+Such a backdoor is a set of atoms that when deleted makes the program normal
+Link: https://arxiv.org/abs/1301.1391
+====================================================
+Eliminating Unfounded Set Checking for HEX-Programs (Thomas Eiter - 7 January, 2013)
+HEX-programs are an extension of the Answer Set Programming (ASP) paradigm incorporating external means of computation into the declarative programming language through so-called external atoms
+Link: https://arxiv.org/abs/1301.1390
+====================================================
+Coherence-based Partial Exact Recovery Condition for OMP/OLS (Cedric Herzet - 30 November, 2012)
+We consider the scenario where OMP/OLS have selected good atoms during the first l iterations (l<k) and derive a new sufficient and worst-case necessary condition for their success in k steps
+Link: https://arxiv.org/abs/1211.7283
+====================================================
+Minimization of semilinear automata (MikoÅaj BojaÅczyk - 17 October, 2012)
+We investigate finite deterministic automata in sets with non-homogeneous atoms: integers with successor
+Link: https://arxiv.org/abs/1210.4980
+====================================================
+Conflict-driven ASP Solving with External Sources (Thomas Eiter - 5 October, 2012)
+To enable access to external information, HEX-programs extend programs with external atoms, which allow for a bidirectional communication between the logic program and external sources of computation (e.g., description logic reasoners and Web resources). Current solvers evaluate HEX-programs by a translation to ASP itself, in which values of external atoms are guessed and verified after the ordinary answer set computation
+Link: https://arxiv.org/abs/1210.1649
+====================================================
+Geometric lattice structure of covering-based rough sets through matroids (Aiping Huang - 28 September, 2012)
+First, a geometric lattice structure of covering-based rough sets is established through the transversal matroid induced by the covering, and its characteristics including atoms, modular elements and modular pairs are studied
+Link: https://arxiv.org/abs/1210.0075
+====================================================
+Sparse coding for multitask and transfer learning (Andreas Maurer - 16 June, 2014)
+The central assumption of our learning method is that the tasks parameters are well approximated by sparse linear combinations of the atoms of a dictionary on a high or infinite dimensional space
+Link: https://arxiv.org/abs/1209.0738
+====================================================
+Are You Imitating Me? Unsupervised Sparse Modeling for Group Activity Analysis from a Single Video (Zhongwei Tang - 27 August, 2012)
+Our working hypothesis is that human actions lie on a union of low-dimensional subspaces, and thus can be efficiently modeled as sparse linear combinations of atoms from a learned dictionary representing the action's primitives
+Link: https://arxiv.org/abs/1208.5451
+====================================================
+Information-theoretic Dictionary Learning for Image Classification (Qiang Qiu - 17 August, 2012)
+In the first stage, dictionary atoms are selected from an initial dictionary by maximizing the mutual information measure on dictionary compactness, discrimination and reconstruction. In the second stage, the selected dictionary atoms are updated for improved reconstructive and discriminative power using a simple gradient ascent algorithm on mutual information
+Link: https://arxiv.org/abs/1208.3687
+====================================================
+'Say EM' for Selecting Probabilistic Models for Logical Sequences (Kristian Kersting - 4 July, 2012)
+They deal with logical sequences, i.e., sequences over an alphabet of logical atoms
+Link: https://arxiv.org/abs/1207.1353
+====================================================
+The Good, the Bad, and the Odd: Cycles in Answer-Set Programs (Johannes Klaus Fichte - 15 February, 2012)
+Backdoors of answer-set programs are sets of atoms that represent clever reasoning shortcuts through the search space. Assignments to backdoor atoms reduce the given program to several programs that belong to a tractable target class
+Link: https://arxiv.org/abs/1205.3663
+====================================================
+Analysis Operator Learning and Its Application to Image Reconstruction (Simon Hawe - 26 March, 2013)
+The synthesis model, which assumes that images can be decomposed into a linear combination of very few atoms of some dictionary, is now a well established tool for the design of image reconstruction algorithms
+Link: https://arxiv.org/abs/1204.5309
+====================================================
+A Delayed Column Generation Strategy for Exact k-Bounded MAP Inference in Markov Logic Networks (Mathias Niepert - 15 March, 2012)
+k-Bounded MAP states are MAP states with at most k active ground atoms of hidden (non-evidence) predicates
+Link: https://arxiv.org/abs/1203.3499
+====================================================
+Automated Synthesis of a Finite Complexity Ordering for Saturation (Yannick Chevalier - 11 March, 2012)
+We present in this paper a new procedure to saturate a set of clauses with respect to a well-founded ordering on ground atoms such that A < B implies Var(A) {\subseteq} Var(B) for every atoms A and B
+Link: https://arxiv.org/abs/1203.2809
+====================================================
+Online Discriminative Dictionary Learning for Image Classification Based on Block-Coordinate Descent Method (Shu Kong - 5 March, 2012)
+Previous researches have demonstrated that the framework of dictionary learning with sparse coding, in which signals are decomposed as linear combinations of a few atoms of a learned dictionary, is well adept to reconstruction issues
+Link: https://arxiv.org/abs/1203.0856
+====================================================
+Dictionary learning under global sparsity constraint (Deyu Meng - 11 May, 2013)
+This enables the proposed method to fittingly assign the atoms of the dictionary to represent various samples and optimally adapt to the complicated structures underlying the entire data set
+Link: https://arxiv.org/abs/1202.6562
+====================================================
+Refinement Modal Logic (Laura Bozzelli - 25 December, 2013)
+A refinement is like a bisimulation, except that from the three relational requirements only `atoms' and `back' need to be satisfied
+Link: https://arxiv.org/abs/1202.3538
+====================================================
+Meditations on Quantified Constraint Satisfaction (Hubie Chen - 30 January, 2012)
+The quantified constraint satisfaction problem (QCSP) is the problem of deciding, given a structure and a first-order prenex sentence whose quantifier-free part is the conjunction of atoms, whether or not the sentence holds on the structure
+Link: https://arxiv.org/abs/1201.6306
+====================================================
+Query-Subquery Nets (Linh Anh Nguyen - 12 January, 2012)
+To deal with function symbols, we use a term-depth bound for atoms and substitutions occurring in the computation and propose to use iterative deepening search which iteratively increases the term-depth bound
+Link: https://arxiv.org/abs/1201.2564
+====================================================
+Learning joint intensity-depth sparse representations (Ivana Tosic - 18 September, 2013)
+We give a theoretical bound for the sparse coefficient recovery error obtained by JBP, and show experimentally that JBP is far superior to the state of the art Group Lasso algorithm. Finally, we show that the learned dictionary and JBP achieve the state of the art depth inpainting performance on time-of-flight 3D data.
+Link: https://arxiv.org/abs/1201.0566
+====================================================
+Learning Smooth Pattern Transformation Manifolds (Elif Vural - 30 October, 2012)
+For the approximation problem, we propose a greedy method that constructs a representative pattern by selecting analytic atoms from a continuous dictionary manifold
+Link: https://arxiv.org/abs/1112.5640
+====================================================
+Finite and infinite support in nominal algebra and logic: nominal completeness theorems for free (Murdoch J. Gabbay - 5 December, 2011)
+We do this using an infinite generalisation of nominal atoms-abstraction.
+Link: https://arxiv.org/abs/1112.0923
+====================================================
+From nominal sets binding to functions and lambda-abstraction: connecting the logic of permutation models with the logic of functions (Gilles Dowek - 20 November, 2011)
+In PNL, the forall-quantifier or lambda-binder are just term-formers satisfying axioms, and their denotation is functions on nominal atoms-abstraction.
+Link: https://arxiv.org/abs/1111.4611
+====================================================
+Projection-Based and Look Ahead Strategies for Atom Selection (Saikat Chatterjee - 8 November, 2011)
+For both the algorithms, in each iteration, the set of potential atoms is found using a standard matched filter. In case of the first scheme, we propose an orthogonal projection strategy that selects an atom from the set of potential atoms
+Link: https://arxiv.org/abs/1111.2001
+====================================================
+Embedding Description Logic Programs into Default Logic (Yisong Wang - 6 November, 2011)
+We show that dl-programs under the strong and weak answer set semantics can be embedded in default logic by combining two translations, one of which eliminates the constraint operator from nonmonotonic dl-atoms and the other translates a dl-program into a default theory. For dl-programs without nonmonotonic dl-atoms but with the negation-as-failure operator, our embedding is polynomial, faithful, and modular
+Link: https://arxiv.org/abs/1111.1486
+====================================================
+Sparse Image Representation with Epitomes (Louise BenoÃ®t - 13 October, 2011)
+Traditionally, the dictionary is an unstructured "flat" set of atoms. The epitome is itself a small image, and the atoms are all the patches of a chosen size inside this image
+Link: https://arxiv.org/abs/1110.2855
+====================================================
+Reasoning with Forest Logic Programs and f-hybrid Knowledge Bases (Cristina Feier - 12 October, 2011)
+Forest Logic Programs (FoLPs), a fragment of OASP where rules have a tree shape and allow for inequality atoms and constants
+Link: https://arxiv.org/abs/1110.2773
+====================================================
+Answer Sets for Logic Programs with Arbitrary Abstract Constraint Atoms (E. Pontelli - 10 October, 2011)
+In this paper, we present two alternative approaches to defining answer sets for logic programs with arbitrary types of abstract constraint atoms (c-atoms). These approaches generalize the fixpoint-based and the level mapping based answer set semantics of normal logic programs to the case of logic programs with arbitrary types of c-atoms
+Link: https://arxiv.org/abs/1110.2205
+====================================================
+Robust Sparse Analysis Regularization (Samuel Vaiter - 2 October, 2012)
+In contrast, the more general analysis regularization minimizes the L1 norm of the correlations between the signal and the atoms in the dictionary, where these correlations define the analysis support
+Link: https://arxiv.org/abs/1109.6222
+====================================================
+Logical Hidden Markov Models (L. De Raedt - 9 September, 2011)
+Logical hidden Markov models (LOHMMs) upgrade traditional hidden Markov models to deal with sequences of structured symbols in the form of logical atoms, rather than flat characters.
+Link: https://arxiv.org/abs/1109.2148
+====================================================
+Each normal logic program has a 2-valued Minimal Hypotheses semantics (Alexandre Miguel Pinto - 29 August, 2011)
+Previous works on Abduction have depicted the atoms of default negated literals in NLPs as abducibles, i.e., assumable hypotheses
+Link: https://arxiv.org/abs/1108.5766
+====================================================
+Sparse Approximation is Hard (Ali Civril - 28 November, 2011)
+Given a redundant dictionary $Î¦$, represented by an $M \times N$ matrix ($Î¦\in \mathbb{R}^{M \times N}$) and a target signal $y \in \mathbb{R}^M$, the \emph{sparse approximation problem} asks to find an approximate representation of $y$ using a linear combination of at most $k$ atoms. It is argued that, from an algorithmic standpoint, the problem is more meaningful if it asks to maximize the norm of the target signal's projection onto the selected atoms which are represented by column vectors
+Link: https://arxiv.org/abs/1108.4664
+====================================================
+Ethane: A Heterogeneous Parallel Search Algorithm for Heterogeneous Platforms (JuliÃ¡n DomÃ­nguez - 31 May, 2011)
+We also propose a schema for describing a family of parallel heterogeneous metaheuristics inspired by the structure of hydrocarbons in Nature, HydroCM (HydroCarbon inspired Metaheuristics), establishing a resem- blance between atoms and computers, and between chemical bonds and communication links
+Link: https://arxiv.org/abs/1105.5900
+====================================================
+On the poset of computation rules for nonassociative calculus (Miguel Couceiro - 20 May, 2011)
+In particular, we show that the induced poset of all equivalence classes of computation rules is uncountably infinite, has infinitely many maximal elements, has infinitely many atoms, and it embeds the powerset of natural numbers ordered by inclusion.
+Link: https://arxiv.org/abs/1105.4174
+====================================================
+Typical models: minimizing false beliefs (Eliezer L. Lozinskii - 19 May, 2011)
+This work introduces the notions of "typical atoms" and "typical models", and shows that reasoning with typical models minimizes the expected number of false beliefs over all ways of using incomplete information
+Link: https://arxiv.org/abs/1105.3833
+====================================================
+Hierarchies in Dependence Logic (Arnaud Durand - 17 May, 2011)
+We study fragments of dependence logic defined either by restricting the number k of universal quantifiers or the width of dependence atoms in formulas
+Link: https://arxiv.org/abs/1105.3324
+====================================================
+Clique Separator Decomposition of Hole- and Diamond-Free Graphs and Algorithmic Consequences (Andreas BrandstÃ¤dt - 14 May, 2011)
+In this paper we show that atoms of hole- and diamond-free graphs (of hole- and paraglider-free graphs, respectively) are either weakly chordal or of a very specific structure. The structure of their atoms leads to efficient algorithms for various problems.
+Link: https://arxiv.org/abs/1105.2874
+====================================================
+ChemXSeer Digital Library Gaussian Search (Shibamouli Lahiri - 28 April, 2011)
+Our system is currently capable of searching Gaussian documents using a boolean combination of atoms (chemical elements) and attributes
+Link: https://arxiv.org/abs/1104.4601
+====================================================
+Seeking Meaning in a Space Made out of Strokes, Radicals, Characters and Compounds (Yannis Haralambous - 21 April, 2011)
+Chinese characters can be compared to a molecular structure: a character is analogous to a molecule, radicals are like atoms, calligraphic strokes correspond to elementary particles, and when characters form compounds, they are like molecular structures
+Link: https://arxiv.org/abs/1104.4321
+====================================================
+A Simplified and Improved Free-Variable Framework for Hilbert's epsilon as an Operator of Indefinite Committed Choice (Claus-Peter Wirth - 1 February, 2017)
+We present the most recent version of our free-variable framework for two-valued logics with properly improved functionality, but only two kinds of free variables left (instead of three): implicitly universally and implicitly existentially quantified ones, now simply called "free atoms" and "free variables", respectively
+Link: https://arxiv.org/abs/1104.2444
+====================================================
+Complexity of Model Checking for Modal Dependence Logic (Johannes Ebbing - 27 January, 2012)
+We additionally extend MDL by allowing classical disjunction - introduced by Sevenster - besides dependence disjunction and show that classical disjunction is always at least as computationally bad as bounded arity dependence atoms and in some cases even worse, e.g., the fragment with nothing but the two disjunctions is NP-complete
+Link: https://arxiv.org/abs/1104.1034
+====================================================
+Complexity Results for Modal Dependence Logic (Peter Lohmann - 4 April, 2011)
+We show that satisfibility for poor man's dependence logic, the language consisting of formulas built from literals and dependence atoms using conjunction, necessity and possibility (i.e., disallowing disjunction), remains NEXPTIME-complete
+Link: https://arxiv.org/abs/1104.0607
+====================================================
+Blind Compressed Sensing Over a Structured Union of Subspaces (Jorge Silva - 12 March, 2011)
+The solution is unique up to block permutations and invertible linear transformations of the dictionary atoms
+Link: https://arxiv.org/abs/1103.2469
+====================================================
+Temporal Probabilistic Logic Programs: State and Revision (Zoran Majkic - 5 March, 2011)
+Our semantics, based on the possible world semantics is a generalization of the possible world semantics for (non temporal) Probabilistic Logic Programming, and we define the new syntax for PT-programs, with time variable explicitly represented in all atoms, and show how the standard role of Herbrand interpretations used as possible worlds for probability distributions is coherently extended to Temporal Probabilistic Logic Programming.
+Link: https://arxiv.org/abs/1103.1061
+====================================================
+Theory of Atomata (Janusz Brzozowski - 19 August, 2013)
+We show that every regular language defines a unique nondeterministic finite automaton (NFA), which we call "Ã¡tomaton", whose states are the "atoms" of the language, that is, non-empty intersections of complemented or uncomplemented left quotients of the language. We study "atomic" NFAs in which the right language of every state is a union of atoms
+Link: https://arxiv.org/abs/1102.3901
+====================================================
+2D Sparse Signal Recovery via 2D Orthogonal Matching Pursuit (Yong Fang - 26 April, 2011)
+At each iteration, the decoder projects the sample matrix onto 2D atoms to select the best matched atom, and then renews the weights for all the already selected atoms via the least squares
+Link: https://arxiv.org/abs/1101.5755
+====================================================
+On the Local Correctness of L^1 Minimization for Dictionary Learning (Quan Geng - 29 January, 2011)
+The idea that many important classes of signals can be well-represented by linear combinations of a small set of atoms selected from a given dictionary has had dramatic impact on the theory and practice of signal processing
+Link: https://arxiv.org/abs/1101.5672
+====================================================
+Dialectica Interpretation with Marked Counterexamples (Trifon Trifonov - 27 January, 2011)
+In the original interpretation decidability of atoms is required to compute the correct counterexample from a set of candidates
+Link: https://arxiv.org/abs/1101.5446
+====================================================
+On Elementary Loops of Logic Programs (Martin Gebser - 2 January, 2011)
+Like an HCF program, an HEF program can be turned into an equivalent nondisjunctive program in polynomial time by shifting head atoms into the body.
+Link: https://arxiv.org/abs/1012.5847
+====================================================
+Analysing the behaviour of robot teams through relational sequential pattern mining (Grazia Bombini - 29 October, 2010)
+Our approach allows to learn a symbolic sequence (a relational representation) to translate raw multi-agent, multi-variate observations of a dynamic, complex environment, into a set of sequential behaviours that are characteristic of the team in question, represented by a set of sequences expressed in first-order logic atoms
+Link: https://arxiv.org/abs/1010.6234
+====================================================
+Exploiting Statistical Dependencies in Sparse Representations for Signal Recovery (Tomer Peleg - 15 March, 2012)
+A recent approach that has drawn considerable attention is sparse representation modeling, in which the signal is assumed to be generated as a combination of a few atoms from a given dictionary. In this work we consider a Bayesian setting and go beyond the classic assumption of independence between the atoms
+Link: https://arxiv.org/abs/1010.5734
+====================================================
+Cut Elimination for a Logic with Induction and Co-induction (Alwen Tiu - 30 September, 2010)
+Definitions are akin to logic programs, where the left and right rules for defined atoms allow one to view theories as "closed" or defining fixed points
+Link: https://arxiv.org/abs/1009.6171
+====================================================
+Simplifying Negative Goals Using Typed Existence Properties (Lunjin Lu - 11 September, 2010)
+A digraph links an atom to the quantified variables occurring in the atom and is used to quickly retrieve atoms in the negative goal that may become extractable after some other atom is extracted.
+Link: https://arxiv.org/abs/1009.2178
+====================================================
+Sensing Matrix Optimization for Block-Sparse Decoding (Kevin Rosenblum - 8 September, 2010)
+In particular, a well-designed sensing matrix can reduce the coherence between the atoms of the equivalent dictionary, and as a consequence, reduce the reconstruction error
+Link: https://arxiv.org/abs/1009.1533
+====================================================
+Bayesian Hypothesis Testing for Sparse Representation (Hadi Zayyani - 21 August, 2010)
+It uses the Bayesian framework to determine active atoms in sparse representation of a signal.
+Link: https://arxiv.org/abs/1008.3618
+====================================================
+Decidability properties for fragments of CHR (Maurizio Gabbrielli abd Jacopo Mauro - 26 July, 2010)
+The second dialect instead limits the number of atoms in the head of rules to one
+Link: https://arxiv.org/abs/1007.4476
+====================================================
+Query-driven Procedures for Hybrid MKNF Knowledge Bases (JosÃ© JÃºlio Alferes - 9 December, 2011)
+Such an (abstract) oracle receives as input a query along with knowledge already derived, and replies with a (possibly empty) set of atoms, defined in the rules, whose truth would suffice to prove the initial query
+Link: https://arxiv.org/abs/1007.3515
+====================================================
+Improved OMP Approach to Sparse Multi-path Channel Estimation via Adaptive Inter-atom Interference Mitigation (Ruiming Yang - 20 May, 2010)
+Unlike the ordinary OMP algorithm, a sensing dictionary is designed adaptively and posterior information is utilized efficiently to prevent false atoms from being selected due to serious IAI
+Link: https://arxiv.org/abs/1005.3873
+====================================================
+Nominal Unification from a Higher-Order Perspective (Jordi Levy - 20 May, 2010)
+Contrarily to higher-order logic, bindable names, called atoms, and instantiable variables are considered as distinct entities. Moreover, atoms are capturable by instantiations, breaking a fundamental principle of lambda-calculus
+Link: https://arxiv.org/abs/1005.3731
+====================================================
+Dictionary Optimization for Block-Sparse Representations (Kevin Rosenblum - 3 May, 2010)
+This implies the existence of a dictionary which enables block-sparse representations of the input signals once its atoms are properly sorted into blocks. This is achieved by iteratively alternating between updating the block structure of the dictionary and updating the dictionary atoms to better fit the data
+Link: https://arxiv.org/abs/1005.0202
+====================================================
+Nonnegative Decomposition of Multivariate Information (Paul L. Williams - 14 April, 2010)
+ Finally, we use this redundancy lattice to propose a definition of partial information atoms that exhaustively decompose the Shannon information in a multivariate system in terms of the redundancy between synergies of subsets of the sources. Unlike interaction information, the atoms of our partial information decomposition are never negative and always support a clear interpretation as informational quantities
+Link: https://arxiv.org/abs/1004.2515
+====================================================
+Equilibrium Point in Quantum Physics and its Inspiration to Game Theory (Xiaofei Huang - 13 April, 2010)
+Most of atoms and molecule found in nature are capable of evolving towards and staying at their ground states, the lowest energy states
+Link: https://arxiv.org/abs/1004.2210
+====================================================
+On MMSE and MAP Denoising Under Sparse Representation Modeling Over a Unitary Dictionary (Javier Turek - 21 March, 2010)
+In this model, the signal is assumed to be generated as a random linear combination of a few atoms from a pre-specified dictionary
+Link: https://arxiv.org/abs/1003.3984
+====================================================
+The Sparsity Gap: Uncertainty Principles Proportional to Dimension (Joel A. Tropp - 1 March, 2010)
+This work demonstrates that sparse signals typically enjoy a higher privilege: each nonoptimal representation of the signal requires far more atoms than the sparsest representation-unless it contains many of the same atoms as the sparsest representation. One impact of this finding is to confer a certain degree of legitimacy on the particular atoms that appear in a sparse representation
+Link: https://arxiv.org/abs/1003.0415
+====================================================
+Efficient Local Unfolding with Ancestor Stacks (G. Puebla - 20 November, 2009)
+The most successful unfolding rules used nowadays in the partial evaluation of logic programs are based on well quasi orders (wqo) applied over (covering) ancestors, i.e., a subsequence of the atoms selected during a derivation. Ancestor (sub)sequences are used to increase the specialization power of unfolding while still guaranteeing termination and also to reduce the number of atoms for which the wqo has to be checked
+Link: https://arxiv.org/abs/0911.4047
+====================================================
+Reconfiguration of 3D Crystalline Robots Using O(log n) Parallel Moves (Greg Aloupis - 17 August, 2009)
+These robots consist of independently manipulable unit-square atoms that can extend/contract arms on each side and attach/detach from neighbors. However, in principle, atoms can all move simultaneously
+Link: https://arxiv.org/abs/0908.2440
+====================================================
+Characterizations of Stable Model Semantics for Logic Programs with Arbitrary Constraint Atoms (Yi-Dong Shen - 29 April, 2009)
+As a result, our approach to the stable model semantics for logic programs with constraint atoms generalizes a number of previous approaches. Second, we show that our abstract representation of constraint atoms provides a means to characterize dependencies of atoms in a program with constraint atoms, so that some standard characterizations and properties relying on these dependencies in the past for logic programs with ordinary atoms can be extended to logic programs with constraint atoms.
+Link: https://arxiv.org/abs/0904.4727
+====================================================
+On using floating-point computations to help an exact linear arithmetic decision procedure (David Monniaux - 22 April, 2009)
+We consider the decision problem for quantifier-free formulas whose atoms are linear inequalities interpreted over the reals or rationals. We implemented the method and provide benchmarks showing that this change brings a naive and slow decision procedure ("textbook simplex" with rational numbers) up to the efficiency of recent SMT solvers, over test cases arising from model-checking, and makes it definitely faster than state-of-the-art SMT solvers on dense examples.
+Link: https://arxiv.org/abs/0904.3525
+====================================================
+Induction and Co-induction in Sequent Calculus (Alwen Tiu - 30 September, 2009)
+Definitions are akin to (stratified) logic programs, where the left and right rules for defined atoms allow one to view theories as "closed" or defining fixed points
+Link: https://arxiv.org/abs/0812.4727
+====================================================
+Justifications for Logic Programs under Answer Set Semantics (Enrico Pontelli - 3 December, 2008)
+The paper extends also this notion to provide justification of atoms during the computation of an answer set (on-line justification), and presents an integration of on-line justifications within the computation model of Smodels
+Link: https://arxiv.org/abs/0812.0790
+====================================================
+A role-free approach to indexing large RDF data sets in secondary memory for efficient SPARQL evaluation (George H. L. Fletcher - 7 November, 2008)
+The novelty of TripleT is that (1) the index is built over the atoms occurring in the data set, rather than at a coarser granularity, such as whole triples occurring in the data set; and (2) the atoms are indexed regardless of the roles (i.e., subjects, predicates, or objects) they play in the triples of the data set. We show through extensive empirical evaluation that TripleT exhibits multiple orders of magnitude improvement over the state of the art on RDF indexing, in terms of both storage and query processing costs.
+Link: https://arxiv.org/abs/0811.1083
+====================================================
+Embedding Non-Ground Logic Programs into Autoepistemic Logic for Knowledge Base Combination (Jos de Bruijn - 11 June, 2010)
+While the embeddings all correspond with respect to objective ground atoms, differences arise when considering non-atomic formulas and combinations with first-order theories
+Link: https://arxiv.org/abs/0811.0359
+====================================================
+Textual Entailment Recognizing by Theorem Proving Approach (Doina Tatar - 29 May, 2008)
+First one is a modified resolution method such that some linguistic considerations are introduced in the unification of two atoms
+Link: https://arxiv.org/abs/0805.4521
+====================================================
+Preferred extensions as stable models (Juan Carlos Nieves - 26 March, 2008)
+Given an argumentation framework AF, we introduce a mapping function that constructs a disjunctive logic program P, such that the preferred extensions of AF correspond to the stable models of P, after intersecting each stable model with the relevant atoms
+Link: https://arxiv.org/abs/0803.3812
+====================================================
+Linear Logic by Levels and Bounded Time Complexity (Patrick Baillot - 26 July, 2009)
+We use this fact to propose a variant of our polytime system in which the paragraph modality is only allowed on atoms, and which may thus serve as a basis for developing lambda-calculus type assignment systems with more efficient typing algorithms than existing ones.
+Link: https://arxiv.org/abs/0801.1253
+====================================================
+A Common View on Strong, Uniform, and Other Notions of Equivalence in Answer-Set Programming (Stefan Woltran - 6 December, 2007)
+Notions in between strong and ordinary equivalence have been introduced as theoretical tools to compare incomplete programs and are defined by either restricting the syntactic structure of the considered context programs R or by bounding the set A of atoms allowed to occur in R (relativized equivalence).For the latter approach, different A yield properly different equivalence notions, in general. In this paper, we propose a parameterization for equivalence notions which takes care of both such kinds of restrictions simultaneously by bounding, on the one hand, the atoms which are allowed to occur in the rule heads of the context and, on the other hand, the atoms which are allowed to occur in the rule bodies of the context
+Link: https://arxiv.org/abs/0712.0948
+====================================================
+Guarded Hybrid Knowledge Bases (Stijn Heymans - 14 November, 2007)
+G-hybrid knowledge bases enable an integration of Description Logics and Logic Programming where, unlike in other approaches, variables in the rules of a guarded program do not need to appear in positive non-DL atoms of the body, i.e. DL atoms can act as guards as well
+Link: https://arxiv.org/abs/0711.2155
+====================================================
+Updates in Answer Set Programming: An Approach Based on Basic Structural Properties (Mauricio Osorio - 29 September, 2006)
+avoiding the use of unnecessary extra atoms.
+Link: https://arxiv.org/abs/cs/0609167
+====================================================
+Logic programs with monotone abstract constraint atoms (V. W. Marek - 25 August, 2006)
+We show that the operational concept of the one-step provability operator generalizes to programs with monotone constraint atoms, but the generalization involves nondeterminism. Our main results demonstrate that our formalism is a common generalization of (1) normal logic programming with its semantics of models, supported models and stable models, (2) logic programming with weight atoms (lparse programs) with the semantics of stable models, as defined by Niemela, Simons and Soininen, and (3) of disjunctive logic programming with the possible-model semantics of Sakama and Inoue.
+Link: https://arxiv.org/abs/cs/0608103
+====================================================
+Automated verification of weak equivalence within the SMODELS system (Tomi Janhunen - 25 August, 2006)
+The method is developed here in a slightly more general setting by taking the visibility of atoms properly into account when comparing answer sets
+Link: https://arxiv.org/abs/cs/0608099
+====================================================
+Efficient Compression of Prolog Programs (Alin Suciu - 26 March, 2006)
+atoms, terms, etc.) the implementation of a Prolog prototype is straightforward and very easy to use in any Prolog application that needs compression
+Link: https://arxiv.org/abs/cs/0603100
+====================================================
+Polar Polytopes and Recovery of Sparse Representations (Mark D. Plumbley - 13 October, 2005)
+Suppose we have a signal y which we wish to represent using a linear combination of a number of basis atoms a_i, y=sum_i x_i a_i = Ax
+Link: https://arxiv.org/abs/cs/0510032
+====================================================
+A three-valued semantics for logic programmers (Lee Naish - 1 August, 2005)
+Programmers consider that some atoms "should not occur" or are "ill-typed" or "inadmissible". Programmers don't know and don't care whether such atoms succeed
+Link: https://arxiv.org/abs/cs/0508004
+====================================================
+From truth to computability II (Giorgi Japaridze - 19 July, 2005)
+What makes CL4 expressive is the presence of two sorts of atoms in its language: elementary atoms, representing elementary computational problems (i.e. problems of zero degree of interactivity), and general atoms, representing arbitrary computational problems
+Link: https://arxiv.org/abs/cs/0501031
+====================================================
+On the existence of stable models of non-stratified logic programs (Stefania Costantini - 23 December, 2004)
+In fact, the truth value of the handle in the cycle where it appears as the head of a rule, influences the truth value of the atoms of the cycle(s) where it occurs in the body
+Link: https://arxiv.org/abs/cs/0412105
+====================================================
+Normal forms for Answer Sets Programming (Stefania Costantini - 6 October, 2004)
+A kernel program is composed of the atoms which are undefined in the Well-founded semantics, which are those that directly affect the existence of answer sets. The second normal form is called {\em 3-kernel.} A 3-kernel program is composed of the atoms which are undefined in the Well-founded semantics
+Link: https://arxiv.org/abs/cs/0410014
+====================================================
+Propositional Computability Logic II (Giorgi Japaridze - 20 June, 2004)
+What makes CL2 more expressive than CL1 is the presence of two sorts of atoms in its language: elementary atoms, representing elementary computational problems (i.e. predicates), and general atoms, representing arbitrary computational problems
+Link: https://arxiv.org/abs/cs/0406037
+====================================================
+Enhancing the expressive power of the U-Datalog language (Elisa Bertino - 1 April, 2004)
+In this paper, we provide a semantics, based on stratification, handling the use of negated atoms in U-Datalog programs, and we show which problems arise in defining a compositional semantics.
+Link: https://arxiv.org/abs/cs/0404003
+====================================================
+Weight Constraints as Nested Expressions (Paolo Ferraris - 19 December, 2003)
+Nested expressions can be eliminated from the result of this translation in favor of additional atoms
+Link: https://arxiv.org/abs/cs/0312045
+====================================================
+Logic programs with monotone cardinality atoms (Victor W. Marek - 31 October, 2003)
+We investigate mca-programs, that is, logic programs with clauses built of monotone cardinality atoms of the form kX, where k is a non-negative integer and X is a finite set of propositional atoms. Our main results show that the formalism of mca-programs is a common generalization of (1) normal logic programming with its semantics of models, supported models and stable models, (2) logic programming with cardinality atoms and with the semantics of stable models, as defined by Niemela, Simons and Soininen, and (3) of disjunctive logic programming with the possible-model semantics of Sakama and Inoue.
+Link: https://arxiv.org/abs/cs/0310063
+====================================================
+WSAT(cc) - a fast local-search ASP solver (Lengning Liu - 31 October, 2003)
+We describe WSAT(cc), a local-search solver for computing models of theories in the language of propositional logic extended by cardinality atoms
+Link: https://arxiv.org/abs/cs/0310062
+====================================================
+Local-search techniques for propositional logic extended with cardinality constraints (Lengning Liu - 31 October, 2003)
+We study local-search satisfiability solvers for propositional logic extended with cardinality atoms, that is, expressions that provide explicit ways to model constraints on cardinalities of sets. Adding cardinality atoms to the language of propositional logic facilitates modeling search problems and often results in concise encodings
+Link: https://arxiv.org/abs/cs/0310061
+====================================================
+A ternary Relation Algebra of directed lines (Amar Isli - 21 July, 2003)
+The two algebras, CYC_t and TA_t, will constitute, respectively, the translational and the rotational components of the RA, PA_t, of relative position relations on d-lines: the PA_t atoms will consist of those pairs <t,r> of a TA_t atom and a CYC_t atom that are compatible
+Link: https://arxiv.org/abs/cs/0307050
+====================================================
+A Generalization of the Lifting Lemma for Logic Programming (Etienne Payet - 11 December, 2002)
+In this paper, we first generalize a version of the lifting lemma, by extending the relation "is more general than" so that it takes into account only some arguments of the atoms
+Link: https://arxiv.org/abs/cs/0212026
+====================================================
+Retractions of Types with Many Atoms (Laurent Regnier - 5 December, 2002)
+We define a sound and complete proof system for affine beta-eta-retractions in simple types built over many atoms, and we state simple necessary conditions for arbitrary beta-eta-retractions in simple and polymorphic types.
+Link: https://arxiv.org/abs/cs/0212005
+====================================================
+Computing stable models: worst-case performance estimates (Zbigniew Lonc - 11 May, 2002)
+We study algorithms for computing stable models of propositional logic programs and derive estimates on their worst-case performance that are asymptotically better than the trivial bound of O(m 2^n), where m is the size of an input program and n is the number of its atoms
+Link: https://arxiv.org/abs/cs/0205013
+====================================================
+A Framework for Compiling Preferences in Logic Programs (J. P. Delgrande - 5 March, 2002)
+An ordered logic program is an extended logic program in which rules are named by unique terms, and in which preferences among rules are given by a set of atoms of form s < t where s and t are names
+Link: https://arxiv.org/abs/cs/0203005
+====================================================
+Bayesian Logic Programs (Kristian Kersting - 23 November, 2001)
+In order to represent objects and relations it combines Bayesian networks with definite clause logic by establishing a one-to-one mapping between ground atoms and random variables
+Link: https://arxiv.org/abs/cs/0111058
+====================================================
+Fixed-parameter complexity of semantics for logic programs (Zbigniew Lonc - 31 July, 2001)
+The problem to decide whether a program P has a stable model of size no more than k, where k is fixed and not a part of input, can be solved in time O(mn^k), where m is the size of P and n is the number of atoms in P
+Link: https://arxiv.org/abs/cs/0107027
+====================================================
+Annotated revision programs (Victor Marek - 19 July, 2001)
+That formalism was extended by Fitting who assigned annotations to revision atoms
+Link: https://arxiv.org/abs/cs/0107026
+====================================================
+Classes of Terminating Logic Programs (Dino Pedreschi - 22 July, 2002)
+We study six classes: a program strongly terminates if it terminates for all selection rules; a program input terminates if it terminates for selection rules which only select atoms that are sufficiently instantiated in their input positions, so that these arguments do not get instantiated any further by the unification; a program local delay terminates if it terminates for local selection rules which only select atoms that are bounded w.r.t
+Link: https://arxiv.org/abs/cs/0106050
+====================================================
+On the problem of computing the well-founded semantics (Zbigniew Lonc - 17 January, 2001)
+In the case of finite propositional programs, it can be computed in polynomial time, more specifically, in O(|At(P)|size(P)) steps, where size(P) denotes the total number of occurrences of atoms in a logic program P. For programs in that class we propose a new implementation of the alternating-fixpoint method in which false atoms are computed in a top-down fashion
+Link: https://arxiv.org/abs/cs/0101014
+====================================================
+Well-Typed Logic Programs Are not Wrong (Pierre Deransart - 18 January, 2001)
+We provide a more general condition, thus reestablishing a certain symmetry between heads and body atoms
+Link: https://arxiv.org/abs/cs/0012015
+====================================================
+On Redundancy Elimination Tolerant Scheduling Rules (F. Ferrucci - 17 April, 2000)
+A priority mechanism for atom scheduling is built, where a priority is assigned to each atom in a resolvent, and primary importance is given to the event of arrival of new atoms from the body of the applied clause at rewriting time
+Link: https://arxiv.org/abs/cs/0004006
+====================================================
+Logic Programs with Compiled Preferences (James P. Delgrande - 8 March, 2000)
+An ordered logic program is an extended logic program in which rules are named by unique terms, and in which preferences among rules are given by a set of dedicated atoms
+Link: https://arxiv.org/abs/cs/0003028
+====================================================
+A Compiler for Ordered Logic Programs (James P. Delgrande - 8 March, 2000)
+In an ordered logic program, rules are named by unique terms, and preferences among rules are given by a set of dedicated atoms
+Link: https://arxiv.org/abs/cs/0003024
+====================================================
+Computing and Comparing Semantics of Programs in Multi-valued Logics (Y. Loyer - 18 February, 2000)
+The different semantics that can be assigned to a logic program correspond to different assumptions made concerning the atoms whose logical values cannot be inferred from the rules. The parameter holds the value that one assumes for all atoms whose logical values cannot be inferred from the rules
+Link: https://arxiv.org/abs/cs/0002013
+====================================================
+Reconstructing Polyatomic Structures from Discrete X-Rays: NP-Completeness Proof for Three Atoms (Christoph Durr - 21 June, 1999)
+A polyatomic structure T can be defined as an integer lattice in dimension D>=2, whose points may be occupied by $c$ distinct types of atoms. A discrete X-ray in direction xi determines the number of atoms of each type on each line parallel to xi
+Link: https://arxiv.org/abs/cs/9906018
+====================================================
+Exploiting Context to Identify Lexical Atoms -- A Statistical View of Linguistic Context (Chengxiang Zhai - 2 January, 1997)
+Since such lexical atoms may occur frequently in unrestricted natural language text, recognizing them is crucial for understanding naturally-occurring text. The paper proposes several heuristic approaches to exploiting the linguistic context to identify lexical atoms from arbitrary natural language text.
+Link: https://arxiv.org/abs/cmp-lg/9701001
+====================================================
+A Hierarchy of Tractable Subsets for Computing Stable Models (R. Ben-Eliyahu - 31 July, 1996)
+In this paper we present a hierarchy of classes of knowledge bases, Omega_1,Omega_2,..., with the following properties: first, Omega_1 is the class of all stratified knowledge bases; second, if a knowledge base Pi is in Omega_k, then Pi has at most k stable models, and all of them may be found in time O(lnk), where l is the length of the knowledge base and n the number of atoms in Pi; third, for an arbitrary knowledge base Pi, we can find the minimum k such that Pi belongs to Omega_k in time polynomial in the size of Pi; and, last, where K is the class of all knowledge bases, it is the case that union{i=1 to infty} Omega_i = K, that is, every knowledge base belongs to some class in the hierarchy.
+Link: https://arxiv.org/abs/cs/9608104
+====================================================
+Practical Methods for Proving Termination of General Logic Programs (E. Marchiori - 31 March, 1996)
+Termination of logic programs with negated body atoms (here called general logic programs) is an important topic. One reason is that many computational mechanisms used to process negated atoms, like Clark's negation as failure and Chan's constructive negation, are based on termination conditions
+Link: https://arxiv.org/abs/cs/9604102
+====================================================

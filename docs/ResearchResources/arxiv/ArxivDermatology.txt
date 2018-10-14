@@ -1,0 +1,43 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+WonDerM: Skin Lesion Classification with Fine-tuned Neural Networks (Yeong Chan Lee - 10 August, 2018)
+A task of the Part 3 of the ISIC Skin Image Analysis Challenge at MICCAI 2018 is to predict seven disease classes with skin lesion images, including melanoma (MEL), melanocytic nevus (NV), basal cell carcinoma (BCC), actinic keratosis / Bowen's disease (intraepithelial carcinoma) (AKIEC), benign keratosis (solar lentigo / seborrheic keratosis / lichen planus-like keratosis) (BKL), dermatofibroma (DF) and vascular lesion (VASC) as defined by the International Dermatology Society.
+Link: https://arxiv.org/abs/1808.03426
+====================================================
+Using Deep Learning Method for Classification: A Proposed Algorithm for the ISIC 2017 Skin Lesion Classification Challenge (Wenhao Zhang - 10 March, 2017)
+This abstract is dedicated on developing a Deep Learning method for ISIC [5] 2017 Skin Lesion Detection Competition hosted at [6] to classify the dermatology pictures, which is aimed at improving the diagnostic accuracy rate and general level of the human health. This algorithm is comprised of three steps: (1) original images preprocessing, (2) modelling the processed images using CNN [2, 3] in Caffe [4] framework, (3) predicting the test images and calculating the scores that represent the likelihood of corresponding classification. The models are built on the source images are using the Caffe [4] framework
+Link: https://arxiv.org/abs/1703.02182
+====================================================
+Skin Lesion Analysis toward Melanoma Detection: A Challenge at the International Symposium on Biomedical Imaging (ISBI) 2016, hosted by the International Skin Imaging Collaboration (ISIC) (David Gutman - 4 May, 2016)
+In this article, we describe the design and implementation of a publicly accessible dermatology image analysis benchmark challenge. Training data included 900 images. A separate test dataset of 379 images was provided to measure resultant performance of systems developed with the training data. In total, there were 79 submissions from a group of 38 participants, making this the largest standardized and comparative study for melanoma diagnosis in dermoscopic images to date
+Link: https://arxiv.org/abs/1605.01397
+====================================================
+Visualizing Convolutional Neural Networks to Improve Decision Support for Skin Lesion Classification (Pieter Van Molle - 11 September, 2018)
+In this paper, we try to open the black box of the CNN by inspecting and visualizing the learned feature maps, in the field of dermatology
+Link: https://arxiv.org/abs/1809.03851
+====================================================
+Anomaly Detection for Skin Disease Images Using Variational Autoencoder (Yuchen Lu - 24 July, 2018)
+To the best of our knowledge, this is the first applied work of deep generative models for anomaly detection in dermatology.
+Link: https://arxiv.org/abs/1807.01349
+====================================================
+An Adaptive Cluster-based Filtering Framework for Speckle Reduction of OCT Skin Images (Elaheh Rashedi - 2 July, 2018)
+Optical coherence tomography (OCT) has become a favorable device in the Dermatology discipline due to its moderate resolution and penetration depth
+Link: https://arxiv.org/abs/1708.02285
+====================================================
+Application of Independent Component Analysis Techniques in Speckle Noise Reduction of Retinal OCT Images (Ahmadreza Baghaie - 28 July, 2015)
+Optical Coherence Tomography (OCT) is an emerging technique in the field of biomedical imaging, with applications in ophthalmology, dermatology, coronary imaging etc
+Link: https://arxiv.org/abs/1502.05742
+====================================================
+Sparse And Low Rank Decomposition Based Batch Image Alignment for Speckle Reduction of retinal OCT Images (Ahmadreza Baghaie - 8 February, 2015)
+Optical Coherence Tomography (OCT) is an emerging technique in the field of biomedical imaging, with applications in ophthalmology, dermatology, coronary imaging etc
+Link: https://arxiv.org/abs/1411.4033
+====================================================
+State-of-the-Art in Retinal Optical Coherence Tomography Image Analysis (Ahmadreza Baghaie - 17 November, 2014)
+Its applications range from ophthalmology to dermatology to coronary imaging etc
+Link: https://arxiv.org/abs/1411.0740
+====================================================
