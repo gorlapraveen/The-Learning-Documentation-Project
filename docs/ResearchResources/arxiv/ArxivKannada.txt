@@ -1,0 +1,71 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Building a Kannada POS Tagger Using Machine Learning and Neural Network Models (Ketan Kumar Todi - 9 August, 2018)
+Our Kannada POS tagger outperforms the state-of-the-art Kannada POS tagger by 6%
+Link: https://arxiv.org/abs/1808.03175
+====================================================
+Kannada Spell Checker with Sandhi Splitter (A N Akshatha - 25 November, 2016)
+The sandhi splitter can split about 7000 most common sandhi words in Kannada language used as test samples. It is twice as fast, 200 times more space efficient, and it is 90% accurate in case of complex nouns and 50% accurate for complex verbs
+Link: https://arxiv.org/abs/1611.08358
+====================================================
+Kannada named entity recognition and classification (nerc) based on multinomial naÃ¯ve bayes (mnb) classifier (S. Amarappa - 12 September, 2015)
+NERC in Kannada is an essential and challenging task. It is observed that the model works with Precision, Recall and F1-measure of 83%, 79% and 81% respectively.
+Link: https://arxiv.org/abs/1509.04385
+====================================================
+Significance of the levels of spectral valleys with application to front/back distinction of vowel sounds (T. V. Ananthapadmanabha - 5 October, 2015)
+Classification of vowels into front/back distinction with the difference (VI-VII) as an acoustic feature, tested using TIMIT, NTIMIT, Tamil and Kannada language databases gives, on the average, an accuracy of about 95%, which is comparable to the accuracy (90.6%) obtained using a neural network classifier trained and tested using MFCC as the feature vector for TIMIT database. The acoustic feature (VI-VII) has also been tested for its robustness on the TIMIT database for additive white and babble noise and an accuracy of about 95% has been obtained for SNRs down to 25 dB for both types of noise.
+Link: https://arxiv.org/abs/1506.04828
+====================================================
+Implicit segmentation of Kannada characters in offline handwriting recognition using hidden Markov models (Manasij Venkatesh - 16 October, 2014)
+We use HMMs to take advantage of the agglutinative nature of Kannada script, which allows us to perform implicit segmentation of characters along with recognition. All the experiments are performed on the Chars74k dataset that consists of 657 handwritten characters collected across multiple users. The use of implicit segmentation technique at the character level resulted in an improvement of around 10%. This system also outperformed an existing system tested on the same dataset by around 16%. Accordingly, we collected additional data and obtained an improvement of 4% with 6 additional samples.
+Link: https://arxiv.org/abs/1410.4341
+====================================================
+Extraction of Line Word Character Segments Directly from Run Length Compressed Printed Text Documents (Mohammed Javed - 30 March, 2014)
+The proposed algorithms have been validated with 1101 text-lines, 1409 words and 7582 characters from a data-set of 35 noise and skew free compressed documents of Bengali, Kannada and English Scripts.
+Link: https://arxiv.org/abs/1403.7783
+====================================================
+Statistical Texture Features based Handwritten and Printed Text Classification in South Indian Documents (Mallikarjun Hangarge - 13 March, 2013)
+Scripts like Kannada, Telugu, Malayalam and Hindi i.e., Devanagari are primarily employed where an average classification rate of 99.26% is achieved
+Link: https://arxiv.org/abs/1303.3087
+====================================================
+Gaussian Mixture Model for Handwritten Script Identification (Mallikarjun Hangarge - 11 March, 2013)
+This paper presents a Gaussian Mixture Model (GMM) to identify the script of handwritten words of Roman, Devanagari, Kannada and Telugu scripts. A dataset of 400 images out of 800 (200 of each script) are used for training GMM and the remaining is for testing. An exhaustive experimentation is carried out at bi-script, tri-script and multi-script level and achieved script identification accuracies in percentage as 98.7, 98.16 and 96.91 respectively.
+Link: https://arxiv.org/abs/1303.2751
+====================================================
+Classifier Fusion Method to Recognize Handwritten Kannada Numerals (H. R. Mamatha - 1 January, 2013)
+This paper explores the effectiveness of feature extraction method like run length count (RLC) and directional chain code (DCC) for the recognition of handwritten Kannada numerals. Proposed method achieves an average recognition rate of 96%.
+Link: https://arxiv.org/abs/1301.0167
+====================================================
+Discrimination of English to other Indian languages (Kannada and Hindi) for OCR system (Ankit Kumar - 10 May, 2012)
+We analysed 700 different words of Kannada, English and Hindi in order to extract the discrimination features and for the development of knowledge base. The proposed system is tested on 100 different document images containing more than 1000 text words of each script and a classification rate of 98.25%, 99.25% and 98.87% is achieved for Kannada, English and Hindi respectively.
+Link: https://arxiv.org/abs/1205.2164
+====================================================
+Multi-font Multi-size Kannada Numeral Recognition Based on Structural Features (B. V. Dhandra - 18 November, 2011)
+A Euclidian minimum distance criterion is used to find minimum distances and K-nearest neighbor classifier is used to classify the Kannada numerals by varying the size of numeral image from 16 to 50 font sizes for the 20 different font styles from NUDI and BARAHA popular word processing Kannada software. The total 1150 numeral images are tested and the overall accuracy of classification is found to be 100%. The average time taken by this method is 0.1476 seconds.
+Link: https://arxiv.org/abs/1111.4291
+====================================================
+A Single Euler Number Feature for Multi-font Multi-size Kannada Numeral Recognition (B. V. Dhandra - 18 November, 2011)
+A total 1500 numeral images with different font sizes between (10..84) are tested for algorithm efficiency and the overall the classification accuracy is found to be 99.00% .The said method is thinning free, fast, and showed encouraging results on varying font styles and sizes of Kannada numerals.
+Link: https://arxiv.org/abs/1111.4290
+====================================================
+Spatial Features for Multi-Font/Multi-Size Kannada Numerals and Vowels Recognition (B. V. Dhandra - 6 July, 2011)
+Directional spatial features viz stroke density, stroke length and the number of stokes in an image are employed as potential features to characterize the printed Kannada numerals and vowels. Based on these features 1100 numerals and 1400 vowels are classified with Multi-class Support Vector Machines (SVM). The proposed system achieves the recognition accuracy as 98.45% and 90.64% for numerals and vowels respectively.
+Link: https://arxiv.org/abs/1107.1081
+====================================================
+Morphological Reconstruction for Word Level Script Identification (B. V. Dhandra - 4 July, 2011)
+The proposed system is developed for three Indian major bilingual documents, Kannada, Telugu and Devnagari containing English numerals. The proposed algorithm is tested on 2625 words with various font styles and sizes
+Link: https://arxiv.org/abs/1106.5156
+====================================================
+Kannada Character Recognition System A Review (K. Indira - 29 January, 2010)
+There are no sufficient number of works on Indian language character recognition especially Kannada script among 12 major scripts in India
+Link: https://arxiv.org/abs/1001.5352
+====================================================
+Handwritten Character Recognition of South Indian Scripts: A Review (John Jomy - 1 June, 2011)
+This paper provides an overview of offline handwritten character recognition in South Indian Scripts, namely Malayalam, Tamil, Kannada and Telungu.
+Link: https://arxiv.org/abs/1106.0107
+====================================================
