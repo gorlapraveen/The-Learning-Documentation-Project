@@ -12,8 +12,8 @@ So, We are very glad to have everyone on this board to access or/and contribute 
   1. Daily used advanced Linux Commands, Linux Scripts, Script Commands, Generating Script Commands, Bash Scripting, Python Usage, Python Scripting and Free and Open Technologies.
   2.  Internet Privacy, Cryptographic usage, Security Packages and tools.
   3.  Your Open Ideas, Thoughts, and Articles on Free and Open culture that you want to say to the world!
-* For Documenting, you can continue to write at [README.md](/README.md)(only Short Documentation) or else you can create a new file of your own choice in [docs](/docs) folder.
-* For Code contribution, Please create scripts or folders(For Multiple Script pages) in [Code](/code) folder.
+* For Documenting, you can continue to write at [README.md](/README.md)(only Short Documentation) or else you can create a new file of your own choice in [docs](/docs) folder while referencing them in [README.md - Table of Contents](/README.md#table-of-contents).
+* For Code contribution, Please create scripts or folders(For Multiple Script pages) in [Code](/code) folder while referencing them in [README.md - Table of Contents](/README.md#table-of-contents).
 * Your contribution(s) is/are **Licensed** under the following guidelines:
   1.  Code/Software is licensed under [GNU General Publice License 2+](https://www.gnu.org/licenses/licenses.html#GPL).
   2.  Documentation is licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/licenses.html#FDL)
