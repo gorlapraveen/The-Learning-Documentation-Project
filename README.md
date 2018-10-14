@@ -31,8 +31,10 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
 |[Standarad Command Line : Table of Long Options](/docs/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) | |
 | Security Scanner:[ chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit), [Lynis (Debian)](https://packages.debian.org/stretch/lynis)| Note-Please review source code, it may contains harmfiles |
 | Text to Speech: [Festival-tts](http://www.cstr.ed.ac.uk/projects/festival/) | For: [Debian](https://packages.debian.org/stretch/festival) Package
-
- 
+| CLI Brightness : [Brightness Bash Shell](https://salsa.debian.org/gorlapraveen-guest/brightness_bashshell_script) | Command Line Brightness adjustment, `Bash shell` script |
+| CLI Brightness : [Blacklight Deb Packages](https://salsa.debian.org/gorlapraveen-guest/blacklight-deb-packages) | Command Line Brightness adjust, `.deb` Package |
+| CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts) | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `Bash Script`
+| CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
  -------------------------------------------------------------------------------------------------
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
