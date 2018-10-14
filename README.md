@@ -52,6 +52,8 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
  
   **SSH Keys:**
   
+  1. SSH-Client :If you don't have ssh installed, normally the client is installed by default. If not it suffices to run as root:  Install it with `apt-get install openssh-client` .
+  2. SSH-server : The server allows to connect remotely and gets installed by running as root: `apt-get install openssh-server`
 For generating, show existing list, shh-add etc..
          
 * ssh key generation: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com" `. This creates a new ssh key, using the provided email as a label.
@@ -79,7 +81,7 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
   ------------------------------------------------------------------------------------------
  
 **GPG : Keysigning**
-
+ Install gnupg (or) gnupg2 by : `apt install gnupg` or `apt installl gnupg2`(for latest version of GNUpg 2)
 
 The intent of this manual is to explain how you can create and sign a GPG key. 
  
