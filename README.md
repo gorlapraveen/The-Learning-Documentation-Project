@@ -136,6 +136,8 @@ The intent of this manual is to explain how you can create and sign a GPG key.
   - * * Finally `gpg> save` .
   
 
+**List gpg key in LONG Format**: `gpg --armor --export KEY_ID` here `KEY_ID` is `23955501` , the last 8 digits for gpg key.
+
 Find more at https://keyring.debian.org/creating-key.html
 
   ----------------------------------------------------------------------------------------------
