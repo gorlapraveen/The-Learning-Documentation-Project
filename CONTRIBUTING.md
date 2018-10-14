@@ -7,7 +7,7 @@ So, We are very glad to have everyone on this board to access or/and contribute 
 ----------------------------------
 
 ## Guidelines and Agreement  : 
-* Any Individual/Group/Organization, how can demonstrate their desire for Free and Open Culture.
+* Any Individual/Group/Organization, who can demonstrate their desire for Free and Open Culture.
 * Areas of Contribution : 
   1. Daily used advanced Linux Commands, Linux Scripts, Script Commands, Generating Script Commands, Bash Scripting, Python Usage, Python Scripting and Free and Open Technologies.
   2.  Internet Privacy, Cryptographic usage, Security Packages and tools.
