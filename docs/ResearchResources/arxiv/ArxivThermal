@@ -1,0 +1,1539 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Exploring the Vision Processing Unit as Co-processor for Inference (Sergio Rivas-Gomez - 9 October, 2018)
+Preliminary results indicate that a multi-VPU configuration provides similar performance compared to reference CPU and GPU implementations, while reducing the thermal-design power (TDP) up to 8x in comparison.
+Link: https://arxiv.org/abs/1810.04150
+====================================================
+A scalable parallel finite element framework for growing geometries. Application to metal additive manufacturing (Eric Neiva - 8 October, 2018)
+Computational experiments consider the part-scale thermal analysis of the printing process by powder-bed technologies. After verification against a 3D benchmark, a strong scaling analysis is carried out for a simulation of 48 layers printed in a cuboid. The cuboid is adaptively meshed to model a layer-by-layer metal deposition process and the average global problem size amounts to 10.3 million unknowns. An unprecedented scalability for problems with growing domains is achieved, with the capability of simulating the printing and recoat of a single layer in 8 seconds average on 3,072 processors
+Link: https://arxiv.org/abs/1810.03506
+====================================================
+Robust online identification of thermal models for in-production HPC clusters with machine learning-based data selection (Federico Pittino - 3 October, 2018)
+In this paper we show that, using an advanced system identification algorithm, we are able to generate very accurate thermal models (average error lower than our sensors quantization step of 1Â°C) for a large scale HPC system on real workloads. However, we also show that: 1) not all real workloads allow for the identification of a good model; 2) starting from the theory of system identification it is very difficult to evaluate if a trace of data leads to a good estimated model. We also show that only via deep learning techniques these traces can be correctly chosen up to 96% of the times.
+Link: https://arxiv.org/abs/1810.01865
+====================================================
+Adaptive Resonant Beam Charging for Intelligent Wireless Power Transfer (Qingqing Zhang - 25 September, 2018)
+In RBC, battery overcharge may cause energy waste, thermal effects, and even safety issues. Numerical evaluation demonstrates that ARBC can save 61% battery charging energy and 53%-60% supplied energy compared with RBC
+Link: https://arxiv.org/abs/1809.09364
+====================================================
+Thermal Features for Presentation Attack Detection in Hand Biometrics (Ewelina Bartuzi - 12 September, 2018)
+First, a PAD method operating in an open-set mode, capable of correctly discerning 100% of fake thermal samples, achieving Attack Presentation Classification Error Rate (APCER) and Bona-Fide Presentation Classification Error Rate (BPCER) equal to 0%, which can be easily implemented into any existing system as a separate component. Second, a hand biometrics system operating in a closed-set mode, that has PAD built right into the recognition pipeline, and operating simultaneously with the user-wise classification, achieving rank-1 recognition accuracy of up to 99.75%
+Link: https://arxiv.org/abs/1809.04364
+====================================================
+Multimodal Dialogue Management for Multiparty Interaction with Infants (Setareh Nasihati Gilani - 5 September, 2018)
+The system's multimodal perception includes an eye-tracker (measures attention) and a thermal infrared imaging camera (measures patterns of emotional arousal). The present version of the system was evaluated in interaction with 8 babies
+Link: https://arxiv.org/abs/1809.01581
+====================================================
+Reinforcement Learning Testbed for Power-Consumption Optimization (Takao Moriyama - 21 August, 2018)
+Common approaches to control a data-center cooling system rely on approximated system/environment models that are built upon the knowledge of mechanical cooling and electrical and thermal management. The experimental results indicate that we can achieve 22% improvement compared to a model-based control algorithm built into the EnergyPlus
+Link: https://arxiv.org/abs/1808.10427
+====================================================
+Towards a Deep Unified Framework for Nuclear Reactor Perturbation Analysis (Fabio De Sousa Ribeiro - 8 September, 2018)
+Recurrent neural networks (RNN), specifically Long Short-Term Memory (LSTM) networks were used to study signal sequences related to perturbations induced in the time domain, including the vibrations of fuel assemblies and the fluctuations of thermal-hydraulic parameters at the inlet of the reactor coolant loops. 512 dimensional representations were extracted from the 3D-CNN and LSTM architectures, and used as input to a fused multi-sigmoid classification layer to recognise the perturbation type
+Link: https://arxiv.org/abs/1807.10096
+====================================================
+Window Opening Model using Deep Learning Methods (Romana Markovic - 20 September, 2018)
+Additionally, the practical potential of the proposed model was tested by incorporating it in the Modelica-based thermal building simulation. The performance dropped around 15 % points in case of sparse input data, while the F1 score remained high.
+Link: https://arxiv.org/abs/1807.03610
+====================================================
+Thermanator: Thermal Residue-Based Post Factum Attacks On Keyboard Password Entry (Tyler Kaczmarek - 10 July, 2018)
+We conduct and describe a user study that collected thermal residues from 30 users entering 10 unique passwords (both weak and strong) on 4 popular commodity keyboards. Results show that entire sets of key-presses can be recovered by non-expert users as late as 30 seconds after initial password entry, while partial sets can be recovered as late as 1 minute after entry
+Link: https://arxiv.org/abs/1806.10189
+====================================================
+Large-Scale Demonstration of Precise Demand Response Provided by Residential Heating Systems (Fabian L. MÃ¼ller - 20 June, 2018)
+Electric heating and cooling systems of buildings can provide different demand response services because their electricity consumption is inherently flexible because of their thermal inertia. This paper reports on the results of a large-scale demand response demonstration involving a population of more than 300 residential buildings with heat pump installations
+Link: https://arxiv.org/abs/1806.07670
+====================================================
+Power-Temperature Stability and Safety Analysis for Multiprocessor Systems (Ganapati Bhat - 16 June, 2018)
+We also present a simple formula to compute the stable fixed point and maximum thermally-safe power consumption at runtime. Hardware measurements on a state-of-the-art mobile processor show that our analytical formulation can predict the stable fixed point with an average error of 2.6%
+Link: https://arxiv.org/abs/1806.06180
+====================================================
+Fire SSD: Wide Fire Modules based Single Shot Detector on Edge Device (Hengfui Liau - 22 June, 2018)
+With the emergence of edge computing, there is an increasing need for running convolutional neural network based object detection on small form factor edge computing devices with limited compute and thermal budget for applications such as video surveillance. Fire SSD achieves 70.7mAP on Pascal VOC 2007 test set. Fire SSD achieves the speed of 30.6FPS on low power mainstream CPU and is about 6 times faster than SSD300 and has about 4 times smaller model size
+Link: https://arxiv.org/abs/1806.05363
+====================================================
+Model of an oscillatory neural network with multilevel neurons for pattern recognition (Andrei Velichko - 8 June, 2018)
+ONN model is realized on thermally-coupled VO2-oscillators. It is shown that ONN is capable to classify 512 visual patterns (as a cell array 3x3, distributed by symmetry into 102 classes) into a set of classes with the maximum number of elements up to P=11
+Link: https://arxiv.org/abs/1806.03079
+====================================================
+Synthetic data generation for end-to-end thermal infrared tracking (Lichao Zhang - 26 September, 2018)
+However, the lack of large labeled datasets hampers the usage of convolutional neural networks for tracking in thermal infrared (TIR) images. In addition, when we combine the network with motion features we outperform the state of the art with a relative gain of over 10%, clearly showing the efficiency of using synthetic data to train end-to-end TIR trackers.
+Link: https://arxiv.org/abs/1806.01013
+====================================================
+Are FPGAs Suitable for Edge Computing? (Saman Biookaghazadeh - 17 April, 2018)
+The experiment results imply that the key advantages of adopting FPGAs for edge computing over GPUs are three-fold: 1) FPGAs can provide a consistent throughput invariant to the size of application workload, which is critical to aggregating individual service requests from various IoT sensors; (2) FPGAs offer both spatial and temporal parallelism at a fine granularity and a massive scale, which guarantees a consistently high performance for accelerating both high-concurrency and high-dependency algorithms; and (3) FPGAs feature 3-4 times lower power consumption and up to 30.7 times better energy efficiency, offering better thermal stability and lower energy cost per functionality.
+Link: https://arxiv.org/abs/1804.06404
+====================================================
+Effects of Higher Order and Long-Range Synchronizations for Classification and Computing in Oscillator-Based Spiking Neural Networks (Andrey Velichko - 10 April, 2018)
+We have thoroughly explored the scheme of two thermally coupled $VO_2$ oscillators and found its effect of high order synchronization (HOS), which may be used to increase SNN classification capacity $N_s$. In a model $N_s$ may reach maximum of $N_s>150$ at certain levels of coupling strength and noise
+Link: https://arxiv.org/abs/1804.03395
+====================================================
+Thermal Management in Fine-Grained 3-D Integrated Circuits (Md Arif Iqbal - 9 March, 2018)
+However, such 3D architectures within small form factor increase hotspots and demand careful consideration of thermal management at all levels of integration [4] as stacked transistors are detached from the substrate (i.e., heat sink). Traditional system level approaches such as liquid cooling [5], heat spreader [6], etc. are inadequate for transistor level 3-D integration and have huge cost overhead [7]. However, proposed heat extraction feature is very effective in heat management, reducing temperature from heated area by up to 53%.
+Link: https://arxiv.org/abs/1803.03727
+====================================================
+Valuing knowledge, information and agency in Multi-agent Reinforcement Learning: a case study in smart buildings (Hussain Kazmi - 9 March, 2018)
+However, many buildings utilize the same types of thermal equipment e.g. Results show that savings of over 40% are possible with collaborative multi-agent systems making use of either expert knowledge or additional sensors with no loss of occupant comfort
+Link: https://arxiv.org/abs/1803.03491
+====================================================
+Deep Thermal Imaging: Proximate Material Type Recognition in the Wild through Deep Learning of Spatial Surface Temperature Patterns (Youngjun Cho - 6 March, 2018)
+Our approach uses a low-cost mobile thermal camera integrated into a smartphone to capture thermal textures. We evaluated the performance of the system by training it to recognise 32 material types in both indoor and outdoor environments. Our approach produced recognition accuracies above 98% in 14,860 images of 15 indoor materials and above 89% in 26,584 images of 17 outdoor materials
+Link: https://arxiv.org/abs/1803.02310
+====================================================
+Ear Recognition With Score-Level Fusion Based On CMC In Long-Wave Infrared Spectrum (Umit Kacar - 27 January, 2018)
+Thermal band provides seamless operation both night and day, robust against spoofing with understanding live ear and invariant to illumination conditions for human ear recognition. We have reached 97.71% for rank-1 with 567 test probes. Furthermore, we have defined the perfect rank which is rank number when recognition rate reaches 100% in cumulative matching curve
+Link: https://arxiv.org/abs/1801.09054
+====================================================
+PTB-TIR: A Thermal Infrared Pedestrian Tracking Benchmark (Qiao Liu - 18 January, 2018)
+The dataset includes 60 thermal sequences with manual annotations
+Link: https://arxiv.org/abs/1801.05944
+====================================================
+Full Wafer Redistribution and Wafer Embedding as Key Technologies for a Multi-Scale Neuromorphic Hardware Cluster (Kai Zoschke - 15 January, 2018)
+The panels with the embedded wafers were subsequently stressed with up to 1000 thermal cycles between 0C and 100C and have shown no severe failure formation over the cycle time.
+Link: https://arxiv.org/abs/1801.04734
+====================================================
+Deep Cross Polarimetric Thermal-to-visible Face Recognition (Seyed Mehdi Iranmanesh - 4 January, 2018)
+The results show the superior- ity of our method compared to the state-of-the-art models in cross thermal-to-visible face recognition algorithms.
+Link: https://arxiv.org/abs/1801.01486
+====================================================
+TV-GAN: Generative Adversarial Network Based Thermal to Visible Face Recognition (Teng Zhang - 7 December, 2017)
+To this end, we propose a Thermal-to-Visible Generative Adversarial Network (TV-GAN) that is able to transform thermal face images into their corresponding VLD images whilst maintaining identity information which is sufficient enough for the existing VLD face recognition models to perform recognition. Some examples are presented in Figure 1
+Link: https://arxiv.org/abs/1712.02514
+====================================================
+Hierarchical Siamese Network for Thermal Infrared Object Tracking (Qiao Liu - 27 November, 2017)
+Most thermal infrared (TIR) tracking methods are discriminative, which treat the tracking problem as a classification task. Extensive experimental results on the benchmarks: VOT-TIR 2015 and VOT-TIR 2016, show that our proposed method achieves favorable performance against the state-of-the-art methods.
+Link: https://arxiv.org/abs/1711.09539
+====================================================
+Vulnerabilities of Electric Vehicle Battery Packs to Cyberattacks (Shashank Sripad - 25 June, 2018)
+Further, this also poses potential physical safety risks via the triggering of thermal (fire) events. Attacks on EV subsystems, such as auxiliary components, undoubtedly lead to the trivial effect of draining the battery, which could be up to 20% per hour and could deteriorate the performance over longer time spans
+Link: https://arxiv.org/abs/1711.04822
+====================================================
+A Model that Predicts the Material Recognition Performance of Thermal Tactile Sensing (Tapomayukh Bhattacharjee - 4 November, 2017)
+While data-driven methods have shown promise for this recognition problem, many factors can influence performance, including sensor noise, the initial temperatures of the sensor and the object, the thermal effusivities of the materials, and the duration of contact. We evaluated our method using simulated contact with 69 materials and data collected by a real robot with 12 materials. Our model predicted the material recognition performance of support vector machine (SVM) with 96% accuracy for the simulated data, with 92% accuracy for real-world data with constant initial sensor temperatures, and with 91% accuracy for real-world data with varied initial sensor temperatures
+Link: https://arxiv.org/abs/1711.01490
+====================================================
+An Energy-Efficient Mixed-Signal Neuron for Inherently Error-Resilient Neuromorphic Systems (Baibhab Chatterjee - 24 October, 2017)
+The inherent error-resiliency of CNN is exploited to handle the thermal and flicker noise of MS-N. A system-level analysis using a cohesive circuit-algorithmic framework on MNIST and CIFAR-10 datasets demonstrate an increase of 3% in worst-case classification error for MNIST when the integrated noise power in the bandwidth is ~ 1 Î¼V2.
+Link: https://arxiv.org/abs/1710.09012
+====================================================
+Operational thermal load forecasting in district heating networks using machine learning and expert advice (Davy Geysen - 17 October, 2017)
+This solution is tested and validated using a thermal load dataset of 27 months obtained from 10 residential buildings located in Rottne, Sweden together with outdoor temperature information received from a weather forecast service
+Link: https://arxiv.org/abs/1710.06134
+====================================================
+Transforming Cooling Optimization for Green Data Center via Deep Reinforcement Learning (Yuanlong Li - 18 July, 2018)
+The prevailing approaches often rely on approximating system models that are built upon the knowledge of mechanical cooling, electrical and thermal management, which is difficult to design and may lead to sub-optimal or unstable performances. Our results show that the proposed CCA can achieve about 11% cooling cost saving on the simulation platform compared with a manually configured baseline control algorithm. Even though with DUE the results are conservative, we can still achieve about 15% cooling energy saving on the NSCC data trace if we set the inlet temperature threshold at 26.6 degree Celsius.
+Link: https://arxiv.org/abs/1709.05077
+====================================================
+Cost Modeling and Projection for Stacked Nanowire Fabric (Naveen Kumar Macha - 9 November, 2017)
+Recently, we proposed a stacked horizontal nanowire based transistor-level 3-D integration approach, called SN3D [1][2] that solves scaling challenges and achieves tremendous benefits with respect to 2-D CMOS while keeping manageable thermal profile. Since SN3D is a new 3-D IC fabric, based on our proposed manufacturing pathway[1] we assumed complexity of fabrication steps as proportionality constants in our cost estimation model. Our analysis revealed 86%, 72% and 74% reduction in area; 55%, 43% and 43% reduction in interconnects distribution and total interconnect length for SN3D, which largely contributed to 70%, 67% and 68% reduction in cost in comparison to 2D, T3D and M3D respectively.
+Link: https://arxiv.org/abs/1709.01965
+====================================================
+DeepBreath: Deep Learning of Breathing Patterns for Automatic Stress Recognition using Low-Cost Thermal Imaging in Unconstrained Settings (Youngjun Cho - 20 August, 2017)
+Using a low cost thermal camera, we track a person's breathing patterns as temperature changes around his/her nostril. Using normalised self-report as ground truth, the CNN reaches 84.59% accuracy in discriminating between two levels of stress and 56.52% in discriminating between three levels
+Link: https://arxiv.org/abs/1708.06026
+====================================================
+Automatic HVAC Control with Real-time Occupancy Recognition and Simulation-guided Model Predictive Control in Low-cost Embedded System (Muhammad Aftab - 17 August, 2017)
+With this in mind, we designed and implemented an occupancy-predictive HVAC control system in a low-cost yet powerful embedded system (using Raspberry Pi 3) to demonstrate the following key features for building automation: (1) real-time occupancy recognition using video-processing and machine-learning techniques, (2) dynamic analysis and prediction of occupancy patterns, and (3) model predictive control for HVAC operations guided by real-time building thermal response simulations (using an on-board EnergyPlus simulator)
+Link: https://arxiv.org/abs/1708.05208
+====================================================
+Demystifying the Characteristics of 3D-Stacked Memories: A Case Study for Hybrid Memory Cube (Ramyad Hadidi - 3 October, 2017)
+This paper is the first, to the best of our knowledge, to characterize the thermal behavior of HMC in a real environment using the AC-510 accelerator and to identify temperature as a new limitation for this state-of-the-art design space
+Link: https://arxiv.org/abs/1706.02725
+====================================================
+Spectrum Monitoring for Radar Bands using Deep Convolutional Neural Networks (Ahmed Selim - 1 May, 2017)
+We collected a large dataset of RF measurements, which include the transmissions of multiple radar pulse waveforms, downlink LTE, WLAN, and thermal noise. This representation allows our CNN model to achieve a classification accuracy of 99.6% on our testing dataset
+Link: https://arxiv.org/abs/1705.00462
+====================================================
+Reinforcement Learning-based Thermal Comfort Control for Vehicle Cabins (James Brusey - 5 September, 2017)
+This paper poses energy-efficient vehicle comfort control as a Markov Decision Process, which is then solved numerically using Sarsa(Î») and an empirically validated, single-zone, 1D thermal model of the cabin. The resulting controller was tested in simulation using 200 randomly selected scenarios and found to exceed the performance of bang-bang, proportional, simple fuzzy logic, and commercial controllers with 23%, 43%, 40%, 56% increase, respectively. Compared to the next best performing controller, energy consumption is reduced by 13% while the proportion of time spent thermally comfortable is increased by 23%
+Link: https://arxiv.org/abs/1704.07899
+====================================================
+Efficient Simulation of Temperature Evolution of Overhead Transmission Lines Based on Analytical Solution and NWP (Rui Yao - 28 September, 2017)
+Existing methods based on thermal-steady-state analyses cannot reflect transient temperature evolution, and thus cannot provide timing information needed for taking remedial actions. As demonstrated on an NPCC 140-bus system, it achieves over 1000 times of efficiency enhancement, verifying its potentials in online risk assessment and decision support.
+Link: https://arxiv.org/abs/1702.07284
+====================================================
+A Unified RGB-T Saliency Detection Benchmark: Dataset, Baselines, Analysis and A Novel Approach (Chenglong Li - 10 January, 2017)
+Integrating multiple different but complementary cues, like RGB and Thermal (RGB-T), may be an effective way for boosting saliency detection performance. This work contributes such a RGB-T image dataset, which includes 821 spatially aligned RGB-T image pairs and their ground truth annotations for saliency detection purpose. The image pairs are with high diversity recorded under different scenes and environmental conditions, and we annotate 11 challenges on these image pairs for performing the challenge-sensitive analysis for different saliency detection algorithms. We also implement 3 kinds of baseline methods with different modality inputs to provide a comprehensive comparison platform.
+Link: https://arxiv.org/abs/1701.02829
+====================================================
+Optimal Transmission Line Switching under Geomagnetic Disturbances (Mowen Lu - 5 October, 2017)
+To address this problem, we develop a model of GIC impacts to power systems that includes 1) GIC thermal capacity of transformers as a function of normal Alternating Current (AC) and 2) reactive power losses as a function of GIC
+Link: https://arxiv.org/abs/1701.01469
+====================================================
+Analysis and Design of a Passive Switched-Capacitor Matrix Multiplier for Approximate Computing (Edward H. Lee - 3 December, 2016)
+The analyses of incomplete charge accumulation and thermal noise are discussed. The design was fabricated in 40 nm CMOS, and experimental measurements of multiplication are illustrated using matched filtering and image convolutions to analyze noise and offset. Two applications are highlighted: 1) energy-efficient feature extraction layer performing both compression and classification in a neural network for an analog front end and 2) analog acceleration for solving optimization problems that are traditionally performed in the digital domain. The chip obtains measured efficiencies of 8.7 TOPS/W at 1 GHz for the first application and 7.7 TOPS/W at 2.5 GHz for the second application.
+Link: https://arxiv.org/abs/1612.00933
+====================================================
+Multispectral Deep Neural Networks for Pedestrian Detection (Jingjing Liu - 8 November, 2016)
+Thus there is a large potential to improve pedestrian detection by using color and thermal images in DNNs simultaneously. Our experimental results on KAIST pedestrian benchmark show that the Halfway Fusion model that performs fusion on the middle-level convolutional features outperforms the baseline method by 11% and yields a missing rate 3.5% lower than the other proposed architectures.
+Link: https://arxiv.org/abs/1611.02644
+====================================================
+Linear Support Tensor Machine: Pedestrian Detection in Thermal Infrared Images (Sujoy Kumar Biswas - 26 September, 2016)
+In addition, the proposed work also involves the release of our in-house annotations of pedestrians in more than 17000 frames of OSU Color Thermal database for the purpose of sharing with the research community.
+Link: https://arxiv.org/abs/1609.07878
+====================================================
+Achieving Zero-Error Capacity 1 for a Collision Channel Without Feedback (Yijin Zhang - 18 September, 2016)
+The collision channel without feedback (CCw/oFB) model introduced by Massey and Mathys, depicts a scenario in which M users share a thermal noise-free communication channel with random relative time offsets among their clocks. Moreover, we characterize the protocol sequences that can be used to achieve zero-error capacity 1 [packets/slot] by proving new results on shift-invariant sequences and throughput-invariant sequences; these sequences have been known to achieve zero-error capacity for the basic CCw/oFB model without SIC. This characterization sheds light on the minimum sequence period required in order to attain zero-error capacity 1.
+Link: https://arxiv.org/abs/1609.05448
+====================================================
+A Tube-and-Droplet-based Approach for Representing and Analyzing Motion Trajectories (Weiyao Lin - 26 April, 2017)
+Then, a 3D tube is derived which depicts an input trajectory by integrating its surrounding motion patterns contained in the thermal transfer field. The 3D tube effectively: 1) maintains the movement information of a trajectory, 2) embeds the complete contextual motion pattern around a trajectory, 3) visualizes information about a trajectory in a clear and unified way
+Link: https://arxiv.org/abs/1609.03058
+====================================================
+Reduction of Self-heating effect in LDMOS devices (T. K. Maiti - 20 July, 2016)
+Isotopic purification of group IV elements leads to substantial increase in thermal conductivity due to reduced scattering of the phonons. Based on this concept, a simulation study is used to demonstrate the reduction of at least 25 oC in LDMOS average temperature.
+Link: https://arxiv.org/abs/1608.07233
+====================================================
+Green Data Centers: A Survey, Perspectives, and Future Directions (Xibo Jin - 1 August, 2016)
+In this paper, we provide a survey of the state-of-the-art research on green data center techniques, including energy efficiency, resource management, thermal control and green metrics
+Link: https://arxiv.org/abs/1608.00687
+====================================================
+VisiSploit: An Optical Covert-Channel to Leak Data through an Air-Gap (Mordechai Guri - 19 July, 2016)
+The methods proposed have been based on different type of electromagnetic, acoustic, and thermal emissions. In order to demonstrate the feasibility of this type of attack and evaluate the channel's stealth, we conducted a battery of tests with 40 human subjects
+Link: https://arxiv.org/abs/1607.03946
+====================================================
+On-board monitoring of 2-D spatially-resolved temperatures in cylindrical lithium-ion batteries: Part I. Low-order thermal modelling (Robert R. Richardson - 6 June, 2016)
+We present a low-order 2D thermal model of a cylindrical battery based on a Chebyshev spectral-Galerkin (SG) method, capable of predicting the full temperature distribution with a similar efficiency to a TEC. The accuracy of the model is validated through comparison with finite element simulations, which show that the 2-D temperature field (r, z) of a large format (64 mm diameter) cell can be accurately modelled with as few as 4 states
+Link: https://arxiv.org/abs/1606.02144
+====================================================
+Modeling and Optimal Operation of Distributed Battery Storage in Low Voltage Grids (Philipp Fortenbacher - 16 March, 2017)
+Due to high power in-feed from photovoltaics, it can be expected that more battery systems will be installed in the distribution grid in near future to mitigate voltage violations and thermal line and transformer overloading. A further finding is that we can reduce battery losses by 30% by using the detailed battery model in the real-time control stage.
+Link: https://arxiv.org/abs/1603.06468
+====================================================
+Response to "Comment on 'Zero and negative energy dissipation at information-theoretic erasure'" (Laszlo B. Kish - 5 February, 2016)
+On the other hand, for information-theoretic erasure - i.e., "thermalization" / randomization of the memory - the originally zero information entropy (with deterministic data in the memory) changes after erasure to its maximum value, 1 bit / memory bit, while the energy dissipation is still positive, even at parameters for which the thermodynamic entropy within the memory cell does not change
+Link: https://arxiv.org/abs/1602.02638
+====================================================
+Deep Perceptual Mapping for Cross-Modal Face Recognition (M. Saquib Sarfraz - 7 July, 2016)
+We show substantive performance improvement on three difficult thermal-visible face datasets. The presented approach improves the state-of-the-art by more than 10\% on UND-X1 dataset and by more than 15-30\% on NVESD dataset in terms of Rank-1 identification. Our method bridges the drop in performance due to the modality gap by more than 40\%.
+Link: https://arxiv.org/abs/1601.05347
+====================================================
+Profiling-Assisted Decoupled Access-Execute (Jonatan Waern - 7 January, 2016)
+Additionally, due to the compact design, thermal issues become prominent. We evaluated the benefits in energy efficiency and performance for both static and dynamic code generation and showed that precise prefetching of critical loads can result in 20% energy improvements, on average
+Link: https://arxiv.org/abs/1601.01722
+====================================================
+Tracking Motion and Proxemics using Thermal-sensor Array (Chandrayee Basu - 25 November, 2015)
+Thermal array sensors on the other hand can provide coarse-grained tracking while preserving privacy of the subjects. The goal of the project is to facilitate motion detection and group proxemics modeling using an 8 x 8 infrared sensor array. Each of the 8 x 8 pixels is a temperature reading in Fahrenheit. We refer to each 8 x 8 matrix as a scene. We collected approximately 902 scenes with different configurations of human groups and different walking directions
+Link: https://arxiv.org/abs/1511.08166
+====================================================
+Online Object Tracking, Learning and Parsing with And-Or Graphs (Tianfu Wu - 2 September, 2016)
+In experiments, our AOGTracker is tested on two popular tracking benchmarks with the same parameter setting: the TB-100/50/CVPR2013 benchmarks, and the VOT benchmarks --- VOT 2013, 2014, 2015 and TIR2015 (thermal imagery tracking). In the latter, our AOGTracker outperforms all other trackers in VOT2013 and is comparable to the state-of-the-art methods in VOT2014, 2015 and TIR2015.
+Link: https://arxiv.org/abs/1509.08067
+====================================================
+HVACMeter: Apportionment of HVAC Power to Thermal Zones and Air Handler Units (Jason Koh - 17 September, 2015)
+We deploy HVACMeter to three buildings on our campus, to identify the set of sensors that are important for accurately disaggregating energy use at the level of each Air Handler Unit and each thermal zone within these buildings. HVACMeter power estimations have on an average 44.5 % less RMSE than that of mean power estimates
+Link: https://arxiv.org/abs/1509.05421
+====================================================
+Validation of daylighting model in CODYRUN building simulation code (H. Boyer - 14 September, 2015)
+Introduction Several software packages are available for thermal and airflow simulation in buildings. The most frequently used are ENERGY+ [1], ESP-r [2], and TRNSYS [3]. In the latter category, we may note ENERGY+, ESP-r and ECOTECT [4] software. After more than 20 years of developing a specific code named CODYRUN, we decided to add a lighting module to our software. Apart from the daylighting model, the majority applied the BESTEST procedure [15]. Associated with other specific comparisons, a very confident level of validation was obtained for the CODYRUN initial software [8].
+Link: https://arxiv.org/abs/1509.04738
+====================================================
+Support Vector Machine in Prediction of Building Energy Demand Using Pseudo Dynamic Approach (Subodh Paudel - 17 July, 2015)
+In addition, to encompass thermal inertia of building, pseudo dynamic model is applied since it takes into account information of transition of energy consumption effects and occupancy profile. In addition, relevant data selection method is computationally cheaper (around 8 minute training time) in contrast to whole data training (around 31 hour for weekend and 116 hour for working days) and reveals realistic control implementation for online system as well.
+Link: https://arxiv.org/abs/1507.05019
+====================================================
+Deep Perceptual Mapping for Thermal to Visible Face Recognition (M. Saquib Sarfraz - 10 July, 2015)
+We show substantive performance improvement on a difficult thermal-visible face dataset. The presented approach improves the state-of-the-art by more than 10% in terms of Rank-1 identification and bridge the drop in performance due to the modality gap by more than 40%.
+Link: https://arxiv.org/abs/1507.02879
+====================================================
+Lithium-ion battery thermal-electrochemical model-based state estimation using orthogonal collocation and a modified extended Kalman filter (A. M. Bizeray - 29 June, 2015)
+This paper investigates the state estimation of a high-fidelity spatially resolved thermal- electrochemical lithium-ion battery model commonly referred to as the pseudo two-dimensional model. Results show that the error on the state estimate falls below 1 % in less than 200 s despite a 30 % error on battery initial state-of-charge and additive measurement noise with 10 mV and 0.5 K standard deviations.
+Link: https://arxiv.org/abs/1506.08689
+====================================================
+Learning Agent for a Heat-Pump Thermostat With a Set-Back Strategy Using Model-Free Reinforcement Learning (Frederik Ruelens - 25 June, 2015)
+The proposed approach is validated for two building types with different thermal characteristics for heating in the winter and cooling in the summer. The simulation results indicate that the proposed learning agent can reduce the energy consumption by 4-9% during 100 winter days and by 9-11% during 80 summer days compared to the conventional constant set-point strategy
+Link: https://arxiv.org/abs/1506.01054
+====================================================
+A parametric study of window-to-floor ratio of three window types using dynamic simulation (Ana Rita Amaral - 24 March, 2015)
+Considering an annual thermal comfort assessment of a space, if windows are over-dimensioned, they can contribute to the increase of the heating needs due to heat losses, and also to the increase of cooling needs due to over-exposure to solar radiation. An annual and a seasonal assessment were done, in order to obtain the set of optimum values around 360 degree orientation.
+Link: https://arxiv.org/abs/1503.07016
+====================================================
+Thermal Covert Channels on Multi-core Platforms (Ramya Jayaram Masti - 24 March, 2015)
+Our experiments on an x86-based platform demonstrate covert thermal channels that achieve up to 12.5 bps and a weak side channel that can detect processes executed on neighbouring cores
+Link: https://arxiv.org/abs/1503.07000
+====================================================
+The Human Body and Millimeter-Wave Wireless Communication Systems: Interactions and Implications (Ting Wu - 19 August, 2015)
+Also, the propagation characteristics of millimeter-waves in the presence of the human body are studied, and four models representing different body parts are considered to evaluate thermal effects of millimeter-wave radiation on the body. Simulation results show that about 34% to 42% of the incident power is reflected at the skin surface at 60 GHz
+Link: https://arxiv.org/abs/1503.05944
+====================================================
+Graphical Representation for Heterogeneous Face Recognition (Chunlei Peng - 14 March, 2016)
+Extensive experiments conducted on multiple HFR scenarios (viewed sketch, forensic sketch, near infrared image, and thermal infrared image) show that the proposed method outperforms state-of-the-art methods.
+Link: https://arxiv.org/abs/1503.00488
+====================================================
+Sensorless Battery Internal Temperature Estimation using a Kalman Filter with Impedance Measurement (Robert R. Richardson - 25 January, 2015)
+This study presents a method of estimating battery cell core and surface temperature using a thermal model coupled with electrical impedance measurement, rather than using direct surface temperature measurements. The performance of the method is demonstrated experimentally on a 2.3 Ah lithium-ion iron phosphate cell fitted with surface and core thermocouples for validation
+Link: https://arxiv.org/abs/1501.06160
+====================================================
+Integrated canopy, building energy and radiosity model for 3D urban design (Etienne Burdet - 17 November, 2014)
+We study the effects of convexity, the number of buildings and building height, at constant density and thermal characteristics. Our results suggest that careful three dimensional morphology design can reduce heat demand by a factor of 2, especially by improving insolation of lower levels
+Link: https://arxiv.org/abs/1411.4956
+====================================================
+Online Rotor Resistance Adaptation Of Induction Motor Drive (Yuva sudhakar - 2 June, 2014)
+Rotor resistance of the induction motor drive is dependent on the temperature where it is installed for one Induced Draft Fan (I.D Fan) in one of the 500 MW generating thermal power plant
+Link: https://arxiv.org/abs/1406.1120
+====================================================
+Covert Optical Communication (Boulat A. Bash - 10 September, 2014)
+We show that, although it is impossible over a pure-loss channel, covert communication is attainable in the presence of any excess noise, such as a $300$K thermal blackbody
+Link: https://arxiv.org/abs/1404.7347
+====================================================
+Quantum annealing (Alfonso de la Fuente Ruiz - 9 April, 2014)
+Brief description on the state of the art of some local optimization methods: Quantum annealing Quantum annealing (also known as alloy, crystallization or tempering) is analogous to simulated annealing but in substitution of thermal activation by quantum tunneling
+Link: https://arxiv.org/abs/1404.2465
+====================================================
+A fractal approach to the dark silicon problem: a comparison of 3D computer architectures -- standard slices versus fractal Menger sponge geometry (Richard Herrmann - 8 April, 2014)
+It is shown, that for iteration orders $n>3$ the fractal model shows increasingly better thermal behavior
+Link: https://arxiv.org/abs/1404.1891
+====================================================
+Skybridge: 3-D Integrated Circuit Technology Alternative to CMOS (Mostafizur Rahman - 2 April, 2014)
+We co-architect Skybridge's core aspects, from device to circuit style, connectivity, thermal management, and manufacturing pathway in a 3-D fabric-centric manner, building on a uniform 3-D template. Our extensive bottom-up simulations, accounting for detailed material system structures, manufacturing process, device, and circuit parasitics, carried through for several designs including a designed microprocessor, reveal a 30-60x density, 3.5x performance per watt benefits, and 10X reduction in interconnect lengths vs
+Link: https://arxiv.org/abs/1404.0607
+====================================================
+Numerical Investigations on Hatching Process Strategies for Powder Bed Based Additive Manufacturing using an Electron Beam (Matthias Markl - 30 March, 2015)
+The underlying physical model and the corresponding three dimensional thermal free surface lattice Boltzmann method of the simulation software are briefly presented. The simulation software has already been validated on the basis of experiments up to 1.2 kW beam power by hatching a cuboid with a basic process strategy, whereby the results are classified into `porous', `good' and `uneven', depending on their relative density and top surface smoothness. In this paper we study the limitations of this basic process strategy in terms of higher beam powers and scan velocities to exploit the future potential of high power electron beam guns up to 10 kW
+Link: https://arxiv.org/abs/1403.3251
+====================================================
+GLOW: A global router for low-power thermal-reliable interconnect synthesis using photonic wavelength multiplexing (Duo Ding - 12 February, 2014)
+In this paper, we present GLOW, a hybrid global router to provide low power opto-electronic interconnect synthesis under the considerations of thermal reliability and various physical design constraints such as optical power, delay and signal quality. Compared with a greedy approach, GLOW demonstrates around 23%-50% of total optical power reduction, revealing great potential of on-chip WDM interconnect synthesis.
+Link: https://arxiv.org/abs/1402.2899
+====================================================
+Hygro-thermo-mechanical analysis of spalling in concrete walls at high temperatures as a moving boundary problem (Michal BeneÅ¡ - 9 January, 2015)
+A simplified mechanical approach to account for effects of thermal stresses and pore pressure build-up on spalling is incorporated into the model. (2000) and Mindeguia (2009) on concrete prismatic specimens under unidirectional heating of temperature of 600 $Â°$C and ISO 834 fire curve and the results obtained from the numerical model.
+Link: https://arxiv.org/abs/1401.1152
+====================================================
+Thermal Human face recognition based on Haar wavelet transform and series matching technique (Ayan Seal - 4 September, 2013)
+Experimental results indicated that the thermal infra red face images can be recognized by the proposed system effectively. The maximum success of 95% recognition has been achieved.
+Link: https://arxiv.org/abs/1309.1156
+====================================================
+A Comparative Study of Human thermal face recognition based on Haar wavelet transform (HWT) and Local Binary Pattern (LBP) (Ayan Seal - 4 September, 2013)
+Firstly, human thermal IR face image is preprocessed and cropped the face region only from the entire image. For LBP feature extraction, each of the face images in training and test datasets is divided into 161 numbers of sub images, each of size 8X8 pixels
+Link: https://arxiv.org/abs/1309.1009
+====================================================
+Automated Thermal Face recognition based on Minutiae Extraction (Ayan Seal - 4 September, 2013)
+The thermogram of human face is captured by thermal infra-red camera. It has been found that the first method supercedes the other two producing an accuracy of 97.62% with block size 16X16 for bit-plane 4.
+Link: https://arxiv.org/abs/1309.1000
+====================================================
+Mathematical model of concentrating solar cooker (Mauricio GonzÃ¡lez AvilÃ©s - 6 August, 2013)
+The main purpose of this work is to obtain a mathematical model consistent with the thermal behavior of concentrating solar cookers, such as Jorhejpataranskua. The model is expressed in terms of a coupled nonlinear system of differential equations which are solved using Mathematica 8
+Link: https://arxiv.org/abs/1308.1365
+====================================================
+A gradient descent technique coupled with a dynamic simulation to determine the near optimum orientation of floor plan designs (EugÃ©nio Rodrigues - 4 August, 2013)
+However, the need to evaluate all possible alternatives regarding designing variables being used during the optimization process leads to an intensive use of thermal simulation, which dramatically increases the simulation time, rendering it unpractical. The calculations are based on 100 floor plan designs generated by EPSAP
+Link: https://arxiv.org/abs/1307.6883
+====================================================
+A Factor Graph Approach to Joint OFDM Channel Estimation and Decoding in Impulsive Noise Environments (Marcel Nassar - 7 June, 2013)
+Impulsive noise arises in many modern wireless and wireline communication systems, such as Wi-Fi and powerline communications, due to uncoordinated interference that is much stronger than thermal noise. Numerical results indicate that the proposed receiver drastically outperforms existing receivers under impulsive noise and comes within 1 dB of the matched-filter bound
+Link: https://arxiv.org/abs/1306.1851
+====================================================
+Vesselness features and the inverse compositional AAM for robust face recognition using thermal IR (Reza Shoja Ghiass - 7 June, 2013)
+The effectiveness of the proposed approach is demonstrated on the largest public database of thermal IR images of faces on which it achieved 100% identification, significantly outperforming previous methods.
+Link: https://arxiv.org/abs/1306.1609
+====================================================
+Invasive Computing - Common Terms and Granularity of Invasion (JÃ¼rgen Teich - 22 April, 2013)
+Future MPSoCs with 1000 or more processor cores on a chip require new means for resource-aware programming in order to deal with increasing imperfections such as process variation, fault rates, aging effects, and power as well as thermal problems
+Link: https://arxiv.org/abs/1304.6067
+====================================================
+On the Generalized Hermite-Based Lattice Boltzmann Construction, Lattice Sets, Weights, Moments, Distribution Functions and High-Order Models (RaÃºl Machado - 17 April, 2013)
+The theoretical possibility to obtain a high-order Hermite-based LB model capable to exactly match some first hydrodynamic moments thermally 1) on-Cartesian lattice, 2) with thermal weights in the EDF, 3) whilst the highest possible hydrodynamic moments that are exactly matched are obtained with the shortest on-Cartesian lattice sets with some fixed real-valued temperatures, is also analyzed.
+Link: https://arxiv.org/abs/1304.4865
+====================================================
+A Packetized Direct Load Control Mechanism for Demand Side Management (Bowen Zhang - 23 January, 2013)
+We use a thermal dynamic model to investigate the duty cycle of thermostatic appliances. The third theorem proposes an allocation method to link the results in theorem 1 and assumptions in theorem 2 such that the overall PDLC solution works
+Link: https://arxiv.org/abs/1301.5593
+====================================================
+Building design in tropical climates. Elaboration of the ECODOM standard in the french tropical islands (FranÃ§ois Garde - 21 December, 2012)
+In early 1995, a DSM pilot initiative has been launched in the french islands of Guadeloupe and Reunion through a partnership between the French Public Utility EDF, institutions involved in energy conservation, environment preservation (ADEME) and construction quality improvment, the University of Reunion Island and several other public and private partners (low cost housing institutions, architects, energy consultant, etc...) to set up a standard in the thermal conception of buildings in tropical climates. These technical solutions have been edited in a pedagogical reference document and have been implemented in 300 new pilot dwelling projects through the year 1996 in Reunion Island and in Guadeloupe island
+Link: https://arxiv.org/abs/1212.6241
+====================================================
+A Picard Newton method to solve non linear airflow networks (Harry Boyer - 20 December, 2012)
+As a consequence, wind speed conditioning indoor thermal comfort or energy needs in case of air conditionning are uneasy to predict. A linear system (extracted from the non linear set of equations) is solved around 10 times at each time step and NR uses this result for initial values
+Link: https://arxiv.org/abs/1212.5275
+====================================================
+Bringing simulation to implementation: Presentation of a global approach in the design of passive solar buildings under humid tropical climates (FranÃ§ois Garde - 15 April, 2013)
+In early 1995, a DSM pilot initiative has been launched in the French islands of Guadeloupe and Reunion through a partnership between several public and private partners (the French Public Utility EDF, the University of Reunion Island, low cost housing companies, architects, energy consultants, etc...) to set up standards to improve thermal design of new residential buildings in tropical climates. These technical specifications have been edited in a reference document which has been used to build over 300 new pilot dwellings through the years 1996-1998 in Reunion Island and in Guadeloupe. An experimental monitoring has been made in these first ECODOM dwellings in 1998 and 1999. This follow up is important, as the setting up of the ECODOM standard will be the first step towards the setting up of thermal regulations in the French overseas territories, by the year 2002.
+Link: https://arxiv.org/abs/1212.5252
+====================================================
+Elaboration of global quality standards for natural and low energy cooling in French tropical island buildings (F. Garde - 17 December, 2012)
+We evaluated, with the aid of an airflow and thermal building simulation software (CODYRUN), the impact of each technical solution on thermal comfort within the building. These technical solutions have been implemented in 280 new pilot dwelling projects through the year 1996.
+Link: https://arxiv.org/abs/1212.3925
+====================================================
+A Mathematical Random Number Generator (MRNG) (Osvaldo Skliar - 21 November, 2012)
+In this case, "mathematical" refers to the fact that to construct that generator it is not necessary to resort to a physical phenomenon, such as the thermal noise of an electronic device, but rather to a mathematical procedure. From those strings, the MRNG also generates random numbers expressed in base 10. Users interested in applications in cryptography can build another MRNG, but they would have to withhold information - specified in section 5 - from people who are not authorized to decode messages encrypted using that resource.
+Link: https://arxiv.org/abs/1211.5052
+====================================================
+A Ternary Digital to Analog Converter with High Power Output and 170-dB Dynamic Range (Guido Stolfi - 22 October, 2012)
+The use of ternary cells makes possible a 170 dB dynamic range that is basically limited by thermal noise only.
+Link: https://arxiv.org/abs/1210.6338
+====================================================
+Comparison of Different Parallel Implementations of the 2+1-Dimensional KPZ Model and the 3-Dimensional KMC Model (Jeffrey Kelling - 25 July, 2012)
+We show that efficient simulations of the Kardar-Parisi-Zhang interface growth in 2 + 1 dimensions and of the 3-dimensional Kinetic Monte Carlo of thermally activated diffusion can be realized both on GPUs and modern CPUs
+Link: https://arxiv.org/abs/1204.5072
+====================================================
+Thermal analysis & optimization of a 3 dimensional heterogeneous structure (Ramya Menon C. - 8 March, 2012)
+In this paper we are presenting the results of our thermal analysis experiments of a 3D heterogeneous structure with three layers. The bottom layer had eight identical processors at 2.4 GHz and the top layer was with four memory units
+Link: https://arxiv.org/abs/1203.1799
+====================================================
+A Novel Methodology for Thermal Aware Silicon Area Estimation for 2D & 3D MPSoCs (Ramya Menon C. - 16 January, 2012)
+This paper proposes an integration and thermal analysis methodology to extract the peak temperature and temperature distribution of 2-dimensional and 3-dimensional multiprocessor system-on-chip. In this paper, we have analysed the temperature developed in an IC with four identical processors at 2.4 GHz in different floorplans
+Link: https://arxiv.org/abs/1201.3332
+====================================================
+Polar Fusion Technique Analysis for Evaluating the Performances of Image Fusion of Thermal and Visual Images for Human Face Recognition (Mrinal Kanti Bhowmik - 17 June, 2011)
+The database used for the experiments conducted here is Object Tracking and Classification Beyond Visible Spectrum (OTCBVS) database benchmark thermal and visual face images. The second method has shown better performance, which is 95.71% (maximum) and on an average 93.81% as correct recognition rate.
+Link: https://arxiv.org/abs/1106.3464
+====================================================
+Human Face Recognition using Line Features (Mrinal Kanti Bhowmik - 5 July, 2010)
+Line features are extracted from thermal polar images and feature vectors are constructed using these line. Experimental results show that the proposed approach significantly improves the verification and identification performance and the success rate is 99.25%.
+Link: https://arxiv.org/abs/1007.0638
+====================================================
+Classification of fused face images using multilayer perceptron neural network (Debotosh Bhattacharjee - 5 July, 2010)
+In the experiments we have used Object Tracking and Classification Beyond Visible Spectrum (OTCBVS) database benchmark thermal and visual face images. Experimental results show that the proposed approach significantly improves the verification and identification performance and the success rate is 95.07%
+Link: https://arxiv.org/abs/1007.0633
+====================================================
+Classification of Fused Images using Radial Basis Function Neural Network for Human Face Recognition (M. K. Bhowmik - 5 July, 2010)
+In the experiments Object Tracking and Classification Beyond Visible Spectrum (OTCBVS) database benchmark for thermal and visual face images have been used. Experimental results show that the proposed approach performs well in recognizing unknown individuals with a maximum success rate of 96%.
+Link: https://arxiv.org/abs/1007.0631
+====================================================
+Image Pixel Fusion for Human Face Recognition (Mrinal Kanti Bhowmik - 5 July, 2010)
+In the experiments Object Tracking and Classification Beyond Visible Spectrum (OTCBVS) database benchmark for thermal and visual face images have been used. Comparison of experimental results show that the proposed approach performs significantly well in recognizing face images with a success rate of 96% and 95.07% for RBF Neural Network and MLP respectively.
+Link: https://arxiv.org/abs/1007.0628
+====================================================
+Fusion of Wavelet Coefficients from Visual and Thermal Face Images for Human Face Recognition - A Comparative Study (M. K. Bhowmik - 5 July, 2010)
+For experiments IRIS Thermal/Visual Face Database was used. Experimental results using Haar and Daubechies wavelets show that the performance of the approach presented here achieves maximum success rate of 100% in many cases.
+Link: https://arxiv.org/abs/1007.0626
+====================================================
+Fusion of Daubechies Wavelet Coefficients for Human Face Recognition (Mrinal Kanti Bhowmik - 5 July, 2010)
+Here, Daubechies wavelet transform, called as D2, coefficients from visual and corresponding coefficients computed in the same manner from thermal images are combined to get fused coefficients. After decomposition up to fifth level (Level 5) fusion of coefficients is done. Experimental results show that the performance of the approach presented here achieves maximum success rate of 100% in many cases.
+Link: https://arxiv.org/abs/1007.0621
+====================================================
+Quotient Based Multiresolution Image Fusion of Thermal and Visual Images Using Daubechies Wavelet Transform for Human Face Recognition (Mrinal Kanti Bhowmik - 5 July, 2010)
+In the proposed system, the method-1 namely "Decompose then Quotient Fuse Level-1" and the method-2 namely "Decompose-Reconstruct then Quotient Fuse Level-2" both work on wavelet transformations of the visual and thermal face images. All the different classes have been tested separately, among them the maximum recognition result is 100%.
+Link: https://arxiv.org/abs/1007.0620
+====================================================
+Classification of Polar-Thermal Eigenfaces using Multilayer Perceptron for Human Face Recognition (Mrinal Kanti Bhowmik - 21 May, 2010)
+In the experiments we have used Object Tracking and Classification Beyond Visible Spectrum (OTCBVS) database benchmark thermal face images. Experimental results show that the proposed approach significantly improves the verification and identification performance and the success rate is 97.05%.
+Link: https://arxiv.org/abs/1005.4035
+====================================================
+A statistical mechanical interpretation of instantaneous codes (Kohtaro Tadaki - 12 January, 2009)
+The notions in statistical mechanics such as statistical mechanical entropy, temperature, and thermal equilibrium are translated into the context of noiseless source coding. Especially, it is discovered that the temperature 1 corresponds to the average codeword length of an instantaneous code in this statistical mechanical interpretation of noiseless source coding scheme
+Link: https://arxiv.org/abs/0901.1708
+====================================================
+On-Chip Hotplate for Temperature Control of Cmos Saw Resonators (Anis Nordin - 7 May, 2008)
+The efficiency of the polysilicon resistor as a heating element was verified through a 1-D partial differential equation model, 3-D CoventorWare finite element simulations and measurements using Compix thermal camera. Experimental results have indicated that the TCF of the CMOS SAW resonator of -97.2 ppm/deg C has been reduced to -23.19 ppm/deg C when heated to 56 deg C.
+Link: https://arxiv.org/abs/0805.0930
+====================================================
+Micromachined Inclinometer Based on Fluid Convection (N. Crespy - 7 May, 2008)
+By using micromachined silicon technique, a thermal inclinometer with one pair of detectors placed at 300 um from the heater has been made
+Link: https://arxiv.org/abs/0805.0904
+====================================================
+Single Chip Sensing of Multiple Gas Flows (P. Bruschi - 7 May, 2008)
+The fabrication and experimental characterization of a thermal flow meter, capable of detecting and measuring two independent gas flows with a single chip, is described. The device is based on a 4 x 4 mm2 silicon chip, where a series of differential micro-anemometers have been integrated together with standard electronic components by means of postprocessing techniques
+Link: https://arxiv.org/abs/0805.0892
+====================================================
+Low-Drift Flow Sensor with Zero-Offset Thermopile-Based Power Feedback (M. Dijkstra - 7 May, 2008)
+The flow sensor was characterised for power difference versus water flow rates up to 1.5 ul/min, being in good agreement with a thermal model of the sensor, and the correct low-drift operation of the temperature-balancing control system has been verified.
+Link: https://arxiv.org/abs/0805.0891
+====================================================
+Geometrical Variation Analysis of an Electrothermally Driven Polysilicon Microactuator (M. Shamshirsaz - 7 May, 2008)
+An electrothermally driven polysilicon microactuator similar to Pan's actuator architecture has been studied in this paper. For this microactuator architecture, an optimal beam length ratio equal to 0.46 has been obtained to achieve maximum tip deflection
+Link: https://arxiv.org/abs/0805.0888
+====================================================
+Outage Probability of the Gaussian MIMO Free-Space Optical Channel with PPM (Nick Letzepis - 31 March, 2008)
+Non-ideal photodetection is also assumed such that the combined shot noise and thermal noise are considered as signal-independent Additive Gaussian white noise. Furthermore, we illustrate very large gains, in some cases larger than 15 dB, when transmitter CSI is also available by adapting the transmitted electrical power.
+Link: https://arxiv.org/abs/0804.0050
+====================================================
+Design and Modeling of Micromechanical GaAs based Hot Plate for Gas Sensors (J. Jakovenko - 21 February, 2008)
+This paper discusses design, simulation and fabrication of new Micromachined Thermal Converters (MTCs) based on GaAs developed for Gas sensors. There is a low power consumption required to obtain the operation temperatures in the range of 200 to 500 oC
+Link: https://arxiv.org/abs/0802.3065
+====================================================
+Formation of Embedded Microstructures by Thermal Activated Solvent Bonding (S. H. Ng - 21 February, 2008)
+The technique has advantages over the more commonly used thermal bonding due to its much lower operation temperature (30 degrees C lower than the material's Tg), lower load, as well as shorter time. Lap shear test indicated bonding shear strength of up to 2.9 MPa. Leak test based on the bubble emission technique showed that the bonded microfluidic device can withstand at least 6 bars (87 psi) of internal pressure (gauge) in the microchannel
+Link: https://arxiv.org/abs/0802.3064
+====================================================
+Analysis of polysilicon micro beams buckling with temperature-dependent properties (M. Shamshirsaz - 21 February, 2008)
+In the previous electro-thermal and thermo-elastic models of suspended polysilicon micro beams, the thermo-mechanical properties of polysilicon have been considered constant over a wide rang of temperature (20- 900 degrees C)
+Link: https://arxiv.org/abs/0802.3054
+====================================================
+A Novel X-Axis Tuning Fork Gyroscope with "8 Vertical Springs-Proofmass" Structure on (111)-Silicon (Fei Duan - 21 February, 2008)
+During the fabrication process, the dimensions of the 8 vertical springs are precisely confined by thermal oxide protected limit trenches (LTs) sidewalls and the extreme slowly etched (111)-planes; therefore a small mismatch of less than 30 Hz is achieved before tuning
+Link: https://arxiv.org/abs/0802.3038
+====================================================
+Micro-Ball Lens Array Fabrication in Photoresist Using Ptfe Hydrophobic Effect (Ruey-Fang Shyu - 21 November, 2007)
+A thermal reflow process then was applied to melt these micro-column patterns resulted in micro-ball lens array. The achieved micro-ball lens array with diameter 98 $Î¼$m was fabricated using 80 $Î¼$m in diameter patterns
+Link: https://arxiv.org/abs/0711.3329
+====================================================
+Integration of Micro-Electro-Mechanical Deformable Mirrors in Doped Fiber Amplifiers (D. Bouyge - 21 November, 2007)
+The results of the simulations fit well with the experimental mechanical, electrical and thermal measurements of the components. In order to decrease the sensitiveness to fiber-mirror alignment we are developing novel optical devices based on stressed-metal cantilever-type geometry that allow deflections up to 50 $Î¼$m with increased reflectivity discrimination during actuation.
+Link: https://arxiv.org/abs/0711.3327
+====================================================
+Smart Temperature Sensor for Thermal Testing of Cell-Based ICs (S. A. Bota - 25 October, 2007)
+In this paper we present a simple and efficient built-in temperature sensor for thermal monitoring of standard-cell based VLSI circuits. Simulation results from a 0.18$Î¼$m CMOS technology show that the non-linearity error of the sensor can be reduced when an adequate set of standard logic gates is selected.
+Link: https://arxiv.org/abs/0710.4733
+====================================================
+Ergodic Capacity of Triple-Hop All-Optical Amplify-and-Forward Relaying over Free-Space Optical Channels (Mohsen Naseri - 4 October, 2018)
+In this paper, we propose a comprehensive research over triple hop all-optical relaying free-space optical (FSO) systems in the presence of all main noise sources including background, thermal and amplified spontaneous emission (ASE) noise and by considering the effect of the optical degree-of- freedom (DoF)
+Link: https://arxiv.org/abs/1810.02171
+====================================================
+Physics Informed Topology Learning in Networks of Linear Dynamical Systems (Saurav Talukdar - 27 September, 2018)
+The class of problems where reconstruction is guaranteed to be exact includes power distribution networks, dynamic thermal networks and consensus networks. The efficacy of the approach is illustrated through simulation and experiments on consensus networks, IEEE power distribution networks and thermal dynamics of buildings.
+Link: https://arxiv.org/abs/1809.10535
+====================================================
+Two-Layer Model Predictive Battery Thermal and Energy Management Optimization for Connected and Automated Electric Vehicles (Mohammad Reza Amini - 26 September, 2018)
+In this paper, we develop a two-layer Model Predictive Control (MPC) strategy for battery thermal and energy management of electric vehicle (EV), aiming at improving fuel economy through real-time prediction and optimization. In the second layer, the scheduled battery thermal and state of charge (SOC) trajectories planned to achieve long-term battery energy-optimal thermal behavior are used as the reference over a short horizon to regulate the battery temperature
+Link: https://arxiv.org/abs/1809.10002
+====================================================
+The AAU Multimodal Annotation Toolboxes: Annotating Objects in Images and Videos (Chris H. Bahnsen - 10 September, 2018)
+Both toolboxes support the annotation of sequential images in the RGB and thermal modalities
+Link: https://arxiv.org/abs/1809.03171
+====================================================
+DeepFall -- Non-invasive Fall Detection with Deep Spatio-Temporal Convolutional Autoencoders (Jacob Nogas - 13 September, 2018)
+We tested the \textit{DeepFall} framework on three publicly available datasets collected through non-invasive sensing modalities, thermal camera and depth cameras and show superior results in comparison to traditional autoencoder and convolutional autoencoder methods to identify unseen falls.
+Link: https://arxiv.org/abs/1809.00977
+====================================================
+Machine learning for predicting thermal power consumption of the Mars Express Spacecraft (Matej PetkoviÄ - 3 September, 2018)
+We present a machine learning pipeline for efficiently constructing accurate predictive models for predicting the power of the thermal subsystem on board MEX. In particular, we employ state-of-the-art feature engineering approaches for transforming raw telemetry data, in turn used for constructing accurate models with different state-of-the-art machine learning methods
+Link: https://arxiv.org/abs/1809.00542
+====================================================
+MobiBits: Multimodal Mobile Biometric Database (Ewelina Bartuzi - 31 August, 2018)
+This paper presents a novel database comprising representations of five different biometric characteristics, collected in a mobile, unconstrained or semi-constrained setting with three different mobile devices, including characteristics previously unavailable in existing datasets, namely hand images, thermal hand images, and thermal face images, all acquired with a mobile, off-the-shelf device. This is the first known to us mobile biometric database introducing samples of biometric traits such as thermal hand images and thermal face images
+Link: https://arxiv.org/abs/1808.10710
+====================================================
+Implications of Integrated CPU-GPU Processors on Thermal and Power Management Techniques (Kapil Dev - 29 August, 2018)
+Using detailed thermal and power maps of the die from infrared imaging, we demonstrate that in contrast to traditional multi-core CPUs, heterogeneous processors exhibit higher coupled behavior for dynamic voltage and frequency scaling and workload scheduling, in terms of their effect on performance, power, and temperature. The findings presented in the paper can be used to improve thermal and power efficiency of heterogeneous CPU-GPU processors.
+Link: https://arxiv.org/abs/1808.09651
+====================================================
+TRINITY: Coordinated Performance, Energy and Temperature Management in 3D Processor-Memory Stacks (Karthik Rao - 9 September, 2018)
+The price paid however is, tight thermal constraints.
+Link: https://arxiv.org/abs/1808.09087
+====================================================
+The Shift from Processor Power Consumption to Performance Variations: Fundamental Implications at Scale (Joseph Schuchart - 24 August, 2018)
+For computationally intense applications using advanced vector extension (AVX) instructions, the processor cannot continuously operate at full speed but instead reduces its frequency below the nominal frequency to maintain operations within thermal design power (TDP) limitations
+Link: https://arxiv.org/abs/1808.08106
+====================================================
+Data-driven modeling for boiling heat transfer: using deep neural networks and high-fidelity simulation results (Yang Liu - 8 June, 2018)
+Boiling heat transfer occurs in many situations and can be used for thermal management in various engineered systems with high energy density, from power electronics to heat exchangers in power plants and nuclear reactors
+Link: https://arxiv.org/abs/1808.01859
+====================================================
+Scaling notifications beyond alerts: from subtly drawing attention up to forcing the user to take action (Denys J. C. Matthies - 6 August, 2018)
+To illustrate the technical feasibility and validity of this concept, we developed three prototypes providing mechano-pressure, thermal, and electrical feedback and evaluated them in different lab studies
+Link: https://arxiv.org/abs/1808.01745
+====================================================
+Addressing Security and Privacy Challenges in Internet of Things (Arsalan Mosenia - 17 July, 2018)
+Smart things, that can sense, store, and even process electrical, thermal, optical, chemical, and other signals to extract user-/environment-related information, have enabled services only limited by human imagination.
+Link: https://arxiv.org/abs/1807.06724
+====================================================
+Cyber-Physical System for Energy-Efficient Stadium Operation: Methodology and Experimental Validation (Mischa Schmidt - 13 July, 2018)
+Furthermore, this work demonstrates the first successful application of Deep Belief Networks to regress and predict the thermal evolution of building systems.
+Link: https://arxiv.org/abs/1807.05059
+====================================================
+Flexibility potentials of a combined use of heat storages and batteries in PV-CHP hybrid systems (Tanja M. Kneiske - 28 June, 2018)
+Flexibilities are provided in form of thermal and electrical storage systems leading to many possible setting options requiring an elaborated control management. The main focus in this paper is to study if the flexibility potentials of the combined thermal and electrical storage systems can ensure a market oriented or a grid-friendly behavior
+Link: https://arxiv.org/abs/1807.00673
+====================================================
+Measuring and comparing the scaling behaviour of a high-performance CFD code on different supercomputing infrastructures (JÃ©rÃ´me Frisch - 30 June, 2018)
+In this paper, we will show the results of those experiments and discuss any bottlenecks that could be observed while solving engineering-based problems such as porous media flows or thermal comfort assessments for problem sizes up to several hundred billion degrees of freedom.
+Link: https://arxiv.org/abs/1807.00146
+====================================================
+IR2VI: Enhanced Night Environmental Perception by Unsupervised Thermal Image Translation (Shuo Liu - 25 June, 2018)
+In this paper, we present the infrared-to-visual (IR2VI) algorithm, a novel unsupervised thermal-to-visible image translation framework based on generative adversarial networks (GANs)
+Link: https://arxiv.org/abs/1806.09565
+====================================================
+An Aiding Tool for Building Design Generation, Thermal Assessment and Optimization -- EnergyPlus Interaction Overview (Marco S. Fernandes - 14 June, 2018)
+The tool evaluates, ranks, and optimizes generated floor plans according to thermal performance criteria, using the dynamic simulation program EnergyPlus. The tool is currently able to use a wide variety of EnergyPlus objects, allowing for various template and detailed HVAC, DHW, and thermal and electrical energy production systems and components, as well as numerous internal gains types, construction elements and energy saving controls, to be accounted for and simulated in the generated buildings
+Link: https://arxiv.org/abs/1806.05949
+====================================================
+AdapterNet - learning input transformation for domain adaptation (Alon Hazan - 29 May, 2018)
+Some examples where this sub-class of domain adaptation can be valuable are various imaging modalities such as thermal imaging, X-ray, ultrasound, and MRI, where changes in acquisition parameters or acquisition device manufacturer will result in different representation of the same input
+Link: https://arxiv.org/abs/1805.11601
+====================================================
+Autonomous Thermalling as a Partially Observable Markov Decision Process (Extended Version) (Iain Guilliard - 24 May, 2018)
+We model autonomous thermalling as a POMDP and present a receding-horizon controller based on it. We implement it as part of ArduPlane, a popular open-source autopilot, and compare it to an existing alternative in a series of live flight tests involving two sUAVs thermalling simultaneously, with our POMDP-based controller showing a significant advantage.
+Link: https://arxiv.org/abs/1805.09875
+====================================================
+RGB-T Object Tracking:Benchmark and Baseline (Chenglong Li - 23 May, 2018)
+RGB-Thermal (RGB-T) object tracking receives more and more attention due to the strongly complementary benefits of thermal information to visible data. This graph including graph structure, node weights and edge weights is dynamically learned in a unified ADMM (alternating direction method of multipliers)-based optimization framework, in which the modality weights are also incorporated for adaptive fusion of multiple source data.Extensive experiments on the large-scale dataset are executed to demonstrate the effectiveness of the proposed tracker against other state-of-the-art tracking methods
+Link: https://arxiv.org/abs/1805.08982
+====================================================
+BeatCoin: Leaking Private Keys from Air-Gapped Cryptocurrency Wallets (Mordechai Guri - 23 April, 2018)
+We evaluate various exfiltration techniques, including physical, electromagnetic, electric, magnetic, acoustic, optical, and thermal techniques
+Link: https://arxiv.org/abs/1804.08714
+====================================================
+Large Margin Structured Convolution Operator for Thermal Infrared Object Tracking (Peng Gao - 19 July, 2018)
+Comprehensive evaluations on two thermal infrared tracking benchmarks, i.e. VOT-TIR2015 and VOT-TIR2016, clearly demonstrate that our LMSCO tracker achieves impressive results and outperforms most state-of-the-art trackers in terms of accuracy and robustness with sufficient frame rate.
+Link: https://arxiv.org/abs/1804.07006
+====================================================
+A theory of the phenomenology of multipopulation genetic algorithm with an application to the Ising model (Bruno Messias - 5 June, 2018)
+To illustrate the importance of understanding MPGA, we show its application as an efficient alternative to the thermalization phase of Metropolis-Hastings algorithm applied to the Ising model.
+Link: https://arxiv.org/abs/1803.09254
+====================================================
+Thermal to Visible Synthesis of Face Images using Multiple Regions (Benjamin S. Riggan - 20 March, 2018)
+Synthesis of visible spectrum faces from thermal facial imagery is a promising approach for heterogeneous face recognition; enabling existing face recognition software trained on visible imagery to be leveraged, and allowing human analysts to verify cross-spectrum matches more effectively. We analyze the effects of using multiple regions to synthesize a visible face image from a thermal face
+Link: https://arxiv.org/abs/1803.07599
+====================================================
+Illumination-aware Faster R-CNN for Robust Multispectral Pedestrian Detection (Chengyang Li - 14 August, 2018)
+Further, we discover that pedestrian detection confidences from color or thermal images are correlated with illumination conditions. Then we adaptively merge color and thermal sub-networks via a gate function defined over the illumination value
+Link: https://arxiv.org/abs/1803.05347
+====================================================
+Parametric model order reduction for large-scale and complex thermal systems (Daming Lou - 14 March, 2018)
+In this paper, a parametric model order reduction (pMOR) technique is proposed to find a simplified system representation of a large-scale and complex thermal system
+Link: https://arxiv.org/abs/1803.05240
+====================================================
+An integral control formulation of Mean-field game based large scale coordination of loads in smart grids (Arman C. Kizilkale - 29 August, 2018)
+The energy storage associated with millions of individual customer electric thermal (heating-cooling) loads is considered as a tool for smoothing power demand/generation imbalances
+Link: https://arxiv.org/abs/1803.00040
+====================================================
+A novel incentive-based demand response model for Cournot competition in electricity markets (JosÃ© Vuelvas - 22 February, 2018)
+Thermal and hydropower generation are considered in the model
+Link: https://arxiv.org/abs/1802.08130
+====================================================
+The entropy of a thermodynamic graph (O. Kurganskyy - 31 January, 2018)
+Recurrence relations of heat conduction in graph are derived without using of differential equations and based on the coefficients of thermal conductivity and heat capacity
+Link: https://arxiv.org/abs/1802.00322
+====================================================
+Gaussian 1-2-1 Networks: Capacity Results for mmWave Communications (Yahya H. Ezzeldin - 17 June, 2018)
+This model is motivated by millimeter wave communications where, due to the high path loss, a link between two nodes can exist only if beamforming gain at both sides is established, while in the absence of beamforming gain the signal is received well below the thermal noise floor
+Link: https://arxiv.org/abs/1801.02553
+====================================================
+A Taxonomy and Future Directions for Sustainable Cloud Computing: 360 Degree View (Sukhpal Singh Gill - 9 July, 2018)
+Further, the current research on sustainable cloud computing is organized into several categories: application design, sustainability metrics, capacity planning, energy management, virtualization, thermal-aware scheduling, cooling management, renewable energy and waste heat utilization
+Link: https://arxiv.org/abs/1712.02899
+====================================================
+Multi-Channel CNN-based Object Detection for Enhanced Situation Awareness (Shuo Liu - 30 November, 2017)
+We combine spatial, temporal and thermal information by generating a three-channel image, and they will be fused as CNN feature maps in an unsupervised manner. In the experiments, we validated the proposed method with the images from SENSIAC (Military Sensing Information Analysis Centre) database and compared it with the state-of-the-art
+Link: https://arxiv.org/abs/1712.00075
+====================================================
+Openmv: A Python powered, extensible machine vision camera (Ibrahim Abdelkader - 1 November, 2017)
+In addition, its hardware is extensible via modules that augment the platform with new capabilities, such as thermal imaging and networking modules.
+Link: https://arxiv.org/abs/1711.10464
+====================================================
+Spectral Element Methods for Liquid Metal Reactors Applications (Elia Merzari - 25 November, 2017)
+Over the past several years the NEAMS program has developed the integrated multiphysics code suite (thermal-hydraulics, structural analysis and neutronics) SHARP aimed at streamlining the prototyping of such components. The computational fluid dynamics code (CFD) selected for SHARP is Nek5000, a state-of-the-art highly scalable tool employing the spectral element method (SEM)
+Link: https://arxiv.org/abs/1711.09307
+====================================================
+A Supervised Learning Concept for Reducing User Interaction in Passenger Cars (Marius StÃ¤rk - 13 November, 2017)
+We use HMIs of multi-modal thermal conditioning systems in passenger cars as example for a complex setpoint selection system
+Link: https://arxiv.org/abs/1711.04518
+====================================================
+A Water Mass Method and Its Application to Integrated Heat and Electricity Dispatch Considering Thermal Dynamics (Yuwei Chen - 20 December, 2017)
+Compared with a steady state model without thermal dynamics, considering the thermal dynamic characteristics in the DHS can further expand the peak regulatory capabilities of CHP units. The WMM is tested in the thermal dynamic simulations compared to an existing node method and a commercial simulation software
+Link: https://arxiv.org/abs/1711.02274
+====================================================
+ThermSense: Smartphone-based Breathing Sensing Platform using Noncontact Low-Cost Thermal Camera (Youngjun Cho - 13 October, 2017)
+We demonstrate ThermSense, a new breathing sensing platform based on smartphone technology and low-cost thermal camera, which allows a user to measure his/her breathing pattern in a contact-free manner. With the designed key functions of Thermal Voxel Integration-based breathing estimation and respiration variability spectrogram (RVS, bi-dimensional representation of breathing dynamics), the developed platform provides scalability and flexibility for gathering respiratory physiological measurements ubiquitously
+Link: https://arxiv.org/abs/1710.05044
+====================================================
+An Augmented Nonlinear LMS for Digital Self-Interference Cancellation in Full-Duplex Direct-Conversion Transceivers (Zhe Li - 17 July, 2018)
+To establish that the underlying widely linear signal model is not adequate for strong transmit signals, the impact of various circuit imperfections, including power amplifier (PA) distortion, frequency-dependent I/Q imbalance, quantization noise and thermal noise, on the performance of the conventional augmented least mean square (LMS) based SI canceller, is analyzed
+Link: https://arxiv.org/abs/1710.04381
+====================================================
+On Mitigation of Side-Channel Attacks in 3D ICs: Decorrelating Thermal Patterns from Power and Activity (Johann Knechtel - 7 October, 2017)
+We address the thermal leakage in 3D ICs early on during floorplanning, along with tailored extensions for power and thermal management. Our key idea is to carefully exploit the specifics of material and structural properties in 3D ICs, thereby decorrelating the thermal behaviour from underlying power and activity patterns
+Link: https://arxiv.org/abs/1710.02678
+====================================================
+Smoothness-based Edge Detection using Low-SNR Camera for Robot Navigation (Vu Hoang Minh - 3 October, 2017)
+The main motivation of this paper was to develop an edge detection methodology capable of utilizing the low-SNR poor output from such a thermal camera and effectively detect smooth edges of the surrounding environment. The enhanced edge detector proposed in this paper takes the raw image from the thermal sensor, denoises the images, applies Canny edge detection followed by CSS method
+Link: https://arxiv.org/abs/1710.01416
+====================================================
+An Extended Analytic Model for the Heating of Bondwires (David Duque - 28 September, 2017)
+The resulting closed formula is built by coupling the heat transfer equations of the bondwire and the surrounding moulding compound by means of auxiliary variables that stem from an \emph{ad-hoc} linearisation and mediate the wire-mould thermal interaction
+Link: https://arxiv.org/abs/1709.10069
+====================================================
+Human Detection for Night Surveillance using Adaptive Background Subtracted Image (Yash Khandhediya - 27 September, 2017)
+As the principle involves sensing based on thermal radiation in the Near IR Region, it is possible to detect Humans from an image captured using a FLIR camera even in low light. The proposed method for human detection involves processing of Thermal images by using HOG (Histogram of Oriented Gradients) feature extraction technique along with some enhancements
+Link: https://arxiv.org/abs/1709.09389
+====================================================
+Constrained Deep Transfer Feature Learning and its Applications (Yue Wu - 23 September, 2017)
+To demonstrate the effectiveness of the proposed constrained deep transfer feature learning method, we apply it to thermal feature learning for eye detection by transferring from the visible domain
+Link: https://arxiv.org/abs/1709.08128
+====================================================
+Partition-based Unscented Kalman Filter for Reconfigurable Battery Pack State Estimation using an Electrochemical Model (Luis D. Couto - 22 September, 2017)
+This model allows considering a wider operating range and thermal coupling between cells, the latter turning out to be significant
+Link: https://arxiv.org/abs/1709.07816
+====================================================
+FieldSAFE: Dataset for Obstacle Detection in Agriculture (Mikkel Fly Kragh - 11 September, 2017)
+Sensing modalities include stereo camera, thermal camera, web camera, 360-degree camera, lidar, and radar, while precise localization is available from fused IMU and GNSS
+Link: https://arxiv.org/abs/1709.03526
+====================================================
+Distributed Real-Time HVAC Control for Cost-Efficient Commercial Buildings under Smart Grid Environment (Liang Yu - 19 October, 2017)
+To be specific, we first formulate a stochastic program to minimize the time average expected total cost with the consideration of uncertainties in electricity price, outdoor temperature, the most comfortable temperature level, and external thermal disturbance. Extensive simulation results based on real-world traces show that the proposed algorithm could reduce energy cost effectively with small sacrifice in thermal comfort.
+Link: https://arxiv.org/abs/1709.00715
+====================================================
+Stochastic IMT (insulator-metal-transition) neurons: An interplay of thermal and threshold noise at bifurcation (Abhinav Parihar - 28 March, 2018)
+The stochastic spiking is explained by two noise sources - thermal noise and threshold fluctuations, which act as precursors of bifurcation
+Link: https://arxiv.org/abs/1708.06238
+====================================================
+Enabling Self-aware Smart Buildings by Augmented Reality (Muhammad Aftab - 21 May, 2018)
+These systems merely follow pre-set HVAC control logic based on abstract building thermal response models, which are rough approximations to true physical models, ignoring dynamic spatial variations in built environments. To enable more accurate and responsive HVAC control, this paper introduces the notion of "self-aware" smart buildings, such that buildings are able to explicitly construct physical models of themselves (e.g., incorporating building structures and materials, and thermal flow dynamics)
+Link: https://arxiv.org/abs/1708.05174
+====================================================
+A Review of Internet of Things Architecture, Technologies and Analysis Smartphone-based Attacks Against 3D printers (Muhammad Bilal - 17 June, 2017)
+The thermal camera is used for exploring the side channel attacks after reconstructing the objects against 3D printers
+Link: https://arxiv.org/abs/1708.04560
+====================================================
+ThermalSim: A Thermal Simulator for Error Analysis (Milan Jain - 8 August, 2017)
+In this paper, we introduce ThermalSim, a building simulator that can quantify the effect of prediction errors on the HVAC operations. ThermalSim has been implemented in C/C++ and MATLAB
+Link: https://arxiv.org/abs/1708.04524
+====================================================
+An Extremely Efficient Chess-board Detection for Non-trivial Photos (Maciej A. Czyzewski - 13 August, 2017)
+In addition, we present two independent algorithms: PAMG (vertices detector) and FAPL (thermal lines) that can be widely used for other tasks in computer vision.
+Link: https://arxiv.org/abs/1708.03898
+====================================================
+Generative Adversarial Network-based Synthesis of Visible Faces from Polarimetric Thermal Faces (He Zhang - 8 August, 2017)
+Previous approaches utilize a two-step procedure (visible feature estimation and visible image reconstruction) to synthesize the visible image given the corresponding polarimetric thermal image. Multiple experiments evaluated on different experimental protocols demonstrate that the proposed method achieves state-of-the-art performance.
+Link: https://arxiv.org/abs/1708.02681
+====================================================
+Energy-dissipation Limits in Variance-based Computing (Sri Harsha Kondapalli - 19 July, 2017)
+In this letter we show that compared to the traditional bi-stable logic representation the variance-based representation can theoretically achieve a superior performance trade-off (in terms of energy dissipation and information capacity) when operating at fundamental limits imposed by thermal-noise
+Link: https://arxiv.org/abs/1707.06363
+====================================================
+Empirical evaluation of a Q-Learning Algorithm for Model-free Autonomous Soaring (Erwan Lecarpentier - 18 July, 2017)
+Using a Reinforcement Learning approach, we demonstrate the possibility for real-time adaptation of the glider's behaviour to the time-varying and noisy conditions associated with thermal soaring flight
+Link: https://arxiv.org/abs/1707.05668
+====================================================
+Stochastic Spin-Orbit Torque Devices as Elements for Bayesian Inference (Yong Shim - 11 September, 2017)
+We show that the probabilistic switching of Ta/CoFeB/MgO heterostructures in presence of spin-orbit torque and thermal noise can be harnessed to enable probabilistic inference in a plethora of unconventional computing scenarios
+Link: https://arxiv.org/abs/1707.04687
+====================================================
+Local Differential Privacy for Physical Sensor Data and Sparse Recovery (Anna C. Gilbert - 23 March, 2018)
+In this work we explore the utility of locally differentially private thermal sensor data
+Link: https://arxiv.org/abs/1706.05916
+====================================================
+Online Energy Management for a Sustainable Smart Home with an HVAC Load and Random Occupancy (Liang Yu - 13 September, 2017)
+In this paper, we investigate the problem of minimizing the sum of energy cost and thermal discomfort cost in a long-term time horizon for a sustainable smart home with a Heating, Ventilation, and Air Conditioning (HVAC) load
+Link: https://arxiv.org/abs/1706.02831
+====================================================
+The Effect of Temperature on Amdahl Law in 3D Multicore Era (Leonid Yavits - 20 May, 2017)
+We find that 3D CMP may reach its thermal limit before reaching its maximum power
+Link: https://arxiv.org/abs/1705.07280
+====================================================
+Robust tracking of respiratory rate in high-dynamic range scenes using mobile thermal imaging (Youngjun Cho - 20 September, 2017)
+The second is the Thermal Gradient Flow method that computes thermal gradient magnitude maps to enhance accuracy of the nostril region tracking. Finally, we introduce the Thermal Voxel method to increase the reliability of the captured respiration signals compared to the traditional averaging method
+Link: https://arxiv.org/abs/1705.06628
+====================================================
+Autocorrelation Function for Dispersion-Free Fiber Channels with Distributed Amplification (Gerhard Kramer - 1 January, 2018)
+The autocorrelation function is used to upper bound the output power of bandlimited or time-resolution limited receivers, and thereby to bound spectral broadening and the capacity of receivers with thermal noise
+Link: https://arxiv.org/abs/1705.00454
+====================================================
+Rate-Splitting to Mitigate Residual Transceiver Hardware Impairments in Massive MIMO Systems (Anastasios Papazafeiropoulos - 20 April, 2017)
+We consider a general experimentally validated model of hardware impairments, accounting for the presence of \textit{multiplicative distortion} due to phase noise, \textit{additive distortion noise} and \textit{thermal noise amplification}. Interestingly, in the case of imperfect CSIT, we demonstrate that RS is a robust strategy for multiuser MIMO in the presence of phase and amplified thermal noise, since its sum-rate does not saturate at high signal-to-noise ratio (SNR), contrary to conventional techniques
+Link: https://arxiv.org/abs/1704.06333
+====================================================
+Hardware Impairments Aware Transceiver Design for Bidirectional Full-Duplex MIMO OFDM Systems (Omid Taghizadeh - 8 February, 2018)
+Numerical results indicate that the application of a distortionaware design is essential for a system with a high hardware distortion, or for a system with a low thermal noise variance.
+Link: https://arxiv.org/abs/1704.04815
+====================================================
+Learning Cross-Modal Deep Representations for Robust Pedestrian Detection (Dan Xu - 1 January, 2018)
+First, given a multimodal dataset, a deep convolutional network is employed to learn a non-linear mapping, modeling the relations between RGB and thermal data. Importantly, at test time, only the second pipeline is considered and no thermal data are required
+Link: https://arxiv.org/abs/1704.02431
+====================================================
+Massively parallel lattice-Boltzmann codes on large GPU clusters (E. Calore - 1 March, 2017)
+This paper describes a massively parallel code for a state-of-the art thermal lattice- Boltzmann method
+Link: https://arxiv.org/abs/1703.00185
+====================================================
+Fault Tolerant Thermal Control of Steam Turbine Shell Deflections (Mert Geveci - 28 February, 2017)
+This paper includes a description of a control algorithm to manage external heating blankets for the thermal control of the shell deflections during turbine shutdown
+Link: https://arxiv.org/abs/1703.00079
+====================================================
+Distributed Temperature Control via Geothermal Heat Pump Systems in Energy Efficient Buildings (Xuan Zhang - 28 February, 2017)
+For large buildings with multiple thermal zones, those control schemes either lose efficiency or become costly to implement requiring a lot of real-time measurement, communication and computation. We present a thermal dynamic model of a building equipped with a GHP system for floor heating/cooling and formulate the GHP system control problem as a resource allocation problem with the objective to maximize user comfort in different zones and to minimize the building energy consumption
+Link: https://arxiv.org/abs/1702.08819
+====================================================
+The use of distributed thermal storage in district heating grids for demand side management (Dirk Vanhoudt - 6 February, 2017)
+The concept with the distributed buffers gives the best results, however the profit for the thermal mass concept is only marginally smaller. Since in this latter case no significant investment costs are needed, the conclusion for this case study is that the use of thermal mass of buildings for demand side management in district heating systems is very promising.
+Link: https://arxiv.org/abs/1702.06005
+====================================================
+Application of Multi-channel 3D-cube Successive Convolution Network for Convective Storm Nowcasting (Wei Zhang - 2 March, 2017)
+As real-time re-analysis meteorological data can now provide valuable atmospheric boundary layer thermal dynamic information, which is essential to predict storm initiation and growth, both raw 3D radar and re-analysis data are used directly without any handcraft feature engineering
+Link: https://arxiv.org/abs/1702.04517
+====================================================
+Decentralized and Distributed Temperature Control via HVAC Systems in Energy Efficient Buildings (Xuan Zhang - 10 February, 2017)
+Firstly, we introduce a thermal dynamic model of building systems and formulate a steady-state resource allocation problem, which aims to minimize the aggregate deviation between zone temperatures and their set points, as well as the building energy consumption, subject to practical operating constraints, by adjusting zone flow rates. In both cases, the thermal dynamics can be driven to equilibria which are optimal solutions to those associated steady-state optimization problems
+Link: https://arxiv.org/abs/1702.03308
+====================================================
+CAAD: Computer Architecture for Autonomous Driving (Shaoshan Liu - 7 February, 2017)
+To enable autonomous driving, the computing stack needs to simultaneously provide high performance, low power consumption, and low thermal dissipation, at low cost
+Link: https://arxiv.org/abs/1702.01894
+====================================================
+Combined Thermal Control and GNC: An Enabling Technology for CubeSat Surface Probes and Small Robots (Salil Rabade - 25 January, 2017)
+However, one of the major challenges that prevent these probes and robots from performing long duration surface exploration and science is thermal design and control. We have developed a thermal control system that utilizes chemicals to store and dispense heat when needed
+Link: https://arxiv.org/abs/1701.09076
+====================================================
+Design of PI Controller for Automatic Generation Control of Multi Area Interconnected Power System using Bacterial Foraging Optimization (Naresh Kumari - 26 January, 2017)
+The system comprises of three interconnected power system networks based on thermal, wind and hydro power generation
+Link: https://arxiv.org/abs/1701.08081
+====================================================
+Cooling Codes: Thermal-Management Coding for High-Performance Interconnects (Yeow Meng Chee - 23 October, 2017)
+However, existing methods fall short of fully addressing the thermal challenges posed by high-performance interconnects
+Link: https://arxiv.org/abs/1701.07872
+====================================================
+Intelligent real-time MEMS sensor fusion and calibration (Dusan Nemec - 26 January, 2017)
+This allows compensation of sensor thermal drift right in the sensors working environment without need of re-calibration in the laboratory.
+Link: https://arxiv.org/abs/1701.07594
+====================================================
+Constraint programming for planning test campaigns of communications satellites (Emmanuel HÃ©brard - 23 January, 2017)
+Sequencing these tests in a way that ensures the thermal stability of the payload and minimizes the overall duration of the test campaign is a very important objective for satellite manufacturers
+Link: https://arxiv.org/abs/1701.06388
+====================================================
+A Parallel Simulator for Massive Reservoir Models Utilizing Distributed-Memory Parallel Systems (Hui Liu - 22 January, 2017)
+The nonlinear techniques, preconditioner and matrix processing strategies can also be applied to three-phase black oil, compositional and thermal models.
+Link: https://arxiv.org/abs/1701.06254
+====================================================
+An Integrated Design of Optimization and Physical Dynamics for Energy Efficient Buildings: A Passivity Approach (Takeshi Hatanaka - 19 January, 2017)
+We first formulate a thermal dynamics and an associated optimization problem
+Link: https://arxiv.org/abs/1701.05577
+====================================================
+CFD results calibration from sparse sensor observations with a case study for indoor thermal map (Chaoyang Jiang - 13 December, 2016)
+In the experiment, four sensor observations were used to calibrate a simulated thermal map with 167x365 data points
+Link: https://arxiv.org/abs/1612.04227
+====================================================
+An Artificial Neural Networks based Temperature Prediction Framework for Network-on-Chip based Multicore Platform (Sandeep Aswath Narayana - 12 December, 2016)
+This thermal profile of the chip is then used by the predictive DTM that combines both core level and network level DTM techniques. On-chip wireless interconnect which is recently envisioned to enable energy-efficient data exchange between cores in a multicore environment, will be used to provide a broadcast-capable medium to efficiently distribute thermal control messages to trigger and manage the DTM schemes.
+Link: https://arxiv.org/abs/1612.04197
+====================================================
+Signal Detection under Short-Interval Sampling of Continuous Waveforms for Optical Wireless Scattering Communication (Difan Zou - 13 December, 2016)
+It is shown that the gap between two bounds approaches zero as the thermal noise and shot noise variances approach zero. For the latter, it is shown that the KL distance is not sensitive to the threshold selection for small shot and thermal noise variances, and thus the threshold can be selected among a wide range without significant loss from the optimal KL distance
+Link: https://arxiv.org/abs/1612.04058
+====================================================
+Exploring the potential of combining time of flight and thermal infrared cameras for person detection (Wim Abbeloos - 7 December, 2016)
+Combining new, low-cost thermal infrared and time-of-flight range sensors provides new opportunities
+Link: https://arxiv.org/abs/1612.02223
+====================================================
+Fusion of Range and Thermal Images for Person Detection (Wim Abbeloos - 7 December, 2016)
+To overcome these issues, we propose a system based on fused range and thermal infrared images
+Link: https://arxiv.org/abs/1612.02183
+====================================================
+Centrog Feature technique for vehicle type recognition at day and night times (Martins E. Irhebhude - 2 December, 2016)
+Although thermal images suffer from low image resolution, lack of colour and poor texture information, they offer the advantage of being unaffected by high intensity light sources such as vehicle headlights which tend to render normal images unsuitable for night time image capturing and subsequent analysis. Since contour is useful in shape based categorisation and the most distinctive feature within thermal images, CENTROG is used to capture this feature information and is used within the experiments
+Link: https://arxiv.org/abs/1612.00645
+====================================================
+MESL: Proposal for a Non-volatile Cascadable Magneto-Electric Spin Logic (Akhilesh Jaiswal - 23 November, 2016)
+Further, the proposed logic-device has better robustness against the effect of thermal noise as compared to the conventional current driven switching of nano-magnets
+Link: https://arxiv.org/abs/1611.07738
+====================================================
+WINDOW: Wideband Demodulator for Optical Waveforms (Omri Lev - 13 November, 2016)
+We demonstrate both theoretically and through numerical experiments that our system outperforms multicoset in terms of signal recovery and symbol estimation in the presence of both thermal and quantization noise but is slightly less robust to timing jitter.
+Link: https://arxiv.org/abs/1611.04120
+====================================================
+Optimized Thermal-Aware Job Scheduling and Control of Data Centers (Tobias Van Damme - 2 November, 2016)
+Analyzing data centers with thermal-aware optimization techniques is a viable approach to reduce energy consumption of data centers. By taking into account thermal consequences of job placements among the servers of a data center, it is possible to reduce the amount of cooling necessary to keep the servers below a given safe temperature threshold
+Link: https://arxiv.org/abs/1611.00522
+====================================================
+Policy Design for Controlling Set-Point Temperature of ACs in Shared Spaces of Buildings (Wayes Tushar - 24 October, 2016)
+On the other hand, users who enjoy the thermal comfort compensate the other users of the room. Thus, the policy enables the users to be cognizant and responsible for the payment on the energy consumption of the office space they are sharing, and at the same time ensures that the users are satisfied either via thermal comfort or through incentives
+Link: https://arxiv.org/abs/1610.07687
+====================================================
+An algorithmic comparison of the Hyper-Reduction and the Discrete Empirical Interpolation Method for a nonlinear thermal problem (Felix Fritzen - 19 December, 2017)
+All three approaches are applied to a simple uncertainty quantification of a planar nonlinear thermal conduction problem
+Link: https://arxiv.org/abs/1610.05029
+====================================================
+Automatic Generation of Equivalent Electrothermal SPICE Netlists from 3D Electrothermal Field Models (Thorben Casper - 13 October, 2016)
+Joule losses from the electrical circuit are included as heat sources in the thermal circuit. The thermal simulation yields nodal temperatures that influence the electrical conductivity
+Link: https://arxiv.org/abs/1610.04304
+====================================================
+Electrothermal Simulation of Bonding Wire Degradation under Uncertain Geometries (Thorben Casper - 13 October, 2016)
+In particular, the design of bonding wires with respect to thermal degradation is investigated. Based on geometric measurements, the resulting variability of the wire temperatures is determined using the stochastic electrothermal field-circuit model.
+Link: https://arxiv.org/abs/1610.04303
+====================================================
+Multi-scale computational homogenisation to predict the long-term durability of composite structures (Zahur Ullah - 13 October, 2016)
+At each macrostructure Gauss point, constitutive matrices for thermal, moisture transport and mechanical responses are calculated from CH of the underlying representative volume element (RVE)
+Link: https://arxiv.org/abs/1610.03484
+====================================================
+Advancing parabolic operators in thermodynamic MHD models: Explicit super time-stepping versus implicit schemes with Krylov solvers (Ronald M. Caplan - 4 October, 2016)
+The algorithms are used to integrate anisotropic Spitzer thermal conduction and artificial kinematic viscosity at time-steps much larger than classic explicit stability criteria allow
+Link: https://arxiv.org/abs/1610.01265
+====================================================
+Proposal for a Leaky-Integrate-Fire Spiking Neuron based on Magneto-Electric Switching of Ferro-magnets (Akhilesh Jaiswal - 28 September, 2016)
+Due to the effect of thermal noise, the ferro-magnet exhibits probabilistic switching dynamics, which is reminiscent of the stochasticity exhibited by biological neurons
+Link: https://arxiv.org/abs/1609.09158
+====================================================
+Regression Models for Output Prediction of Thermal Dynamics in Buildings (Georgios C. Chasparis - 10 August, 2016)
+This is particularly apparent when either the flow rate or the inlet temperature of the thermal medium varies significantly with time. To this end, this paper analytically derives, using physical insight, and investigates linear regression models with nonlinear regressors for system identification and prediction of thermal dynamics in buildings
+Link: https://arxiv.org/abs/1608.03090
+====================================================
+Data-Driven Background Subtraction Algorithm for in-Camera Acceleration in Thermal Imagery (Konstantinos Makantasis - 15 October, 2017)
+Although, effective background subtraction methods have been proposed, only a few of them take into consideration the special characteristics of thermal imagery. In this work, we propose a background subtraction scheme, which models the thermal responses of each pixel as a mixture of Gaussians with unknown number of components
+Link: https://arxiv.org/abs/1608.00229
+====================================================
+Monitoring and Prediction in Smart Energy Systems via Multi-timescale Nexting (Johannes Feldmaier - 18 July, 2016)
+In the second experiment, we verify the effectiveness of our developed structure in simulating a heating system in a thermal model of a building, by employing natural EnergyPlus temperature data.
+Link: https://arxiv.org/abs/1607.05015
+====================================================
+Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques (Sebastian Ament - 16 January, 2017)
+The stochastic Landau-Lifshitz-Gilbert-Slonczewski (s-LLGS) equation is widely used to study the temporal evolution of the macrospin subject to spin torque and thermal noise
+Link: https://arxiv.org/abs/1607.04596
+====================================================
+Network Flows Under Thermal Restrictions (Samiksha Sarwari - 9 July, 2016)
+We analyze the problems of maximizing the flow from a source to a sink for both these cases, for a holistic view with respect to the single-source-single-sink dynamic flow problem in a thermal network. We have studied certain properties such a thermal network exhibits, and give closed-form solutions for the maximum flow that can be achieved through such a network.
+Link: https://arxiv.org/abs/1607.02637
+====================================================
+Architecture and Algorithms for Privacy Preserving Thermal Inertial Load Management by A Load Serving Entity (Abhishek Halder - 29 November, 2016)
+Motivated by the growing importance of demand response in modern power system's operations, we propose an architecture and supporting algorithms for privacy preserving thermal inertial load management as a service provided by the load serving entity (LSE)
+Link: https://arxiv.org/abs/1606.09564
+====================================================
+Comments on "sub-KBT micro-electromechanical irreversible logic gate" (Laszlo B. Kish - 20 July, 2016)
+The neglected dissipation phenomenon is identical with the mechanism that leads to the lower physical limit of dissipation (70-100 kBT) in today's microprocessors (CMOS logic) and in any other system with thermally activated errors thus the same limit holds for the new scheme, too.
+Link: https://arxiv.org/abs/1606.09493
+====================================================
+Regression-based reduced-order models to predict transient thermal output for enhanced geothermal systems (M. K. Mudunuru - 12 July, 2017)
+The goal of this paper is to assess the utility of Reduced-Order Models (ROMs) developed from 3D physics-based models for predicting transient thermal power output for an enhanced geothermal reservoir while explicitly accounting for uncertainties in the subsurface system and site-specific details. The ROMs are then used to evaluate the influence of subsurface attributes on thermal power production curves
+Link: https://arxiv.org/abs/1606.04567
+====================================================
+Alternative Technique to Asymmetry Analysis-Based Overlapping for Foot Ulcer Examination: Scalable Scanning (Naima Kaabouch - 11 June, 2016)
+Asymmetry analysis based on the overlapping of thermal images proved able to detect inflammation and, predict foot ulceration
+Link: https://arxiv.org/abs/1606.03578
+====================================================
+Survey on RGB, 3D, Thermal, and Multimodal Approaches for Facial Expression Recognition: History, Trends, and Affect-related Applications (Ciprian Corneanu - 10 June, 2016)
+This paper presents a general overview of automatic RGB, 3D, thermal and multimodal facial expression analysis. We define a new taxonomy for the field, encompassing all steps from face detection to facial expression recognition, and describe and classify the state of the art methods accordingly
+Link: https://arxiv.org/abs/1606.03237
+====================================================
+On-board monitoring of 2-D spatially-resolved temperatures in cylindrical lithium-ion batteries: Part II. State estimation via impedance-based temperature sensing (Robert R. Richardson - 6 June, 2016)
+Previously, ITD was used as part of an Extended Kalman Filter (EKF) state-estimator in conjunction with a thermal model to enable estimation of the 1-D temperature distribution of a cylindrical lithium-ion battery
+Link: https://arxiv.org/abs/1606.01786
+====================================================
+Visualizing the invisible the relentless pursuit of MTech Imaging (Jenson Goh - 4 June, 2016)
+This teaching case describes the challenges faced by MTech Imaging, a Singapore small and medium enterprise (SME) that specializes in providing thermal imaging solutions
+Link: https://arxiv.org/abs/1606.01430
+====================================================
+Robust Reserve Capacity Provision and Peak Load Reduction from Buildings in Smart Grids (Sarmad Hanif - 23 May, 2016)
+Thermal load uncertainties experienced by the HVAC system are included to perform a realistic assessment of the developed controller
+Link: https://arxiv.org/abs/1605.05795
+====================================================
+An integral-transform approach to the bioheat transfer problems in magnetic hyperthermia (Kenya Murase - 25 April, 2016)
+The analytical solutions presented in this study will be useful for gaining some insight into the heat diffusion process during magnetic hyperthermia, for testing numerical codes and/or more complcated approaches, and for performing sensitivity analysis and optimization of the parameters that affect the thermal diffusion process in magnetic hyperthermia.
+Link: https://arxiv.org/abs/1604.07138
+====================================================
+Building Model Identification during Regular Operation - Empirical Results and Challenges (Qie Hu - 22 March, 2016)
+To do so, a predictive model of the building's thermal dynamics is required
+Link: https://arxiv.org/abs/1603.06872
+====================================================
+Model Comparison of a Data-Driven and a Physical Model for Simulating HVAC Systems (Datong Zhou - 18 March, 2016)
+Motivated by the large inherent thermal inertia of buildings, the power consumption can be flexibly scheduled without compromising occupant comfort
+Link: https://arxiv.org/abs/1603.05951
+====================================================
+Influence of morphological parameters in 3D composite materials on their effective thermal properties and comparison with effective mechanical properties (Sophie Lemaitre - 25 February, 2016)
+In this paper we study the effective thermal behaviour of 3D representative volume elements (RVEs) of two-phased composite materials constituted by a matrix with cylindrical and spherical inclusions distributed randomly, with periodic boundaries. The effective behaviour is computed with the help of homogenization process based on an accelerated FFT-scheme giving the thermal conductivity tensor
+Link: https://arxiv.org/abs/1602.07851
+====================================================
+A diffusion and clustering-based approach for finding coherent motions and understanding crowd scenes (Weiyao Lin - 16 February, 2016)
+It processes input motion fields (e.g., optical flow fields) and produces a coherent motion filed, named as thermal energy field. The thermal energy field is able to capture both motion correlation among particles and the motion trends of individual particles which are helpful to discover coherency among them
+Link: https://arxiv.org/abs/1602.04921
+====================================================
+Temperature-aware Dynamic Optimization of Embedded Systems (Tosiron Adegbija - 13 February, 2016)
+Thus, embedded systems require efficient thermal management techniques. However, thermal management can conflict with other optimization objectives, such as execution time and energy consumption
+Link: https://arxiv.org/abs/1602.04414
+====================================================
+Genie: A Longitudinal Study Comparing Physical and Software-augmented Thermostats in Office Buildings (Bharathan Balaji - 26 January, 2016)
+Our data shows that providing wider thermal control to users does not lead to system abuse and that the effect on energy consumption is minimal while improving comfort and energy awareness
+Link: https://arxiv.org/abs/1601.07229
+====================================================
+Physical maze solvers. All twelve prototypes implement 1961 Lee algorithm (Andrew Adamatzky - 18 January, 2016)
+Some of the prototypes visualise the path using a stream of dye, thermal camera or glow discharge; others require a computer to extract the path from time lapse images of the tracing
+Link: https://arxiv.org/abs/1601.04672
+====================================================
+Decentralized Stochastic Optimal Power Flow in Radial Networks with Distributed Generation (Mohammadhafez Bazrafshan - 19 January, 2016)
+The objectives are to minimize the negative user utility, cost of power provision, and thermal losses, while constraining voltages to remain within specified levels
+Link: https://arxiv.org/abs/1601.04023
+====================================================
+Online Model Estimation for Predictive Thermal Control of Buildings (Peter Radecki - 26 December, 2015)
+We propose a novel gray-box approach using an Unscented Kalman Filter based on a multi-zone thermal network and validate it with EnergyPlus simulation data. The filter quickly learns parameters of a thermal network during periods of known or constrained loads and then characterizes unknown loads in order to provide accurate 24+ hour energy predictions
+Link: https://arxiv.org/abs/1601.02947
+====================================================
+Self-Excitation: An Enabler for Online Thermal Estimation and Model Predictive Control of Buildings (Peter Radecki - 26 December, 2015)
+Here we extend the method to multi-zone actively controlled buildings and examine how to improve the thermal model estimation by using the controller to excite unknown portions of the building's dynamics. Comparing against a baseline thermostat controller, we demonstrate the utility of both the initially acquired and improved thermal models within a Model Predictive Control (MPC) framework, which anticipates weather uncertainty and time-varying temperature set-points
+Link: https://arxiv.org/abs/1512.08169
+====================================================
+Thermal Aware Design Method for VCSEL-Based On-Chip Optical Interconnect (Hui Li - 23 December, 2015)
+In this paper, we propose a methodology enabling thermal-aware design for optical interconnects relying on CMOS-compatible VCSEL. Thermal simulations allow designing ONoC interfaces with low gradient temperature and analytical models allow evaluating the SNR.
+Link: https://arxiv.org/abs/1512.07491
+====================================================
+Isogeometric approach for nonlinear bending and post-buckling analysis of functionally graded plates under thermal environment (Loc V. Tran - 4 November, 2015)
+In this paper, equilibrium and stability equations of functionally graded material (FGM) plate under thermal environment are formulated based on isogeometric analysis (IGA) in combination with higher-order shear deformation theory (HSDT). The governing equation is in nonlinear form based on von Karman assumption and thermal effect
+Link: https://arxiv.org/abs/1511.01380
+====================================================
+Spiking Analog VLSI Neuron Assemblies as Constraint Satisfaction Problem Solvers (Jonathan Binas - 6 April, 2016)
+Here we show how stochasticity can be achieved by implementing deterministic models of integrate and fire neurons using subthreshold analog circuits that are affected by thermal noise
+Link: https://arxiv.org/abs/1511.00540
+====================================================
+Magnetic Tunnel Junction Mimics Stochastic Cortical Spiking Neurons (Abhronil Sengupta - 18 December, 2017)
+In this work, we demonstrate the mapping of the probabilistic spiking nature of pyramidal neurons in the cortex to the stochastic switching behavior of a Magnetic Tunnel Junction in presence of thermal noise
+Link: https://arxiv.org/abs/1510.00440
+====================================================
+Charging Games in Networks of Electrical Vehicles (Olivier Beaude - 24 September, 2015)
+Interestingly, both analytical and numerical results show that the efficiency loss due to decentralization (e.g., when cost functions such as distribution network Joule losses or life of residential distribution transformers when no thermal inertia is assumed) induced by charging is small and the corresponding "efficiency", a notion close to the Price of Anarchy, tends to one when the number of EV increases.
+Link: https://arxiv.org/abs/1509.07349
+====================================================
+Elements of Validation of Artificial Lighting through the Software CODYRUN: Application to a Test Case of the International Commission on Illumination (CIE) (Ali Hamada Fakra - 15 September, 2015)
+CODYRUN is a software for computational aeraulic and thermal simulation in buildings developed by the Laboratory of Building Physics and Systems (L.P.B.S)
+Link: https://arxiv.org/abs/1509.05330
+====================================================
+Emulating long-term synaptic dynamics with memristive devices (Shari Lim Wei - 22 April, 2016)
+Via a set of experiments with our artificial, memristive, synapses we show that, contrary to conventional uses of solid-state memory, the co-existence of field- and thermally-driven switching mechanisms that could render bipolar and/or unipolar programming modes is a salient feature for capturing long-term potentiation and depression synaptic dynamics
+Link: https://arxiv.org/abs/1509.01998
+====================================================
+The Economic Dispatch for Integrated Wind Power Systems Using Particle Swarm Optimization (Mohamed Abuella - 5 September, 2015)
+The economic dispatch of wind power units is quite different from that in conventional thermal units, since the adopted model should take into consideration the intermittency nature of wind speed as well. A 6-bus system is used and it includes wind-powered generators besides to thermal generators
+Link: https://arxiv.org/abs/1509.01693
+====================================================
+Wavelet subspace decomposition of thermal infrared images for defect detection in artworks (Muhammad Zubair Ahmad - 24 August, 2015)
+The test artwork is heated and the thermal response of the different layers is captured with the help of a thermal infrared camera
+Link: https://arxiv.org/abs/1508.06010
+====================================================
+A Multi-Camera Image Processing and Visualization System for Train Safety Assessment (Giuseppe Lisanti - 28 July, 2015)
+The system is designed with the latest cutting edge, high-rate visible and thermal cameras that ob- serve a train passing under an railway overhead gantry
+Link: https://arxiv.org/abs/1507.07815
+====================================================
+Memristor Load Current Mirror Circuit (Olga Krestinskaya - 22 June, 2015)
+Simple current mirrors with semiconductor resistive loads suffer from large on-chip area, leakage currents and thermal effects
+Link: https://arxiv.org/abs/1506.06691
+====================================================
+Using complex networks towards information retrieval and diagnostics in multidimensional imaging (Soumya Jyoti Banerjee - 1 December, 2015)
+We demonstrate a successful use of our method with the time series generated from high content thermal imaging videos of patients suffering from the aqueous deficient dry eye (ADDE) disease. Remarkably, network analyses of thermal imaging time series of contact lens users and patients upon whom Laser-Assisted in situ Keratomileusis (Lasik) surgery has been conducted, exhibit pronounced similarity with results obtained from ADDE patients
+Link: https://arxiv.org/abs/1506.02602
+====================================================
+Manufacturing Pathway and Experimental Demonstration for Nanoscale Fine-Grained 3-D Integrated Circuit Fabric (Mostafizur Rahman - 31 May, 2015)
+In Skybridge, device, circuit, connectivity, thermal management and manufacturing issues are addressed in an integrated 3D compatible manner
+Link: https://arxiv.org/abs/1506.00286
+====================================================
+Computation of thermal properties via 3D homogenization of multiphase materials using FFT-based accelerated scheme (Sophie Lemaitre - 28 April, 2015)
+For our study, we use RVEs (Representative volume elements) generated by RSA (Random Sequential Adsorption) method developed in our previous works, then, we compute effective thermal properties using an FFT-based homogenization technique validated by comparison with the direct finite elements method. We study the thermal behaviour of the 3D-multiphase composite material and we show what features should be taken into account to make the computational approach efficient.
+Link: https://arxiv.org/abs/1504.07499
+====================================================
+A parametric study on window-to-floor ratio of double window glazing and its shadowing using dynamic simulation (Ana Rita Amaral - 15 April, 2015)
+In a moderate climate like the Portuguese, and considering an annual thermal comfort assessment of a space, if windows are under-dimensioned or over-shadowed, they can contribute to the increase of heating needs. The objective is to minimize degree-hours of thermal discomfort
+Link: https://arxiv.org/abs/1504.04174
+====================================================
+BitWhisper: Covert Signaling Channel between Air-Gapped Computers using Thermal Manipulations (Mordechai Guri - 26 March, 2015)
+In this paper, we demonstrate BitWhisper, a method of bridging the air-gap between adjacent compromised computers by using their heat emissions and built-in thermal sensors to create a covert communication channel
+Link: https://arxiv.org/abs/1503.07919
+====================================================
+GerAPlanO - A new building design tool: design generation, thermal assessment and performance optimization (EugÃ©nio Rodrigues - 24 March, 2015)
+The best way to predict how a building will behave regarding energy consumption and thermal comfort is to use a dynamic simulation tool. This project aims to combine the capabilities of design generation techniques, thermal assessment programs, and design optimization methods to provide assistance to decision makers
+Link: https://arxiv.org/abs/1503.07001
+====================================================
+Robust PI Passivity-based Control of Nonlinear Systems: Application to Port-Hamiltonian Systems and Temperature Regulation (Stanislav Aranovskiy - 10 March, 2015)
+As an illustration of the theory, we consider port--Hamiltonian systems and a class of thermal processes.
+Link: https://arxiv.org/abs/1503.02935
+====================================================
+A Heat-Map-based Algorithm for Recognizing Group Activities in Videos (Weiyao Lin - 21 February, 2015)
+The proposed algorithm first models human trajectories as series of "heat sources" and then applies a thermal diffusion process to create a heat map (HM) for representing the group activities
+Link: https://arxiv.org/abs/1502.06076
+====================================================
+Constrained Nonlinear Model Predictive Control of an MMA Polymerization Process via Evolutionary Optimization (Masoud Abbaszadeh - 14 February, 2015)
+Then, a multiple model adaptive predictive controller is designed for thermal trajectory tracking of the MMA polymerization. The input control signal to the process is constrained by the maximum thermal power provided by the heaters
+Link: https://arxiv.org/abs/1502.04266
+====================================================
+Statistical Modeling and Performance Characterization of an Ultrafast Digital Lightwave Communication System Using a Power-Cubic Optical Nonlinear Preprocessor (Extended Version) (Mahdi Ranjbar Zefreh - 17 December, 2014)
+Furthermore, toward a more realistic model, in addition to ASE Gaussian noise, the effects of shot and thermal noises are also included. Finally, using the presented analytical approach, it is shown that power-cubic preprocessor outperforms its quadratic counterparts, i.e., Second Harmonic Generation (SHG) and Two Photon Absorption (TPA) devices, in high power regime where shot and thermal noises can be neglected.
+Link: https://arxiv.org/abs/1412.5551
+====================================================
+Probabilistic Modeling and Simulation of Transmission Line Temperatures under Fluctuating Power Flows (Markus SchlÃ¤pfer - 16 November, 2014)
+The question arises as to what extent existing networks can absorb additional fluctuating power injection without exceeding thermal limits. Cumbersome integration of the dynamic thermal equations at each Monte Carlo simulation trial is sped up by a specific algorithm that makes use of a variance reduction technique adapted from the telecommunications field
+Link: https://arxiv.org/abs/1411.4315
+====================================================
+Dual Algorithms (F. Penunuri - 10 January, 2017)
+Among them, we use the dual Newton--Raphson method to obtain the derivatives of the output angle in the RRRCR spatial mechanism; we use the dual normal cubic spline interpolation algorithm to obtain the thermal diffusivity using photothermal techniques; and we use the dual Runge--Kutta method to obtain the derivatives of functions depending on the solution of the Duffing equation.
+Link: https://arxiv.org/abs/1411.2684
+====================================================
+NESTA, The NICTA Energy System Test Case Archive (Carleton Coffrin - 11 August, 2016)
+It finds that many of the traditional test cases are missing key network operation constraints, such as line thermal limits and generator capability curves
+Link: https://arxiv.org/abs/1411.0359
+====================================================
+Energy-Efficient and Thermal-Aware Resource Management for Heterogeneous Datacenters (Hongyang Sun - 12 October, 2014)
+We propose in this paper to study the energy-, thermal- and performance-aware resource management in heterogeneous datacenters. Witnessing the continuous development of heterogeneity in datacenters, we are confronted with their different behaviors in terms of performance, power consumption and thermal dissipation: Indeed, heterogeneity at server level lies both in the computing infrastructure (computing power, electrical power consumption) and in the heat removal systems (different enclosure, fans, thermal sinks)
+Link: https://arxiv.org/abs/1410.3104
+====================================================
+Theoretical Analysis of Radiative Cooling for Mobile and Embedded Systems (Karel De Vogeleer - 16 December, 2015)
+Since the power consumption and reliability of microprocessors are highly dependent on temperature, management units need accurate thermal models. We show that, for quasi isothermal cooling surfaces of the order of 1\,dm$^2$ or greater, the radiative cooling effect may become comparable to the convective cooling one
+Link: https://arxiv.org/abs/1410.0628
+====================================================
+Potentials and Economics of Residential Thermal Loads Providing Regulation Reserve (He Hao - 5 December, 2014)
+Residential Thermostatically Controlled Loads (TCLs) such as Air Conditioners (ACs), heat pumps, water heaters, and refrigerators have an enormous thermal storage potential for providing regulation reserve to the grid
+Link: https://arxiv.org/abs/1409.5320
+====================================================
+Feasibility of In-band Full-Duplex Radio Transceivers with Imperfect RF Components: Analysis and Enhanced Cancellation Algorithms (Dani Korpi - 4 September, 2014)
+We utilize results and findings from the recent research on full-duplex communications, while introducing also transmitter-induced thermal noise into the analysis
+Link: https://arxiv.org/abs/1409.1365
+====================================================
+Bird's-eye view on Noise-Based Logic (Laszlo B. Kish - 18 August, 2014)
+We briefly discuss various questions such as (i) What does practical determinism mean? (ii) Is noise-based logic a Turing machine? (iii) Is there hope to beat (the dreams of) quantum computation by a classical physical noise-based processor, and what are the minimum hardware requirements for that? Finally, (iv) we address the problem of random number generators and show that the common belief that quantum number generators are superior to classical (thermal) noise-based generators is nothing but a myth.
+Link: https://arxiv.org/abs/1408.4076
+====================================================
+Elimination of a Second-Law-attack, and all cable-resistance-based attacks, in the Kirchhoff-law-Johnson-noise (KLJN) secure key exchange system (Laszlo B. Kish - 28 September, 2014)
+This attack utilizes the lack of exact thermal equilibrium in practical applications and is based on cable resistance losses and the fact that the Second Law of Thermodynamics cannot provide full security when such losses are present
+Link: https://arxiv.org/abs/1406.5179
+====================================================
+Mobile Communication Systems in the Presence of Fading/Shadowing, Noise and Interference (Petros S. Bithas - 16 June, 2014)
+For all scenarios, simplified expressions are also provided for the interference limited case, where the influence of thermal noise is ignored
+Link: https://arxiv.org/abs/1406.4011
+====================================================
+High Performance Network-on-Chips (NoCs) Design: Performance Modeling, Routing Algorithm and Architecture Optimization (Zhiliang Qian - 14 June, 2014)
+For avoiding temperature hotspots, a thermal-aware routing algorithm is proposed to achieve an even temperature profile for application-specific Network-on-chips (NoCs)
+Link: https://arxiv.org/abs/1406.3790
+====================================================
+BER Analysis of Multi-Cellular MIMO Systems with Increasing Number of BS Antennas (JosÃ© Carlos Marinello - 14 June, 2014)
+Furthermore, analysis of the Massive MIMO system downlink is carried out from a bit-error-rate (BER) performance viewpoint, including some realistic adverse effects, such as interference from neighboring cells, channel estimation errors due to background thermal noise, and pilot contamination, which was recently shown to be the only impairment that remains in the MIMO multicell system with infinite number of BS antennas
+Link: https://arxiv.org/abs/1406.3753
+====================================================
+An optimization algorithm inspired by the States of Matter that improves the balance between exploration and exploitation (Erik Cuevas - 20 May, 2014)
+In SMS, individuals emulate molecules which interact to each other by using evolutionary operations which are based on the physical principles of the thermal-energy motion mechanism
+Link: https://arxiv.org/abs/1405.5066
+====================================================
+Emulated ASIC Power and Temperature Monitor System for FPGA Prototyping of an Invasive MPSoC Computing Architecture (Elisabeth Glocker - 12 May, 2014)
+For emulating the temperature monitor, a thermal RC model is used
+Link: https://arxiv.org/abs/1405.2909
+====================================================
+Load Frequency Control For Distributed Grid Power System Single Area & Multi-area System (Sushant Chaudhary - 12 May, 2014)
+But the power production by these resources cannot be controlled unlike in thermal plants. A system involving thermal plants and a hydro plant is modeled using MAT LAB 2011b.
+Link: https://arxiv.org/abs/1405.2906
+====================================================
+IMP Science Gateway: from the Portal to the Hub of Virtual Experimental Labs in Materials Science (Yuri Gordienko - 22 April, 2014)
+Several typical use cases for these science applications (scientific workflows) are considered for molecular dynamics (MD) simulations of complex behavior of various nanostructures (nanoindentation of graphene layers, defect system relaxation in metal nanocrystals, thermal stability of boron nitride nanotubes, etc.)
+Link: https://arxiv.org/abs/1404.5611
+====================================================
+Complex Workflow Management and Integration of Distributed Computing Resources by Science Gateway Portal for Molecular Dynamics Simulations in Materials Science (Yuri Gordienko - 22 April, 2014)
+Several typical science applications (scientific workflows) are considered for molecular dynamics (MD) simulations of complex behavior of various nanostructures (nanoindentation of graphene layers, defect system relaxation in metal nanocrystals, thermal stability of boron nitride nanotubes, etc.)
+Link: https://arxiv.org/abs/1404.5458
+====================================================
+Modeling the Temperature Bias of Power Consumption for Nanometer-Scale CPUs in Application Processors (Karel De Vogeleer - 13 April, 2014)
+Together with two algorithms described in the paper, our results can be used, for instance by engineers designing power or thermal management units, to cancel the temperature-induced bias on power measurements. Also power requirements and system failure rates can be decreased by controlling the CPU's thermal behavior.
+Link: https://arxiv.org/abs/1404.3381
+====================================================
+Draining our Glass: An Energy and Heat Characterization of Google Glass (Robert LiKamWa - 26 March, 2014)
+We use the Glass in a case study of the power and thermal characteristics of optical head-mounted display devices
+Link: https://arxiv.org/abs/1404.1320
+====================================================
+Quantum-noise limited communication with low probability of detection (Boulat A. Bash - 22 March, 2014)
+We analyze the thermal noise and pure loss channels. The square root law holds for the thermal noise channel even if Willie employs a quantum-optimal measurement, while Bob is equipped with a standard coherent detection receiver
+Link: https://arxiv.org/abs/1403.5616
+====================================================
+Model Predictive HVAC Control with Online Occupancy Model (Justin R. Dobbs - 26 July, 2014)
+It incorporates the building's thermal properties, local weather predictions, and a self-tuning stochastic occupancy model to reduce energy consumption while maintaining occupant comfort. A prediction-weighted cost function provides conditioning of thermal zones before occupancy begins and reduces system output before occupancy ends
+Link: https://arxiv.org/abs/1403.4662
+====================================================
+Three Experiments to Analyze the Nature of the Heat Spreader (Seema Sethia - 27 February, 2014)
+We describe a method to accurately measure the thermal conductivity of the heat spreader such that it can be used to compute the steady state temperature distribution across the spreader.
+Link: https://arxiv.org/abs/1402.6903
+====================================================
+A directional coupler attack against the Kish key distribution system (Lachlan J. Gunn - 19 May, 2014)
+The idealized Kish scheme elegantly promise s secure key distribution by exploiting thermal noise in a transmission line
+Link: https://arxiv.org/abs/1402.2709
+====================================================
+Validation Experiments for LBM Simulations of Electron Beam Melting (Regina Ammer - 11 February, 2014)
+The physical setup is presented which is discretized by a three dimensional (3D) thermal lattice Boltzmann method (LBM)
+Link: https://arxiv.org/abs/1402.2440
+====================================================
+A Message-Passing Approach to Combating Hidden Terminals in Wireless Networks (Zhiyi Zhou - 28 January, 2014)
+A message-passing approach is proposed, in which a receiver can successfully receive and decode partially overlapping transmissions from two sources rather than treating undesired one as thermal noise
+Link: https://arxiv.org/abs/1401.7374
+====================================================
+A user-friendly nano-CT image alignment and 3D reconstruction platform based on LabVIEW (Shenghao Wang - 15 April, 2014)
+A suitable image alignment process to address misalignment problems among image series due to mechanical manufacturing errors, thermal expansion and other external factors has been considered together with a novel fast parallel beam 3D reconstruction procedure, developed ad hoc to perform the tomographic reconstruction
+Link: https://arxiv.org/abs/1401.5197
+====================================================
+Energy Harvesting in M2M and WSN Space (Sugata Sanyal - 19 January, 2014)
+solar power, thermal energy, wind energy, salinity gradients, kinetic energy etc.), captured, and stored for small, wireless autonomous devices, like those used in wearable electronics and wireless sensor networks
+Link: https://arxiv.org/abs/1401.4721
+====================================================
+Groupoid Semantics for Thermal Computing (Krzysztof Bar - 16 January, 2014)
+A groupoid semantics is presented for systems with both logical and thermal degrees of freedom
+Link: https://arxiv.org/abs/1401.3280
+====================================================
+New Method for Localization and Human Being Detection using UWB Technology: Helpful Solution for Rescue Robots (David EspÃ¨s - 15 December, 2013)
+To detect human beings, sensors such as thermal camera, ultrasonic and microphone can be embedded on the rescue robot
+Link: https://arxiv.org/abs/1312.4162
+====================================================
+SEED: Public Energy and Environment Dataset for Optimizing HVAC Operation in Subway Stations (Yongcai Wang - 9 December, 2013)
+For sustainability and energy saving, the problem to optimize the control of heating, ventilating, and air-conditioning (HVAC) systems has attracted great attentions, but analyzing the signatures of thermal environments and HVAC systems and the evaluation of the optimization policies has encountered inefficiency and inconvenient problems due to the lack of public dataset. We describe the sensor deployments and the HVAC systems for data collection and for environment control, and also present initial investigation for the energy disaggregation of HVAC system, the signatures of the thermal load, cooling supply, and the passenger flow using the dataset.
+Link: https://arxiv.org/abs/1312.2632
+====================================================
+Using virtual parts to optimize the metrology process (ValÃ©ry Wolff - 25 November, 2013)
+In the measurement process, there are many parameters affecting the measurement results: the influence of the probe system, material stiffness of measured workpiece, the calibration of the probe with a reference sphere, the thermal effects
+Link: https://arxiv.org/abs/1311.6215
+====================================================
+Flexibility of Commercial Building HVAC Fan as Ancillary Service for Smart Grid (Mehdi Maasoumy - 24 November, 2013)
+We also show how thermal slack can be leveraged to provide an ancillary service to deal with transient frequency fluctuations in the grid
+Link: https://arxiv.org/abs/1311.6094
+====================================================
+Minutiae Based Thermal Human Face Recognition using Label Connected Component Algorithm (Ayan Seal - 4 September, 2013)
+In this paper, a thermal infra red face recognition system for human identification and verification using blood perfusion data and back propagation feed forward neural network is proposed. The proposed approaches are tested on a number of human thermal infra red face images created at our own laboratory
+Link: https://arxiv.org/abs/1309.1155
+====================================================
+Cross-Correlation of Photovoltaic Output Fluctuation in Power System Operation for Large-Scale Photovoltaic Integration (Yuichi Ikeda - 29 August, 2013)
+Then operation schedule of thermal plants is calculated to integrate PV output using our unit commitment model with the estimated forecast error
+Link: https://arxiv.org/abs/1308.6633
+====================================================
+Distance Aware Relaying Energy-efficient: DARE to Monitor Patients in Multi-hop Body Area Sensor Networks (A. Tauqir - 26 July, 2013)
+A comparison is also conducted conducted with another protocol of BAN named, Mobility-supporting Adaptive Threshold-based Thermal-aware Energy-efficient Multi-hop ProTocol (M-ATTEMPT)
+Link: https://arxiv.org/abs/1307.7068
+====================================================
+Thermal analysis of 3D associative processor (Leonid Yavits - 15 July, 2013)
+AP exhibits close to uniform thermal distribution with reduced hot spots. Comparative performance and thermal analysis supported by simulation confirm that AP might be preferable over SIMD for 3D implementation of large scale massively parallel processing engines combined with 3D DRAM integration.
+Link: https://arxiv.org/abs/1307.3853
+====================================================
+Random Drift Particle Swarm Optimization (Jun Sun - 12 June, 2013)
+The free electron model considers that electrons have both a thermal and a drift motion in a conductor that is placed in an external electric field. The motivation of the RDPSO algorithm is described first, and the velocity equation of the particle is designed by simulating the thermal motion as well as the drift motion of the electrons, both of which lead the electrons to a location with minimum potential energy in the external electric field
+Link: https://arxiv.org/abs/1306.2863
+====================================================
+Illumination-invariant face recognition from a single image across extreme pose using a dual dimension AAM ensemble in the thermal infrared spectrum (Reza Shoja Ghiass - 7 June, 2013)
+A major contribution of our work is the use of an AAM ensemble in which each AAM is specialized to a particular range of poses and a particular region of the thermal IR face space. Combined with the contributions from our previous work which addressed the problem of reliable AAM fitting in the thermal IR spectrum, and the development of a person-specific representation robust to transient changes in the pattern of facial temperature emissions, the proposed ensemble framework accurately matches faces across the full range of yaw from frontal to profile, even in the presence of scale variation (e.g
+Link: https://arxiv.org/abs/1306.1822
+====================================================
+Simulation of a typical house in the region of Antananarivo, Madagascar. Determination of passive solutions using local materials (Harimalala Razanamanampisoa - 10 May, 2013)
+While the strongest population density is located in the central highlands, the problem of thermal comfort in buildings occurs mainly during winter time. Simulations were carried out using a thermal and airflow software (CODYRUN) to improve each building component (roof, walls, windows, and soil) in such a way as to estimate the influence of some technical solutions on each component in terms of thermal comfort
+Link: https://arxiv.org/abs/1305.2322
+====================================================
+Managing Interference Correlation Through Random Medium Access (Yi Zhong - 14 November, 2013)
+Our results reveal that while the mean local delays for FHMA with N sub-bands and for ALOHA with transmit probability p are the same when p=1/N with thermal noise ignored, significant difference exists between the variances
+Link: https://arxiv.org/abs/1304.1851
+====================================================
+Mathematical modeling of thermal stabilization of vertical wells on high performance computing systems (Natalia V. Pavlova - 5 April, 2013)
+In this work, we consider the numerical simulation of thermal stabilization using vertical seasonal freezing columns.
+Link: https://arxiv.org/abs/1304.1625
+====================================================
+M-ATTEMPT: A New Energy-Efficient Routing Protocol for Wireless Body Area Sensor Networks (N. Javaid - 21 March, 2013)
+In this paper, we propose a new routing protocol for heterogeneous Wireless Body Area Sensor Networks (WBASNs); Mobility-supporting Adaptive Threshold-based Thermal-aware Energy-efficientMulti-hop ProTocol (M-ATTEMPT). The proposed routing algorithm is thermal-aware which senses the link Hot-spot and routes the data away from these links
+Link: https://arxiv.org/abs/1303.5260
+====================================================
+Optical Flow Sensing and the Inverse Perception Problem for Flying Bats (Zhaodan Kong - 12 March, 2013)
+The trajectories are computed with stereoscopic methods using data from synchronous thermal videos that were recorded with high temporal and spatial resolution from three viewpoints
+Link: https://arxiv.org/abs/1303.3072
+====================================================
+Performances of Low Temperature Radiant Heating Systems (Milorad BojiÄ - 24 February, 2013)
+Low temperature heating panel systems offer distinctive advantages in terms of thermal comfort and energy consumption, allowing work with low exergy sources
+Link: https://arxiv.org/abs/1302.5942
+====================================================
+Optimization of thermal comfort in building through envelope design (Milorad Bojic - 24 February, 2013)
+Three optimizations are performed such as the optimization of the thickness of the concrete block layer, of the wood layer, and that of the thermal insulation layer. The results show optimal thickness of thermal envelope layers that yield the maximum TC according to Fanger predicted mean vote.
+Link: https://arxiv.org/abs/1302.5941
+====================================================
+A framework for coupling flow and deformation of the porous solid (D. Z. Turner - 26 February, 2013)
+In its most general form, this framework provides a mechanism for capturing multiphase flow, deformation, chemical reactions and thermal processes, as well as interactions between the various physics in a conveniently implemented fashion
+Link: https://arxiv.org/abs/1302.5848
+====================================================
+Distributed MAC and Rate Adaptation for Ultrasonically Networked Implantable Sensors (G. Enrico Santagati - 5 February, 2013)
+The short impulse duration results in limited reflection and scattering effects, and its low duty cycle reduces the thermal and mechanical effects, which are detrimental for human health
+Link: https://arxiv.org/abs/1302.0897
+====================================================
+Energy Efficiency of Network Cooperation for Cellular Uplink Transmissions (Yulong Zou - 31 January, 2013)
+Given target outage probability and data rate requirements, we develop a closed-form expression of energy efficiency in Bits-per-Joule for the inter-network cooperation by taking into account the path loss, fading, and thermal noise effects
+Link: https://arxiv.org/abs/1301.7515
+====================================================
+A Two Level Feedback System Design to Regulation Service Provision (Bowen Zhang - 27 January, 2013)
+It is also shown that the amount of regulation service that can be provided is implicitly restricted by a few fundamental parameters of the provider itself, such as the allowable set point choice and its thermal constant
+Link: https://arxiv.org/abs/1301.6386
+====================================================
+Multiple model approach and experimental validation of a residential air-to-air heat pump (FranÃ§ois Garde - 22 December, 2012)
+An experimental validation is achieved in order to compare the sensitivity of each defined model and to point out the interaction between the thermal behaviour of the envelop and the electrical system consumption
+Link: https://arxiv.org/abs/1212.5665
+====================================================
+Weather sequences for predicting HVAC system behaviour in residential units located in tropical climates (Laetitia Adelard - 22 December, 2012)
+These sequences have been used to simulate buildings and air handling systems thanks to a thermal simulation code, CODYRUN
+Link: https://arxiv.org/abs/1212.5664
+====================================================
+Elaboration of a new tool for weather data sequences generation (Laetitia Adelard - 21 December, 2012)
+This tool can then be used in HVAC system evaluation, or in the study of thermal comfort. The studied buildings can then be tested under different thermal, aeraulic, and radiative solicitations, leading to a best understanding of their behaviour for example in humid climates.
+Link: https://arxiv.org/abs/1212.5599
+====================================================
+Time-variant Linear reduction model approximation : application to thermal and airflow building simulation (Thierry Berthomieu - 21 December, 2012)
+Considering the natural ventilation, the thermal behavior of buildings can be described by a linear time varying model
+Link: https://arxiv.org/abs/1212.5593
+====================================================
+Multiple model software for airflow and thermal building simulation. A case study under tropical humid climate, in RÃ©union Island (Harry Boyer - 21 December, 2012)
+With a building case study in Reunion Island, we first analyse the sensibility of the thermal model to diffuse radiation reconstitution on tilted surfaces
+Link: https://arxiv.org/abs/1212.5592
+====================================================
+CODYRUN, outil de simulation et d'aide Ã  la conception thermo-aÃ©raulique de bÃ¢timents (Harry Boyer - 20 December, 2012)
+It is a multizone thermal software, with detailled airflow and humidity transfer calculations
+Link: https://arxiv.org/abs/1212.5589
+====================================================
+A multimodel approach to building thermal simulation for design and research purposes (Harry Boyer - 20 December, 2012)
+The designers pre-occupation to reduce energy consumption and to achieve better thermal ambience levels, has favoured the setting up of numerous building thermal dynamic simulation programs. The progress in the modelling of phenomenas and its transfer into the professional field has resulted in various numerical approaches ranging from softwares dedicated to architects for design use to tools for laboratory use by the expert thermal researcher
+Link: https://arxiv.org/abs/1212.5262
+====================================================
+Heat transfer in buildings : application to air solar heating and Trombe wall design (Harry Boyer - 20 December, 2012)
+In each case, detailed modeling of heat transfer allows precise understanding of thermal and energetic behavior of the studied structures. Recent decades have seen a proliferation of tools for building thermal simulation
+Link: https://arxiv.org/abs/1212.5260
+====================================================
+Thermal Building Simulation and Computer Generation of Nodal Models (H. Boyer - 18 December, 2012)
+Big variations existing from one building to another, it's necessary to build the thermal model from the building description. This article shows the chosen method in the case of our thermal simulation program for buildings, CODYRUN
+Link: https://arxiv.org/abs/1212.5256
+====================================================
+A Comparison between CODYRUN and TRNSYS, simulation models for thermal buildings behaviour (Franck Lucas - 18 December, 2012)
+Simulation codes of thermal behaviour could significantly improve housing construction design. CODYRUN is exclusively dedicated to housing thermal behaviour, whereas TRNSYS is more generally used on any thermal system
+Link: https://arxiv.org/abs/1212.5255
+====================================================
+Development of a new model to predict indoor daylighting: Integration in CODYRUN software and validation (Ali Hamada Fakra - 18 December, 2012)
+Initially dedicated to the thermal, airflow and hydrous phenomena in the buildings, the software has been completed for the calculation of indoor daylighting
+Link: https://arxiv.org/abs/1212.5253
+====================================================
+A genetic algorithm applied to the validation of building thermal models (Alfred Jean Philippe Lauret - 18 December, 2012)
+This paper presents the coupling of a building thermal simulation code with genetic algorithms (GAs). We show that this coupling allows the location of defective sub-models of a building thermal model i.e
+Link: https://arxiv.org/abs/1212.5250
+====================================================
+Detailed weather data generator for building simulations (L. Adelard - 17 December, 2012)
+Thermal buildings simulation softwares need meteorological files in thermal comfort, energetic evaluation studies
+Link: https://arxiv.org/abs/1212.3930
+====================================================
+Building ventilation: A pressure airflow model computer generation and elements of validation (H. Boyer - 17 December, 2012)
+The calculation of airflows is of great importance for detailed building thermal simulation computer codes, these airflows most frequently constituting an important thermal coupling between the building and the outside on one hand, and the different thermal zones on the other. The driving effects of air movement, which are the wind and the thermal buoyancy, are briefly outlined and we look closely at their coupling in the case of buildings, by exploring the difficulties associated with large openings
+Link: https://arxiv.org/abs/1212.3924
+====================================================
+Interroom radiative couplings through windows and large openings in buildings: Proposal of a simplified model (H. Boyer - 17 December, 2012)
+The specific properties of this matrix appear useful to quantify the thermal radiation exchanges between the zones separated by windows or large openings
+Link: https://arxiv.org/abs/1212.3922
+====================================================
+Strong Bounds for Evolution in Undirected Graphs (George B. Mertzios - 30 April, 2018)
+Furthermore we provide strong upper bounds and almost tight lower bounds (by proving the "Thermal Theorem") for the traditional notion of fixation probability of Lieberman et al., i.e
+Link: https://arxiv.org/abs/1211.2384
+====================================================
+Exploiting Network Cooperation in Green Wireless Communication (Yulong Zou - 14 October, 2012)
+Given target outage probability and data rate requirements, we analyze the energy consumption of conventional schemes as compared to the proposed inter-network cooperation by taking into account both physical-layer channel impairments (including path loss, fading, and thermal noise) and upper-layer protocol overheads
+Link: https://arxiv.org/abs/1210.3835
+====================================================
+M-ATTEMPT: A New Energy-Efficient Routing Protocol in Wireless Body Area Sensor Networks (Nadeem Javaid - 30 August, 2012)
+The proposed routing algorithm is thermal-aware which sense the link Hot-spot and routes the data away from these links
+Link: https://arxiv.org/abs/1208.6096
+====================================================
+Linear approach to the orbiting spacecraft thermal problem (Jose Gaite - 20 February, 2012)
+We apply our method to a minimal thermal model of a satellite with ten isothermal parts (nodes) and we compare the method with direct numerical integration of the nonlinear equations. We briefly study the computational complexity of our method for general thermal models of orbiting spacecraft and conclude that it is certainly useful for reduced models and conceptual design but it can also be more efficient than the direct integration of the equations for large models
+Link: https://arxiv.org/abs/1202.4372
+====================================================
+A Comparison Between Data Mining Prediction Algorithms for Fault Detection(Case study: Ahanpishegan co.) (Golriz Amooee - 29 January, 2012)
+A combination of thermal and physical characteristics has been used and the algorithms were implemented on Ahanpishegan's current data to estimate the availability of its produced parts.
+Link: https://arxiv.org/abs/1201.6053
+====================================================
+A Unit Commitment Model with Demand Response for the Integration of Renewable Energies (Yuichi Ikeda - 20 December, 2011)
+We confirm that the number of operating thermal power plants is reduced by the demand response. A power utility has to continue thermal power plants for ensuring supply-demand balance; some of these plants can be decommissioned after installing a large number of wind farms or PV systems, if the demand response is applied using an appropriate price structure.
+Link: https://arxiv.org/abs/1112.4909
+====================================================
+Power aware physical model for 3d IC's (Yasmeen Hasan - 11 October, 2011)
+The experimental results for the - continuous domain establish that a region which does not contain any heat sources may become hotter than the regions containing the thermal sources. Thus a hotspot may appear away from the active sources, and placing heat sinks on the active thermal sources alone may not suffice to tackle thermal imbalance
+Link: https://arxiv.org/abs/1110.2286
+====================================================
+A Novel Methodology for Thermal Analysis & 3-Dimensional Memory Integration (Annmol Cherian - 4 September, 2011)
+In this paper, design of 3D integration of memory is considered and hence the static power dissipation of the memory cell is analysed in transistor level and is used to accurately model the inter-layer thermal effects for 3D memory stack. This modelling is intended to analyse the thermal effects of 3D memory, its reliability and lifetime of the chip, with greater accuracy.
+Link: https://arxiv.org/abs/1109.0708
+====================================================
+Next Level of Data Fusion for Human Face Recognition (Mrinal Kanti Bhowmik - 17 June, 2011)
+At first a data fusion is applied on visual and corresponding thermal images to generate fused image. For experiments, IRIS thermal/visible Face Database has been used
+Link: https://arxiv.org/abs/1106.3466
+====================================================
+Thermal Analysis of Climate Regions using Remote Sensing and Grid Computing (Cristina Serban - 24 January, 2011)
+As the analysis is performed on large data sets, we used Grid Computing to implement a service for using on Computational Grids with a Web-based client interface, which will be greatly useful and convenient for those who are studying the ground thermal environment and heat island effects by using Landsat TM/ETM+ bands, and have typical workstations, with no special computing and storing resources for computationally intensive satellite image processing and no license for a commercial image processing tool
+Link: https://arxiv.org/abs/1101.4474
+====================================================
+A Rewriting-Logic-Based Technique for Modeling Thermal Systems (Muhammad Fadlisyah - 22 September, 2010)
+This paper  presents a  rewriting-logic-based modeling and analysis technique for physical systems, with focus on thermal systems.  The  contributions of this paper can be summarized as follows: (i) providing a framework for modeling and executing physical systems, where  both  the physical components and  their physical interactions are treated as first-class citizens;        (ii) showing how heat transfer problems in thermal systems can be modeled in Real-Time Maude;       (iii) giving the implementation in Real-Time Maude of a basic numerical technique for  executing continuous behaviors in object-oriented hybrid systems; and   (iv) illustrating these techniques with a set of incremental case studies using realistic physical parameters, with examples of  simulation and model checking analyses.
+Link: https://arxiv.org/abs/1009.4263
+====================================================
+Rate Region Frontiers for n-user Interference Channel with Interference as Noise (Mohamad Charafeddine - 20 August, 2010)
+The receiver is assumed to treat the interference as additive thermal noise and does not employ multiuser detection
+Link: https://arxiv.org/abs/1008.3437
+====================================================
+Coded DS-CDMA Systems with Iterative Channel Estimation and no Pilot Symbols (Don Torrieri - 18 August, 2010)
+An expectation-maximization channel-estimation algorithm for the fading amplitude, phase, and the interference power spectral density (PSD) due to the combined interference and thermal noise is proposed for DS-CDMA systems with irregular repeat-accumulate codes
+Link: https://arxiv.org/abs/1008.3196
+====================================================
+Benchmarking the True Random Number Generator of TPM Chips (Alin Suciu - 12 August, 2010)
+However the specification recommends collecting entropy from any internal sources available such as clock jitter or thermal noise in the chip itself, a feature that was implemented by most manufacturers
+Link: https://arxiv.org/abs/1008.2223
+====================================================
+Threshold effects in parameter estimation as phase transitions in statistical mechanics (Neri Merhav - 20 May, 2010)
+These threshold effects are shown to be analogous to phase transitions of certain disordered physical systems in thermal equilibrium
+Link: https://arxiv.org/abs/1005.3620
+====================================================
+Minimum energy required to copy one bit of information (Marcin Ostrowski - 14 May, 2010)
+In this paper, we calculate energy required to copy one bit of useful information in the presence of thermal noise
+Link: https://arxiv.org/abs/1004.4732
+====================================================
+Visual Infrared Video Fusion for Night Vision using Background Estimation (Anjali Malviya - 26 April, 2010)
+The infrared (IR) camera captures thermal image of object in night-time environment, when only limited visual information can be captured by RGB camera
+Link: https://arxiv.org/abs/1004.4459
+====================================================
+A New Phase Transition for Local Delays in MANETs (FranÃ§ois Baccelli - 3 February, 2010)
+However, the spatial (or large population) averaging of these individual finite mean-delays leads to infinite values in several practical cases, including the Rayleigh fading and positive thermal noise case
+Link: https://arxiv.org/abs/1002.0855
+====================================================
+Another Look at the Physics of Large Deviations With Application to Rate-Distortion Theory (Neri Merhav - 25 August, 2009)
+We revisit and extend the physical interpretation recently given to a certain identity between large--deviations rate--functions (as well as applications of this identity to Information Theory), as an instance of thermal equilibrium between several physical systems that are brought into contact. Our new interpretation, of mechanical equilibrium between these systems, is shown to have several advantages relative to that of thermal equilibrium
+Link: https://arxiv.org/abs/0908.3562
+====================================================
+Level Crossing Rate and Average Fade Duration of Dual Selection Combining with Cochannel Interference and Nakagami Fading (Zoran Hadzi-Velkov - 25 August, 2009)
+This letter provides closed-form expressions for the outage probability, the average level crossing rate (LCR) and the average fade duration (AFD) of a dual diversity selection combining (SC) system exposed to the combined influence of the cochannel interference (CCI) and the thermal noise (AWGN) in Nakagami fading channel
+Link: https://arxiv.org/abs/0908.3552
+====================================================
+A quantum diffusion network (George Kesidis - 11 August, 2009)
+Recently, "quantum" annealed Markov chains have garnered significant attention because of their improved performance over "pure" thermal annealing. In this note, a joint quantum and thermal version of Wong's diffusion network is described and its convergence properties are studied
+Link: https://arxiv.org/abs/0908.1597
+====================================================
+High Transmission Bit Rate of A thermal Arrayed Waveguide Grating (AWG) Module in Passive Optical Networks (Abd El Naser A. Mohammed - 19 June, 2009)
+A thermalization of the AWG can be realized by selecting proper values of the material and structural parameters of the device. Moreover, we have analyzed the data transmission bit rate of a thermal AWG in passsive optical networks (PONs) based on Maximum Time Division Multiplexing (MTDM) technique.
+Link: https://arxiv.org/abs/0906.3771
+====================================================
+Joint source-channel coding via statistical mechanics: thermal equilibrium between the source and the channel (Neri Merhav - 13 October, 2008)
+We examine the classical joint source--channel coding problem from the viewpoint of statistical physics and demonstrate that in the random coding regime, the posterior probability distribution of the source given the channel output is dominated by source sequences, which exhibit a behavior that is highly parallel to that of thermal equilibrium between two systems of particles that exchange energy, where one system corresponds to the source and the other corresponds to the channel. The thermodynamical entopies of the dual physical problem are analogous to conditional and unconditional Shannon entropies of the source, and so, their balance in thermal equilibrium yields a simple formula for the mutual information between the source and the channel output, that is induced by the typical code in an ensemble of joint source--channel codes under certain conditions
+Link: https://arxiv.org/abs/0810.2164
+====================================================
+Shannon Meets Carnot: Mutual Information Via Thermodynamics (Ori Shental - 19 June, 2008)
+In this contribution, the Gaussian channel is represented as an equivalent thermal system allowing to express its input-output mutual information in terms of thermodynamic quantities
+Link: https://arxiv.org/abs/0806.3133
+====================================================
+Channels that Heat Up (Tobias Koch - 29 May, 2008)
+Transmission heats up the entire chip and hence increases the thermal noise at the receiver
+Link: https://arxiv.org/abs/0805.4583
+====================================================
+Open Ended Microwave Oven for Packaging (K. I. Sinclair - 7 May, 2008)
+Temperature distribution, degree of cure and thermal stresses are analysed using an Unstructured Finite Volume method (UFVM) multi-physics package. A distribution of the temperature within the lossy sample is obtained by using a thermal imaging camera.
+Link: https://arxiv.org/abs/0805.0943
+====================================================
+Noise Analysis and Noise-based Optimization for Resonant MEMS Structures (Mrigank Sharma - 7 May, 2008)
+The existing literature presents detailed models for the damping at microscale, but usually neglects them in the noise analysis process, assuming instead a white spectrum approximation for the mechano-thermal noise
+Link: https://arxiv.org/abs/0805.0927
+====================================================
+Study of First-Order Thermal Sigma-Delta Architecture for Convective Accelerometers (Pascal Nouet - 7 May, 2008)
+Using the thermal behavior of the sensor as a summing function, a first order sigma-delta modulator is built
+Link: https://arxiv.org/abs/0805.0920
+====================================================
+Design And Fabrication of High Numerical Aperture And Low Aberration Bi-Convex Micro Lens Array (Jhy-Cherng Tsai - 7 May, 2008)
+Experiments are further conducted to fabricate the designed micro lens array by the thermal reflow process
+Link: https://arxiv.org/abs/0805.0903
+====================================================
+Design Optimization for an Electro-Thermally Actuated Polymeric Microgripper (R. Voicu - 7 May, 2008)
+In this paper the development of thermal microactuators based on SU-8 polymer is described. The electro-thermal microgrippers were designed and optimized using finite element simulations
+Link: https://arxiv.org/abs/0805.0901
+====================================================
+Numerical Investigation of Laser-Assisted Nanoimprinting on a Copper Substrate from a Perspective of Heat Transfer Analysis (Chun-Ping Jen - 7 May, 2008)
+To demonstrate the feasibility of this concept numerically, this study introduced optical multiple reflection theory to perform both analytical and numerical modeling during the process and to predict the thermal response theoretically.
+Link: https://arxiv.org/abs/0805.0897
+====================================================
+In-Plane Bistable Nanowire For Memory Devices (B. Charlot - 7 May, 2008)
+The structure is patterned by electron beam lithography on a pre-stressed thermally grown silicon dioxide layer
+Link: https://arxiv.org/abs/0805.0889
+====================================================
+Hybridization of Magnetism and Piezoelectricity for an Energy Scavenger based on Temporal Variation of Temperature (L. Carlioz - 7 May, 2008)
+A new kind of thermal generator is proposed and a preliminary model is exposed
+Link: https://arxiv.org/abs/0805.0874
+====================================================
+Contactless Thermal Characterization of High Temperature Test Chamber (Z. Szucs - 7 May, 2008)
+In this paper the methodology and the results of a contactless thermal characterization of a high temperature test chamber will be introduced. The contactless thermal characterization method introduced in this paper enables in situ heat distribution measurement inside the test chamber during operation, with the detection of potentially uneven heat distribution.
+Link: https://arxiv.org/abs/0805.0865
+====================================================
+Characterization and Modeling of an Electro-thermal MEMS Structure (P. G. Szabo - 7 May, 2008)
+Thermal functional circuits are an interesting and perspectivic group of the MEMS elements
+Link: https://arxiv.org/abs/0805.0863
+====================================================
+Explaining the Logical Nature of Electrical Solitons in Neural Circuits (John Robert Burger - 26 April, 2008)
+Neurons are modeled electrically based on ferroelectric membranes thin enough to permit charge transfer, conjectured to be the tunneling result of thermally energetic ions and random electrons
+Link: https://arxiv.org/abs/0804.4237
+====================================================
+Evaluation of the thermal and hydraulic performances of a very thin sintered copper flat heat pipe for 3D microsystem packages (S. Tzanova - 21 February, 2008)
+The enhanced technology is dedicated to the thermal management of high dissipative microsystems having heat densities of more than 10W/cm2. The simulated results are validated by experiments and proved that the method can be further used to predict thermal performance of the heat pipe and to optimise its design.
+Link: https://arxiv.org/abs/0802.3107
+====================================================
+Noise and thermal stability of vibrating micro-gyrometers preamplifiers (R. Levy - 21 February, 2008)
+Indeed the resolution of the sensor is limited by its signal to noise ratio, and the gyrometer's thermal stability is limited by its gain drift
+Link: https://arxiv.org/abs/0802.3092
+====================================================
+Tuneable Capacitor based on dual picks profile of the sacrificial layer (S. Soulimane - 21 February, 2008)
+The mechanism of the sacrificial layer realisation is dependent on resist thickness, resist formulation (viscosity, type of polymer and/or solvent, additives...), design of the patterned layer (size or width) and the conditions under which this layer is prepared: thermal treatment, etch back processes..
+Link: https://arxiv.org/abs/0802.3078
+====================================================
+An Integrated Circuit Compatible Compact Package for Thermal Gas Flowmeters (P. Bruschi - 21 February, 2008)
+An original packaging method suitable for integrated thermal mass flow sensors is presented. The adapter is sealed to the chip surface by means of a thermal procedure
+Link: https://arxiv.org/abs/0802.3062
+====================================================
+Algorithms for Temperature-Aware Task Scheduling in Microprocessor Systems (Marek Chrobak - 28 January, 2008)
+The microprocessor's temperature is controlled by the hardware thermal management system that continuously monitors the chip temperature and automatically reduces the processor's speed as soon as the thermal threshold is exceeded. Given a variety of possible underlying architectures, models for cooling and for hardware thermal management, as well as types of tasks, this scenario gives rise to a plethora of interesting and never studied scheduling problems.
+Link: https://arxiv.org/abs/0801.4238
+====================================================
+The Second Law as a Cause of the Evolution (Oded Kafri - 28 November, 2007)
+Based on equilibrium thermodynamics, it is argued that in low occupation number statistical systems, the second law of thermodynamics yields an increase of thermal entropy and a canonic energy distribution
+Link: https://arxiv.org/abs/0711.4507
+====================================================
+Contactless Thermal Characterization Method of PCB-s Using an IR Sensor Array (Gy. Bognar - 21 November, 2007)
+The methodology and the results of a quasi real-time thermal characterization tool and method for the temperature mapping of circuits and boards based on sensing the infrared radiation is introduced
+Link: https://arxiv.org/abs/0711.3324
+====================================================
+Impact of Thermal Behavior on Offset in a High-Q Gyroscope (Fei Duan - 21 November, 2007)
+In this paper, CFD approach is used to simulate the thermal behavior in a sensitive high-Q gyroscope
+Link: https://arxiv.org/abs/0711.3315
+====================================================
+Characterisation of the Etching Quality in Micro-Electro-Mechanical Systems by Thermal Transient Methodology (P. Szabo - 21 November, 2007)
+These simulations predicted change in the thermal behaviour of MEMS structures having differences in their sacrificial layers. In the measurements we used the T3Ster thermal transient tester equipment
+Link: https://arxiv.org/abs/0711.3301
+====================================================
+An Active Chaotic Micromixer Integrating Thermal Actuation Associating PDMS and Silicon Microtechnology (O. FranÃ§ais - 21 November, 2007)
+In this paper, an active micromixer is presented consisting on thermal actuation with heating resistors
+Link: https://arxiv.org/abs/0711.3290
+====================================================
+3-D Self-Assembled Soi Mems: An Example of Multiphysics Simulation (C. Mendez - 21 November, 2007)
+In this work, we present possible applications of 3-D self-assembled SOI (Silicon-on-Insulator) MEMS such as, for instance, thermal actuators and flow sensors. Structural and thermal parts have to be strongly coupled for correctly describing the fabrication process and for simulating the behavior of these 3-D SOI MEMS.
+Link: https://arxiv.org/abs/0711.3277
+====================================================
+Rapid Generation of Thermal-Safe Test Schedules (Paul Rosinger - 25 October, 2007)
+The proposed approach facilitates rapid generation of thermal-safer test schedules without requiring time-consuming thermal simulations. This is achieved by employing a low-complexity test session thermal model used to guide the test schedule generation algorithm
+Link: https://arxiv.org/abs/0710.4797
+====================================================
+Hotspot Prevention Through Runtime Reconfiguration in Network-On-Chip (G. M. Link - 25 October, 2007)
+Many existing thermal management techniques focus on reducing the overall power consumption of the chip, and do not address location-specific temperature problems referred to as hotspots. We propose the use of dynamic runtime reconfiguration to shift the hotspot-inducing computation periodically and make the thermal profile more uniform
+Link: https://arxiv.org/abs/0710.4764
+====================================================
+A Fast Concurrent Power-Thermal Model for Sub-100nm Digital ICs (J. L. Rossello - 25 October, 2007)
+The exponential dependence of static power with the operating temperature makes the thermal profile estimation of high-performance ICs a key issue to compute the total power dissipated in next-generations
+Link: https://arxiv.org/abs/0710.4759
+====================================================
+Top-Down Design of a Low-Power Multi-Channel 2.5-Gbit/s/Channel Gated Oscillator Clock-Recovery Circuit (Paul Muller - 25 October, 2007)
+Thermal noise modeling based on well-known concepts delivers design parameters for the device sizing and biasing
+Link: https://arxiv.org/abs/0710.4727
+====================================================
+Thermal-Aware Task Allocation and Scheduling for Embedded Systems (W. -L. Hung - 25 October, 2007)
+The paper investigates both power-aware and thermal-aware approaches to task allocation and scheduling. The experimental results show that the thermal-aware approach outperforms the power-aware schemes in terms of maximal and average temperature reductions
+Link: https://arxiv.org/abs/0710.4660
+====================================================
+Cointegration of the Daily Electric Power System Load and the Weather (Stefan Z. Stefanov - 24 January, 2011)
+The paper makes a thermal predictive analysis of the electric power system security for a day ahead. This predictive analysis is set as a thermal computation of the expected security
+Link: https://arxiv.org/abs/0706.1119
+====================================================
+Numerical Model For Vibration Damping Resulting From the First Order Phase Transformations (Linxiang X. Wang - 28 February, 2007)
+The model is constructed on the basis of the modified Landau-Ginzburg theory that couples nonlinear mechanical and thermal fields. The free energy function for the model is constructed as a double well function at low temperature, such that the external energy can be absorbed during the phase transformation and converted into thermal form
+Link: https://arxiv.org/abs/cs/0702172
+====================================================
+Finite Volume Analysis of Nonlinear Thermo-mechanical Dynamics of Shape Memory Alloys (Linxiang X. Wang - 28 February, 2007)
+Both mechanically and thermally induced phase transformations, as well as hysteresis effects, in a one-dimensional structure are successfully simulated with the developed methodology
+Link: https://arxiv.org/abs/cs/0702167
+====================================================
+The Second Law and Informatics (Oded Kafri - 18 April, 2007)
+It is argued that similarly to the randomness due to collisions in thermal systems, the quenched randomness that exists in data files in informatics systems contributes to entropy
+Link: https://arxiv.org/abs/cs/0701016
+====================================================
+Distributed Control of Microscopic Robots in Biomedical Applications (Tad Hogg - 21 November, 2006)
+This paper reviews plausible capabilities for microscopic robots and the physical constraints due to operation in fluids at low Reynolds number, diffusion-limited sensing and thermal noise from Brownian motion
+Link: https://arxiv.org/abs/cs/0611111
+====================================================
+Memory and compiler optimizations for low-power and -energy (Olivier Zendra - 5 October, 2006)
+The various problems faced pertain to autonomy, power supply possibilities, thermal dissipation, or even sheer energy cost
+Link: https://arxiv.org/abs/cs/0610028
+====================================================
+Mathematical Modelling of the Thermal Accumulation in Hot Water Solar Systems (Stanko Vl. Shtrakov - 18 July, 2006)
+The main concept of investigation is to optimise the stratified regime of thermal accumulation and constructive parameters of heat exchange equipment (heat serpentine in tank). Computer program was developed to solve mathematical equations for thermal accumulation and energy exchange
+Link: https://arxiv.org/abs/cs/0607083
+====================================================
+Information theory and Thermodynamics (Oded Kafri - 7 February, 2006)
+To provide a thermodynamic theory of communication it is necessary to define equilibrium for informatics systems that are not in thermal equilibrium and to calculate temperature, heat, and entropy with accordance to Clausius inequality
+Link: https://arxiv.org/abs/cs/0602023
+====================================================
+New approach for Finite Difference Method for Thermal Analysis of Passive Solar Systems (Stanko Shtrakov - 13 February, 2005)
+As a boundary conditions for the mathematical problem are used equations, which describe influence of weather data and constructive parameters of building on the thermal performance of the passive system. In article are presented results of theoretical and experimental study for developing and validating a numerical solution model for predication the thermal behaviour of passive solar systems with massive wall.
+Link: https://arxiv.org/abs/cs/0502059
+====================================================
+Parallel Computing Environments and Methods for Power Distribution System Simulation (Ning Lu - 18 September, 2004)
+The power distribution system simulator (PDSS) takes a bottom-up approach and simulates load at the appliance level, where detailed thermal models for appliances are used
+Link: https://arxiv.org/abs/cs/0409035
+====================================================
+Towards Robust Quantum Computation (Debbie W. Leung - 20 December, 2000)
+A variety of techniques have been developed, including high rate quantum codes for amplitude damping, relaxed criteria for quantum error correction, systematic construction of fault-tolerant gates, recipes for quantum process tomography, techniques in bulk thermal state computation, and efficient decoupling techniques to implement selective coupled logic gates
+Link: https://arxiv.org/abs/cs/0012017
+====================================================

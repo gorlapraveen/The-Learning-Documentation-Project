@@ -1,0 +1,267 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Adaptive Pruning of Neural Language Models for Mobile Devices (Raphael Tang - 26 September, 2018)
+Our empirical evaluations consider both perplexity as well as energy consumption on a Raspberry Pi, where we demonstrate which methods provide the best perplexity-power consumption operating point. At one operating point, one of the techniques is able to provide energy savings of 40% over the state of the art with only a 17% relative increase in perplexity.
+Link: https://arxiv.org/abs/1809.10282
+====================================================
+A Generic Multi-modal Dynamic Gesture Recognition System using Machine Learning (Gautham Krishna G - 16 September, 2018)
+Moreover, this system was found to run on a low-cost embedded platform - Raspberry Pi Zero (USD 5), making it economically viable.
+Link: https://arxiv.org/abs/1809.05839
+====================================================
+A Machine Learning Driven IoT Solution for Noise Classification in Smart Cities (Yasser Alsouda - 1 September, 2018)
+Training and testing of our k-nearest neighbors (k = 1) implementation on Raspberry Pi Zero W is less than a second for a dataset with features of more than 3000 sound samples.
+Link: https://arxiv.org/abs/1809.00238
+====================================================
+Profiling and Improving the Duty-Cycling Performance of Linux-based IoT Devices (Immanuel Amirtharaj - 29 August, 2018)
+We analyze the processes of system boot up and shutdown on two platforms, the Raspberry Pi 3 and Zero Wireless, and enhance duty-cycling performance by identifying and disabling time consuming or unnecessary units initialized in the userspace. Our results show that system lifetime is increased by 18.3%, 16.8%, 13.9% and 30.2%, for these application scenarios, respectively.
+Link: https://arxiv.org/abs/1808.10097
+====================================================
+Towards real-time unsupervised monocular depth estimation on CPU (Matteo Poggi - 31 July, 2018)
+Extensive experimental results on the KITTI dataset show that compared to the top performing approach our network has similar accuracy but a much lower complexity (about 6% of parameters) enabling to infer a depth map for a KITTI image in about 1.7 s on the Raspberry Pi 3 and at more than 8 Hz on a standard CPU. Moreover, by trading accuracy for efficiency, our network allows to infer maps at about 2 Hz and 40 Hz respectively, still being more accurate than most state-of-the-art slower methods
+Link: https://arxiv.org/abs/1806.11430
+====================================================
+Real-Time Human Detection as an Edge Service Enabled by a Lightweight CNN (Seyed Yahya Nikouei - 24 April, 2018)
+A prototype has been implemented on an edge node (Raspberry PI 3) using openCV libraries, and satisfactory performance is achieved using real world surveillance video streams
+Link: https://arxiv.org/abs/1805.00330
+====================================================
+BLEBeacon: A Real-Subject Trial Dataset from Mobile Bluetooth Low Energy Beacons (Dimitrios Sikeridis - 23 February, 2018)
+A network of Raspberry Pi 3 (RPi)-based edge devices were deployed inside a multi-floor facility continuously gathering BLE advertisement packets and storing them in a cloud-based environment
+Link: https://arxiv.org/abs/1802.08782
+====================================================
+Musical Chair: Efficient Real-Time Recognition Using Collaborative IoT Devices (Ramyad Hadidi - 21 March, 2018)
+To demonstrate Musical Chair, on a network of Raspberry PIs (up to 12) each connected to a camera, we implement a state-of-the-art action recognition model for videos and two recognition models for images
+Link: https://arxiv.org/abs/1802.02138
+====================================================
+A cost effective and reliable environment monitoring system for HPC applications (Peter Bernd Otte - 29 January, 2018)
+This device incorporates a Raspberry Pi, an Arduino and PoE (Power over Ethernet) functionality in a compact form factor. The system is in use at the 2 PFLOPS cluster of the Johannes Gutenberg-University and Helmholtz-Institute in Mainz.
+Link: https://arxiv.org/abs/1802.00724
+====================================================
+DeepPicar: A Low-cost Deep Neural Network-based Autonomous Car (Michael G. Bechtel - 29 July, 2018)
+DeepPicar uses the same network architecture---9 layers, 27 million connections and 250K parameters---and can drive itself in real-time using a web camera and a Raspberry Pi 3 quad-core platform. Using DeepPicar, we analyze the Pi 3's computing capabilities to support end-to-end deep learning based real-time control of autonomous vehicles. We find that all tested platforms, including the Pi 3, are capable of supporting the CNN-based real-time control, from 20 Hz up to 100 Hz, depending on hardware platform. To protect the CNN workload, we also evaluate state-of-the-art cache partitioning and memory bandwidth throttling techniques on the Pi 3
+Link: https://arxiv.org/abs/1712.08644
+====================================================
+Affordable and Energy-Efficient Cloud Computing Clusters: The Bolzano Raspberry Pi Cloud Cluster Experiment (Pekka Abrahamsson - 20 September, 2017)
+We present our ongoing work building a Raspberry Pi cluster consisting of 300 nodes
+Link: https://arxiv.org/abs/1709.06815
+====================================================
+Real-time convolutional networks for sonar image classification in low-power embedded systems (Matias Valdenegro-Toro - 7 September, 2017)
+Our networks can classify a 96x96 sonar image with 98.8 - 99.7 accuracy on only 41 to 61 milliseconds on a Raspberry Pi 2, which corresponds to speedups of 28.6 - 19.7.
+Link: https://arxiv.org/abs/1709.02153
+====================================================
+Design, Configuration, Implementation, and Performance of a Simple 32 Core Raspberry Pi Cluster (Vincent A. Cicirello - 17 August, 2017)
+In this report, I describe the design and implementation of an inexpensive, eight node, 32 core, cluster of raspberry pi single board computers, as well as the performance of this cluster on two computational tasks, one that requires significant data transfer relative to computational time requirements, and one that does not. Our preliminary results show that the slow 100 Mbps networking of the raspberry pi significantly limits such clusters to parallel computational tasks that are either long running relative to data communications requirements, or that which requires very little internode communications. Additionally, although the raspberry pi 3 has a quad-core processor, parallel speedup degrades during attempts to utilize all four cores of all cluster nodes for a parallel computation, likely due to resource contention with operating system level processes
+Link: https://arxiv.org/abs/1708.05264
+====================================================
+Automatic HVAC Control with Real-time Occupancy Recognition and Simulation-guided Model Predictive Control in Low-cost Embedded System (Muhammad Aftab - 17 August, 2017)
+With this in mind, we designed and implemented an occupancy-predictive HVAC control system in a low-cost yet powerful embedded system (using Raspberry Pi 3) to demonstrate the following key features for building automation: (1) real-time occupancy recognition using video-processing and machine-learning techniques, (2) dynamic analysis and prediction of occupancy patterns, and (3) model predictive control for HVAC operations guided by real-time building thermal response simulations (using an on-board EnergyPlus simulator)
+Link: https://arxiv.org/abs/1708.05208
+====================================================
+Intrinsically Motivated Goal Exploration Processes with Automatic Curriculum Learning (SÃ©bastien Forestier - 7 August, 2017)
+We illustrate the computational efficiency of IMGEPs as these robotic experiments use a simple memory-based low-level policy representations and search algorithm, enabling the whole system to learn online and incrementally on a Raspberry Pi 3.
+Link: https://arxiv.org/abs/1708.02190
+====================================================
+QuickTalk: An Association-Free Communication Method for IoT Devices in Proximity (Seongmin Ham - 19 May, 2017)
+Our experiments of QuickTalk implemented on Raspberry Pi 2 devices show that the end-to-end delay of QuickTalk is upper bounded by 2.5 seconds and its median is only about 0.74 seconds
+Link: https://arxiv.org/abs/1705.06882
+====================================================
+Study of Raspberry Pi 2 Quad-core Cortex A7 CPU Cluster as a Mini Supercomputer (Abdurrachman Mappuji - 20 December, 2016)
+This paper covers the result of utilizing many Raspberry Pi 2 SBCs, a quad-core Cortex A7 900 MHz, as a cluster to compensate its computing power. This experiment give a recommendation that 4 nodes is a maximum number of nodes for SBC cluster based on the characteristic of computing performance and power consumption.
+Link: https://arxiv.org/abs/1612.07128
+====================================================
+On the Feasibility of Attribute-Based Encryption on Internet of Things Devices (Moreno Ambrosin - 24 November, 2016)
+This article explores such feasibility for well-known IoT platforms, namely, Intel Galileo Gen 2, Intel Edison, Raspberry Pi 1 Model B, and Raspberry Pi Zero, and concludes that adopting ABE in the IoT is indeed feasible.
+Link: https://arxiv.org/abs/1611.08098
+====================================================
+A $35 Firewall for the Developing World (Zubair Nabi - 11 May, 2014)
+To remedy the situation, we explore whether low-cost platforms, such as Raspberry Pi (\$35) and Cubieboard (\$59), can be used to implement security mechanisms. Our results show that these platforms can indeed serve as enablers of security functions for small sized deployments in the developing world, while only consuming less than $2.5 worth of electricity per device per annum
+Link: https://arxiv.org/abs/1405.2517
+====================================================
+Embed System for Robotic Arm with 3 Degree of Freedom Controller using Computational Vision on Real-Time (Luiz Cortinhas - 12 April, 2014)
+This approach present all implementation over: two raspberry PI arm based computer running client program, x64 PC running server program, and one robot arm controlled by ATmega328p based board.
+Link: https://arxiv.org/abs/1404.3316
+====================================================
+Cloud Chaser: Real Time Deep Learning Computer Vision on Low Computing Power Devices (Zhengyi Luo - 2 October, 2018)
+A Raspberry Pi based robot, Cloud Chaser, is built to demonstrate the power of using cloud computing to perform real time vision tasks
+Link: https://arxiv.org/abs/1810.01069
+====================================================
+Ten Simple Rules for Using a Raspberry Pi (Anthony C Fletcher - 1 October, 2018)
+Just a few weeks with a Raspberry Pi would begin to remedy that
+Link: https://arxiv.org/abs/1810.00027
+====================================================
+Camouflaged with Size: A Case Study of Espionage using Acquirable Single-Board Computers (Kiavash Satvat - 11 September, 2018)
+We show how an attacker can turn a Raspberry Pi device to an attacking gadget and benefit from short-term physical access to attach the gadget to the network in order to access unauthorized data or perform other malicious activities
+Link: https://arxiv.org/abs/1809.04112
+====================================================
+Developing a Purely Visual Based Obstacle Detection using Inverse Perspective Mapping (Julian Nubert - 4 September, 2018)
+Both, the detection as well as the reaction have to be implemented and have to run on a Raspberry Pi in real time
+Link: https://arxiv.org/abs/1809.01268
+====================================================
+Rock bottom, the world, the sky: Catrobat, an extremely large-scale and long-term visual coding project relying purely on smartphones (Kirshan Kumar Luhana - 19 August, 2018)
+We also have created a plethora of extensions, e.g., for various educational robots, including Lego Mindstorms and flying Parrot quadcopters ("the sky"), as well as for controlling arbitrary external devices through Arduino or Raspberry Pi boards, going up to the stratosphere and even beyond to interplanetary space ("the sky")
+Link: https://arxiv.org/abs/1808.06292
+====================================================
+Edge Based Data-Driven Pipelines (Technical Report) (Eduard Gibert Renart - 3 August, 2018)
+We deployed and tested our system on edge devices (Raspberry Pi and Android Phone), which proves that stream processing analytics can be performed at the edge of the network with single board computers in a real-time fashion.
+Link: https://arxiv.org/abs/1808.01353
+====================================================
+Edge Intelligence: On-Demand Deep Learning Model Co-Inference with Device-Edge Synergy (En Li - 13 September, 2018)
+The prototype implementation and extensive evaluations based on Raspberry Pi demonstrate Edgent's effectiveness in enabling on-demand low-latency edge intelligence.
+Link: https://arxiv.org/abs/1806.07840
+====================================================
+Coupled Fluid Density and Motion from Single Views (Marie-Lena Eckert - 18 June, 2018)
+We will demonstrate the capacity of our method with a series of synthetic test cases and the reconstruction of real smoke plumes captured with a Raspberry Pi camera.
+Link: https://arxiv.org/abs/1806.06613
+====================================================
+REORDER: Securing Dynamic-Priority Real-Time Systems Using Schedule Obfuscation (Chien-Ying Chen - 4 June, 2018)
+We integrated our REORDER protocol into the Linux real-time EDF scheduler and evaluated our scheme using both - a realistic embedded platform based on Raspberry Pi and also synthetic workloads.
+Link: https://arxiv.org/abs/1806.01393
+====================================================
+A Federated Capability-based Access Control Mechanism for Internet of Things (IoTs) (Ronghua Xu - 1 May, 2018)
+Implemented and tested on both resources-constrained devices, like smart sensors and Raspberry PI, and non-resource-constrained devices, like laptops and smart phones, our experimental results demonstrate the feasibility of the proposed FedCAC approach to offer a scalable, lightweight and fine-grained access control solution to IoT systems connected to a system network.
+Link: https://arxiv.org/abs/1805.00825
+====================================================
+Checking is Believing: Event-Aware Program Anomaly Detection in Cyber-Physical Systems (Long Cheng - 30 April, 2018)
+Our prototype on Raspberry Pi incurs a low overhead, taking 0.0001s for each state transition integrity checking, and 0.063s~0.211s for the cyber-physical contextual consistency checking.
+Link: https://arxiv.org/abs/1805.00074
+====================================================
+BlendCAC: A BLockchain-ENabled Decentralized Capability-based Access Control for IoTs (Ronghua Xu - 24 April, 2018)
+Implemented and tested on a Raspberry Pi device and on a local private blockchain network, our experimental results demonstrate the feasibility of the proposed BlendCAC approach to offer a decentralized, scalable, lightweight and fine grained AC solution to IoT systems.
+Link: https://arxiv.org/abs/1804.09267
+====================================================
+Low-cost Autonomous Navigation System Based on Optical Flow Classification (Michel C. Meneses - 11 March, 2018)
+This work presents a low-cost robot, controlled by a Raspberry Pi, whose navigation system is based on vision. Its estimation was done using the Lucas-Kanade algorithm, which can be executed by the Raspberry Pi without harming its performance
+Link: https://arxiv.org/abs/1803.03966
+====================================================
+Smart Contract-Based Access Control for the Internet of Things (Yuanyu Zhang - 12 February, 2018)
+To demonstrate the application of the framework, we provide a case study in an IoT system with one desktop computer, one laptop and two Raspberry Pi single-board computers, where the ACCs, JC and RC are implemented based on the Ethereum smart contract platform to achieve the access control.
+Link: https://arxiv.org/abs/1802.04410
+====================================================
+Smart Fog: Fog Computing Framework for Unsupervised Clustering Analytics in Wearable Internet of Things (Debanjan Borthakur - 24 December, 2017)
+We employed Intel Edison and Raspberry Pi as Fog computer in proposed architecture
+Link: https://arxiv.org/abs/1712.09347
+====================================================
+Fog Computing based SDI Framework for Mineral Resources Information Infrastructure Management in India (Rabindra K. Barik - 11 January, 2018)
+We built a prototype using Raspberry Pi, an embedded microprocessor
+Link: https://arxiv.org/abs/1712.09282
+====================================================
+Securing Edge Networks with Securebox (Ibbad Hafeez - 20 December, 2017)
+We have implemented two Securebox prototypes, using a low-cost Raspberry-PI and off-the-shelf fanless PC
+Link: https://arxiv.org/abs/1712.07740
+====================================================
+Raspberry Pi and Arduino Uno Working together as a Basic Meteorological Station (JosÃ© Rafael CortÃ©s LeÃ³n - 21 November, 2017)
+The principle followed is to configure Raspberry as a collector for measures obtained from Arduino, transmitting occurs via USB; meanwhile, Raspberry broadcasts them via a web page. Information on the web-page is refreshed each five minute; however, measurements arrive at Raspberry every ten seconds
+Link: https://arxiv.org/abs/1711.09750
+====================================================
+An Experimental Analysis of the Power Consumption of Convolutional Neural Networks for Keyword Spotting (Raphael Tang - 21 September, 2018)
+In this paper, we study the power consumption of a family of convolutional neural networks for keyword spotting on a Raspberry Pi
+Link: https://arxiv.org/abs/1711.00333
+====================================================
+Sistema de NavegaÃ§Ã£o AutÃ´nomo Baseado em VisÃ£o Computacional (Michel Conrado Cardoso Meneses - 17 October, 2017)
+Therefore, the goal of this work was to develop a low-cost robot, controlled by a Raspberry Pi, whose navigation system is based on vision. Its estimation was done using the Lucas-Kanade algorithm, which can be executed by the Raspberry Pi without harming its performance
+Link: https://arxiv.org/abs/1710.06518
+====================================================
+Pengaruh Perangkat Server Terhadap Kualitas Pengontrolan Jarak Jauh Melalui Internet ( Gunawan - 1 October, 2017)
+In this study using notebooks and servers Raspberry Pi to find out the quality control of each device server used. In this study we investigate the possibility of improving the quality of web-based remote control to implement Raspberry Pi as a web server and how much improvement the quality of web-based remote control obtained in this research.
+Link: https://arxiv.org/abs/1710.04154
+====================================================
+Learning the Exact Topology of Undirected Consensus Networks (Saurav Talukdar - 29 September, 2017)
+We illustrate the effectiveness of the method developed through numerical simulations as well as experiments on a five node network of Raspberry Pis.
+Link: https://arxiv.org/abs/1710.00032
+====================================================
+BreathRNNet: Breathing Based Authentication on Resource-Constrained IoT Devices using RNNs (Jagmohan Chauhan - 22 September, 2017)
+We evaluate the performance of RNN models on three types of devices; smartphone, smartwatch, and Raspberry Pi and show that unlike CNN models, RNN models can be easily ported onto resource-constrained devices without a significant loss in accuracy.
+Link: https://arxiv.org/abs/1709.07626
+====================================================
+Distributed Apportioning in a Power Network for providing Demand Response Services (Sourav Patel - 21 August, 2017)
+The methods are validated using hardware-in-the-loop simulations with Raspberry PI devices as distributed control units, implementing the proposed distributed algorithm and responsible for determining and dispatching realtime power reference commands to simulated power electronics interface emulating LIS units for demand response.
+Link: https://arxiv.org/abs/1708.06414
+====================================================
+Enhanced Socket API for MPTCP - Controlling Sub-flow Priority (Abhijit Mondal - 13 July, 2017)
+The scheduler and the socket APIs are extensively tested in Mininet based emulation environment as well as on real Raspberry Pi based testbed.
+Link: https://arxiv.org/abs/1707.03585
+====================================================
+ECHO: An Adaptive Orchestration Platform for Hybrid Dataflows across Cloud and Edge (Pushkara Ravindra - 4 July, 2017)
+We validate the ECHO platform for executing video analytics and sensor streams for Smart Traffic and Smart Utility applications on Raspberry Pi, NVidia TX1, ARM64 and Azure Cloud VM resources, and present our results.
+Link: https://arxiv.org/abs/1707.00889
+====================================================
+Fog Computing in Medical Internet-of-Things: Architecture, Implementation, and Applications (Harishchandra Dubey - 24 June, 2017)
+We implemented and tested an fog computing system using the Intel Edison and Raspberry Pi that allows acquisition, computing, storage and communication of the various medical data such as pathological speech data of individuals with speech disorders, Phonocardiogram (PCG) signal for heart rate estimation, and Electrocardiogram (ECG)-based Q, R, S detection.
+Link: https://arxiv.org/abs/1706.08012
+====================================================
+Facial Recognition Enabled Smart Door Using Microsoft Face API (Karan Maheshwari - 29 May, 2017)
+In our proof of concept of a smart door we have used a live HD camera on the front side of setup attached to a display monitor connected to the camera to show who is standing in front of the door, also the whole system will be able to give voice outputs by processing text them on the Raspberry Pi ARM processor used and show the answers as output on the screen. The facial recognition is done by Microsoft face API but our state of the art desktop application operating over Microsoft Visual Studio IDE reduces the computational time by detecting the face out of the photo and giving that as the output to Microsoft Face API, which is hosted over Microsoft Azure cloud support.
+Link: https://arxiv.org/abs/1706.00498
+====================================================
+Weaving Rules into Models@run.time for Embedded Smart Systems (Ludovic Mouline - 14 April, 2017)
+The challenge at hand is that smart systems usually need to process thousands of updates to detect which rules need to be triggered, often even on restricted hardware like a Raspberry Pi
+Link: https://arxiv.org/abs/1704.04378
+====================================================
+Privacy-Preserving Personal Model Training (Sandra Servia-Rodriguez - 3 April, 2018)
+We also analyse the robustness of our approach against adversarial attacks, as well as its feasibility by presenting a performance evaluation on a representative resource-constrained device (a Raspberry Pi).
+Link: https://arxiv.org/abs/1703.00380
+====================================================
+On Using Micro-Clouds to Deliver the Fog (Yehia Elkhatib - 6 February, 2017)
+Through a number of experiments, we showcase the potential of micro-clouds formed by collections of Raspberry Pi computers to host a range of fog-related applications, particularly for locations where there is limited network bandwidths and long latencies.
+Link: https://arxiv.org/abs/1703.00375
+====================================================
+PowerAlert: An Integrity Checker using Power Measurement (Ahmed M. Fawaz - 9 February, 2017)
+We implement a prototype of PowerAlert using Raspberry pi and evaluate the performance of the integrity checking program generation
+Link: https://arxiv.org/abs/1702.02907
+====================================================
+Fog-Assisted wIoT: A Smart Fog Gateway for End-to-End Analytics in Wearable Internet of Things (Nicholas Constant - 24 January, 2017)
+We developed a prototype of smart fog gateway (a middle layer) using Intel Edison and Raspberry Pi
+Link: https://arxiv.org/abs/1701.08680
+====================================================
+Teaching Functional Patterns through Robotic Applications (J. Boender - 28 November, 2016)
+To support these, we developed the Middlesex Robotic plaTfOrm (MIRTO), an open-source platform built using Raspberry Pi, Arduino, HUB-ee wheels and running Racket (a LISP dialect)
+Link: https://arxiv.org/abs/1611.09470
+====================================================
+ODIN: Obfuscation-based privacy preserving consensus algorithm for Decentralized Information fusion in smart device Networks (Moreno Ambrosin - 13 March, 2017)
+We discuss the security of our proposal, and show its practicability and efficiency on real-world resource constrained devices, developing a prototype implementation for Raspberry Pi devices.
+Link: https://arxiv.org/abs/1610.06694
+====================================================
+An IoT application development using IoTSuite (Saurabh Chauhan - 6 September, 2016)
+These applications have been tested on several IoT technologies such as Android, Raspberry PI, Arduino, and JavaSE-enabled devices, Messaging protocols such as MQTT, CoAP, WebSocket, Server technologies such as Node.js, Relational database such as MySQL, and Microsoft Azure Cloud services.
+Link: https://arxiv.org/abs/1609.01676
+====================================================
+A Novel Implementation for Automated Health Monitoring System (Praveen B Sarangamath - 16 August, 2016)
+The proposed work employs Raspberry Pi kit as a personal server which logs the health data and it can be accessed by any PDA within the LAN range
+Link: https://arxiv.org/abs/1608.04488
+====================================================
+C-FLAT: Control-FLow ATtestation for Embedded Systems Software (Tigist Abera - 17 August, 2016)
+We describe a full prototype implementation of C-FLAT on Raspberry Pi using its ARM TrustZone hardware security extensions
+Link: https://arxiv.org/abs/1605.07763
+====================================================
+A Performance Evaluation of Container Technologies on Internet of Things Devices (Roberto Morabito - 9 March, 2016)
+This paper presents a performance evaluation of container technologies on constrained devices, in this case, on Raspberry Pi
+Link: https://arxiv.org/abs/1603.02955
+====================================================
+Interactive Museum Exhibits with Microcontrollers: A Use-Case Scenario (Lok Wong - 25 September, 2015)
+Specifically, the Arduino and Raspberry Pi provide the necessary linkages between the Internet and hardware, allowing for a greater interactive experience for museum visitors
+Link: https://arxiv.org/abs/1509.07626
+====================================================
+Feasibility Evaluation of 6LoWPAN over Bluetooth Low Energy (Varat Chawathaworncharoen - 23 September, 2015)
+This paper demonstrates the feasibility of 6LoWPAN through conducting a preliminary performance evaluation of a commodity hardware environment, including Bluetooth Low Energy (BLE) network, Raspberry Pi, and a laptop PC
+Link: https://arxiv.org/abs/1509.06991
+====================================================
+Modeling and interpolation of the ambient magnetic field by Gaussian processes (Arno Solin - 21 March, 2018)
+The model is shown to work well in practice in different applications: we demonstrate mapping of the magnetic field both with an inexpensive Raspberry Pi powered robot and on foot using a standard smartphone.
+Link: https://arxiv.org/abs/1509.04634
+====================================================
+EMEEDP: Enhanced Multi-hop Energy Efficient Distributed Protocol for Heterogeneous Wireless Sensor Network (Sunil Kumar - 14 November, 2014)
+A WSN implemented and tested using Raspberry Pi devices as a base station, temperature sensors as a node and xively.com as a cloud
+Link: https://arxiv.org/abs/1411.3071
+====================================================
+Designing a minimalist socially aware robotic agent for the home (Matthew R. Francisco - 26 June, 2014)
+We use the Katie Family of robots, built on the iRobot Create platform, an Arduino Uno, and a Raspberry Pi
+Link: https://arxiv.org/abs/1406.6873
+====================================================
+Low-cost photoplethysmograph solutions using the Raspberry Pi (Tamas Nagy - 10 October, 2013)
+Two modulation techniques are discussed, which make possible to measure these signals by the Raspberry Pi, using an external sound card as A/D converter. Full documentation and open-source software for the measurement available: http://www.noise.inf.u-szeged.hu/Instruments/raspberryplet/
+Link: https://arxiv.org/abs/1310.2717
+====================================================
