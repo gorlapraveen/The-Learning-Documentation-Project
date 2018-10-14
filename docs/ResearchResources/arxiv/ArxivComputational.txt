@@ -244,3 +244,59 @@ Link: https://arxiv.org/abs/1809.03539
 Critically fast pick-and-place with suction cups (Hung Pham - 10 September, 2018)
 The main difficulties are: (i) handling the contact between the suction cup and the object, which fundamentally involves kinodynamic constraints, and (ii) doing so at a low computational cost, typically a few hundreds of milliseconds. We experimentally validate the proposed pipeline on a physical robot system: the cycle time for a typical pick-and-place task was less than 5 seconds, planning and execution times included
 Link: https://arxiv.org/abs/1809.03151
+====================================================
+A Neural Temporal Model for Human Motion Prediction (Anand Gopalakrishnan - 14 September, 2018)
+We propose novel neural temporal models for short-term motion prediction and long-term human motion synthesis, achieving state-of-art predictive performance while being computationally less expensive compared to previously proposed approaches. Key aspects of our proposed system include: 1) a novel, two-level processing architecture that aids in generating planned trajectories, 2) a simple set of easily computable features that integrate simple derivative information into the model, and 3) a novel multi-objective loss function that helps the model to slowly progress from the simpler task of next-step prediction to the harder task of multi-step closed-loop prediction
+Link: https://arxiv.org/abs/1809.03036
+====================================================
+Dependency Graph Approach for Multiprocessor Real-Time Synchronization (Jian-Jia Chen - 8 September, 2018)
+Therefore, the allowance of preemption or migration does not reduce the computational complexity. We present a series of algorithms with speedup factors between $2$ and $3$ under semi-partitioned scheduling
+Link: https://arxiv.org/abs/1809.02892
+====================================================
+Accelerating Viterbi Algorithm using Custom Instruction Approach (Waqar Ahmad - 8 September, 2018)
+A cost-effective solution is to enhance the Instruction Set Architecture (ISA) of the processors by creating new custom instructions for the computational parts of the decoding algorithms. By using the custom instruction approach, the execution time of the Viterbi algorithm is significantly improved by approximately 3 times for DLX and PicoJava II, and by 2 times for NIOS II.
+Link: https://arxiv.org/abs/1809.02887
+====================================================
+Extracting and Analyzing Semantic Relatedness between Cities Using News Articles (Yingjie Hu - 8 September, 2018)
+This paper proposes a computational framework which can "read" a large number of news articles and extract the semantic relatedness between cities. We describe the overall structure of this framework and its individual modules, and then apply it to an experimental dataset with more than 500,000 news articles covering the top 100 U.S
+Link: https://arxiv.org/abs/1809.02823
+====================================================
+Joint Autoregressive and Hierarchical Priors for Learned Image Compression (David Minnen - 7 September, 2018)
+While it is well known that autoregressive models come with a significant computational penalty, we find that in terms of compression performance, autoregressive and hierarchical priors are complementary and, together, exploit the probabilistic structure in the latents better than all previous learned models. The combined model yields state-of-the-art rate--distortion performance, providing a 15.8% average reduction in file size over the previous state-of-the-art method based on deep learning, which corresponds to a 59.8% size reduction over JPEG, more than 35% reduction compared to WebP and JPEG2000, and bitstreams 8.4% smaller than BPG, the current state-of-the-art image codec
+Link: https://arxiv.org/abs/1809.02736
+====================================================
+FRESH: FrÃ©chet Similarity with Hashing (Matteo Ceccarello - 7 September, 2018)
+Similarity search is a computational demanding task, in particular when a robust distance function is used, such as the continuous FrÃ©chet distance. The experiments indeed show that, with a recall larger than 80% and precision 100%, we have at least a factor 10 improvement in performance over a baseline given by the best solutions developed for the ACM SIGSPATIAL 2017 challenge on the FrÃ©chet distance
+Link: https://arxiv.org/abs/1809.02350
+====================================================
+2PFPCE: Two-Phase Filter Pruning Based on Conditional Entropy (Chuhan Min - 6 September, 2018)
+However, high computational cost of CNNs greatly hinder their deployment in resource-constrained applications, real-time systems and edge computing platforms. Two-phase pruning, that is, combining both global and layer-wise strategies, achieves 10 X FLOPs reduction and 46% inference time reduction on VGG-16, with 2% accuracy drop.
+Link: https://arxiv.org/abs/1809.02220
+====================================================
+A "poor man's" approach to topology optimization of natural convection problems (Janus Asmussen - 6 September, 2018)
+The number of DOFs is reduced by 50% in two dimensions and the computational complexity is evaluated to be approximately 12.5% of the full model
+Link: https://arxiv.org/abs/1809.01900
+====================================================
+The Multilinear Minimax Relaxation of Bimatrix Games and Comparison with Nash Equilibria via Lemke-Howson (Bahman Kalantari - 5 September, 2018)
+Computationally, we have compared our approach with the state-of-the-art implementation of the Lemke-Howson algorithm \cite{Lemke}. We have observed the following advantages: (i) MMR outperformed Lemke-Howson in time complexity; (ii) In about $80\%$ of the cases the MMR payoffs for both players are better than any Nash Equilibria; (iii) in the remaining $20\%$, while one player's payoff is better than any Nash Equilibrium payoff, the other player's payoff is only within a relative error of $17\%$.
+Link: https://arxiv.org/abs/1809.01717
+====================================================
+Pack and Detect: Fast Object Detection in Videos Using Region-of-Interest Packing (Athindran Ramesh Kumar - 1 October, 2018)
+Although great progress has been made in improving the accuracy of object detection in recent years due to improved techniques for training and deploying deep neural networks, they are computationally very intensive. For example, processing a video at 300x300 resolution using the SSD300 (Single Shot Detector) object detection network with VGG16 as backbone at 30 fps requires 1.87 trillion FLOPS/s. This method can potentially reduce the number of FLOPS required for a frame by 4x. Tuning the algorithm parameters can provide a 1.3x increase in throughput with only a 2.5% drop in accuracy.
+Link: https://arxiv.org/abs/1809.01701
+====================================================
+Geodesic farthest-point Voronoi diagram in linear time (Luis Barba - 7 September, 2018)
+In particular, this algorithm can be extended to run in expected $O(n + m\log m)$ time when $S$ is an arbitrary set of $m$ sites contained in $P$, thereby solving the open problem posed by Mitchell in Chapter 27 of the Handbook of Computational Geometry.
+Link: https://arxiv.org/abs/1809.01481
+====================================================
+Modeling the EM Field Distribution within a Computer Chip Package (Xavier Timoneda - 5 September, 2018)
+This model could compute the electric field intensity inside the chip reducing the computational time several orders of magnitude with an average mismatch of only 1.7 dB.
+Link: https://arxiv.org/abs/1809.01432
+====================================================
+ChannelNets: Compact and Efficient Convolutional Neural Networks via Channel-Wise Convolutions (Hongyang Gao - 5 September, 2018)
+Compared to prior CNNs designed for mobile devices, ChannelNets achieve a significant reduction in terms of the number of parameters and computational cost without loss in accuracy. Notably, our work represents the first attempt to compress the fully-connected classification layer, which usually accounts for about 25% of total parameters in compact CNNs
+Link: https://arxiv.org/abs/1809.01330
+====================================================
+Tensor Networks for Latent Variable Analysis: Higher Order Canonical Polyadic Decomposition (Anh-Huy Phan - 3 September, 2018)
+Prior compression of tensor in-hand can reduce the computational cost of CPD, but this is only applicable when the rank $R$ of the decomposition does not exceed the tensor dimensions. To resolve these issues, we present a novel method for CPD of higher-order tensors, which rests upon a simple tensor network of representative inter-connected core tensors of orders not higher than 3
+Link: https://arxiv.org/abs/1809.00535

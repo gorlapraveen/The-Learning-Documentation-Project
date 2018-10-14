@@ -5,3 +5,62 @@ Please wait while we phrase the requested information from global arxiv[arxiv.or
 ---------------------------->
 ------------------------------------------------------>
  
+Decoupled Strategy for Imbalanced Workloads in MapReduce Frameworks (Sergio Rivas-Gomez - 9 October, 2018)
+Using a Word-Count implementation and a large dataset from the Purdue MapReduce Benchmarks Suite (PUMA), we demonstrate that our approach can provide up to 23% performance improvement on average compared to a reference MapReduce implementation that uses state-of-the-art MPI collective communication and I/O.
+Link: https://arxiv.org/abs/1810.04146
+====================================================
+Should I Bug You? Identifying Domain Experts in Software Projects Using Code Complexity Metrics (Ralf Teusner - 20 September, 2018)
+Furthermore, teams can detect those parts of the software for which currently no, or only few experts exist and take preventive actions to keep the collective code knowledge and ownership high. The identified experts were rated as acceptable candidates by developers in over 90% of all cases.
+Link: https://arxiv.org/abs/1809.07668
+====================================================
+Analyzing Social Book Reading Behavior on Goodreads and how it predicts Amazon Best Sellers (Suman Kalyan Maity - 19 September, 2018)
+We analyze the collective reading behavior on Goodreads platform and quantify various characteristic features of the Goodreads entities to identify differences between these Amazon best sellers (ABS) and the other non-best selling books. We then develop a prediction model using the characteristic features to predict if a book shall become a best seller after one month (15 days) since its publication. On a balanced set, we are able to achieve a very high average accuracy of 88.72% (85.66%) for the prediction where the other competitive class contains books which are randomly selected from the Goodreads dataset. Our method primarily based on features derived from user posts and genre related characteristic properties achieves an improvement of 16.4% over the traditional popularity factors (ratings, reviews) based baseline methods. We are able to achieve quite good results with very high average accuracy of 87.1% and as well a high ROC for ABS vs GCAN. For ABS vs HRHR, our model yields a high average accuracy of 86.22%.
+Link: https://arxiv.org/abs/1809.07354
+====================================================
+Crowdsourcing Lung Nodules Detection and Annotation (Saeed Boorboor - 17 September, 2018)
+More specifically, a complete workflow is introduced which can help maximize the sensitivity of lung nodule detection by utilizing the collective intelligence of the crowd. Using our crowdsourcing workflow, we achieved a lung nodule detection sensitivity of over 90% for 20 patient CT datasets (containing 178 lung nodules with sizes between 1-30mm), and only 47 false positives from a total of 1021 annotations on nodules of all sizes (96% sensitivity for nodules$>$4mm)
+Link: https://arxiv.org/abs/1809.06402
+====================================================
+Gradual Collective Upgrade of a Swarm of Autonomous Buoys for Dynamic Ocean Monitoring (Francesco Vallegra - 31 August, 2018)
+We present both theoretical analysis and field experiments on the responsiveness in dynamic area coverage of a collective of 22 autonomous buoys, where 4 units are upgraded to a new design that allows them to move 80\% faster than the rest
+Link: https://arxiv.org/abs/1808.10617
+====================================================
+Substate Profiling for Effective Test Suite Reduction (Chadi Trad - 24 August, 2018)
+This motivated us to explore state profiles, which are based on the collective values of program variables. We evaluated our approach using thirteen multi-fault subject programs comprising 53 defects
+Link: https://arxiv.org/abs/1808.08174
+====================================================
+Neural Networks Assist Crowd Predictions in Discerning the Veracity of Emotional Expressions (Zhenyue Qin - 16 August, 2018)
+We discover that collective discernment can increase the accuracy of detecting emotion veracity from 63%, which is the average individual performance, to 80%. Constraining data to best performers can further increase the result up to 92%. Neural networks can achieve an accuracy to 99.69% by aggregating participants' answers. We find that our neural networks do not require a large number of participants, particularly, 30 randomly selected, to achieve high accuracy predictions, better than any individual participant
+Link: https://arxiv.org/abs/1808.05359
+====================================================
+Mending Wall: On the Implementation of Censorship in India (Devashish Gosain - 18 June, 2018)
+A few "key" ASes (approx 1% of Indian ASes) collectively intercept approx 95% of paths to the censored sites we sample in our study, and also to all publicly-visible DNS servers. 5,000 routers spanning these key ASes would suffice to carry out IP or DNS filtering for the entire country; approx 70% of these routers belong to only two private ISPs
+Link: https://arxiv.org/abs/1806.06518
+====================================================
+How Curiosity can be modeled for a Clickbait Detector (Lasya Venneti - 11 June, 2018)
+What is less acknowledged is that this is based on the successful arousing of curiosity both at the collective and individual levels. Our classifier shows an accuracy of 97% 
+Link: https://arxiv.org/abs/1806.04212
+====================================================
+Elasticizing Linux via Joint Disaggregation of Memory and Computation (Ehab Ababneh - 3 June, 2018)
+We have implemented these primitives in a Linux 2.6 kernel, collectively calling the extended operating system, ElasticOS. Our evaluation across a variety of algorithms shows up to 10x improvement in performance over standard network swap.
+Link: https://arxiv.org/abs/1806.00885
+====================================================
+An Ontology to Support Collective Intelligence in Decentralised Multi-Robot Systems (Pragna Das - 31 May, 2018)
+This ontology helps to fetch and share informationforming a collective knowledge base facilitating a comprehensive control and planning for the system. The total cost of paths generated through the travel times estimated through sharingis 40% less on average than that of paths generated through travel times without sharing.
+Link: https://arxiv.org/abs/1806.00367
+====================================================
+HOPF: Higher Order Propagation Framework for Deep Collective Classification (Priyesh Vijayan - 21 September, 2018)
+Given a graph where every node has certain attributes associated with it and some nodes have labels associated with them, Collective Classification (CC) is the task of assigning labels to every unlabeled node using information from the node as well as its neighbors. We do an extensive evaluation across 11 datasets from different domains
+Link: https://arxiv.org/abs/1805.12421
+====================================================
+SNU_IDS at SemEval-2018 Task 12: Sentence Encoder with Contextualized Vectors for Argument Reasoning Comprehension (Taeuk Kim - 18 May, 2018)
+It is a simple neural network consisting of three parts, collectively judging whether the logic built on a set of given sentences (a claim, reason, and warrant) is plausible or not. Quantitative analysis shows that simply leveraging LSTMs trained on MT datasets outperforms several baselines and non-transferred models, achieving accuracies of about 70% on the development set and about 60% on the test set.
+Link: https://arxiv.org/abs/1805.07049
+====================================================
+A Memory Network Approach for Story-based Temporal Summarization of 360Â° Videos (Sangho Lee - 18 June, 2018)
+We propose a novel memory network model named Past-Future Memory Network (PFMN), in which we first compute the scores of 81 normal field of view (NFOV) region proposals cropped from the input 360Â° video, and then recover a latent, collective summary using the network with two external memories that store the embeddings of previously selected subshots and future candidate subshots
+Link: https://arxiv.org/abs/1805.02838
+====================================================
+Holistic Management of the GPGPU Memory Hierarchy to Manage Warp-level Latency Tolerance (Rachata Ausavarungnirun - 29 April, 2018)
+We propose a set of techniques, collectively called Memory Divergence Correction (MeDiC), that reduce the negative performance impact of memory divergence and cache queuing. MeDiC delivers an average speedup of 21.8%, and 20.1% higher energy efficiency, over a state-of-the-art GPU cache management mechanism across 15 different GPGPU applications.
+Link: https://arxiv.org/abs/1804.11038
