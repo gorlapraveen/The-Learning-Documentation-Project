@@ -10,7 +10,7 @@ Prase the Updated research abstracts from the arxiv repository using [Arxiv-BAsh
 
 ## Arxiv research articles
 
-This directory contains the latest research Articles from `arxiv` repo from varies Domains of science,technology, economics, maths etc....
+This directory contains the latest research Articles from `arxiv` repo from varies Domains of science,technology, economics, maths etc....List of Updated research abstracts and links form varius domains ex: `Software`, `Processors`, `Networks`, `Cloud`, `Agriculture`, `Medical`, `GNUradio`, `Cryptography`, `Surveillance`, `Dental`, `Arts` , etc.. It also contains Research papers on Localization of  `Spoken Languages` such as `Chinese`, `Japanese`, `English` and `60 Indian` Languages.  It includes more than `150` research categories 
 
 You can find your articles here in the following format `ArxivDomain` ex: if you want latest `argriculture` related articles then go to the file `ArxivAgriculture.txt`. 
 
