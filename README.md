@@ -35,6 +35,10 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
 | CLI Brightness : [Blacklight Deb Packages](https://salsa.debian.org/gorlapraveen-guest/blacklight-deb-packages) | Command Line Brightness adjust, `.deb` Package |
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts) | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `Bash Script`
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
+| Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
+| Encrypt a File :[GPG Encryption](/docs/EncryptAFile.md) | and send to other person |
+
+
  -------------------------------------------------------------------------------------------------
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)

@@ -1,9 +1,10 @@
 ## Encrypt a file to sent to your firend/other person
 
+**Note** : *If you Would like to know about generation and usage of* `ssh/gpg` *keys*. *please go to*[ssh/gpg](/docs/encrypt/ssh-gpg.md)
 -------------------------------------------------------
-1. ***Import your friends publice key** and **verify the key** from global keyserers.
+1. **Import your friends publice key** and **verify the key** from global keyserers.
 
-   1. Import Keys: import Keys using your friend `KEY-ID` or `email` or `Real Name`
+   1. **Import Keys:** import Keys using your friend `KEY-ID` or `email` or `Real Name`
      
     
         $ gpg --search-keys --keyserver keys.gnupg.net 'KEY-ID'
@@ -19,9 +20,9 @@
         or If your frineds gives his publices in `Friend_Publice_key.gpg` you can import using following command 
         gpg --import Friend_Publice_key.gpg
 
-  2. Then Verify the Keys :
+  2. Then **Verify the Keys** :
     
-     Verify the successful import of your friend publice key by `gpg --list-keys`, then you have you friend's `Raksi` Key.
+     Verify the successful import of your friend publice key by `gpg --list-keys`, then you have your friend's `Raksi` Key.
 
            pub   4096R/AB2724A8 2017-12-03
            uid                  raksi (Raksi's test ID)
@@ -43,11 +44,20 @@
          you may answer the next question with yes.
 
          Use this key anyway? (y/N) y
-   1. A file `test.txt.pgp` will be created with some binary data. If you dont want it tobe in binary format , you can choose to have in ASCII format by using the `gpg --encrypt --armor --recipient raksi test.txt` which creates `test.txt.pgp` having ASCII values.
+   1. A file `test.txt.pgp` will be created with some binary data. If you dont want it to be in binary format , you can choose to have in ASCII format by using the `gpg --encrypt --armor --recipient raksi test.txt` which creates `test.txt.gpg` having ASCII values.
     
-   2. Send this `test.txt.pgp` file to your firend by any means, preferably use end-to-end encrypted channels (it couls be mail, chat or etc).
+   2. Send this `test.txt.gpg` file to your firend by any means, preferably use end-to-end encrypted channels (it can be through e-mail, chat or etc).
 
 
-3. **Decrypt a File (By your friend)**
-      
+3. **Decrypt a file (by your friend)** : After receiving from your, into a plain text `test.txt`, human readable file. 
+   
+        gpg --decrypt test.txt.gpg > test.txt
+
+   1. This command uses his(your friend's/other-persons) private keys to decrypt to a simple, human readable file `test.txt`
+
+--------------------------------------------------------------------------------------------------
+
+
+
+
 
