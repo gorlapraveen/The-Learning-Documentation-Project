@@ -1,6 +1,6 @@
 ## Arxiv research articles
 
-This directory contains the latest research Articles from `arxiv` repo from varies Domains of science,technology, economics, maths etc....
+This directory contains the latest research Articles from `arxiv` repo from varies Domains of science,technology, economics, maths etc.... and it also includes research papers on Localization of `Spoken Languages` such as `chinese`, `Japanese`, `Thai`, `English` and [60 Indian Languages](https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers_in_India#List_of_mother_tongues_by_number_of_speakers)
 
 You can find your articles here in the following format `ArxivDomain` ex: if you want latest `argriculture` related articles then go to the file `ArxivAgriculture.txt`. 
 
