@@ -18,7 +18,7 @@ So, We are very glad to have everyone on this board to access or/and contribute 
   1.  Code/Software is licensed under [GNU General Publice License 2+](https://www.gnu.org/licenses/licenses.html#GPL).
   2.  Documentation is licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/licenses.html#FDL)
   3.  Any Work that is adapted from other Sources (including text/images/Software Code) should have already been Licensed under either [1](#) or/and [2](#).
-* Contributors must obey our [Code of Conduct](/CodeOFConduct.md)
+* Contributors must obey our [Code of Conduct](/CodeOfConduct.md)
 
 
 
