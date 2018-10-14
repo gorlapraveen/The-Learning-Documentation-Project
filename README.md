@@ -36,7 +36,7 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts) | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `Bash Script`
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
 | Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
-| Encrypt a File :[GPG Encryption](/docs/EncryptAFile.md) | and send to other person |
+| Encrypt a File :[GPG Encryption](/docs/encrypt/EncryptAFile.md) | and send to other person |
 
 
  -------------------------------------------------------------------------------------------------
