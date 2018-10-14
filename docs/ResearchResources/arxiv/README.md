@@ -14,9 +14,11 @@ You can access the following :
  5. DOI indexing Number.
 
 
+If you want to search any Specific Word in `.txt` files. Open That file and search using `Ctrl + f` and Type the word to search. Text Will be highlited for your prefered word.
+
 
 Alternatively, If you want to search in your linux terminal, you can use https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts tool for phrasing information. The detailed explanation is provided by visting this link.
 
+------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-
 Last Updated Date: `15-October-2018`
