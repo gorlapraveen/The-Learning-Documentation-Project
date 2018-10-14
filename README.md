@@ -37,7 +37,7 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
 | Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
 | Encrypt a File :[GPG Encryption](/docs/encrypt/EncryptAFile.md) | and send to other person |
-| Research Resources : [Arxiv Research](/docs/ResearchResources/arxiv) | List of Updated research abstracts and links form varius domains ex: `Software`, `Processors`, `Networks`, `Cloud`, `Agriculture`, `Medical`, `GNUradio`, `Cryptography`, `Surveillance`, `Dental`, `Arts` , etc.. It also contains Research papers on Localization of  `Spoken Languages` such as Chinese, Japanese, English and 60 Indian Languages |
+| Research Resources : [Arxiv Research](/docs/ResearchResources/arxiv) | List of Updated research abstracts and links form varius domains ex: `Software`, `Processors`, `Networks`, `Cloud`, `Agriculture`, `Medical`, `GNUradio`, `Cryptography`, `Surveillance`, `Dental`, `Arts` , etc.. It also contains Research papers on Localization of  `Spoken Languages` such as `Chinese`, `Japanese`, `English` and `60 Indian` Languages.  It includes more than `150` research topics |
 
 
  -------------------------------------------------------------------------------------------------
