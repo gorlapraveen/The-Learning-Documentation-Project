@@ -1,0 +1,43 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Interfacing Interpreted and Compiled Languages to Support Applications on a Massively Parallel Network of Workstations (MP-NOW) (Jeremy Kepner - 7 December, 1999)
+A test problem (taken from Astronomy) has been implemented on the Sarnoff Cyclone computer which consists of 160 heterogeneous nodes connected by a ``fat'' tree 100 Mb/s switched Ethernet running the RedHat Linux and FreeBSD operating systems. Our first results in this ongoing project have demonstrated the feasibility of this approach and produced speedups of greater than 50 on 60 processors.
+Link: https://arxiv.org/abs/astro-ph/9912134
+====================================================
+SLEUTH: Real-time Attack Scenario Reconstruction from COTS Audit Data (Md Nahid Hossain - 6 January, 2018)
+Our system participated in a red team evaluation organized by DARPA and was able to successfully detect and reconstruct the details of the red team's attacks on hosts running Windows, FreeBSD and Linux.
+Link: https://arxiv.org/abs/1801.02062
+====================================================
+SCTP in Go (Olivier Van Acker - 20 November, 2017)
+The implementation of SCTP extending the Go network library was done on FreeBSD and Mac OS X, the two operating systems that contain the most up to date implementation of the SCTP specification.
+Link: https://arxiv.org/abs/1711.07224
+====================================================
+An efficient solver for large structured eigenvalue problems in relativistic quantum chemistry (Toru Shiozaki - 16 February, 2016)
+The source code is publicly available under the FreeBSD license.
+Link: https://arxiv.org/abs/1512.08934
+====================================================
+Setup for the Nuclotron beam time structure measurements (A. Yu. Isupov - 23 June, 2015)
+The data acquisition system software is implemented using the ngdp framework under the Unix-like operating system (OS) FreeBSD to allow the easy network distribution of the online data
+Link: https://arxiv.org/abs/1505.05822
+====================================================
+New software of the control and data acquisition system for the Nuclotron internal target station (A. Yu. Isupov - 22 March, 2012)
+The new software is based on the ngdp framework under the Unix-like operating system FreeBSD to allow easy network distribution of the online data collected from ITS, as well as the internal target remote control
+Link: https://arxiv.org/abs/1203.5242
+====================================================
+Using Neural Networks to improve classical Operating System Fingerprinting techniques (Carlos Sarraute - 9 June, 2010)
+We present two working modules: one which uses DCE-RPC endpoints to distinguish Windows versions, and another which uses Nmap signatures to distinguish different version of Windows, Linux, Solaris, OpenBSD, FreeBSD and NetBSD systems
+Link: https://arxiv.org/abs/1006.1918
+====================================================
+Quality Classifiers for Open Source Software Repositories (George Tsatsaronis - 29 April, 2009)
+The `successfulness' of projects is defined in terms of the classifier confidence with which it predicts that they could be ported in popular OSS projects (such as FreeBSD, Gentoo Portage).
+Link: https://arxiv.org/abs/0904.4708
+====================================================
+FreeBSD Mandatory Access Control Usage for Implementing Enterprise Security Policies (Kirill Bolshakov - 12 June, 2007)
+FreeBSD was one of the first widely deployed free operating systems to provide mandatory access control
+Link: https://arxiv.org/abs/0706.1755
+====================================================

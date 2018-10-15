@@ -4,7 +4,7 @@ This directory contains the latest research Articles from `arxiv` repo from vari
 
 You can find your articles here in the following format `ArxivDomain` ex: if you want latest `argriculture` related articles then go to the file `ArxivAgriculture.txt`. 
 
-Each file contains atleast `500`(if <`500`, the Arxiv repo Many not contain less articles  ) latest Arxive Research Artilces Details. 
+Each file contains atleast `500`(if <`500`, the Arxiv repo Many  contain less articles  ) latest Arxive Research Articles Details. 
 
 You can access the following :
  1. The `URL`of the paper for your selected topic.
