@@ -169,7 +169,7 @@ Find more at https://keyring.debian.org/creating-key.html
 Execting Linux commands in bash: `basch -c $(Linux command)`
 **Arrays in bash script:**
 
-        Ex: arr=(Helloworld)
+        Ex: arr=(Hello world)
 Prints: for `arr[0]`=`Hello`, for `arr[1]`=`world`
 
          for : echo ${arr[0]} ${arr[1]}
