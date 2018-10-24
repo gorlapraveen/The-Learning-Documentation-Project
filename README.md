@@ -30,6 +30,7 @@ This repository which contains [documentation](#) is  Licensed under [GNU Free D
 |[Linux Standard Command-Line Options : GNU Compatible](/docs/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | Options along with commands, such as  `command_name -h` for `help` for `command_name` usage |
 |[Standarad Command Line : Table of Long Options](/docs/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) |  More Options along with commands|
 | Security Scanner:[ chkrootkit(Debian)](https://packages.debian.org/stretch/chkrootkit), [Lynis (Debian)](https://packages.debian.org/stretch/lynis)| Note-: Please review source code, it may contains harmful files, as it scans the root file system which may effect your system files  |
+| Security Scanner : [CalmAV](https://wiki.debian.org/ClamAV) | Is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats. |
 | Text to Speech: [Festival-tts](http://www.cstr.ed.ac.uk/projects/festival/) | For: [Debian](https://packages.debian.org/stretch/festival) Package
 | CLI Brightness : [Brightness Bash Shell](https://salsa.debian.org/gorlapraveen-guest/brightness_bashshell_script) | Command Line Brightness adjustment, `Bash shell` script |
 | CLI Brightness : [Blacklight Deb Packages](https://salsa.debian.org/gorlapraveen-guest/blacklight-deb-packages) | Command Line Brightness adjust, `.deb` Package |
