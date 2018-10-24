@@ -1,0 +1,1452 @@
+  Linux NIS(YP)/NIS/NIS+ HOWTO
+  Thorsten Kukuk diterjemahkan oleh Joanes B Prasatya
+  v0.9, 10. Januari 1998 terjemahan 1 Pebruari 1998
+
+  Dokumen ini berisi bagaimana cara mengkonfigurasi Linux sebagai client
+  NIS(YP) atau NIS+ dan bagaimana pula cara melakukan instalasi Linux
+  sebagai server NIS.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Pengantar
+
+     1.1 Versi varu dari dokumen ini
+     1.2 Kemungkinan kesalahan
+     1.3 Tanggapan dan koreksi
+     1.4 Ucapan terimakasih
+
+  2. Daftar kata-kata dan informasi umum
+
+     2.1 Daftar istilah
+     2.2 Beberapa Informasi Umum.
+
+  3. NIS atau NIS+ ?
+
+     3.1 libc 4/5 dengan NIS yang tradisional atau dengan NYS ?
+
+  4. Bagaimana cara kerjanya
+
+     4.1 Bagaimana cara kerja NIS(YP)
+     4.2 Bagaimana cara kerja NIS+
+
+  5. Portmapper RPC
+
+  6. Apa yang Anda perlukan untuk men set-up NIS ?
+
+     6.1 Tentukan apakah Anda akan bertinda sebagai server, pelayan atau klien.
+     6.2 Perangkat lunak
+     6.3 Daemon milik ypbind.
+     6.4 Melakukan setting klien NIS menggunakan NIS yang tradisional
+     6.5 Setting klien NIS dengan menggunakan NYS
+     6.6 Setting klien NIS dengan menggunakan glibc 2.x
+     6.7 Berkas nsswitch.conf
+
+  7. Apa yang Anda butuhkan untuk melakukan setting NIS+ ?
+
+     7.1 Perangkat lunak
+     7.2 Setting klien NIS+
+     7.3 NIS+, keylogin, login dan PAM
+     7.4 Berkas nsswitch.conf
+
+  8. Setting server NIS
+
+     8.1 Program server ypserv
+     8.2 Program yps dari server
+     8.3 Program rpc.yppasswdd
+
+  9. Pemeriksaan terhadap instalasi NIS/NYS
+
+  10. Masalah-masalah yang umum dan penyelesaiannya di dalam NIS.
+
+  11. Pertanyaan yang paling sering ditanyakan
+
+
+
+  ______________________________________________________________________
+
+  1.  Pengantar
+
+  Banyak mesin Linux yang diinstal sebagai bagian dari suatu jaringan
+  komputer. Untuk mempermudah administrasi jaringan, banyak jaringan
+  (terutama jaringan yang berbasis SUN) menggunakan Network Information
+  Service. Apabila fasilitas ini tersedia pada jaringan dimana Linux
+  berada, maka Linux dapat memanfaatkan keberadaan dan kelebihan NIS ini
+  atau menyediakan fasilitas NIS untuk mereka sendiri.  Mesin Linux
+  dapat pula menjadi client NIS+ secara penuh, pelayanan untuk ini masih
+  dalam taraf beta.
+
+  Dokumen ini mencoba untuk menjawab pertanyaan sekitar setting
+  NIS(YP)dan NIS+ pada mesin Linux Anda. Jangan lupa untuk membaca
+  bagian dari ``the RPC Portmapper''
+
+  NIS-Howto diedit dan ditangani oleh
+
+
+       Thorsten Kukuk, kukuk@vt.uni-paderborn.de
+
+
+  dan diterjemahkan oleh
+
+       Joanes B Prasetya, joanes@indo.net.id
+
+
+  Sumber informasi utama untuk NIS-Howto berasal dari
+
+
+
+       Andrea Dell'Amico            <adellam@ZIA.ms.it>
+       Mitchum DSouza               <Mitch.DSouza@NetComm.IE>
+       Erwin Embsen                 <erwin@nioz.nl>
+       Peter Eriksson               <peter@ifm.liu.se>
+
+
+
+
+  Kepada mereka kami mengucapkan terima kasih atas penulisan versi
+  pertama dari dokumen ini.
+
+
+  1.1.  Versi varu dari dokumen ini
+
+  Versi baru dari dokumen ini akan disebarkan secara periodik pada
+  newsgroup comp.os.linux.help <news:comp.os.linux.help> dan
+  comp.os.linux.announce <news:comp.os.linux.announce>. Dokumen-dokumen
+  ini pula akan di letakkan pada semua WWW dan Ftp untuk Linux, juga
+  termasuk home page milik LDP.
+
+  Anda dapat selalu melihat versi terbaru dari dokumen ini pada World
+  Wide Web dengan URL http://sunsite.unc.edu/mdw/HOWTO/NIS-HOWTO.html
+  <http://sunsite.unc.edu/mdw/HOWTO/NIS-HOWTO.html>.  atau di koleksi
+  HOWTO Linux Indonesia http://www.linux.or.id/HOWTO
+  <http://www.linux.or.id/HOWTO>
+
+
+  1.2.  Kemungkinan kesalahan
+
+  Meskipun dokumen ini telah dibuat sedemikan rupa sesuai dengan
+  kemampuan terbaik dari penulis, tidak menutup kemungkinan masih adanya
+  kesalahan. Silahkan membaca file README yang disertakan pada setiap
+  bagian dari perangkat lunak yang di sebutkan di dalam dokumen untuk
+  untuk mendapatkan informasi yang lebih mendetail dan lebih akurat.
+  1.3.  Tanggapan dan koreksi
+
+  Jika Anda memiliki pertanyaan atau komentar tentang dokumen ini, Anda
+  dapat mengirim surat pada Thorsten Kukuk, pada kukuk@vt.uni-
+  paderborn.de.Penulis bersedia menerima saran dan kritik. Jika Anda
+  menemukan kesalahan dalam dokumen ini, silahkan memberitahukan kepada
+  penulis sehingga diketahui dan diperbaiki pada versi berikutnya.
+  Terima kasih.
+
+  Jangan mengirim mail kepada penulis tentang masalah-masalah khusus
+  berkenaan dengan distribusi Linux Anda. Penulis tidak mengetahui
+  setiap distribusi Linux. Tetapi penulis akan berusaha menambah setiap
+  penyelesaian yang Anda kirimkan.
+
+  (Catatan : Untuk koreksi atau tanggapan mengenai terjemahan ini
+  kedalam bahasa Indonesia, silahkan hubungi Joanes B. Prasatya
+  joanes@indo.net.id)
+
+
+  1.4.  Ucapan terimakasih
+
+  Penulis mengucapkan banyak terima kasih kepada semua orang yang telah
+  membantu (secara langsung maupun tidak langsung) penulisan dokumen
+  ini. Dalam urutan alfabetis :
+
+
+
+       Byron A Jeff            <byron@cc.gatech.edu>
+       Miquel van Smoorenburg  <miquels@cistron.nl>
+
+
+
+
+  Theo de Raadt <deraadt@theos.com> yang bertanggung jawab  untuk kode
+  client yp yang asli. Swen Thuemmler <swen@uni-paderborn.de> yang telah
+  melakukan translasi kode tersebut ke dalam Linux dan juga
+  mentranslasikan rutin-rutin untuk yp tersebut ke dalam libc (sekali
+  lagi, pekerjaan ini berdasarkan pekeraan Theo) Thorsten Kukuk telah
+  menulis rutin-rutin NIS(YP) dan NIS+ untuk GNU libc 2.x dari awal.
+
+
+  2.  Daftar kata-kata dan informasi umum
+
+  2.1.  Daftar istilah
+
+  Di dalam dokumen ini, banyak terdapat akromin/singkatan yang
+  dipergunakan. Berikut ini adalah akromin/singkatan yang penting
+  beserta dengan penjelasannya.
+
+
+     DBM
+        Database Management, sebuah library dari fungsi yang menangani
+        pasangan key-content di dalam sebuah basis data.
+
+
+     DLL
+        Dynamically Linked Library, sebuah library yang di link pada
+        sebuah executable program pada saat run-time.
+
+
+     domainname
+        Sebuah nama yang bertindak sebagai "kunci" yang dipergunakan
+        oleh client-client NIS untuk dapat mencari server NIS yang
+        sesuai dengan nama domainname nya. Perlu dicatat bahwa nama
+        domain di sini tidak ada hubungannya dengan DNS.
+
+     FTP
+        File Transfer Protocol, sebuah protokol yang dipergunakan untuk
+        mengirim berkas diantara dua komputer.
+
+
+     libnsl
+        Name services library, kumpulan obyek-obyek yang dipergunakan
+        apabila dilakukan pemakaian / pemanggilan fungsi-fungsi seperti
+        getpwnam, getservbyname, dan lain-lain oleh Unix SVR4. GNU libc
+        menggunakan ini untuk fungsi-fungsi NIS (YP) dan NIS+
+
+
+     libsocket
+        Socket services library, sebuah kumpulan obyek yang dipergunakan
+        untuk pemanggilan fungsi-  fungsi yang berhubungan dengan socket
+        seperti socket, bind, listen dan lain-lain pada Unix SVR4.
+
+
+     NIS
+        Network Information Service, sebuah fasilitas yang menyajikan
+        informasi, yang dikenal diseluruh jaringan dan mesin. Ada
+        dukungan/ pelayanan untuk NIS pada library libc yang standard
+        milik Linux, yang mana pada dokumen ini dimaksudkan sebagai NIS
+        yang tradisional.
+
+
+     NIS+
+        Network Information Service (Plus :-),dasarnya adalah NIS.  NIS+
+        didisain oleh Sun Microsystems Inc. untuk mengganti NIS dengan
+        kemampuan keamanan yang ditingkatkan dan untuk juga instalasi
+        yang lebih besar.
+
+
+     NYS
+        Merupakan nama dari sebuah proyek dan kependekan dari NIS+ ,YP
+        dan Switch dan ditangani oleh Peter Eriksson <peter@ifm.liu.se>.
+        Berisi implementasi ulang yang lengkap yang menggunakan fungsi
+        untuk Name Services Switch yang merupakan bagian dari library
+        NYS.
+
+
+     NSS
+        Name Services Switch. Sebuah file /etc/nsswitch conf yang berisi
+        urutan pencarian yang dilakukan ketika sebuah informasi
+        dibutuhkan.
+
+
+     RPC
+        Remote Procedure Call, rutin-rutin RPC yang memungkinkan program
+        C melakukan pemanggilan procedure dari mesin lain melalui
+        jaringan. RFC yang dimaksud , paling sering merupakan varian
+        dari Sun RPC.
+
+
+     YP Yellow Pages(tm), merek terdaftar di Inggris, milik UK of
+        British Telecom plc.
+
+
+     TCP-IP
+        Transmission Control Protocol/Internet Protocol.Protokol untuk
+        komunikasi data, dan yang paling banyak digunakan oleh mesin-
+        mesin Unix.
+
+
+
+
+  2.2.  Beberapa Informasi Umum.
+
+  Berikut ini merupakan cuplikan dari buku  manual Sun(tm) System &
+  Network Administration :
+
+
+
+       "NIS sebelumnya dikenal sebagai Sun Yellow Pages (YP) tetapi nama
+       Yellow Pages(tm) adalah merek terdaftar milik United Kingdom of
+       British Telecom plc dan  tidak boleh digunakan tanpa ijin."
+
+
+
+
+  NIS merupakan kependekan dari Network Information Service. NIS berguna
+  untuk menyajikan informasi, yang dikenal atau dapat dipakai di seluruh
+  jaringan untuk semua mesin di jaringan. Informasi yang disebarkan oleh
+  NIS seperti :
+
+
+  o  nama untuk login/password-password/direktori pribadi milik user
+     (/etc/passwd)
+
+  o  informasi untuk group (/etc/group)
+
+     Sebagai contoh, jika password Anda berada pada basis data passwd
+     milik NIS, Anda dapat login pada semua mesin pada jaringan yang
+     menjalankan program client untuk NIS.
+
+  Sun adalah merek terdaftar milik Sun Microsystems, Inc. lisensi untuk
+  SunSoft, Inc.
+
+
+  3.  NIS atau NIS+ ?
+
+  Pilihan antara NIS dan NIS+ adalah mudah, gunakan NIS jika Anda tidak
+  harus menggunakan NIS+ atau tidak terlalu membutuhkan faktor keamanan
+  yang tinggi. NIS+ sangat sulit untuk ditangani (lebih mudah menangani
+  sisi client, tetapi pada sisi server, sangat sulit). Masalah lainnya
+  adalah bahwa dukungan untuk NIS+ pada Linux masih dalam pengembangan,
+  Anda butuh glibc yang terbaru yang masih dalam taraf pengembangan atau
+  harus menunggu untuk glibc versi 2.1.
+
+
+  3.1.  libc 4/5 dengan NIS yang tradisional atau dengan NYS ?
+
+  Pilihan antara NIS yang tradisional dengan NIS yang ada pada library
+  NYS tergantung pada pilihan apakah Anda memilih yang mudah dalam
+  implementasi dan telah teruji atau Anda memilih yang fleksibel dan
+  banyak hal-hal baru yang akan ditemui.
+
+  Pada NIS yang tradisional, programnya ditulis dengan menggunakan
+  bahasa C yang standard dan sudah lama ada dan kadang-kadang sudah
+  kadaluwarsa dan tidak fleksibel.
+
+  Anda perlu mengkompile ulang library libc milik Anda untuk
+  menggabungkan kode-kode NIS yang berada pada library milik NYS.
+  Sehingga nantinya library libc milik Anda, berisi kode-kode NIS milik
+  NYS ( atau Anda telah mendapatkan hasil kompile nya dari orang lain).
+
+  Perbedaan lainnya adalah bahwa NIS yang tradisional memiliki dukungan
+  pada Netgroups NIS, yang mana pada NYS belum ada pada saat ini. Tetapi
+  NYS memungkinkan Anda untuk menangani Shadow Passwords. NIS yang
+  tradisional, tidak mendukung Shadow Passwords.
+
+
+  Tetapi bila Anda menggunakan GNU C Library 2.x *aka libc) yang baru,
+  maka library ini sudah mendukung NSS (name switch service), yang
+  membuatnya fleksibel dan mendukung untuk pengaturan NIS/NIS+ berikut
+  ini : aliases, ethers, group, hosts, netgroups, networks, protocols,
+  publickey, passwd, rpc, services dan shadow.
+
+
+  4.  Bagaimana cara kerjanya
+
+  4.1.  Bagaimana cara kerja NIS(YP)
+
+  Dalam sebuah jaringan harus ada satu mesin yang bertindak sebagai
+  server NIS. Anda dapat memiliki lebih dari 1 server NIS, dan setiap
+  server tersebut melayani domain NIS yang berbeda-beda, atau Anda
+  mengatur agar server-server tersebut bekerja sama dimana salah satu
+  server sebagai master dan server yang lain sebagai pembantu (untuk
+  domain yang sama), atau bahkan Anda memiliki kedua cara ini dalam
+  jaringan Anda.
+
+  Server pembantu hanya memiliki salinan dari basis data NIS dan
+  menerima salinan tersebut dari server NIS yang utama pada saat ada
+  perubahan pada basis data induk. Anda memutuskan untuk menginstal satu
+  atau lebih server pembantu, tergantung dari jumlah mesin pada jaringan
+  Anda dan keandalan jaringan Anda. Pada saat server NIS sedang tidak
+  aktif atau terlalu lambat untuk menanggapi permintaan, clien  NIS yang
+  terhubung pada server tersebut akan berusaha mencari server lain yang
+  sedang aktif atau merespon lebih cepat.
+
+  Basis data NIS disebut format DBM, merupakan turunan dari basis data
+  ASCII. Sebagai contoh, file /etc/passwd dan /etc/group dapat secara
+  langsung dikonversikan menjadi format DBM dengan menggunakan perangkat
+  lunak penterjemah ASCII-to-DBM ("makedbm", disertakan didalam
+  perangkat lunak milik server). Server master untuk NIS sebaiknya
+  memiliki basis data ASCII dan basis data DBM.
+
+  Server pembantu akan diberitahu setiap perubahan pada server NIS,
+  (melalui program "yppush"), dan secara otomatis mengambil perubahan-
+  perubahan yang diperlukan untuk mensinkronisasikan basis datanya.
+  Klien NIS tidak perlu melakukan ini sebab selalu berkomunikasi dengan
+  server NIS untuk mendapatkan informasi yang disimpan pada basis data
+  DBM milik server.
+
+  Penulis dari klien YP untuk Linux telah menginformasikan bahwa ypbind
+  yang terbaru (ypbind-3.3.tar.gz) dapat berhubungan dengan server
+  secara langsung tanpa perlu melakukan broadcast (yang mana tidak aman
+  karena setiap orang menginstall server NIS dapat menjawab permintaan
+  dari broadcast tersebut) melalui konfigurasi berkasnya.
+
+
+  4.2.  Bagaimana cara kerja NIS+
+
+  NIS+ adalah versi terbaru dari network information nameservice dari
+  Sun. Perbedaan paling besar antara NIS dan NIS+ adalah, NIS+ mendukung
+  penyandian data dan autentifikasi yang aman melalui RPC.
+
+  Model penamaan dari NIS+ berdasarkan struktur pohon. Setiap titik di
+  dalam pohon bersesuaian dengan obyek dari NIS+, dimana kita memiliki 6
+  tipe: directory, entry, group, link, table dan private.
+
+  Direktori NIS+ yang merupakan akar dari NIS+ disebut sebagai direktori
+  root. Ada 2 direktori NIS+ yang khusus yaitu : org_dir dan groups_dir.
+  Direktori org_dir berisi semua tabel-tabel untuk fungsi administrasi
+  seperti passwd, hosts, dan mail_aliases. Direktori groups_dir terdiri
+  dari kelompok obyek-obyek milik  NIS+ yang digunakan untuk
+  pengontrolan terhadap suatu akses. Kumpulan dari org_dir, groups_di
+  dan direktori parent disebut sebagai domain NIS+.
+  5.  Portmapper RPC
+
+  Untuk menjalankan program yang disebutkan di bawah ini, Anda perlu
+  menjalankan program /usr/sbin/portmap. Beberapa distribusi Linux telah
+  menyisipkan kode untuk mengaktifkan daemon ini secara otomatis pada
+  berkas /etc/rc.d. Semua yang Anda perlukan adalah mengaktifkannya dan
+  melakukan booting ulang mesin Linux Anda. Baca dokumentasi Linux Anda
+  bagaimana cara melakukan ini.
+
+  Portmapper RPC (portmap(8)) adalah sebuah server yang merubah nomor-
+  nomor program RPC menjadi nomor-nomor port untuk protokol TCP/IP (atau
+  UDP/IP).  Portmapper RPC ini harus sedang berjalan agar RPC dapat
+  melakukan pemanggilan (seperti ini yang dilakukan oleh klien NIS/NIS+)
+  ke server RPC (seperti yang dilakukan oleh klien NIS/NIS+) pada sebuah
+  mesin. Pada saat server RPC diaktifkan, server ini akan memberitahu
+  portmap, port nomor berapa yang sedang di dengarkan dan nomor-nomor
+  program RPC berapa saja yang disiapkan untuk melayani.  Ketika klien
+  ingin melakukan pemanggilan RCP ke nomor program tertentu, pertama-
+  tama klien akan melakukan kontak pada portmap yang ada pada server
+  untuk menentukan nomor port dimana paket-paket RPC akan dikirim.
+  Biasanya, server RPC yang standard diaktifkan oleh inetd(8), sehingga
+  portmap harus diaktifkan sebelum inetd dikerjakan.
+
+  Untuk RPC yang aman, portmapper memerlukan Time Service (waktu
+  pelayanan). Pastikan bahwa Time Service diaktifkan dari file
+  /etc/inetd.conf pada semua hosts :
+
+
+       #
+       # Time service is used for clock syncronization
+       #
+       time    stream  tcp     nowait  nobody  /usr/sbin/tcpd  in.timed
+       time    dgram   udp     wait    nobody  /usr/sbin/tcpd  in.timed
+
+
+
+
+  Penting : jangan lupa untuk mengaktifkan kembali inetd setelah merubah
+  file ini !
+
+
+  6.  Apa yang Anda perlukan untuk men set-up NIS ?
+
+  6.1.  Tentukan apakah Anda akan bertinda sebagai server, pelayan atau
+  klien.
+
+  Untuk menjawab pertanyaan ini, Anda harus memperhatikan dua keadaan
+  berikut ini :
+
+  1. Mesin Anda merupakan bagian dari sebuah jaringan yang telah ada
+     server NIS nya.
+
+  2. Pada saat ini Anda belum memiliki server NIS pada jaringan.
+
+  Pada kasus pertama, Anda hanya membutuhkan program untuk klien
+  (ypbind,ypwhich, ypcat, yppoll, ypmatch). Program yang paling penting
+  adalah ypbind. Program ini selalu harus dijalankan setiap saat dan
+  harus selalu muncul pada setiap daftar-daftar proses. Sehingga disebut
+  proses daemon dan perlu diaktifkan dari berkas untuk start-up milik
+  sistem (contoh: /etc/rc.local, /etc/init.d/nis,/ etc/rc.d/init.d/
+  ypbind). Segera pada saat program ypbind jalan, maka sistem Anda telah
+  menjadi klien NIS.
+
+  Pada kasus ke dua, jika Anda tidak memiliki server NIS, maka Anda
+  memerlukan program untuk server NIS (biasanya disebut ypserv). Seksi 8
+  menjelaskan bagaimana melakukan set-up pada server NIS pada mesin
+  Linux Anda dengan menggunakan "ypserv", yang implementasi ypserv ini
+  dilakukan oleh Peter Eriksson dan Thorsten Kukuk. Catatat bahwa mulai
+  versi 0.14, implementasi ini mendukung konsep majikan-pembantu, yang
+  akan dibicarakan pada seksi 4.1.
+
+  Terdapat pula server NIS yang lain yang juga gratis, disebut "yps",
+  ditulis oleh Tobias Reber di Jerman yang juga mendukung konsep
+  majikan- pembantu, tetapi banyak terdapat keterbatasan dan di mendapat
+  dukungan lagi.
+
+
+  6.2.  Perangkat lunak
+
+  Library system "/usr/lib/libc.a" (versi 4.4.2 dan yang lebih baru)
+  atau library yang dapat dipergunakan bersama-sama (share)
+  "/lib/libc.so.c" berisi semua system calls yang dibutuhkan agar dapat
+  berhasil mengkompile klien NIS dan servernya. Untuk glibc 2.x, Anda
+  membutuhkan pula /lib/libnsl.so.1.
+
+  Beberapa orang melaporkan bahwa NIS hanya bekerja pada
+  "/usr/lib/libc.a" versi 4.5.21 atau yang lebih baru, sehingga apabila
+  Anda ingin menggunakannya jangan menggunakan libc versi yang lebih
+  lama. Program untuk klien NIS bisa didapatkan dari
+
+
+       Site                    Directory                       File Name
+
+       ftp.uni-paderborn.de    /linux/local/yp                 yp-clients-
+       2.2.tar.gz
+       ftp.uni-paderborn-de    /linux/local/yp                 ypbind-
+       3.3.tar.gz
+       ftp.kernel.org          /pub/linux/utils/net/NIS        yp-tools-
+       1.4.tar.gz
+       ftp.kernel.org          /pub/linux/utils/net/NIS        ypbind-
+       3.3.tar.gz
+       sunsite.unc.edu         /pub/Linux/system/Network/admin yp-clients-
+       2.2.tar.gz
+
+
+
+
+  Apabila Anda telah mendapatkan program tersebut, silahkan mengikuti
+  instruksi yang menyertai program tersebut. yp-clients 2.2 dapat
+  dipergunakan bersama dengan libc4 dan libc5 sampai 5.4.20. libc 5.4.21
+  dan glibc 2.x perlu yp-tools 1.4. Karena adanya bugs pada kode-kode
+  NIS, maka sebaiknya Anda tidak menggunakan libc 5.4.21-5.4.35.
+  Gunakan saja libc 5.4.36 atau yang lebih baru. ypbind 3.3 dapat bekeja
+  dengan semua libraries. Sebaiknya Anda tidak menggunakan ypbind yang
+  berasal dari yp-clients 2.2.
+
+
+  6.3.  Daemon milik ypbind.
+
+  Dengan assumsi Anda telah berhasil mengkompile program-program
+  tersebut, maka Anda telah siap untuk menginstal program tersebut.
+  Tempat yang sesuai untuk meletakkan daemon ypbind adalah pada
+  direktori /usr/sbin. Beberapa orang mungkin mengatakan kepada Anda,
+  bahwa Anda tidak memerlukan ypbind pada sistem yang menggunakan NYS.
+  Tetapi pendapat ini salah, ypwhich dan ypcat memerlukannya.
+
+  Untuk melakukan instalasi ini, Anda harus bertindak sebagai root.
+  Berkas-berkas biner yang lain (ypwhich, ypcat, yppoll, ypmatch)
+  sebaiknya diletakkan pada direktori yang dapat diakses oleh semua
+  pemakai, biasanya /usr/bin.
+
+
+  Proses ypbind memiliki berkas konfigurasi yang disebut /etc/yp.conf.
+  Anda dapat memasukkan nama-nama server NIS disana, untuk informasi
+  lebih lanjut, silahkan lihat pada halaman manual untuk ypbind(8).
+  Anda memerlukan file ini pula untuk NYS. Sebagai contoh isi dari file
+  konfigurasi tersebut adalah
+
+
+         ypserver voyager
+         ypserver ds9
+
+
+
+
+  Jika sistem bisa mendapatkan nama hosts di atas tanpa melalui NIS,
+  Anda dapat menggunakan nama servernya , tetapi apabila tidak, maka
+  Anda harus menggunakan alamat IP nya.
+
+  Lebih baik Anda melakukan test terlebih dahulu sebelum mengaktifkan
+  ypbind secara otomatis melalui berkas /etc/rc.d. Untuk melakukan test
+  tersebut, kerjakan langkah-langkah berikut : i
+
+  o  Pastikan nama domain Anda telah di set. Jika belum, jalankan
+     perintah berikut :
+
+
+
+               /bin/domainname nis.domain
+
+
+
+
+
+  dimana nis.domain sebaiknya merupakan string, dan sama sekali tidak
+  berhubungan dengan nama domain dari mesin Anda ! Alasannya adalah
+  untuk mempersulit orang-orang yang ingin mencuri basis data password
+  dari server NIS Anda. Jika Anda tidak mengetahui nama domain NIS Anda,
+  hubungi system/network administrator Anda.
+
+  o  Jalankan "/usr/sbin/portmap" jika program tersebut masih belum
+     jalan.
+
+  o  Buat direktori "/var/yp" jika belum ada.
+
+  o  Jalankan "/usr/sbin/ypbind"
+
+  o  Gunakan perintah "rpcinfo -p localhost" untuk memeriksa apakah
+     ypbind dapat mendaftarkan servicenya dengan portmapper. rpcinfo
+     seharusnya menghasilkan output seperti berikut :
+
+
+
+               program vers    proto   port
+                100000     2   tcp     111  portmapper
+                100000     2   udp     111  portmapper
+                100007     2   udp     637  ypbind
+                100007     2   tcp     639  ypbind
+                300019       1 udp     660
+
+
+
+
+
+
+  o  Anda sebaiknya juga menjalankan "rpcinfo -u localhost ypbind".
+     Perintah ini seharusnya menghasilkan output seperti berikut :
+
+               program 100007 version 2 ready and waiting
+
+
+
+
+
+
+  Pada saat ini Anda seharusnya sudah dapat menggunakan program untuk
+  klien NIS seperti ypcat, dll... Sebagai contoh "ypcat passwd" akan
+  menampilkan isi seluruh basis data password dari NIS.
+
+  Penting: jika Anda tidak melakukan prosedure tes di atas, pastikan
+  bahwa Anda telah men set nama domain dan membuat direktori :
+
+
+
+         /var/yp
+
+
+
+
+  Direktori ini harus ada sehingga ypbind dapat berjalan dengan baik.
+
+  Jika tes tersebut berjalan baik, mungkin Anda ingin merubah isi berkas
+  /etc/rc.d pada sistem Anda, sehingga ypbind dapat berjalan secara
+  otomatis pada saat booting pertama kali, dan secara otomatis pula
+  mesin Anda menjadi klien NIS. Pastikan pula bahwa nama domain juga di
+  set pada saat booting pertama.
+
+  Booting ulang mesin Anda, dan lihat pada pesan-pesan pada saat
+  booting, lihat apakah ypbind juga diaktifkan.
+
+
+  6.4.  Melakukan setting klien NIS menggunakan NIS yang tradisional
+
+  Untuk pencarian nama host yang menggunakan NIS, Anda harus menambah
+  "nis" pada berkas /etc/host.conf. Silahkan baca manual "resolv+8"
+  untuk lebih detail.
+
+  Tambahkan baris berikut ini pada berkas /etc/passwd di klien NIS Anda:
+
+
+
+       +::::::
+
+
+
+
+  Anda dapat pula menggunakan karakter + dan - untuk menyertakan/tidak
+  menyertakan atau merubah user. Jika Anda ingin tidak menyertakan user
+  guest, tambahkan saja -guest pada berkas /etc/passwd. Apakah Anda
+  ingin menggunakan shell yang berbeda (misalkan ksh) untuk user yang
+  bernama "Linux"? Tidak ada masalah, tambahkan saja
+  "+linux::::::/bin/ksh" (tanpa tanda petik) pada berkas /etc/passwd
+  Anda. Field-field yang tidak ingin Anda ubah, biarkan kosong. Anda
+  dapat pula menggunakan Netgroups untuk pengontrolan user.
+
+  Sebagai contoh, untuk mengijinkan pengaksesan login hanya untuk
+  miquels, dth dan ed serta semua anggota dari netgroup sysadmin, tetapi
+  semua data account milik user tetap tersedia maka dituliskan sebagai
+  berikut :
+
+
+
+
+
+          +miquels:::::::
+          +ed:::::::
+          +dth+++++++
+          +@sysadmins:::::::
+          -ftp
+          +:*::::::/etc/NoShell
+
+
+
+
+  Perlu diperhatikan bahwa didalam Linux Anda dapat pula mengesampingkan
+  field password, seperti yang telah kita lakukan pada contoh ini. Pada
+  contoh ini, kita juga menghapus login untuk ftp, sehingga tidak
+  dikenal lagi, dan anonymous ftp tidak dapat digunakan lagi.
+
+  Netgroup akan terlihat seperti berikut :
+
+
+
+       sysadmins (-,software,) (-,kukuk,)
+
+
+
+
+  Penting: perlu diketahui bahwa kelebihan netgroup diimplementasikan
+  mulai libc 4.5.26. Tetapi jika Anda memiliki versi dari libc yang
+  sebelum 4.5.26, setiap user yang terdaftar di dalam basis data
+  password NIS , dapat mengakses mesin Linux Anda, jika Anda menjalankan
+  "ypbind".
+
+
+  6.5.  Setting klien NIS dengan menggunakan NYS
+
+  Yang dibutuhkan adalah berkas konfigurasi (/etc/yp.conf) yang berisi /
+  menunjuk pada server NIS yang akan dipakai untuk mendapatkan
+  informasi. Selain itu dibutuhkan pula berkas konfigurasi untuk Name
+  Service Switch (/etc/nsswitch.conf) yang harus disetting secara benar.
+
+  Anda harus meng install ypbind. Meskipun tidak dibutuhkan oleh libc,
+  tetapi program-program / tool milik NIS(YP) membutuhkannya.
+
+  Jika Anda bermaksud menyertakan/tidak menyertakan kelebihan- kelebihan
+  fasilitas untuk penanganan user (+/-guest/+@admins), Anda harus
+  menggunakan "passwd: compat" dan "group:compat". Perlu diketahui,
+  bahwa tidak ada "shadow: compat" ! Dalam kasus ini Anda harus
+  menggunakan "shadow: files nis".
+
+  Sumber-sumber NYS adalah bagian dari sumber-sumber libc 5. Pada saat
+  melakukan konfigurasi, isikan "NO" pada pertanyaan "Values correct",
+  lalu isikan "YES" pada "Build a NYS libc from nys"
+
+
+  6.6.  Setting klien NIS dengan menggunakan glibc 2.x
+
+  glibc menggunakan NIS yang tradisional, sehingga Anda perlu untuk
+  menjalankan ypbind. Berkas konfigurasi untuk Name Services Switch
+  (/etc/nsswitch.conf) harus di set up secara benar. Jika Anda
+  menggunakan mode compat untuk passwd, shadow atau group, Anda harus
+  menambah "+" pada akhir dari berkas ini, dan Anda dapat menggunakan /
+  tidak menggunakan kelebihan fasilitas-fasilitas untuk user.
+  Konfigurasi ini persis sama pada Solaris 2.x.
+
+
+
+
+
+  6.7.  Berkas nsswitch.conf
+
+  Berkas Network Services Switch, /etc/nsswitch.conf berisi urutan
+  pencarian yang dilakukan ketika sebuah informasi dibutuhkan, sama
+  seperti halnya berkas /etc/host.conf, yang berisi bagaimana pencarian
+  sebuah host dilakukan. Sebagai contoh :
+
+
+
+           host: files nis dns
+
+
+
+
+  pada baris di atas, pencarian pertama kali dilakukan pada berkas lokal
+  /etc/hosts, apabila tidak ditemukan, dilanjutkan pencarian pada nis
+  dan akhirnya pada domain name service (/etc/resolv.conf dan named),
+  apabila nama host tersebut belum ditemukan juga, maka akan ditampilkan
+  pesan kesalahan.
+
+  Versi pertama dari buku petunjuk untuk nsswitch.conf dapat ditemukan
+  pada http://www-vt.uni-paderborn.de/~kukuk/linux/misc.html
+  <http://www-vt.uni-paderborn.de/~kukuk/linux/misc.html>.
+
+  Sebuah berkas /etc/nsswitch.conf yang bagus untuk NIS adalah :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   #
+   # /etc/nsswitch.conf
+   #
+   # An example Name Service Switch config file. This file should be
+   # sorted with the most-used services at the beginning.
+   #
+   # The entry '[NOTFOUND=return]' means that the search for an
+   # entry should stop if the search in the previous entry turned
+   # up nothing. Note that if the search failed due to some other reason
+   # (like no NIS server responding) then the search continues with the
+   # next entry.
+   #
+   # Legal entries are:
+   #
+   #       nisplus          Use NIS+ (NIS version 3)
+   #       nis              Use NIS (NIS version 2), also called YP
+   #       dns              Use DNS (Domain Name Service)
+   #       files            Use the local files
+   #       db               Use the /var/db databases
+   #       [NOTFOUND=return]      Stop searching if not found so far
+   #
+
+   passwd: compat
+   group:  compat
+   shadow: compat
+
+   passwd_compat: nis
+   group_compat:  nis
+   shadow_compat: nis
+
+   hosts:         nis files dns
+
+   services:      nis [NOTFOUND=return] files
+   networks:      nis [NOTFOUND=return] files
+   protocols:     nis [NOTFOUND=return] files
+   rpc:           nis [NOTFOUND=return] files
+   ethers:        nis [NOTFOUND=return] files
+   netmasks:      nis [NOTFOUND=return] files
+   netgroup:      nis
+   bootparams:    nis [NOTFOUND=return] files
+   publickey:     nis [NOTFOUND=return] files
+   automount:     files
+   aliases:       nis [NOTFOUND=return] files
+
+
+
+
+  passwd_compat, group_compat dan shadow_compat hanya dapat digunakan
+  apabila Anda menggunakan glibc 2.x Jika tidak ada aturan mengenai
+  shadow di dalam berkas /etc/nsswitch.conf, glibc akan menggunakan
+  aturan passwd untuk melakukan pencarian. Ada modul pencarian lain
+  untuk glibc seperti hesoid. Untuk informasi lebih lanjut, silahkan
+  baca dokumentasi untuk glibc.
+
+
+  7.  Apa yang Anda butuhkan untuk melakukan setting NIS+ ?
+
+  7.1.  Perangkat lunak
+
+  Kode-kode klien NIS+ untuk Linux dikembangkan untuk GNU C library 2.
+  Tersedia pula untuk libc5 milik  Linux , dan hampir semua aplikasi
+  komersial di link dengan menggunakan library ini, maka Anda tidak
+  dapat melakukan kompilasi ulang untuk menggunakan glibc. Ada masalah
+  dengan libc5 + NIS+ yaitu Anda tidak dapat me link program statik
+  dengannya, dan program-program yang dikompile dengan menggunakan
+  library ini tidak akan bekerja dengan versi libc5 yang lain.
+  Anda perlu untuk mengambil dan mengkompile GNU C library 2 yang
+  terbaru. Dan Anda perlu sistem yang berbasis glibc seperti RedHat 5.0
+  atau Debian yang masih belum stabil. Tetapi hati-hati: semua ini masih
+  dalam taraf beta ! Baca dokumentasi tentang glibc dan dari
+  distribusinya ! glibc 2.0.x tidak berisi dukungan untuk NIS+, dan
+  tidak akan pernah berisi dukungan tersebut. Versi public pertama dari
+  glibc yang mendukung NIS+ adalah versi 2.1.
+
+  Program klien NIS+ bisa didapatkan dari :
+
+
+
+       Tempat                  Direktori               Nama Berkas
+
+       ftp.kernel.org   /pub/software/libs/glibc   libc-*, glibc-crypt-*,
+                                                   glibc-linuxthreads-*,
+                                                   glibc-localedata-*
+       wauug.erols.com  /pub/net/nis               nis-tools-1.4.tar.gz
+       wauug.erols.com  /pub/net/nis               pam_keylogin-1.0.tar.gz
+
+
+
+
+  Distribusi yang berbasiskan glibc bisa didapatkan dari :
+
+
+
+
+                Tempat                         Direktori
+
+                ftp.redhat.com                 /pub/redaht/mustang
+                ftp.debian.org                 /pub/debian/hamm
+
+
+
+
+  Untuk kompilasi library GNU C, silahkan ikuti instruksi yang menyertai
+  program tersebut. Di tempat-tempat di bawah ini Anda dapat menemukan
+  patched libc5, berbasiskan NYS dan sources glibc yang sesuai standard
+  dengan libc5 :
+
+
+
+
+       Tempat                  Direktori                 Nama Berkas
+
+       ftp.kernel.org  /pub/linux/utils/net/NIS+ libc-5.4.38-nsl-0.4.6.tar.gz
+
+
+
+
+  Anda sebaiknya juga melihat pada http://www-vt.uni-
+  paderborn.de/~kukuk/linux/nisplus.html <http://www-vt.uni-
+  paderborn.de/~kukuk/linux/nisplus.html> untuk informasi lebih lanjut
+  dan sources yang paling baru.
+
+
+  7.2.  Setting klien NIS+
+
+  Penting: untuk melakukan setting klien NIS+, baca dokumentasi NIS+
+  milik Solaris Anda, untuk mengetahui apa yang harus dilakukan pada
+  sisi server ! Dokumen ini hanya berisi apa yang harus dilakukan pada
+  sisi klien.
+
+  Setelah melakukan instalasi libc yang baru dan program-program
+  pendukung untuk nis, buat sebuah pengenal untuk klien baru pada server
+  NIS+. Lalu jalankan
+
+
+
+       domainname nisplus.domain.
+       nisinit -c -H <NIS+ server>
+
+
+
+
+  untuk melakukan inisialisasi. Baca petunjuk nisinit untuk pilihan-
+  pilihan yang menyertai nisinit. Pastikan nama domain akan selalu di
+  set setelah booting ulang. Jika Anda tidak mengetahui nama domain NIS+
+  pada jaringan Anda, Anda dapat menanyakannya pada system atau network
+  adminstrator Anda.
+
+  Anda sebaiknya merubah berkas /etc/nsswitch.conf. Pastikan bahwa
+  setelah publickey adalah nisplus ("publickey: nisplus"), dan tidak ada
+  yang lain.
+
+  Setelah itu,jalankan keyserv, dan pastikan bahwa akan selalu
+  diaktifkan secara otomatis pada saat booting. Kemudian jalankan
+
+
+
+       keylogin -r
+
+
+
+
+  untuk menyimpan secretkey milik root pada sistem Anda. (Penulis
+  mengharapkan Anda telah menambahkan publickey untuk host baru pada
+  server NIS+)
+
+  Perintah "niscat passwd.org_dir" seharusnya pada saat ini menampilkan
+  pada Anda semua isian dari basis data passwd.
+
+
+  7.3.  NIS+, keylogin, login dan PAM
+
+  Pada saat user login, dia perlu menset secretkey nya pada keyserv. Ini
+  dilakukan dengan cara memanggil "keylogin". Login yang berasal dari
+  paket shadow akan melakukan ini untuk user. Untuk PAM, Anda harus
+  menginstall pam_keylogin-1.1.tar.gz dan merubah berkas
+  /etc/pam.d/login untuk menggunakan pam_unix_auth, bukan pwdb, yang
+  tidak mendukung NIS+.  Sebagai contoh :
+
+
+
+       #%PAM-1.0
+       auth       required     /lib/security/pam_securetty.so
+       auth       required     /lib/security/pam_keylogin.so
+       auth       required     /lib/security/pam_unix_auth.so
+       auth       required     /lib/security/pam_nologin.so
+       account    required     /lib/security/pam_unix_acct.so
+       password   required     /lib/security/pam_unix_passwd.so
+       session    required     /lib/security/pam_unix_session.so
+
+
+
+
+
+  7.4.  Berkas nsswitch.conf
+
+  Berkas /etc/nsswitch.conf milik Network Service Switch, berisi urutan
+  pencarian yang dilakukan ketika sebuah informasi dibutuhkan, seperti
+  halnya berkas /etc/host.conf, yang berisi cara pencarian yang
+  dilakukan untuk mencari host. Sebagai contoh :
+
+
+
+           host: files nis dns
+
+
+
+
+  pada baris di atas, pencarian pertama kali dilakukan pada berkas lokal
+  /etc/hosts, apabila tidak ditemukan, dilanjutkan pencarian pada nis
+  dan akhirnya pada domain name service (/etc/resolv.conf dan named),
+  apabila nama host tersebut belum ditemukan juga, maka akan ditampilkan
+  pesan kesalahan.
+
+  Versi pertama dari buku petunjuk untuk nsswitch.conf dapat ditemukan
+  pada http://www-vt.uni-paderborn.de/~kukuk/linux/misc.html
+  <http://www-vt.uni-paderborn.de/~kukuk/linux/misc.html>.
+
+  Sebuah berkas /etc/nsswitch.conf yang bagus untuk NIS+ adalah :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   #
+   # /etc/nsswitch.conf
+   #
+   # An example Name Service Switch config file. This file should be
+   # sorted with the most-used services at the beginning.
+   #
+   # The entry '[NOTFOUND=return]' means that the search for an
+   # entry should stop if the search in the previous entry turned
+   # up nothing. Note that if the search failed due to some other reason
+   # (like no NIS server responding) then the search continues with the
+   # next entry.
+   #
+   # Legal entries are:
+   #
+   #       nisplus            Use NIS+ (NIS version 3)
+   #       nis                Use NIS (NIS version 2), also called YP
+   #       dns                Use DNS (Domain Name Service)
+   #       files              Use the local files
+   #       db                 Use the /var/db databases
+   #       [NOTFOUND=return]  Stop searching if not found so far
+   #
+
+    passwd:     compat
+  # for libc5: passwd: files nisplus
+    group:        compat
+  # for libc5: group: files nisplus
+    shadow:     compat
+  # for libc5: shadow: files nisplus
+
+    passwd_compat: nisplus
+    group_compat:  nisplus
+    shadow_compat: nisplus
+
+    hosts:        nisplus files dns
+
+    services:     nisplus [NOTFOUND=return] files
+    networks:     nisplus [NOTFOUND=return] files
+    protocols:    nisplus [NOTFOUND=return] files
+    rpc:          nisplus [NOTFOUND=return] files
+    ethers:       nisplus [NOTFOUND=return] files
+    netmasks:     nisplus [NOTFOUND=return] files
+    netgroup:     nisplus
+    bootparams:   nisplus [NOTFOUND=return] files
+    publickey:    nisplus [NOTFOUND=return] files
+    automount:    files
+    aliases:      nisplus [NOTFOUND=return] files
+
+
+
+
+
+  8.  Setting server NIS
+
+  8.1.  Program server ypserv
+
+  Dokumen ini hanya berisi bagaimana cara melakukan set up "ypserv" pada
+  server NIS.
+
+  Perangkat lunak untuk server NIS, dapat ditemukan pada :
+
+
+
+
+
+
+
+   Tempat               Direktori                 Nama Berkas
+
+  ftp.kernel.org    /pub/linux/utils/net/NIS      ypserv-1.2.7.tar.gz
+  waaug.erols.com   /pub/net/nis                  ypserv-1.2.5.tar.gz
+
+
+
+
+  Anda dapat pula melihat pada http://www-vt.uni-
+  paderborn.de/~kukuk/linux/nis.html <http://www-vt.uni-
+  paderborn.de/~kukuk/linux/nis.html> untuk informasi source yang
+  terbaru.
+
+  Setup server ini sama baik untuk NIS yang tradisional mapun untuk NYS.
+
+  Kompile program tersebut untuk menghasilkan "ypserv" dan "makedbm".
+  Jika Anda menjalankan server Anda sebagai master, tentukan berkas-
+  berkas apa saja yang dibutuhkan dan akan tersedia lewat NIS, lalu
+  tambah atau hapus beberapa isian pada berkas /var/yp/Makefile.
+
+  Sunting berkas /var/yp/securenets dan /etc/ypserv.conf. Untuk
+  informasi lebih lanjut, baca halaman manual dari ypserv(8) dan
+  ypserv.conf(8).
+
+  Pastikan portmapper (portmap(8)) sedang dalam keadaan aktif, lalu
+  jalankan perintah "ypserv". Perintah
+
+
+
+               % rpcinfo -u localhost ypserv
+
+
+
+
+  seharusnya menampilkan hasil sebagai berikut
+
+
+
+               program 100004 version 2 ready and waiting
+
+
+
+
+  Sekarang membuat basis data untuk NIS(YP). Pada master, jalankan
+
+
+
+               % /usr/lib/yp/ypinit -m
+
+
+
+
+  pada pembantu, pastikan bahwa ypwhich -m bekerja. Lalu jalankan
+
+
+
+               % /usr/lib/yp/ypinit -s masterhost
+
+
+
+
+  Setelah selesai, maka server Anda telah berjalan.
+
+  Mungkin Anda sebaiknya menyunting crontab milik root *pada pembantu*
+  dan tambahkan baris-baris berikut :
+
+                    20 *    * * *    /usr/lib/yp/ypxfr_1perhour
+                    40 6    * * *    /usr/lib/yp/ypxfr_1perday
+                    55 6,18 * * *    /usr/lib/yp/ypxfr_2perday
+
+
+
+
+  Ini akan memastikan bahwa pemetaan NIS tidak akan kadaluwarsa,
+  meskipun perubahan pada pembantu gagal karena pembantu sedang tidak
+  aktif pada saat perubahan dilakukan oleh master.
+
+  Jika Anda ingin membatasi akses pada server NIS Anda, Anda harus men
+  set up NIS server Anda menjadi klien dengan menjalankan ypbind dan
+  menambah tanda + pada pertengahan berkas /etc/passwd. Semua fungsi-
+  fungsi dari library akan mengabaikan semua isian normal setelah isian
+  pertama NIS, dan info sisanya akan didapatkan dari NIS. Dengan cara
+  ini aturan akses NIS dilakukan. Contoh :
+
+
+
+                   root:x:0:0:root:/root:/bin/bash
+                   daemon:*:1:1:daemon:/usr/sbin:
+                   bin:*:2:2:bin:/bin:
+                   sys:*:3:3:sys:/dev:
+                   sync:*:4:100:sync:/bin:/bin/sync
+                   games:*:5:100:games:/usr/games:
+                   man:*:6:100:man:/var/catman:
+                   lp:*:7:7:lp:/var/spool/lpd:
+                   mail:*:8:8:mail:/var/spool/mail:
+                   news:*:9:9:news:/var/spool/news:
+                   uucp:*:10:50:uucp:/var/spool/uucp:
+                   nobody:*:65534:65534:noone at all,,,,:/dev/null:
+                   +miquels::::::
+                   +:*:::::/etc/NoShell
+                   [ All normal users AFTER this line! ]
+                   tester:*:299:10:Just a test account:/tmp:
+                   miquels:1234567890123:101:10:Miquel van
+       Smoorenburg:/home/miquels:/bin/zsh
+
+
+
+
+  User tester tetap ada, tetapi memiliki shell /etc/NoShell. miquels
+  tetap memiliki akses yang normal.
+
+  Ada cara lain yaitu, Anda dapat menyunting berkas /var/yp/Makefile dan
+  men set up NIS agar menggunakan berkas password yang lain. Pada sistem
+  yang besar, password NIS dan berkas group biasanya disimpan pada
+  /var/yp/ypfiles. Jika Anda melakukan ini, perintah-perintah seperti
+  "passwd","chfn","adduser", tidak akan dapat dipakai lagi dan Anda
+  perlu membuat perintah yang sesuai untuk menggantikannya.
+
+  Meskipun demikian yppasswd, ypchsh dan ypchfn tetap dapat bekerja
+  normal.
+
+
+  8.2.  Program yps dari server
+
+  Untuk melakukan set up server NIS dengan menggunakan "yps", silahkan
+  melihat pada paragraph sebelumnya. Set up server dengan menggunakan
+  "yps" serupa seperti di atas, tetapi tidak seluruhnya, hati-hati jika
+  Anda mencoba menjalankan instruksi "ypserv" pada "yps" ! "yps" tidak
+  ada dukungan dari semua pengarang, dan memiliki keamanan yang lemah.
+  Anda sebaiknya tidak menggunakannya.
+
+
+  Server NIS untuk "yps" dapat ditemukan pada :
+
+
+
+       Tempat          Direktori                       Nama Berkas
+
+       ftp.kernel.org     /pub/linux/utils/net/NIS     yps-0.21.tar.gz
+       ftp.lysator.liu.se /pub/NYS/servers             yps-0.21.tar.gz
+
+
+
+
+
+  8.3.  Program rpc.yppasswdd
+
+  Ketika user mengganti passwordnya, basis data NIS untuk password dan
+  mungkin basis data NIS yang lain, yang tergantung pada password NIS
+  akan di perbaharui. Program "rpc.yppasswdd" berada pada server dan
+  menangani perubahan pada password dan semua informasi NIS yang
+  berhubungan akan diperbaharui pula oleh program ini. rpc.yppasswdd
+  sekarang digabungkan dengan ypserv 1.2.7. Anda tidak membutuhkan versi
+  rpc.yppasswdd yang lebih lama dan terpisah seperti yppasswd-
+  0.9.tar.gz atau yppasswd-0.10.tar.gz, dan sebaiknya Anda tidak
+  menggunakannya lagi. rpc.yppasswdd dari ypserv 1.2.7 sudah mendukung
+  shadow password. yppasswd sekarang merupakan bagian dari yp-tools-
+  1.4.tar.gz.
+
+  rpc.yppasswdd hanya perlu dijalankan dari sisi server NIS. Berdasarkan
+  ketentuan, user tidak diijinkan untuk merubah nama lengkapnya atau
+  shell miliknya. Anda dapat mengijinkan ini lewat perintah chfn dengan
+  pilihan -e atau chsh dengan pilihan -e.
+
+
+  9.  Pemeriksaan terhadap instalasi NIS/NYS
+
+  Jika segalanya berjalan lancar (sudah seharusnya), Anda harus dapat
+  menguji instalasi Anda dengan beberapa perintah sederhana. Asumsikan,
+  sebagai contoh, berkas passwd Anda di sediakan oleh NIS, perintah
+
+
+
+
+               % ypcat passwd
+
+
+
+
+  harus menampilkan isi dari berkas passwd milik NIS. Perintah
+
+
+
+
+               % ypmatch userid passwd
+
+
+
+
+  (dimana userid adalah nama login dari sembarang user) harus memberykan
+  isian dari user tersebut yang berasal dari berkas passwd milik NIS.
+  Program "ypcat" dan "ypmatch" harus disertakan didalam distribusi
+  milik NIS yang tradisional ataupun NYS.
+
+  Jika seorang user tidak dapat login, jalankan program berikut ini pada
+  klien :
+
+
+         #include <stdio.h>
+         #include <pwd.h>
+         #include <sys/types.h>
+
+         int
+         main(int argc, char *argv[])
+         {
+           struct passwd *pwd;
+
+           if(argc != 2)
+             {
+               fprintf(stderr,"Usage: getwpnam username\n");
+               exit(1);
+             }
+
+           pwd=getpwnam(argv[1]);
+
+           if(pwd != NULL)
+             {
+               printf("name.....: [%s]\n",pwd->pw_name);
+               printf("password.: [%s]\n",pwd->pw_passwd);
+               printf("user id..: [%d]\n", pwd->pw_uid);
+               printf("group id.: [%d]\n",pwd->pw_gid);
+               printf("gecos....: [%s]\n",pwd->pw_gecos);
+               printf("directory: [%s]\n",pwd->pw_dir);
+               printf("shell....: [%s]\n",pwd->pw_shell);
+             }
+           else
+             fprintf(stderr,"User \"%s\" not found!\n",argv[1]);
+
+           exit(0);
+         }
+
+
+
+
+  Jalankan program tersebut dengan nama user sebagai parameter. Program
+  tersebut akan menampilkan semua informasi mengenai user yang
+  dihasilkan dari fungsi getpwnam. Hal yang paling sering terjadi dimana
+  seorang user tidak dapat login adalah, field password dari /etc/passwd
+  terisi dengan tanda "*".
+
+
+  10.  Masalah-masalah yang umum dan penyelesaiannya di dalam NIS.
+
+  Berikut ini adalah beberapa masalah yang umum yang dilaporkan oleh
+  pemakai :
+
+
+  1. Librari untuk 4.5.19 rusak. NIS tidak dapat bekerja dengannya.
+
+  2. Jika Anda meningkatkan versi library dari 4.5.19 ke 4.5.24 lalu
+     perintah su tidak dapat bekerja. Anda membutuhkan perintah su dari
+     distribusi slackware 1.2.0. Celakanya, pada distribusi itu pula
+     Anda mendapatkan librari yang baru.
+
+  3. Anda bisa mendapatkan masalah dengan NIS dan DNS pada mesin yang
+     sama yang menggunakan distribusi a.out yang lama. Server DNS
+     kadang- kadang tidak akan mengaktifkan NIS.
+
+  4. Ketika server NIS tiba-tiba menjadi tidak aktif lalu menjadi aktif
+     kembali, ypbind akan menampilkan pesan sebagai berikut :
+
+
+
+
+            yp_match: clnt_call:
+                      RPC: Unable to receive; errno = Connection refused
+
+
+
+
+  serta setiap login ditolak bagi setiap user yang terdaftar pada basis
+  data NIS, cobalah login sebagai root dan jika berhasil gunakan perin-
+  tah kill untuk mematikan perintah ypbind, dan aktfikan lagi.  ypbind
+  3.3 atau yang lebih tinggi, juga sangat membantu.
+
+  5. Setelah dilakukan peningkatan libc ke versi yang lebih baru dari
+     pada 5.4.20, program-program milik yp tidak akan dapat berfungsi
+     lagi.  Anda membutuhkan yp-tools 1.2 atau yang lebih baru untuk
+     libc >= 5.4.21 dan glibc 2.x dan yp-clients 2.2 untuk versi yang
+     lebih awal.
+
+  6. Pada libc 5.4.21 - 5.4.35 yp_maplist tidak dapat berfungsi, Anda
+     membutuhkan versi 5.4.36 atau yang lebih baru untuk yp-tools 1.x
+
+  7. libc 5 dengan NIS yang tradisional tidak mendukung shadow passwords
+     pada NIS. Anda membutuhkan libc5 + NYS atau glibc 2.x
+
+
+  11.  Pertanyaan yang paling sering ditanyakan
+
+  Banyak pertanyaan Anda yang seharusnya sudah dijawab. Jika masih ada
+  pertanyaan yang belum dijawab, Anda sebaiknya mengirimkan pertanyaan
+  tersebut ke
+
+
+
+               comp.os.linux.help
+
+
+
+
+  atau
+
+
+
+               comp.os.linux.networking
+
+
+
+
+  atau menghubungi salah satu dari pengarang HOWTO ini.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

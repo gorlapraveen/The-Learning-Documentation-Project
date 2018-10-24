@@ -1,0 +1,504 @@
+
+                        A Linux támogatása mini-HOGYAN
+
+Paul L. Rogers, [1]Paul.L.Rogers@li.org
+
+   v0.5c, 2000.05.03
+     _________________________________________________________________
+
+   A dokumentumban szereplõ, a Linux közösségnek szóló tanácsok és
+   ajánlások a Linux hatékony népszerûsítését hivatottak szolgálni.
+     _________________________________________________________________
+
+1. A dokumentumról
+
+   A Linux támogatása mini-HOGYAN szándékunk szerint olyan irányelveket
+   és gondolatokat fogalmaz meg, amelyek segítségedre lesznek a Linux
+   népszerûsítésében.
+
+   A Linux támogatása mini-HOGYAN létrejöttét Jon "maddog'' Hall egy
+   [2]NetDay fórumon elhangzott felszólalása ihlette. Õ a fórumon
+   felmerült irányelveket pozítivan értekelte, és úgy gondolta, hogy ezek
+   olyan viselkedési normák alapjául szolgálhatnak, amelyekbõl
+   profitálhat a linuxos közösség.
+
+   Ez a dokumentum HTML formátumban letölthetõ a
+   [3]http://www.datasync.com/~rogerspl/Advocacy-HOWTO.html oldalról.
+
+   Nat Makarevitch [4]<nat@nataa.fr.eu.org> fordította le ezt a
+   dokumentumot [5]franciára.
+
+   Chie Nakatani [6]<jeanne@mbox.kyoto-inet.or.jp> fordította le ezt a
+   dokumentumot [7]japánra.
+
+   Janusz Batko [8]<janus@krakow.linux.org.pl> fordította le ezt a
+   dokumentumot [9]lengyelre.
+
+   Bruno H. Collovini [10]<buick@microlink.com.br> fordította le ezt a
+   dokumentumot [11]portugálra.
+
+   Mauricio Rivera Pineda [12]<rmrivera@hotmail.com> fordította le ezt a
+   dokumentumot [13]Spanish.
+
+   A Linux támogatása mini-HOGYAN szerzõje és karbantartója Paul L.
+   Rogers [14]<Paul.L.Rogers@li.org>.
+
+   Minden észrevételt és javaslatot örömmel fogadunk.
+
+   Ha többet szeretnél megtudni a [15]Linux Documentation Project (Linux
+   Dokumentációs Projektrõl) vagy a Linux-HOGYANokról, akkor lépj
+   kapcsolatba Tim Bynum-mal [16]<linux-howto@sunsite.unc.edu>. Õ, mint
+   a projekt felügyelje, havi rendszerességgel elküldi ezt a dokumentumot
+   különféle helyi és nemzetközi hírcsoportokhoz.
+
+   A szerzõ személyes megjegyzése: Sajnálatos módon, a közelmúltban nem
+   volt elegendõ idõm és lehetõségem arra, hogy frissítsem ezt a
+   dokumentumot, illetve konzultáljak a témában Linux közösséggel.
+   Utólagos elnézését kérem mindazoknak, akiknek a megkeresésére csak
+   hosszú idõ elteltével tudtam reagálni. Kérem õket, bocsássák meg
+   nekem, ha egyéb elfoglaltságaim miatt a jövõben sem tudok több idõ
+   szánni rájuk. Hadd köszönjem meg mindenkinek a türelmet, és különösen
+   azoknak a munkáját, akik elküldték javaslataikat és ötleteiket.
+
+2. Szerzõi jog
+
+   Ez a mini-HOGYAN Paul L. Rogers szellemi tulajdona Copyright ©
+   1996-2000. Minden jog fenntartva.
+
+   Betû szerinti másolat készíthetõ és terjeszthetõ mindenféle fizikai
+   és elektronikus formában, a szerzõ engedélye nélkül is.
+   Hasonlóképpen, fordítások készítése is engedélyezett a szerzõ külön
+   hozzájárulása nélkül, amennyiben azok említést tesznek a
+   fordító(k)ról.
+
+   Rövid idézetek a szerzõ elõzetes hozzájárulása nélkül is
+   kiemelhetõek a dokumentumból. A Linux támogatása mini-HOGYANból
+   származtatott munkákat, vagy az abból kiemelt és önállóan leközölt
+   részleteket egy eredeti másolatnak, vagy arra mutató hivatkozásnak
+   kell kísérnie.
+
+   A dokumentum kereskedelmi úton való terjesztése engedélyezett és
+   támogatott. A terjesztõket a szerzõ a támogatásáról biztosítja. Az
+   ilyen esetekrõl azonban a szerzõ is szeretne tudomást szerezni.
+
+   Rövidre fogva: szeretnénk, ha ez a dokumentum minden lehetséges módon,
+   minél szélesebb körben elterjedne.
+
+   A szerzõi jogról azonban nem mondunk le, és elvárjuk, hogy értesítést
+   kapjunk a HOGYANok terjesztésével kapcsolatos minden elképzelésrõl.
+
+   Továbbá kijelentjük, hogy célunk a összes HOGYAN dokumentumban foglalt
+   információ minél ismertebbé tétele. A felmerülõ kérdésekkel Tim
+   Bynum-ot, a Linux HOGYAN koordinátorát kell megkeresni a
+   [17]linux-howto@sunsite.unc.edu e-mail címen.
+
+3. Magyar fordítás
+
+   A fordítást [18]Székely Krisztián készítette (?). Frissítette
+   [19]Toldi Tamás (2003.02.01). A lektorálást [20]Daczi László végezte
+   el (2003.06.25). Bármilyen fordítással kapcsolatos észrevételt a
+   [21]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum legfrissebb
+   változata megtalálható a [22]Magyar Linux Dokumentációs Projekt
+   honlapján.
+
+4. Bevezetés
+
+   A Linux közösség számára nyilvánvaló, hogy a Linux operációs rendszer
+   egy stabil, megbízható, robusztus (ha nem is tökéletes) és számtalan
+   alkalmazást támogató platform. A kétségtelen elõnyök ellenére sokan
+   vannak - gyakran döntéshozó pozícióban - akik nem ismerik fel a Linux
+   pozitívumait, sõt, esetleg nem is tudnak a létezésérõl.
+
+   Ahhoz, hogy jövendõbeli partnereink maximálisan kihasználhassák a
+   Linux disztribúciók nyújtotta lehetõségeket, már az elsõ lépésben
+   meg kell õket nyernünk. Arra azonban vigyázzunk, hogy ne ígérjünk túl
+   sokat, vagyis nem szabad túlzásokba esni! Az a tény, hogy bizonyos
+   cégek termékei jól szerepelnek a piacon, gyakran nem is annyira a
+   termék kiemelkedõ mûszaki tulajdonságainak, mint inkább az adott
+   vállalat kifinomult marketingjének köszönhetõ.
+
+   Ha jó dolognak tartod a Linuxot és szeretnéd támogatni a közösséget,
+   akkor érdemes szem elõtt tartanod az itt megfogalmazott gondolatokat.
+   Így másoknak is segíteni tudsz a Linux megértéseben/használatában.
+
+5. További információk
+
+   Lars Wirzenius, korábban a [23]comp.os.linux.announce (és régi Linux
+   aktivista) szintén megfogalmazott néhány [24]gondolatot a Linux
+   támogatásával kapcsolatban.
+
+   Eric S. Raymond egy [25]elemzésében a Linux közösség által alkalmazott
+   fejlesztési modell sikerének titkairól ír.
+
+   A szabad szoftver közösség felismerte, hogy a "szabad szoftver" és a
+   "szabadon elérhetõ szoftver" kifejezések nem feltétlenül ugyanazt
+   takarják. A "nyílt forráskodú szoftver" és a "szabad szoftver"
+   kifejezések pontos értelmezésében segít az [26]Open Source (Nyílt
+   forrás) honlap.
+
+   Donald B. Marti, Jr. [27]Linuxmanship címû írása a Linux kereskedelmi
+   forgalmazásával kapcsolatos technikákat ismertet.
+
+   A [28]Linux PR honlap a sajtó szerepének fontosságát hangsúlyozza. Még
+   több tapasztalatra tehetünk szert ezen a téren, ha a helyi iskolákban
+   NetDay programokat szervezünk. Ebben segít a [29]NetDay How-To Guide
+   (HálóNap HOGYAN kézikönyv).
+
+   A [30]Linux International's célja a Linux használatának és
+   fejlesztésének népszerûsítése.
+
+   A [31]Linux Documentation Project (Linux Dokumentációs Projekt)
+   felbecsülhetetlen segítséget nyújt a Linux népszerûsítésében.
+
+   A [32]Linux Center Project a Linuxszal valamint a szabad szoftverekkel
+   kapcsolatos forrásokat kategorizálja.
+
+   A [33]Linux Business Applications (linuxos üzleti alkalmazások)
+   honlapon a Linuxot az üzleti életben intenzíven használó szervezetek
+   cserélik ki, az operációs rendszerrel kapcsolatos tapasztalataikat
+
+   A [34]Linux Enterprise Computing és a [35]Freely Redistributable
+   Software in Business oldalakon a vállalkozások, illetve az üzleti élet
+   szemszögébõl közelítik meg a Linuxot.
+
+   A [36]Linux Advocacy Project's arra próbálja ösztökélni a kereskedelmi
+   forgalomba hozott szoftverek gyártóit, hogy készítsek el termékeik
+   linuxos változatát is.
+
+   A [37]Linux CD and Support Giveaway segít a Linux minél szélesebb
+   körû elterjedésében, a Linux CD-ROM lemezek újrafelhasználásával,
+   csereberélésével.
+
+   A [38]Specialized Systems Consultants, Inc. (SSC) tulajdonosa a
+   [39]Linux Resources (linuxos források) webhelynek, és kiadja a
+   [40]Linux Journal online hírújságot.
+
+   A [41]linux-biz levelezõlistán a Linux üzleti téren való
+   alkalmazásával kapcsolatos témák szerepelnek.
+
+   A Linux Mission Critical Systems olyan Linux alapú rendszereket
+   [42]ismertet, amelyek folyamatosan üzemelve komolyabb feladatokat
+   látnak el.
+
+   A számtalan figyelemreméltó online publikáció közül megemlítjük még az
+   alábbiakat:
+     * [43]LinuxFocus
+     * [44]Linuxove noviny
+     * [45]Linux Gazette
+     * [46]PLUTO Journal.
+
+   További linkek és írások találhatok az alábbi honlapokon: [47]Linux
+   Documentation Project és a [48]Linux Center Project.
+
+6. A Linux támogatása
+
+     * Oszd meg a Linuxszal kapcsolatos (jó és rossz) személyes
+       tapasztalataidat! Köztudott, hogy a szoftvereknek megvannak a
+       maguk korlátai és programhibák is elõfordulnak, ezért a Linux
+       egyoldalú magasztalása nem lenne õszinte dolog. Szeretem
+       elmesélni, hogy három év alatt négyszer kellett újraindítanom
+       (három volt betervezve).
+     * Ha úgy látjuk, hogy valakinek olyan problémája van, melynek
+       megoldásában a Linux a segítségére lenne, juttassuk el hozzá a
+       megfelelõ információkat (weblapok, írott sajtó, könyvek stb.). Ha
+       mi még nem próbáltuk ki ezen a területen a Linuxot, akkor ezt is
+       említsük meg.
+     * Akinek kedve van publikálni a Linuxról, az vegye fel a kapcsolatot
+       a [49]Linux Speakers Bureau szervezettel.
+     * Segítsünk a kezdõ Linux-felhasználókat, és bizonyosodjunk meg
+       arról, hogy hatékonyan képesek használni a rendszerüket.
+     * Sokan még mindig azt hiszik, hogy a Linux csak karakteres
+       üzemmódban mûködik. Mutassuk meg nekik, hogy léteznek igényes
+       grafikus alkalmazások is, mint például a [50]Gimp.
+     * Próbáljunk meg kezdõk kérdéseire válaszolni minden egyes héten.
+       Válasszuk ki azokat a fogas kérdéseket, amelyekre csak mi tudjuk a
+       választ - a végén még tanulhatunk is belõlük. Mindenesetre, ha
+       nem vagyunk biztosak a dolgunkban, inkább keressünk olyat, aki
+       biztosan tudja a választ.
+     * Keressünk kis szoftverfejlesztõ cégeket és próbáljunk meg Linux
+       bemutatót tartani.
+     * Ha kedvezõ alkalom adódik, tartsunk bemutatót a munkahelyünk
+       információs technológiákért felelõs csoportjának.
+     * Vegyünk részt az olyan közösségi eseményeken mint a [51]NetDay. A
+       programban kitûzött célok figyelembe vétele mellett használjuk ki
+       a lehetõséget, és ismertessük másokkal a Linux kínálta
+       lehetõségeket.
+     * Mindig annak a szempontjait tartsuk szem elõtt akinek "eladjuk''
+       a Linuxot. Támogatás, megbízhatóság, együttmûködés és a költség -
+       ezeket a tényezõket kell egy döntéshozónak megfontolnia. A
+       fentiek közül gyakran a költség a legkevésbé lényeges.
+     * A támogatás megléte gyakran kelt aggodalmat a Linux használatának
+       felvetésekor. A [52]Caldera, [53]Cygnus Solutions, [54]Red Hat és
+       [55]S.u.S.E. (némelyik Magyarországon is - a lektor) biztosítanak
+       támogatást a Linux rendszer egy részéhez vagy egészéhez (általában
+       az általuk összeállított termékek esetében - a lektor). A
+       [56]Linux Consultants HOWTO további cégeket ismertet, amelyek
+       szoftvereket fejlesztenek Linux rendszerre. A legértékesebb
+       információkhoz természetesen a comp.os.linux és linux
+       hírcsoportokban lehet hozzájutni.
+     * Mutassunk rá, hogy a [57]nyílt forráskódú szoftverek lehetõséget
+       teremt az együttmûködésre a rendszermérnökök, programozók,
+       alfa/béta tesztelõk, és a végfelhasználók között, ez gyakran jól
+       dokumentált, robusztus termékek kifejlesztését eredményezi, mint
+       például az [58]Apache, [59]GNU Emacs, [60]Perl és a [61]Linux
+       kernel.
+     * Regisztráltathatjuk magunkat a [62]Linux Counter honlapon.
+     * A [63]Linux International ( [64]li@li.org) és egyéb hasonló
+       szervezetek jó néven veszik, ha értesítjük õket néhány sikeres, a
+       Linuxot népszerûsítõ próbálkozásunkról.
+     * Keressünk új helyet azoknak a linuxos CD-ROM lemezeinknek és
+       könyveinknek, amelyekre már nincs szükségünk. Adjuk õket
+       valakinek akit érdekel a Linux, közkönyvtárnak vagy iskolai
+       számítógépes klubnak. A legmegfelelõbb hely könyvek és CD-ROM
+       lemezek számára a könyvtár. Ám bizonyosodjunk meg arról, hogy
+       nyilvános hozzáférhetõségük nem ütközik licenc szerzõdésbe vagy
+       a szerzõi jogba. Tájékoztassuk a könyvtár személyzetét, hogy a
+       CD-ROM anyaga szabadon terjeszthetõ. Ellenõrizzük, hogy tényleg
+       felkerült-e a polcokra.
+     * Ha linuxos szoftverrõl szóló könyvet vásárolunk, lehetõleg azt
+       részesítstük elõnyben, amelyiket a szoftver készítõje írta. A
+       könyv értékesítésébõl származó honorárium sokszor az egyetlen
+       anyagi kompenzáció az erõfeszítéseiért.
+     * A Linux rendszeren futó webhelyek rendszergazdáit próbáljuk
+       rávenni arra, hogy rakjanak ki az oldalakra egy [65]Powered by
+       Linux bannert. Bannerek beszerezhetõk a [66]Linux, [67]Apache,
+       [68]GNU, [69]Perl ... honlapokon.
+     * Ha hasznot húzunk a [70]nyílt forráskódú szoftverekbõl, akkor
+       segítsük a szabad szoftver közösséget. Ezt megtehetjük:
+          + teszteléssel, hibajelentéssel
+          + dokumentáció készítéssel
+          + grafikai munkával
+          + a menedzsmentben való részvétellel
+          + kreatív javaslatokkal
+          + technikai támogatással
+          + szoftver és/vagy hardver felajánlásával
+          + anyagi támogatással
+       A [71]Linux Documentation Project (Linux Dokumentációs Projekt)
+       honlapján található egy [72]lista a Linuxszal kapcsolatos
+       projektekrõl.
+     * Legvégül, arról azért senki se feledkezzen meg, hogy fontosabb
+       dolgok is vannak a világon, mint a számítógépes környezet
+       (rendszer) kiválasztása...
+
+7. Viselkedési normák
+
+     * A Linux közösség képviselõjeként profi módon vegyünk részt a
+       levelezõ listákon, vagy hírcsoportokon folyó beszélgetésben.
+       Tartózkodjunk a személyeskedéstõl és a vulgáris szavak
+       használatától. Tekintsük magunkat egy virtuális vállalat tagjának,
+       ahol Torvalds úr a vezérigazgató. Szavaink pozitívan vagy
+       negatívan befolyásolják az olvasók Linux közösségrõl kialakitott
+       képét.
+     * Tartózkodjunk a túlzó és a megalapozatlan állításoktól! Ez nem
+       vall profira és csak értelmetlen szócséplést eredményez.
+     * Az átgondolt, kimerítõ válasz nem csak olvasóknak ad világos
+       képet, de növeli a válaszadó iránti tiszteletet is.
+     * Ne menjünk bele "Az én rendszerem jobb mint a tied'' típusú
+       vitákba, mert ez teljesen értelmetlen dolog. Pontosan írjuk le a
+       Linux képességeit és aztán hagyjuk annyiban.
+     * Tartsuk észben, hogy ha inzultálunk valakit vagy udvariatlanok
+       vagyunk valakivel, õ a negatív élményeit elmondja másoknak. Ha
+       esetleg megbántottunk valakit, próbáljuk meg helyrehozni a
+       dolgokat.
+     * Arra koncentráljunk amit a Linux valóban nyújt! Nem kell
+       mindenáron erõltetni - egy ilyen jó termék megáll a saját lábán
+       is.
+     * Toleráljuk más operációs rendszer használatát. Bár a Linux egy
+       kiváló platform, mégsem felelhet meg mindenkinek.
+     * Más termékre annak pontos nevével hivatkozzunk. Az senkinek sem
+       használ, ha egy másik céget vagy annak termékét kigúnyoljuk annak
+       elferdített nevével. Ha tiszteletet várunk el a Linuxszal szemben,
+       nekünk is tisztelnünk kell más termékeket.
+     * Adjuk meg a készítõk listáját ahol ez szükséges. A Linux csak a
+       rendszer magja. Azon sok ember erõfeszítései nélkül, akik a
+       [73]GNU project, részvevõi (az MIT-rõl, a Berkeley-rõl és
+       számtalan más helyrõl), a Linux a legtöbb ember számára nem lenne
+       használható dolog.
+     * Ne ragaszkodjunk mereven a Linux alapú megoldásokhoz. A szabad
+       szoftver közösség a szabadságot, és nem a kizárólagosságot hirdeti
+       - a "csakis a Linux" elv pedig másokat is korlátozna szabad
+       döntéseikben.
+     * Vannak esetek amikor nem a Linux a megoldás. Ha ilyen helyzetbe
+       kerülünk bátran javasoljunk valami mást.
+
+8. Felhasználói csoportok
+
+     * Csatlakozzunk egy helyi felhasználói csoporthoz - ha nincs még
+       ilyen, akkor hozzunk létre egyet! A [74]Linux Documentation
+       Project (Linux Dokumentációs Projekt) részeként van a Linux
+       felhasználói csoportoknak egy [75]indexe.
+     * A [76]Linux User Group HOWTO (Linux felhasználói csoportok HOGYAN)
+       szintén sok hasznos dolgot ír a csoportok létrehozásával, a
+       szervezõmunkával és a Linux támogatásával kapcsolatban. Ez utóbbi
+       egy felhasználói csoportnak az egyik fõ feladata.
+     * A Linux iránt érdeklõdõ szervezetek számára ajánljunk
+       elõadókat.
+     * Adjunk közre [77]sajtóhíreket tevékenységünkrõl a helyi médiában.
+     * Vállaljunk önként Linux rendszerek beállítását a helyi szervezetek
+       számára - így megismerhetjük az õ igényeiket is. Telepítéskor
+       természetesen mellékeljük a megfelelõ dokumentációt is. Tartsunk
+       elõadást az adott csoportnak a telepített rendszerrõl illetve
+       annak karbantartásáról.
+     * Találkozóikon beszéljük meg a Linux támogatása mini-HOGYANban
+       leírtakat. Gondolkodjunk el róla és adjunk hozzá új ötleteket!
+
+9. Kereskedelmi vonatkozások
+
+     * Ha hardver vásárlását tervezzük, kérdezzük meg a kereskedõt az
+       adott hardver támogatottságáról Linux rendszeren. Érdeklõdjünk
+       más felhasználóknál arról, hogy miként mûködik az adott termék
+       linuxos környezetben.
+     * Támogassuk azokat a kereskedõket, akik Linuxra épülõ termékeket
+       és szolgáltatásokat árulnak. Javasoljuk nekik, hogy "reklámozzák"
+       termékeiket a [78]Linux Commercial HOWTO (Linux üzleti HOGYAN)
+       dokumentumban.
+     * Támogassuk azokat a cégeket/szervezeteket, amelyek bevételük egy
+       részével segítik az ilyen szervezeteket, ilyen például a [79]Free
+       Software Foundation (Szabad Szoftver Alapítvány), a [80]Linux
+       Development Grant Fund (Adományozása Linux Fejlesztõknek
+       Alapítvány), az [81]XFree86 Project vagy a [82]Software in the
+       Public Interest (szoftverek a köz érdekében) kezdeményezés.
+       Amennyiben lehetséges adományozzunk mi is ezeknek, vagy más
+       hasonló szervezeteknek, amelyek támogatják a [83]nyílt forráskódú
+       szoftvereket. Ne felejtsük el, hogy néhány munkáltatónak van
+       szoftverfejlesztõ eszközök ajándékozását megcélzó programja.
+     * Ha olyan alkalmazásra van szükségünk ami nem fut Linux alatt,
+       vegyük fel a kapcsolatot a kereskedõvel és érdeklõdjünk a natív
+       linuxos változat felõl.
+
+10. Kapcsolat a médiákkal
+
+     * A Linux International gyûjti azokat az [84]újságcikkeket, amelyek
+       megemlítik a Linuxot, GNU-t és más szabadon terjeszthetõ
+       szoftvereket. Ha ilyennel találkozol, kérjük küldd el a következõ
+       információkat a [85]clippings@li.orge-mail címre:
+          + a publikáció címe
+          + a publikáló kapcsolattartási címe
+          + a szerzõ neve
+          + a szerzõ kapcsolattartási címe
+          + a mû (termék) címe (neve)
+          + a mû kezdetének oldalszáma
+          + az URL, amennyiben az interneten megtalálható a mû
+          + összefoglalás a mûrõl, beleértve a saját véleményünket is
+     * Ha úgy véljük, hogy a Linux nem kapott igazságos elbírálást egy
+       újságcikkben vagy hírcsoportban, küldjük el a részleteket a fenti
+       információkkal együtt a [86]li@li.org e-mail címre, így megfelelõ
+       válasz küldhetnek a kiadónak. Ha közvetlenül vesszük fel a
+       kapcsolatot a kiadóval legyünk profik és tárgyilagosak.
+     * Aki "belekeveredik" egy linuxos projektbe, ne felejtse a
+       [87]sajtót is értesíteni errõl!
+
+11. Köszönetnyilvánítás
+
+   Hálás köszönet az következõknek:
+
+Kendall G. Clark          <kclark@cmpu.net>
+Wendell Cochran           <atrypa@eskimo.com>
+Bruno H. Collovini        <buick@microlink.com.br>
+Allan "Norm" Crain        <allanc@idea-inc.com>
+Jon "maddog" Hall         <maddog@zk3.digital.com>
+Greg Hankins              <gregh@cc.gatech.edu>
+Eric Ladner               <eladner@goldinc.com>
+Chie Nakatani             <jeanne@mbox.kyoto-inet.or.jp>
+Daniel P. Kionka          <dkionka@worldtalk.com>
+Nat Makarevitch           <nat@nataa.fr.eu.org>
+Martin Michlmayr          <tbm@cyrius.com>
+Rafael Caetano dos Santos <rcaetano@dijkstra.ime.usp.br>
+Idan Shoham               <idan@m-tech.ab.ca>
+Adam Spiers               <adam.spiers@new.ox.ac.uk>
+C. J. Suire               <suire@datasync.com>
+Juhapekka Tolvanen        <juhtolv@silmu.cc.jyu.fi>
+Lars Wirzenius            <liw@iki.fi>
+Sean Woolcock             <sbwoolco@eos.ncsu.edu>
+
+   és az összes közremûködõnek.
+
+References
+
+   1. mailto:Paul.L.Rogers@li.org
+   2. http://www.netday.org/
+   3. http://www.datasync.com/~rogerspl/Advocacy-HOWTO.html
+   4. mailto:nat@nataa.fr.eu.org
+   5. http://www.linux-france.org/article/these/advocacy/Advocacy-HOWTO-fr.html
+   6. mailto:jeanne@mbox.kyoto-inet.or.jp
+   7. http://jf.linux.or.jp/JFdocs/Advocacy.html
+   8. mailto:janus@krakow.linux.org.pl
+   9. http://www.jtz.org.pl/Html/mini/Advocacy.pl.html
+  10. mailto:buick@microlink.com.br
+  11. http://www.microlink.com.br/~buick/dragons/op1/minihowtos/br-advocacy.html
+  12. mailto:rmrivera@hotmail.com
+  13. http://www.linux-es.com/docs/HOWTO/translations/es/mini/Advocacy-Mini-Como
+  14. mailto:Paul.L.Rogers@li.org
+  15. http://www.tldp.org/
+  16. mailto:linux-howto@sunsite.unc.edu
+  17. mailto:linux-howto@sunsite.unc.edu
+  18. mailto:szekelyk@edasz.hu_NO_SPAM
+  19. mailto:toldi@freemail.hu_NO_SPAM
+  20. mailto:dacas@freemail.hu_NO_SPAM
+  21. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  22. http://tldp.fsf.hu/index.html
+  23. news:comp.os.linux.announce
+  24. http://www.iki.fi/liw/texts/advocating-linux.html
+  25. http://www.tuxedo.org/~esr/writings/cathedral-bazaar/cathedral-bazaar.html
+  26. http://www.opensource.org/
+  27. http://zgp.org/~dmarti/linuxmanship/
+  28. http://www.cse.unsw.edu.au/~conradp/linux/pr/
+  29. http://www.netday.org/NetDay/howto/guide/
+  30. http://www.li.org/
+  31. http://www.tldp.org/
+  32. http://www.portalux.com/
+  33. http://www.m-tech.ab.ca/linux-biz/
+  34. http://linas.org/linux/
+  35. http://www.cyber.com.au/misc/frsbiz/
+  36. http://www.10mb.com/linux/
+  37. http://visar.csustan.edu/giveaway.html
+  38. http://www.ssc.com/
+  39. http://www.linuxresources.com/
+  40. http://www.linuxjournal.com/
+  41. http://www.lege.com/linux-biz.html
+  42. http://wauug.erols.com/mclinux/results.html
+  43. http://mercury.chem.pitt.edu/~angel/LinuxFocus/
+  44. http://www.linux.cz/noviny/
+  45. http://www.ssc.com/lg/
+  46. http://www.pluto.linux.it/journal/
+  47. http://www.tldp.org/links/media.html
+  48. http://www.portalux.com/informations/journals/
+  49. http://noframes.linuxjournal.com/lsb/listing.html
+  50. http://www.gimp.org/
+  51. http://www.netday.org/
+  52. http://www.caldera.com/
+  53. http://www.cygnus.com/
+  54. http://www.redhat.com/
+  55. http://www.suse.com/
+  56. http://www.tldp.org/HOWTO/Consultants-HOWTO.html
+  57. http://www.opensource.org/
+  58. http://www.apache.org/
+  59. http://www.gnu.org/
+  60. http://www.perl.com/
+  61. http://www.lin uxhq.com/
+  62. http://counter.li.org/
+  63. http://www.li.org/
+  64. mailto:li@li.org
+  65. http://sunsite.nus.edu.sg/pub/LDP/powered.html
+  66. http://www.cse.unsw.edu.au/~conradp/banners/
+  67. http://www.apache.org/
+  68. http://www.gnu.org/
+  69. http://www.perl.com/
+  70. http://www.opensource.org/
+  71. http://www.tldp.org/
+  72. http://www.tldp.org/devel.html
+  73. http://www.gnu.org/gnu/linux-and-gnu.html
+  74. http://www.tldp.org/
+  75. http://www.tldp.org/links/#lug
+  76. http://www.tldp.org/HOWTO/User-Group-HOWTO.html
+  77. http://www.cse.unsw.edu.au/~conradp/linux/pr/
+  78. http://www.tldp.org/HOWTO/Commercial-HOWTO.html
+  79. http://www.gnu.org/help/help.html
+  80. http://li.org/li/fund/grants.shtml
+  81. http://www.xfree86.org/donations.html
+  82. http://www.debian.org/donations.html
+  83. http://www.opensource.org/
+  84. http://www.li.org/li/resources/pressclippings.shtml
+  85. mailto:clippings@li.org
+  86. mailto:li@li.org
+  87. http://www.cse.unsw.edu.au/~conradp/linux/pr/

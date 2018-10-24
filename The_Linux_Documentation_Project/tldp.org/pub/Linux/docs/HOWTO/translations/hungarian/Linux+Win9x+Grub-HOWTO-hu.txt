@@ -1,0 +1,257 @@
+
+Linux+Win9x+Grub HOGYANJoel Rosen
+
+   Verziótörténet
+   Verzió: v1.0 2002.01.10 Átdolgozta: jr
+   Elsõ kiadás.
+
+   Ez a HOGYAN a GRUB betöltésvezérlõ használatát írja le, hogy a
+   gépeden Windowst és Linuxot is tudj futtatni a jelenlegi Linux
+   telepítésed elrontása nélkül.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Miért ezt a módszert használjuk?
+        1.2. [3]Szerzõi jog és licensz
+        1.3. [4]Magyar fordítás
+
+   2. [5]Követelmények
+
+        2.1. [6]Mik a követelmények?
+
+   3. [7]Az eljárás leírása
+
+        3.1. [8]A Windows partíció létrehozása
+        3.2. [9]A GRUB telepítése
+        3.3. [10]A Windows telepítése
+
+1. Bevezetés
+
+1.1. Miért ezt a módszert használjuk?
+
+Nagy híve vagyok a nem Microsoft-os dolgoknak, így az új gépemet elõre
+telepített Linuxszal rendeltem meg. Nagyon jó asztali gép, de fölöttébb
+hiányoztak a Windows-os játékaim, és a GIMP azért csak nem az igazi. Ezért
+végül belevágtam, és elhatároztam, hogy kettõs indításúvá teszem a gépet.
+Amikor erre vonatkozó információkat kerestem, csak olyat találtam, ami
+leírja, hogy a LOADLIN segítségével miként telepítsünk Linuxot, ha már van
+Windows. Sajnos, mivel a LOADLIN DOS alatt fut, ez azt módszer feltételezi,
+hogy a Windowst az elsõ merevlemez elsõdleges partíciójára telepítetted,
+mert a Windows szerint õ a világegyetem közepe, és a többi operációs
+rendszer körülötte forog. Ez problémát okoz, ha már van ott egy Linux, és
+nem akarod törölni csak azért, hogy Windows-t telepíthess.
+
+Ez az a pont, ahol a GNU GRUB, a Grand Unified Bootloader (Nagy Egyesített
+Betöltésvezérlõ) belép a képbe. Ez abban különbözik a többi
+betöltésvezérlõtõl, mint például a LILO-tól, hogy átveri a Windowst, és
+azt hiteti el vele, hogy az elsõ partíción van, még akkor is, ha nem. Így
+megtarthatod a Linuxot ott, ahova eredetileg telepítve lett, és a Windows
+mehet mellé.
+     _________________________________________________________________
+
+1.2. Szerzõi jog és licensz
+
+Copyright (c) 2002 Joel Rosen. A dokumentum másolása, terjesztése és/vagy
+módosítása a Free Software Foundation által kiadott GNU Free Documentation
+License 1.1 vagy bármely késõbbi verziója szerint lehetséges a dokumentum
+részeinek, elõ- ill. hátoldali szövegeinek módosítása nélkül. A licensz egy
+másolatát megtalálod [11]ezen a honlapon.
+     _________________________________________________________________
+
+1.3. Magyar fordítás
+
+A magyar fordítást [12]Szijjártó László készítette (2002.07.17). A
+lektorálást [13]Varga Zsolt végezte el (2003.01.02). Bármilyen fordítással
+kapcsolatos észrevételt a [14]linuxhowto@sch.bme.hu címre küldjetek. A
+dokumentum legfrissebb változata megtalálható a [15]Magyar Linux
+Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Követelmények
+
+2.1. Mik a követelmények?
+
+Szükség lesz a következõkre:
+
+     * Egy számítógépre, mûködõ Linux telepítéssel
+     * Elegendõ szabad helyre a merevlemezen a Windows partíció számára
+     * Egy partíció-szerkesztõre, mint például a [16]GNU Parted.
+     * A [17]GRUB rpm csomagjára vagy forrására.
+     * Egy Windows/DOS indítólemezre CDROM támogatással, és egy Windows
+       9x telepítõ CD-re, vagy egy indítható Windows 9x telepítõ CD-re
+     * (Ajánlott) Egy Linux indítólemezre
+     _________________________________________________________________
+
+3. Az eljárás leírása
+
+3.1. A Windows partíció létrehozása
+
+Ha már van üres helyed a lemezen a Windows telepítéséhez, átugorhatod ezt a
+részt. Máskülönben egy partíció-szerkesztõt kell futtatnod, hogy szét tudd
+darabolni a lemezt az új Windows-partíció számára. Én a GNU Parted nevû
+programot használtam, de az sfdisk is megfelelõ. NE HASZNÁLD az fdisk
+programot, mert az nem õrzi meg az adataidat. Ezen kívül jegyezd meg, hogy
+a módszer sikere nem garantált, ezért mindenképpen készíts biztonsági
+mentést az adatokról, mielõtt nekilátnál.
+
+Íme a merevlemezem partíciós táblája telepítés elõtt:
+
+Device      Start        End          System
+
+/dev/hda1   1            3            Linux
+/dev/hda2   4            1222         Extended
+/dev/hda5   4            36           Linux swap
+/dev/hda6   37           1222         Linux
+
+   A /dev/hda1 a /boot partícióm (neked vagy van, vagy nincs ilyen
+   elkülönített indítópartíciód), a /dev/hda2 egy kiterjesztett partíció,
+   ami két logikai meghajtót tartalmaz, a /dev/hda5 és /dev/hda6-ot,
+   amelyek a Linux swap és telepítõ partíciói.
+
+   Rendszergazdaként futtasd a partíció-szerkesztõt. Méretezd át a Linux
+   partíciót olyan kicsire, amekkorára gondolod (de gyõzõdj meg róla,
+   hogy ne legyen kisebb, mint a rajta lévõ adatok mérete). A program
+   sokáig dolgozik és utána átírja a partíciós táblát. Méretezd át a
+   kiterjesztetett partíciót is, ami a Linuxot tartalmazza. Most már
+   elegendõ hely kell legyen ahhoz, hogy egy új elsõdleges Windows
+   partíciót tudj létrehozni. Készíts egy Win95 FAT32 (LBA)
+   fájlrendszerû partíciót. Ezek után a partíciós táblád valahogy így
+   néz ki:
+Device       Start          End      System
+
+/dev/hda1    1              3        Linux
+/dev/hda2    4              905      Extended
+/dev/hda3    906            1222     Win95 FAT32 (LBA)
+/dev/hda5    4              36       Linux swap
+/dev/hda6    37             905      Linux
+
+   Nagyon ajánlom, hogy futtasd le az fdisket ennél a pontnál, és írd fel
+   egy darab papírra a partíciók információit. Ha valamit elrontasz, a
+   Windows vígan felül fogja írni az adatokat, ahogy neki tetszik, és
+   neked tudnod kell hogy néztek ki a partíciók, ha esetleg valóban erre
+   kerülne a sor.
+     _________________________________________________________________
+
+3.2. A GRUB telepítése
+
+3.2.1. Telepítés
+
+Valahol a lemezeden található a [18]GRUB rpm csomagja vagy forrása. Végezd
+el a rendszerednek megfelelõ telepítési lépéseket. A GRUB-ot ekkor már
+telepítetted, de még nem töltötted be. Rendszergazdaként add ki a következõ
+parancsot:
+
+# /sbin/grub-install /dev/hda
+
+   Ez betölti a GRUB-ot a lemezed master boot recordjába (MBR). Ezek után
+   szerkesztened kell a /boot/grub/grub.conf fájlt az indítómenü
+   beállításához.
+     _________________________________________________________________
+
+3.2.2. A grub.conf szerkesztése
+
+default=0
+timeout=10
+splashimage=(hd0,0)/grub/splash.xpm.gz
+title Red Hat Linux (2.4.7-10)
+        root (hd0,0)
+        kernel /vmlinuz-2.4.7-10 ro root=/dev/hda6
+        initrd /initrd-2.4.7-10.img
+
+title Windows 98
+        map (hd0,0) (hd0,2)
+        map (hd0,2) (hd0,0)
+        rootnoverify (hd0,2)
+        chainloader +1
+
+title DOS Boot Disk
+        map (hd0,0) (hd0,2)
+        map (hd0,2) (hd0,0)
+        chainloader (fd0)+1
+
+   Menjünk sorban, és nézzük meg, mi mit jelent.
+
+   A "default=0" és a "timeout=10" azt eredményezi, hogy ha nem nyomsz le
+   semmit, a Linux fog betöltõdni 10 másodperc múlva. A "splashimage"
+   eléggé egyértelmû, és nem is annyira fontos (indítókép -a ford.).
+
+   A "title" jelöli az egyes indítási beállításokat, és az utána
+   következõ szöveg fog majd az indítómenüben megjelenni. A"root" adja
+   meg, hogy melyik partíció tartalmazza a Linux kernel image-fájlt (ez
+   lehet az aktuális gyökér (/) partíció, de mást is megadhatsz). Itt a
+   "root (hd0,0)" azt jelenti a GRUB számára, hogy a kernel a /dev/hda
+   eszköz elsõ partícióján van. Láthatod, hogy a GRUB érdekes számozást
+   használ, 0-tól 3-ig jelöli a négy elsõdleges partíciót, és négy
+   fölött a logikai partíciókat. A következõ sor mondja meg, hol
+   található a kernel, és hol van a tényleges Linux rendszer
+   gyökérpartíciója. Az "initrd" jelzi, hogy hol található az init
+   ramdiszk-fájl. Meg kell jegyezni, hogy ez a pár sor kicsit eltérõ
+   lehet akkor, ha nincs külön /boot partíciód. További segítségért nézd
+   meg a GRUB kézikönyv oldalait.
+
+   A "map" sorok a Windows 98 rész alatt elengedhetetlenek a telepített
+   rendszer mûködéséhez. Ezek azok a varázslatot rejtõ sorok, amik a
+   Windows számára azt a látszatot keltik, hogy õ az elsõ merevlemez
+   elsõ partíciójára lett telepítve. Ha nem lapozzuk át a Windows
+   partíciót a (hd0,0)-ra, akkor szétrombolja a partíciós táblát, és
+   semmit se fogsz tudni indítani.
+
+   A "rootnoverify" paraméter adja meg a GRUB-nak, hogy a Windows
+   partícióból indítsa a rendszert, de ne próbálja meg felcsatolni azt; a
+   "chainloader +1" paraméter alapján a GRUB a Windows
+   rendszerbetöltõjének adja át a vezérlést, ami majd azt indítani
+   fogja.
+
+   A "DOS boot disk" rész akkor kell, ha floppyról akarod indítani a
+   Windows telepítését, de jól jöhet akkor is, ha bármilyen okból DOS
+   lemezrõl kell indítanod a gépet. Ha a Windows telepítõ CD-je
+   bootolható, szükséged lehet egy "Windows boot disk" bejegyzésre is,
+   ami a CD-rõl való rendszerindításra adja át a vezérlést.
+
+   Ezek után mentsük el a grub.conf fájlt és lépjünk ki a
+   szövegszerkesztõbõl is. A LILO-tól eltérõen a GRUB-nál nem kell
+   semmilyen programot futtatni a módosítások után. Most, ha kéznél van a
+   Linux indítólemez is, próbáld meg a gép újraindítását. Amikor a
+   rendszer felállt, látnod kell a GRUB indítómenüt a három menüponttal.
+   Válaszd a Linuxot. Remélhetõleg a Linux ugyanúgy fog elindulni, mint
+   eddig, ami azt mutatja, hogy helyesen telepítetted a GRUB-ot. Ha
+   mégse, szerencsére ott a Linux indítólemez, indítsd el arról a gépet
+   és javítsd ki a grub.conf-ot. Ha végül a Linux szerencsésen elindul,
+   ideje telepíteni a Windowst.
+     _________________________________________________________________
+
+3.3. A Windows telepítése
+
+Távolíts el minden lemezt és CD-t a gépbõl, és indítsd újra. NE INDÍTSD EL
+úgy a gépet, hogy már van benne valami telepítõlemez. Ha ezt teszed, a BIOS
+egyszerûen elindítja a Windows telepítõt, és a GRUB-nak nem marad esélye
+trükközni. Amikor a GRUB menüje elõtûnik, tedd a DOS floppyt (vagy a CD-t)
+a meghajtóba, és válaszd ki a "DOS boot disk" pontot (vagy, ha készítettél,
+a "Windows boot disk"-et) annak függvényében, hogy melyik telepítési módot
+választod. A Windows telepítõnek látnia kell az újonnan készített
+partíciót, mint C: meghajtót. Telepítsd a Windowst.
+
+Ennyi az egész. Most már a géped kész mindkét rendszer indítására.
+
+References
+
+   1. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#intro
+   2. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN18
+   3. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN22
+   4. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN26
+   5. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#reqs
+   6. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN35
+   7. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#proc
+   8. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN56
+   9. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN65
+  10. file://localhost/home/dacas/temp/Linux+Win9x+Grub-HOWTO-hu.html#AEN83
+  11. http://www.gnu.org/copyleft/fdl.html
+  12. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+  13. mailto:tech.translation@axelero.hu_NO_SPAM
+  14. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  15. http://tldp.fsf.hu/index.html
+  16. http://www.gnu.org/software/parted/
+  17. http://www.gnu.org/software/grub/
+  18. http://www.gnu.org/software/grub/

@@ -1,0 +1,339 @@
+
+                      Böngészés ISA szerver mögül HOGYAN
+
+Írta: Raheel Abdul Hameed (raheel at raheelhameed dot com)
+
+   v1.0, 2003 április - Elsõ kiadás, az LDP által ellenõrizve
+     _________________________________________________________________
+
+   Ha a Linux kliensed egy Windows-alapú ISA szerverhez csatlakozik,
+   akkor ez a leírás segít a rendszert úgy beállítani, hogy a linuxos
+   géprõl böngészni tudjunk. Azért írtam meg ezt a cikket, mert hasonló
+   problémákat tapasztaltam, és egy kis kutatás után találtam néhány
+   megoldást arra, hogyan használhatom a webet linuxos kliensemen. Itt
+   van hát a leírás, amely remélem hasznos információkkal szolgál.
+   Mindenféle visszajelzést szívesen fogadok, különösen folt (patch)
+   formájában. :) 
+     _________________________________________________________________
+
+1. Bevezetés
+
+   Ez a fejezet tartalmazza a szerzõi jogokkal, a szükséges
+   elõfeltételekkel, a dokumentum használatával valamint az új verziók
+   elérhetõségével kapcsolatos információkat.
+
+1.1 Szerzõi jogok
+
+   A dokumentum jogos tulajdonosa Raheel Abdul Hameed. Copyright (c) 2003
+
+   A dokumentum a Free Software Foundation által kiadott GNU Free
+   Documentation License 1.2-es vagy újabb verziójában foglalt feltételek
+   keretein belül másolható, terjeszthetõ és/vagy módosítható; invariáns
+   fejezet, elsõ borítólapszöveg és hátsó borítólapszöveg nincsen.
+
+   A licenc egy másolata megtalálható a [1]GNU Free Documentation License
+   címen.
+
+1.2 Jogi nyilatkozat
+
+   A dokumentumban található információkat saját felelõsségre
+   használjuk. A dokumentum tartalmára vonatkozóan semmilyen
+   felelõsséget nem vállalok. A dokumentumban lévõ elképzelések, példák
+   és/vagy minden más tartalmat teljes mértékben a saját felelõsségünkre
+   használjuk.
+
+   Minden szerzõi jog a tulajdonosoké, hacsak arról konkrétan másképpen
+   nem rendelkeznek. Ebben a dokumentumban szereplõ kifejezések
+   használata semmi estere sem lehetnek hatással termék védjegyre vagy
+   szolgáltatói védjegyre.
+
+   Bizonyos termékek vagy védjegyek megnevezése jóváhagyásként
+   (hozzájárulásként) nem tekinthetõek.
+
+   Erõsen ajánlott a rendszer biztonsági mentése nagyobb telepítések
+   elõtt. Ezen kívül ajánlott a rendszeres idõközönkénti biztonsági
+   mentés.
+
+1.3 A dokumentum legújabb változata
+
+   A dokumentum legújabb változata a
+   [2]http://tldp.org/HOWTO/Web-Browsing-Behind-ISA-Server-HOWTO.html
+   címen érhetõ el.
+
+1.4 Elõfeltételek
+
+   Jelen dokumentum feltételezi, hogy tudunk egy létezõ fájlt
+   szerkeszteni egy általunk használt szerkesztõ programmal, mivel a
+   dokumentum egy konfigurációs fájl szerkesztésérõl szól. Ezen kívül
+   elõnyös, de nem szükséges az ISA szerver beállításának ismerete.
+
+1.5 A dokumentum használata
+
+   Jelen dokumentum az alábbi esetekben próbál segíteni:
+     * Rendelkezünk egy proxyként üzemelõ windowsos géppel, ami egy ISA
+       Szervert futtat és rendelkezik internet kapcsolattal.
+     * Rendelkezünk egy az ISA szerverhez kapcsolódó Linux klienssel,
+       amelyen böngészni szeretnénk.
+     * Elegünk van a Windows alatti böngészésbõl.
+     * Nem vagyunk normálisak és minden létezõ HOGYANt elolvasunk.
+
+1.6 Fordítások
+
+   Eddig nem készült fordítás.
+
+   Ha készítesz, vagy tudomásod van eme dokumentum fordításáról, úgy
+   kérlek e-mailben jelezd, én pedig frissítem ezt a fejezetet.
+
+1.7 Magyar fordítás
+
+   A magyar fordítást [3]Vadon Péter készítette (2004.06.07). A
+   lektorálást [4]Daczi László végezte el (2004.06.07). Eme dokumentum
+   legfrissebb változata megtalálható a [5]Magyar Linux Dokumentációs
+   Projekt honlapján.
+
+2. ISA szerver
+
+2.1 Néhány szó az ISA szerverrõl
+
+   Az ISA szerver számos hálózati funkciót lát el, például tûzfal,
+   Web-gyorstár, jogosultság-alapú adminisztráció, dinamikus IP szûrés,
+   virtuális magánhálózat szolgáltatás (Virtual Private Network; VPN),
+   betörési kísérlet detektálás, hálózati címfordítás (Network Adress
+   Translation; NAT) és jelentések készítése (reporting). Míg Windows
+   kliensek számára robusztus megoldás, Linux felhasználók számára maga a
+   kínszenvedés, mivel a legtöbb Linux alapú böngészõ nem igazán
+   használható ISA szerver mögül. Azért használom a "nem igazán"
+   kifejezést, mert létezik néhány megoldás.
+
+2.2 Miért nem mûködik?
+
+   Windows alapú klienst futtatva az ISA szerver mögött észrevehetjük,
+   hogy normális esetben csak az Internet Explorert használva
+   böngészhetünk, más böngészõkkel - például Netscape - nem. Ennek az az
+   oka, hogy az ISA szerver egy "integrált hitelesítés" nevû módszert
+   használ. Amikor az Internet Explorer kapcsolódik az ISA szerverhez,
+   hogy egy weboldalt lekérjen, minden egyes kéréssel együtt elküld egy
+   kódot, ami alapján a szerver azonosít minket, mint létezõ
+   tartomány-felhasználókat. [Ennek ellenõrzésére lehallgathatunk néhány
+   csomagot böngészés közben, a kérés fejlécébõl kiderül, amit a
+   böngészõnk küld az ISA szerver felé.] Ezt a fajta hitelesítést más
+   böngészõk nem támogatják, ezért a legtöbb nem használható.
+
+   A következõ fejezetek bemutatják, hogyan tegyük képessé a Linux alapú
+   böngészõnket a szörfözésre.
+
+3. Elsõ módszer: Az alapvetõ hitelesítés (Basic Authentication) beállítása
+
+   Mint fentebb megtudtuk, az ISA szerveren beállított integrált
+   hitelesítés miatt a harmadik fél által gyártott böngészõk nem
+   mûködnek. Ebben az esetben használható egy másik hitelesítési
+   eljárás, az alapvetõ hitelesítés (Basic Authentication). Ezt a
+   legtöbb böngészõ - és ami a legfontosabb - az ISA szerver is
+   támogatja. Amennyiben a környezet megköveteli a nagyobb biztonságot,
+   ez a módszer nem ajánlott, mivel a felhasználónév és jelszó
+   továbbításkor csak gyengén titkosított.
+
+   Ehhez a módszerhez elengedhetetlen feltétel, hogy jogosultak legyünk
+   az ISA szerver beállítására. Ha nincs hozzáférésünk a szerver
+   beállítókonzoljához, ugorjunk a következõ fejezetben található
+   második módszerhez.
+
+3.1 Szerver oldali beállítások
+
+   Csak annyit kell tennünk, hogy elindítjuk az ISA beállítást (ISA
+   Management), és megtesszük a következõ lépéseket:
+    1. Kattintsunk a jobb-egérgombbal a szerverre, majd kattintsunk a
+       "Beállításokra" (Properties).
+    2. A "Kimenõ kérések" (Outgoing Web Requests) fülön kattintsunk a
+       megváltoztatandó beállított kapcsolatra, és kattintsunk a
+       "Szerkesztésre" (Edit).
+    3. Kattintsunk az "Alapvetõ hitelesítésre" (Basic authentication),
+       majd válasszuk ki azt a tartományt, amelyben a hitelesítendõ
+       felhasználói fiókok vannak.
+    4. Most jön a Linux alapú böngészõ beállítása.
+
+3.2 Kliens oldali beállítások
+
+   Alapvetõen a Netscape böngészõt vesszük példának.
+
+    1. Indítsuk el a Netscape Communicator-t.
+    2. Kattintsunk a "Szerkesztés" (Edit) menü "Tulajdonságok"
+       (Preferences) pontjára.
+    3. Nyissuk meg a "Haladó" (Advanced) beállítást, és kattintsunk a
+       "Proxyk"-ra (Proxies); ekkor néhány beállítási lehetõséget látunk
+       baloldalt.
+    4. Kattintsunk a "Kézi proxy beállítás"-ra (Manual proxy
+       configuration), majd a "Nézet" (View) gombra.
+    5. írjuk be az ISA Szerver IP címét a HTTP: mezõbe és a port számot,
+       amelyen megtalálható (általában 8080, beállításfüggõ).
+    6. Kattintsunk az "OK" gombra a változtatások mentéséhez.
+    7. A "Beállítások" (Preferences) párbeszédablakhoz jutunk vissza.
+    8. Kattintsunk az "OK" gombra a változtatások érvényesítéséhez.
+
+   A böngészõben nyissunk meg egy teszt url-t, ekkor meg kell adnunk a
+   felhasználónevünket és jelszavunkat. A felhasználónévhez írjuk be:
+   TARTOMÁNY\FELHASZNÁLÓ, ahol a TARTOMÁNY a Windows tartomány neve, a
+   FELHASZNÁLÓ pedig a létezõ felhasználónevünk a tartományban. A
+   jelszóhoz írjuk be a felhasználónévhez tartozó jelszót. Kattintsunk az
+   "OK" gombra. Például:
+     _________________________________________________________________
+
+Felhasználónév: CABLENET\Raheel
+Jelszó: Az_én_jelszavam
+
+ahol CABLENET a tartományom, Raheel a felhasználónevem
+és Az_én_jelszavam az érvényes jelszavam.
+     _________________________________________________________________
+
+   Ekkor a böngészõ be tudja tölteni az oldalt. Más böngészõ használata
+   esetén ellenõrizzük, hogy támogatja-e az alapvetõ hitelesítést
+   (Basic Authentication).
+
+4. Második módszer: NTLM hitelesítõ proxy szerver (NTLM Authorization Proxy
+Server)
+
+   Az NTLM hitelesítõ proxy szerver egy proxy szerver-szerû szoftver,
+   ami csak az NTLM hitelesítést továbbítja a böngészõ és az ISA Szerver
+   között, így a szerver azt "hiszi", hogy a böngészõnk Internet
+   Explorer. Ezt úgy éri el, hogy hozzáadja a kérések fejlécéhez az NTLM
+   hitelesítést szolgáló karakterláncokat. A programot Dmitry Rozmanov
+   írta Python nyelven [szép munka!]. Megtalálható a [6]www.python.org
+   webhelyen. A legtöbb Linux terjesztésnek része egy Python értelmezõ
+   (interpreter).
+
+4.1 Az NTLMAPS beszerzése
+
+   Az NTLMAPS honlapja a [7]http://ntlmaps.sourceforge.net/ címen
+   található meg. A letöltéseket a
+   [8]http://sourceforge.net/project/showfiles.php?group_id=69259 címen
+   találhatjuk meg közvetlenül. A dokumentum írásakor a legfrissebb
+   verzió a 0.9.8.
+
+4.2 Az NTLMAPS telepítése
+
+   Ha letöltöttük az NTLMAPS-t, kicsomagolhatjuk egy nekünk tetszõ
+   könyvtárba:
+     _________________________________________________________________
+
+
+tar xzvf apsxxx.tar.gz
+cd apsxxx
+
+ahol "xxx" a verziószám.
+     _________________________________________________________________
+
+4.3 Gyors beállítás
+
+   Kedvenc programunkkal szerkesszük a server.cfg fájlt. Keressük meg a
+   következõ sorokat:
+     _________________________________________________________________
+
+
+LISTEN_PORT:5865
+
+# If you want APS to authenticate you at WWW servers using NTLM then just leave
+ this
+# value blank like PARENT_PROXY: and APS will connect to web servers directly.
+# And NOTE that NTLM cannot pass through another proxy server.
+PARENT_PROXY:your_parentproxy
+
+PARENT_PROXY_PORT:8080
+     _________________________________________________________________
+
+   Alapbeállításban az NTLMAPS a 5865-ös portot figyeli. Ezt tetszõleges
+   port számra átírhatjuk. A "your_parentproxy" helyére írjuk be az ISA
+   szerver IP címét. Az ISA szerveren beállított portot adjuk meg a
+   PARENT_PROXY_PORT paraméterben.
+
+   Most a következõ sorokat keressük:
+     _________________________________________________________________
+
+
+# Windows Domain.
+# NOTE: it is not full qualified internet domain, but windows network domain.
+NT_DOMAIN:your_domain
+
+# What user's name to use during authorization. It may differ form real current
+ username.
+USER:username_to_use
+
+# Password. Just leave it blank here and server will request it at the start ti
+me.
+PASSWORD:your_nt_password
+     _________________________________________________________________
+
+   Írjuk be a Windows tartománynevet a "your_domain" helyére, a
+   felhasználónevet a "username_to_use" helyére és a jelszavunkat a
+   "your_nt_password" helyére. Szerkesztés után mentsük a fájlt.
+
+4.4 Az NTLMAPS futtatása
+
+   Egyszerûen futtassuk a main.py fájlt, például:
+     _________________________________________________________________
+
+
+./main.py
+     _________________________________________________________________
+
+   Ekkor az NTLMAPS szerver fogadja a kapcsolatokat.
+
+4.5 Kliens oldali beállítások
+
+   Alapvetõen a Netscape böngészõt vesszük példának.
+
+     * Indítsuk el a Netscape Communicator-t.
+     * Kattintsunk a "Szerkesztés" (Edit) menü "Tulajdonságok"
+       (Preferences) pontjára.
+     * Nyissuk meg a "Haladó" (Advanced) beállítást, és kattintsunk a
+       "Proxyk"-ra (Proxies); ekkor néhány beállítási lehetõséget látunk
+       baloldalt.
+     * Kattintsunk a "Kézi proxy beállítás"-ra (Manual proxy
+       configuration), majd a "Nézet" (View) gombra.
+     * írjuk be a saját IP címünket (127.0.0.1) a HTTP: mezõbe és azt a
+       port számot, amelyen megtalálható az NTLMAPS (alapbeállításban
+       5865).
+     * Kattintsunk az "OK" gombra a változtatások mentéséhez.
+     * A "Beállítások" (Preferences) párbeszédablakhoz jutunk vissza.
+     * Kattintsunk az "OK" gombra a változtatások érvényesítéséhez.
+
+   A böngészõben nyissunk meg egy teszt url-t, és látni fogjuk, hogy a
+   böngészõ helyesen betölti az oldalt. Más böngészõ használata esetén
+   ellenõrizzük, hogy támogatja-e proxy használatát.
+
+5. Kiegészítés
+
+5.1 Hivatkozások
+
+   Microsoft Tudásbázis 295667. cikk
+
+   [9]http://support.microsoft.com/?kbid=295667
+
+   NTLM Authorization Proxy Server honlap
+   [10]http://ntlmaps.sourceforge.net/
+
+   Python honlap [11]www.python.org
+
+5.2 Köszönetnyilvánítás
+
+     * Külön köszönöm Tabatha Persadnak
+       (tabatha[kukac]merlinmonroe[pont]com) a nyelvtani, szerkezeti,
+       jelölésbeli hibák javítását.
+     * Köszönöm Greg Fergusonnak (gferg[kukac]sgi[pont]com), Joy
+       Goodreaunak (joyg[kukac]us[pont]ibm[pont]com) a dokumentum
+       kiadásában való segítségnyújtását.
+     * Köszönöm Faisal Khatrinak (fslkhatri[kukac]hotmail[pont]com) a
+       dokumentum tartalmának ellenõrzését.
+
+References
+
+   1. http://www.gnu.org/copyleft/fdl.html
+   2. http://tldp.org/HOWTO/Web-Browsing-Behind-ISA-Server-HOWTO.html
+   3. mailto:vape[kukac]maffia[pont]hu
+   4. mailto:dacas@freemail.hu_NO_SPAM
+   5. http://tldp.fsf.hu/index.html
+   6. http://www.python.org/
+   7. http://ntlmaps.sourceforge.net/
+   8. http://sourceforge.net/project/showfiles.php?group_id=69259
+   9. http://support.microsoft.com/?kbid=295667
+  10. http://ntlmaps.sourceforge.net/
+  11. http://www.python.org/

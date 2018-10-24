@@ -1,0 +1,1711 @@
+
+                        Enterprise Java Linuxra HOGYAN
+
+Greg Wilkins gregw@mortbay.org az eredeti Gary Meyertõl gary@meyer.net
+származik.
+
+   v0.2, 2001.11.07
+     _________________________________________________________________
+
+   Ez a dokumentum leírja, hogyan telepítsünk Enterprise Java környezetet
+   Linuxra, amely tartalmaz egy Java Development Kitet, egy Web szervert,
+   támogatja a Java szervleteket, adatbázis hozzáférést biztosít JDBC-n
+   keresztül, és támogatja az Enterprise Java Beaneket (EJB).
+     _________________________________________________________________
+
+1. Bevezetés
+
+1.1 Háttér
+
+   Ezt a dokumentumot 1999 januárjában kezdte el írni Gary Meyer (
+   [1]gary@meyer.net), néhány héttel azután, hogy különbözõ nyílt
+   forráskódú és védett Enterprise Java terméket telepített Linuxra. Itt
+   az "Enterprise Java" úgy értelmezendõ, mint a Java Enterprise API-k
+   használata.
+
+   A dokumentumhoz, néhány frissítést Greg Wilkins (
+   [2]gregw@mortbay.org) tett hozzá 2001 novemberében, mindazonáltal a
+   dokumentum egyes részei nem aktuálisak.
+
+1.2 Kinek szól?
+
+   Ez a HOGYAN azoknak a szoftvereseknek próbál segítséget nyújtani, akik
+   érdekeltek az Enterprise Java kipróbálásában, fejlesztésében vagy
+   terjesztésében Linuxon. Meghatározott tudás vagy tapasztalat Linuxban
+   vagy a Java területén feltételezett.
+
+1.3 Új verziók
+
+   A dokumentum újabb verziói megtalálhatók a Linux Documentation Project
+   honlapján:
+   [3]http://tldp.org/HOWTO/Enterprise-Java-for-Linux-HOWTO.html
+
+1.4 Szerzõi jog és licenc
+
+   Gary Meyer és Greg Wilkins ezen írását a szerzõi jog védi.
+   Másolásához hozzájárulás szükséges, a dokumentum sokszorosítása és
+   módosítása a GNU szabad dokumentációs licencének 1.1-es verziójának
+   feltételeihez kötött, vagy bármely késõbbi verzióéhoz, amit a Szabad
+   Programokért Alapítvány adott ki, állandó részek, fedõlap és hátoldal
+   szövegek nélkül. A licenc másolata elérhetõ a
+   [4]http://www.gnu.org/copyleft/fdl.html weboldalon.
+
+1.5 Nyilatkozatok
+
+   A dokumentum ajánlásai abban segítenek, hogy amilyen gyorsan csak
+   lehet egy Enterprise Java környezetet állíthass be Linux alatt. Ezek a
+   javaslatok nem termék ajánlások vagy jóváhagyások. Ahogy közelebbrõl
+   megismered a rendelkezésre álló lehetõségeket, képes leszel saját
+   környezeteket készíteni, és megtalálni a legmegfelelõbb megoldást a
+   saját igényeid számára.
+
+   Ennek a HOGYANnak szándéka az "Enterprise Java"-t mint a Java
+   Enterprise API-t értelmezni. Ez a HOGYAN nem célozza meg a
+   skálázhatóságot, rendelkezésre állást, menedzselhetõséget és egyéb
+   hasonló szempontjait a programnak, amelyeket az "enterprise"
+   kifejezéssel gyakran összekapcsolnak.
+
+1.6 Lehetséges jövõbeli részek
+
+   Ez a HOGYAN az Enterprise Java legnépszerûbb részeire koncentrál. Az
+   következõk lehetnének részei ennek a HOGYANnak.
+     * Integrált fejlesztõi környezetek (IDEs) amelyek támogatják az
+       Enterprise Javát Linuxra
+     * Java Naming and Directory Interface (JNDI) támogatása
+     * Java Mail API (JMAPI) támogatása
+     * Java Transaction Service (JTS) támogatása
+     * Java Interface Definition Language (JIDL) támogatása
+     * Java Messaging Service (JMS) támogatása
+     * Common Object Request Broker Architecture (CORBA) támogatása
+
+   Érdekel egy rész megírása? Akkor vedd fel a kapcsolatot a szerzõvel,
+   Greg Meyerrel a ( [5]gary@meyer.net) címen.
+
+1.7 Egyéb források
+
+   Az App-Serv Center (Alkalmazás-kiszolgáló Központ) honlapját itt
+   találod meg: [6]http://www.app-serv.com/.
+
+   Java Enterprise Nutshellhez David Flanagantól és másoktól a
+   [7]http://www.oreilly.com/catalog/jentnut/ helyen.
+
+1.8 Visszajelzés
+
+   Kérlek a szerzõ címére küldd el a hozzászólásod és esetleges
+   javaslatod: Gary Meyer ( [8]gary@meyer.net).
+
+1.9 Magyar fordítás
+
+   A magyar fordítást [9]Minkó Mihály készítette (2003.02.27). A
+   lektorálást [10]Erdész Szabolcs végezte el (2003.03.20). Bármilyen
+   fordítással kapcsolatos észrevételt a [11]linuxhowto@sch.bme.hu címre
+   küldjetek. A dokumentum legfrissebb változata megtalálható a
+   [12]Magyar Linux Dokumentációs Projekt honlapján.
+
+2. Hogyan telepítsük a Java Development Kitet
+
+   Van néhány a Java Development Kit-ek közül, ami Linuxra is elérhetõ:
+
+     * [13]Blackdown JDK
+     * [14]IBM Java Developer Kit 
+     * [15]Sun J2SE 
+     * [16]Kaffe 
+
+   Ha csak egy JDK-t akarsz kipróbálni, akkor azt javasolom, hogy a Sun
+   J2SE-vel kezdd, hacsak nem ajánlanak mást, azok a szoftverek amiket
+   használsz vagy esetleg használni akarsz a késõbbiekben. Továbbá, ha
+   nyílt forrású megvalósítás érdekel, akkor Kaffe-ra van szükséged.
+
+2.1 Blackdown JDK
+
+  Háttér
+
+   A Blackdown JDK a Sun JDK, Linuxhoz írt változata. E dokumentum
+   írásának az idõpontjában a Blackdown JDK verziószáma Intel
+   architektúrán, a JDK 1.2.2, PowerPC-n pedig a JDK 1.1.8.
+
+   1999 decemberében a Sun bejelentette a Java 2 Platform Standard
+   Edition (J2SE) elérhetõségét a Linux operációs rendszerekre. A Sun
+   ezen bejelentése alapvetõ hatással volt a Blackdown-ra, mert ez egy
+   portolás. Egy sajtóközleményben a Sun azt állítja, hogy "Az e heti
+   bejelentés nem lett volna lehetséges a Blackdown-nal való
+   együttmûködés, a világ programozói és lelkes segítõi nélkül. Innen
+   kezdve a Blackdown lett Linux Java technológia szállítója. Az évek
+   folyamán ennek szentelt fáradozásaik lefektették az alapjait a Java 2
+   Linux platformra történõ kiadásának; az õ fáradozásuk
+   nélkülözhetetlen volt a kiadás sikeréhez."
+
+   Továbbá a Sun kiadvány azzal folytatja, hogy " A Blackdown.org
+   továbbra is egy értékes forrás a Java technológia Linux platformra
+   történõ alkalmazása során és tartalmazva a JDK 1.1.x verziókat."
+
+  Letöltés
+
+   A Blackdown JDK elérhetõ a [17]http://www.blackdown.org oldalon.
+
+   A Blackdown honlapján válaszd a letöltést és egy tükrözést (van magyar
+   is - a ford.).
+
+   Válaszd ki azt a JDK verziót, amelyiket akarod. Ha más programok,
+   amiket használni szeretnél nem futnak egy bizonyos verziószámú
+   JDK-val, akkor a legfrissebbet ajánlom, ami a dokumentum írásának
+   idején a JDK 1.2.2-es.
+
+   Válaszd ki a megfelelõ architektúrát, amire telepíteni akarsz. Intel
+   architektúrára válaszd az i386-ot.
+
+   Bármely verziót választhatod, de ha bizonyos programok, amiket
+   használni akarsz nem támogatják a kiválasztott verziót, akkor azt
+   ajánlom, hogy töltsd le a legfrissebb verziót, ami elérhetõ.
+
+   A Blackdown JDK-hoz, egy csomó fájlt találsz, különbözõ fájl és
+   csomagformátumban. Mindazonáltal biztosnak kell lenned abban, hogy a
+   Linux disztribúciódban lévõ libc támogatja azt, amelyiket
+   letöltöttél.
+
+   Az elérhetõ fájlok a következõket tartalmazzák:
+     * jdk - A Java Development Kit tartalmaz mindent, amire a Java
+       fordításához, futtatásához, nyomkövetéshez szükséged lehet. Nem
+       tartalmaz nemzetközi karakter konvertereket.
+     * jre - A Java Runtime Environment amely tartalmazza a nemzetközi
+       karakter konvertereket.
+     * rt - Egy egyszerû Java Runtime Environment, ami nem tartalmaz
+       nemzetközi karakter konvertereket.
+     * i18n - A nemzetközi fontkészletek és a karakter konverterek JAR
+       csomagjai.
+     * native - További bináris csomagok a valós, többszálú futtatáshoz.
+
+   Azt javasolom, hogy csak a jdk for java development angol verzióját
+   töltsd le.
+
+   Amikor letöltötted a Blackdown fájlokat, választanod kell a libc5 és a
+   glibc között, mint a lehetséges glibc verziók között.
+
+   A libc opciók tartalmazzák:
+     * libc5 - Az öregebb, de még használatos Linux libc, a libc5.
+     * glibc - Az új libc.
+
+   Ha a Linuxnak egy újabb disztribúcióját használod, akkor a
+   legvalószínûbb, hogy lesz glibc. Azt javasolom kezdetben a glibc-vel
+   próbálkozz.
+
+  Telepítés
+
+   Azt javasolom, telepítsd a fájlokat a /usr/local könyvtárba. Miután
+   letöltötted a fájlt, futtasd a következõ parancsokat:
+
+mkdir /usr/local/blackdown
+mv jdk* /usr/local/blackdown
+
+   Ha a tarball formátumot töltötted le, akkor futtasd a következõ
+   parancsot:
+
+tar zxvf [filename].tar.gz
+
+   Ahol a [filename] az állomány neve.
+
+   A /usr/local/blackdown könyvtárban látni fogsz egy olyasmi könyvtárat,
+   hogy jdk1.2.2
+
+   A fenti egy JDK1.2.2 release candidate 3 intel architektúra példáját
+   mutatja. Helyettesítsd a fájlnevet, verziószámot, kiadást és az
+   architektúrát a megfelelõre. Minden disztribúciós csomagfájlt a fenti
+   módszerrel nyiss meg.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+     * JAVA_HOME
+     * PATH
+     * CLASSPATH
+
+   A JAVA_HOME környezeti változó arra a könyvtárra mutat, ahová a JDK
+   csomagot telepítetted. Állítsd be a JAVA_HOME környezeti változót arra
+   a könyvtárra, amelyikbe a Blackdown JDK csomagot telepítetted.
+
+export JAVA_HOME=/usr/local/blackdown/jdk1.2.2
+
+   A $JAVA_HOME/bin könyvtárban van a Java compiler (Java fordító; javac)
+   és a Java Virtual Machine (Java Virtuális Gép; java) valamint egyéb, a
+   fejlesztõ környezethez szükséges programok.
+
+   Add hozzá a PATH változóhoz a $JAVA_HOME/bin könyvtárat.:
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+   Ellenõrizd le, hogy a $JAVA_HOME/bin a PATH elejéhez hozzá lett adva,
+   így az általad telepített JDK csomagot fogod használni, nem pedig azt
+   a JDK csomagot, ami a Linuxszal lett feltéve. A PATH változó
+   ellenõrzéséhez kérdezd le az alapértelmezett Java fordító és JVM
+   (Java Virtual Machine) nevét:
+
+which javac
+which java
+
+   A válasznak a $JAVA_HOME/bin könyvtáradban lévõ javac és java
+   csomagokkal összhangban kell lennie.
+
+   A CLASSPATH környezeti változó mutat minden JAR-ra és azokra a
+   könyvtárakra, amelyekre a Java programok fordításához és futtatásához
+   szükséged lesz.
+
+   A JDK1.2.2-es verziójához kezdetben nem szükséges JAR-okat adni a
+   CLASSPATH változóhoz. A JAR-ok csomagolása lehet jar vagy zip fájl is.
+
+export CLASSPATH=$CLASSPATH:.
+
+  A telepítés ellenõrzése
+
+   Most már futtathatsz és fordíthatsz egy egyszerû alkalmazást. Írd meg
+   a következõ programot (egy akármilyen szövegszerkesztõvel, csak a
+   fájl kiterjesztése "java" legyen - a ford.):
+
+class HelloWorld {
+  public static void main (String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+
+   Fordítsd le a programot a Java fordítóval.
+
+javac HelloWorld.java
+
+   Ha a fordító hibát jelez, akkor alaposan nézd át a szintaxist,
+   valamint nézd meg a PATH és CLASSPATH beállításokat, hogy jók-e.
+
+   Futtasd a programot a JVM-mel.
+
+java HelloWorld
+
+   Ha a JVM hibát produkál, akkor nézd meg a PATH és CLASSPATH
+   beállításokat.
+
+   A következõ eredményt kell látnod a program helyes futása esetén:
+
+Hello, World!
+
+   Gratulálok, sikeresen telepítetted, beállítottad és tesztelted a
+   Blackdown JDK csomagot Linuxon!
+
+  További információk
+
+   A BlackDown JDK csomagról további információt találsz a
+   [18]http://www.blackdown.org honlapon. Itt elérhetõ egy kiváló FAQ.
+
+2.2 IBM Java Developer Kit
+
+  Háttér
+
+   Az IBM Java fejlesztõi környezet és futtatási környezet kompatibilis
+   a Sun Javával és tartalmazza a legfrissebb karbantartó eszközöket. (Az
+   IBM weboldaláról.)
+
+   Ezen dokumentáció írásakor az IBM Java fejlesztõi környezet a JDK
+   1.1.8 verziója aktuális, ez csak Intel architektúrára telepíthetõ.
+
+  Letöltés
+
+   Az IBM Java Developer Kit letölthetõ a
+   [19]http://www.ibm.com/java/jdk/118/linux címrõl.
+
+   A letöltéshez elõször regisztrálnod kell magad az IBM weboldalán, és
+   el kell fogadni a szerzõdés feltételeit.
+
+   Az letölthetõ fájlok tartalmazzák:
+     * ibm-jdk-l118-linux-x86.tgz - The Java Development Kit; mindent
+       tartalmaz ami egy Java program fordításához, futtatásához és
+       nyomkövetéséhez szükséges.
+     * ibm-jre-l118-linux-x86.tgz - The Java Runtime Environment; a Java
+       programok futtatásához szükséges fájlokat tartalmazza.
+
+   Mivel fejleszteni akarsz javasolom, hogy a IBM-JDK csomagot töltsd le.
+   :)
+
+  Telepítés
+
+   Azt javasolom, hogy a /usr/local könyvtárba telepítsd a fájlokat. A
+   fájlok letöltése után futtasd a következõ parancsot:
+
+mkdir /usr/local/ibm
+mv ibm-jdk-l118-linux-x86.tgz /usr/local/ibm
+
+   Most kicsomagolhatod a disztribúciós csomagot. Ezt a következõ
+   paranccsal teheted meg:
+
+tar zxvf ibm-jdk-l118-linux-x86.tgz
+
+   A /usr/local/ibm könyvtárban most már láthatod a jdk.118 könyvtárat.
+
+   A fent említett példák Intel architektúrán nyújtanak segítséget.
+
+   Helyettesítsd a fájlneveket a megfelelõkkel.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+     * JAVA_HOME
+     * PATH
+     * CLASSPATH
+
+   A JAVA HOME környezeti változó utal a telepített JDK csomagod home
+   könyvtárára. Állítsd be a JAVA HOME változót arra a könyvtárra,
+   amelyikbe telepítetted az IBM Java fejlesztõi készletet.
+
+export JAVA_HOME=/usr/local/ibm/jdk118
+
+   A $JAVA_HOME/bin könyvtárban van a Java compiler (Java fordító; javac)
+   és a Java Virtual Machine (Java Virtuális Gép; java) és egyéb, a
+   fejlesztéshez nélkülözhetetlen programok. Add hozzá a $JAVA_HOME/bin
+   könyvtárat a PATH változóhoz.
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+   Ellenõrizd, hogy a $JAVA_HOME/bin könyvtárat hozzáadtad a PATH
+   elejéhez, így az telepített JDK csomagot fogja használni a géped, nem
+   pedig azt, ami a Linux disztribúcióval jött.
+
+   A PATH változó ellenõrzéséhez kérdezd le az alapértelmezett Java
+   fordító és JVM (Java Virtual Machine) nevét:
+
+which javac
+which java
+
+   A válaszból kiderül melyik javac és java van a $JAVA HOME/bin
+   könyvtáradban. A CLASSPATH környezeti változó utal a JAR-okra és a
+   könyvtárakra, amelyekre szükséged lesz ahhoz, hogy Java programokat
+   fordíts és futtass.
+
+   Javasolom, add hozzá a következõ JAR-okat a CLASSPATH változóhoz.
+   Ezek különbözõ .jar vagy .zip fájlokba vannak csomagolva.
+
+   Például:
+export CLASSPATH=$JAVA_HOME/lib/classes.zip
+export CLASSPATH=$CLASSPATH:.
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egy egyszerû programot. Készítsd
+   el a következõ programot:
+
+class HelloWorld {
+  public static void main (String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+
+   Fordítsd a programot a Java fordítóval:
+
+javac HelloWorld.java
+
+   Ha a fordító hibát jelez, akkor nézd meg alaposan a szintaktikát és
+   ellenõrizd a PATH és a CLASSPATH változó beállításait.
+
+   Futtasd a programot JVM-mel.
+
+java HelloWorld
+
+   Ha a JVM hibát jelez ellenõrizd a PATH és a CLASSPATH beállításaid.
+
+   Egyébként a következõ kimenetet kell látnod:
+
+Hello, World!
+
+   Gratulálok, telepítetted és tesztelted az IBM Java Developer Kit
+   csomagot Linuxon!
+
+  További információk
+
+   További információt találsz az IBM Java weboldalán a
+   [20]http://www.ibm.com/java címen.
+
+2.3 Kaffe
+
+  Háttér
+
+   A Kaffe egy nyílt forráskódú implementációja a (Java Virtual Machine)
+   Java Virtuális Gépnek és osztálykönyvtáraknak. Ezen dokumentum
+   készítésének idején a Kaffe "leginkább a JDK 1.1-el mûködött együtt,
+   néhány részt kivéve" és "egyes részei már JDK 1.2 (Java2)
+   kompatibilisek". (Idézet a Kaffe weboldaláról.)
+
+   Elõfordulhat, hogy a Kaffe már a Linux disztribúciódban benne van,
+   hiszen a Kaffe is nyílt forráskódú.
+
+  Letöltés és telepítés
+
+   Azt javasolom, hogy inkább azt a Kaffe csomagot használd, ami a Linux
+   disztribúcióddal érkezett, mintsem ami letölthetõ a Kaffe honlapról.
+
+   Alternatívaként a Kaffe megtalálható a [21]http://www.kaffe.org címen.
+
+   A Kaffe weboldalán válaszd a legfrissebb kiadást. Ezen dokumentum
+   írása idején ez az 1.0.5-ös verzió volt. A Kaffe verziószáma nincs
+   kapcsolatban a JDK egyéb verziószámaival.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+     * PATH
+     * CLASSPATH
+
+   A PATH változó ellenõrzéséhez kérdezd le az alapértelmezett Java
+   fordító és JVM (Java Virtual Machine) nevét:
+
+which javac
+which java
+
+   A CLASSPATH környezeti változó mutatja, hogy hol találhatóak a JAR-ok
+   és mely könyvtárakra lesz szükséged, hogy fordíts és futtass Java
+   programokat.
+
+   Azt javasolom, hogy a JAR csomagokat add hozzá a CLASSPATH változóhoz
+   A JAR-ok .jar vagy .zip fájlokba lehetnek csomagolva:
+
+   Például:
+export CLASSPATH=/usr/local/share/kaffe/Klasses.zip
+export CLASSPATH=$CLASSPATH:.
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egyszerûbb alkalmazásokat.
+   Készítsd el a következõ programot:
+
+class HelloWorld {
+  public static void main (String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+
+   Fordítsd le a programot a Java fordítóval:
+
+javac HelloWorld.java
+
+   Ha a fordító hibát jelez, alaposan ellenõrizd le a szintaxist és
+   ellenõrizd a PATH és CLASSPATH beállításaid.
+
+   Futtasd a programot a JVM-mel.
+
+java HelloWorld
+
+   Ha a JVM hibát jelez ellenõrizd a PATH és a CLASSPATH beállításait.
+
+   A következõ üzenetet kell látnod:
+
+Hello, World!
+
+   Gratulálok, telepítetted, beállítottad és tesztelted a Kaffe csomagot
+   Linux alatt!
+
+  További információk
+
+   További információt találsz a Kaffe-ról a [22]http://www.kaffe.org
+   honlapon.
+
+2.4 Sun J2SE
+
+  Háttér
+
+   A Sun Java 2 Standard Edition (J2SE) a Sun Java 2 platformja Linux
+   operációs rendszerekre. A dokumentum készítésekor a legfrissebb verzió
+   a JDK 1.2.2, Intel architektúrára.
+
+  Letöltés
+
+   A J2SE letölthetõ a
+   [23]http://developer.java.sun.com/developer/earlyAccess/j2sdk122
+   oldalról.
+
+   Regisztrálnod kell magad a Sunnál és el kell fogadnod a licencet,
+   mielõtt letöltöd a programot.
+
+  Telepítés
+
+   Azt javasolom telepítsd a fájlokat a /usr/local könyvtárba. Miután
+   letöltötted a fájlokat futtasd a következõ parancsokat:
+
+mkdir /usr/local/sun
+mv jdk1_2_2rc1-linux-i386.tar.gz /usr/local/sun
+
+   Most kicsomagolhatod a disztribúciós csomagot. Futtasd a következõ
+   parancsot:
+tar zxvf jdk1_2_2rc1-linux-i386.tar.gz
+
+   Az /usr/local/sun könyvtárban most már láthatod a jdk1.2.2 könyvtárát.
+
+   Az alábbi példák a JDK 1.2.2 verzióra, Intel architektúrára készültek.
+   Helyettesítsd a fájlneveket, ahol szükséges.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+     * JAVA_HOME
+     * PATH
+     * CLASSPATH
+
+   A JAVA_HOME arra a könyvtárra mutat, ahol a JDK csomagod van. Állítsd
+   be a JAVA_HOME változót arra a könyvtárra, ahová a J2SE programot
+   telepítetted:
+
+export JAVA_HOME=/usr/local/sun/jdk1.2.2
+
+   A $JAVA_HOME/bin könyvtárban van a Java compiler (Java fordító; javac)
+   és a Java Virtual Machine (Jáva Virtuális Gép; java) és egyéb, a
+   fejlesztéshez szükséges programok. Add hozzá a $JAVA_HOME/bin
+   könyvtárat a PATH változóhoz.
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+   Ellenõrizd, hogy a $JAVA_HOME/bin könyvtárat hozzáadtad a PATH
+   elejéhez, s így a telepített JDK verziót fogod használni, nem pedig
+   azt, amelyik a disztribúcióddal jött.
+
+   A PATH változó ellenõrzéséhez kérdezd le az alapértelmezett Java
+   fordító és JVM (Java Virtual Machine) nevét:
+
+which javac
+which java
+
+   Az eredményeknek a $JAVA_HOME/bin könyvtárban található javac és java
+   verzióknak kell lenniük.
+
+   A CLASSPATH környezeti változó azokra a JAR-okra és könyvtárakra
+   mutat, amelyekre szükséged lesz a Java programok fordításához és
+   futtatásához.
+
+   A JDK 1.2.2-höz, alapesetben nem kell JAR-okat adni a CLASSPATH
+   változóhoz.
+
+   A JAR-ok .jar és .zip fájlokba lehetnek csomagolva.
+
+export CLASSPATH=$CLASSPATH:.
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egy egyszerû alkalmazást.
+   Készítsd el a következõ kis programot:
+
+class HelloWorld {
+  public static void main (String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+
+   Fordítsd le a programot a Java fordítóval.
+
+javac HelloWorld.java
+
+   Ha a fordító hibát produkál, ellenõrizd le alaposan a szintaxist, és
+   ellenõrizd a PATH és CLASSPATH beállításait.
+
+   Futtasd a programot a JVM-mel.
+
+java HelloWorld
+
+   Ha a JVM hibát jelez ellenõrizd a PATH és a CLASSPATH beállításait.
+
+   A következõ eredményt kell látnod a helyes futás esetén:
+
+Hello, World!
+
+   Gratulálok, telepítetted, beállítottad és tesztelted a Sun J2SE
+   csomagot Linux alatt.
+
+  További információ
+
+   További információt találsz a Sun J2SE javáról a
+   [24]http://java.sun.com honlapon. Itt kiváló vitafórumokat találhatsz,
+   ahol valószínûleg választ kapsz a kérdéseidre.
+
+3. Hogyan telepítsünk Webszervert?
+
+   Számos Webszerver található Linuxra. Például:
+
+     * [25]Apache 
+     * [26]IBM Domino 
+     * [27]IBM HTTP Server 
+     * [28]Jetty HTTP Server
+
+   Ha csak egy Webszervert akarsz kipróbálni, azt javasolom, hogy kezdd
+   az Apache-al. Elsõsorban azért, mert ez benne van a legtöbb Linux
+   disztribúcióban, elõre telepítve és talán már fut a rendszereden.
+
+3.1 Apache
+
+  Háttér
+
+   Az Apache a legelterjedtebb HTTP szerver az Interneten. "Eredetileg az
+   NCSA httpd démonon alapult, de azóta teljesen újra lett írva. Az
+   Apache nyílt forráskódú". (Idézet az Apache weboldaláról.)
+
+  Letöltés, telepítés és a környezeti beállítások
+
+   Azt javasolom, hogy azt az Apache csomagot használd, amelyik a Linux
+   disztribúcióddal érkezett.
+
+   Esetleg letöltheted a [29]http://www.apache.org webhelyrõl.
+
+  A telepítés ellenõrzése
+
+   Az Apache mûködõképességének ellenõrzéséhez indítsd el a
+   böngészõd, és írd be a következõt: "http://127.0.0.1". (ez a
+   localhost IP címe).
+
+   Egy "It Worked!" feliratú weboldalt kell látnod, ha mûködik.
+
+   Ha ez nem így van, akkor ellenõrizheted úgy is, hogy beírod a
+   következõt a RedHat Package Manager (RPM) alapú disztribúcióba:
+
+rpm -q | grep apache
+
+   Az Apache elindításához, futtasd:
+cd /etc/rc.d/init.d
+./httpd start
+
+   Megjegyzés: A httpd szkript helye, bootoláskor lehet, hogy máshol van
+   a különbözõ Linux diszribúcióknál.
+
+   További segítségért látogass el az Apache weboldalára és olvasd az
+   Apache FAQ leírást a [30]http://www.apache.org/docs/misc/FAQ.html
+   honlapon.
+
+3.2 IBM Domino
+
+   Ez a rész készülõben van.
+
+   További információkért keresd fel a
+   [31]http://www.lotus.com/dominolinux honlapot.
+
+3.3 IBM HTTP Szerver
+
+  Háttér
+
+   Az IBM HTTP kiszolgáló, egy Apache IBM színekbe öltöztetve. Az IBM
+   http kiszolgálóját mindenképpen meg kell ismerned, ha IBM WebSphere-el
+   akarsz dolgozni.
+
+   A doksi készülésekor a naprakész verzió az 1.3.6.1-es.
+
+  Letöltés
+
+   Az IBM HTTP kiszolgáló letölthetõ a
+   [32]http://www-4.ibm.com/software/webservers/httpservers/download.html
+   címrõl.
+
+   A letöltésre klikkelve válaszd az 56, vagy 128 bites ssl kódolást.
+
+   Regisztrálnod kell magad az IBM-nél, ki kell töltened egy marketing
+   kérdõívet és el kell fogadnod a licencet, mielõtt letöltöd a
+   programot. Az IBM http kiszolgáló futtatásához a glibc 2.0-ás vagy
+   2.1-es verziójára lesz szükséged. A glib az új Linux libc. Ha régebbi
+   disztribúciód van, ami libc5-ön alapul, akkor nem fogod tudni
+   használni az IBM http kiszolgálót.
+
+   Egy RedHat Package Manager (RPM) alapú Linux disztribúción futtasd a
+   következõ parancsot:
+
+rpm -qa | grep libc
+
+   Hasonló eredményt fogsz látni:
+
+glibc-2.1.2-11
+libc-5.3.12-31
+
+   Ebbõl tudható meg, hogy melyik libc5 és glibc verzió van a gépeden. A
+   következõ példában én mindkettõt telepítettem a rendszeremre. A
+   glibc verzióm 2.1, tehát a glibc2.1-es verzióhoz tartozó csomagot kell
+   letöltenem.
+
+   Javasolom, hogy töltsd le az összes tar fájlt a Linuxod glib
+   verziójához, mivel viszonylag kis méretûek. Akármennyit is töltesz
+   le, a szerver fájlra szükséged lesz. RedHat 6.0 és az ebbõl származó
+   disztribúciókhoz csak a RedHat 6.0-ra lesz szükséged. A glibc 2.0-ra
+   alapuló verziókhoz szükséged lesz a libstdc fájlra is.
+
+  Telepítés
+
+   Javasolom a fájlokat az /usr/local könyvtárba telepítsd. A letöltés
+   után add ki a következõ parancsokat:
+
+mkdir /usr/local/ibm
+mv HTTPServer.linux.* /usr/local/ibm
+
+   Most már kicsomagolhatod a tar fájlt:
+
+tar xvf [filename].tar
+
+   Ahol a [filename] az állomány neve.
+
+   Az /usr/local/ibm könyvtár alatt most már látnod kell egy IHS
+   könyvtárat.
+
+   Használd a RedHat Package Manager programot (RPM) az rpm fájlok
+   telepítéséhez, amiket a tar fájl tartalmazott. Ha szükséged van a
+   libstdc fájlra, akkor elõször azt telepítsd. Azután telepítheted a
+   szerver rpm fájlját, valahogy így:
+
+cd IHS
+rpm -i IBM_HTTP_Server-1.3.6-2.i386.rpm
+
+   A fenti példák 1.3.6-os verzióra, Intel architektúrára készültek.
+   Helyettesítsd a fájlneveket, ahol szükséges. A telepítés után könnyen
+   törölheted az rpm fájlokat.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+     * PATH
+
+   Az IBM http kiszolgáló az /opt/IBMHTTPServer könyvtárba telepíti
+   magát. Ezt az útvonalat hozzá kell adnod a PATH változóhoz.
+
+export PATH=/opt/IBMHTTPServer/bin:$PATH
+
+   Ellenõrizd, hogy az /opt/IBMHTTPServer/bin útvonalat hozzáadtad a
+   PATH változóhoz, így az a Web-kiszolgáló indul el, amit telepítettél,
+   nem pedig az amelyik a Linux disztribúcióddal érkezett.
+
+   A PATH változó beállításának ellenõrzéséhez nézd meg melyik Apache
+   kontrollert használod:
+
+which apachectl
+
+   A válasznak az /opt/IBMHTTPServer/bin könyvtárban lévõ apachectl-re
+   kell mutatnia.
+
+   Figyelem: mivel az IBM http kiszolgáló az Apache-on alapul, ezért az
+   Apache controllert használja induláskor és leálláskor. Ha az IBM http
+   kiszolgálót és az Apache kiszolgálót is telepítetted a gépedre, akkor
+   különösen figyelj a PATH változóra, hogy a megfelelõ kiszolgálót
+   használd!
+
+   Lehet, hogy módosítanod kell az IBM http kiszolgáló konfigurációs
+   fájlját. A konfigurációs beállítások az
+   /opt/IBMHTTPServer/conf/httpd.conf fájlban vannak. A két legfontosabb
+   változtatás amire szükséged lehet, az a kiszolgáló nevének és a
+   portnak a beállítása. Keresd a "ServerName" és a "Listen"
+   kulcsszavakat a http.conf fájlban. A kiszolgáló nevének beállíthatod a
+   gépneved vagy az IP címed. Ha a számítógéped DHCP szolgáltatást
+   használ az IP cím beállításához, akkor a "hostname" megadása jobb
+   választás lehet.
+
+   A számítógép nevének használatához a "hostname"-nek és az IP címnek
+   regisztrálva kell lennie a DNS-ben.
+
+   Azonfelül, ha más web-kiszolgálót is futtatsz a gépen, akkor az IBM
+   http kiszolgálónak egy másik portot kell adnod, hogy mindkettõ
+   párhuzamosan és megfelelõen mûködjön.
+
+   Íme egy példa a httpd.conf fájl beállításához:
+
+ServerName 192.168.0.4
+Listen 3000
+
+  A telepítés ellenõrzése
+
+   Az IBM http kiszolgáló indításához írd be a következõt:
+
+/opt/IBMHTTPServer/bin/apachectl start
+
+   Az IBM http kiszolgáló rendesen mûködésének ellenõrzéséhez indítsd
+   el a böngészõd és írd be a következõ URL-t: http://192.168.0.4:3000
+   (helyettesítsd a megfelelõ IP címmel és port számmal, amiket a saját
+   httpd.conf fájlodba írtál.)
+
+   Egy "Welcome to the IBM HTTP Server" weboldalt kell látnod.
+   Gratulálok, telepítetted, beállítottad és tesztelted az IBM http
+   kiszolgálót Linux alatt!
+
+  További információk
+
+   További információért keresd fel az IBM http kiszolgáló
+   [33]http://www-4.ibm.com/software/webservers/httpservers/support.html
+   honlapját.
+
+3.4 Jetty HTTP kiszolgáló és szervlet konténer
+
+  Háttér
+
+   A Jetty egy nyílt forráskódú, 100%-ban Javaban írt http szervlet
+   szerver. Egy teljes http/1.1 és szervlet konténer egyszerre. Egyszerû
+   kezelhetõség, nagy hatékonyság, beágyazhatóság, kiterjeszthetõség és
+   rugalmasság jellemzi, így ideális platform dinamikus http kérések
+   kiszolgálására bármilyen Java program számára.
+
+   A Jetty használható önmagában http kiszolgálóként és Servlet
+   konténerként, vagy beágyazható egy másik Java alkalmazásba (pl: a
+   JBoss EJB konténer a Jetty-t használja, mint preferált kiszolgálót és
+   konténert.)
+
+   Mint kombinált kiszolgáló és servlet konténer, mindkét funkció
+   hatékonyan fut egy egy Unix folyamatban. A telepítése és a beállítása
+   olyan egyszerû, mint egy kis alkalmazásé.
+
+  Letöltés
+
+   A Jetty http kiszolgáló és Servlet konténer letölthetõ a
+
+   [34]http://jetty.mortbay.org honlapról.
+
+   A Jetty az artistic liszenc alá tartozik, a teljes kódot tartalmazza
+   és kereskedelemben terjeszthetõ.
+
+  Telepítés
+
+   A csomag egy gzippelt tar fájlban van, ami kicsomagolható a következõ
+   paranccsal:
+
+gunzip < Jetty-x.x.x.tgz | tar xf -
+
+   Ez létrehoz egy Jetty-x.x.x. könyvtárat, ahol is az x.x.x a
+   verziószámot jelenti.
+
+   A demó kiszolgáló futtatásához használd a következõ parancsokat:
+
+export JETTY_HOME=<jetty install directory>
+export JAVA_HOME=<JRE install directory>
+$JETTY_HOME/bin/jetty.sh run
+
+   A Jetty demójának indításához írd be a böngészõbe:
+   [35]http://localhost:8080.
+
+   A Jetty, JMX vagy JBoss környezet részeként is telepíthetõ. További
+   információkért látogass el a [36]http://jetty.mortbay.org honlapra,
+   vagy olvasd el a README.TXT fájlt.
+
+4. Java szervlet támogatás telepítése
+
+   Van néhány WEB kiszolgáló-bõvítmény és alkalmazás-kiszolgáló Linuxon,
+   amely támogatja a szervleteket. Ilyenek a következõk:
+     * [37]Allaire JRun
+     * [38]Apache Tomcat
+     * [39]BEA WebLogic
+     * [40]Enhydra
+     * [41]Locomotive
+     * [42]IBM Websphere 
+     * [43]Jetty
+
+4.1 Allaire JRun
+
+   A leírás elkészítése folyamatban van.
+
+   További információk a [44]http://www.allaire.com/products/jrun/
+   oldalon.
+
+4.2 Apache Tomcat
+
+  Háttér
+
+   A JServ-et helyettesítették az Apache Jakarta projektben Tomcat-el:
+   [45]http://jakarta.apache.org/. Ez a rész csak a JServvel foglalkozik
+   és frissítésre szorul.
+
+   Az Apache JServ egy 100%-osan tiszta Java szervlet motor, amely
+   teljesen együttmûködik a Java Servlet 2.0 specifikációval. Az Apache
+   JServ a Java Apache Project része. (Az Apache Java Project
+   weboldaláról.)
+
+  Letöltés
+
+   Apache JServ letölthetõ a [46]http://java.apache.org/jserv/index.html
+   oldalról.
+
+   Az Apache JServ Project weboldaláról indulva kövesd a Download Apache
+   JServ linket.
+
+   Jelenleg RPM csomagok állnak rendelkezésre RedHat Linuxra. Más Linux
+   disztribúciókhoz neked kell beépítened a forrást. A következõ példa
+   megmutatja, hogy hogyan telepítsd az RPM-et RedHat 6x verzióra.
+
+   A doksi írásakor a legfrissebb verzió az 1.1b3-as.
+
+  Telepítés
+
+   Az javasolom, hogy telepítsd a fájlokat az /usr/local könyvtáraba.
+   Miután letöltötted õket, futtasd a következõ parancsot:
+
+mkdir /usr/local/apachejserv
+mv ApacheJServ*.rpm /usr/local/apachejserv
+
+   RedHat és RedHat alapú disztribúciók esetén használd az RPM-et a
+   csomag telepítéséhez, valahogy így:
+
+rpm -i ApacheJServ-1.1-b2_RH6x.i386.rpm
+
+   A fenti példák az 1.1-b2 verzióra készültek RedHat 6x alá, Intel
+   architektúrára.
+
+  Környezeti beállítások
+
+   Le kell állítanod, hogy beállíthasd a környezeti változókat, majd újra
+   kell indítanod az Apache kiszolgálód az Apache Jserv-ed
+   regisztrálásához.
+
+   Az Apache leállításához, írd be:
+
+cd /etc/rc.d/init.d
+./httpd stop
+
+   Megjegyzés: A httpd szkript bootoláskor lehet, hogy máshol található a
+   különbözõ Linux diszribúcióknál.
+
+   A Java környezet beállításához nézd meg a Hogyan telepítsünk JDK-t
+   részt ebben a leírásban, az általad használt JDK-ra való tekintettel.
+   Be kell állítanod néhány tulajdonságot a jserv fájlban, ami az
+   /etc/httpd/conf/jserv könyvtárban található.
+
+   Különös tekintettel az alábbiakra:
+
+     * wrapper.bin - A JDK helyére hivatkozva
+     * wrapper.classpath - minimálisan /usr/lib/apache/ApacheJServ.jar
+       and /home/httpd/classes/servlet-2.0.jar
+     * bindaddress=localhost
+     * port=8007
+
+   Az Apache újraindításához, írd be:
+
+cd /etc/rc.d/init.d
+./httpd start
+
+  Telepítés ellenõrzése
+
+   Az Apache JServ telepítésének és mûködésének ellenõrzéséhez nyisd
+   meg a böngészõd és írd be az URL-be:
+   "http://127.0.0.1/servlet/IsItWorking" . Helyettesítsd a megfelelõ IP
+   címet, ha egy másik géprõl böngészel.
+
+   Egy "Yes, Its Working!" weboldalt kell látnod.
+
+   Gratulálok, telepítetted, beállítottad, tesztelted az Apache JServ-et
+   Linux alatt! További segítségért látogass el az Apache JServ
+   weboldalára a [47]http://java.apache.org/jserv/index.html címre.
+
+   Most fordítsd és futtasd a saját kis szervleted. Írd be a következõ
+   Java szervlet programot:
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class HelloWorldServlet extends HttpServlet {
+  public void service (HttpServletRequest request,
+    HttpServletResponse response) throws ServletException, IOException {
+  }
+}
+
+  További információk
+
+   További információért látogass el a Java Apache Project weboldalára a
+   [48]http://java.apache.org/ címre.
+
+4.3 BEA WebLogic
+
+   Lásd [49]BEA WegLogic lejjebb.
+
+4.4 Enhydra
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [50]http://www.enhydra.org oldalon.
+
+4.5 IBM WebSphere
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a
+   [51]http://www-4.ibm.com/software/webservers/appserv/linux.html
+   oldalon.
+
+4.6 Locomotive
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [52]http://www.locomotive.org/ oldalon.
+
+4.7 Jetty
+
+   A Jetty http szerver egy kombinált szerver és szervlet konténer. A
+   http szerver telepítése (lásd fentebb) szervlet támogatást is
+   biztosít. További információ elérhetõ a demó szerveren és az oktatón
+   keresztül, amit a http szerverrel együtt telepítettél.
+
+5. Hogyan telepíts Java Server Pages (JSP) támogatást
+
+   A leírás elkészítése folyamatban van.
+
+5.1 Apache Jakarta
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [53]http://jakarta.apache.com/ oldalon.
+
+5.2 Caucho Resin
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [54]http://www.caucho.com/ oldalon.
+
+5.3 Jetty
+
+   A Jetty HTTP szerver a Jasper JSP motorral rendelkezik. A HTTP szerver
+   telepítése, lehetõséget ad (lásd fent 3.4) JSP támogatásra. További
+   információ elérhetõ a demó szerveren és az oktatón keresztül, amit a
+   http kiszolgálóval együtt telepítettél.
+
+6. JDBC támogatás telepítése
+
+   Van néhány adatbázis, ami fut Linux alatt és támogatja a JDBC
+   interfészt. Ezek például:
+
+     * [55]IBM DB2 
+     * [56]MiniSQL 
+     * [57]MySQL 
+     * [58]Oracle 
+     * [59]PostgreSQL 
+     * [60]Sybase 
+
+   Ha csak egy DBMS-t szeretnél kipróbálni, akkor elõször a
+   PostgreSQL-el próbálkozz, ez minden nagyobb Linux-disztribúcióban
+   benne van és lehet, hogy már telepítve van a rendszeredre.
+
+6.1 IBM DB2
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a
+   [61]http://www-4.ibm.com/software/data/db2/linux/ oldalon.
+
+6.2 MiniSQL
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [62]http://www.hughes.com.au/ oldalon.
+
+6.3 MySQL
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [63]http://www.mysql.org/ oldalon.
+
+6.4 Oracle
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [64]http://platforms.oracle.com/linux/
+   oldalon.
+
+6.5 PostgreSQL
+
+  Háttér
+
+   A PostgreSQL egy kifinomult objektum-relációs alapú DBMS, amely
+   támogatja a legtöbb SQL konstruktort, subselect-et, tranzakciókat és a
+   felhasználó által definiált típusokat és funkciókat. Ez a jelenlegi
+   legjobb nyílt forráskódú adatbáziskezelõ, ami elérhetõ. Kereskedelmi
+   forgalomban is kapható a PostgreSQL Inc-tõl. A jelenlegi verzió a
+   6.5.3-as és elérhetõ bármelyik tüköroldalról vagy CD-rõl. (A
+   PostgreSQL weboldaláról)
+
+   Lehetséges, hogy a PostgreSQL már a Linux disztribúciódban benne van,
+   hiszen ez is nyílt forráskódú.
+
+  Letöltés és telepítés
+
+   Azt javasolom, hogy kezdetben inkább azt a PostgreSQL-t használd,
+   amelyik a Linux disztribúciódban van, mintsem egy letöltött verziót.
+
+   Vagy ha mégsem azt akarod használni, akkor megtalálod a PostgreSQL-t a
+   [65]http://www.postgresql.org oldalon.
+
+   Annak ellenõrzéséhez, hogy a PostgreSQL már telepítve van-e a
+   gépedre, írd be a következõ parancsot:
+
+rpm -qa | grep postgresql
+
+   vagy
+
+which postmaster
+which psql
+
+   Szükséged lesz a telepített postgresql, postgresql-szerver, és
+   postgresql-java csomagokra, hogy a Javát együtt használd a
+   PostgreSQL-el.
+
+   Ellenõrizd, hogy fut-e a PostgreSQL:
+
+ps -f -u postgres
+
+   Most látnod kell a postmaster, a PostgreSQL démon futását.
+
+   Ha a postmaster nem fut, akkor van egy Sys V Init szkript, amivel
+   elindíthatod. Ez a legtöbb disztribúcióban az /etc/rc.d/init.d
+   könyvtárban található. A PostgreSQL indításához írd be:
+
+cd /etc/rc.d/init.d
+./postgresql start
+
+   Használhatod a fentebb már leírt ps parancsot, a PostgreSQL futásának
+   ellenõrzéséhez.
+
+   Megjegyzés: A JDBC használatához a PostgreSQL-t -i -vel kell
+   indítanod! Egyébként csak UNIX domain socket-eket fog támogatni,
+   TCP/IP kapcsolatot nem. Ellenõrizd, hogy a postmaster az -i
+   paraméterrel indult!
+
+   Készíts egy próba adatbázist:
+
+su - postgres
+createdb javatest
+
+   Nem szabad hibaüzenetet kapnod.
+
+   Készíts egy próba táblát egy próba sorral. Elsõként jelentkezz be az
+   interaktív PostgreSQL felületre és kapcsolódj a javatest adatbázishoz,
+   amit készítettél:
+
+psql javatest
+
+   Egy megerõsítést kell látnod, hogy kapcsolódtál a javatest
+   adatbázishoz. Azután készíts egy próba táblát (psql nélkül):
+
+create table test (col1 varchar(255));
+
+   A "CREATE" üzenetet kell látnod, ha elkészült.
+
+   A következõ lépésben helyezz el benne egy sort (psql nélkül):
+
+insert into test (col1) values ('Hello, from PostgreSQL!');
+
+   Egy "INSERT" válaszüzenetet kell kapnod.
+
+   Végül ellenõrizd, hogy a sor a helyén van (psql nélkül):
+
+select col1 from test;
+
+   Most látnod kell a lekérdezés eredményét. A kilépéshez írd be, hogy
+   "\q".
+
+   További segítségért nézd meg a Database-SQL-RDBMS HOW-TO doksit a
+   [66]http://metalab.unc.edu/mdw/HOWTO/PostgreSQL-HOWTO.html címen.
+
+   A szükséges JAR-okat hozzá kell adnod a CLASSPATH változóhoz. A
+   PostgreSQL JAR-ok a postgresql-jdbc csomagban vannak.
+
+export CLASSPATH=$CLASSPATH:/usr/lib/pgsql/jdbc6.5-1.2.jar
+
+   Helyettesítsd a megfelelõ útvonalat arra ahol a te PostgreSQL
+   csomagod van.
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egy egyszerû JDBC alkalmazást,
+   ami PostgreSQL-t használ. Készítsd el a következõ programot:
+
+import java.sql.*;
+
+class PostgreSQLTest {
+  public static void main (String[] args) {
+    try {
+      Driver driver = (Driver)
+        Class.forName("postgresql.Driver").newInstance();
+      DriverManager.registerDriver(driver);
+
+      String     url = "jdbc:postgresql:javatest";
+      Connection con = DriverManager.getConnection(url, "postgres", "");
+      Statement  stm = con.createStatement();
+
+      stm.setQueryTimeout(10);
+      ResultSet  rs  = stm.executeQuery("select col1 from test");
+
+      rs.next();
+
+      System.out.println(rs.getString(1));
+
+    } catch (SQLException e) {
+
+      System.out.println("Exception!");
+      System.out.println(e.toString());
+  }
+}
+
+   Fordítsd le a Java fordítóval.
+
+javac PostgreSQLTest.java
+
+   Ha a fordító hibát produkál, ellenõrizd duplán a szintaxist és
+   ellenõrizd a PATH és a CLASSPATH változók beállításait.
+
+   Futtasd a programot a JVM-el.
+
+java PostgreSQLTest
+
+   Ha a JVM hibát produkál, akkor ellenõrizd a PATH és a CLASSPATH
+   útvonalakat.
+
+   A következõt kell látnod:
+
+Hello, from PostgreSQL!
+
+   Gratulálok, telepítetted, beállítottad és tesztelted a JDBC interfészt
+   a PostgreSQL-el!
+
+  További információk
+
+   További információért keresd fel a PostgreSQL weboldalát a
+   [67]http://www.postgresql.org/. oldalon.
+
+6.6 Sybase
+
+  Háttér
+
+   A Sybase Adaptive Server Enterprise egy kereskedelmi forgalomban lévõ
+   RDBMS, ami elérhetõ Linux operációs rendszerre. A Sybase jelenleg
+   kiadott verziója a 12.0-ás, Linuxra még csak a 11.9.2 érhetõ el.
+
+   Idézet a Sybase weboldaláról: "Az ASE-t a Linuxhoz implementálva, a
+   Sybase az elsõ magasan skálázható, nagy hatékonyságú adatbázis motort
+   adja a Linux fejlesztõk kezébe. A csomag tartalmazza az Adaptive
+   Server Enterprise irányadó sajátosságait és a kapcsolódó
+   komponenseket. Az Adaptive Server Enterprise fejlesztésre szabadon
+   használható."
+
+  Letöltés
+
+   A Sybase ASE letölthetõ a
+   [68]http://www.sybase.com/products/databaseservers/linux/linux1192_reg
+   .html oldalról.
+
+   A letölthez regisztrálnod kell magad a Sybase-nél és el kell fogadnod
+   a licenc feltételeit.
+
+   A Sybase JDBC meghajtó letölthetõ a
+   [69]http://www.sybase.com/products/internet/jconnect/ oldalról.
+
+   A letöltésnél válaszd a jConnect 4.2/5.2 csomagot.
+
+   Ha van hozzáférésed a Sybase szerver hálózatához, akkor csak
+   letöltened és telepítened kell a JDBC meghajtót.
+
+  Telepítés
+
+   A Sybase telepítése ezen HOGYAN hatókörén kívül esik. Ez a HOGYAN
+   feltételezi, hogy a Sybase-t rendben telepítetted és konfiguráltad, és
+   kész vagy a Sybase isql használatára.
+
+   Jelentkezz be az isql-be mint rendszer adminisztrátor és készíts egy
+   teszt felhasználót és adatbázist.
+
+create database javatest
+go
+sp_addlogin javatest, javatest, javatest
+go
+use javatest
+go
+sp_dbowner javatest
+go
+
+   Nem szabad hibaüzenetet kapnod.
+
+   Készíts egy próba táblát egy próba sorral. Elõször jelentkezz be az
+   isql-be mint a javatest felhasználója és írd be a következõt:
+
+create table test (col1 varchar(255))
+go
+
+   Nem szabad hibaüzenetet kapnod.
+
+   Vegyél fel egy rekordot:
+
+insert into test (col1) values ('Hello, from Sybase!')
+go
+
+   Nem szabad hibaüzenetet kapnod.
+
+   Végül ellenõrizd, hogy a rekord a helyén van:
+
+select col1 from test
+go
+
+   Most azt a sort kell látnod, amit bevittél.
+
+   Az isql-bõl az "exit" beírásával tudsz kilépni.
+
+   További segítségért a Sybase-el való munkához nézd át a
+   dokumentációját, ami letölthetõ.
+
+   Szükséged lesz a megfelelõ JAR-okra a CLASSPATH változóban.
+
+export CLASSPATH=$CLASSPATH:/usr/local/sybase/jConnect-5_2/classes/jconn2.jar
+
+   A megfelelõ útvonalat helyettesítsd, attól függõen, hogy a jConnect
+   hová települt a rendszeredben.
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egy egyszerû JDBC alkalmazást,
+   ami Sybase-t használ. Készítsd el a következõ programot.
+
+import java.sql.*;
+
+class SybaseTest {
+  public static void main (String[] args) {
+    try {
+      Driver driver = (Driver)
+        Class.forName("com.sybase.jdbc2.jdbc.SybDriver").newInstance();
+      DriverManager.registerDriver(driver);
+
+      String     host = "127.0.0.1";
+      String     port = "4100";
+
+      String     url = "jdbc:sybase:Tds:" + host + ":" + port;
+      Connection con = DriverManager.getConnection(url, "javatest", "javatest")
+;
+      Statement  stm = con.createStatement();
+
+      stm.setQueryTimeout(10);
+      ResultSet  rs  = stm.executeQuery("select col1 from test");
+
+      rs.next();
+
+      System.out.println(rs.getString(1));
+
+    } catch (SQLException e) {
+
+      System.out.println("Exception!");
+      System.out.println(e.toString());
+  }
+}
+
+   Ahol szükséges helyettesítsd a host-ot és a port számot. Nézd meg a
+   $SYBASE/interfaces és a $DSQUERY belépéseit a host és port
+   beállításához.
+
+   Fordítsd le a programot a Java fordítóval.
+
+javac SybaseTest.java
+
+   Ha a fordító hibát produkál, akkor nézd meg a szintaxist és
+   ellenõrizd a PATH és a CLASSPATH változók beállításait.
+
+   Futtasd a programot a JVM-mel.
+
+java SybaseTest
+
+   Ha a JVM hibát produkál, akkor ellenõrizd a PATH és a CLASSPATH
+   változók beállításait.
+
+   A következõ eredményt kell látnod:
+
+Hello, from Sybase!
+
+   Gratulálok, telepítetted, beállítottad és tesztelted a JDBC interfészt
+   a Sybase-hez.
+
+  További információk
+
+   További információért látogass el a Sybase jConnect weboldalára a
+   [70]http://www.sybase.com/products/internet/jconnect/ helyen.
+
+7. Hogyan telepítsük az Enterprise Java Bean (EJB) támogatást
+
+   A leírás elkészítése folyamatban van.
+
+7.1 BEA WebLogic
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [71]http://www.beasys.com/linux/
+   honlapon.
+
+7.2 EJBoss
+
+  Háttér
+
+   Az EJBoss a JBoss-tól kapta a nevét és nagyon jól mûködik együtt a
+   stabil J2EE verziókkal: [72]http://www.jboss.org/.
+
+   Ez a rész akkor készült, amikor még csak az EJBoss 0.95-ös verziója
+   jelent meg, ezért feltétlenül frissítsd az információkat.
+
+  Letöltés
+
+   A JBoss letölthetõ a JBoss weboldaláról: [73]http://www.jboss.org/.
+
+  Telepítés
+
+   Azt javasolom, hogy telepítsd a fájlokat az /usr/local könyvtárba. A
+   letöltés után futtasd a következõ parancsokat:
+
+mkdir /usr/local/ejboss
+mv ejboss* /usr/local/ejboss
+
+   Csomagold ki a fájlt:
+
+jar xvf ejboss095_jdk122.jar
+
+   Mindenféle fájlt és könyvtárat kell látnod az /usr/local/ejboss
+   könyvtárban.
+
+   A fenti példa az EJBoss 0.95-ös verziója alapján készült.
+   Helyettesítsd a fájlneveket, ahol szükséges.
+
+  Környezeti beállítások
+
+   A következõ környezeti változókat kell beállítanod:
+
+     * CLASSPATH
+
+   A CLASSPATH változó mutatja meg, hogy mely JAR-okra és könyvtárakra
+   lesz szükséged, hogy fordíts és futtass Java programokat. A CLASSPATH
+   feltétlenül tartalmazza az EJBoss JAR-t és a /bean/generated
+   könyvtárakat.
+
+export CLASSPATH=/usr/local/ejboss/lib/ejboss095_jdk122.jar:/usr/local/ejboss/b
+eans/generated:$CLASSPATH
+
+  A telepítés ellenõrzése
+
+   Most már fordíthatsz és futtathatsz egy egyszerû EJB alkalmazást.
+   Készítsd el a következõ három forrásfájlt a szerver számára.
+
+   Elõször a business interfészt.
+
+// EJBTest.java
+
+import javax.ejb.*;
+import java.rmi.RemoteException;
+
+public
+ interface EJBTest extends EJBObject {
+  public String greet() throws
+ RemoteException;
+
+}
+
+   Másodszor, a home interfészt.
+
+// EJBTestHome.java
+
+import javax.ejb.*;
+import java.rmi.RemoteException;
+
+public
+ interface EJBTestHome extends EJBHome {
+
+  public EJBTest create() throws
+
+   CreateException, RemoteException;
+}
+
+   Harmadszor, a bean implementációs osztályt.
+
+// EJBTestBean.java
+
+import javax.ejb.*;
+import java.rmi.RemoteException;
+
+public
+ interface EJBTestBean implements SessionBean {
+
+  private SessionContext
+ mContext = null;
+
+  public void ejbPassivate() {
+    System.out.println("EJBTestBean
+ passivated.");
+}
+
+  public void ejbActivate() {
+    System.out.println("EJBTestBean
+ activated.");
+}
+
+  public void ejbCreate() {
+    System.out.println("EJBTestBean
+ created.");
+}
+
+  public void ejbRemove() {
+    System.out.println("EJBTestBean
+ removed.");
+}
+
+  public void setSessionContext() {
+    System.out.println("EJBTestBean
+ context set.");
+    mContext = context;
+}
+
+  public String greet()
+ {
+    return "Hello, I'm an EJB!";
+}
+
+}
+
+   Fordítsd le a szerver forrásfájljait a Java fordítóval:
+
+javac EJBTest*.java
+
+   Ha a fordító hibát produkál, akkor nézd meg kétszer is a szintaxist és
+   ellenõrizd a PATH és a CLASSPATH változók beállításait.
+
+   Most, hogy megírtad és lefordítottad a szerver forrásfájljait, töltsd
+   fel a beaneket az EJBoss-ba. Ez néhány nagyon fontos lépésbõl áll,
+   amelyekre figyelni kell.
+
+   Elõször készítsd el az ejb-jar.xml fájlt.
+
+<?xml version="1.0" encoding="Cp1252"?>
+
+<ejb-jar ID="">
+     <description></description>
+     <display-name></display-name>
+     <small-icon></small-icon>
+     <large-icon></large-icon>
+     <ejb-client-jar></ejb-client-jar>
+     <enterprise-beans>
+       <session>
+         <description>Nextgen bean</description>
+         <ejb-name>nextgen.EJBTest</ejb-name>
+         <home>EJBTestHome</home>
+         <remote>EJBTest</remote>
+         <ejb-class>EJBTestBean</ejb-class>
+         <session-type>Stateful</session-type>
+         <transaction-type>Bean</transaction-type>
+         <env-entry>
+           <description></description>
+           <env-entry-name></env-entry-name>
+           <env-entry-type>java.lang.String</env-entry-type>
+           <env-entry-value></env-entry-value>
+         </env-entry>
+         <resource-ref>
+           <description></description>
+           <res-ref-name></res-ref-name>
+           <res-type></res-type>
+           <res-auth>Container</res-auth>
+         </resource-ref>
+       </session>
+     </enterprise-beans>
+     <assembly-descriptor />
+   </ejb-jar>
+
+   A fenti ejb-jar.xml fájl azonosítja az interfészt és az
+   osztályneveket, amelyeket készítettél. Másodszor, a három "class" fájl
+   könyvtárában készíts egy META-INF könyvtárat.
+
+mkdir META-INF
+mv ejb-jar.xml META-INF
+
+   Harmadszor, csomagold a fájlokat egy jar-ba.
+
+jar cvf EJBTest.jar EJBTest*.class META-INF/ejb-jar.xml
+
+   Látnod kellene, hogy hozzáadódott a listához, csakúgy mint a három
+   "class" fájl és az XML betöltést leíró fájlt.
+
+   Negyedszer, tedd a most készült Jar-t az EJBoss bean könyvtárába.
+
+mv EJBTest.jar /usr/local/ejboss/beans
+
+   Ötödször, másold az osztályfájlokat, amiket készítettél, az EJBoss
+   beans/generated könyvtárba.
+
+mv EJBTest*.class /usr/local/ejboss/beans/generated
+
+   (Az ötödik lépés felesleges egy hiba miatt, ami az EJBoss 0.95-ben
+   van.)
+
+   Most már elindíthatod az EJBoss kiszolgálót.
+
+cd /usr/local/ejboss
+sh server.sh
+
+   Azt kell látnod, hogy a proxy fájlok automatikusan lefordítódnak és
+   megerõsítik, hogy az EJB-d betöltõdött.
+
+   Most már írhatsz, fordíthatsz és tesztelhetsz egy egyszerû kliens
+   alkalmazást.
+
+7.3 Bullsoft JOnAS EJB
+
+   A leírás elkészítése folyamatban van.
+
+   További információ található a [74]http://www.bullsoft.com/ejb/
+   oldalon.
+
+References
+
+   1. mailto:gary@meyer.net
+   2. mailto:gregw@mortbay.org
+   3. http://tldp.org/HOWTO/Enterprise-Java-for-Linux-HOWTO.html
+   4. http://www.gnu.org/copyleft/fdl.html
+   5. mailto:gary@meyer.net
+   6. http://www.app-serv.com/
+   7. http://www.oreilly.com/catalog/jentnut/
+   8. mailto:gary@meyer.net
+   9. mailto:nezach@freemail.hu_NO_SPAM
+  10. mailto:szerdesz@pannongsm.hu_NO_SPAM
+  11. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  12. http://tldp.fsf.hu/index.html
+  13. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: blackdown
+  14. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: ibmjdk
+  15. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: j2se
+  16. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: kaffe
+  17. http://www.blackdown.org/
+  18. http://www.blackdown.org/
+  19. http://www.ibm.com/java/jdk/118/linux
+  20. http://www.ibm.com/java
+  21. http://www.kaffe.org/
+  22. http://www.kaffe.org/
+  23. http://developer.java.sun.com/developer/earlyAccess/j2sdk122
+  24. http://java.sun.com/
+  25. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: apache
+  26. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: domino
+  27. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: ibmhttp
+  28. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: jetty
+  29. http://www.apache.org/
+  30. http://www.apache.org/docs/misc/FAQ.html
+  31. http://www.lotus.com/dominolinux
+  32. http://www-4.ibm.com/software/webservers/httpservers/download.html
+  33. http://www-4.ibm.com/software/webservers/httpservers/support.html
+  34. http://jetty.mortbay.org/
+  35. http://localhost:8080/
+  36. http://jetty.mortbay.org/
+  37. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: jrun
+  38. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: jserv
+  39. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: weblogicservlet
+  40. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: enhydra
+  41. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: locomotive
+  42. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: websphere
+  43. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: jettyservlet
+  44. http://www.allaire.com/products/jrun/
+  45. http://jakarta.apache.org/
+  46. http://java.apache.org/jserv/index.html
+  47. http://java.apache.org/jserv/index.html
+  48. http://java.apache.org/
+  49. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: weblogic
+  50. http://www.enhydra.org/
+  51. http://www-4.ibm.com/software/webservers/appserv/linux.html
+  52. http://www.locomotive.org/
+  53. http://jakarta.apache.com/
+  54. http://www.caucho.com/
+  55. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: db2
+  56. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: minisql
+  57. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: mysql
+  58. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: oracle
+  59. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: postgresql
+  60. file://localhost/home/dacas/temp/Enterprise-Java-for-Linux-HOWTO-hu.html#sec: sybase
+  61. http://www-4.ibm.com/software/data/db2/linux/
+  62. http://www.hughes.com.au/
+  63. http://www.mysql.org/
+  64. http://platforms.oracle.com/linux/
+  65. http://www.postgresql.org/
+  66. http://metalab.unc.edu/mdw/HOWTO/PostgreSQL-HOWTO.html
+  67. http://www.postgresql.org/
+  68. http://www.sybase.com/products/databaseservers/linux/linux1192_reg.html
+  69. http://www.sybase.com/products/internet/jconnect/
+  70. http://www.sybase.com/products/internet/jconnect/
+  71. http://www.beasys.com/linux/
+  72. http://www.jboss.org/
+  73. http://www.jboss.org/
+  74. http://www.bullsoft.com/ejb/

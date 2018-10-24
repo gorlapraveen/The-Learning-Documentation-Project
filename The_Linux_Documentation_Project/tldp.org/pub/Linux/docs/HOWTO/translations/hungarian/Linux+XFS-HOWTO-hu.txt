@@ -1,0 +1,533 @@
+
+Linux + XFS HOGYANSzteroiddal fûtött LinuxRussel Ingram
+
+        ringram@gargoylecc.com
+
+   Verziótörténet
+   Verzió: v1.1  2002.05.12 Átdolgozta: ri
+   Frissült az SGI cvs-rõl szóló információ, ami már a jelenlegi
+   állapotot tükrözi. Számos változtatás, pontosítás történt az olvasói
+   visszajelzések alapján.
+   Verzió: v1.02 2001.10.08 Átdolgozta: ri
+   A dokumentum néhány megjegyzéssel, blokkjegyzettel lett kibõvítve. Az
+   "Utolsó simítások" fejezetben kijavítottam az utasítások leírásában
+   levõ hibát. Az "XFS segédprogramok fordítása és telepítése" fejezet
+   megjegyzésében az e2fsprogs-devel csomag libuuid.a csomagra változott.
+   Verzió: v1.01 2001.10.04 Átdolgozta: ri
+   Hibajavítás az "Utolsó simítások" fejezetben, számos változás a
+   külalakban.
+
+   Ez a dokumentum leírja, hogyan építs fel egy SGI XFS naplózó
+   fájlrendszeren futó Linux rendszert.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Az XFS naplózó fájlrendszer bemutatása
+        1.2. [3]Elõszó, visszajelzés, készítõk
+        1.3. [4]Szerzõi jog és a felhasználás feltételei
+        1.4. [5]Magyar fordítás
+
+   2. [6]Elõkészületek az XFS támogatás telepítéséhez
+
+        2.1. [7]A Linux 2.4.x-XFS forráskód letöltése
+        2.2. [8]XFS támogatás: kernelbe fordítva vagy modulként betöltve?
+
+   3. [9]Kernel beállítás és telepítés
+
+        3.1. [10]A kernel beállítása az XFS támogatáshoz
+        3.2. [11]A kernel és a modulok fordítása
+        3.3. [12]Az új kernel és modulok telepítése
+        3.4. [13]Egy új bejegyzés hozzáadása a lilo beállításokhoz, a
+                beállítások érvényesítése
+
+        3.5. [14]Az XFS segédprogramok fordítása és telepítése
+        3.6. [15]Az új kernel indítása
+
+   4. [16]A fájlrendszer lecserélése
+
+        4.1. [17]A gyökérkönyvtár átmásolása
+        4.2. [18]Utolsó simítások
+
+1. Bevezetés
+
+1.1. Az XFS naplózó fájlrendszer bemutatása
+
+Ez a dokumentum leírja, hogyan lehet egy Linux rendszert felépíteni és
+futtatni az SGI XFS naplózó fájlrendszeren. Idézet az XFS GYIK-ból: "Az XFS
+naplózó fájlrendszert az SGI fejlesztette ki az SGI IRIX operációs
+rendszerhez történõ alkalmazásra, és most a GPL keretein belül a Linux
+számára is használhatóvá vált. A fájlrendszer különösen jól méretezhetõ,
+kihasználja a B-fa adta lehetõségeket a nagyméretû, több részletben tárolt
+fájlok, és a különösen nagyméretû könyvtárak tárolásához. A naplózó
+képesség azt jelenti, hogy búcsút mondhatunk az fsck hibajavítására történõ
+várakozásra, vagy a fájlbejegyzési hiba miatti aggodalomnak." Az XFS naplózó
+fájlrendszert az SGI alapvetõen a nagyteljesítményû kiszolgáló rendszerek
+számára tervezte, ezért kapta a jelen leírás a "Szteroiddal fûtött Linux"
+alcímet.
+     _________________________________________________________________
+
+1.2. Elõszó, visszajelzés, készítõk
+
+Az Irix rendszeradminisztrátorok közösségének egészen friss tagjaként
+valósággal szerelmese lettem az Irix számára kifejlesztett megbízható
+fájlrendszernek (amely természetesen az XFS). Mondanom sem kell, figyelemmel
+kísértem a fájlrendszer Linux-ra átírásáról szóló híreket, és már a
+kezdetektõl fogva arról álmodoztam, hogy Linux rendszeremet csakis XFS
+fájlrendszeren futtatom. A projekt már elérkezett arra a pontra, amikor ez
+valósággá válhat (valójában ez már közel egy évvel a jelen írás megszületése
+elõtt megtörtént). A nagyszámú programkészítési/ programátültetési projekt
+ellenére a dokumentációk nem mindig olyan könnyen fellelhetõk, vagy
+érthetõek mint szeretnénk. Ez a leírás ezt a helyzetet próbálja meg
+orvosolni.
+
+A jelen leírásban található információk Jason Walker és Russel Cattelan
+által az XFS fejlesztõi listára küldött levelek gyûjteményén, az SGI Open
+Source Development weboldalakon összegyûjtött információkon, valamint saját
+(Russel Ingram) beállítási tapasztalataimon alapul.
+
+Küldj nyugodtan egy e-mailt erre a címre: <[19]ringram@gargoylecc.com> ha
+javítani valót találsz benne, vagy valamilyen információ/URL illetve egyéb
+hiányzik belõle. Minél több visszajelzést kapok errõl HOGYANról, annál
+több segítséget tudok nyújtani mindenkinek.
+
+A leírás legfrissebb angol nyelvû változatát a következõ helyen találod:
+[20]Gargoyle Computer Consulting .
+     _________________________________________________________________
+
+1.3. Szerzõi jog és a felhasználás feltételei
+
+A szerzõi jogokat Russel Ingram birtokolja; copyright (c) 2001; ez egy
+INGYENES leírás. A GPL feltételei szerint te is szabadon terjesztheted.
+
+Ennek a leírásnak a tartalma Russel legjobb tudása szerint megfelel a
+valóságnak. Mivel azonban az XFS linuxos átiratát emberek készítették el,
+így lehetnek benne tévedések, hibák ezek idõnként elõfordulnak.
+
+Semmilyen személy, csoport vagy egyéb szervezet nem felelõs a
+számítógépe(i)dben esett bármilyen kárért, amit az ebben a leírásban közölt
+információk felhasználása okozott. Azaz:
+
+A SZERZÕ NEM VÁLLAL FELELÕSSÉGET SEMMILYEN KÁRÉRT, AMELYET A JELEN
+LEÍRÁSBAN KÖZÖLT INFORMÁCIÓKRA ALAPOZOTT TEVÉKENYSÉG OKOZOTT. 
+     _________________________________________________________________
+
+1.4. Magyar fordítás
+
+A magyar fordítást [21]Daczi László készítette (2002.05.30). Bármilyen
+fordítással kapcsolatos észrevételt a [22]linuxhowto@sch.bme.hu címre
+küldjetek. A lektorálást [23]Varga Zsolt végezte el (2002.06.27). A fordítás
+javítva 2002.10.29.-én. A dokumentum legfrissebb változata megtalálható a
+[24]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Elõkészületek az XFS támogatás telepítéséhez
+
+2.1. A Linux 2.4.x-XFS forráskód letöltése
+
+Az SGI Open Source Development oldalai jelenleg az egyetlen olyan hely, ahol
+elérhetõ az XFS támogatás Linux alatt használható forráskódja. Innen CVS-en
+keresztül töltheted le az anyagokat
+
+   Megjegyzés Megjegyzés
+
+
+   jelenleg két különbözõ változat érhetõ el:
+
+     * linux-2.5-xfs: fejlesztõi változat
+     * linux-2.4-xfs: stabil, hibamentes változat
+
+   Az én tapasztalataim a 2.4 verzión alapulnak, de úgy gondolom, a
+   fejlesztõi változatban is minden ugyanúgy mûködik. Mindkét
+   változatot szinkronizálják a saját rendszermag-ágával, legalábbis
+   annak fõ változataival.
+
+   A kernel forrás letöltéséhez szükséges lépések a következõk:
+
+   A. A Linux kernel forrása általában az /usr/src könyvtárban van, tehát
+   elõször lépj be ebbe a könyvtárba (vagy ahová a kernel forrást
+   telepítetted - a ford.)
+
+     $ cd /usr/src
+
+   B. Állítsd be a CVSROOT környezeti változót, hogy az a megfelelõ CVS
+   kiszolgálóra mutasson
+
+     * ha sh, bash, ksh, stb-t használsz...:
+
+       $ export CVSROOT=':pserver:cvs@oss.sgi.com:/cvs'
+
+
+     * Csh vagy tcsh használata esetén:
+
+       $ setenv CVSROOT  :pserver:cvs@oss.sgi.com:/cvs
+
+
+   Ha gyakran szeretnéd frissíteni a kernelt, érdemes ezt beletenni a
+   login scriptbe.
+
+   C. Jelentkezz be a CVS kiszolgálóra.
+
+     $ cvs login  (a jelszó: "cvs")
+
+   Ezt csak EGYSZER kell megtenned, nem minden alkalommal, amikor ezt a
+   CVS-t használod.
+
+   D. Töltsd le a linux-2.4-xfs forráskódot. Az elsõ alkalommal ez
+   valahogy így néz ki:
+
+     $ cvs -z3 co linux-2.4-xfs
+
+   Legközelebb csak le kell ellenõrizni a forrást, valahogy így...
+
+     $ cvs -z3 update linux-2.4-xfs
+
+   ...majd frissíteni a nálad lévõ forráskódot a CVS kiszolgálón lévõ
+   legfrissebb változatra.
+     _________________________________________________________________
+
+2.2. XFS támogatás: kernelbe fordítva vagy modulként betöltve?
+
+Az XFS támogatást modulként is lehetséges kernelbe fordítani, ami aztán RAM
+diszk és néhány lilo konfigurációs beállítás segítségével mûködik is (nekem
+legalábbis így mondták). Én nem próbáltam ezt ki egyelõre, tehát nem tudom
+leírni ennek a menetét, ezért idézek Russel Cattelan fejlesztõi
+levelezõlistára beküldött levelébõl:
+
+
+
+   Valójában nem nehéz az xfs támogatást modulként futtatni. A
+   cmd/xfs/misc könyvtárban van egy módosított mkinitrd, amely mindig
+   elõállít egy RAM diszket az xfs és xfs_support számára.
+
+   Elég egyszer hozzáadni az initrd betöltésére vonatkozó bejegyzést a
+   lilo.conf állományban ÉS:
+
+      append = "ramdisk_size=25000"
+
+   Az alapértelmezett méret 4096, ami közel sem elég az xfs támogatáshoz.
+
+   Részlet a hordozható gépem beállításainak listájából:
+
+      punch[12:57am]-=>mount
+      /dev/ide/host0/bus0/target0/lun0/part8 on / type xfs (rw,noatime)
+      none on /proc type proc (rw)
+      /dev/ide/host0/bus0/target0/lun0/part6 on /boot type ext2 (rw,noatime)
+      none on /dev/pts type devpts (rw,mode=0620)
+      /dev/ide/host0/bus0/target0/lun0/part1 on /mnt/windows type vfat (rw,nosu
+id,nodev,umask=0)
+      /dev/ide/host0/bus0/target0/lun0/part9 on /blam type xfs (rw)
+
+      punch[12:57am]-=>lsmod
+      Module                  Size Used by
+      autofs                 13180   1 (autoclean)
+      usb-uhci               24918   0 (unused)
+      usbcore                35339   0 [usb-uhci]
+      3c59x                  25149   1 (autoclean)
+      maestro                29757   0 (unused)
+      soundcore               6085   2 [maestro]
+      vfat                   13075   1 (autoclean)
+      fat                    37733   0 (autoclean) [vfat]
+      xfs                   447888   2
+      xfs_support            13954   0 [xfs]
+      pagebuf                39935   2 [xfs]
+
+      image=/boot/vmlinuz-2.4.0-XFS-test13-pre4
+      label=t13p4
+      root=/dev/hda8
+      initrd=/boot/initrd-2.4.0-XFS-test13p4.img
+      append="ramdisk_size=25000"
+      read-only
+
+
+
+   -- Russell Cattelan
+
+   Ez alapján azt gondolom nem túl nehéz a támogatást modulként a
+   kernelbe fordítani, ez az, amit én is tenni fogok. Megpróbálom majd
+   így használni késõbb, és további részletekkel szolgálok ennek
+   megvalósításáról. Ha valakinek van ideje leírni ennek menetét mielõtt
+   én megtenném ezt, kérem, küldje el e-mailben, én majd beleteszem a
+   leírásba, a szerzõt megilletõ jutalékkal együtt :-))
+     _________________________________________________________________
+
+3. Kernel beállítás és telepítés
+
+3.1. A kernel beállítása az XFS támogatáshoz
+
+   Megjegyzés Megjegyzés
+
+
+   Ha még soha nem állítottál be és fordítottál új linux kernelt,
+   ajánlott elolvasni a Linux Kernel HOGYANt, mielõtt ezeket a lépéseket
+   végrehajtod. A Linux Kernel HOGYANt megtalálod a [25]Linux
+   Documentation Project (LDP) oldalon vagy valamelyik tükrözésén.
+
+   Miután letöltötted a CVS könyvtárfából az aktuális kernel forrását,
+   annak a /usr/src/linux-2.4-xfs(-beta)/linux könyvtárban kell lennie.
+   Szóval lépj be ebbe a könyvtárba mielõtt kiadnád a make config
+   (méginkább a make menuconfig - a ford.) parancsot a beállítások
+   elvégzéséhez. Az XFS támogatáshoz engedélyezned kell a a "Prompt for
+   development and/or incomplete code/drivers" beállítást a "Code
+   maturity level options" fejezetben majd a "Page Buffer support" és
+   "SGI XFS filesystem support" menüpontokkal kell ezt megtenned
+   (mindkettõ a "File systems" fejezetben található). Lehetõséged van
+   még kiválasztani az "Enable XFS Debug mode" és "Enable XFS Vnode
+   Tracing" beállításokat az "SGI XFS filesystem support" fejezet alatt.
+   Ezek lassíthatják az XFS fájlrendszered használatát, de hasznosak
+   lehetnek egy összeomlás esetének kivizsgálásában, ha ilyen
+   elõfordulna.
+     _________________________________________________________________
+
+3.2. A kernel és a modulok fordítása
+
+Minden kernel fordításkor ki kell adni az alábbi parancsokat az új kernel
+(és modulok - a ford.) létrehozása érdekében:
+
+     $ make dep
+     $ make bzImage
+     $ make modules
+     _________________________________________________________________
+
+3.3. Az új kernel és modulok telepítése
+
+Ezt minden kernel telepítéskor újra meg kell csinálni:
+
+     $ make modules_install
+     $ cp arch/i386/boot/bzImage /boot/vmlinuz-2.4.0-XFS
+     _________________________________________________________________
+
+3.4. Egy új bejegyzés hozzáadása a lilo beállításokhoz, a beállítások
+érvényesítése
+
+     $ vi /etc/lilo.conf
+
+   Hozz létre egy új kernelindító bejegyzést a lilo.conf állományban
+   ehhez hasonlóan:
+
+
+     image=/boot/vmlinuz-2.4.0-XFS label=xfs  read-only  root=/dev/hda2
+
+   A "root=" szöveg utáni részt másold át egy szintén linuxot indító
+   bejegyzésbõl, a lilo.conf állományból. Ne felejtsd el elindítani a
+   lilo-t a lilo.conf fájl szerkesztése után, hogy a módosítások érvénybe
+   lépjenek (a parancssorba gépeld be "lilõ majd üss egy "enter"-t - a
+   ford.)
+     _________________________________________________________________
+
+3.5. Az XFS segédprogramok fordítása és telepítése
+
+Az XFS támogatással számos eszközt is kapsz, amikkel felépítheted és
+karbantarthatod a fájlrendszert. Ezek a
+/usr/src/linux-2.4-xfs(-beta)/cmd/xfsprogs könyvtárban vannak.
+
+   Megjegyzés Megjegyzés
+
+
+   Ezek az eszközök a /usr/lib/libuuid.a osztott programozói könyvtárra
+   épülnek. Ha a könyvtárat még nem telepítetted, akkor az XFS eszközök
+   lefordítása elõtt feltétlenül tedd ezt meg. Az ezt tartalmazó rpm
+   csomagot megtalálod a [26]Rpmfind.net címen, ha rákeresel a
+   "/usr/lib/libuuid.a." szövegre, a Debian csomag neve pedig uuid-dev.
+   Más disztribúciókban ez a programozói könyvtár ezektõl eltérõ
+   csomagban is lehet. Egy jó módszer a megfelelõ csomag megkeresésére,
+   ha a [27]Google Linux keresõmotort használod.
+
+   Lépj be ebbe a könyvtárba:
+
+     $ cd ../cmd/xfsprogs
+
+   Fordítsd le, és telepítsd az XFS eszközöket:
+
+     $ make install
+     _________________________________________________________________
+
+3.6. Az új kernel indítása
+
+     $ reboot
+
+   Megjegyzés Megjegyzés
+
+
+   Ha nem állítod be az alapértelmezett kernelnek az XFS támogatással
+   fordított kernelt, akkor bootoláskor be kell gépelned az "xfs"
+   szöveget, majd leütnöd egy enter-t, amikor megjelenik a "LILO Boot:"
+   szöveg a képernyõn.
+     _________________________________________________________________
+
+4. A fájlrendszer lecserélése
+
+Az eljárás befejezõ része talán a legtrükkösebb, és ez vezethet a
+legkönnyebben adatvesztéshez. Ajánlott egy biztonsági másolatot készítése a
+teljes rendszerrõl (vagy legalább az összes fontos adatról), mielõtt
+megkísérled azt az XFS fájlrendszerre másolni. Még példát írni is nehéz
+errõl, mivel több száz lehetséges módszer létezik. Megadom az alapvetõ
+parancsokat, amikkel általánosságban új fájlrendszert hozhatsz létre,
+valamint átadom a saját fájlrendszerem átmásolásából származó
+tapasztalatokat.
+     _________________________________________________________________
+
+4.1. A gyökérkönyvtár átmásolása
+
+Az XFS rendszernek a gyökérkönyvtár átmásolása talán a legtrükkösebb része
+az eljárásnak, mivel ezen van a rendszer és nem tudod leválasztani (értsd:
+umount - a ford.) mialatt a linux fut. Ha van olyan tartalék fájlrendszered,
+amit fel tudsz csatlakoztatni (értsd: mount - a ford.), és elfér rajta a
+gyökérkönyvtár, akkor csinálhatsz valami ehhez hasonlót (nekem a /dev/hda4 a
+tartalék, és a /dev/hda2 a root partíció):
+
+     $ mkfs -t ext2 /dev/hda4
+     $ mkdir /mnt/temp
+     $ mount -t ext2 /dev/hda4 /mnt/temp
+     $ cd /
+     $ tar lcf - .|(cd /mnt/temp; tar xpvf - )
+
+   Én a "tar"-ral másoltam át a fájlokat, esetleg használhatod a "cp
+   -dpR" parancsot is, de ha a "tar"-t használod -- mint én a példában
+   tettem az "-l" kapcsolóval -- akkor csak az ezen a partíción lévõ
+   fájlok kerülnek átmásolásra. Pl.: ha van egy másik partíciód, amit a
+   /usr pontra csatlakoztatsz, akkor az azon lévõ fájlokat nem másolja
+   át (pedig a gyökérkönyvtárból kiindulva ugyebár a /usr könyvtárba is
+   eljuthatunk... - a ford.).
+
+   (Figyelem!!! A szöveg további részében a "/dev/hda2" és a "/dev/hda4"
+   partíciók nem biztos, hogy megfelelnek a Te partícióid hivatkozásainak
+   - a ford.) Következõ lépésként cseréld ki az /etc/fstab és
+   /etc/lilo.conf állományokban a /dev/hda2 bejegyzéseket /dev/hda4 -re,
+   majd futtasd a "lilõ-t és indítsd újra a rendszert.
+
+   A rendszer újraindítása után a /dev/hda4 partíció csatlakozik a
+   gyökérkönyvtár pontjára, az eredeti gyökérkönyvtárat pedig nem
+   csatlakoztatja a rendszer. Most egy új XFS fájlrendszert hozhatsz
+   létre a /dev/hda2 helyén.
+
+     $ mkfs -t xfs /dev/hda2
+
+   Csatlakoztasd az új XFS fájlrendszert:
+
+     $ mount -t xfs /dev/hda2 /mnt/temp
+
+   És másold vissza a gyökérkönyvtárat az eredeti helyére:
+
+     $ cd /
+     $ tar lcf - .|(cd /mnt/temp; tar xpvf -)
+
+   Cseréld ki a /etc/fstab és /etc/lilo.conf állományokban a /dev/hda4
+   hivatkozásokat és futtasd a "lilõ-t. A fájlrendszer típusát is
+   módosítanod kell a /dev/fstab állományban. Ennek valahogy így kell
+   kinéznie:
+
+     /dev/hda2               /                       xfs    defaults 1 1
+
+   Megjegyzés Megjegyzés
+
+
+   Néhány linux disztribúcióban az fstab állományban nem csak
+   alapértelmezett beállítások szerepelnek. Például a Debian
+   rendszerekben használatos a "defaults,errors=remount-ro." A
+   csatlakozás (mount /a ford.) beállításai különbözõek minden
+   fájlrendszerre nézve, kivéve a "default" kulcsszót. Ha nem ismered a
+   specifikus XFS beállításokat, elégedj meg az alapértelmezettel. A
+   Debianban például nem használható az XFS hibakezelési beállítása, és a
+   fájlrendszer nem lesz felcsatlakoztatva.
+
+   Ráadásul a fájlrendszer-címkék egyre népszerûbbek, ezért az fstab
+   állományban ilyen bejegyzéseket is láthatsz, mint például ez:
+
+      LABEL=/                 /                       ext2    defaults        1
+ 1
+
+   A legegyszerûbb módja a fenti probléma megoldásának az, ha kicseréled
+   a címkét a valódi eszköz állománynevére (például, ha a "/dev/hda1"-re
+   címkével hivatkozol / cseréld a "LABEL=/" bejegyzést "/dev/hda1"-re).
+
+   Most indítsd újra a rendszered az új XFS partíción lévõ
+   gyökérkönyvtáraddal.
+
+   Természetesen számos egyéb lehetõséged van a gyökérkönyvtár
+   átmásolására. Ha úgy gondolod, hogy tudsz egy jobbat, feltétlenül
+   szeretnék hallani róla és berakni ebbe a leírásba, ha egyszerûbbnek
+   néz ki a fent leírt ötletnél. Nekem nincs másik felcsatlakoztatható
+   partícióm, viszont van CD íróm, tehát felírtam a gyökérkönyvtáram
+   CD-re, felcsatlakoztattam, mint gyökérkönyvtárat, miközben készítettem
+   egy új XFS partíciót. Minden esetben ugyanazokat az alapvetõ
+   parancsokat kell használni egy új fájlrendszer készítésére és
+   csatlakoztatására.
+     _________________________________________________________________
+
+4.2. Utolsó simítások
+
+Az utolsó lépés a partíciók kicserélése. Ez lényegében ugyanaz, mint amit a
+gyökérkönyvtár átmásolásakor csináltam. (Normális rendszerben van egy
+partíció a / könyvtárnak, és egy-egy a boot, usr, tmp, root, stb.
+könyvtáraknak - a ford.) Azt ajánlom, ezt egyfelhasználós üzemmódban hajtsd
+végre, így a gyökérkönyvtáron kívül bármit lecsatlakoztathatsz, és az egész
+csereberét milliónyi újraindítás nélkül elvégezheted. Egyfelhasználós módba
+úgy kapcsolhatod a rendszert, ha kiadsz egy futási szintet átállító
+parancsot, például így:
+
+     $ telinit 1
+
+   vagy újraindításkor a Lilo promptnál kérd ezt:
+
+     LILO Boot: xfs single
+
+   Ez elindítja a rendszert, és belépsz egy root parancssorba minden
+   külsõ kapcsolat és virtuális terminál nélkül, így nem fordulhat elõ,
+   hogy valaki, vagy valamilyen program használjon egy fájlrendszert (ez
+   azt eredményezné, hogy az foglalt lenne és nem tudnád leválasztani).
+   Most felcsatlakoztathatod a tartalék fájlrendszered úgy, ahogy
+   elõzõleg már leírtuk, és átmásolhatod rá a következõ könyvtárat
+   (elõször talán töröld le róla a gyökérkönyvtárból felmásolt anyagot).
+   Válaszd le a régi fájlrendszert, készíts rajta egy új xfs
+   fájlrendszert, majd csatlakoztasd fel, és másold rá vissza a régi
+   tartalmát stb... Mondjuk ha a /dev/hda3 partíciót a /usr pontra
+   csatlakoztatod fel, akkor a mûvelet valahogy így néz ki:
+
+     $ mount -t ext2 /dev/hda4 /mnt/temp
+     $ cd /usr
+     $ tar lcf - .|(cd /mnt/temp; tar xpvf - )
+         $ cd /mnt/temp
+     $ umount /usr
+     $ mkfs -t xfs /dev/hda3
+     $ mount -t xfs /dev/hda3 /usr
+     $ tar lcf - .|(cd /usr; tar xpvf - )
+
+   Ne felejtsd el kicserélni a /usr könyvtár fájlrendszerének típusát az
+   /etc/fstab állományban xfs-re.
+
+   Ez minden amit tenned kellett. A többi átmásolandó fájlrendszer
+   esetében is ugyanígy kell eljárni. Ezután ha teljes többfelhasználós
+   módban újraindítod a rendszert, megkapod a saját XFS fájlrendszeren
+   futó szteroiddal fûtött Linuxodat!
+
+References
+
+   1. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN30
+   2. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN32
+   3. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN35
+   4. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN43
+   5. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN51
+   6. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN58
+   7. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN60
+   8. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN96
+   9. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN113
+  10. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN115
+  11. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN122
+  12. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN127
+  13. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN132
+  14. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN140
+  15. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN154
+  16. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN161
+  17. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN164
+  18. file://localhost/home/dacas/temp/Linux+XFS-HOWTO-hu.html#AEN192
+  19. mailto:ringram@gargoylecc.com
+  20. http://www.gargoylecc.com/Linux+XFS-HOWTO/t1.html
+  21. mailto:dacas@freemail.hu_NO_SPAM
+  22. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  23. mailto:tech.translation@axelero.hu_NO_SPAM
+  24. http://tldp.fsf.hu/index.html
+  25. http://www.linuxdoc.org/HOWTO/Kernel-HOWTO.html
+  26. http://www.rpmfind.net/
+  27. http://www.google.com/linux

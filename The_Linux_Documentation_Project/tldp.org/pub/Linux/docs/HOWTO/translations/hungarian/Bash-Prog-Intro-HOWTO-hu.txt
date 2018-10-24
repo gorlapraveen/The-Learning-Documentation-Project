@@ -1,0 +1,1130 @@
+
+                     Bevezetés a bash programozásba HOGYAN
+
+Mike G mikkey at dynamo.com.ar
+
+   2000. július 27.
+     _________________________________________________________________
+
+   Ezen dokumentum célja, hogy bevezessen az alap- illetve középszintû
+   shell szkript írásba. A dokumentum nem egy minden részletre kiterjedõ
+   leírás (ez a címébõl is kitûnik). Én nem vagyok se profi shell
+   programozó, se guru. Azért döntöttem úgy, hogy megírom ezt a HOGYANt,
+   mert sokat tanulhatok belõle és talán másoknak is hasznára válhat.
+   Minden visszajelzésért hálás vagyok, különösképpen, ha folt (patch)
+   formájában küldöd el. :) 
+     _________________________________________________________________
+
+1. Bevezetés
+
+1.1 A dokumentum legújabb változata
+
+   A dokumentum legújabb változata megtalálható a
+   [1]http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html honlapon
+
+1.2 Szükséges alapok
+
+   Jól jöhet, ha ismered a GNU/Linux rendszerek parancssorát, és hasznos,
+   ha tisztában vagy az alapvetõ programozási elvekkel. Noha ez nem egy
+   programozásba bevezetõ leírás, sok ilyet is megpróbálok majd
+   bemutatni.
+
+1.3 A dokumentum használata
+
+   Ez a dokumentum a következõ esetekben lehet hasznos:
+     * Már tudsz valamennyire programozni, és szeretnél végre shell
+       szkripteket írni.
+     * Van valami halvány fogalmad a shell programozásról, és szeretnél
+       többet megtudni róla.
+     * Látni akarsz pár shell szkriptet és némi magyarázatot, hogy
+       hozzáláthass sajátod megírásához.
+     * DOS/Windows rendszerrõl jössz/jöttél és "batch" programokat
+       akarsz írni.
+     * Annyira pedál vagy, hogy már minden létezõ HOGYANt elolvastál.
+
+1.4 Magyar fordítás
+
+   A magyar fordítást [2]Kovács Ferenc készítette (2004.06.18). A
+   lektorálást [3]Daczi László végezte el (2004.06.20). A dokumentum
+   legfrissebb változata megtalálható a [4]Magyar Linux Dokumentációs
+   Projekt honlapján. A dokumentum fordítása a [5]Szegedi Tudományegyetem
+   [6]nyílt forráskódú szoftverfejlesztés speciálkollégiumának
+   segítségével valósult meg.
+
+2. Egyszerû szkriptek
+
+   Ez a HOGYAN megpróbál útmutatóként szolgálni a shell szkriptek
+   megismeréséhez. A témát gyakorlati oldalról, példákon keresztül
+   közelítjük meg.
+
+   Az ebben a részben található néhány példa remélhetõleg segít majd
+   megérteni pár alapvetõ módszert.
+
+2.1 A szokásos hello world szkript
+
+          #!/bin/bash
+          echo Hello World
+
+   A szkript csak két sorból áll. Az elsõben jelezzük a rendszernek,
+   hogy melyik programot használja a szkript futtatásához.
+
+   A másodikban pedig kiírjuk a "Hello World" szöveget a terminálra.
+
+   Ha a képernyõn a ./hello.sh: Command not found. vagy ehhez hasonló
+   üzenet jelenik meg, akkor valószínûleg az elsõ sorban lévõ
+   "#!/bin/bash" lesz a ludas. A hiba javításához módosítsd az elsõ sort
+   úgy, hogy az a bash tényleges elérési útvonalát tartalmazza. Az
+   útvonal lekérésére használható a "whereis bash" parancs, vagy olvasd
+   el "A bash felkutatása" címû fejezetet.
+
+2.2 Egy nagyon egyszerû backup szkript
+
+        #!/bin/bash
+        tar -cZf /var/my-backup.tgz /home/me/
+
+   Ebben a szkriptben, az elõzõtõl eltérõen, nem szöveget jelenítünk
+   meg a képernyõn, hanem a felhasználó "home" könyvtárában lévõ
+   fájlokat összefûzzük egyetlen tar fájlba. Ez csak a példa kedvéért
+   szerepel most itt, késõbb egy sokkal használhatóbb backup szkriptet
+   is bemutatunk.
+
+3. Az átirányításról
+
+3.1 Elmélet és gyors útbaigazítás
+
+   Három fájlleíró van: stdin, stdout és stderr (std=standard).
+
+   Alapvetõen a következõk tehetõk meg:
+    1. stdout fájlba irányítása
+    2. stderr fájlba irányítása
+    3. stdout stderr-be irányítása
+    4. stderr stdout-ba irányítása
+    5. stderr és stdout fájlba irányítása
+    6. stderr és stdout stdout-ba irányítása
+    7. stderr és stdout stderr-be irányítása
+
+   Az 1 az stdout, a 2 az stderr (a 0 pedig az stdin - a ford.).
+
+   Egy kis magyarázat, hogyan is kell mindezt érteni: a less paranccsal
+   meg tudod nézni mind az stdout "tartalmát" (ami a bufferen marad),
+   mind az stderr-ét, ami a képernyõn jelenik meg, de törlõdik, amint
+   olvasni próbálod a buffert.
+
+3.2 Példa: az stdout fájlba irányítása
+
+   Ennek hatására a program kimenete fájlba íródik.
+
+        ls -l > ls-l.txt
+
+   Itt létrejön az "ls-l.txt" nevû fájl, melynek tartalma meg fog
+   egyezni azzal, amit az "ls -l" parancs futtatásakor a képernyõn
+   látnál.
+
+3.3 Példa: az stderr fájlba irányítása
+
+   Hatására a program stderr kimenete fájlba íródik.
+
+        grep da * 2> grep-errors.txt
+
+   Itt is létrejön a "grep-errors.txt" nevû fájl, melynek tartalma a
+   "grep da *" parancs stderr kimenetével fog megegyezni.
+
+3.4 Példa: az stdout stderr-be történõ irányítása
+
+   Ennek hatására a program stderr kimenetére lesznek írva az stdout-ra
+   küldött adatok is.
+
+        grep da * 1>&2
+
+   Itt a parancs stdout kimenete az stderr-re lesz elküldve, ahogy ezt
+   már bizonyára észrevetted.
+
+3.5 Példa: az stderr stdout-ba történõ irányítása
+
+   Most a program stderr kimenete az stdout-nak megfelelõ fájlleíróba
+   lesz írva.
+
+        grep * 2>&1
+
+   Itt az stderr-ra küldött adatok is az stdout-on jelennek meg. Ha ezt
+   egy csõvel (pipe) összekötöd a less programmal láthatod, hogy azok a
+   sorok, amik normális esetben eltûnnének (mivel az stderr-ra írtuk
+   õket), most megmaradnak (hiszen az stdout-ra lettek irányítva).
+
+3.6 Példa: az stderr és stdout fájlba irányítása
+
+   Ebben az esetben a program minden kimenete fájlba kerül. Ez néha
+   hasznos lehet például a cron bejegyzések esetén, ha egy programot
+   teljes csöndben akarsz futtatni.
+
+        rm -f $(find / -name core) &> /dev/null
+
+   Ez (gondolva itt a cron bejegyzésekre) minden könyvtárból kitörli a
+   "core" nevû fájlokat. Fontos tisztában lenned azzal, hogy egy program
+   pontosan mit is csinál, mielõtt "megszünteted" a kimenetét.
+
+4. Csövek (pipe)
+
+   Ebben a fejezetben a csövek használatának egy egyszerû és hasznos
+   módját ismertetjük, valamint elmondjuk hol lehet szükséged rájuk.
+
+4.1 A csövek és azok használata
+
+   A csövek olyan egyszerû eszközök, melyek lehetõvé teszik, hogy egy
+   program bemenetét egy másik program kimenetérõl vegye.
+
+4.2 Példa: csövek és a sed
+
+   Ez a csövek használatának egy nagyon egyszerû módja.
+
+        ls -l | sed -e "s/[aeio]/u/g"
+
+   Itt a következõ történik: elõször az ls -l parancs végrehajtódik, de
+   a kimenete nem lesz kiírva a képernyõre, hanem el lesz küldve a sed
+   programnak, ami ezt bemenetként értelmezi és ebbõl elõállítja saját
+   kimenetét.
+
+4.3 Példa: az ls -l *.txt parancs másként
+
+   A következõ parancs minden bizonnyal sokkal bonyolultabb, mint a
+   szokásos ls -l *.txt, de a csövek tulajdonságainak illusztrálására jó
+   példa. A gyakorlatban ilyen listázási problémák megoldására lehetõleg
+   ne használjunk csöveket.
+
+        ls -l | grep "\.txt$"
+
+   Itt az ls -l program kimenete el lesz küldve a grep programnak, ami
+   kiírja azokat a sorokat, melyek illeszkednek a "\.txt$" reguláris
+   kifejezésre.
+
+5. Változók
+
+   Ugyanúgy használhatsz változókat, mint bármely más programozási
+   nyelvben. Adattípusok nincsenek. Egy bash változó tárolhat számot,
+   karaktert és karakterekbõl álló sztringet.
+
+   A változókat nem kell külön deklarálni, a rájuk való hivatkozáskor
+   automatikusan létrejönnek.
+
+5.1 Példa: Hello World! változókkal
+
+            #!/bin/bash
+            STR="Hello World!"
+            echo $STR
+
+   A második sorban létrejön egy STR nevû változó, melynek értéke a
+   "Hello World!" (sztring) lesz. Ezután a változó neve elé tett "$"
+   jellel tudjuk elérni annak értékét. Jegyezd meg (és próbáld is ki),
+   hogy ha nem használod a "$" jelet, a program kimenete más lesz és
+   valószínûleg nem az, amit szeretnél.
+
+5.2 Példa: Egyszerû backup szkript (kicsivel jobb változat)
+
+           #!/bin/bash
+           OF=/var/my-backup-$(date +%Y%m%d).tgz
+           tar -cZf $OF /home/me/
+
+   Ez a szkript felvet egy másik dolgot is. De mindenek elõtt tisztában
+   kell lenned a változók létrehozásával, az értékadással kapcsolatos
+   dolgokkal (ez a második sorban látható). Most vegyük szemügyre a
+   "$(date +%Y%m%d)" kifejezést. Ha futtatod a szkriptet a zárójelek
+   közti parancs is lefut, létrehozva kimenetét.
+
+   Azt is vegyük észre, hogy a kimeneti fájl neve minden nap más és más
+   lesz, a date parancs formátum-kapcsolóinak (+%Y%m%d) köszönhetõen.
+   Ezt módosíthatod más formátum megadásával.
+
+   Még néhány példa:
+
+   echo ls
+
+   echo $(ls)
+
+5.3 Lokális változók
+
+   Lokális változókat a local kulcsszóval tudunk létrehozni.
+
+                #!/bin/bash
+                HELLO=Hello
+                function hello {
+                        local HELLO=World
+                        echo $HELLO
+                }
+                echo $HELLO
+                hello
+                echo $HELLO
+
+   Ennek a példának elégnek kell lennie, hogy bemutassa a lokális
+   változók használatát.
+
+6. Feltételes utasítások
+
+   A feltételes utasítások segítségével dönthetünk, hogy végrehajtunk-e
+   valamit vagy nem. A döntés itt egy kifejezés kiértékelésébõl áll.
+
+6.1 Elmélet
+
+   A feltételes utasításoknak több formája is van. A legalapvetõbb a
+   következõ: if kifejezés then utasítás, ahol az "utasítás" csak akkor
+   kerül végrehajtásra, ha a kifejezés, kiértékelése után igazat ad
+   vissza. Például a "2<1" kifejezés kiértékelés utáni értéke hamis, míg
+   a "2>1" esetén igaz.
+
+   A másik eset: if kifejezés then utasítás1 else utasítás2. Az
+   "utasítás1" akkor hajtódik végre, ha a kifejezés igaz, egyéb esetben
+   az "utasítás2" kerül végrehajtásra.
+
+   A feltételes utasítás egy másik formája: if kifejezés1 then utasítás1
+   else if kifejezés2 then utasítás2 else utasítás3. Ebben az esetben
+   csak az "ELSE IF 'kifejezés2' THEN 'utasítás2'" részt adtuk hozzá, így
+   az utasítás2 akkor lesz végrehajtva, ha a kifejezés2 kiértékelés utáni
+   értéke igaz. A többit már magad is el tudod képzelni (nézd meg az
+   elõzõ formákat).
+
+   Pár szó a szintaxisról:
+
+   Bash-ban az "if" szerkezetek a következõképp néznek ki:
+
+   if [kifejezés];
+
+   then
+
+   a "kifejezés" igaz volta esetén végrehajtódó kód
+
+   fi
+
+6.2 Példa: alapvetõ feltételes utasítás (if ... then)
+
+            #!/bin/bash
+            if [ "foõ = "foõ ]; then
+               echo a feltétel igaz
+            fi
+
+   A szögletes zárójelbe tett kifejezés igaz értéke esetén végrehajtódó
+   kód a "then" kulcsszó után és a "fi" kulcsszó elõtt helyezkedik el. A
+   "fi" kulcsszó jelzi a feltételesen végrehajtandó kód végét.
+
+6.3 Példa: alapvetõ feltételes utasítás (if ... then ... else)
+
+            #!/bin/bash
+            if [ "foõ = "foõ ]; then
+               echo a feltétel igaz
+            else
+               echo a feltétel hamis
+            fi
+
+6.4 Példa: Változók és feltételes utasítások
+
+            #!/bin/bash
+            T1="foõ
+            T2="bar"
+            if [ "$T1" = "$T2" ]; then
+                echo a feltétel igaz
+            else
+                echo a feltétel hamis
+            fi
+
+7. Ciklusok (for, while és until)
+
+   Ebben a részben a for, while és until ciklusokról lesz szó.
+
+   A for ciklus egy kicsit eltér a más nyelvekben megszokottaktól.
+   Alapvetõen egy sztringekben szereplõ szavak halmazának
+   feldolgozására használjuk.
+
+   A while ciklus addig ismétli a ciklusmagot, amíg a ciklusfeltétel
+   hamissá nem válik (vagy ki nem ugrunk a ciklusmagból a break
+   utasítással).
+
+   Az until ciklus tulajdonképpen azonos a while ciklussal, a különbség
+   csupán annyi, hogy az ismétlés addig folytatódik, amíg a feltétel
+   hamis.
+
+   Ha gyanús volt számodra, hogy a while és az until ciklusok mennyire
+   hasonlók, akkor igazad volt.
+
+7.1 Példa for ciklusra
+
+        #!/bin/bash
+        for i in $( ls ); do
+            echo elem: $i
+        done
+
+   A második sorban deklaráltunk egy "i" nevû változót, ami majd sorra
+   felveszi a $( ls ) sztring különbözõ értékeit.
+
+   A harmadik sor szükség esetén méretesebb is lehet, vagy több sor is
+   szerepelhet a ciklusmagban a done (4. sor) kulcsszó elõtt.
+
+   A "done" (4. sor) jelzi, hogy a $i értéket használó kódrészlet
+   befejezõdött. Innentõl kezdve a $i új értéket vehet fel.
+
+   Ennek a szkriptnek így nem sok értelme van. A for ciklus használatának
+   egy sokkal hasznosabb módja, ha az elõzõ példánál csak bizonyos
+   fájlokat vizsgálunk.
+
+7.2 C-szerû for ciklus
+
+   Fiesh tanácsára került ide ez a példa, ami egy C/Perl-szerû for
+   ciklust mutat be.
+
+        #!/bin/bash
+        for i in `seq 1 10`;
+        do
+                echo $i
+        done
+
+7.3 While példa
+
+         #!/bin/bash
+         COUNTER=0
+         while [  $COUNTER -lt 10 ]; do
+             echo A számláló értéke: $COUNTER
+             let COUNTER=COUNTER+1
+         done
+
+   Ez a szkript a jól ismert "for" ciklust utánozza (C, Pascal, perl,
+   stb.).
+
+7.4 Until példa
+
+         #!/bin/bash
+         COUNTER=20
+         until [  $COUNTER -lt 10 ]; do
+             echo COUNTER $COUNTER
+             let COUNTER-=1
+         done
+
+8. Függvények
+
+   Mint a legtöbb programozási nyelvben itt is használhatunk függvényeket
+   a kód logikailag összetartozó részeinek csoportosítására, vagy ha csak
+   áldozni szeretnénk a rekurzió virtuális oltára elõtt (azaz ha
+   rekurzív függvényeket akarunk írni).
+
+   A függvénydeklaráció csupán ennyibõl áll: function my_func { my_code
+   }.
+
+   A függvény hívása pedig ugyanúgy történik, mint bármelyik program
+   esetén, csak leírjuk a nevét.
+
+8.1 Példa függvényekre
+
+           #!/bin/bash
+           function quit {
+               exit
+           }
+           function hello {
+               echo Hello!
+           }
+           hello
+           quit
+           echo foo
+
+   A 2-4 sorok tartalmazzák a "quit", az 5-7 sorok pedig a "hellõ
+   függvényt. Ha nem teljesen világos számodra, hogy mit is csinál a
+   szkript, próbáld ki!
+
+   Megjegyzendõ, hogy a függvénydeklaráció sorrendje tetszõleges.
+
+   Amikor lefuttatjuk a szkriptet látjuk, hogy elõször a "hellõ, majd a
+   "quit" függvények hívódnak meg és a program sohasem éri el a 10. sort
+   (echo foo).
+
+8.2 Példa paraméteres függvényekre
+
+                #!/bin/bash
+                function quit {
+                   exit
+                }
+                function e {
+                    echo $1
+                }
+                e Hello
+                e World
+                quit
+                echo foo
+
+
+   Ez a szkript nagyrészt megegyezik az elõzõvel. A fõ különbség az
+   "e" nevû függvényben rejlik, ami nem csinál mást, mint kiírja az
+   elsõ átvett argumentumot. A függvényeknél szereplõ argumentumok
+   ugyanúgy kezelhetõk, mint a szkriptnek átadott argumentumok.
+
+9. Felhasználói felületek
+
+9.1 Egyszerû menü a "select" használatával
+
+           #!/bin/bash
+           OPTIONS="Hello Quit"
+           select opt in $OPTIONS; do
+               if [ "$opt" = "Quit" ]; then
+                echo done
+                exit
+               elif [ "$opt" = "Hellõ ]; then
+                echo Hello World
+               else
+                clear
+                echo rossz válasz
+               fi
+           done
+
+   Ha lefuttatod a szkriptet láthatod, hogy ez a programozók álma, ha
+   szöveges menükrõl van szó. Biztos észrevetted, hogy ez nagyon
+   hasonlít a "for" ciklusra. Csak itt ahelyett, hogy minden $OPTIONS
+   elemre egyszerûen végrehajtanánk a ciklust, mindig "megállítjuk" a
+   felhasználót.
+
+9.2 A parancssor használata
+
+          #!/bin/bash
+          if [ -z "$1" ]; then
+              echo használat: $0 könyvtárnév
+              exit
+          fi
+          SRCD=$1
+          TGTD="/var/backups/"
+          OF=home-$(date +%Y%m%d).tgz
+          tar -cZf $TGTD$OF $SRCD
+
+   Világosnak kell lennie számodra annak, hogy ez a szkript mit csinál.
+   Az elsõ feltételben szereplõ kifejezéssel megnézzük, hogy a program
+   kapott-e argumentumot ($1). Ha nem, kilépünk, és egy használati
+   útmutatót jelenítünk meg a felhasználónak. A program többi részének
+   ezen a ponton már tisztának kell lennie.
+
+10. Egyebek
+
+10.1 Adatok bekérése felhasználótól: read
+
+   Sok esetben szükség lehet arra, hogy adatokat kérjünk be a
+   felhasználótól. Erre számos lehetõségünk van, melyek közül egy a
+   következõ:
+
+                #!/bin/bash
+                echo Kérlek add meg a neved
+                read NAME
+                echo "Hi $NAME!"
+
+   A read segítségével egyszerre több adatot is be tudsz olvasni. A
+   következõ példa ezt tisztázza.
+
+                #!/bin/bash
+                echo Kérlek add meg a vezeték- és keresztneved
+                read FN LN
+                echo "Hi! $LN, $FN !"
+
+10.2 Aritmetikai kifejezések kiértékelése
+
+   A parancssorba (vagy a shell-be) írd be a következõt:
+
+   echo 1 + 1
+
+   Ha "2"-t vártál eredményül bizonyára csalódott vagy. De mi van akkor,
+   ha azt szeretnéd, hogy a bash ki is értékelje a számokat? A megoldás a
+   következõ:
+
+   echo $((1+1))
+
+   Ez már sokkal logikusabb kimenetet ad. Így kell egy aritmetikai
+   kifejezést kiértékelni. Ugyanezt az eredményt kapod a következõvel:
+
+   echo $[1+1]
+
+   Ha törtekre vagy más matematikai jellegû dolgokra van szükséged, vagy
+   egyszerûen csak ezt szeretnéd használni, akkor bc-vel is
+   kiértékelheted az aritmetikai kifejezéseket.
+
+   Ha beírom a parancssorba, hogy "echo $[3/4]", akkor 0-t kapok, mivel a
+   bash csak egészekkel dolgozik. Az "echo 3/4|bc -l" parancsra viszont
+   már helyes eredményt ad, azaz 0.75-öt.
+
+10.3 A bash felkutatása
+
+   Mike levele nyomán (nézd meg a köszönetnyilvánítást):
+
+   Eddig mindig a "#!/bin/bash" formát használtuk, most itt van pár példa
+   arra, hogyan tudhatod meg a bash konkrét elérési útját.
+
+   A "locate bash" az egyik legjobb módszer erre a feladatra, de nem
+   minden rendszeren van locate.
+
+   A gyökérbõl kiadott "find ./ -name bash" legtöbbször mûködik.
+
+   A lehetséges helyek, ahol nézelõdhetsz:
+
+   ls -l /bin/bash
+
+   ls -l /sbin/bash
+
+   ls -l /usr/local/bin/bash
+
+   ls -l /usr/bin/bash
+
+   ls -l /usr/sbin/bash
+
+   ls -l /usr/local/sbin/bash
+
+   (Most kapásból nem jut több eszembe... A legtöbb rendszeren
+
+   ezen könyvtárak valamelyikében lesz).
+
+   Vagy megpróbálhatod a "which bash" parancsot is.
+
+10.4 Program visszatérési értékének kiderítése
+
+   Bash-ban a programok visszatérési értéke egy speciális változóban
+   tárolódik, melynek neve $?.
+
+   A következõ példa bemutatja, hogyan deríthetjük ki egy program
+   visszatérési értékét. Feltételezem, hogy a dada nevû könyvtár nem
+   létezik. (Ez szintén Mike javaslatára került ide.)
+
+        #!/bin/bash
+        cd /dada &> /dev/null
+        echo rv: $?
+        cd $(pwd) &> /dev/null
+        echo rv: $?
+
+10.5 Parancs kimenetének tárolása
+
+   A következõ szkript listázza az összes táblát az összes adatbázisból
+   (felteszem, hogy MySQL-t használsz). Megváltoztathatod a "mysql"
+   parancsot úgy, hogy valódi felhasználónevet és jelszót használsz.
+
+        #!/bin/bash
+        DBS=`mysql -uroot  -e"show databases"`
+        for b in $DBS ;
+        do
+                mysql -uroot -e"show tables from $b"
+        done
+
+10.6 Több forrásfájl használata
+
+   A "source" parancs segítségével több fájlt is használhatsz egyszerre.
+
+   __TO-DO__
+
+11. Táblázatok
+
+11.1 Sztring összehasonlító operátorok
+
+   (1) s1 = s2
+
+   (2) s1 != s2
+
+   (3) s1 < s2
+
+   (4) s1 > s2
+
+   (5) -n s1
+
+   (6) -z s1
+
+   (1) s1 megegyezik s2-vel
+
+   (2) s1 nem egyezik meg s2-vel
+
+   (3) __TO-DO__
+
+   (4) __TO-DO__
+
+   (5) s1 nem nulla (egy vagy több karakterbõl áll)
+
+   (6) s1 nulla
+
+11.2 Példák sztingek összehasonlítására
+
+   Két sztring összehasonlítása.
+
+        #!/bin/bash
+        S1='string'
+        S2='String'
+        if [ $S1=$S2 ];
+        then
+                echo "S1('$S1') nem egyenlõ S2('$S2')-vel"
+        fi
+        if [ $S1=$S1 ];
+        then
+                echo "S1('$S1') egyenlõ S1('$S1')-vel"
+        fi
+
+   Most idézek egy részt Andreas Beck levelébõl, az if [ $1 = $2 ] alakú
+   utasításokkal kapcsolatban.
+
+   Nem túl jó ötlet a fenti példában is látható módszert használni, mert
+   ha a $S1 vagy a $S2 üres, értelmezési hibát kapunk. Helyette
+   használjuk inkább az x$1=x$2 vagy a "$1"="$2" formát.
+
+11.3 Aritmetikai operátorok
+
+   +
+
+   -
+
+   *
+
+   /
+
+   % (maradék)
+
+11.4 Aritmetikai relációs operátorok
+
+   -lt (<)
+
+   -gt (>)
+
+   -le (<=)
+
+   -ge (>=)
+
+   -eq (==)
+
+   -ne (!=)
+
+   A C programozók egyszerûen össze tudják vetni ezen operátorokat a
+   zárójelek közt megadottakkal.
+
+11.5 Hasznos parancsok
+
+   Ezt a részt Kees újraírta (nézd meg a köszönetnyilvánítást...).
+
+   Néhány ezek közül a programok közül egy komplett programozási nyelvet
+   takar. Ezen parancsok esetén csak az alapokat ismertetjük. Ha
+   részletes leírásra is szükséged van nézd meg a parancsok kézikönyv
+   oldalait (man pages).
+
+   sed (folyam szerkesztõ)
+
+   A sed egy nem interaktív szerkesztõprogram. Ez azt jelenti, hogy a
+   fájlok módosítása nem úgy megy, hogy mozgatod a kurzort a képernyõn.
+   Itt szerkesztõ utasításokból álló szkripteket használunk és egy
+   fájlnevet, amit szerkeszteni akarunk. A sed tulajdonképpen egy
+   szûrõnek is felfogható. Nézzük az alábbi példákat:
+
+        $sed 's/mit_cseréljek/mire_cseréljem/g' /tmp/dummy
+
+   A sed kicseréli a "mit_cseréljek" szöveget a "mire_cseréljem"
+   szöveggel, és a bemenetét a /tmp/dummy fájlból veszi. A végeredmény az
+   stdout-ra lesz küldve (ami alapesetben a konzol), de ha a sor végéhez
+   írod, hogy "> fájlnév", akkor a sed kimenetét a "fájlnév" nevû fájlba
+   küldi.
+
+        $sed 12, 18d /tmp/dummy
+
+   A sed, a 12. és 18. sorok közti rész kivételével kiírja a fájl
+   tartalmát. Az eredeti fájl nem változik.
+
+   awk (fájlok módosítása, szöveg kinyerése és szerkesztése)
+
+   Az AWK-nak számos implementációja létezik (a legismertebbek a GNU-s
+   gawk és az ún. "új awk", a mawk). Az alapelv egyszerû: az AWK mintát
+   keres és minden illeszkedõ mintára végrehajt valamilyen mûveletet.
+
+   Megint létrehoztam egy dummy nevû fájlt, ami a következõ sorokból
+   áll:
+
+   "test123
+
+   test
+
+   tteesstt"
+
+        $awk '/test/ {print}' /tmp/dummy
+
+   test123
+
+   test
+
+   A minta, amit az AWK keres, a "test". Ha a /tmp/dummy fájlban talált
+   egy sort, amiben szerepelt a "test" szó, akkor végrehajtotta rá a
+   "print" mûveletet.
+
+        $awk '/test/ {i=i+1} END {print i}' /tmp/dummy
+
+   3
+
+   Ha sokféle mintára keresel, cseréld ki az idézõjelek közti szöveget
+   "-f file.awk"-ra és a mintákat, végrehajtandó tevékenységeket írd a
+   "file.awk" nevû fájlba.
+
+   grep (a keresési mintára illeszkedõ sorok kiírása)
+
+   Az elõzõ fejezetekben már jó néhány grep parancsot láttunk, amelyek
+   az illeszkedõ sorokat írták ki. De a grep többre is képes.
+
+        $grep "ezt keressük" /var/log/messages -c
+
+   12
+
+   Az "ezt keressük" szöveg 12-szer szerepelt a /var/log/messages nevû
+   fájlban.
+
+   [Jó, ez csak egy kitalált példa, a /var/log/messages meg lett
+   buherálva. :-)]
+
+   wc (sorok, szavak, bájtok megszámolása)
+
+   A következõ példában mást kapunk, mint amit várunk. A dummy nevû
+   fájl, amit most használunk, a következõ szöveget tartalmazza: "bash
+   bevezetés HOWTO teszt fájl"
+
+        $wc --words --lines --bytes /tmp/dummy
+
+   2 5 34 /tmp/dummy
+
+   A wc nem foglalkozik a paraméterek sorrendjével. Mindig egy elõre
+   megadott sorrendben írja ki õket, amint azt te is láthatod:
+   (sorok)(szavak)(bájtok)(fájlnév).
+
+   sort (szöveges fájl sorainak rendezése)
+
+   Most a dummy fájl a következõket tartalmazza:
+
+   "b
+
+   c
+
+   a"
+
+        $sort /tmp/dummy
+
+   A kimenet kábé így néz ki:
+
+   a
+
+   b
+
+   c
+
+   A parancsok nem lehetnek ilyen egyszerûek :-)
+
+   bc (egy számológépes programozási nyelv)
+
+   A bc a parancssorból kapja meg a számítási feladatokat (fájlból, nem
+   pedig átirányítás vagy csõ útján), esetleg egy felhasználói
+   felületrõl. A következõkben példákon keresztül bemutatunk néhány
+   parancsot.
+
+   A bc-t a -q paraméterrel indítom, hogy ne írja ki az üdvözlõ
+   szöveget.
+
+   $bc -q
+
+   1 == 5
+
+   0
+
+   0.05 == 0.05
+
+   1
+
+   5 != 5
+
+   0
+
+   2 ^ 8
+
+   256
+
+   sqrt(9)
+
+   3
+
+   while (i != 9) {
+
+   i = i + 1;
+
+   print i
+
+   }
+
+   123456789
+
+   quit
+
+   tput (terminál inicializálására vagy a terminfo adatbázis
+   lekérdezésére)
+
+   Egy kis példa a tput képességeinek demonstrálására:
+
+        $tput cup 10 4
+
+   A kurzor a (y10,x4)-es pozícióban jelenik meg.
+
+        $tput reset
+
+   Törli a képernyõt, és a kurzor az (y1,x1) pozícióba kerül. Az (y0,x0)
+   a bal felsõ sarok koordinátája.
+
+        $tput cols
+
+   80
+
+   Az x tengely irányában maximálisan elhelyezhetõ karakterek száma.
+
+   Nagyon ajánlott, hogy legalább ezen programok használatával tisztában
+   legyél. Millió olyan kis program van, amikkel csodákra lehetsz képes a
+   parancssorban.
+
+   [Néhány példa kézikönyv oldalból vagy GYIK-bõl származik.]
+
+12. Még néhány szkript
+
+12.1 Parancs végrehajtása a könyvtárban lévõ összes fájlra
+
+12.2 Példa: egyszerû backup szkript (egy kicsivel jobb verzió)
+
+            #!/bin/bash
+            SRCD="/home/"
+            TGTD="/var/backups/"
+            OF=home-$(date +%Y%m%d).tgz
+            tar -cZf $TGTD$OF $SRCD
+
+12.3 Fájl átnevezõ program
+
+
+             #!/bin/sh
+             # renna: egyszerre több fájl átnevezése különbözõ szabályok szeri
+nt
+             # írta: Felix Hudson (2000. január)
+
+             # elõször is megnézzük, hogy a program milyen "üzemmódban" van
+             # ha az elsõ paraméter ($1) alapján valamelyik feltétel teljesül
+végrehajtjuk
+             # a hozzá tartozó programrészt és kilépünk
+
+             # elõtag (prefix) szerint történõ átnevezés?
+             if [ $1 = p ]; then
+
+             # most megszabadulunk a módot tartalmazó változótól ($1) és a pref
+ixtõl ($2)
+               prefix=$2 ; shift ; shift
+
+             # megnézzük, adtak-e meg fájlnevet
+             # ha nem, jobb ha nem csinálunk semmit, minthogy nemlétezõ fájlok
+at
+             # nevezzünk át
+
+               if [$1 = ]; then
+                  echo "nem adtál meg fájlnevet"
+                  exit 0
+               fi
+
+             # ez a for ciklus végigmegy a megadott fájlokon és mindet
+             # egyenként átnevezi
+               for file in $*
+                 do
+                 mv ${file} $prefix$file
+               done
+
+             # kilépünk a programból
+               exit 0
+             fi
+
+             # utótag (suffix) szerinti átnevezés?
+             # az ide tartozó rész tulajdonképpen megegyezik az elõzõvel
+             # nézd meg az ottani megjegyzéseket
+             if [ $1 = s ]; then
+               suffix=$2 ; shift ; shift
+
+                if [$1 = ]; then
+                 echo "nem adtál meg fájlnevet"
+                exit 0
+                fi
+
+              for file in $*
+               do
+                mv ${file} $file$suffix
+              done
+
+              exit 0
+             fi
+
+             # helyettesítéses átnevezés?
+             if [ $1 = r ]; then
+
+               shift
+
+             # ezt a részt azért raktam bele, hogy ne tegyük tönkre a felhaszná
+ló egyik
+             # állományát se, ha helytelenek a paraméterek
+             # ez csak egy biztonsági intézkedés
+
+               if [ $# -lt 3 ] ; then
+                 echo "használat: renna r [kifejezés] [helyettesítés] fájlok...
+ "
+                 exit 0
+               fi
+
+             # továbblépünk a paraméterlistán
+               OLD=$1 ; NEW=$2 ; shift ; shift
+
+             # Ez a for ciklus végigmegy az összes fájlon amit a programnak áta
+dtak,
+             # és egyenként átnevezi õket a "sed" program segítségével.
+             # A "sed" egyszerû parancssori program, ami értelmezi a bemenetet
+ és
+             # kicseréli a beállított kifejezést egy adott szövegre.
+             # Mi itt a fájl nevét adjuk át neki (standard bemenetként), és kic
+seréljük
+             # benne a kifejezésnek megfelelõ szövegrészeket.
+
+               for file in $*
+               do
+                 new=`echo ${file} | sed s/${OLD}/${NEW}/g`
+                 mv ${file} $new
+               done
+             exit 0
+             fi
+
+             # Ha idáig eljutottunk, akkor semmi használhatót nem adtak át a pr
+ogramnak
+             # ezért kiírjuk a felhasználónak, hogyan használja ezt a szkriptet
+.
+             echo "használat:"
+             echo " renna p [elõtag] fájlok.."
+             echo " renna s [utótag] fájlok.."
+             echo " renna r [kifejezés] [helyettesítés] fájlok.."
+             exit 0
+
+             #ennyi!
+
+
+12.4 Átnevezõ program (egyszerû változat)
+
+     #!/bin/bash
+     # renames.sh
+     # egyszerû átnevezõ program
+
+     criteria=$1
+     re_match=$2
+     replace=$3
+
+     for i in $( ls *$criteria* );
+     do
+         src=$i
+         tgt=$(echo $i | sed -e "s/$re_match/$replace/")
+         mv $src $tgt
+     done
+
+13. Ha gond van... (hibakeresés)
+
+13.1 A bash meghívásának módjai
+
+   Jó dolog, ha az elsõ sorban a következõ szerepel:
+
+          #!/bin/bash -x
+
+   Ennek hatására érdekes kimeneti információkat kaphatunk.
+
+14. A dokumentumról
+
+   Szabadon küldhetsz javaslatokat/hibajavításokat vagy bármi olyat,
+   amirõl úgy gondolod, hogy érdekes és szívesen látnád a dokumentumban.
+   Megpróbálom majd olyan gyakran frissíteni a leírást, amilyen gyorsan
+   csak tudom.
+
+14.1 (nincs) garancia
+
+   A dokumentummal kapcsolatban semmiféle garancia nincs.
+
+14.2 Fordítások
+
+   Olasz: by William Ghelfi (wizzy at tiscalinet.it) [7]itt a cím
+
+   Francia: by Laurent Martelli [8]nincs cím
+
+   Koreai: Minseok Park [9]http://kldp.org
+
+   Koreai: Chun Hye Jin [10]ismeretlen
+
+   Spanyol: ismeretlen [11]http://www.insflug.org
+
+   Lehet, hogy több fordítás is van, de én nem tudok róla. Ha neked ilyen
+   van, kérlek küldd el, hogy frissíthessem ezt a részt.
+
+14.3 Köszönet
+
+     * Azoknak, akik más nyelvekre fordították a dokumentumot (lásd:
+       elõzõ rész).
+     * Nathan Hurstnek a sok hibajavításért.
+     * Jon Abbottnak az aritmetikai kifejezések kiértékeléséhez fûzött
+       megjegyzéseiért.
+     * Felix Hudsonnak a renna szkriptért
+     * Kees van den Broeknek (számos hibajavításért és a "Hasznos
+       parancsok" címû fejezet újraírásáért)
+     * Mikenak (pink), a bash felkutatásával és fájlok tesztelésével
+       kapcsolatos javaslataiért.
+     * Fieshnek, a ciklusokkal foglalkozó részben tett hasznos
+       megjegyzéséért.
+     * Lionnak, akinek javaslatára megemlítettünk egy gyakori hibát
+       (./hello.sh: Command not found).
+     * Andreas Becknek a hibajavításokért és megjegyzésekért.
+
+14.4 Történet
+
+   Új fordítások és lényegi javítások.
+
+   A Kess által átírt hasznos parancsok rész hozzáadása.
+
+   Hibajavítások, javaslatok.
+
+   Példák a sztring összehasonlításhoz.
+
+   v0.8 Elhagyom a verziószámozást, rájöttem, hogy a dátum is elég.
+
+   v0.7 Számos hibajavítás és pár régi TO-DO rész megírása.
+
+   v0.6 Kisebb javítások.
+
+   v0.5 Az átirányítással foglalkozó rész hozzáadása.
+
+   v0.4 A volt fõnökömnek köszönhetõen a doksi eltûnt a régi
+   helyérõl, most a www.linuxdoc.org címen érhetõ el.
+
+   elõtte: Nem emlékszem, nem használtam se rcs-t, se cvs-t. :(
+
+14.5 További források
+
+   Bevezetés a bash programozásba (BE alatt)
+   [12]http://org.laol.net/lamug/beforever/bashtut.htm
+
+   Bourne shell programozás [13]http://207.213.123.70/book/
+
+14.6 További források magyarul
+
+   (Ezeket a forrásokat a lektor gyûjtötte össze.)
+
+   Büki András: "UNIX/Linux héjprogramozás" (ISBN: 963 9301 10 8)
+
+   Bourne shell programozás
+   [14]http://www.inf.u-szeged.hu/~bmse/unix/unix3.html
+
+   Shell programozás
+   [15]http://shell-script-programing.sync.hu/SHELL_PROGRAMOZAS.htm
+
+   Shell programozás
+   [16]http://www.fsz.bme.hu/~szebi/slides/U3/sld010.htm
+
+   Shell programozás [17]http://www.szabilinux.hu/ufi/10.html
+
+References
+
+   1. http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+   2. mailto:    Kovacs.Ferenc.5[kukac]stud.u-szeged[pont]hu
+   3. mailto: dacas[kukac]freemail[pont]hu
+   4. http://tldp.fsf.hu/
+   5. http://www.u-szeged.hu/
+   6. http://www.inf.u-szeged.hu/~havasi/opensource/
+   7. http://web.tiscalinet.it/penguin_rules
+   8. http:///
+   9. http://kldp.org/
+  10. file://localhost/home/dacas/tldp/convert/Bash-Prog-Intro-HOWTO-hu.html
+  11. http://www.insflug.org/
+  12. http://org.laol.net/lamug/beforever/bashtut.htm
+  13. http://207.213.123.70/book/
+  14. http://www.inf.u-szeged.hu/~bmse/unix/unix3.html
+  15. http://shell-script-programing.sync.hu/SHELL_PROGRAMOZAS.htm
+  16. http://www.fsz.bme.hu/~szebi/slides/U3/sld010.htm
+  17. http://www.szabilinux.hu/ufi/10.html

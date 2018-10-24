@@ -1,0 +1,597 @@
+
+                             Linux fürtözés HOGYAN
+
+Ram Samudrala (me@ram.org)
+
+   v1.1, 2003 június 17.
+     _________________________________________________________________
+
+   Hogyan készítsünk nagy teljesítményû Linux fürtöket.
+     _________________________________________________________________
+
+1. Bevezetés
+
+   Ez a dokumentum leírja hogyan készítettem el a [1]kutatásaimhoz
+   szükséges nagy teljesítményû Linux fürtöket.
+
+   Az alábbi információkat a saját felelõsségedre használd. Nem vállalok
+   felelõseget semmilyen cselekedetedért, amelyet ezen HOGYAN
+   elolvasására alapozol. Eme HOGYAN legfrissebb változata megtalálható a
+   [2]http://www.ram.org/computing/linux/linux_cluster.html honlapon.
+
+   Szemben más dokumentumokkal, melyek általában beszélnek arról hogyan
+   kell fürtöket készíteni, ez egy specifikus leírás arról, hogy a mi
+   laborunk miként készítette el azt. Így nem csak a számítási szempontok
+   részleteit, hanem az asztali számítógép, laptop, és a szerver
+   általános szempontjait is tartalmazza. A dokumentum fõleg belsõ
+   használatra készült, de feltettem webre is, mivel számos e-mail-t
+   kaptam amik ugyanezekrõl az információkról érdeklõdnek. Mostanában -
+   ahogy egy másik 64 csomópontos fürtöt tervezetem - azt találtam, hogy
+   nincs információ arról, pontosan hogyan gyûjthetsz össze olyan
+   komponenseket amibõl Linux alatt megbízhatóan mûködõ csomópontokat
+   hozhatsz létre. Olyan információ ami nem csak a csomópontokkal
+   történõ számítást, hanem azok szükségleteit is tartalmazza. Leginkább
+   arra használható ez a HOGYAN, hogy bemutassa milyen típusú hardverek
+   mûködnek jól Linux alatt és milyenek nem.
+
+2. Hardver
+
+   Ez a fejezet a hardver választásommal foglalkozik. Az [3]ismert
+   hardver problémák fejezetet leszámítva feltettem, hogy minden tényleg
+   jól mûködik.
+
+   A hardver telepítése egyszerû, a legtöbb részlet benne van a
+   kézikönyvben. Minden részben a hardverlista a megrendelés sorrendjében
+   található (a legújabb a legelsõ).
+
+2.1 Csomópont hardverek
+
+   32 db gép az alábbi összeállítással rendelkezik:
+
+     * 2 XEON 2.4GHZ 533FSB CPU
+     * Supermicro X5DPR-1G2 alaplap
+     * 2 512MB PC2100 DDR REG ECC RAM
+     * 1 40GB SEA 7200 HD
+     * 1 120GB SEA 7200 HD
+     * Supermicro Slim 24X CDROM
+     * CSE-812 400 C/B 1U doboz
+
+   32 db gép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD Palamino MP XP 2000+ 1.67 GHz CPU
+     * Asus A7M266-D w/LAN Dual DDR alaplap
+     * 2 Kingston 512mb PC2100 DDR-266MHz REG ECC RAM
+     * 1 41 GB Maxtor 7200rpm ATA100 HD
+     * 1 120 GB Maxtor 5400rpm ATA100 HD
+     * Asus CD-A520 52x CDROM
+     * 1.44mb floppy meghajtó
+     * ATI Expert 2000 Rage 128 32mb
+     * IN-WIN P4 300ATX Mid torony ház
+     * Enermax P4-430ATX tápegység
+
+   32 db gép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD Palamino MP XP 1800+ 1.53 GHz CPU
+     * Tyan S2460 Dual Socket-A/MP alaplap
+     * Kingston 512mb PC2100 DDR-266MHz REG ECC RAM
+     * 1 20 GB Maxtor UDMA/100 7200rpm HD
+     * 1 120 GB Maxtor 5400rpm ATA100 HD
+     * Asus CD-A520 52x CDROM
+     * 1.44mb floppy meghajtó
+     * ATI Expert 98 8mb AGP monitorvezérlõ
+     * IN-WIN P4 300ATX Mid torony ház
+     * Intel PCI PRO-100 10/100Mbps hálózati kártya
+     * Enermax P4-430ATX tápegység
+
+   32 db gép az alábbi összeállítással rendelkezik:
+
+     * 2 Pentium III 1 GHz Intel CPU
+     * Supermicro 370 DLE Dual PIII-FCPGA alaplap
+     * 2 256 MB 168-pin PC133 Registered ECC Micron RAM
+     * 1 20 GB Maxtor ATA/66 5400 RPM HD
+     * 1 40 GB Maxtor UDMA/100 7200 RPM HD
+     * Asus CD-S500 50x CDROM
+     * 1.4 MB floppy meghajtó
+     * ATI Expert 98 8 MB PCI monitorvezérlõ
+     * IN-WIN P4 300ATX Mid torony ház
+
+2.2 Szerver hardver
+
+   1 db szerver külsõ használatra (információ terjesztés) az alábbi
+   összeállítással rendelkezik:
+
+     * 2 AMD Palamino MP XP 2000+ 1.67 GHz CPU
+     * Asus A7M266-D w/LAN Dual DDR
+     * 4 Kingston 512mb PC2100 DDR-266MHz REG ECC RAM
+     * Asus CD-A520 52x CDROM
+     * 1 41 GB Maxtor 7200rpm ATA100 HD
+     * 6 120 GB Maxtor 5400rpm ATA100 HD
+     * 1.44mb floppy meghajtó
+     * ATI Expert 2000 Rage 128 32mb
+     * IN-WIN P4 300ATX Mid torony ház
+     * Enermax P4-430ATX tápegység
+
+2.3 Asztali számítógép hardver
+
+   1 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD XP 2600 MP CPU
+     * MSI K7D Master-L DUAL MS-6501 alaplap
+     * 4 1024MB PC2100 DDR REG ECC RAM
+     * 1 40GB SEA 7200 Maxtor merevlemez
+     * 2 120GB SEA 7200 Maxtor merevlemez
+     * PIONEER DVR-AO5 IDE DVD-RW
+     * 1.44mb floppy drive
+     * ATI Expert 2000 Rage 128 32mb monitorvezérlõ kártya
+     * IN-WIN P4 300ATX Mid torony ház
+     * Intel PCI PRO-100 10/100Mbps hálózati kártya
+     * 450W ENERMAX P4-430ATX tápegység
+     * CREATIVE SB 128 5.1 PCI hangkártya
+
+   2 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD XP 2600 MP CPU
+     * MSI K7D Master-L DUAL MS-6501 alaplap
+     * 2 512MB PC2100 DDR REG ECC RAM
+     * 1 40GB SEA 7200 Maxtor merevlemez
+     * 2 120GB SEA 7200 Maxtor merevlemez
+     * MSI 52X24X52X CR52-A2 CD-RW
+     * 1.44mb floppy drive
+     * ATI Expert 2000 Rage 128 32mb monitorvezérlõ kártya
+     * IN-WIN P4 300ATX Mid torony ház
+     * Intel PCI PRO-100 10/100Mbps hálózati kártya
+     * 450W ENERMAX P4-430ATX tápegység
+     * CREATIVE SB 128 5.1 PCI hangkártya
+
+   1 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD Palamino MP XP 2000+ 1.67 GHz CPU
+     * Asus A7M266-D w/LAN Dual DDR
+     * 2 Kingston 512mb PC2100 DDR-266MHz REG ECC RAM
+     * Ricoh 32x12x10 CDRW/DVD Combo EIDE
+     * 1 41 GB Maxtor 7200rpm ATA100 HD
+     * 1 120 GB Maxtor 5400rpm ATA100 HD
+     * 1.44mb floppy meghajtó
+     * ATI Expert 2000 Rage 128 32mb
+     * IN-WIN P4 300ATX Mid torony ház
+     * Intel PCI PRO-100 10/100Mbps hálózati kártya
+     * Enermax P4-430ATX tápegység
+
+   1 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 Intel Xeon 1.7 GHz 256K 400FS
+     * Supermicro P4DCE Dual Xeon alaplap
+     * 4 256mb RAMBUS 184-Pin 800 MHz RAM
+     * 2 120 GB Maxtor ATA/100 5400 RPM HD
+     * 1 60 GB Maxtor ATA/100 7200 RPM HD
+     * 52X Asus CD-A520 INT IDE CDROM
+     * 1.4 MB floppy meghajtó
+     * Leadtex 64 MB GF2 MX400 AGP
+     * Creative SB LIVE Value PCI 5.1
+     * Microsoft Natural billentyûzet
+     * Microsoft Intellimouse Explorer
+     * Supermicro SC760 nagy torony ház, 400W-os tápegységgel
+
+   2 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 AMD K7 1.2g/266 MP Socket A CPU
+     * Tyan S2462NG Dual Socket A alaplap
+     * 4 256mb PC2100 REG ECC DDR-266Mhz
+     * 3 40 GB Maxtor UDMA/100 7200 RPM HD
+     * 50X Asus CD-A520 INT IDE CDROM
+     * 1.4 MB floppy meghajtó
+     * Chaintech Geforce2 MX200 32mg AGP
+     * Creative SB LIVE Value PCI
+     * Microsoft Natural billenytûzet
+     * Microsoft Intellimouse Explorer
+     * nagy torony ház, 300W-os tápegységgel
+
+   2 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 Pentium III 1 GHz Intel CPU
+     * Supermicro 370 DLE Dual PIII-FCPGA alaplap
+     * 4 256 MB 168-pin PC133 Registered ECC Micron RAM
+     * 3 40 GB Maxtor UDMA/100 7200 RPM HD
+     * Asus CD-S500 50x CDROM
+     * 1.4 MB floppy meghajtó
+     * Jaton Nvidia TNT2 32mb PCI
+     * Creative SB LIVE Value PCI
+     * Microsoft Natural billentyûzet
+     * Microsoft Intellimouse Explorer
+     * nagy torony ház, 300W-os tápegységgel
+
+   2 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 Pentium III 1 GHz Intel CPU
+     * Supermicro 370 DLE Dual PIII-FCPGA alaplap
+     * 4 256 MB 168-pin PC133 Registered ECC Micron RAM
+     * 3 40 GB Maxtor UDMA/100 7200 RPM HD
+     * Mitsumi 8x/4x/32x CDRW
+     * 1.4 MB floppy meghajtó
+     * Jaton Nvidia TNT2 32mb PCI
+     * Creative SB LIVE Value PCI
+     * Microsoft Natural billentyûzet
+     * Microsoft Intellimouse Explorer
+     * nagy torony ház, 300W-os tápegységgel
+
+   2 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 Pentium III 1 GHz Intel CPU
+     * Supermicro 370 DE6 Dual PIII-FCPGA alaplap
+     * 4 256 MB 168-pin PC133 Registered ECC Micron RAM
+     * 3 40 GB Maxtor UDMA/100 7200 RPM HD
+     * Ricoh 32x12x10 CDRW/DVD Combo EIDE
+     * Asus CD-A520 52x CDROM
+     * 1.4 MB floppy meghajtó
+     * Asus V7700 64mb GeForce2-GTS AGP monitorvezérlõ kártya
+     * Creative SB Live Platinum 5.1 hangkártya
+     * Microsoft Natural billentyûzet
+     * Microsoft Intellimouse Explorer
+     * nagy torony ház, 300W-os tápegységgel
+
+   3 db asztali számítógép az alábbi összeállítással rendelkezik:
+
+     * 2 Pentium III 1 GHz Intel CPU
+     * Supermicro 370 DE6 Dual PIII-FCPGA alaplap
+     * 4 256 MB 168-pin PC133 Registered ECC Micron RAM
+     * 3 40 GB Maxtor UDMA/100 7200 RPM merevlemez
+     * Ricoh 32x12x10 CDRW/DVD Combo EIDE
+     * 1.4 MB floppy meghajtó
+     * Asus V7700 64mb GeForce2-GTS AGP monitorvezérlõ kártya
+     * Creative SB Live Platinum 5.1 hangkártya
+     * Microsoft Natural billentyûzet
+     * Microsoft Intellimouse Explorer
+     * nagy torony ház, 300W-os tápegységgel
+
+2.4 Tûzfal, átjáró hardver
+
+   1 db tûzfal az alábbi összeállítással rendelkezik:
+
+     * AMD Palamino XP 1700+ 1.47GHz CPU
+     * MSI KT3 Ultra2 KT333 MS-6380E alaplap
+     * 512 MB PC2100 DDR-266MHz DIMM RAM
+     * 40GB Seagate 7200rpm ATA/100 merevlemez
+     * Asus 52X CD-A520 INT IDE cdrom
+     * 1.44 MB floppy meghajtó
+     * ATI Expert 2000 Rage 128 32mb monitorvezérlõ kártya
+     * 3 Intel Pro/1000T Gigabit Server ethernet kártya
+     * 4U Black Rackmount acél ház
+
+   1 átjáró (gateway) az alábbi összeállítással rendelkezik. Az átjáró
+   tükrözése a tûzfalnak, arra az esetre, ha az összeomlana/elromlana.
+
+     * AMD Palamino XP 1800+ 1.57GHz CPU
+     * MSI KT3 Ultra2 KT333 MS-6380E alaplap
+     * 512 MB PC2100 DDR-266MHz DIMM RAM
+     * 40GB Seagate 7200rpm ATA/100 merevlemez
+     * Asus 52X CD-A520 INT IDE cdrom
+     * 1.44 MB floppy meghajtó
+     * ATI Expert 2000 Rage 128 32mb monitorvezérlõ kártya
+     * 3 Intel Pro/1000T Gigabit Server ethernet kártya
+     * 4U Black Rackmount acél ház
+
+2.5 Egyéb, kiegészítõ hardverek
+
+   Biztonsági mentés:
+
+     * 2 Sony 20/40 GB DSS4 SE LVD DAT drives
+
+   Monitorok:
+
+     * 2 17" Viewsonic VE700 LCD monitor
+     * 1 20.1" Viewsonic VP201M LCD monitor
+     * 1 22" Viewsonic P220F 0.25-0.27m monitor
+     * 4 21" Sony CPD-G500 .24mm monitor
+     * 2 18" Viewsonic VP181 LCD monitor
+     * 1 17" Viewsonic VE170 LCD monitor
+     * 2 Sun monitors
+
+   Nyomtatók:
+
+     * HP colour laserject 4600dn
+
+2.6 "Kössünk össze mindent egymással" hardverek
+
+   KVM monitor kapcsolókat használunk egy olcsó monitorral, hogy "lássuk"
+   az összes gépet.
+
+     * 15" .28dp XLN CTL Monitor
+     * 3 Belkin Omniview 16-Port Pro Switches
+     * Belkin Omniview 2-Port Switch
+     * APC AR203 netshelter rack unit
+
+   Ez egy jó megoldás, de azt hiszem nem feltétlenül szükséges. Amire
+   szükségünk van, az egy kis hordozható monitor amely a PC hátára
+   csatlakoztatható (stylus-al mûködik, mint a Palm). Nem tervezem több
+   monitorkapcsoló illetve KVM kábelt használatát.
+
+   A hálózat fontos:
+
+     * 2 Netgear FS750NA 48 port/1 git network switch
+     * 1 Netgear FSM750S 48 port/2 git network switch
+     * 1 Netgear FS517TS 16 port/1 git network switch
+     * 1 Netgear FS750NA 48 port network switch
+     * 1 Netgear FS524 24 port network switch
+     * 1 Cisco Catalyst 3448 XL Enterprise Edition 48 port network switch
+     * 1 Netgear ME102NA Wireless Access Point
+     * 1 Netgear MA401NA Wireless PCMCIA
+
+2.7 Költségek
+
+   A mi szállítónk a Hard Drives Northwest ( [4]http://www.hdnw.com).
+   Minden számítási csomópontért a fürtünkben (a két processzort is
+   beleértve) körülbelül 1500-2000 USD-t fizettünk adóval együtt. Az
+   általános célunk az volt, hogy a költség 1000 USD alatt legyen
+   processzoronként (beleértve az egyéb alkatrészek árát is).
+
+3. Szoftver
+
+3.1 Operációs rendszer: természetesen Linux!
+
+   Az alábbi kerneleket és disztribúciókat használjuk:
+
+     * Kernel 2.2.16-22, KRUD 7.0 disztribúció
+     * Kernel 2.4.9-7, KRUD 7.2 disztribúció
+     * Kernel 2.4.18-10, KRUD 7.3 disztribúció
+     * Kernel 2.4.20-13.9, KRUD 9.0 disztribúció
+
+   Ezek a disztribúciók jól mûködnek mióta a frissítéseket CD-n küldik
+   és nem kell megbízni a külsõ hálózatban a frissítések beszerzéséhez.
+   "Tisztábbnak" tûnnek mint a szokásos Red Hat disztribúciók és a
+   beállítása nagyon stabil.
+
+3.2 Hálózati szoftver
+
+   A Shorewall 1.3.14a programot ( [5]http://www.shorewall.net)
+   használjuk tûzfalnak.
+
+3.3 Párhuzamos feldolgozó szoftver
+
+   Mi a saját szoftverünket használjuk alkalmazások párhuzamosítására, de
+   vannak tapasztalataink PVM-el és MPI-al. Szerintem ezeknek az elõre
+   csomagolt programoknak az többletterhelése túl nagy. Azt ajánlom írjál
+   alkalmazás specifikus kódot a feladatodhoz (magánvélemény).
+
+3.4 Költségek
+
+   A Linux és a legtöbb szoftver ami Linux rendszeren fut ingyen
+   másolható.
+
+4. Telepítés, beállítás és üzemeltetés
+
+4.1 A merevlemez beállítása
+
+   Ez a fejezet a merevlemez-partícionálási stratégiát írja le.
+
+fürtözött gépek:
+
+hda1 - swap   (2 * RAM)
+hda2 - /      (maradék hely)
+hdb1 - /maxa  (teljes lemez)
+
+asztali számítógép (windows nélkül):
+
+hda1 - swap   (2 * RAM)
+hda2 - /      (4 GB)
+hda3 - /spare (maradék hely)
+hdb1 - /maxa  (teljes lemez)
+hdd1 - /maxb  (teljes lemez)
+
+asztali számítógép (windows-szal):
+
+hda1 - /win   (teljes disk)
+hdb1 - swap   (2 * RAM)
+hdb2 - /      (4 GB)
+hdb3 - /spare (maradék hely)
+hdd1 - /maxa  (teljes lemez)
+
+laptop-ok (egy lemez):
+
+hda1 - /win   (a teljes lemezméret fele)
+hda2 - swap   (2 * RAM)
+hda3 - /      (maradék hely)
+
+4.2 Csomagok beállítása
+
+   A fürt gépeire a csomagok minimális halmazát telepítettük. A
+   felhasználóknak megengedtük, hogy úgy konfigurálják az asztali
+   számítógépeket, ahogy akarják.
+
+4.3 Operációs rendszer telepítése és karbantartása
+
+  Csomagok klónozása és karbantartása
+
+  FAI
+
+   Az FAI ( [6]http://www.informatik.uni-koeln.de/fai/) egy automatizált
+   rendszer, amely Debian GNU/Linux operációs rendszer telepítésére
+   használható PC fürtökön. Veszel egy vagy több szûz PC-t, bekapcsolod
+   és néhány perc múlva a Linux fel van telepítve és be van állítva,
+   futtatása az egész fürtön semmilyen beavatkozást nem igényel.
+
+  SystemImager
+
+   A SystemImager ( [7]http://systemimager.org) egy szoftver, ami
+   automatizálja a Linux és szoftverek telepítését és a termelés
+   beindítását.
+
+  Egyéni klónozási stratégia
+
+   Van egy teljesen elosztott rendszerünk. Ezt azt jelenti, hogy minden
+   gép az operációs rendszer egy példányát tartalmazza. Az operációs
+   rendszert minden gépre manuálisan telepíteni kényelmetlen. A telepítés
+   optimalizálásához elõször egy gépet telepítettem és állítottam be
+   pontosan úgy, ahogy akartam. Aztán készítettem egy tömörített tar
+   állományt az egész rendszerrõl amit egy CD-ROM-on helyeztem el. Végül
+   errõl klónoztam minden gépet a fürtben.
+
+   A tar állomány készítésére az alábbi utasítást használtam:
+
+tar -czvlps --same-owner --atime-preserve -f /maxa/slash.tgz /
+
+   Egy go nevû szkriptet használok, ami veszi a hosztnevet és az IP
+   címet mint argumentumot, és kicsomagolja a slash.tgz állományt a
+   CD-ROM-ról, majd lecseréli a hosztnevet és az IP címet a megfelelõ
+   helyeken. A go szkript és bemeneti állományai elérhetõek a
+   [8]http://www.ram.org/computing/linux/linux/cluster/ címen. Ezt a
+   szkriptet módosítani kell a TE fürtöd felépítésednek megfelelõen.
+
+   A Tom's Root Boot csomagot is használom ( [9]http://www.toms.net/rb/)
+   arra, hogy indítsam a gépet és klónozzam a rendszert. A go szkriptet
+   el lehet helyezni a CD-ROM-on vagy egy floppy lemezen ami a Tom's Root
+   Boot csomagot is tartalmazza. (törölhetsz néhány programot ebbõl a
+   csomagból, ha kifutsz a floppy lemez kapacitásából).
+
+   Még kényelmesebb, ha készítesz egy indító CD-ROM-ot ami a Tom's Root
+   Boot csomagot és a go szkriptet, valamint a klónozni kívánt rendszer
+   tar állományát tartalmazza. Módosíthatod a Tom's Root Boot csomag
+   inicializáló szkriptjét, hogy a go szkriptet futtassa (mindig be kell
+   majd állítanod az IP címet, ha nem használsz DHCP szolgáltatást).
+
+   Egy alternatív lehetõség, hogy készítesz egy saját indító lemezt
+   (mint egy mentõ lemez), amely tetszésed szerinti kernelt és
+   programokat tartalmaz. Számos dokumentum létezik, ami leírja ezek
+   készítésének módját. A Linux Bootdisk HOWTO (
+   [10]http://www.linuxdoc.org/HOWTO/Bootdisk-HOWTO/) is tartalmaz
+   hivatkozásokat más elõre gyártott boot/root lemezekre.
+
+   Így kifejleszthetsz egy rendszert ahol az összes dolog amit tenned
+   kell csak annyi, hogy behelyezed a CD-ROM-ot bekapcsolod a gépet,
+   veszel egy csésze kávét (vagy sütit) és visszajössz megnézni a kész
+   klónt. Ezt az eljárást ismételheted annyiszor, ahány géped van. Ez az
+   eljárás nagyon jól mûködik nekem és ha van valaki aki beteszi és
+   kiveszi a CD-ROM-okat akkor még jobb.
+
+   Rob Fantini ( [11]rob@fantinibakery.com) módosította a fenti
+   szkriptet, Mandrake 8.2 rendszer klónozásához. Ez elérhetõ a
+   [12]http://www.ram.org/computing/linux/cluster/fantini_contribution.tg
+   z címen.
+
+   Jelenleg egy olyan rendszeren dolgozok, amelyikben minden egy CD
+   lemezre van felrakva, errõl indul a gép és könnyen klónozható. A
+   közeljövõben közzéteszem a módszert.
+
+  DHCP vagy beégetett IP cím?
+
+   Ha van egy mûködõ DHCP szolgáltatásod, akkor nem szükséges újra
+   beállítanod az IP címet és ezt a részt törölheted a go szkriptbõl.
+
+   A DHCP elõnye, hogy nem kell vacakolnod az IP címekkel mert a
+   megfelelõen beállított DHCP szerver szolgáltatja azokat. Egy
+   hátránya, hogy egy központi szerveren van megvalósítva (és ahogy
+   mondtam azon vagyok hogy elosszam a dolgokat amennyire csak lehet). Az
+   IP címek hardver ethernet címekhez való kötése is kellemetlen lehet,
+   amennyiben a gépet vagy a hosztnév cserét a szokásos módon kívánod
+   végrehajtani.
+
+4.4 Ismert hardver problémák
+
+   A hardverek általában tényleg igazán jól mûködtek. Specifikus
+   kérdéseket az alábbiakban sorolunk fel:
+
+   Az AMD dual 1.2 GHz gépek igazán melegszenek mûködés közben. Kettõ
+   már érezhetõen növeli a szoba hõmérsékletét. Míg jók lehetnek
+   asztali számítógépekhez, de a hûtés és az energia fogyasztás
+   megfontolandó, amikor nagy fürtök részeként használjuk õket. A
+   korábban bemutatott AMD Palmino konfiguráció igazán jól mûködik, de
+   azt ajánlom vegyél két ventilátort minden esetben, ez megoldotta az
+   összes instabilitás problémánkat.
+
+4.5 Ismert szoftver problémák
+
+   Néhány tar program nem úgy készíti el a tar állományt, ahogy azt
+   elvárnánk (különösen a szimbolikus hivatkozások visszafejtésében
+   mutatkozik ez meg). A megoldás, hogy használj olyan tar programot, ami
+   jól csinálja, például a Red Hat 7.0 disztribúcióban lévõt.
+
+5. Feladat végrehajtás a fürtön
+
+   Ez a fejezet úgy fejlõdik ahogy a fürtöm használata alakul. Eddig
+   azon voltam, hogy megírjam a saját üzenet küldõ eljárásaimat,
+   amellyel különbözõ gépeken futó processzek kommunikálnak egymással.
+
+   Sok alkalmazás - különösen a számítógépes genomika területén -
+   masszívan és könnyen párhuzamosítható. Ez azt jelenti, hogy jó
+   elosztás érhetõ el azáltal, hogy azonos feladatokat szórunk szét a
+   gépek között (például amikor a teljes genomot analizáljuk azt a
+   technikát használjuk, ami egy génen, proteinen dolgozik és minden
+   processzor egy génen, proteinen dolgozhat idõben, függetlenül a többi
+   processzortól).
+
+   Eddig nem kellet használunk profi queue rendszereket, de ez
+   nyilvánvalóan erõsen függ a futtatni kívánt alkalmazástól.
+
+5.1 Durva teljesítményteszt
+
+   Egyszerûen a legfontosabb programot futtattuk (a mi ab initio
+   protenin folding szimulációs programunkat) egy Pentium 3 1GHz
+   processzoros gépen referenciának. A következõ eredmények születtek:
+
+Athlon 1.2 GHz processzor körülbelül 16% gyorsabb
+Xeon   1.7 GHz processzor körülbelül 27% gyorsabb
+Athlon 1.5 GHz processzor körülbelül 38% gyorsabb
+Athlon 1.7 GHz processzor körülbelül 46% gyorsabb
+Xeon   2.4 GHz processzor körülbelül 62% gyorsabb
+
+   Igen, az Athlon 1.5 GHz gyorsabb, mint a Xeon 1.7-es mivel a Xeon csak
+   hat utasítás per órajelet (IPC), míg az Athlon kilenc órajelet futtat
+   (számolj!).
+
+5.2 Folyamatos üzemidõ (uptime)
+
+   A gépek, mind hardver, mind szoftver tekintetben hihetetlenül
+   stabilnak bizonyultak. Egyszer lettek debuggolva (rendszerint az új
+   gépek közül néhány hardver problémával érkezik) folyamatosan nagyon
+   nagy terhelés alatt. Egy példa látható alul. Újraindítások általában
+   akkor történnek, amikor elektromos zavar keletkezik.
+
+  2:29pm  up 495 days,  1:04,  2 users,  load average: 4.85, 7.15, 7.72
+
+6. Köszönetnyilvánítás
+
+   A következõ személyek segítettek ennek a HOGYANnak az elkészítésében:
+
+     * Michael Levitt ( [13]Michael Levitt)
+
+7. Irodalomjegyzék
+
+   Az alábbi dokumentumok hasznosak lehetnek - ezek referenciák olyan
+   forrásokra, amelyek a nagy teljesítményû fürtök használatával
+   foglalkoznak:
+
+     * [14]RAMBIN web page
+     * [15]RAMP web page
+     * [16]Ram Samudrala's research page (ebben a HOGYANban leírt fürttel
+       elért néhány kutatási eredményt ír le)
+
+8. Magyar fordítás
+
+   A magyar fordítást [17]Szalai Ferenc készítette (2003.05.19). A
+   lektorálást [18]Daczi László végezte el (2003.05.21). Bármilyen
+   fordítással kapcsolatos észrevételt a [19]linuxhowto@sch.bme.hu címre
+   küldjetek. Eme dokumentum legfrissebb változata megtalálható a
+   [20]Magyar Linux Dokumentációs Projekt honlapján. A fordítás javítva
+   2003.05.26.-án.
+
+References
+
+   1. http://compbio.washington.edu/
+   2. http://www.ram.org/computing/linux/linux_cluster.html
+   3. file://localhost/home/dacas/temp/Cluster-HOWTO-hu.html#known_hardware_issues
+   4. http://www.hdnw.com/
+   5. http://www.shorewall.net/
+   6. http://www.informatik.uni-koeln.de/fai/
+   7. http://systemimager.org/
+   8. http://www.ram.org/computing/linux/cluster/
+   9. http://www.toms.net/rb/
+  10. http://www.linuxdoc.org/HOWTO/Bootdisk-HOWTO/
+  11. mailto:rob@fantinibakery.com
+  12. http://www.ram.org/computing/linux/cluster/fantini_contribution.tgz
+  13. mailto:michael.levitt@stanford.edu
+  14. http://www.ram.org/computing/rambin/rambin.html
+  15. http://www.ram.org/computing/ramp/ramp.html
+  16. http://www.ram.org/research/research.html
+  17. mailto:szferi@angel.elte.hu_NO_SPAM
+  18. mailto:dacas@freemail.hu_NO_SPAM
+  19. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  20. http://tldp.fsf.hu/index.html

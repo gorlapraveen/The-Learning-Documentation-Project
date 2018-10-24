@@ -1,0 +1,539 @@
+
+Athlon energiatakarékosság HOGYANDaniel Nofftz
+
+   daniel@nofftz.net.NOSPAM
+
+   2004.04.24
+   Verziótörténet
+   Verzió: 1.1.4 2004.04.24 Átdolgozta: dn
+   A sis lapkakészlet parancssori hackje változott, új javítás az ugráló
+   hanghoz, új folt a 2.6.5 rendszermaghoz.
+   Verzió: 1.1.3 2004.04.01 Átdolgozta: dn
+   Kisebb frissítés.
+   Verzió: 1.1.2 2004.03.30 Átdolgozta: dn
+   KT600 parancssoros hack hozzáadva, további bizonyítékok arra, hogy a
+   hangprobléma javítása mûködik!
+   Verzió: 1.1.1 2003.12.18 Átdolgozta: dn
+   Japán és portugál fordítás hozzáadva, a hangproblémák lehetséges
+   javítása hozzáadva.
+   Verzió: 1.1.0 2003.10.04 Átdolgozta: dn
+   Egy adag új információ és hivatkozás.
+
+   Hogyan tegyük aktívvá bizonyos alaplapok/lapkakészletek esetén az
+   Athlon/Duron/AthlonXP processzor energiatakarékos üzemmódját. Ez
+   hatékonyan csökkenti a CPU és a rendszer energiafelhasználását, és a
+   hõkibocsátást. (A zajt is csökkentheti, ha hõvezérlésû ventilátort
+   használsz a számítógép házban vagy a CPU-n.)
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Az Athlon processzor energiatakarékos üzemmódjának
+                alapjai
+
+        1.2. [3]Szerzõi jog és licenc
+        1.3. [4]A felelõsség teljes elhárítása
+        1.4. [5]Visszajelzés
+        1.5. [6]A dokumentum új verziói
+        1.6. [7]Magyar fordítás
+
+   2. [8]Különféle módszerek
+
+        2.1. [9]Hackelés parancssorból
+        2.2. [10]Az athcool program
+        2.3. [11]BIOS frissítések
+        2.4. [12]Rendszermag-folt
+        2.5. [13]Az LVCool programot használó megoldás
+        2.6. [14]Az FVCool program
+        2.7. [15]AMD 760MP energiatakarékosság
+
+   3. [16]Mi van még?
+
+        3.1. [17]Az energiamegtakarítás mûködésének tesztelése
+        3.2. [18]Ismert hibák és problémák
+        3.3. [19]Javítás az ugráló hanghoz és egyéb problémákhoz
+        3.4. [20]Egy másik javítás az ugráló hanghoz és egyéb
+                problémákhoz (néhány VIA lapkakészlethez)
+
+        3.5. [21]További teendõk
+        3.6. [22]Fordítások
+
+1. Bevezetés
+
+1.1. Az Athlon processzor energiatakarékos üzemmódjának alapjai
+
+A Linux rendszermag tétlen állapota esetén alapértelmezetten használt HLT
+szignál nem eredményez jelentõs energiamegtakarítást az Athlon/Duron
+processzorcsalád esetén (ezek után csak Athlon processzoroknak nevezzük
+õket). Athlon processzoroknál valódi energiatakarékosság eléréséhez a
+processzort STPGNT-módba (Stop Grant Mode) kell átkapcsolni. Ebben a módban
+a processzor lekapcsolódik a front-side-bus-ról (FSB), a CPU bizonyos
+részeit kikapcsolhatja, és csökkentheti az órajelet is az
+energiamegtakarítás érdekében.
+     _________________________________________________________________
+
+1.2. Szerzõi jog és licenc
+
+This document, Athlon Powersaving HOWTO, is copyrighted (c) 2003 by Daniel
+Nofftz.
+
+A dokumentum másolása, terjesztése és/vagy módosítása engedélyezett a Free
+Software Foundation (Szabad Szoftver Alapítvány) által közzétett GNU Free
+Documentation License 1.2 vagy késõbbi változatában leírt feltételek
+szerint; állandõ fejezetek, elõoldali és hátoldali szövegek nélkül. A
+licenc egy másolata megtalálható a [23]http://www.gnu.org/copyleft/fdl.html
+honlapon.
+
+Linux is a registered trademark of Linus Torvalds.
+     _________________________________________________________________
+
+1.3. A felelõsség teljes elhárítása
+
+A dokumentum tartalmáért nincs felelõsségvállalás. Az elgondolásokat,
+példákat és információkat a saját felelõsségedre használd. Elõfordulhatnak
+hibák és pontatlanságok, amelyek a rendszered sérülését okozhatják. Minden
+óvatosság ellenére bármily hihetetlen, a szerzõ(k) semmilyen felelõsséget
+nem vállal(nak).
+
+Minden szerzõi jog fenntartva az eredeti tulajdonosának, amennyiben másként
+nincs jelölve. A dokumentumban használt szakkifejezések semmilyen párhuzamot
+nem képviselnek védjegyekre, szervíz márkákra vonatkozólag. Egyedi alkotások
+vagy védjegyek nevesítése nem hozzájárulások.
+     _________________________________________________________________
+
+1.4. Visszajelzés
+
+A visszajelzések a dokumentum szempontjából nagyon fontosak. Különösképp
+szükségesek az új megoldások az új lapkakészletekhez. Ezen kívül a
+megjegyzéseket is szívesen veszem, melyekbõl megtudható, hogy a megadott
+megoldások mûködtek-e vagy sem. A kiegészítéseket, megjegyzéseket és
+kritikákat a <[24]daniel@nofftz.net.NOSPAM> e-mail címre várom.
+
+Angol és német nyelvû e-mailt egyaránt küldhettek!
+     _________________________________________________________________
+
+1.5. A dokumentum új verziói
+
+Ezen HOGYAN legújabb változata elõször mindig [25]itt érhetõ el.
+     _________________________________________________________________
+
+1.6. Magyar fordítás
+
+A magyar fordítást [26]Mócza Zsolt készítette (2003.10.20). A lektorálást
+[27]Daczi László végezte el (2003.10.21). Utoljára frissítve 2004.05.07.-én.
+A dokumentum legfrissebb változata megtalálható a [28]Magyar Linux
+Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Különféle módszerek
+
+Ebben a részben különféle módszereket mutatok be egyetlen cél elérése
+érdekében: ez pedig az energiatakarékosság Athlon-alapú rendszerünkön. Jelen
+pillanatban az én javaslatom az, hogy a "parancssoros hackelést" használjuk,
+mert a rendszermagfolt elavult és már nem fejlesztik tovább, az LVCool folt
+pedig csak egy lapkakészlet családot támogat. Az athcool program ígéretes,
+de én még nem teszteltem.
+
+Ezen módszerek mindegyike beállítja a lapkakészlet északi hídjának
+"Lekapcsolódás engedélyezve STPGNT esetén" bitjét. Se többet se kevesebbet
+nem tesznek. Minden más feladatot a rendszermag ACPI alrendszere végez, mely
+elküldi az STPGNT szignált a processzornak, amikor acpi-c2 tétlen módba lép.
+(Egyedül az LVCool csinálja más módon...)
+
+Ha jelenlegi rendszermagunk nem tartalmaz ACPI támogatást, engedélyezzük
+azt, és fordítsuk újra a rendszermagot. Az ACPI-beállításokat a General
+Setup+Power Management Setup->ACPI menüpontban találjuk. A következõ
+beállításokat mindenképpen engedélyeznünk kell: ACPI Bus Manager, System és
+Processor.
+
+Az új 2.4.22 rendszermag esetében: General Setup+ACPI Support. Legalább a
+következõ opciót engedélyeznünk kell: Processor.
+
+Néhány lapkakészlet az STPGNT szolgáltatást is támogatja, ha HLT jelzést
+észlel. Ezek az alaplapok/lapkakészletek nem igénylik az ACPI
+engedélyezését! Jelenleg visszajelzésre várok arra vonatkozóan, mely
+lapkakészletek mûködnek/nem mûködnek ACPI nélkül. Talán [29]tesztelhetnéd
+az alaplapot, majd elküldhetnéd nekem az eredményt.
+     _________________________________________________________________
+
+2.1. Hackelés parancssorból
+
+A parancssoros hackelés használatához a rendszermagban engedélyezni kell az
+ACPI támogatást rendszerint, de egyes esetekben ez nem szükséges. Az
+energiatakarékos üzemmódot közvetlenül parancssorból, újraindítás nélkül ki-
+és bekapcsolhatjuk. Ezt a következõ parancsokkal tehetjük meg:
+
+   KT133/133A, KX133, KL/KLE133, KM/KN133, ...(alapvetõen szükséges az
+          acpi engedélyezése):
+          bekapcsolás: setpci -v -H1 -s 0:0.0 52=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 52) | 0x80)))
+
+          kikapcsolás: setpci -v -H1 -s 0:0.0 52=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 52) & 0x7f)))
+
+   KT266/266A/333, KM266/333, ... :
+          bekapcsolás:
+
+          setpci -v -H1 -s 0:0.0 92=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 92) | 0x80)))
+
+          setpci -v -H1 -s 0:0.0 95=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 95) | 0x02)))
+
+          kikapcsolás:
+
+          setpci -v -H1 -s 0:0.0 92=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 92) & 0x7f)))
+
+          setpci -v -H1 -s 0:0.0 95=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 95) & 0xfd)))
+
+   KT400/KT600:
+          bekapcsolás:
+
+          setpci -v -H1 -s 0:0.0 D2=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 D2) | 0x80)))
+
+          setpci -v -H1 -s 0:0.0 D5=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 D5) | 0x02)))
+
+          kikapcsolás:
+
+          setpci -v -H1 -s 0:0.0 D2=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 D2) & 0x7f)))
+
+          setpci -v -H1 -s 0:0.0 D5=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 D5) & 0xfd)))
+
+   SIS730/733:
+          bekapcsolás: setpci -v -H1 -s 0:0.0 6B=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6B) | 0x01)))
+
+          kikapcsolás: setpci -v -H1 -s 0:0.0 6B=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6B) & 0xfe)))
+
+   SIS735/740/745/746/755:
+          bekapcsolás: setpci -v -H1 -s 0:0.0 6A=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6A) | 0x0003)))
+
+          kikapcsolás: setpci -v -H1 -s 0:0.0 6A=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6A) & 0xfffc)))
+
+   Nforce:
+          bekapcsolás:
+
+          setpci -v -H1 -s 0:0.0 E7=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 E7) | 0x06)))
+
+          setpci -v -H1 -s 0:0.0 6D=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 6D) | 0x80)))
+
+          kikapcsolás:
+
+          setpci -v -H1 -s 0:0.0 E4=$(printf %x $((0x$(setpci -H1 -s
+          0:0.0 E7) & 0xf9)))
+
+   Nforce2 (acpi támogatás nélkül mûködik):
+          bekapcsolás: setpci -v -H1 -s 0:0.0 6F=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6F) | 0x10)))
+
+          kikapcsolás: setpci -v -H1 -s 0:0.0 6F=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 6F) & 0xef)))
+
+   AMD751 és AMD760/761 (nem használható a 760MP-hez!!!) (ACPI nélkül
+          mûködik):
+          bekapcsolás: setpci -v -s 0:0.0 0x62=$(printf %x $((0x$(setpci
+          -H1 -s 0:0.0 62) | 0x06)))
+
+          kikapcsolás: setpci -v -s 0:0.0 0x62=$(printf %x $((0x$(setpci
+          -H1 -s 0:0.0 62) & 0xf9)))
+     _________________________________________________________________
+
+2.2. Az athcool program
+
+Az athcool egy aprócska program, mely ugyan azt a feladatot látja el, mint a
+fenti setpci parancsok. Ugyanazokat a lapkakészleteket támogatja, és
+felismeri, hogy milyen lapkészletünk van. Mûködésre bírja az
+energiatakarékos üzemmódot, a lapkakészletnek megfelelõ beállításokkal.
+
+A programról további információkat szerezhetünk (és le is tölthetjük) a
+honlapról.
+     _________________________________________________________________
+
+2.3. BIOS frissítések
+
+Az újabb alaplapok némelyikéhez a gyártó olyan BIOS frissítést biztosít,
+mely beállítja az alaplap lapkakészletének megfelelõ bitjét vagy bitjeit
+(esetleg lehetõvé teszi a BIOS-setup-ban annak beállítását). Látogassuk meg
+alaplapunk gyártójának honlapját az ilyen BIOS frissítések beszerzéséhez.
+     _________________________________________________________________
+
+2.4. Rendszermag-folt
+
+A rendszermag-folt egy, a Newsnet-en talált másik folton alapul, mely Jan
+Niehusmann-tól származik. Módosítottam a foltot, hogy a KT266/266A
+lapkakészleteket is támogassa. Egyébként a saját foltom ugyanazt csinálja,
+mint a parancssoros hackelés, csak a rendszermagból. Ezért javaslom a
+hackelést parancssorból, hiszen azt nagyon egyszerû használni.
+
+   Ok... most nézzük lépésenként, hogyan használjuk a foltot:
+    1. Elõször le kell töltenünk a foltot:
+       [30]2.4.17 rendszermag-folt
+       [31]2.4.21 rendszermag-folt (köszönet Thomas Reinhardt-nak, amiért
+       átírta 2.4.21-re)
+       [32]2.6.5 rendszermag-folt amely támogatja az összes VIA
+       lapkakészletet a KT600-ig (köszönet érte Sebastian Droege-nek
+       amiért átírta a 2.6.5 rendszermaghoz, továbbá egyéb lapkakészlet
+       támogatást adott hozzá)
+    2. Jelentkezzünk be root felhasználóként
+    3. cd /usr/src
+    4. Rakjuk fel a foltot: cat $path-to-patch/amd_cool.diff | patch -p0
+       (Az új 2.6.5 folt esetében: lépjünk be a linux könyvtárba, majd
+       patch -p1)
+    5. cd linux
+    6. Fordítsuk le az új rendszermagot
+    7. Indítsuk újra a számítógépet, majd a boot-prompthoz írjuk be a
+       amd_disconnect=yes sort. Erre azért van szükség, mert az Athlon
+       processzor ismert hibái több alaplap esetén problémákat
+       okozhatnak. Így elõször kipróbáljuk a foltot, és ha mûködik, a
+       amd_disconnect=yes sort beírhatjuk az /etc/lilo.conf fájlba.
+     _________________________________________________________________
+
+2.5. Az LVCool programot használó megoldás
+
+Az LVCool a Windowsos [33]VCool program Linuxos változata. Csak a KT133/133A
+és a KX133 lapkakészletet támogatja, de nem tudok ezzel kapcsolatban
+segítséget nyújtani. Letölthetõ [34]innen. Ez a megoldás nem igényel ACPI
+támogatást.
+     _________________________________________________________________
+
+2.6. Az FVCool program
+
+[35]Íme egy másik energiamegtakarító program, amely számos lapkakészletet
+támogat. Én nem teszteltem, de úgy hallottam mûködik. Ellenõrizd le... Ez
+is egy olyan program, amely képes használni az alaplapon lévõ monitorozó
+lapkákat (úgy mint az lm-sensors csomag).
+     _________________________________________________________________
+
+2.7. AMD 760MP energiatakarékosság
+
+Ez egy olyan rendszermag modul, amely engedélyezi az energiamegtakarítást a
+760MP többprocesszoros lapkakészleten. Megtalálod [36]itt. Nem tudom milyen
+jól mûködik, de valaki küldött olyan levelet, miszerint mûködik. Azért
+ellenõrizd.
+     _________________________________________________________________
+
+3. Mi van még?
+
+3.1. Az energiamegtakarítás mûködésének tesztelése
+
+Rendben ... használjuk az egyik energiamegtakarítási lehetõséget, és
+ellenõrizni szeretnénk annak mûködését. Íme két módszer:
+
+Ha hõvezérlésû processzor ventilátorunk van, akkor a mûködést
+ellenõrizhetjük zaj hangosságával. Néhány percnyi üresjárat után újra
+mûködésbe hozhatjuk a processzort.
+
+   Én rendszerint ezt teszem:
+    1. lépj be root felhasználóként (root)
+    2. cd /usr/src/linux
+    3. majd adjuk ki a következõ parancsot: while true; do make clean;
+       make bzImage; done
+
+Körülbelül 20-30 másodperc múlva a ventilátor zajának erõsödését kell
+észlelnünk, mialatt az gyorsabb menetbe kapcsol. Ne felejtsük el leállítani
+a while-loop ciklust egy kis idõ elteltével (néhány perc), a Ctrl-C
+billentyûkombinációval.
+
+A fenti eljárás a processzor hõmérsékletének monitorozására is használható
+(mint az lm-sensors vagy xmbmon).
+     _________________________________________________________________
+
+3.2. Ismert hibák és problémák
+
+Két hibáról tudunk az Athlon/Duron processzorokban. Ezek 11-es és 14-es
+sorszámmal szerepelnek AMD Athlon Processor Revision Guide-ban. Úgy tûnik,
+az Athlon XP processzort jóval ritkábban érintik ezek a hibák. Így ha Athlon
+XP-vel rendelkezünk, szerencsénk van (mint nekem).
+
+A következõ problémák léphetnek fel (melyeket a processzor hibái okoznak):
+
+     * ugrások hanglejátszás közben
+     * ugrások és lelassulás video lejátszás közben
+     * az ultra-DMA merevlemezes adatátvitel lelassulása
+     * a rendszer nem reagál
+     * USB problémák
+     * valaki csipogásról számolt be
+
+   Néha a BIOS frissítés segíthet ezen (a 11-es hiba kikerülésére létezik
+   egy megoldás, mely a BIOS-t használja). De tudomásom szerint csak
+   kevés alaplap BIOS-ban található meg ez a megoldás.
+
+   Az Asus A7V133-C alaplap esetén ismeretes, hogy a PCI master read
+   caching BIOS beállítás engedélyezése a legtöbb problémát megoldja.
+   Nézzük meg, hogy van-e ilyen funkciója az alaplapunkon lévõ BIOS-nak.
+
+   Azt is tudjuk, hogy néhány alaplap esetén a Delayed Transaction BIOS
+   beállítás a problémák egy részét kiküszöböli. Ezt az opciót is érdemes
+   lehet kipróbálni.
+
+   FIGYELEM: A KT133A lapkakészlettel ellátott alaplapok esetén ez
+   elõhozhatja a híres VIA-Southbridge hibát!
+
+   Egy Newsnet levelezésbõl, az Asus A7V-vel kapcsolatban:
+
+     * delayed transaction nélkül: ugrások hanglejátszás és TV-nézés
+       közben
+     * delayed transaction bekapcsolva: nincsenek ugrások hanglejátszás
+       közben és csak kisebb problémák TV-nézéskor
+     * mind a delayed transcation mind a master read caching bekapcsolva:
+       szinte semmilyen probléma TV-nézéskor és egyáltalán nem
+       jelentkeznek ugrások hanglejátszás közben
+
+   Más okai is lehetnek a problémáknak:
+
+     * a tápegység nem elég erõs ahhoz, hogy a processzor/alaplap
+       energia felvételének ingadozását kezelni tudja
+     * néhány alaplapi feszültség-szabályozónak ugyanaz a hibája, mint a
+       tápegységnek ;)
+     * az alaplapunk típusa K7S5A (tudomásom szerint ez az alaplap nagyon
+       furcsán tud viselkedni, amikor az energiatakarékos üzemmód be van
+       kapcsolva)
+
+   Ha rendszerünket energiatakarékos üzemmódban használva csak kisebb
+   problémák adódnak, és ennek ellenére szeretnénk használni azt
+   használni, alapértelmezésként engedélyezhetjük. Ha zenét akarunk
+   lejátszani vagy TV-t akarunk nézni akkor pedig kikapcsoljuk ...
+     _________________________________________________________________
+
+3.3. Javítás az ugráló hanghoz és egyéb problémákhoz
+
+Köszönet Michael Hamilton-nak, amiért bemutatta az ötlet mûködési elvét.
+
+Ennek a javításnak a mûködését két ember jelentette, szóval úgy néz ki
+mûködik, de nem biztos, hogy mindig. Ha ismersz más megoldásokat, kérlek
+tudasd velem!
+
+Lássuk hát: úgy néz ki, hogy a hang akadozása javítható az eszköz pci latecy
+timer maximális értékre állításával.
+
+Elõször keressük meg a hangkártyához tartozó "pci-address"-t. Ezt a
+lspci-vel tehetjük meg. Keressünk valami "Multimedia audio controller" vagy
+"AudioPCI"-hoz hasonlót. Majd állítsuk be a (ehhez hasonlóan kellene
+kinéznie: 01:06.0 -> it stands for: bus:slot.function) hozzá tartozó latency
+timer-t a maximális értékre. This is done by setpci:
+
+setpci -v -s "pci-address" latency_timer=ff
+
+A Latency Timer-rõl további információt [37]itt található.
+
+Talán más problémák megoldására is használhatjuk, mint például az USB, vagy
+a merevlemez-átviteli-lassulás problémák, de ezt jelenleg még nem próbáltuk.
+Nyugodtan próbálhatod ezt, (de ne tégy szemrehányást, ha nem mûködik, vagy
+valamimás romlik el) és jelentheted, ha mûködik. Az a legnagyobb probléma,
+hogy nekem nem jelentkezik ilyen hiba, így kipróbálni sem tudom a javítást.
+
+Ha mûködik, akkor ezt a setpci parancsot a számítógép minden
+induláskor/újrainduláskor ki kell adnunk. A megoldás az lehet, hogy az init
+szkriptek egyikébe rakjuk be (az eszközvezérlõ modul betöltése után!).
+     _________________________________________________________________
+
+3.4. Egy másik javítás az ugráló hanghoz és egyéb problémákhoz (néhány VIA
+lapkakészlethez)
+
+Köszönet Wijatmoko Prayitno-nak amiért bemutatta ezt!
+
+Ez a javítás csak KT/KM333 és KT/KM400 lapkakészleteknél mûködik. Talán más
+VIA lapkakészletek esetében is mûködik. Kérlek értesíts, ha más VIA
+lapkakészleteknél is mûködik!
+
+Ez elég egyszerû, a parancssoros hackhez hasonlóan mûködik:
+
+   Javítás KT/KM333 és KT/KM400 lapkakészletekhez:
+          bekapcsolás: setpci -v -H1 -s 0:0.0 70=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 70) | 0x08)))
+
+          kikapcsolás: setpci -v -H1 -s 0:0.0 70=$(printf %x
+          $((0x$(setpci -H1 -s 0:0.0 70) & 0xf7)))
+
+   Ha mûködik, akkor ezt a setpci parancsot a számítógép minden
+   induláskor/újrainduláskor ki kell adnunk. A megoldás az lehet, hogy az
+   init szkriptek egyikébe rakjuk be (az eszközvezérlõ modul betöltése
+   után!).
+     _________________________________________________________________
+
+3.5. További teendõk
+
+Még több lapkakészlet leírásával és információval bõvíteni a dokumentumot.
+
+Információ közzététele az Athlon64 és Opteron processzorok
+energiamegtakarító rendszerérõl.
+     _________________________________________________________________
+
+3.6. Fordítások
+
+Fordítások is készültek különféle nyelvekre. Néhányuk nem teljesen naprakész
+(értsd: erõsen elavultak).
+
+A [38]spanyol fordítást Carlos Mayo készítette.
+
+A [39]brazíliai portugál fordítást Bruno Buys készítette.
+
+A [40]francia fordítást Mathieu Pillard készítette.
+
+Az [41]olasz fordítást Maurizio Fantino készítette.
+
+A [42]német fordítást Fabian Mohren készítette (csak részletek).
+
+A [43]japán fordítást Seiji Kaneko készítette.
+
+References
+
+   Visible links
+   1. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#intro
+   2. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#basics
+   3. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#copyright
+   4. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#disclaimer
+   5. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#feedback
+   6. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#AEN61
+   7. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#AEN65
+   8. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#approaches
+   9. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#commandline
+  10. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#athcool
+  11. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#biosup
+  12. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#patch
+  13. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#lvcool
+  14. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#fvcool
+  15. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#760MP
+  16. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#else
+  17. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#testing
+  18. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#bugs
+  19. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#fix
+  20. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#viafix
+  21. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#todo
+  22. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#translations
+  23. http://www.gnu.org/copyleft/fdl.html
+  24. mailto:daniel@nofftz.net.NOSPAM
+  25. http://www.daniel.nofftz.net/linux/
+  26. mailto:moczaz@freemail.hu_NO_SPAM
+  27. mailto:dacas@freemail.hu_NO_SPAM
+  28. http://tldp.fsf.hu/index.html
+  29. file://localhost/home/dacas/tldp/convert/Athlon-Powersaving-HOWTO-hu.html#testing
+  30. http://www.daniel.nofftz.net/linux/amd_cool.diff
+  31. http://www.daniel.nofftz.net/linux/amd_cool.linux-2.4.21.diff
+  32. http://www.daniel.nofftz.net/linux/amd_cool.linux-2.6.5.diff
+  33. http://vcool.occludo.net/
+  34. http://vcool.occludo.net/VC_Linux.html
+  35. http://www.nt.phys.kyushu-u.ac.jp/shimizu/download/download.html
+  36. http://www.muru.com/linux/amd-smp-idle/
+  37. http://www-106.ibm.com/developerworks/linux/library/l-hw2.html
+  38. http://perso.wanadoo.es/cmayo/docs/Athlon-Powersaving-HOWTO-es.html
+  39. http://planeta.terra.com.br/arte/brunobuys/ldp/Gerenciamento%20de%20energia%20em%20athlon%20COMO%20FAZER.txt
+  40. http://www.daniel.nofftz.net/linux/Athlon-Powersaving-HOWTO-fr.html
+  41. http://www.daniel.nofftz.net/linux/Athlon-Powersaving-HOWTO-it.html
+  42. http://www.linuxwiki.de/PowersavingHowto
+  43. http://www.linux.or.jp/JF/JFdocs/Athlon-Powersaving-HOWTO/index.html
+
+   Hidden links:
+  44. http://members.jcom.home.ne.jp/jacobi/linux/softwares.html

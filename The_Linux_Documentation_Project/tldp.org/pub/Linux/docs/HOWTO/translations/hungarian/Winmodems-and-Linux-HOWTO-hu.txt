@@ -1,0 +1,424 @@
+
+                         Winmodemek és a Linux HOGYAN
+
+Alexandre J., alexandre12@mageos.com
+
+   v1.2, 2001 április 29.
+     _________________________________________________________________
+
+   Ez a dokumentum segít a Winmodem tulajdonos felhasználóknak mûködésre
+   bírni az eszközt Linux alatt.
+     _________________________________________________________________
+
+1. Mik azok a Winmodemek?
+
+1.1 Ezek a modemek...
+
+   Egy Winmodem - mint a más modemek is - arra használható, hogy
+   telefonos szolgáltatásokat vehessünk vele igénybe. Ezek lehet: BBS,
+   Internet, hagyományos telefon, fax stb. A telefonvonalra van kötve és
+   a sebességével jellemezzük. Ha többet akarsz tudni róluk, ajánlom
+   olvasd el a Modems-HOWTO (Modem-HOGYAN) leírást.
+
+1.2 ...nem igazi modemek !
+
+   De azért WINmodemek. Ezért kell a Windows ahhoz, hogy mûködjenek.
+   Miért? Egyszerûen azért mert buták. Egy speciális programra -
+   meghajtóra - van szükségük ahhoz, hogy feladatukat elláthassák. Aki
+   meghajtóprogramot mond operációs rendszert is mond, a modemekhez
+   mellékelt meghajtók pedig az esetek 99%-ban kizárólag MS-Windows
+   platformra készülnek el. A Linux elõretörésével azonban néhány gyártó
+   - mint az LT vagy a Motorola - elhatározta, hogy a Linux alá is
+   elkészítik modemeik meghajtóját. Viszont nem értették meg a Linux
+   filozófiáját: a meghajtók természetesen mûködnek, de "zárt
+   forráskódúak". Ezek ingyenesek, de nem a GPL licenc szerint
+   használhatók. Ez azt jelenti, hogy a forráskódjuk nem hozzáférhetõ.
+
+   Így néhány "buherátor" elhatározta, hogy készítenek egy nyílt
+   forráskódú meghajtót, de nem sokat tudtak a modemeikrõl, mert a
+   gyártók nem akartak nyilatkozni azok jellemzõirõl. Ezért a nyílt
+   forráskódú meghajtók gyakran alfa vagy béta állapotban vannak.
+
+1.3 Honnan tudhatom meg, hogy Winmodemem van?
+
+   1. Próbáld megállapítani annak a soros portnak a nevét, amelyikhez a
+   modemed csatlakozik (Windows vagy MSDOS alatt például: COM1, COM2...)
+
+   A modem neve Linux alatt /dev/ttySx, ahol az x a DOS alatti portszám
+   -1. Például.: DOS alatt COM1, Linux alatt /dev/ttyS0
+
+   Második példa: DOS alatt: COM3, Linux alatt /dev/ttyS2
+
+   és így tovább...
+
+   2. Készíts egy szimbolikus hivatkozást (symlink) a /dev/ttySx
+   eszközrõl a /dev/modem eszközre:
+     _________________________________________________________________
+
+rm -f /dev/modem<p>
+ln -s /dev/ttySx /dev/modem
+     _________________________________________________________________
+
+   3. Töltsd le és telepítsd a minicom csomagot, majd futtasd a "minicom
+   -s" parancsot.
+
+   Válaszd ki a "Serial Port Setup" (soros port beállítása) menüpontot,
+   nyomd le az "A" billentyût a "Serial Device" (soros eszköz)
+   beállításához. Töröld az egész sort, majd gépeld a "/dev/modem" sort,
+   aztán az [Enter] billentyût lenyomva fogadd el. Az [Esc] billentyû
+   lenyomása után válaszd a "Save setup as dfl" menüpontot, aztán lépj ki
+   az "Exit" menüpont kiválasztásával. Várj egy kicsit, majd gépeld be:
+   "AT". Ha a modem OK-val válaszol, akkor NEM Winmodemed van, hanem
+   hagyományos...
+
+   Ha az inicializáció túl sokáig tart, akkor bizony Winmodemed van -
+   olvasd tovább ezt a dokumentumot ezzel is hasznossá téve. Jelentkezz
+   be root felhasználóként.
+
+   4. Lépj ki a Minicom programból a CTRL-A, majd X begépelésével.
+
+2. ISA vagy PCI?
+
+2.1 PCI?
+
+   Rendben, Winmodemünk van, de ennek is két típusa van: ISA vagy PCI.
+   Jó, Winmodemünk van...de ennek is két típusa van: ISA vagy PCI. Hogy
+   bonyolítsuk a dolgokat, a két csatolótípus teljesen különbözõ. Ezért
+   most fogjuk tesztelni, hogy megtudjuk nekünk milyen van. Elõször be
+   kell állítanod a rendszermagot (kernel). A beállítás (ez make config;
+   make menuconfig vagy make xconfig lehet - a lektor) során igennel
+   ("yes") kell válaszolnod a következõ kérdésekre:
+
+     * "Loadable module support" (betölthetõ modulok támogatása):
+       'Enable loadable module support (betölthetõ modulok támogatásának
+       engedélyezése) (CONFIG_MODULES)', és 'Set version information on
+       all modules for symbols (CONFIG_MODVERSIONS)' (ehhez a modutils
+       csomagot telepítettnek kell lennie; lásd a Kerneld-HOWTO
+       leírásban)
+     * "General setup" (általános beállítás):
+       'PCI support' (PCI támogatás) (CONFIG_PCI)
+       Válaszd az 'Any' beállítást a 'PCI Access Mode' (PCI elérési mód)
+       tulajdonsághoz (CONFIG_PCI_GOBIOS)
+       'PCI quirks' (CONFIG_PCI_QUIRKS)
+       'Backward compatible /proc/pci' (visszamenõleg kompatibilis
+       /proc/pci) (CONFIG_PCI_OLD_PROC)
+     * Ha be tudod állítani a PCI Device Name Database (PCI eszközök
+       neveinek adatbázisa) tulajdonságot (talán a 2.4+ rendszermagnál),
+       igennel válaszolhatsz, ez könnyebbé teszi a /proc/pci fájl
+       megértését (CONFIG_PCI_NAMES).
+     * A fájlrendszereknél
+       '/proc filesystem support' (/proc fájlrendszer támogatás)
+       (CONFIG_PROC_FS)
+
+   Ha még sosem fordítottad újra a rendszermagot, a disztribúciód
+   rendszermagjában ez benne lehet Ha új rendszermagot akarsz fordítani,
+   olvasd el a Kernel-HOWTO leírást.
+
+   Most feltételezzük, hogy az új rendszermag telepítve van.
+
+   Most futtasd a 'cat /proc/pci' parancsot. Most futtasd a "cat
+   /proc/pci" parancsot. Ha látod a modemed nevét a megjelenõ sorok
+   közt, akkor PCI Winmodemed van. Ugorj "A meghajtó telepítése" pontra.
+
+2.2 vagy ISA ?
+
+   Ha nem találtad meg, akkor feltehetõleg ISA modemed van. Hogyan
+   bizonyosodhatsz meg errõl?
+
+   Az ISA támogatást nem feltételezi a rendszermagod (FRISSÍTÉS: ha 2.4.x
+   rendszermagod van, akkor az automatikusan megteszi Neked, ha így van
+   ugord át ezt a részt és olvasd a következõt). Létezik egy isapnp
+   nevû program, ami elvégzi ezt. Elõször is nézd meg, hogy a csomag
+   telepítve van-e. Ha nincs, töltsd le az isapnptools csomagot.
+
+   Ennek telepítése után a pnpdump nevû speciális programot fogjuk
+   futtatni, ez megvizsgálja a géped és megtalálja az ISA eszközöket.
+   Ezek után megpróbálja kitalálni, milyen erõforrásokat használnak az
+   eszközök, majd beírja ezeket az adatokat egy /etc/isapnp.conf nevû
+   fájlba. A fájl szerkesztése után majd egy másik program, az isapnp
+   futtatásakor a beállításokat kiolvasva automatikusan beállítja az
+   eszközeidet.
+
+   Durván hangzik? Akkor kövesd ezeket a lépéseket:
+
+   1. Futtasd a 'pnpdump > /etc/isapnp.conf' parancsot.
+
+   2. Szerkeszd át a kedvenc szövegszerkesztõddel
+
+   3. Keresd meg azt a részt, ahol a modemed leírása van.
+
+   4. Töröld ki a # jelet bizonyos sorok elõl. A következõkre lesz
+   szükséged:
+
+   1 line '(IO 0 ...)'
+
+   1 line '(INT 0 ...)'
+
+   1 line '(DMA 0 ...)'
+
+   1 line '(DMA 1 ...)'
+
+   1 line '(IO 1...)'
+
+   5. Távolíts el minden '(CHECK)' bejegyzést, a nem megjegyzésként
+   szereplõ IO sorokban
+
+   6. Futtasd a 'isapnp /etc/isapnp.conf' parancsot. Ha hibaüzeneteket
+   kapsz, szerkeszd az isapnp.conf fájlt és változtasd a paramétereket a
+   hibaüzenetek segítségével. Ha nincs több hiba, távolítsd el a fájlból
+   a "#" jelet az '(ACT Y)' sor elõl a modem-résznél, majd futtasd újra
+   az 'isapnp /etc/isapnp.conf' parancsot. Most ki kell írja, hogy "[[A
+   modemed neve]] Enabled OK"
+
+   7. Add hozzá az 'isapnp /etc/isapnp.conf' bejegyzést a
+   "/etc/rc.d/rc.local" fájlhoz, az 'echo "isapnp /etc/isapnp.conf ">>
+   /etc/rc.d/rc.local' begépelésével. Ezt minden egyes indításkor
+   felhasználhatod eszközeid automatikus beállításához.
+
+   Ha ez segít, íme egy kivonat az én /etc/isapnp.conf fájlomból
+   (kommenteztem a fájlt, az eredeti megjegyzések "##" jellel
+   kezdõdnek):
+     _________________________________________________________________
+
+
+# hasznos részletek ...
+## (DEBUG)
+(READPORT 0x0203)
+(ISOLATE PRESERVE)
+(IDENTIFY *)
+(VERBOSITY 2)
+(CONFLICT (IO FATAL)(IRQ FATAL)(DMA FATAL)(MEM FATAL)) # or WARNING
+
+# belsõ modemem azonosítása
+
+## Card 1: (serial identifier e2 00 00 01 00 05 50 c3 1e)
+## Vendor Id GVC5005, Serial Number 256, checksum 0xE2.
+## Version 1.0, Vendor version 0.1
+## ANSI string -->LT Win Modem<--
+##
+## Logical device id HSM0140
+##     Device support I/O range check register
+#
+
+# Mi egy GVC5005/256 kártyát akarunk beállítani
+
+(CONFIGURE GVC5005/256 (LD 0
+
+# I/O Base address 0x03f8, with a range of 8
+(IO 0 (SIZE 8) (BASE 0x03f8) )
+# IRQ 4
+(INT 0 (IRQ 4 (MODE +E)))
+# DMA 5
+(DMA 0 (CHANNEL 5))
+# DMA 7
+(DMA 1 (CHANNEL 7))
+# I/O Base Address 2  0x0100, range 8
+(IO 1 (SIZE 8) (BASE 0x0100) )
+# a kártya neve
+ (NAME "GVC5005/256[0]{LT Win Modem        }")
+# aktiválás
+(ACT Y)
+# beállítás vége
+))
+
+######## Paraméterek egyéb ISA eszközeim számára ##############
+
+## Minden kártya "Wait for Key" állapotba tér vissza
+(WAITFORKEY)
+     _________________________________________________________________
+
+2.3 ISA és a 2.4 rendszermagok
+
+   Amennyiben 2.4 rendszermagod van (add ki a "uname -r" parancsot ennek
+   megállapítására), nincs szükséged erre a trükkös szövegfájl és egyéb
+   csomagok telepítésre. A 2.4 sorozat óta egy a PCI-hoz hasonlatos
+   módszer van a rendszermagban, ez idejétmúlttá teszi az "isapnptools"
+   csomagot. A szolgáltatáshoz használatához az "y" vagy "m" billentyût
+   kell lenyomnod a 'Plug and Play support' (PNP támogatás) (CONFIG_PNP)
+   és az 'ISA Plug and Play support' (ISA PNP támogatás) (CONFIG_ISAPNP)
+   kérdésre a rendszermag konfigurálása során (mindezek a "Plug and Play
+   configuration" részen belül vannak.) Ismét fordítsd újra és telepítsd
+   a rendszermagot. Ha az "m" billentyût nyomtad le az "ISA
+   Plug-and-play support" kérdésre/menüpontra, hasznos a "modprobe
+   isapnp" parancs kiadása. Ehhez egy olyan meghajtóra van szükséged
+   (mint pl. az ltmodem 5.78 - lásd a következõ részt), ami támogatja
+   ezt az új eszközhozzáférési módszert.
+
+3. Egy modem meghajtójának telepítése
+
+   Ezt a részt nem kell végig elolvasnod; elég csak azt a részt
+   elolvasnod, amely a modemedre vonatkozik. Itt jelenleg az LT modem
+   telepítése van leírva - a Lucent vagy nyílt forráskódú meghajtó
+   használatával. Ha már írtál vagy használsz más Winmodem meghajtót -
+   akár zárt akár nyílt forráskódút - írj egy e-mailt nekem
+   (alexandre12@mageos.com), és belerakom annak leírását ebbe a
+   fejezetbe.
+
+3.1 ltmodem 5.78
+
+   URL: http://www.tux.org/pub/dclug/marvin/ltmodem-5.78e.tar.gz
+
+   Szerzõ: Lucent
+
+   Licenc: nem GPL
+
+   Támogatás: ISA/PCI modem, Lucent chipkészlettel (Mars család)
+
+   Szolgáltatások: rendszermag-modul; soros port szimulálása. PPP, fax és
+   hang kezelése
+
+   Jelenlegi változat: 5.78e
+
+   Dokumentáció: README-1ST
+
+   Igények: 2.2.x or 2.4.x; ISA PNP támogatás; "Loadable module support"
+   (betölthetõ modulok támogatása); C fordító
+
+   Használata: olvasd el a README-1ST leírást. Nagyon világos.
+
+   Problémák:
+
+     * Unresolved symbols: xxx_isapnp_xxxx: futtasd a "modprobe isapnp"
+       parancsot.
+     * Device or ressource busy: modemed nem kompatibilis a meghajtóval
+
+   Megjegyzések: a Lucent jelenleg - a rendszermag változatai és
+   disztribúciós problémák elkerülésére - közreadja a forráskód egyes
+   részeit.
+
+3.2 Az LT WinModem (Lucent) 5.68 (ELAVULT)
+
+   URL: http://www.linmodems.org/linux568.zip
+
+   Szerzõ: Lucent Technologies
+
+   Licenc: nem GPL
+
+   Támogatás: ISA/PCI modemek, Lucent chipkészlettel (Mars család)
+
+   Szolgáltatások: rendszermag-modul; soros port szimulálása. PPP, fax és
+   hang kezelése
+
+   Jelenlegi változat (amennyire tudom): 5.68
+
+   Dokumentáció: README
+
+   Igények: 2.2.12 vagy újabb RedHat rendszermag; "loadable module
+   support" (betölthetõ modulok támogatása)
+
+   Használata: csomagold ki ('unzip linux568.zip'), és futtasd az
+   ./ltinst parancsot. Ennyi!
+
+   Problémák:
+
+     *
+     * 'insmod: ltmodem: Unresolved symbol(s) *****': A rendszermagod nem
+       használható az ltmodem programmal. Szerezd be a 2.2.12
+       rendszermagot az ftp.kernel.org helyrõl, fordítsd le és telepítsd
+     * 'Warning: kernel version mismatch...": Ez egyszerûen azt jelenti,
+       hogy nem 2.2.12-20 rendszermagod van. Ez mindössze egy
+       figyelmeztetés, ez nem akadályozza a modem használatát
+     * 'ltmodem: init_module: device or resource busy':
+          + Nem lt modem vagy kompatibilis eszköz van telepítve
+          + Ha ISA modem, nincs beállítva az isapnp segítségével
+          + Ha ISA modem, nincs beállítva az isapnp segítségével
+
+3.3 Az LTMODEM program (OpenSource meghajtó)
+
+   URL: http://www.close.u-net.com
+
+   Szerzõk: Richard Close and Pavel Machek
+
+   Licenc: GPL
+
+   Támogatás: ISA/PCI modemek, Lucent chipkészlettel (Mars család)
+
+   Szolgáltatás: felhasználói meghajtó; Voice calls; nem támogatja a
+   PPP-t (V90)
+
+   Jelenlegi változat (amennyire én tudom): 0.99
+
+   Dokumentáció: README
+
+   Igények: GNU C fordító, automake
+
+   Használata:
+
+     *
+     * PCI: make ; make install - ezután használd az 'ltmodem' programot
+       a modemmel való kommunikáláshoz
+     * ISA: (olvasd a README.ISA fájlt) mv Makefile Makefile.PCI ; mv
+       Makefile.ISA Makefile ; szerkeszd a config.h fájl, állítsd be a
+       helyes értékeket modemedhez (I/O cím, DMA, IRQ) ; make ; make
+       install - ezután használd az 'ltmodem' programot a modemmel való
+       kommunikáláshoz.
+
+   Problémák:
+
+     * "Sorry, I can't found any modem...":
+          + Nem LT modemed van
+          + ISA modemed van, amit nem állítottál be az isapnp programmal
+          + ISA modemed van, de az ltmodem nem ISA modemhez lett
+            lefordítva
+          + PCI modemed van viszont a rendszermagodban nincs PCI
+            támogatás beállítva
+          + PCI modemed és megfelelõ a rendszermagod, de az ltmodem nem
+            PCI modemhez lett lefordítva
+
+4. Végül...
+
+4.1 Licenc, szerzõi jog
+
+   Copyright (C) 2000, 2001 Alexandre J.
+
+   Ez a program egy szabad szoftver; terjesztheted és/vagy módosíthatod
+
+   a Free Software Foundation által közzétett
+
+   GNU General Public License alapján;
+
+   vagy a Licenc 2. változata, illetve
+
+   (saját belátásod alapján) ennek késõbbi változata szerint.
+
+   Ez a program a használhatóságának reményében került terjesztésre, de
+   MINDENFÉLE GARANCIA NÉLKÜL; beleértve az ELADHATÓSÁGOT vagy BÁRMELY
+   CÉLRA VALÓ ALKALMASSÁGOT. Lásd a GNU General Public License leírásban
+   a további részleteket.
+
+   A GNU General Public License egy példányát meg kell kapnod ezzel a
+   programmal együtt; amennyiben ezt nem kapnád meg írj a következõ
+   címre: Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+   Boston, MA 02111-1307 USA
+
+4.2 Kapcsolatfelvétel
+
+   Ha bármilyen ötleted van ezzel a leírással kapcsolatban, kérlek küldj
+   egy e-mailt nekem (Alexandre J.) az alexandre12@mageos.com címre.
+
+4.3 Források
+
+     * A Linmodems project honlapja: http://www.linmodems.org
+     * Az LTModem project honlapja: http://www.close.u-net.com
+     * A Lucent Technologies honlapja: http://www.lucent.com
+     * A Linux rendszermag: http://www.kernel.org
+     * Az isapnptools honlapja:
+       http://www.roestock.demon.co.uk/isapnptools
+     * Az LDP honlapja (itt szerezhetsz be HOGYANokat):
+       http://www.redhat.com/mirrors/LDP
+
+4.4 Magyar fordítás
+
+   A magyar fordítást [1]Szijjártó László készítette (2002.07.17).
+   Bármilyen fordítással kapcsolatos észrevételt a
+   [2]linuxhowto@sch.bme.hu címre küldjetek. A lektorálást [3]Daczi
+   László végezte el (2002.10.21). A fordítás javítva 2002.10.25.-én. Eme
+   dokumentum legfrissebb változata megtalálható a [4]Magyar Linux
+   Dokumentációs Projekt honlapján.
+
+References
+
+   1. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+   2. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+   3. mailto:dacas@freemail.hu_NO_SPAM
+   4. http://tldp.fsf.hu/index.html

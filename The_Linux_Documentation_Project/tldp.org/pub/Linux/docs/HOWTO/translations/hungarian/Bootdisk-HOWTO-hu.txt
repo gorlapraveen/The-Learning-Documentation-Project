@@ -1,0 +1,2691 @@
+  Linux Indítólemez HOGYAN
+  Tom Fawcett (fawcett@croftj.net)
+  3.5, July 1999
+
+  Ez a dokumentáció azt mutatja be, hogyan készítheted el a saját Linux
+  indító/gyökér lemezeidet. Ezeket a lemezeket a rendszered biztonsági
+  lemezeként, vagy új rendszerkomponensek tesztelésére használhatod. Ha
+  még nem olvastad el a Linux GYIK-et és az olyan idevágó doku­
+  mentációkat, mint a Linux Telepítés HOGYAN és a Linux Telepítési
+  Kézikönyv, nem ajánlatos indítólemez készítésével próbálkoznod. Ha
+  csak vészhelyzet esetére szeretnél biztonsági lemezt készíteni, nézd
+  meg a ``Elõre-gyártott indítólemezek'' Függeléket.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+
+  1. Bevezetés.
+     1.1 Verzió megjegyzések.
+     1.2 Visszacsatolás és köszönet-nyilvánítás.
+     1.3 Terjesztési jogosultság.
+
+  2. Bevezetés.
+  3. Indítólemezek és az indítás folyamata.
+     3.1 Az indítási folyamat.
+     3.2 Lemez típusok.
+
+  4. Gyökér állományrendszer készítése.
+     4.1 Áttekintés.
+     4.2 Az állományrendszer elkészítése.
+     4.3 Az állományrendszer benépesítése.
+        4.3.1 /dev
+        4.3.2 /etc
+        4.3.3 /bin és /sbin
+        4.3.4 /lib
+     4.4 PAM és NSS számára szolgáltatandók.
+        4.4.1 PAM (Pluggable Authentication Modules: Beilleszthetõ Hitelesítõ Modul).
+        4.4.2 NSS (Name Service Switch: Név Szolgáltatás Kapcsoló).
+     4.5 Modulok.
+     4.6 Néhány utolsó simítás.
+     4.7 Töltsük fel.
+
+  5. Kernel választása.
+  6. Rakjuk össze õket: lemez(ek) elkészítése.
+     6.1 A kernel másolása LILO-val.(NCDXLILO)NCDX.
+     6.2 A Kernel másolása LILO nélkül.
+     6.3 Memórialemez szó beállítása.
+     6.4 A gyökér állományrendszer átvitele.
+
+  7. Hibakeresés, avagy a Legyõzött Gyötrõdése.
+  8. Vegyes témakörök.
+     8.1 A gyökér állományrendszer méretének csökkentése
+     8.2 Nem memórialemez gyökér állományrendszerek.
+     8.3 Eszközlemez készítése.
+
+  9. Hogy csinálják a profik?
+  10. Gyakran ismételt kérdések (GYIK) listája
+  A. Erõforrások és mutatók.
+     A.1 Elõre elkészített indítólemezek.
+     A.2 Mentõ csomagok.
+     A.3 Graham Chapman parancsértelmezõ szkriptje
+     A.4 LILO -- a Linux betöltõ.
+     A.5 Linux GYIK és HOGYANok.
+     A.6 Memórialemez használat.
+     A.7 A Linux betöltési folyamata.
+
+  B. LILO indulási hibakódok.
+  C. Példa egy gyökérlemez könyvtárlistájára.
+  D. Példa egy eszköz lemez alkönyvtár listájára.
+
+
+  ______________________________________________________________________
+
+  1.  Bevezetés.
+
+
+  Megjegyzés: Ez a dokumentáció elavult lehet. Ha a címlapon szereplõ
+  dátum több, mint hat hónappal ezelõtti, nézd meg a Linux Documentation
+  Project holapon ( <http://metalab.unc.edu/LDP/HOWTO/Bootdisk-
+  HOWTO.html>), hogy nincs-e frisebb verzió.
+
+  Bár ez a dokumentáció jól olvasható sima szöveges formátumban, sokkal
+  jobban néz ki Postscript (.ps) vagy HTML formátumban, mert tipográfiai
+  jeleket is használunk. Ajánljuk, hogy ezek valamelyikét használd.
+
+
+  1.1.  Verzió megjegyzések.
+
+
+  Graham Chapman (grahamc@zeta.org.au) írta az eredeti Bootdisk-HOWTO-t
+  és a 3.1-es verzióig õ támogatta.  Tom Fawcett (fawcett@croftj.net)
+  sok dolgot hozzátett a 2.0-s kernel miatt, és õ a dokumentáció
+  karbantartója a 3.2-es verziótól kezdve. Chapman eredeti
+  dokumentációjának nagyrésze változatlanul megmaradt.
+
+  A Bootdisk-HOWTO fordítását, az Indítólemez-HOGYAN-t Bábos Balázs
+  (bbk@swi.hu) készítette.
+
+  Ez a dokumentáció a 2.0-ás és késõbbi kernelekhez készült. Ha ennél
+  régebbi kerneled van (1.2.xx vagy korábbi), nézd meg e dokumentáció
+  korábbi verzióit, melyeket a Graham Chapman honlapja
+  <http://www.zeta.org.au/~grahamc/linux.html> helyrõl szerezhetsz be.
+
+  Ezek az információk kifejezetten Intel Linux platformra készültek. Az
+  itt található dolgok nagyrésze más processzorú Linux rendszerben is
+  felhasználhatók, de nincs saját tapasztalatunk e téren. Ha valaki
+  rendelkezik más platform indítólemezének elkészítésében
+  tapasztalattal, kérjük vegye fel velünk a kapcsolatot.
+
+
+  1.2.  Visszacsatolás és köszönet-nyilvánítás.
+
+
+  Szívesen fogadunk minden a dokumentációval kapcsolatos pozitív vagy
+  negatív visszajelzést. A legjobb tudásunk szerint próbáltuk meg
+  összeállítani az itt található utasításokat és információkat, hogy
+  helytállóak és megbízhatóak legyenek. Légyszíves értesíts minket, ha
+  hibát vagy elírást találnál.
+
+  Köszönjük sokatoknak, akik segítettetek javításokkal és ötletekkel.  A
+  közremûködésetek tette sokkal jobbá, nélkületek nem sikerült volna.
+
+  Megjegyzéseket, javításokat, kérdéseket a készítõ fentebb olvasható E-
+  mail címére küldheted. Nem bánom, ha kérdésekre kell válaszolnom, de
+  elõször olvasd el a ``Hibajavítást''-t.
+
+
+
+  1.3.  Terjesztési jogosultság.
+
+
+  Copyright © 1995,1996,1997,1998,1999 by Tom Fawcett and Graham
+  Chapman. Ez a dokumentáció szabadon terjeszhetõ a Linux Documentation
+  Project License ( <http://metalab.unc.edu/LDP/COPYRIGHT.html>)
+  figyelembevételével. Fordulj a készítõkhöz, ha nem tudsz hozzájutni a
+  licenszhez.
+
+
+  Ez egy ingyenes dokumentáció. Abban a reményben terjesztjük, hogy
+  hasznos lehet, de bármiféle garancia nélkül.
+
+
+
+  2.  Bevezetés.
+
+
+  A Linux indítólemezek több esetben hasznosak lehetnek, mint például:
+
+
+  ·  Új kernel tesztelése.
+
+  ·  Lemezhiba utáni helyreállítás -- bármi, az elveszett indító
+     szektortól kezdve a merevlemez fejének összetöréséig.
+
+  ·  Letiltott rendszer javítása. Súlyos hiba, ha root-ként
+     használhatatlanul hagyva a rendszert kiléphetsz belõle, és indító
+     lemezre lesz szükséged a helyreállításához.
+
+  ·  Olyan kritikus rendszer állományok frissítésekor, mint például a
+     libc.so.
+
+  Több lehetõség áll rendelkezésedre, hogy beszerezz indító lemezeket:
+
+
+  ·  Használhatod például a Slackware disztribúció lemezeit.  Ezek
+     legalább lehetõvé teszik, hogy Linux rendszert indíts.
+
+  ·  Használhatsz mentõ csomagokat, amiket arra terveztek, hogy
+     biztonsági indító lemezt készíthess velük.
+
+  ·  Vizsgáld meg, hogy mi szükséges az összes lemez mûködéséhez, és
+     készítsd el a sajátod.
+
+  Néhányan ez utóbbit választják, azaz saját maguk készítik el a
+  rendszerindító lemezeiket. Így ha valami elromlik, ki tudják találni,
+  hogy mi a teendõ a megjavításához. Ezen kívül ez egy jó módszer arra,
+  hogy megtanulják, hogy is mûködik egy Linux rendszer.
+
+  Ez a dokumentáció feltételezi, hogy van némi jártasságod a Linux
+  rendszer-adminiszráció alapkérdéseiben. Például nem árt tudnod, hogy
+  mik azok az alkönyvtárak, állományrendszerek és floppy lemezek. Ezen
+  kívül jó ha tudod használni a mount és a df parancsokat, valamint
+  ismerned kell, hogy a /etc/passwd és fstab állományok mire jók, és
+  hogyan néznek ki. Nem árt, ha azt is tudod, hogy a legtöbb parancsot,
+  amit ebben a HOGYAN-ban is használunk root-ként kell futtatnod.
+
+  A saját indítólemezed a semmibõl való elkészítése meglehetõsen
+  bonyolult dolog.  Ha még nem olvastad el a Linux GYIK-et és az olyan
+  idevágó dokumentációkat, mint a Linux Telepítés HOGYAN és a Linux
+  Telepítési Kézikönyv, nem ajánlatos indítólemez készítésével
+  próbálkoznod. Ha csak vészhelyzetek esetére kell egy mûködõ
+  indítólemez, sokkal egyszerûbb, ha letöltesz egy megfelelõ változatot
+  magadnak. Nézd meg a ``Elõre elkészített indítólemezek'' függeléket
+  lejjebb, hogy hol is találod ezeket.
+
+
+  3.  Indítólemezek és az indítás folyamata.
+
+
+  Az indítólemez tulajdonképpen egy pici, saját magát egyetlen floppy
+  lemezen tartalmazó Linux rendszer. Sok -a teljes méretû Linux
+  rendszerben lévõ funkcióhoz hasonló- funkciót kell ellátnia. Mielõtt
+  nekikezdenél egy ilyen rendszer készítésének, meg kell értened az alap
+  Linux rendszer betöltési folyamatát. Azokkal az alapokkal foglalkozunk
+  itt, amikre a dokumentáció további részének megértéséhez szükséged
+  lesz. Több esetben a részleteket és az alternatív lehetõségeket
+  kihagytuk.
+
+
+  3.1.  Az indítási folyamat.
+
+
+  Minden PC rendszer az indítási folyamatot a ROM-ban lévõ kód
+  végrehajtásával (pontosabban a BIOS-ban) kezdi, hogy betöltse az
+  indító meghajtó 0. szektor, 0. cylinderén található szektort. Az
+  indító meghajtó általában az elsõ floppy lemez meghajtó (DOS alatt
+  A:-val jelölik, Linuxban /dev/fd0). A BIOS ezután megpróbálja
+  végrehajtani ezt a szektort. A legtöbb indítható lemez 0. szektora, 0.
+  cylindere a következõk valamelyikét tartalmazza:
+
+
+  ·  indító betöltõ, mint például a LILO kódja, ami majd megtalálja a
+     kernelt, betölti, és végrehajtja, hogy elindítsa a teljes betöltõt.
+
+  ·  egy olyan operációs rendszer magjának kezdete, mint például a
+     Linux.
+
+  Ha a Linux kernel nyers-másolással kerül át egy lemezre, a lemez elsõ
+  szektora magának a kernelnek az elsõ szektorát fogja tartalmazni. Az
+  elsõ szektor fogja folytatni a betöltési folyamatot a kernel többi
+  részének indító eszközrõl való betöltésével.
+
+  Amint a kernel teljes egészében betöltõdött, néhány alapvetõ eszköz-
+  inicializálást hajt végre. Ezután megpróbálja betölteni és
+  beilleszteni a gyökér állományrendszert néhány eszközrõl. A gyökér
+  állományrendszer egyszerûen az az állományrendszer, amit ``/''-ként
+  illesztünk be. A kernelnek meg kell mondani, hogy hol keresse a gyökér
+  állományrendszert; ha nem talál betölthetõ állományrendszert itt,
+  megáll.
+
+  Néhány esetben az induláskor -- gyakran, amikor lemezrõl indítunk -- a
+  gyökér állományrendszert memórialemezre töltjük be, amit a rendszer a
+  RAM-ból olvas úgy, mintha lemez lenne. Két indok lehet, ami miatt a
+  rendszert memórialemezre töltjük.  Az elsõ, hogy a RAM lényegesen
+  gyorsabb bármely floppy lemeznél, így a rendszer mûködése nagyon
+  gyors, a második, hogy a kernelt tömörített állományrendszerrõl
+  töltjük be a lemezrõl, majd memórialemezre kitömörítjük, ezzel
+  lehetõvé téve több állomány lemezre másolását.
+
+  Ha a gyökér állományrendszer betöltõdött, és beillesztõdött, a
+  következõhöz hasonló üzenetet kapsz:
+
+
+          VFS: Mounted root (ext2 filesystem) readonly.
+
+
+
+  Ennél a pontnál a renszer megkeresi az gyökér állományrendszeren az
+  init programot (a /bin vagy az /sbin alkönyvtárban), és végrehajtja.
+  Az init az /etc/inittab állományból olvassa a konfigurációt, megkeresi
+  a megfelelõ sysinit sort, és végrehajtja a named szkriptet. A sysinit
+  szkript általában valami olyasmi, mint az /etc/rc vagy az
+  /etc/init.d/boot.  Ez a szkript parancsértelmezõ parancsok halmaza,
+  amik az olyan alap rendszer szolgáltatásokat állítják be, mint:
+
+
+  ·  fsck futtatása minden lemezen,
+
+  ·  Megfelelõ kernel modulok, betöltése
+
+  ·  Swap indítása,
+
+  ·  Hálózat inicializálása,
+
+  ·  Az fstab-ban felsorolt lemezek beillesztése.
+
+  Ez a szkript gyakran meghív más szkripteket, hogy moduláris
+  inicializálást tegyen lehetõvé. Például a közös SysVinit szerkezet, az
+  /etc/rc.d/ alkönyvtár olyan alkönyvtárak teljes rendszerét
+  tartalmazza, amelyek állományai megadják, hogy hogy kell engedélyezni
+  és leállítani a legtöbb rendszerszolgáltatást.  Mindazonáltal az
+  indítólemezek sysinit szkriptje gyakran nagyon egyszerû.
+
+  Amikor a sysinit szkript végez, visszaadja a vezérlést az init-nek,
+  ami ezután az inittab initdefault kulcsszavával megadott
+  alapértelmezett futásszintre lép. A futásszint sor általában
+  meghatároz egy getty-hez hasonló programot, ami a konzolon és tty-ken
+  keresztüli kommunikációért felelõs. A getty az a program, ami a már
+  ismerõs ``login:'' promptot írja ki. A getty program hívja meg a login
+  programot, hogy a bejelentkezéseket lekezelje, és beállítsa a
+  felhasználói környezetet.
+
+
+  3.2.  Lemez típusok.
+
+
+  Miután átnéztük az alap indulási folyamatot, definiálhatjuk a
+  különbözõ lemeztípusokat. Négy típusba sorolhatjuk a lemezeket. A
+  dokumentációban szereplõ ``lemez'' szó alatt a továbbiakban a floppy
+  lemezt értjük, ha másként nem rendelkezünk, bár a legtöbb dolog,
+  amirõl szó lesz, érvényes merevlemezre is.
+
+
+
+     betöltõ(boot)
+        A lemez a betöltendõ kernelt tartalmazza. A lemez a kernel
+        betöltésére használható, ami utána másik lemezen levõ gyökér
+        állományrendszert töltene be. A betöltõlemezen levõ kernelnek
+        meg kell mondani, hogy hol találja a gyökér állományrendszert.
+
+        Gyakran a betöltõlemez másik lemezen levõ gyökér
+        állományrendszert tölt be, de az is megoldható, hogy merevlemez
+        gyökér állományrendszerét töltse be inkább. Ezt általában új
+        kernel tesztelésére használjuk.  (tulajdonképpen a ``make
+        zdisk'' parancs automatikusan készít ilyen betöltõ lemezt a
+        kernel forráskódjából).
+
+
+     gyökér(root)
+        A Linux rendszer mûködéséhez szükséges állományokat tartalmazó
+        állományrendszer. Az ilyen lemez nem szükségszerûen tartalmaz
+        kernelt, vagy indító betöltõt (boot loader).
+
+        Egy gyökér lemezt használhatunk más lemezen lévõ rendszertõl
+        függetlenül, ha a kernel már betöltõdött. A gyökérlemez gyakran
+        automatikusan memórialemezre másolódik. Ez sokkal gyorsabbá
+        teszi a gyökérlemez használatát, és felszabadítja a lemez
+        meghajtót az eszközlemez számára.
+
+
+     betöltõ/gyökér(boot/root)
+        Olyan lemez, ami a kernelt és a gyökér állományrendszert is
+        tartalmazza. Más szavakkal, mindent tartalmaz, amire egy Linux
+        rendszer merevlemez nélküli mûködéséhez szükség van. Ennek a
+        lemeztípusnak a tömörsége az elõnye -- minden szükséges dolgot
+        egyetlen lemezen tartalmaz. Mindazonáltal mivel minden
+        folyamatosan növekszik, egyre nehezebb mindent egy lemezre
+        zsúfolni, még tömörítéssel is.
+
+
+     eszköz(utility)
+        Olyan lemez, ami nem gyökérként beillesztendõ állományrendszert
+        tartalmaz, hanem kiegészítõ adatokat. Egyéb eszközök
+        szállítására használhatsz ilyen lemezt a gyökér lemezed
+        kiegészítéseként, ha arra már nem fér más.
+
+  Általában amikor ``betöltõlemez készítésérõl'' beszélünk, ezalatt
+  egyaránt értjük a betöltõ (kernel) és a gyökér (állományok) részek
+  elkészítését. Ezek lehetnek együtt (egylemezes betöltõ/gyökér lemez),
+  vagy külön (betöltõ+gyökér lemezek). A legrugalmasabb megoldás
+  helyreállító lemezek esetén valószínûleg a különválasztott betöltõ és
+  gyökér lemezek használata, és egy vagy több eszköz lemez a többlet
+  kezelésére.
+
+
+  4.  Gyökér állományrendszer készítése.
+
+
+  A gyökér állományrendszer készítéséhez ki kell választani a rendszer
+  futásához szükséges állományokat. Ebben a fejezetben megmutatjuk, hogy
+  hogyan kell tömörített gyökér állományrendszert készíteni.  Kevésbé
+  gyakori lehetõség amikor tömörítetlen állományrendszert készítünk
+  olyan lemezre, ami közvetlenül gyökérként lesz beillesztve a
+  rendszerbe; ezt az alternatívát a ``Nem-memórialemez gyökér
+  állományrendszer'' fejezetben mutatjuk be.
+
+
+  4.1.  Áttekintés.
+
+
+  A gyökér állományrendszernek mindent tartalmaznia kell, amire a teljes
+  Linux rendszernek szüksége van. Ahhoz, hogy ezt megtehessük, a
+  lemeznek tartalmaznia kell a Linux rendszer minimális szükségleteit:
+
+
+  ·  Az alap állományrendszer-struktúra,
+
+  ·  Minimális alkönyvtár-struktúra: /dev, /proc, /bin, /etc, /lib,
+     /usr, /tmp,
+
+  ·  Alap eszközök: sh, ls, cp, mv, stb.,
+
+  ·  Minimálisan szükséges konfigurációs állományok: rc, inittab, fstab,
+     stb.,
+
+  ·  Eszközök: /dev/hd*, /dev/tty*, /dev/fd0, stb.,
+
+  ·  Eszközök által használt alap függvényeket nyújtó futásidejû
+     eljáráskönyvtárak.
+
+  Természetesen bármely rendszer akkor hasznos, ha tudsz rajta futtatni
+  is valamit. A gyökérlemez  általában csak akkor válik használhatóvá,
+  ha valami ilyesmit megtehetsz vele:
+
+
+  ·  Másik meghajtón állományt ellenõrzöl, például azért, hogy
+     leelenõrizd a merevlemezeden lévõ gyökér állományrendszeredet,
+     másik meghajtóról el kell, hogy tudd indítani a Linux rendszeredet,
+     mint ahogy azt egy gyökér lemezrõl meg is teheted. Ezután
+     lefuttathatod az fsck-t az eredeti gyökér meghajtódra, amíg nincs
+     beillesztve.
+
+  ·  Visszaállíthatod az eredeti gyökér meghajtódat biztonsági mentésbõl
+     olyan archiváló és tömörítõ eszközök használatával, mint a cpio,
+     tar, gzip és az ftape.
+
+  Megmutatjuk, hogy hogyan készíthetsz tömörített állományrendszert.
+  Így hívják, mert a lemezen tömörítve tárolódik, majd indításkor pedig
+  kitömörítõdik a memórialemezre.
+
+  Tömörített állományrendszerrel sok állományt rázsúfolhatsz (körülbelül
+  hat megabájtot) egy hagyományos 1440K-s lemezre. Mivel az
+  állományrendszer lényegesen nagyobb a lemeznél, nem is lehet lemezen
+  elkészíteni. Máshol kell elkészíteni, tömöríteni, majd rápakolni a
+  lemezre.
+
+
+  4.2.  Az állományrendszer elkészítése.
+
+
+  Ahhoz, hogy ilyen gyökér állományrendszert készíthess, olyan tároló
+  eszközre lesz szükséged, ami elég nagy, hogy a tömörítés elõtt
+  elférjenek rajta az állományok. Egy körülbelül négy megabájt szabad
+  hellyel rendelkezõ eszközre lesz szükséged. Több lehetõség áll
+  rendelkezésedre:
+
+
+  ·  Használhatsz memórialemezt (ESZKÖZ = /dev/ram0).  Ebben az esetben
+     a memóriát használjuk a lemez szimulálására. A memórialemeznek elég
+     nagynak kell lennie, hogy a megfelelõ méretû állományrendszer
+     elférjen rajta.  Ha LILO-t használsz, nézd meg a konfigurációs
+     állományát (/etc/lilo.conf), hogy szerepel-e benne a
+
+
+             RAMDISK_SIZE = nnn
+
+
+
+  sor, ami megadja, hogy mekkora RAM legyen maximálitan memórialemez
+  számára lefoglalható. Az alapértelmezett érték 4096K, aminek ele­
+  gendõnek kell lennie.  Nem célszerû 8MB-nál kevesebb memóriával ren­
+  delkezõ gép esetén memórialemezt használni.
+
+  Nézd meg, hogy vannak-e olyan eszközeid, mint a /dev/ram0, /dev/ram,
+  vagy a /dev/ramdisk.  Ha nincsenek, készítsd el a /dev/ram0-t az mknod
+  (major 1, minor 0) paranccsal.
+
+  ·  Jó megoldás, ha van egy elég nagy (néhány megabájt) használaton
+     kívüli merevlemez-partíciód.
+
+  ·  Használj loopback eszközt, amivel lemez állományt eszközként
+     kezelhetsz. Loopback eszközzel elkészíthetsz egy 3 megabájtos
+     állományt a merevlemezeden, és felépítheted benne az
+     állományrendszert.
+
+     A loopback eszközök használatának bõvebb ismertetéséhez használd a
+     man losetup parancsot. Ha nincs losetup-od, az
+     <ftp://ftp.win.tue.nl/pub/linux/utils/util-linux/> címrõl
+     letöltheted a mount és unmount programokkal kompatibilis util-linux
+     csomagot, amiben megtalálod.
+
+
+     Ha nincs a rendszereden (/dev/loop0, /dev/loop1, stb.)  loop
+     eszköz, készítened kell egyet az ``mknod /dev/loop0 b 7 0''
+     paranccsal. Miután feltelepítetted ezeket a különleges mount és
+     umount binárisokat, készíts egy elegendõ kapacitással rendelkezõ
+     ideiglenes állományt a merevlemezeden (pl. /tmp/fsfile).
+     Használhatod a
+
+
+             dd if=/dev/zero of=/tmp/fsfile bs=1k count=<it/nnn/
+
+
+
+  parancsot a nnn-blokk méretû állomány készítéséhez.
+
+  Ezt az állománynevet használd lejjebb az ESZKÖZ helyett. Ha a mount
+  utasítást használod, a ``-o loop'' kapcsolót is használnod kell, hogy
+  megmond a mount-nak, hogy loopback eszközt használjon.  Például a
+
+
+          mount -o loop -t ext2 /tmp/fsfile /mnt
+
+
+
+  parancs beilleszti a /tmp/fsfile-t (loopback eszközön keresztül) az
+  /mnt illesztési pontba.  Egy df parancs ezt meg is erõsíti.
+
+
+  Miután kiválasztottad valamely opciót, készítsd el az ESZKÖZt a
+
+
+          dd if=/dev/zero of=DEVICE bs=1k count=3000
+
+
+
+  utasítással. Ez a parancs lenullázza az eszközt. Ez a lépés azért
+  fontos, mert késõbb tömöríteni fogjuk az állományrendszert, így minden
+  használaton kívüli területet nullával kell feltölteni, hogy maximális
+  tömörítést érhessünk el.
+
+  Következik az állomáynrendszer elkészítése. A Linux kernel kétféle
+  gyökér lemeztípust ismer, amit automatikusan memórialemezre másol. Az
+  egyik a minix, a másik az ext2, ami a preferált állományrendszer. Ha
+  ext2-t használsz, hasznosnak találhatod a -i kapcsolót, hogy az
+  alapértelmezettnél több inode-t adhass meg; a -i 2000 ajánlott
+  legalább, hogy ne fogyhass ki inode-okból.  Másfelõl viszont meg is
+  takaríthatsz inode-okat, ha letörlöd a sok felesleges eszközállományt
+  a /dev alkönyvtárból. Az  mke2fs parancs 360 inode-t készít
+  alapértelmezés szerint egy 1.44Mb-s lemezen. Úgy találtam, hogy 120
+  inode bõven elegendõ a helyreállító lemezemen, de ha a /dev alkönyvtár
+  összes állományát szeretnéd csatolni, hamar ki fogsz fogyni a 360
+  inode-ból.  A tömörített gyökér állományrendszer nagyobb
+  állományrendszert enged meg, és így alapértelmezés szerint több inode-
+  t, de még mindig szükség lehet rá, hogy egyrészrõl csökkentsd az
+  állományok számát, vagy növeld az inode-k számát.
+
+  Így tehát az utasítás így néz ki:
+
+          mke2fs -m 0 -i 2000 ESZKÖZ
+
+
+
+  (Ha loopback eszközt használsz, meg kell adnod hogy az ESZKÖZ hol
+  található.  Ebben az esetben az mke2fs meg fog kérdezni, hogy biztosan
+  ezt szeretnéd-e, válaszolj igennel.)
+
+  Az mke2fs utasítás automatikusan megállapítja a szabad hely méretét,
+  és annak megfelelõen konfigurálja be magát. A -m 0 paraméter
+  megakadályozza, hogy a root számára helyet foglaljon le, így több
+  használható hely lesz a lemezen.
+
+  Ezután beillesztheted az eszközt:
+
+          mount -t ext2 ESZKÖZ /mnt
+
+
+
+  (Létre kell hoznod a /mnt beillesztési pontot, ha még nem létezik.)  A
+  további fejezetekben minden alkönyvtárnevet az /mnt-hez képest relatív
+  alkönyvtárnak tekintünk.
+
+
+
+  4.3.  Az állományrendszer benépesítése.
+
+
+  Íme egy kellõen lecsupaszított alkönyvtárcsoport a gyökér
+  állományrendszered számára:
+
+  ·  /dev -- Eszközök, melyek a B/K mûveletekhez szükségesek
+
+  ·  /proc -- Alkönyvtár-rendszer, amire a proc állományrendszernek van
+     szüksége
+
+  ·  /etc -- Rendszerkonfigurációs állományok
+
+  ·  /sbin -- Kritikus rendszer-binárisok
+
+  ·  /bin  -- A rendszer részét alkotó alap binárisok
+
+  ·  /lib -- Futásidejû támogatást nyújtó osztott eljáráskönyvtárak
+
+  ·  /mnt -- Más lemezek karbantartására szolgáló beillesztési pont
+
+  ·  /usr -- Egyéb eszközök és alkalmazások
+
+  (Az itt bemutatott alkönyvtár-struktúra csak a gyökér lemezre
+  vonatkozik.  A valódi Linux rendszerek sokkal összetettebb és sokkal
+  fegyelmezettebb irányvonallal rendelkeznek. Állományrendszer
+  Hierarchia Szabványnak hívják ezt a rendszert, és ez a szabvány
+  határozza meg, hogy melyik állománynak hova kell kerülnie.)
+
+
+  A gyökér lemezen három alkönyvtár üresen marad, tehát csak az mkdir
+  parancsra van szükség a létrehozásukhoz. A /proc alkönyvtár
+  tulajdonképpen csak egy törzs, ahova a proc állományrendszer kerül. Az
+  /mnt és az /usr alkönyvtárak pedig olyan beillesztési pontok, melyeket
+  majd az indító/gyökér rendszer lefutása után használunk.  Ezért tehát
+  ezeket az alkönyvtárakat csak létre kell hozni.
+
+  A maradék négy alkönyvtár tartalmát a következõ bekezdésekben
+  részletezzük.
+
+
+
+  4.3.1.  /dev
+
+
+
+  A /dev alkönyvtár minden Linux rendszerben használatos eszköz számára
+  egy-egy különleges állományt tartalmaz. A /dev alkönyvtár maga
+  hagyományos alkönyvtár, és az mkdir paranccsal létre is hozható a már
+  megismert módon. Az eszközök különleges állományok, így különleges
+  módon kell létrehozni õket az mknod paranccsal.
+
+  Azonban létezik egy gyosabb módszer is -- másold le a már létezõ /dev
+  alkönyvtárad tartalmát, majd töröld le azokat az eszközöket, amikre
+  nincs szükséged. Az egyetlen szükséges teendõ a -R kapcsoló használata
+  a különleges eszköz állományok másolásakor. Ez úgy másolja át az
+  alkönyvtárat, hogy nem próbálkozik az állományok belsejének
+  másolásával. Figyelj nagyon, hogy nagybetûs R-t használj!. Ha kisbetûs
+  -r kapcsolót használod, valószínûleg meg sem állsz a teljes
+  merevlemez-tartalmad átmásolásáig, vagy legalábbis addig, amíg nem
+  telítõdik a lemezed. Ezért légy óvatos, és a következõ utasítást
+  használd:
+
+
+          cp -dpR /dev /mnt
+
+  feltéve, hogy a lemezt a /mnt alkönyvtárba illesztetted. A dp kapcsoló
+  gondoskodik a szimbolikus láncok láncokként való másolásáról, így nem
+  a célállományt másolod át, valamint megõrzi az eredetleg használt
+  attribútumokat, így a tulajdonos információkat is.
+
+  Ha a nehezebb utat szeretnéd járni, használd a ls -l parancsot a major
+  és minor eszközszámok megjelenítéséhez a másolandó eszközökrõl, majd
+  hozd létre õket az mknod paranccsal a lemezeden.
+
+  Habár az eszközöket lemásoltad, megéri leellenõrizni, hogy minden
+  általad szükségesnek tartott különleges eszköz rákerült-e a biztonsági
+  helyreállító lemezedre. Például, a szalagos eszközök az ftape
+  állományt használják, így ha szalagos lemezmeghajtódhoz hozzá
+  szeretnél férni az indítólemezrõl, minden ilyen állományt át kell
+  másolnod.
+
+  Jegyezzük meg, hogy minden egyes különleges eszköz állományhoz egy-egy
+  inode-ra van szükség, és az inode nagyon szûkös erõforrás, különösen
+  lemezen lévõ állományrendszereken. Ez szükségessé teszi, hogy minden
+  szükségtelen eszköz specifikus állományt eltávolíts, csak azokat hagyd
+  meg a /dev alkönyvtárban, amikre valóban szükséged lesz. Például ha
+  nincsenek SCSI lemezeid, minden további nélkül eltávolíthatsz minden
+  sd-vel kezdõdõ eszköz állományt. Hasonlóképpen, ha nem akarsz soros
+  csatolót használni, minden cua-val kezdõdõ eszköz törölhetõ.
+
+
+  Bizonyosodj meg arról, hogy a következõ állományokat csatolod ebbõl az
+  alkönyvtárból: console, kmem, mem, null, ram, tty1.
+
+
+  4.3.2.  /etc
+
+
+  Ez az alkönyvtár számos konfigurációs állományt tartalmaz. A legtöbb
+  állományrendszeren ezeket három csoportba sorolhatjuk:
+
+
+  1. Minden esetben szükségesek, pl. rc, fstab, passwd.
+
+  2. Lehet, hogy kellenek, de senki sem elég biztos benne.
+
+  3. Szükségtelen hulladék.
+
+  A lényegtelen állományokat a következõ utasítással ismerheted fel:
+
+
+
+               ls -ltru
+
+
+
+  Ez a fordított sorrendben kilistázza a legutóbbi hozzáférés szerint
+  rendezve az állományokat, tehát amelyik állományhoz nem volt
+  hozzáférés, le lehet hagyni a gyökér lemezrõl.
+
+  Az én gyökér lemezemen 15 darab konfigurációs állomány található.  Ez
+  három csoportra szûkíti a kezelendõ állományok halmazát:
+
+
+  1. Állományok, melyeket be kell konfigurálni az indító/gyökér
+     rendszerhez.
+
+
+     a. rc.d/* -- rendszerindító és futásszint váltó szkriptek
+
+     b. fstab -- beillesztendõ állományrendszerek listája
+
+     c. inittab -- az init folyamat állományai, az indításkor elsõként
+        elinduló folyamat.
+
+
+  2. Állományok, melyekrõl gondoskodni kell az indító/gyökér
+     rendszerhez.
+
+     a. passwd -- felhasználók listája, home könyvtárak, stb.
+
+     b. group -- felhasználói csoportok
+
+     c. shadow -- felhasználók jelszavai. Nem kötelezõ ezt használnod.
+
+     d. termcap -- a terminál képesség-adatbázisa.
+
+
+     Ha fontos a biztonság, a passwd és a shadow le kell csupaszítani,
+     hogy megakadályozd a felhasználói jelszavak lemásolását a rendsz­
+     errõl, és így amikor lemezrõl indítod a rendszert, a nemkívánatos
+     bejelentkezéseket visszautasítja a rendszer.
+
+     Gyõzõdj meg arról, hogy a passwd legalább a root-ot tartalmazza.
+     Ha szeretnél más felhasználót is beengedni, gondoskodj róla, hogy
+     létezzen a home könyvtára, és a parancsértelmezõje.
+
+     termcap, a terminál adatbázis tipikusan több száz kbyte hosszú. Az
+     indító/gyökér lemezeden lévõ változatot célszerû úgy lecsu­
+     paszítani, hogy csak az általad használt terminál(ok) számára tar­
+     talmazzon leírást, ami általában a linux-console bejegyzés.
+
+  3. A maradék. Mûködnek ebben a pillanatban, így békén hagyom õket.
+
+  Ezután ténylegesen lét állományt kell konfigurálnom, és meglepõen
+  kevés dolgot fognak tartalmazni.
+
+  ·  rc-nek a következõket kellene tartalmaznia:
+
+             #!/bin/sh
+             /bin/mount -av
+             /bin/hostname Kangaroo
+
+
+
+  Bizonyosodj meg róla, hogy az alkönyvtárak helyesek. Nem kell a host­
+  name-t futtatnod, egyszerûen csak jól néz ki, ha teszed.
+
+  ·  fstab-nak legalább a következõket kell tartalmaznia:
+
+             /dev/ram0       /               ext2    defaults
+             /dev/fd0        /               ext2    defaults
+             /proc           /proc           proc    defaults
+
+
+
+  Lemásolhatod a már létezõ fstab-od bejegyzéseit, de nem célszerû
+  automatikusan beillesztened a merevlemezed partícióit. Használd a
+  noauto kulcsszót esetükben. A merevlemezed sérült, vagy halott is
+  lehet, amikor az indító lemezt használod.
+
+  Az inittab-ot úgy kell megváltoztatnod, hogy a sysinit sora a rc-t
+  futtassa, vagy valami alap indító szkriptet használjon.  Emellett, ha
+  biztos akarsz lenni benne, hogy soros portról se tudjanak felhasználók
+  bejelentkezni, kommentezd ki az összes olyan getty bejegyzést, ami a
+  sor végén ttys vagy ttyS eszközre hivatkozik, csak a tty portokat
+  hagyd meg, így csak a konzolon tudsz bejelentkezni.
+
+  Egy minimális inittab állomány például így nézhet ki:
+
+          id:2:initdefault:
+          si::sysinit:/etc/rc
+          1:2345:respawn:/sbin/getty 9600 tty1
+          2:23:respawn:/sbin/getty 9600 tty2
+
+
+
+  Az inittab állomány mondja meg, hogy milyen rendszer fusson a
+  különbözõ állapotokban, beleértve az indulást, a több-felhasználós
+  üzemmódba váltást, stb. Bizonyosodj meg az inittab-ban hivatkozott
+  állománynevek helyességérõl. Ha az init nem találja valamely említett
+  programot, az induló lemez futtatása meg fog állni, és még csak
+  hibaüzenetet sem fogsz kapni.
+
+  Jegyezzük meg, hogy néhány programot nem lehet máshova mozgatni, mert
+  más programok bedrótozva tartalmazzák a helyét. Például az én
+  rendszeremen a /etc/shutdown a /etc/reboot-ba van bedrótozva.  Ha
+  reboot-ot átmozgatom /bin/reboot-ra, és kiadom a shutdown parancsot,
+  az nem fog mûködni, mert nem találja a reboot állományt.
+
+  A többirõl annyit, hogy az /etc alkönyvtáradban levõ összes szöveges
+  állományt egyszerûen csak másold át, és az összes olyan /etc-beli
+  összes olyan futtatható állományt, amirõl nem tudod biztosan, hogy nem
+  lesz rá szükség. Támpontot adhat ebben a ``Sample rootdisk directory
+  listings'' fejezet. Valószínûleg elegendõ lesz csak ezokat az
+  állományokat átmásolni, de sokmindenben különbözhetnek egymástól a
+  Linux rendszerek, tehát nem lehetsz biztos benne, hogy a te
+  rendszereden ugyanazon állományok halmaza pontosan egyezik a listában
+  megadott állományokkal. Az egyetlen megbízható megoldás az, hogy az
+  inittab-ból kiindulva megvizsgálod, hogy mire van szükség.
+
+  A legtöbb mai rendszer a /etc/rc.d/ alkönyvtárat tartalmazza a
+  különbözõ futásszintek parancsértelmezõ szkriptjeinek tárolására. Az
+  alkönyvtár állhat egyetlen rc szkriptbõl is, de talán egyszerûbb
+  átmásolni az inittab és az /etc/rc.d alkönyvtárat a már mûködõ
+  rendszeredrõl, és kiszedni a rc.d alkönyvtár szkriptjeibõl a lemezes
+  rendszerkörnyezet számára nem fontos dolgokat.
+
+
+  4.3.3.  /bin és /sbin
+
+
+  A /bin alkönyvtár a megállapodás szerint az alap mûveletek elvégzése
+  szempontjából szükséges extra eszközök tárolóhelye, olyan eszközök
+  találhatóak itt, mint az ls, mv, cat és a dd. A ``Sample rootdisk
+  directory listings'' függelékben találsz egy példát a /bin alkönyvtár
+  állományairól, illetve az /sbin alkönyvtár tartalmáról. Ez nem
+  tartalmaz minden mentéshez és mentésbõl való visszaállításhoz
+  szükséges eszközt, mint például a cpio, tar és gzip parancsok, mert az
+  indító/gyökér lemezen való helytakarékosságból külön eszközlemezre
+  tettem õket. Amikor az indító/gyökér lemez betöltõdik, bemásolódik a
+  memórialemezre, hogy felszabadítsa a lemez meghajtót másik lemez
+  beillesztéséhez, ami esetünkben az eszköz lemez lesz. Általában én ezt
+  az /usr alkönyvtárba illesztem be.
+
+  Az eszköz lemez készítését ebben a fejezetben olvashatod a ``Building
+  a utility disk'' bekezdésben.  Minden bizonnyal célszerû eltenni egy
+  biztonsági másolat készítése esetén az ehhez használt biztonsági mentõ
+  eszközöket, hogy ne kelljen idõt pazarolnod olyan verziók
+  telepítésére, amik esetleg nem is olvasság a biztonsági mentéseket
+  tartalmazó szalagokat, lemezeket.
+
+  Gyõzõdj meg róla, hogy csatoltad-e a következõ programokat: init,
+  getty vagy ezzel egyenértékû program, login, mount, valamelyik az rc
+  szkriptjeidet futtatni tudó parancsértelmezõ, az sh-ból a
+  parancsértelmezõre mutató lánc.
+
+
+
+  4.3.4.  /lib
+
+
+  A /lib alkönyvtárban tárolhatod a szükséges osztott
+  eljáráskönyvtárakat és a betöltõket. Ha a szükséges eljáráskönyvtárak
+  nem találhatóak a /lib alkönyvtárban, akkor a rendszer nem fog tudni
+  elindulni. Ha szerencséd van, láthatsz olyan hibaüzenete, ami utal
+  arra, hogy miért is nem tudott elindulni a rendszered.
+
+  Majdnem minden programnak szüksége van legalább a libc
+  eljáráskönyvtárra, libc.so.N, ahol az N az aktuális verziószám.  Nézd
+  meg a /lib alkönyvtárad. A libc.so.N valószínûleg csak egy szimbolikus
+  lánc, ami egy teljes verziószámú állományra mutat:
+
+
+
+       % ls -l /lib/libc*
+       -rwxr-xr-x   1 root     root      4016683 Apr 16 18:48 libc-2.1.1.so*
+       lrwxrwxrwx   1 root     root           13 Apr 10 12:25 libc.so.6 -> libc-2.1.1.so*
+
+
+
+  Ebben az esetben a libc-2.1.1.so-ra van szükséged. Ahhoz, hogy
+  megtudd, melyik eljáráskönyvtárakra van még ezen kívül szükséged, meg
+  kell nézned, hogy a csatolni kívánt binárisoknak mik a függõségeik. A
+  függõségek ellenõrzését az ldd paranccsal tudod leellenõrizni.
+  Például:
+
+
+          % ldd /sbin/mke2fs
+          libext2fs.so.2 => /lib/libext2fs.so.2 (0x40014000)
+          libcom_err.so.2 => /lib/libcom_err.so.2 (0x40026000)
+          libuuid.so.1 => /lib/libuuid.so.1 (0x40028000)
+          libc.so.6 => /lib/libc.so.6 (0x4002c000)
+          /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+
+
+
+  Minden jobboldalon szereplõ állományra szükség van. Az állomány lehet
+  szimbolikus lánc is.
+
+  Jegyezzük meg, hogy néhány eljáráskönyvtár elég nagy, és nem könnyen
+  fog ráférni a gyökér lemezedre. Például a fent is említett libc.so
+  közel 4 mega. Valószínûleg meg kell nyírbálnod az eljáráskönyvtárakat,
+  amikor a gyökér lemezre másolod õket. Nézd meg a ``Reducing root
+  filesystem size'' fejezetet, hogy ezt hogyan teheted meg.
+
+
+  A /lib alkönyvtárban az eljáráskönyvtárak betöltõjét is csatolnod
+  kell. A betöltõ lehet egyrészt ld.so (a.out eljáráskönyvtárakhoz),
+  vagy ld-linux.so (ELF eljáráskönyvtárakhoz).  Az ldd újabb változatai
+  pontosan meg is mondják, hogy melyik betöltõkre van szüksége az
+  eljáráskönyvtárnak, mint a fenti példában is láthattad, de régebbi
+  verziók esetleg nem adják ezt meg. Ha nem vagy biztos benne, hogy
+  melyikre van szükséged, futtasd a file parancsot az eljáráskönyvtárra.
+  Például:
+
+
+          % file/lib/libc.so.4.7.2 /lib/libc.so.5.4.33 /lib/libc-2.1.1.so
+          /lib/libc.so.4.7.2: Linux/i386 demand-paged executable (QMAGIC), stripped
+          /lib/libc.so.5.4.33: ELF 32-bit LSB shared object, Intel 80386, version 1, stripped
+          /lib/libc-2.1.1.so: ELF 32-bit LSB shared object, Intel 80386, version 1, not stripped
+
+
+
+  A QMAGIC jelzi, hogy a 4.7.2-esek az a.out eljáráskönyvtáraké, az ELF
+  jelzi, hogy a 5.4.33-esek és a 2.1.1-ek az ELF-eké.
+
+  Másold a szükséges betöltõkez az építendõ gyökérállományrendszerre. Az
+  eljáráskönyvtárakat és a betöltõket gondosan össze kell vetni a
+  csatolt binárisokkal. Ha a kernel nem tudja betölteni a szükséges
+  eljáráskönyvtárat, általában hibaüzenet nélkül azonnal megáll a
+  futása.
+
+
+  4.4.  PAM és NSS számára szolgáltatandók.
+
+
+  A rendszerednek olyan dinamikusan betöltendõ eljáráskönyvtárakra is
+  szüksége lehet, amiket a ldd nem mutat meg.
+
+
+  4.4.1.  PAM (Pluggable Authentication Modules: Beilleszthetõ Hite­
+  lesítõ Modul).
+
+
+  Ha a rendszered PAM-ot (Pluggable Authentication Modules:
+  Beilleszthetõ Hitelesítõ Modul) használ, néhány külön intézkedést kell
+  végezned az indítólemezeden ehhez, különben nem fogsz tudni
+  bejelentkezni.  A PAM röviden egy kifinomult, moduláris felépítésû
+  módszer a felhasználók hitelesítésére és a szolgáltatásokhoz való
+  hozzáférésük szabályozására.  A legegyszerûbben úgy tudod kideríteni,
+  hogy a rendszered használ-e PAM-ot, ha megnézed a merevlemezed /etc
+  alkönyvtárát, hogy találsz-e benne pam.conf nevû állományt, vagy pam.d
+  nevû alkönyvtárt. Ha bármelyik létezik, minimális PAM támogatásról
+  gondoskodnod kell. (Másik lehetõség, ha lefuttatod az ldd-t a login
+  állományodra. Ha a kimenet tartalmazza a libpam.so állományt,
+  szükséged van a PAM-ra.)
+
+  Szerencsére a biztonság betöltõ lemezek esetében nem kulcsfontosságú
+  tényezõ, mivel bárki, akinek fizikai hozzáférése van a géphez
+  gyakorlatilag úgyis bármit megtehetne. Ezért gyakorlatilag le is
+  tilthatod a PAM-et egy egyszerû /etc/pam.conf állomány létrehozásával
+  a gyökér lemezeden, ami így néz ki:
+
+
+  ______________________________________________________________________
+  OTHER   auth       optional     /lib/security/pam_permit.so
+  OTHER   account    optional     /lib/security/pam_permit.so
+  OTHER   password   optional     /lib/security/pam_permit.so
+  OTHER   session    optional     /lib/security/pam_permit.so
+  ______________________________________________________________________
+
+
+
+  Valamint másold le a /lib/security/pam_permit.so állományt a gyökér
+  állományrendszeredre. Ez az eljáráskönyvtár körülbelül 8K, tehát
+  minimális többletet jelent csak.
+
+  Jegyezzük meg, hogy ez a konfiguráció bárkinek teljes hozzáférést
+  biztosít a gépeden levõ összes állományhoz és szolgáltatáshoz.  Ha
+  valami miatt lényeges számodra az indítólemezed biztonsága, néhány,
+  vagy az összes merevlemezeden lévõ PAM beállítást a gyökér
+  állományrendszeredre kell másolnod. Ehhez gondosan tanulmányozd át a
+  PAM dokumentációját, és másolj át minden szükséges eljáráskönyvtárt a
+  /lib/security alkönyvtárból a gyökér állományrendszeredre.
+
+  Az indítólemezedre rá kell tenned még a /lib/libpam.so állományt is,
+  de már tudod, mivel futtattad a /bin/login-ra az ldd-t, hogy melyiket
+  a megjelenített függõség alapján.
+
+
+  4.4.2.  NSS (Name Service Switch: Név Szolgáltatás Kapcsoló).
+
+
+  Ha glibc-t (azaz libc6) használsz, külön kell foglalkoznod a név
+  szolgáltatásokkal, vagy nem fogsz tudni bejelentkezni. Az
+  /etc/nsswitch.conf állomány szabályozza a különbözõ szolgáltatásokhoz
+  szükséges adatbázis fellapozásokat. Ha nem tervezel más hálózatok
+  szolgáltatásaihoz való hozzáférést (pl. DNS vagy NIS feloldás), csak
+  egy egyszerû nsswitch.conf állományt kell elõkészítened, ami így néz
+  ki:
+
+
+  ______________________________________________________________________
+       passwd:     files
+       shadow:     files
+       group:      files
+       hosts:      files
+       services:   files
+       networks:   files
+       protocols:  files
+       rpc:        files
+       ethers:     files
+       netmasks:   files
+       bootparams: files
+       automount:  files
+       aliases:    files
+       netgroup:   files
+       publickey:  files
+  ______________________________________________________________________
+
+
+
+  Ez azt mondja meg, hogy minden szolgáltatást csak helyi állományok
+  biztosítanak. Csatolnod kell a /lib/libnss_files.so.1 állományt is,
+  ami dinamikusan fog betöltõdni, hogy az állomány feloldásokat kezelje.
+
+  Ha hálózathoz való hozzáférést is tervezel az indítólemezedrõl, akkor
+  gondosabban kidolgozott nsswitch.conf állományra lesz szükséged. Nézd
+  meg az nsswitch manuál oldalt a részletekért. Tartsd észben, hogy
+  minden szolgáltatáshoz, amit csatolsz, szükséged van a
+  /lib/libnss_szolgáltatás.so.1-ra.
+
+
+  4.5.  Modulok.
+
+
+
+  Ha moduláris kerneled van, össze kell szedned, hogy a lemezed
+  rendszerindítás után mely modulokat szeretnéd betölteni. Esetleg
+  szeretnéd mellékelni az ftape és zftape modulokat, ha mentõ szalagos
+  egységeid vannak, modulokat az SCSI eszközeid számára, ha vannak, és
+  valószínûleg modulokat a PPP vagy SLIP támogatáshoz, ha szeretnél
+  vészhelyzet esetén is hálózati hozzáférést.
+
+  Ezekez a modulokat a /lib/modules alkönyvtárban helyezheted el.
+  Célszerû még az insmod, rmmod és az lsmod parancsokat is mellékelned.
+  Ha automatikusan betöltõdõ modulokat szeretnél, mellékeld a modprobe,
+  depmod és a swapout programokat is. Ha kerneld-t használsz, az
+  /etc/conf.modules-el együtt kell a lemezre tenned.
+
+  Mégis, a modulok használatának legfõbb elõnye abban van, hogy a nem
+  kritikus modulokat átpakolhatod az eszközlemezre, és szükség esetén
+  betöltheted, így kevesebb helyet használsz el a gyökér lemezen. Ha
+  több eszközzel kell bajlódnod, jobb megoldásnak kínálkozik a modulok
+  használata, mintha egy hatalmas kernelt készítenél az összes meghajtó
+  szoftverrt belefordítva.
+
+  Jegyezzük meg, hogy ahhoz, hogy tömörített ext2 állományrendszerrõl
+  rendszert indíthass, a memórialemezt és az ext2 támogatást bele kell
+  fordítanod a kernelbe. Nem lehet õket modulként mellékelni.
+
+
+  4.6.  Néhány utolsó simítás.
+
+
+  Néhány rendszerprogram, mint például a login, problémázik, ha nem
+  létezik a /var/run/utmp állomány és a /var/log alkönyvtár.
+
+
+          mkdir -p /mnt/var/{log,run}
+          touch /mnt/var/run/utmp
+
+
+
+  Végül, miután összeszedted az összes szükséges eljáráskönyvtárt,
+  futtasd az ldconfig programot, hogy újrageneráld az /etc/ld.so.cache
+  állományt a gyökér állományrendszeren. A cache megadja a betöltõnek,
+  hogy hol találj az eljáráskönyvtárakat. Az ld.so.cache
+  újragenerálásához a következõ parancsot kell kiadnod:
+
+
+          chdir /mnt; chroot /mnt /sbin/ldconfig
+
+
+
+  A chroot szükséges, mert az ldconfig mindig a gyökér állományrendszer
+  számára generálja újra a cache-t.
+
+
+  4.7.  Töltsük fel.
+
+
+  Ha végeztél a gyökér állományrendszer összeállításával, csatold le,
+  másold át egy állományba, és tömörítsd be:
+
+
+          umount /mnt
+          dd if=ESZKÖZ bs=1k | gzip -v9 > rootfs.gz
+
+
+
+  Ha ezzel készen vagy, létrejön a rootfs.gz állomány, ami a tömörített
+  gyökér állományrendszered. Ellenõrizd le a méretét, hogy biztosan
+  ráfér-e egy lemezre. Ha nem, akkor vissza kell menned, és néhány
+  állományt el kell távolítanod.  A ``Reducing root filesystem size''
+  fejezet ad néhány támpontot arra, hogy hogyan tudod csökkenteni a
+  gyökér állományrendszered méretét.
+
+
+  5.  Kernel választása.
+
+
+  Ebben a pillanatban már van egy teljes tömörített gyökér
+  állományrendszered.  A következõ lépés, hogy választasz egy kernelt. A
+  legtöbb esetben lehetõséged van arra, hogy a saját, éppen használatban
+  lévõ kerneledet használd, és azzal induljon az indítólemezed. Mégis,
+  van olyan eset, amikor célszerûbb inkább egy külön kernelt készíteni a
+  lemezed számára.
+
+  Az egyik ok lehet a méret. Ha egyetlen indító/gyökér lemezt készítesz,
+  a kernel lesz az egyik legnagyobb állomány a lemezen, tehát le kell
+  csökkenteni a kernel méretét amennyire csak lehetséges. Ahhoz, hogy
+  lecsökkentsd a kernel méretét, csak a kívánt rendszer számára
+  minimálisan szükséges szolgáltatásokhoz tegyél bele támogatást. Ez azt
+  jelenti, hogy minden olyan dolgot, amire nincs szükséged, ki kell
+  hagynod belõle.  A hálózatot például jó dolog kihagyni belõle, úgy,
+  mint minden olyan lemez meghajtó szoftvert, és egyéb eszközöket,
+  amikre nincs szükség a betöltõ/gyökér rendszer futtatásához. Mint
+  korábban is említettem, a kernelednek feltétlenül tartalmaznia kell a
+  memórialemez és az ext2 támogatást.
+
+
+  Miután kitaláltad, hogy mik lesznek a kernelbe befordított minimális
+  szolgáltatások, ki kell találnod, hogy miket kell visszarakni.
+  Valószínûleg a legtöbb átlagos indító/gyökér lemez rendszer használata
+  sérült gyökér állományrendszer vizsgálata és helyreállítása miatt
+  következik be, és ahhoz, hogy ezt megtehesd, kernel támogatásra lehet
+  szükséged.  Például, ha olyan szalagon találhatóak a mentéseid, amik
+  Ftape-et használnak a szalagos egységhez való hozzáféréshez, nem fogod
+  tudni helyreállítani a rendszeredet a szalagos mentésedbõl. Újra kell
+  telepítened a Linux-ot, le kell töltened és újratelepítened az ftape-
+  t, majd ezek után megpróbálhatod olvasni a mentéseidet.
+
+  A lényeg, hogy minden a mentéseid elkészítéséhez használt kernel B/K
+  támogatást célszerû az indító/gyökér lemezed kernelébe is
+  belefordítani.
+
+
+  A kernel elkészítésének pontos leírását a kernellel kapott
+  dokumentációban részletesen megtalálod. Viszonylag könnyû követni,
+  tehát kezdjed az /usr/src/linux alkönyvtárban a keresést. Ha problémád
+  van kernel készítéssel, valószínûleg nem is kellene indító/gyökér
+  lemez készítésével foglalkoznod. Ne felejtsd el tömöríteni a kernelt a
+  ``make zImage'' paranccsal.
+
+
+  6.  Rakjuk össze õket: lemez(ek) elkészítése.
+
+
+  Most már van kerneled és tömörített gyökér állományrendszered.  Ha
+  indító/gyökér lemezt készítesz, nézd meg a méretüket, és bizonyosodj
+  meg arról, hogy rá fognak-e együtt férni egy lemezre.  Ha két lemezes
+  indító+gyökér készletet készítesz, nézd meg a gyökér
+  állományrendszert, hogy ráfér-e egyetlen lemezre.
+
+  El kell döntened, hogy LILO-t használsz-e a kernel indítólemez
+  betöltéséhez.  Másik megoldás lehet a kernel közvetlenül egy lemezre
+  másolása, és LILO nélküli indítása. A LILO használatának elõnye a
+  kernel számára átadható paraméterekben rejlik, amik esetleges hardver
+  inicializálásokhoz szükségesek lehetnek (nézd meg az /etc/lilo.conf
+  állományt a rendszereden. Ha tartalmaz olyan sorokat, amikben szerepel
+  az ``append=...'', akkor valószínûleg szükséged lesz erre a
+  lehetõségre.).  A LILO használatának hátránya, hogy megbonyolítja az
+  indítólemez készítését, és egy kicsit több helyet foglal. Egy kis
+  elkülönített állományrendszert kell összeállítanod, amit kernel
+  állományrendszernek hívunk, és ide kell a kernelt, és néhány a LILO
+  számára szükséged állományt másolnod.
+
+
+
+  Ha LILO-t fogsz használni, olvasd tovább, ha a kernelt közvetlenül a
+  lemezre fogod másolni, akkor ugorj tovább a ``Without using LILO''
+  fejezetre.
+
+
+  6.1.  A kernel másolása LILO-val.
+
+
+  Az elsõ teendõ, hogy létre kell hozni egy kis konfigurációs állományt
+  a LILO számára. Így kell kinéznie:
+
+
+  ______________________________________________________________________
+          boot      =/dev/fd0
+          install   =/boot/boot.b
+          map       =/boot/map
+          read-write
+          backup    =/dev/null
+          compact
+          image     = KERNEL
+          label     = Bootdisk
+          root      =/dev/fd0
+  ______________________________________________________________________
+
+
+
+  A paraméterek magyarázatához nézd meg a LILO felhasználói
+  dokumentációját.  Valószínûleg szeretnéd a merevlemezed /etc/lilo.conf
+  állományából hozzáadni az append=...-t tartalmazó sorokat ehhez az
+  állományhoz.
+
+  Mentsd el ezt az állományt bdlilo.conf néven.
+
+  Most létre kell hoznod egy kis állományrendszert, amit kernel
+  állományrendszernek hívunk, hogy megkülönböztethessük a gyökér
+  állományrendszertõl.
+
+  Elõször meg kel nézni, hogy milyen nagynak kell lennie ennek az
+  állományrendszernek. Vedd a kerneled blokkokban vett méretét (ezt a
+  méretet mutatja a ``ls -l KERNEL'', amit 1024-el kell elosztani, majd
+  felfele kerekíteni), és adj hozzá 50-et.  Ötven blokk körülbelül elég
+  lesz az indode-k és néhány egyéb állomány számára. Pontosan is
+  kiszámíthatod ezt a számot, ha szeretnéd, vagy egyszerûen használj
+  csak 50-et. Ha két lemezes készletet készítesz, felül is becsülheted a
+  szükséges helyet, mivel az elsõ lemezen csak a kernelt fogod úgyis
+  tárolni.  Ezt a számot KERNEL_BLOKK-nak hívjuk.
+
+  Helyezz egy lemezt a meghajtóba (az egyszerûség kedvéért
+  feltételezzük, hogy ez az eszköz a /dev/fd0), és készíts rajta ext2
+  kernel állományrendszert:
+
+
+          mke2fs -i 8192 -m 0 /dev/fd0 KERNEL_BLOKK
+
+
+
+  Az ``-i 8192'' mondja meg, hogy egy inode legyen minden 8192 byte-on.
+  Ezután beillesztheted az állományrendszert, távolítsd el a lost+found
+  alkönyvtárat és hozz létre a dev és a boot alkönyvtárakat a LILO
+  számára:
+
+
+          mount /dev/fd0 /mnt
+          rm -rf /mnt/lost+found
+          mkdir /mnt/{boot,dev}
+
+  Ezután hozd létre a /dev/null és a /dev/fd0 eszközöket. Ahelyett, hogy
+  nekiállnál eszközszámokat keresni, egyszerûen másold át õket a
+  merevlemezedrõl -R:
+
+
+          cp -R /dev/{null,fd0} /mnt/dev
+
+
+
+  A LILO-nak szüksége van egy másolatra az indító betöltõjéhez, a
+  boot.b-re, amit lemásolhatsz a merevlemezedrõl, amit általában a /boot
+  könyvtárban találsz.
+
+
+          cp /boot/boot.b /mnt/boot
+
+
+
+  Végül másold át az elõzõ fejezetben elészített LILO konfigurációs
+  állományt a kerneleddel együtt. Mindkettõt a gyökér alkönyvtárba
+  teheted:
+
+
+          cp bdlilo.conf KERNEL /mnt
+
+
+
+  A LILO-hoz szükséges összes állomány most már a kernel
+  állományrendszeren van, tehát készen állsz rá, hogy lefuttasd. A LILO-
+  nak az -r paraméterrel mondhatjuk meg, hogy más gyökérrel telepítse az
+  indító betöltõt:
+
+
+          lilo -v -C bdlilo.conf -r /mnt
+
+
+
+  A LILO-nak hiba nélkül le kell futnia, miután a kernel
+  állományrendszernek valahogy így kell kinéznie:
+
+
+  ______________________________________________________________________
+  total 361
+    1 -rw-r--r--   1 root     root          176 Jan 10 07:22 bdlilo.conf
+    1 drwxr-xr-x   2 root     root         1024 Jan 10 07:23 boot/
+    1 drwxr-xr-x   2 root     root         1024 Jan 10 07:22 dev/
+  358 -rw-r--r--   1 root     root       362707 Jan 10 07:23 vmlinuz
+  boot:
+  total 8
+    4 -rw-r--r--   1 root     root         3708 Jan 10 07:22 boot.b
+    4 -rw-------   1 root     root         3584 Jan 10 07:23 map
+  dev:
+  total 0
+    0 brw-r-----   1 root     root       2,   0 Jan 10 07:22 fd0
+    0 crw-r--r--   1 root     root       1,   3 Jan 10 07:22 null
+  ______________________________________________________________________
+
+
+
+  Ne aggódj, ha az állományok méretei egy kicsit eltérnek nálad.
+
+  Most hagyd a lemezt a meghajtóban, és folytasd a ``Setting the ramdisk
+  word'' fejezettel.
+
+
+
+  6.2.  A Kernel másolása LILO nélkül.
+
+
+  Ha nem LILO-t használsz, a dd utasítással másold át a kernelt az
+  indítólemezre:
+
+
+          % dd if=KERNEL of=/dev/fd0 bs=1k
+          353+1 records in
+          353+1 records out
+
+
+
+  Ebben a példában a dd 353 teljes rekordot + 1 részleges rekordot írt,
+  így a kernel a lemez elsõ 354 blokkját foglalja el. Ezt a számot
+  KERNEL_BLOKK-nak hívjuk, és a következõ fejezetben használni fogjuk.
+
+  Végül állítsd be a gyökér eszköznek magát a lemezt, majd állítsd be a
+  gyökeret írható/olvasható betölthetõre:
+
+
+          rdev /dev/fd0 /dev/fd0
+          rdev -R /dev/fd0 0
+
+
+
+  Légy óvatos, a második rdev utasításnál nagybetût használj az -R
+  kapcsoló esetén.
+
+
+  6.3.  Memórialemez szó beállítása.
+
+
+  A kernel image belsejében van a memórialemez szó, ami megadja, hogy
+  hol található a gyökér állományrendszer, több más paraméterrel együtt.
+  A szó az rdev utasítással érhetõ el, és a következõképpen kell
+  értelmezni:
+
+
+          bits  0-10:     Offset to start of ramdisk, in 1024 byte blocks
+          bits 11-13:     unused
+          bit     14:     Flag indicating that ramdisk is to be loaded
+          bit     15:     Flag indicating to prompt before loading rootfs
+
+
+
+  Ha a 15. bit be van állítva, induláskor új lemez meghajtóba tételére
+  szólít fel a rendszer. Erre a kétlemezes indító készlet esetén van
+  szükség.
+
+  Két eset lehetséges, attól függõen, hogy egy indító/gyökér lemezt
+  készítesz, vagy kétlemezes ``indító+root'' lemezkészletet.
+
+
+  1. Ha egyetlen lemezt készítesz, a tömörített gyökér állományrendszer
+     közvetlenül a kernel után kerül, tehát az eltolás az elsõ szabad
+     blokkra (aminek meg kell egyeznie a KERNEL_BLOKK-al) fog mutatni.
+     A 14. bit 1, a 15. nulla.
+
+     Például, tegyük fel, hogy egy lemezt készítesz, és a gyökér
+     állományrendszer a 253. (decimális) blokknál kezdõdik. A
+     memórialemez szó értékének 253-nak (decimális) kell lennie, a 14.
+     bitet 1-re, a 15. bitet 0-ra kell állítani.  Ahhoz, hogy kiszámítsd
+     az értéket, egyszerûen csak össze kell adnod a decimális számokat.
+     253 + 2^14 = 253 + 16384 = 16637. Ha nem érted, hogy honnan jönnek
+     ezek a számok, üsd be õket egy tudományos számológépbe, és alakítsd
+     át binárissá.
+
+  2. Ha két lemezes készletet készítesz, a gyökér állományrendszer a
+     második lemez 0. blokkjánál kezdõdik, tehát az eltolást nullára
+     kell állítani. A 14. bitet 1-re kell állítani, és a 15. bitet is
+     1-re kell állítani. Ebben az esetben a decimális érték 2^14 + 2^15
+     = 49152.
+
+
+  Miután gondosan kiszámítottad a memórialemez szó értékét, állítsd be
+  az rdev -r paranccsal. Figyelj rá, hogy a decimális értéket használd.
+  Ha LILO-t használtál, az rdev paraméterének a beillesztett kernel
+  útvonalat kell használnod, pl. /mnt/vmlinuz, ha dd-vel másoltad a
+  kernelt, használd inkább a lemez eszköz nevét (pl., /dev/fd0).
+
+
+          rdev -r KERNEL_VAGY_FLOPPY_MEGHAJTÓ  ÉRTÉK
+
+
+
+  Ha LILO-t használtál, most lecsatolhatod a lemezt.
+
+
+  6.4.  A gyökér állományrendszer átvitele.
+
+
+  A legutolsó lépés a gyökér állományrendszer átvitele.
+
+  ·  Ha a gyökér állományrendszer ugyanarra a lemezre kerül, mint a
+     kernel, a dd paranccsal vidd át, és használd a seek kapcsolót, ami
+     megadja, hogy hány blokkot kell kihagynia:
+
+
+             dd if=rootfs.gz of=/dev/fd0 bs=1k seek=KERNEL_BLOKK
+
+
+
+  ·  Ha a gyökér állományrendszer a második lemezre kerül, távolítsd el
+     a lemezt, tedd be a második lemezt a meghajtóba, majd vidd át a
+     gyökér állományrendszert rá:
+
+
+             dd if=rootfs.gz of=/dev/fd0 bs=1k
+
+
+
+  Gratulálok, készen vagy! Mindig célszerû letesztelned az
+  indítólemezed, mielõtt félreteszed vészhelyzet esetére!  Ha hibás a
+  betöltés, olvass tovább.
+
+
+  7.  Hibakeresés, avagy a Legyõzött Gyötrõdése.
+
+
+
+  Amikor indítólemezeket készítesz, az elsõ néhány próba esetén
+  valószínûleg nem fog indulni. A gyökér lemezt egy általános
+  megközelítés szerint a már létezõ rendszered komponenseibõl célszerû
+  összeállítanod, és próbálj meg addig eljutni, hogy a lemez-alapú
+  rendszered üzeneteket jelenít meg a konzolon. Ha már elkezd veled
+  beszélgetni, a csatát félig megnyerted, mert már láthatod, hogy mirõl
+  van szó, és kijavíthatod a felmerülõ különálló problémákat, amíg a
+  rendszer zökkenõmentesen nem mûködik. Ha a rendszer minden magyarázat
+  nélkül áll meg, a hiba okát megtalálni elég nehéz. Ahhoz, hogy a
+  rendszer addig eljusson, amikor már kommunikál veled, több fontos
+  komponens jelenlétére, és helyes konfigurálásra van szükség. Amikor a
+  rendszer nem beszél hozzád, a probléma kivizsgálásának ajánlott
+  eljárása a következõ:
+
+
+  ·  Ilyesmi üzenetet láthatsz:
+
+
+     Kernel panic: VFS: Unable to mount root fs on XX:YY
+
+
+
+  Ez gyakori probléma, és csak néhány oka lehet. Elõször, ellenõrizd az
+  XX:YY eszközt az eszközök kódjának listájában, ez a helyes gyökér
+  eszköz? Ha nem, valószínûleg nem futtattad az rdev -R parancsot, vagy
+  rossz image-re alkalmaztad. Ha az eszközkód helyes, gondosan
+  ellenõrizd a kernelbe fordított eszközmeghajtó szoftvereket. Gyõzõdj
+  meg róla, hogy szerepel-e floppy lemez, memória meghajtó és ext2
+  állományrendszer.
+
+
+  ·  Nézd meg, hogy a gyökér lemez tényleg tartalmazza-e az
+     alkönyvtárakat, amit tartalmaznia kellene. Könnyû véletlenül rossz
+     szintre másolni õket, és ilyesmit kapsz végeredménynek:
+     /rootdisk/bin, ehelyett: /bin a gyökér lemezeden.
+
+  ·  Nézd meg, hogy van-e /lib/libc.so állomány ugyanazzal a lánccal,
+     mint amit a merevlemezed /lib alkönyvtárában láthatsz.
+
+  ·  Ellenõrizd, hogy a lézetõ rendszered /dev alkönyvtárában lévõ
+     szimbolikus láncok léteznek-e a gyökérlemez állományrendszereden,
+     ahol a láncok olyan eszközre mutatnak, melyek léternek a gyökér
+     lemezeden is. Néhány esetben a /dev/console láncok fontosak
+     lehetnek.
+
+  ·  Ellenõrizd, hogy áttetted-e a /dev/tty1, /dev/null, /dev/zero,
+     /dev/mem, /dev/ram és /dev/kmem állományokat.
+
+  ·  Ellenõrizd a kernel konfigurációdat -- minden a bejelentkezés
+     pontjáig szükséges erõforrást bele kell fordítani, nem mûködik, ha
+     modulba raktad. Tehát a memórialemez és az ext2 támogatást is bele
+     kell fordítanod a kernelbe.
+
+  ·  Ellenõrizd, hogy a kernel gyökér eszköz és memórialemez beállításai
+     helyesek-e.
+
+  Ha ezeket az általános dolgokat megvizsgáltad, íme néhány konkrétabb
+  állomány, amit ellenõrizhetsz.
+
+
+  1. Gyõzõdj meg róla, hogy az init-et /sbin/init vagy /bin/init néven
+     mellékelted. Ellenõrizd, hogy futtatható-e.
+
+  2. Futtasd a ldd init-et, hogy ellenõrizd az init eljáráskönyvtárait.
+     Általában ez csak a libc.so, de azért csak ellenõrizd. Bizonyosodj
+     meg róla, hogy mellékelted az összes eljáráskönyvtárat és a
+     betöltõket.
+
+  3. Bizonyosodj meg róla, hogy a megfelelõ betöltõket használod az
+     eljáráskönyvtárakhoz -- ld.so-t az a.out-hoz, vagy ld-linux.so-t az
+     ELF-hez.
+
+  4. Nézd meg az indítólemezed állományrendszerén az /etc/inittab
+     állományban a getty (vagy valami getty-szerû program, mint a
+     agetty, mgetty vagy getty_ps) programhívásokat.  Kétszer is
+     hasonlítsd össze ezeket a merevlemezeden lévõ inittab-bal.  Nézd
+     meg az általad használt program manuálját, hogy egyáltalán értelmes
+     dolgok vannak-e benne. Az inittab valószínûleg a legtrükkösebb
+     rész, mert a szintakszis, és a tartalom az általad használt init
+     programtól és a rendszer természetétõl függ. Az egyetlen lehetõség,
+     hogy megbirkózz vele, ha elolvasod az init és inittab programokra
+     vonatkozó manuál oldalakat, valamint pontosan megvizsgálod, hogy
+     mit is csinál a rendszered induláskor. Ellenõrizd, hogy az
+     /etc/inittab-nak van-e inicializáló bejegyzése. Ennek a rendszer
+     inicializáló szkript végrehajtására kell utasítást tartalmaznia, és
+     a szkriptnek is léteznie kell.
+
+  5. Mint az init-nél, futtasd az ldd-t a getty-dre is, hogy lássad, mi
+     szükséges hozzá, és hogy meggyõzõdhess róla, hogy a szükséges
+     eljáráskönyvtár-állományokat és betöltõket elhelyezted a gyökér
+     állományrendszereden.
+
+  6. Gyõzõdj meg róla, hogy csatoltál-e parancsértelmezõt (pl. bash vagy
+     ash), mely képes futtatni az rc szkriptjeidet.
+
+  7. Ha van /etc/ld.so.cache állomány a mentõ lemezeden, generáld újra.
+
+
+
+  Ha az init elindul, de a következõ üzenetet kapod:
+
+          Id xxx respawning too fast: disabled for 5 minutes
+
+
+
+  az az init-bõl jön, általában azt jelzi, hogy a getty vagy login az
+  elindulása után közvetlenül meg is hal.  Ellenõrizd a getty és a login
+  futtatható állományokat és az eljáráskönyvtárakat, amiktõl függenek.
+  Nézd meg, hogy a /etc/inittab állománybeli meghívásuk helyes-e. Ha
+  szokatlan üzeneteket kapsz a getty-tõl, az jelentheti azt, hogy
+  hibásan hívod a /etc/inittab-ból.  A getty paraméterei változnak, még
+  az agetty különbözõ verziói között is számos inkompatibilis
+  hívásformát jeleztek.
+
+  Ha megkapod a bejelentkezõ promptot és érvényes felhasználói nevet
+  adsz meg, de a rendszer azonnal egy újabb felhasználói név megadását
+  kéri, a probléma valószínûleg a PAM-mal vagy az NSS-el lesz. Nézd meg
+  a ``PAM and NSS'' fejezetet. A probléma származhat még abból is, hogy
+  shadow jelszavakat használsz, de nem másoltad át az indítólemezedre a
+  /etc/shadow állományt.
+
+  Ha megpróbálsz néhány futtatható állományt lefuttatni, mint például a
+  df parancsot, ami megtalálható a mentõ lemezeden, és ilyen üzenetet
+  kapsz: df: not found(a df nem található), két dolgot nézz meg: (1)
+  Gyõzõdj meg róla, hogy a binárist tartalmazó alkönyvtár szerepel a
+  PATH elérési útvonalban, és (2) Gyõzõdj meg róla, hogy a program
+  számára szükséges eljáráskönyvtárak (és betöltõk) rendelkezésedre
+  állnak-e.
+
+
+  8.  Vegyes témakörök.
+
+
+
+  8.1.  A gyökér állományrendszer méretének csökkentése
+
+
+  Elõfordul, hogy a gyökér állományrendszer túl nagy, hogy ráférjen egy
+  lemezre, még tömörítés után is. Létezik néhány módszer az
+  állományrendszer méretének csökkentésére, amit a hatékonyság szerint
+  csökkenõ sorrendben bemutatunk:
+
+
+     Lemez sûrûségének növelése
+        Alapértelmezés szerint a formázott floppy lemezek 1440K
+        méretûek, de nagyobb sûrûségre is formázhatók.  Az fdformat a
+        következõ formátumokra képes a lemezeid megformázni:  1600,
+        1680, 1722, 1743, 1760, 1840, és 1920. A legtöbb 1440K-s
+        meghajtó támogatja az 1722K-t, ezért ez az indítólemezek által
+        használt formátum. Nézd meg a fdformat manuált és a
+        /usr/src/linux/Documentation/devices.txt-t.
+
+
+     Parancsértelmezõ cseréje
+        A Linux néhány népszerû parancsértelmezõje, mint a bash és a
+        tcsh, nagy és sok eljáráskönyvtárat igényel.  Léteznek könnyû
+        súlyú alternatív parancsértelmezõk, mint az ash, lsh, kiss és a
+        smash, amik jóval kisebbek és nagyon kevés (vagy egy sem)
+        eljáráskönyvtárat idényelnek. Ezek legtöbbjét az következõ címen
+        találod:  <http://metalab.unc.edu/pub/Linux/system/shells/>
+        Gyõzõdj meg róla, hogy az általad használni kívánt
+        parancsértelmezõ képes-e futtatni az összes rc-beli állományt,
+        amit csatolni szeretnél az indítólemezedre.
+
+
+     Eljáráskönyvtárak és binárisok megnyirbálása
+        A legtöbb eljáráskönyvtár és bináris nincs megnyirbálva (debug
+        információt is tartalmaznak). A megtudod, hogy 'not stripped
+        (nincs megnyírbálva)', vagy mégis.  Amikor binárisokat másolsz a
+        gyökér állományrendszeredre, jó ötleg a következõket használnod:
+
+
+                objcopy --strip-all HONNAN HOVÁ
+
+
+
+     Amikor eljáráskönyvtárt másolsz, használd a következõt:
+
+
+             objcopy --strip-debug HONNAN HOVÁ
+
+
+
+     Nem-kritikus állományok eszközlemezre másolása
+        Ha valamely binárisra nincs szükség közvetlenül a
+        rendszerindításkor, vagy a bejelentkezéskor, átteheted az
+        eszközlemezre. Nézd meg a ``Building a utility disk'' fejezetet
+        a részletekért. Elgondolkodhatsz a modulok eszközlemezre való
+        áthelyezésérõl is.
+
+
+
+  8.2.  Nem memórialemez gyökér állományrendszerek.
+
+
+
+  A ``Building a root filesystem'' fejezet megmutatta, hogy hogyan
+  készíthetsz tömörített gyökér állományrendszert, ami a rendszer
+  indulásakor a memórialemezre töltõdik. Sok elõnye van ennek a
+  technikának, így elõszeretettel használják. Azonban néhány kevés
+  memóriával rendelkezõ rendszer esetén nincs elegendõ RAM ehhez, így
+  közvetlenül a lemezrõl kell használnia a beillesztett gyökér
+  állományrendszert.
+
+  Az ilyen állományrendszereket pillanatnyilag könnyebb elkészíteni,
+  mint a tömörített gyökér állományrendszereket, mert közvetlenül a
+  lemezen elkészíthetõk, nem kell más eszközt használni, és nem kell
+  õket tömöríteni. Megmutatjuk, hogy ennek elkészítése hol különbözik a
+  korábban ismertetett eljárástól.  Ha ezt választod, tartsd észben,
+  hogy sokkal kevesebb helyet tudsz majd használni.
+
+
+  1. Számold ki, hogy mennyi helyed lesz a gyökér állományok számára.
+
+     Ha egy indító/gyökér lemezt készítesz, rá kell hogy férjen egyetlen
+     lemezre a kernel összzes blokkja és a gyökér állományrendszer
+     összes blokkja.
+
+  2. Használd az mke2fs-t, hogy megfelelõ méretû gyökér
+     állományrendszert készíthess a lemezen.
+
+  3. Méretezd az állományrendszert a fentiek szerint.
+
+  4. Ha készen vagy vele, csatold le az állományrendszert, és másold át
+     egy lemez állományba, de ne tömörítsd be.
+
+  5. Vidd át a kernelt a fent leírt módon a lemezre. Amikor elkészültél
+     a memórialemez szó kiszámolásával, állítsd a 14. bitet nullára,
+     hogy jelezd a rendszer számára, nem kell a gyökér állományrendszert
+     memórialemezre tölteni. Futtasd a rdev's parancsot a fent leírt
+     módon.
+
+  6. Vidd át a gyökér állományrendszert, mint korábban.
+
+  Több gyorsítást eszközölhetsz. Ha két-lemezes készletet készítesz, az
+  egész gyökér állományrendszert elkészítheted a második lemezen, nem
+  kell átmozgatnod merevlemezre lemez állományba, majd vissza. Ezenkívül
+  ha egylemezes indító/gyökér lemezt készítesz és LILO-t használsz,
+  készíthetsz a lemezen egyetlen állományrendszert, mely tartalmazza a
+  kernelt, a LILO állományait és a gyökér állományokat, majd egyszerûen
+  lefuttatod a LILO-t az utolsó lépésben.
+
+
+  8.3.  Eszközlemez készítése.
+
+
+
+  Eszközlemezt készíteni viszonylag könnyû -- egyszerûen készíts
+  állományrendszert egy formázott lemezre, majd másolj állományokat rá.
+  Ahhoz, hogy indítólemezzel használhasd, illeszd be kézzel a rendszer
+  elindulása után.
+
+  A fentebb említett utasításokban említettük, hogy az eszközlemezt a
+  /usr-be illesztve is használhatjuk. Ebben az esetben a binárisokat a
+  /bin alkönyvtárba kell tenni az eszköz lemezeden, hogy a path-ban levõ
+  /usr/bin megtalálja õket. Egyéb az eszköz lemezen elhelyezett
+  binárisokhoz szükséges eljáráskönyvtárakat a /lib alkönyvtárba kell
+  tenned az eszközlemezen.
+
+  Több fontos dolgot észben kell tartanod, amikor eszközlemezt tervezel:
+
+
+  1. Ne tegyél kritikus rendszer binárisokat és eljáráskönyvtárakat az
+     eszközlemezre, mert nem lesz beilleszthetõ, míg a rendszer teljesen
+     el nem indult.
+
+  2. Nem tudsz egyszerre floppy lemez és floppy szalag meghajtót
+     használni.  Ez azt jelenti, hogyha floppy szalag meghajtód van, nem
+     fogsz tudni hozzáférni, amíg az eszköz lemezed be van illesztve.
+
+  3. Az eszközlemezen lévõ állományok hozzáférése lassú lesz.
+
+
+  A ``Sample utility disk directory listing'' függelékben találsz példát
+  az eszközlemezre. Íme néhány hasznos ötlet az állományokat illetõen:
+  lemez vizsgáló és manipuláló programok (format, fdisk),
+  állományrendszer vizsgáló és manipuláló programok (mke2fs, fsck,
+  debugfs, isofs.o), kicsi szövegszerkesztõ (elvis, jove), tömörítõ és
+  archiváló eszközök (gzip, tar, cpio, afio), szalag eszközök (mt, tob,
+  taper), kommunikációs eszközök (ppp.o, slip.o, minicom) és
+  eszközkezelõ szerszámok (setserial, mknod).
+
+
+  9.  Hogy csinálják a profik?
+
+
+  Valószínûleg észrevetted már, hogy a fontosabb disztribúciókhoz
+  mellékelt indítólemezek, mint például a Slackware, RedHat vagy Debian,
+  sokkal kidolgozottabbak, mint ahogy ebben a dokumentációban
+  bemutatjuk. A professzionális disztribúciós lemezek néhány itt nem
+  említett alapelven nyugszik, és több különbözõ trükköt is bevetnek,
+  mert különleges szükségleteik vannak. Elõszöris, széles hardver
+  választékon kell üzemelniük, tehát együtt kell mûködnie a
+  felhasználóval és különbözõ eszköz meghajtókat kell betöltenie.
+  Másodszor fel kell készíteni õket különbözõ telepítési lehetõségepkre,
+  különbözõ fokú automatizálással.  Végül a disztribúciós lemezeket
+  gyakran mentõ lemez képességekkel is felruházzák.
+
+  Néhány indítólemezt initrd (initial ramdisk: kezdeti memórialemez)
+  funkcióval látnak el. Ezt a képességet a 2.0.x-es kernelverzió
+  környékén vezették be, és lehetõvé teszi a kernel két fázisú
+  betöltését. Amikor elõször elindul a kernel, betölti a keztedi
+  memórialemezt image-t az indítólemezrõl.  Ez a kerdeti memórialemez a
+  gyökérlemez, ami olyan programokat tartalmaz, amik a valódi gyökér
+  állományrendszer betöltõdése elõtt lefutnak. Ezek a programok gyakran
+  a környezetet vizsgálják, és/vagy megkérdezik a felhasználók különbözõ
+  indító lehetõségekrõl, mint például melyik eszközrõl töltse be a
+  valódi gyökér állományrendszert. Ezek a programok töltik be általában
+  a kernelbe be nem épített modulokat. Amikor a kezdeti program kilép, a
+  kernel betölti a valódi gyökér állományrendszer, és hagyományos módon
+  folytatódik a rendszerindításl.  Az initrd-vel kapcsolatos
+  részletesebb információkért nézd meg a
+  /usr/src/linux/Documentation/initrd.txt és a
+  <ftp://elserv.ffm.fgan.de/pub/linux/loadlin-1.6/initrd-example.tgz>
+  címeket.
+
+  A következõ összefoglalja, hogyan mûködnek a különbözõ disztribúciók
+  telepítõ lemezei, az állományrendszer vizsgálatára és/vagy forráskódra
+  alapozva. Nem garantáljuk, hogy tökéletesen teljes információval
+  szolgálhatunk, vagy hogy nem változtak a legutóbbi verzióváltás óta.
+
+
+  A Slackware (v.3.1) nyíltan LILO-t használ, hasonlóan a ``Transferring
+  the kernel with LILO'' fejezetben bemutatotthoz. A Slackware
+  indítólemez indításkor a LILO message paraméterét használva egy
+  ``Welcome to the Slackware Linux bootkernel disk!'' üzenettel fogad
+  (Üdvözöllek a Slackware Linux kernelindító lemezén!). Ezzel hívja fel
+  a felhasználót arra, hogy írja be szükség esetén az indító
+  paramétereket. Miután elindult a rendszer, a második lemezrõl
+  betöltõdik a gyökér állományrendszer. A felhasználó meghív egy setup
+  szkriptet, amivel el is kezdõdik a telepítés. A Slackware nem
+  moduláris kernelt használ, hanem több különbözõ kernelt használ. A
+  felhsználónak kell kiválasztania, melyik az a kernel, ami a lehetõ
+  legjobban illeszkedik a rendszeréhez.
+
+  A RedHat (v.4.0) szintén LILO alapú indítást használ. Az elsõ lemezrõl
+  betölt egy tömörített memórialemezt, ami egyedi init programot futtat.
+  Ez a program lekérdezi a meghajtóprogramokat, majd szükség esetén
+  egyéb állományokat tölt be a kiegészítõ lemezrõl.
+  A Debian (v.1.3) valószínûleg a legkifinomultabb telepítõ
+  lemezkészlet.  A SYSLINUX betöltõt használja különbözõ betöltõ
+  kapcsolókkal, majd az initrd-t használja, hogy végigvezesse a
+  felhasználót a telepítés lépésein. Úgy tûnik, hogy egyaránt egyedi
+  init-et és egyedi parancsértelmezõt használ.
+
+
+  10.  Gyakran ismételt kérdések (GYIK) listája
+
+
+  K. Elindítom a rendszert az indító/gyökér lemezemrõl, de semmi nem
+  történik. Mit tegyek?
+
+
+  Lásd a ``Troubleshooting'' fejezetet feljebb.
+
+  K. Hogy mûködik a Slackware/Debian/RedHat indítólemez?
+
+
+  Lásd a ``What the pros do'' fejezetet feljebb.
+
+  K. Hogyan készíthetek XYZ eszközmeghajtóval indítólemezt?
+
+
+  A legegyszerûbb módja, hogy megszerzel egy Slackware kernelt a
+  legközelebbi Slackware tükör szerverrõl. A Slackware kernelek
+  általános kernelek, amikbe megpróbálják az összes létezõ eszközt
+  belepakolni, így ha SCSI vagy IDE vezérlõd van, nagy az esélye, hogy a
+  Slackware kernelben benne lesz az ahhoz szükséges meghajtóprogram.
+
+  Menj az a1 alkönyvtárba, és válaszd ki az IDE vagy SCSI kernelt attól
+  függõen, hogy milyen vezérlõd van. Nézd meg az xxxxkern.cfg állományt,
+  hogy a kiválaszott kernel milyen eszközmeghajtókat tartalmaz. Ha az
+  általad használni kívánt eszköz szerepel a listában, az adott
+  kernellel indulnia kell a gépednek. Töltsd le az xxxxkern.tgz
+  állományt, másold át a lemezedre az indítólemez készítésével
+  foglalkozó fejezetben leírtak szerint.
+
+  Le kell ellenõrizned a gyökér eszközödet a kernelben a következõ
+  paranccsal:
+
+          rdev zImage
+
+
+
+  Az rdev ki fogja írni a kerneled aktuális indító eszközét. Ha ez nem
+  egyezik meg az általad kívánt gyökér eszközzel, használd az rdev
+  parancsot, hogy megváltoztasd. Például az a kernel, amit próbáltam,
+  /dev/sda2-re volt állítva, de az én SCSI gyökér partícióm a /dev/sda8.
+  Ahhoz, hogy gyökér lemezként használhassam, a következõ parancsot kell
+  kiadnom:
+
+
+          rdev zImage /dev/fd0
+
+
+
+  Ha tudni szeretned, hogy hogyan kell egy Slackware gyökér lemezt
+  beállítani, az már kívül esik e HOGYAN keretein, javaslom, hogy nézd
+  meg a Linux Telepítõ Kézikönyvet, vagy szerezz be egy Slackware
+  disztribúciót. Nézd meg a ``Referenciák'' fejezetet.
+
+  K. Hogy frissíthetem az indítólemezem a legfrisebb kernellel?
+
+
+
+  Állományrendszer használata nélkül egyszerûen másold a dd, vagy
+  indító/gyökér lemez esetén a cp paranccsal a kernelt az
+  indítólemezedre.  Konzultálj e HOGYAN ``Indító'' fejezetével az
+  indítólemez készítésének részleteiért. A leírás egyaránt érvényes a
+  kernel frissítésére is.
+
+  K. Hogy frissíthetem a gyökér lemezem állományait újakkal?
+
+
+  A legegyszerûbb módja, hogy visszamásolod a gyökérlemezed
+  állományrendszerét az általad használt ESZKÖZRE ( lásd feljebb a
+  ``Creating the filesystem'' fejezetet). Ezután illeszd be az
+  állományrendszert és végezd el a változtatásokat. Emlékezned kell
+  arra, hogy honnan indul a gyökér állományrendszered és hány blokkot
+  foglal el:
+
+
+          dd if=/dev/fd0 bs=1k skip=ROOTBEGIN count=BLOCKS | gunzip > DEVICE
+          mount -t ext2 DEVICE /mnt
+
+
+
+  Miután elvégezted a változtatásokat, folytasd, mint korábban
+  (``Wrapping it up'' fejezet) és tedd vissza a gyökér
+  állományrendszeredet a lemezre. Nem kell újra átvinned a kernelt,
+  illetve újraszámolni a memórialemez szót, ha nem változtattál az új
+  gyökér állományrendszer kezdõpozícióján.
+
+  K. Hogy távolíthatom el a LILO-t úgy, hogy újra DOS-t indíthassak?
+
+
+  Ez nem kifejezetten Indítólemez probléma, de gyakran kérdezik. Linux
+  alatt futtasd a
+
+
+
+               /sbin/lilo -u
+
+
+
+  parancsot.Használhatod a dd utasítást is, hogy visszamásold a LILO
+  által elmentett indító szektort. Tanulmányozd a LILO dokumentációját,
+  hogy ezt hogyan teheted meg.
+
+  DOS és Windows alatt használhatod a
+
+
+
+               FDISK /MBR
+
+
+
+  utasítást. Az MBR a Master Boot Record-ot jelenti (Mester Indító
+  Rekord), ami kicseréli az indító szektort egy tiszta DOS-ossal,
+  anélkül, hogy belepiszkálna a partíciós táblába. Néhányan nem teljesen
+  értenek ezzel egyet, de még a LILO készítõje, Werner Almesberger is
+  ajánlja. Könnyû, és mûködik.
+
+  Q. Hogy indítsak, ha elvesztettem a kernelem és az indító lemezem?
+
+
+  Ha nincs kéznél indító lemez, a legegyszerûbb valószínûleg egy
+  Slackware kernel beszerzése a rendszerednek megfelelõ lemezvezérlõ
+  típussal (IDE vagy SCSI), ahogy az a ``Hogyan készítsek indítólemezt
+  XXX eszközzel'' kérdésnél is olvashattad. Ezután el tudod indítani a
+  géped ezzel a kernellel, és kijavíthatod a felmerült problémákat.
+
+  A kernelben, amit megszerzel elõfordulhat, hogy nem a neked
+  megfelelõen van beállítva a gyökér eszköz lemezed típusához és a
+  partícióhoz. Például a Slackware általános SCSI kernelének gyökér
+  eszköze a /dev/sda2 eszközre mutat, holott az én gyökér Linux
+  partícióm /dev/sda8-ként látszik. Ebben az esetben a kernel gyökér
+  eszközét meg kell változtatni.
+
+  Még akkor is megtudod változtatni a kernel gyökér eszköz és a
+  memórialemez beállításait, ha csak egy kerneled van és valami más
+  operációs rendszered, mint a DOS például.
+
+  Az rdev úgy változtatja a kernel beállításait, hogy fix eltolásoknál
+  megváltoztatja a kernel állomány értékét, így egy hexa szerkesztõvel
+  te is megteheted ugyanezt, ha van kéznél valamilyen mûködõ operációs
+  rendszer alatti szerkeszõ -- például a DOS alatti Norton Utilities
+  Disk Editor.  Ekkor meg kell nézned az összes értéket, majd szükség
+  esetén meg kell változtatnod az itt szereplõ eltolások alapján:
+
+
+
+       HEX     DEC  LEÍRÁS
+       0x01F8  504  A MEMÓRIALEMEZ szó alacsony bájtja
+       0x01F9  505  A MEMÓRIALEMEZ szó magas bájtja
+       0x01FC  508  Gyökér eszköz minor száma - lásd alább
+       0X01FD  509  Gyökér eszköz major száma - lásd alább
+
+
+
+  A memórialemez szót fejlebb, a ``Setting the ramdisk word'' fejezetben
+  tárgyaltuk.
+
+  A major és minor eszköz számokat arra az eszközre mutatva kell
+  beállítanod, ahova szeretnéd a gyökér állományrendszered
+  beillesztését.  Néhány hasznos érték, hogy választhass:
+
+
+
+       ESZKÖZ          MAJOR MINOR
+       /dev/fd0            2     0   Elsõ lemezmeghajtó
+       /dev/hda1           3     1   1. partíció az 1. IDE eszközön
+       /dev/sda1           8     1   1. partíció az 1. SCSI eszközön
+       /dev/sda8           8     8   8. partíció az 1. SCSI eszközön
+
+
+
+  Ha beállítottad ezeket az értékeket, kiírhatod az állományt akár a
+  Norton Utilities Disk Editort, akár a rawrite.exe programot használva.
+  Ezt a programot minden disztribúció tartalmazza. Ez egy DOS program,
+  ami a lemezre ``nyersen'' írja ki az állományt az indító szektortól
+  kezdve, nem a lemezen található állományrendszerre.  Ha Norton
+  Utilies-t használsz, a lemez elején kezdõdõ fizikai lemezre kell
+  kiírnod az állományt.
+
+  K.Hogyan készíthetnék extra másolatot az indító/gyökér lemezeimrõl?
+
+
+  Mivel a mágneses média bizonyos idõ után lemágnesezõdik, célszerû a
+  biztonsági lemezedrõl több másolatot tartanod, felkészülve arra az
+  esetre, ha az eredeti lemezed olvashatatlanná válna.
+
+
+  A lemezek másolásának legegyszerûbb módja, beleértve az indítható és
+  az eszköz lemezeket is, ha a dd paranccsal átmásolod az eredeti lemez
+  tartalmát egy a merevlemezeden lévõ állományba, majd ugyanezzel az
+  utasítással visszamásolod az új lemezre. Jegyezzük meg, hogy nem kell,
+  és nem is célszerû beillesztened a lemezeket a rendszerbe, mert a dd
+  nyers eszköz interfészt használ.
+
+  Az eredeti lemásolásához a
+
+
+               dd if=ESZKÖZNEVE of=ÁLLOMÁNYNEVE
+               ahol az ESZKÖZNEVE a lemezmeghajtód eszközneve
+               és az ÁLLOMÁNYNEVE a (merevlemezen levõ) kimeneti állomány neve
+
+
+
+  utasítást használd.
+
+  Ha elhagyod a count paramétert, a dd az egész lemezt átmásolja (nagy
+  sûrûségû lemez esetén 2880 blokk).
+
+  A kész állomány új lemezre való visszamásolásához helyezd be az új
+  lemezt, és fordítsd meg az utasítást:
+
+
+               dd if=ÁLLOMÁNYNEVE of=ESZKÖZNEVE
+
+
+
+  Jegyezzük meg, hogy a fenti utasítássorozat az feltételezi, hogy csak
+  egyetlen lemezmeghajtód van. Ha két ugyanolyan típusú lemezmeghajtód
+  van, akkor használhatod a következõ utasítást a közvetlen lemezrõl-
+  lemezre másoláshoz:
+
+
+               dd if=/dev/fd0 of=/dev/fd1
+
+
+
+  K. Hogyan indíthatnám el a rendszerem a "ahaxxxx=nn,nn,nn" minden
+  induláskor történõ beírása nélkül?
+
+
+  Ahol a lemez eszközt nem lehet automatikusan felismertetni a
+  rendszerrel, el kell látni a kernelt az eszköz paramétereinek
+  sztringjével, mint pl.:
+
+
+
+               aha152x=0x340,11,3,1
+
+
+
+  Ezt a paramétert többféleképpen is át lehet adni a LILO-nak:
+
+
+  ·  Beírhatod minden egyes LILO-val történõ rendszerindításkor a
+     parancssorba. Ez meglehetõsen unalmas, fárasztó.
+
+  ·  Használhatod a LILO ``lock'' kulcsszavát, hogy tárolja el a
+     parancssort, mint alapértelmezett parancssort, így a LILO minden
+     induláskor ugyanazt a paramétert fogja használni.
+  ·  Használhatod a append= sort a LILO konfigurációs állományában.
+     Jegyezzük meg, hogy a paraméter sztringet idézõjelek közé kell
+     tenni.
+
+  Például egy példa parancssor, ami a fenti paraméter sztringer
+  használja, így nézne ki:
+
+
+
+               zImage  aha152x=0x340,11,3,1 root=/dev/sda1 lock
+
+
+
+  Ez mindig átadná a kernelnek a paramétersztringet, és megkérné a
+  kernelt, hogy állítsa be a gyökér eszköznek a /dev/sda1-t, és mentse
+  az egész parancssort a késõbbi indításokra.
+
+  Egy példa az APPEND sorra:
+
+
+               APPEND = "aha152x=0x340,11,3,1"
+
+
+
+  Jegyezzük meg, hogy a paramétersztringet NEM szabad idézõjelbe tenni a
+  parancssor esetén, de az APPEND sornál muszáj idézõjelet használni.
+
+  Jegyezzük meg, hogy a ahhoz, hogy a paramétersztring mûködjön, a
+  kernelnek tartalmaznia kell a megadott lemeztípus eszközmeghajtóját.
+  Ha nem tartalmazza, semmi sem fog a paramétersztringre hallgatni, és
+  újra kell fordítanod a kernelt a megfelelõ eszközmeghajtóval, ha
+  mûködésre szeretnéd bírni.  A kernel újrafordításának részleteiért
+  lépj be az /usr/src/linux alkönyvtárba, és olvasd el a README
+  állományt, majd olvasd el a Linux GYIK-et és a Telepítés HOGYAN-t.
+  Létezik még egy lehetséges alternatíva is, szerezz egy kifejezetten
+  ahhoz a lemez típushoz készült kernelt, és telepítsd.
+
+  Az olvasók figyelmét mindig felhívjuk a LILO dokumentáció alapos
+  áttanulmányozására, mielõtt LILO telepítéssel kísérletezgetnének.  Az
+  indító leíró elõvigyázatlan használata tönkreteheti a partíciókat.
+
+  K. Bekapcsoláskor "A: cannot execute B" hibaüzenetet kapok. Miért?
+
+
+  Több esetben elõfordulhat, hogy különbözõ eszközökben program neveket
+  bedrótoztak. Ezek az esetek nem jönnek elõ mindenütt, de
+  megmagyarázza, hogy néhány végrehajtható állomány miért nem található
+  meg a rendszereden, még ha ott is látod. Megnézheted, hogy be van-e
+  drótozva egy adott programba egy másik, ha kiadod a strings parancsot,
+  és átküldöd csövön a grep-nek.
+
+  A bedrótozás tipikus példái:
+
+  ·  A shutdown néhány verziója a /etc/rebootállományt bedrótozva
+     tartalmazza, tehát a reboot-ot a /etc alkönyvtárba kell tenni.
+
+  ·  Az init már legalább egy embernek problémát okozott, nem találta
+     meg a kernel az init-et.
+
+  A probléma javításához vagy mozgasd a programokat a megfelelõ
+  alkönyvtárba, vagy változtasd meg a konfigurációs állományokat (pl.
+  inittab), hogy a helyes alkönyvtárra mutassanak. Ha kétségeid
+  támadnának, tedd a programokat ugyanolyan alkönyvtárba, mint a
+  merevlemezeden vannak, és használd ugyanazt az inittab és /etc/rc.d
+  állományt, ami a merevlemezeden található.
+
+  K. A kernelembe belefordítottam a memórialemez támogatást, de 0K-val
+  inicializálja magát.
+
+
+  Amikor ez történik, a megjelenõ kernelüzenet valahogy így néz ki a
+  kernel indulásakor:
+
+
+          Ramdisk driver initialized : 16 ramdisks of 0K size
+
+
+
+  Ez valószínûleg azért van, mert a méretét 0-ra állítod kernel
+  paraméterekkel az indulás idejekor. Ez valószínûleg egy elnézett LILO
+  paraméter miatt lehetséges:
+
+
+
+       ramdisk= 0
+
+
+
+  Ezt néhány korábbi disztribúció LILO példa konfigurációs állománya
+  tartalmazza,és minden korábbi kernel beállítást felülbírál. Ha van
+  ilyen sorod, távolítsd el.
+
+  Jegyezzük meg, hogy ha 0K-ra állított memórialemezt próbálsz meg
+  használni, a mûködés kiszámíthatatlanná válik, és kernel pánikor
+  okozhat.
+
+
+  A.  Erõforrások és mutatók.
+
+
+  Ha újraírsz egy csomagot, mindig a legfrisebb változatot szerezd be,
+  ha nincs jó indokod másként cselekedni.
+
+
+  A.1.  Elõre elkészített indítólemezek.
+
+
+  Ezek a disztribúciós lemezek forrásai. Légyszíves tükör szervert
+  használj a letöltéskor, hogy csökkentsd ezen gépek terheltségét.
+
+
+  ·  Slackware indítólemezek
+     <http://metalab.unc.edu/pub/Linux/distributions/slackware/current/bootdsks.144/>,
+     gyökérlemezek
+     <http://metalab.unc.edu/pub/Linux/distributions/slackware/current/rootdsks/>
+
+     és Slackware tükör szerverek <http://www.slackware.com/getslack/>
+
+  ·  RedHat indítólemezek
+     <http://metalab.unc.edu/pub/Linux/distributions/redhat/current/i386/images/>
+     és Red Hat tükör szerverek <http://www.redhat.com/mirrors.html>
+
+  ·  Debian indítólemezek
+     <ftp://ftp.debian.org/pub/debian/dists/stable/main/disks-
+     i386/current/> és Debian tükör szerverek
+     <ftp://ftp.debian.org/pub/debian/README.mirrors.html>
+
+  A disztribúciós lemezek mellett a következõ mentõ lemezeket
+  használhatod.  Ha máshogy nem rendelkeztek, a
+  <http://metalab.unc.edu/pub/Linux/system/recovery/!INDEX.html>
+  alkönyvtárban megtalálod õket.
+
+
+  ·  tomsrtbt, Tom Oehser készítette, egylemezes indító/gyökér lemez,
+     2.0-s kernelre alapozva, széles eszköz és program támogatással.
+     Támogat IDE, SCSI, szalagos egységeket, hálózati csatolókat,
+     PCMCIA-t, és így tovább. Kb. 100 eszköz és szerszám programot
+     tartalmaz, beleértve a lemezek javítására és helyreállítására
+     szolgáló programokat.  A csomag mindemellett szkripteket tartalmaz
+     az image-k szétszedésére és újragyártására, hogy szükség esetén új
+     dolgokat tehess bele.
+
+
+
+  ·  rescue02, John Comyns készítette, ez egy 1.3.84-es kernelre
+     alapozott mentõ lemez, IDE, Adaptec 1542 és NCR53C7,8xx
+     támogatással.  ELF binárisokat használ, de elegendõ utasítást
+     tartalmaz, tehát bármely rendszeren használható. Rendszerindítás
+     után betölthetõ modul formájában biztosít más SCSI kártyákhoz
+     támogatást. Valószínûleg 4Mb RAM-mal rendelkezõ rendszereken nem
+     fog mûködni, hiszen 3Mb-s memórialemezt használ.
+
+
+
+  ·  resque_disk-2.0.22, Sergei Viznyuk készítette, ez egy teljes értékû
+     indító/gyökér lemez, 2.0.22-es kernelre alapozva, beépített IDE és
+     több különbözõ SCSI vezérlõ támogatással, ELF és AOUT binárisokkal.
+     Több modult, hasznos eszközt tartalmaz merevlemezek javítására és
+     helyreállítására.
+
+
+
+  ·  cramdisk image-k, 2.0.23-as kernelre alapozva, 4 és 8 Mb memóriával
+     rendelkezõ gépek számára. Belefordítottak matematikai
+     társprocesszor emulációt és hálózatozást (PPP és betárcsázó
+     szkriptek, NE2000, 3C509) és párhuzamos csatolófelületes ZIP
+     meghajtó támogatást is.  Ezek a lemezek 4Mb RAM-mal rendelkezõ
+     386-on elindulnak. MSDOS támogatást is beillesztettek, így DOS
+     partícióra is letölthetsz hálózatról.
+
+     <http://metalab.unc.edu/pub/Linux/system/recovery/images>
+
+
+
+  A.2.  Mentõ csomagok.
+
+
+  Jónéhány mentõ lemez készítésére alkalmas csomagot találsz a
+  metalab.unc.edu címen. Ezekkel a csomagokkal megadod, hogy mely
+  állományokat szeretnéd csatolni, és a szoftver automatizálja (változó
+  mélységben) az indítólemez készítését. Nézd meg a
+  <http://metalab.unc.edu/pub/Linux/system/recovery/!INDEX.html> címet
+  további információkért. Gondosan ellenõrizd az állományok dátumát --
+  néhány ilyen csomagot jóideje nem frissítettek, és nem támogatja a
+  memóriába töltõdõ tömörített gyökér állományrendszer készítését. A
+  legjobb tudomásunk szerint csak a Yard csomag tudja ezt.
+
+
+  A.3.  Graham Chapman parancsértelmezõ szkriptje
+
+
+  Graham Chapman készített egy szkriptcsomagot, ami hasznos példa lehet
+  az indítólemezek készítésére. Eme HOGYAN elõzõ verziójának
+  függelékében szerepeltek a szkriptek, de átkerültek az alábbi
+  honlapra:
+  <http://www.zeta.org.au/~grahamc/linux.html>
+
+  Kényelmesnek találhatod ezen szkriptek használatát, és ha így van,
+  gondosan olvasd el az utasításokat -- például, ha rossz swap eszközt
+  választasz, úgy találnád, hogy a gyökér állományrendszered teljesen és
+  véglegesen letörlõdött. Ügyelj rá, hogy pontosan konfigurálod, mielõtt
+  használod!
+
+
+  A.4.  LILO -- a Linux betöltõ.
+
+
+  Werner Almesberger írta. Nagyon jó indító betöltõ, a dokumentációja az
+  indító szektor tartalmáról és az indulási folyamat korai fázisáról is
+  tartalmaz tartalmaz információkat.
+
+  Ftp-vel megtalálod a  <ftp://tsx-11.mit.edu/pub/linux/packages/lilo/>
+  címen, valamint a Metalab-on és a tükrözésein.
+
+
+  A.5.  Linux GYIK és HOGYANok.
+
+
+  Több forrásból is beszerezheted õket. Nézd meg a news.answers és a
+  comp.os.linux.announce usenet hírcsoportokat.
+
+  A GYIK-et megtalálod a
+  <http://metalab.unc.edu/pub/Linux/docs/faqs/linux-faq> címent, és a
+  HOGYAN-okat a  <http://metalab.unc.edu/pub/Linux/docs/HOWTO> címen.
+
+  A Linux legtöbb dokumentációját megtalálod a A Linux Dokumentációs
+  Project honlapja <http://metalab.unc.edu/LDP/> címen.
+
+  Ha végképp kétségbeestél, küldj levelet a mail-server@rtfm.mit.edu
+  címre, a levél törzse legyen ``help'', majd kövesd a kapott
+  utasításokat.
+
+
+  A.6.  Memórialemez használat.
+
+
+  Nagyon jó leírást találsz a Linux kernel mellett található
+  dokumentációban az új memórialemez-kód mûködésérõl.  Lásd:
+  /usr/src/linux/Documentation/ramdisk.txt.  Ezt Paul Gortmaker írta, és
+  tartalmaz egy fejezetet a tömörített memórialemezekrõl.
+
+
+  A.7.  A Linux betöltési folyamata.
+
+
+  A Linux betöltõ folyamatának részletesebb ismertetéséhez íme néhány
+  kiindulási pont:
+
+
+  ·  A Linux Rendszeradminisztrátorok Kézikönyvének van egy a
+     betöltéssel foglalkozó fejezete, lásd:
+     <http://metalab.unc.edu/LDP/LDP/sag/c1582.html>
+
+  ·  A LILO ``Technikai áttekintésében'' a
+     <http://metalab.unc.edu/pub/Linux/system/boot/lilo/lilo-t-21.ps.gz>
+     címen megtalálható a betöltési folyamat kifejezetten technikai,
+     alacsony szintû leírása, egészen addig, amíg a kernel elindul.
+
+  ·  A forráskód a kézikönyvek alapja. Alább néhány az indítás
+     folyamatához kapcsolódó kernel állományt találsz. Ha megvan a Linux
+     kernel forráskódja, megtalálod ezeket az állományokat a gépeden az
+     /usr/src/linux alkönyvtárban. Más lehetõség, hogy megnézed Shigio
+     Yamaguchi (shigio@wafu.netgate.net) nagyon szép hypertext-es kernel
+     böngészõjét a  <http://wafu.netgate.net/linux/> címen.  Néhány
+     fontos állomány:
+
+
+
+     arch/i386/boot/bootsect.S,setup.S
+        A bootszektor számára tartalmaz assembly kódot.
+
+
+     arch/i386/boot/compressed/misc.c
+        A kernel kitömörítéséhez tartalmaz kódot.
+
+
+     arch/i386/kernel/
+        Ez az alkönyvtár tartalmazza a kernel inicializációs kódját.  A
+        setup.c tartalmazza a memórialemez szót.
+
+
+     drivers/block/rd.c
+        A memórialemez meghajtó szoftverét tartalmazza. A rd_load és a
+        rd_load_image eljárások blokkokat olvasnak egy eszközrõl a
+        memórialemezre. Az identify_ramdisk_image eljárás meghatározza,
+        hogy milyen állományrendszert talált, és tömörítve van-e.
+
+
+
+  B.  LILO indulási hibakódok.
+
+
+  A Usenet-en gyakran tesznek fel ilyen hibákkal kapcsolatos kérdéseket,
+  tehát nyilvános szolgáltatásként csatoljuk õket. Ez az összefoglaló a
+  <http://metalab.unc.edu/pub/Linux/system/boot/lilo/lilo-u-21.ps.gz>
+  címen található Werner Almsberger's LILO User Documentation-ból
+  származik.
+
+  Amikor a LILO betölti magát, a ``LILO'' szót jelzi ki. Minden kiírt
+  betû néhány specifikus mûvelet végrehajtása elõtt vagy után kerül
+  kiírásra. Ha a LILO hibázik valahol, a kiírt betûk segítenek a
+  probléma azonosításában.
+
+
+
+     (semmi)
+        A LILO egyetlen részét sem sikerült betölteni. A LILO vagy nincs
+        feltelepítve, vagy nem aktív az a partíció, amire telepítve
+        lett.
+
+
+     L  Az indító betöltõ betöltõdött, és elindult, de nem tudta
+        betölteni a második szintû indító betöltõt. A kétszámjegyû
+        hibakód jelzi a probléma típusát (lásd még a ``Lemez
+        hibakódokat''). Ez a feltétel általában médium hibára utal, vagy
+        geometria eltérésre (például hibás lemez paraméterek).
+
+
+     LI Az indító betöltõ betöltötte a második szintû indító betöltõt,
+        de nem tudta végrehajtani. Ezt vagy a geometria eltérése okozza,
+        vagy a /boot/boot.b elmozgatása a map telepítõ futtatása nélkül.
+
+
+     LIL
+        Az indító betöltõ elindult, de nem tudta betölteni a leíró
+        táblát a map állományból. Ezt általában a médium hibája okozza,
+        vagy geometriai eltérés.
+
+
+     LIL?
+        Az indító betöltõ második fázisa hibás címre töltõdött. Ezt
+        tipikusan hibás geometria okozza, vagy a /boot/boot.b
+        elmozgatása a map telepítõ futtatása nélkül.
+
+
+     LIL-
+        A leíró tábla hibás. Ez lehet egyrészt a geometria hibája, vagy
+        a /boot/map elmozgatásaa map telepítõ futtatása nélkül.
+
+
+     LILO
+        All parts of LILO have been successfully loaded.
+
+
+  If the BIOS signals an error when LILO is trying to load a boot image,
+  the respective error code is displayed.  These codes range from 0x00
+  through 0xbb.  See the LILO User Guide for an explanation of these.
+
+
+
+  C.  Példa egy gyökérlemez könyvtárlistájára.
+
+
+
+  Íme egy példa a gyökér állományrendszerre és egy eszközlemezre.
+
+
+
+  Gyökér könyvtár:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 bin
+  drwx--x--x   2 root     root         4096 Nov  1 15:39 dev
+  drwx--x--x   3 root     root         1024 Nov  1 15:39 etc
+  drwx--x--x   4 root     root         1024 Nov  1 15:39 lib
+  drwx--x--x   5 root     root         1024 Nov  1 15:39 mnt
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 proc
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 root
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 sbin
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 tmp
+  drwx--x--x   7 root     root         1024 Nov  1 15:39 usr
+  drwx--x--x   5 root     root         1024 Nov  1 15:39 var
+
+  /bin:
+  -rwx--x--x   1 root     root        62660 Nov  1 15:39 ash
+  -rwx--x--x   1 root     root         9032 Nov  1 15:39 cat
+  -rwx--x--x   1 root     root        10276 Nov  1 15:39 chmod
+  -rwx--x--x   1 root     root         9592 Nov  1 15:39 chown
+  -rwx--x--x   1 root     root        23124 Nov  1 15:39 cp
+  -rwx--x--x   1 root     root        23028 Nov  1 15:39 date
+  -rwx--x--x   1 root     root        14052 Nov  1 15:39 dd
+  -rwx--x--x   1 root     root        14144 Nov  1 15:39 df
+  -rwx--x--x   1 root     root        69444 Nov  1 15:39 egrep
+  -rwx--x--x   1 root     root          395 Nov  1 15:39 false
+  -rwx--x--x   1 root     root        69444 Nov  1 15:39 fgrep
+  -rwx--x--x   1 root     root        69444 Nov  1 15:39 grep
+  -rwx--x--x   3 root     root        45436 Nov  1 15:39 gunzip
+  -rwx--x--x   3 root     root        45436 Nov  1 15:39 gzip
+  -rwx--x--x   1 root     root         8008 Nov  1 15:39 hostname
+  -rwx--x--x   1 root     root        12736 Nov  1 15:39 ln
+  -rws--x--x   1 root     root        15284 Nov  1 15:39 login
+  -rwx--x--x   1 root     root        29308 Nov  1 15:39 ls
+  -rwx--x--x   1 root     root         8268 Nov  1 15:39 mkdir
+  -rwx--x--x   1 root     root         8920 Nov  1 15:39 mknod
+  -rwx--x--x   1 root     root        24836 Nov  1 15:39 more
+  -rws--x--x   1 root     root        37640 Nov  1 15:39 mount
+  -rwx--x--x   1 root     root        12240 Nov  1 15:39 mt
+  -rwx--x--x   1 root     root        12932 Nov  1 15:39 mv
+  -r-x--x--x   1 root     root        12324 Nov  1 15:39 ps
+  -rwx--x--x   1 root     root         5388 Nov  1 15:39 pwd
+  -rwx--x--x   1 root     root        10092 Nov  1 15:39 rm
+  lrwxrwxrwx   1 root     root            3 Nov  1 15:39 sh -> ash
+  -rwx--x--x   1 root     root        25296 Nov  1 15:39 stty
+  -rws--x--x   1 root     root        12648 Nov  1 15:39 su
+  -rwx--x--x   1 root     root         4444 Nov  1 15:39 sync
+  -rwx--x--x   1 root     root       110668 Nov  1 15:39 tar
+  -rwx--x--x   1 root     root        19712 Nov  1 15:39 touch
+  -rwx--x--x   1 root     root          395 Nov  1 15:39 true
+  -rws--x--x   1 root     root        19084 Nov  1 15:39 umount
+  -rwx--x--x   1 root     root         5368 Nov  1 15:39 uname
+  -rwx--x--x   3 root     root        45436 Nov  1 15:39 zcat
+
+  /dev:
+  lrwxrwxrwx   1 root     root            6 Nov  1 15:39 cdrom -> cdu31a
+  brw-rw-r--   1 root     root      15,   0 May  5  1998 cdu31a
+  crw-------   1 root     root       4,   0 Nov  1 15:29 console
+  crw-rw-rw-   1 root     uucp       5,  64 Sep  9 19:46 cua0
+  crw-rw-rw-   1 root     uucp       5,  65 May  5  1998 cua1
+  crw-rw-rw-   1 root     uucp       5,  66 May  5  1998 cua2
+  crw-rw-rw-   1 root     uucp       5,  67 May  5  1998 cua3
+  brw-rw----   1 root     floppy     2,   0 Aug  8 13:54 fd0
+  brw-rw----   1 root     floppy     2,  36 Aug  8 13:54 fd0CompaQ
+  brw-rw----   1 root     floppy     2,  84 Aug  8 13:55 fd0D1040
+  brw-rw----   1 root     floppy     2,  88 Aug  8 13:55 fd0D1120
+  brw-rw----   1 root     floppy     2,  12 Aug  8 13:54 fd0D360
+  brw-rw----   1 root     floppy     2,  16 Aug  8 13:54 fd0D720
+  brw-rw----   1 root     floppy     2, 120 Aug  8 13:55 fd0D800
+  brw-rw----   1 root     floppy     2,  32 Aug  8 13:54 fd0E2880
+  brw-rw----   1 root     floppy     2, 104 Aug  8 13:55 fd0E3200
+  brw-rw----   1 root     floppy     2, 108 Aug  8 13:55 fd0E3520
+  brw-rw----   1 root     floppy     2, 112 Aug  8 13:55 fd0E3840
+  brw-rw----   1 root     floppy     2,  28 Aug  8 13:54 fd0H1440
+  brw-rw----   1 root     floppy     2, 124 Aug  8 13:55 fd0H1600
+  brw-rw----   1 root     floppy     2,  44 Aug  8 13:55 fd0H1680
+  brw-rw----   1 root     floppy     2,  60 Aug  8 13:55 fd0H1722
+  brw-rw----   1 root     floppy     2,  76 Aug  8 13:55 fd0H1743
+  brw-rw----   1 root     floppy     2,  96 Aug  8 13:55 fd0H1760
+  brw-rw----   1 root     floppy     2, 116 Aug  8 13:55 fd0H1840
+  brw-rw----   1 root     floppy     2, 100 Aug  8 13:55 fd0H1920
+  lrwxrwxrwx   1 root     root            7 Nov  1 15:39 fd0H360 -> fd0D360
+  lrwxrwxrwx   1 root     root            7 Nov  1 15:39 fd0H720 -> fd0D720
+  brw-rw----   1 root     floppy     2,  52 Aug  8 13:55 fd0H820
+  brw-rw----   1 root     floppy     2,  68 Aug  8 13:55 fd0H830
+  brw-rw----   1 root     floppy     2,   4 Aug  8 13:54 fd0d360
+  brw-rw----   1 root     floppy     2,   8 Aug  8 13:54 fd0h1200
+  brw-rw----   1 root     floppy     2,  40 Aug  8 13:54 fd0h1440
+  brw-rw----   1 root     floppy     2,  56 Aug  8 13:55 fd0h1476
+  brw-rw----   1 root     floppy     2,  72 Aug  8 13:55 fd0h1494
+  brw-rw----   1 root     floppy     2,  92 Aug  8 13:55 fd0h1600
+  brw-rw----   1 root     floppy     2,  20 Aug  8 13:54 fd0h360
+  brw-rw----   1 root     floppy     2,  48 Aug  8 13:55 fd0h410
+  brw-rw----   1 root     floppy     2,  64 Aug  8 13:55 fd0h420
+  brw-rw----   1 root     floppy     2,  24 Aug  8 13:54 fd0h720
+  brw-rw----   1 root     floppy     2,  80 Aug  8 13:55 fd0h880
+  brw-rw----   1 root     disk       3,   0 May  5  1998 hda
+  brw-rw----   1 root     disk       3,   1 May  5  1998 hda1
+  brw-rw----   1 root     disk       3,   2 May  5  1998 hda2
+  brw-rw----   1 root     disk       3,   3 May  5  1998 hda3
+  brw-rw----   1 root     disk       3,   4 May  5  1998 hda4
+  brw-rw----   1 root     disk       3,   5 May  5  1998 hda5
+  brw-rw----   1 root     disk       3,   6 May  5  1998 hda6
+  brw-rw----   1 root     disk       3,  64 May  5  1998 hdb
+  brw-rw----   1 root     disk       3,  65 May  5  1998 hdb1
+  brw-rw----   1 root     disk       3,  66 May  5  1998 hdb2
+  brw-rw----   1 root     disk       3,  67 May  5  1998 hdb3
+  brw-rw----   1 root     disk       3,  68 May  5  1998 hdb4
+  brw-rw----   1 root     disk       3,  69 May  5  1998 hdb5
+  brw-rw----   1 root     disk       3,  70 May  5  1998 hdb6
+  crw-r-----   1 root     kmem       1,   2 May  5  1998 kmem
+  crw-r-----   1 root     kmem       1,   1 May  5  1998 mem
+  lrwxrwxrwx   1 root     root           12 Nov  1 15:39 modem -> ../dev/ttyS1
+  lrwxrwxrwx   1 root     root           12 Nov  1 15:39 mouse -> ../dev/psaux
+  crw-rw-rw-   1 root     root       1,   3 May  5  1998 null
+  crwxrwxrwx   1 root     root      10,   1 Oct  5 20:22 psaux
+  brw-r-----   1 root     disk       1,   1 May  5  1998 ram
+  brw-rw----   1 root     disk       1,   0 May  5  1998 ram0
+  brw-rw----   1 root     disk       1,   1 May  5  1998 ram1
+  brw-rw----   1 root     disk       1,   2 May  5  1998 ram2
+  brw-rw----   1 root     disk       1,   3 May  5  1998 ram3
+  brw-rw----   1 root     disk       1,   4 May  5  1998 ram4
+  brw-rw----   1 root     disk       1,   5 May  5  1998 ram5
+  brw-rw----   1 root     disk       1,   6 May  5  1998 ram6
+  brw-rw----   1 root     disk       1,   7 May  5  1998 ram7
+  brw-rw----   1 root     disk       1,   8 May  5  1998 ram8
+  brw-rw----   1 root     disk       1,   9 May  5  1998 ram9
+  lrwxrwxrwx   1 root     root            4 Nov  1 15:39 ramdisk -> ram0
+  ***  Csak az általam használt IDE partíciók számára csatoltam az eszközöket.
+  ***  Ha SCSI-t használsz, akkor a /dev/sdXX eszközöket kell ezek helyett használod.
+  crw-------   1 root     root       4,   0 May  5  1998 tty0
+  crw--w----   1 root     tty        4,   1 Nov  1 15:39 tty1
+  crw-------   1 root     root       4,   2 Nov  1 15:29 tty2
+  crw-------   1 root     root       4,   3 Nov  1 15:29 tty3
+  crw-------   1 root     root       4,   4 Nov  1 15:29 tty4
+  crw-------   1 root     root       4,   5 Nov  1 15:29 tty5
+  crw-------   1 root     root       4,   6 Nov  1 15:29 tty6
+  crw-------   1 root     root       4,   7 May  5  1998 tty7
+  crw-------   1 root     tty        4,   8 May  5  1998 tty8
+  crw-------   1 root     tty        4,   9 May  8 12:57 tty9
+  crw-rw-rw-   1 root     root       4,  65 Nov  1 12:17 ttyS1
+  crw-rw-rw-   1 root     root       1,   5 May  5  1998 zero
+
+  /etc:
+  -rw-------   1 root     root          164 Nov  1 15:39 conf.modules
+  -rw-------   1 root     root          668 Nov  1 15:39 fstab
+  -rw-------   1 root     root           71 Nov  1 15:39 gettydefs
+  -rw-------   1 root     root          389 Nov  1 15:39 group
+  -rw-------   1 root     root          413 Nov  1 15:39 inittab
+  -rw-------   1 root     root           65 Nov  1 15:39 issue
+  -rw-r--r--   1 root     root          746 Nov  1 15:39 ld.so.cache
+  ***  Az ld.so.cache-t az ldconfig készítette, és cache-li a könyvtárak helyét.
+  ***  Több dolog összeomlik indulás-idõben, ha az ld.so.cache hiányzik.
+  ***  Vagy újragyártod az indítólemez készítése után, vagy csatolod az
+  ***  ldconfig-ot az indítólemezen, és egy rc.x szkriptbõl indítod
+  ***  a cache frissítéséhez.
+  -rw-------   1 root     root           32 Nov  1 15:39 motd
+  -rw-------   1 root     root          949 Nov  1 15:39 nsswitch.conf
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 pam.d
+  -rw-------   1 root     root          139 Nov  1 15:39 passwd
+  -rw-------   1 root     root          516 Nov  1 15:39 profile
+  -rwx--x--x   1 root     root          387 Nov  1 15:39 rc
+  -rw-------   1 root     root           55 Nov  1 15:39 shells
+  -rw-------   1 root     root          774 Nov  1 15:39 termcap
+  -rw-------   1 root     root           78 Nov  1 15:39 ttytype
+  lrwxrwxrwx   1 root     root           15 Nov  1 15:39 utmp -> ../var/run/utmp
+  lrwxrwxrwx   1 root     root           15 Nov  1 15:39 wtmp -> ../var/log/wtmp
+
+  /etc/pam.d:
+  -rw-------   1 root     root          356 Nov  1 15:39 other
+
+  /lib:
+  *** Nekem ELF rendszerem van glibc-vel, tehát az ld-2.so betöltõre van szükségem.
+  -rwxr-xr-x   1 root     root        45415 Nov  1 15:39 ld-2.0.7.so
+  lrwxrwxrwx   1 root     root           11 Nov  1 15:39 ld-linux.so.2 -> ld-2.0.7.so
+  -rwxr-xr-x   1 root     root       731548 Nov  1 15:39 libc-2.0.7.so
+  lrwxrwxrwx   1 root     root           13 Nov  1 15:39 libc.so.6 -> libc-2.0.7.so
+  lrwxrwxrwx   1 root     root           17 Nov  1 15:39 libcom_err.so.2 -> libcom_err.so.2.0
+  -rwxr-xr-x   1 root     root         6209 Nov  1 15:39 libcom_err.so.2.0
+  -rwxr-xr-x   1 root     root       153881 Nov  1 15:39 libcrypt-2.0.7.so
+  lrwxrwxrwx   1 root     root           17 Nov  1 15:39 libcrypt.so.1 -> libcrypt-2.0.7.so
+  -rwxr-xr-x   1 root     root        12962 Nov  1 15:39 libdl-2.0.7.so
+  lrwxrwxrwx   1 root     root           14 Nov  1 15:39 libdl.so.2 -> libdl-2.0.7.so
+  lrwxrwxrwx   1 root     root           16 Nov  1 15:39 libext2fs.so.2 -> libext2fs.so.2.4
+  -rwxr-xr-x   1 root     root        81382 Nov  1 15:39 libext2fs.so.2.4
+  -rwxr-xr-x   1 root     root        25222 Nov  1 15:39 libnsl-2.0.7.so
+  lrwxrwxrwx   1 root     root           15 Nov  1 15:39 libnsl.so.1 -> libnsl-2.0.7.so
+  -rwx--x--x   1 root     root       178336 Nov  1 15:39 libnss_files-2.0.7.so
+  lrwxrwxrwx   1 root     root           21 Nov  1 15:39 libnss_files.so.1 -> libnss_files-2.0.7.so
+  lrwxrwxrwx   1 root     root           14 Nov  1 15:39 libpam.so.0 -> libpam.so.0.64
+  -rwxr-xr-x   1 root     root        26906 Nov  1 15:39 libpam.so.0.64
+  lrwxrwxrwx   1 root     root           19 Nov  1 15:39 libpam_misc.so.0 -> libpam_misc.so.0.64
+  -rwxr-xr-x   1 root     root         7086 Nov  1 15:39 libpam_misc.so.0.64
+  -r-xr-xr-x   1 root     root        35615 Nov  1 15:39 libproc.so.1.2.6
+  lrwxrwxrwx   1 root     root           15 Nov  1 15:39 libpwdb.so.0 -> libpwdb.so.0.54
+  -rw-r--r--   1 root     root       121899 Nov  1 15:39 libpwdb.so.0.54
+  lrwxrwxrwx   1 root     root           19 Nov  1 15:39 libtermcap.so.2 -> libtermcap.so.2.0.8
+  -rwxr-xr-x   1 root     root        12041 Nov  1 15:39 libtermcap.so.2.0.8
+  -rwxr-xr-x   1 root     root        12874 Nov  1 15:39 libutil-2.0.7.so
+  lrwxrwxrwx   1 root     root           16 Nov  1 15:39 libutil.so.1 -> libutil-2.0.7.so
+  lrwxrwxrwx   1 root     root           14 Nov  1 15:39 libuuid.so.1 -> libuuid.so.1.1
+  -rwxr-xr-x   1 root     root         8039 Nov  1 15:39 libuuid.so.1.1
+  drwx--x--x   3 root     root         1024 Nov  1 15:39 modules
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 security
+
+  /lib/modules:
+  drwx--x--x   4 root     root         1024 Nov  1 15:39 2.0.35
+
+  /lib/modules/2.0.35:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 block
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 cdrom
+
+  /lib/modules/2.0.35/block:
+  -rw-------   1 root     root         7156 Nov  1 15:39 loop.o
+
+  /lib/modules/2.0.35/cdrom:
+  -rw-------   1 root     root        24108 Nov  1 15:39 cdu31a.o
+
+  /lib/security:
+  -rwx--x--x   1 root     root         8771 Nov  1 15:39 pam_permit.so
+
+  ***  Alkönyvtár törzs beillesztéshez
+  /mnt:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 SparQ
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 cdrom
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 floppy
+
+  /proc:
+
+  /root:
+  -rw-------   1 root     root          176 Nov  1 15:39 .bashrc
+  -rw-------   1 root     root          182 Nov  1 15:39 .cshrc
+  -rw-------   1 root     root           47 Nov  1 15:39 .glintrc
+  -rwx--x--x   1 root     root          455 Nov  1 15:39 .profile
+  -rw-------   1 root     root         4014 Nov  1 15:39 .tcshrc
+
+  /sbin:
+  -rwx--x--x   1 root     root        23976 Nov  1 15:39 depmod
+  -rwx--x--x   2 root     root       274600 Nov  1 15:39 e2fsck
+  -rwx--x--x   1 root     root        41268 Nov  1 15:39 fdisk
+  -rwx--x--x   1 root     root         9396 Nov  1 15:39 fsck
+  -rwx--x--x   2 root     root       274600 Nov  1 15:39 fsck.ext2
+  -rwx--x--x   1 root     root        29556 Nov  1 15:39 getty
+  -rwx--x--x   1 root     root         6620 Nov  1 15:39 halt
+  -rwx--x--x   1 root     root        23116 Nov  1 15:39 init
+  -rwx--x--x   1 root     root        25612 Nov  1 15:39 insmod
+  -rwx--x--x   1 root     root        10368 Nov  1 15:39 kerneld
+  -rwx--x--x   1 root     root       110400 Nov  1 15:39 ldconfig
+  -rwx--x--x   1 root     root         6108 Nov  1 15:39 lsmod
+  -rwx--x--x   2 root     root        17400 Nov  1 15:39 mke2fs
+  -rwx--x--x   1 root     root         4072 Nov  1 15:39 mkfs
+  -rwx--x--x   2 root     root        17400 Nov  1 15:39 mkfs.ext2
+  -rwx--x--x   1 root     root         5664 Nov  1 15:39 mkswap
+  -rwx--x--x   1 root     root        22032 Nov  1 15:39 modprobe
+  lrwxrwxrwx   1 root     root            4 Nov  1 15:39 reboot -> halt
+  -rwx--x--x   1 root     root         7492 Nov  1 15:39 rmmod
+  -rwx--x--x   1 root     root        12932 Nov  1 15:39 shutdown
+  lrwxrwxrwx   1 root     root            6 Nov  1 15:39 swapoff -> swapon
+  -rwx--x--x   1 root     root         5124 Nov  1 15:39 swapon
+  lrwxrwxrwx   1 root     root            4 Nov  1 15:39 telinit -> init
+  -rwx--x--x   1 root     root         6944 Nov  1 15:39 update
+
+  /tmp:
+
+  /usr:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 bin
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 lib
+  drwx--x--x   3 root     root         1024 Nov  1 15:39 man
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 sbin
+  drwx--x--x   3 root     root         1024 Nov  1 15:39 share
+  lrwxrwxrwx   1 root     root           10 Nov  1 15:39 tmp -> ../var/tmp
+
+  /usr/bin:
+  -rwx--x--x   1 root     root        37164 Nov  1 15:39 afio
+  -rwx--x--x   1 root     root         5044 Nov  1 15:39 chroot
+  -rwx--x--x   1 root     root        10656 Nov  1 15:39 cut
+  -rwx--x--x   1 root     root        63652 Nov  1 15:39 diff
+  -rwx--x--x   1 root     root        12972 Nov  1 15:39 du
+  -rwx--x--x   1 root     root        56552 Nov  1 15:39 find
+  -r-x--x--x   1 root     root         6280 Nov  1 15:39 free
+  -rwx--x--x   1 root     root         7680 Nov  1 15:39 head
+  -rwx--x--x   1 root     root         8504 Nov  1 15:39 id
+  -r-sr-xr-x   1 root     bin          4200 Nov  1 15:39 passwd
+  -rwx--x--x   1 root     root        14856 Nov  1 15:39 tail
+  -rwx--x--x   1 root     root        19008 Nov  1 15:39 tr
+  -rwx--x--x   1 root     root         7160 Nov  1 15:39 wc
+  -rwx--x--x   1 root     root         4412 Nov  1 15:39 whoami
+
+  /usr/lib:
+  lrwxrwxrwx   1 root     root           17 Nov  1 15:39 libncurses.so.4 -> libncurses.so.4.2
+  -rw-r--r--   1 root     root       260474 Nov  1 15:39 libncurses.so.4.2
+
+  /usr/sbin:
+  -r-x--x--x   1 root     root        13684 Nov  1 15:39 fuser
+  -rwx--x--x   1 root     root         3876 Nov  1 15:39 mklost+found
+
+  /usr/share:
+  drwx--x--x   4 root     root         1024 Nov  1 15:39 terminfo
+
+  /usr/share/terminfo:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 l
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 v
+
+  /usr/share/terminfo/l:
+  -rw-------   1 root     root         1552 Nov  1 15:39 linux
+  -rw-------   1 root     root         1516 Nov  1 15:39 linux-m
+  -rw-------   1 root     root         1583 Nov  1 15:39 linux-nic
+
+  /usr/share/terminfo/v:
+  -rw-------   2 root     root         1143 Nov  1 15:39 vt100
+  -rw-------   2 root     root         1143 Nov  1 15:39 vt100-am
+
+  /var:
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 log
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 run
+  drwx--x--x   2 root     root         1024 Nov  1 15:39 tmp
+
+  /var/log:
+  -rw-------   1 root     root            0 Nov  1 15:39 wtmp
+
+  /var/run:
+  -rw-------   1 root     root            0 Nov  1 15:39 utmp
+
+  /var/tmp:
+
+
+
+  D.  Példa egy eszköz lemez alkönyvtár listájára.
+
+
+
+       teljes 579
+       -rwxr-xr-x   1 root     root        42333 Jul 28 19:05 cpio*
+       -rwxr-xr-x   1 root     root        32844 Aug 28 19:50 debugfs*
+       -rwxr-xr-x   1 root     root       103560 Jul 29 21:31 elvis*
+       -rwxr-xr-x   1 root     root        29536 Jul 28 19:04 fdisk*
+       -rw-r--r--   1 root     root       128254 Jul 28 19:03 ftape.o
+       -rwxr-xr-x   1 root     root        17564 Jul 25 03:21 ftmt*
+       -rwxr-xr-x   1 root     root        64161 Jul 29 20:47 grep*
+       -rwxr-xr-x   1 root     root        45309 Jul 29 20:48 gzip*
+       -rwxr-xr-x   1 root     root        23560 Jul 28 19:04 insmod*
+       -rwxr-xr-x   1 root     root          118 Jul 28 19:04 lsmod*
+       lrwxrwxrwx   1 root     root            5 Jul 28 19:04 mt -> mt-st*
+       -rwxr-xr-x   1 root     root         9573 Jul 28 19:03 mt-st*
+       lrwxrwxrwx   1 root     root            6 Jul 28 19:05 rmmod -> insmod*
+       -rwxr-xr-x   1 root     root       104085 Jul 28 19:05 tar*
+       lrwxrwxrwx   1 root     root            5 Jul 29 21:35 vi -> elvis*
+
+
+

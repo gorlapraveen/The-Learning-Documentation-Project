@@ -1,0 +1,808 @@
+
+Csillagászat HOGYANElwood DowneyJohn Huggins
+
+   howto@astronomy.net
+
+$Revision: 1.1 $
+
+   Copyright © 2003 Elwood Downey és John Huggins
+
+   $dátum: 2003.04.22 17:35:13 $
+
+   Ez a dokumentum ötleteket és forrásokat tesz közzé, a csillagászati
+   tevékenységek linuxos megoldásainak felhasználásáért.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Szükséges alapismeretek
+        1.2. [3]A dokumentum célja
+        1.3. [4]A felelõsség teljes elhárítása
+        1.4. [5]Utolsó változat
+        1.5. [6]Szerzõi jog
+        1.6. [7]Közremûködõk
+        1.7. [8]Fordítások
+        1.8. [9]A szerzõk bemutatása
+        1.9. [10]Magyar fordítás
+
+   2. [11]Alkalmazások
+
+        2.1. [12]Gyûjtemények
+        2.2. [13]Csillagvizsgálóban használt számítógépes programok
+        2.3. [14]Hordozható és kézi alkalmazások
+        2.4. [15]Szimulátorok
+        2.5. [16]Képfeldolgozás
+        2.6. [17]Nap és Hold
+        2.7. [18]Programozói könyvtárak
+        2.8. [19]Játékok
+        2.9. [20]Egyéb
+
+   3. [21]Folyamatosan elérhetõ eszközök
+
+        3.1. [22]Hagyományos ûrlap-alapú alkalmazások
+        3.2. [23]Java kisalkalmazások
+
+   4. [24]Csillagászattal kapcsolatos képek a világhálón
+
+        4.1. [25]Lista
+
+   5. [26]Szervezetek
+   6. [27]Hardvervezérlés
+
+        6.1. [28]Távcsõvezérlés
+        6.2. [29]CCD kamera vezérlés
+
+   7. [30]Telepítési segítség
+   8. [31]Linuxot használó projektek
+   9. [32]Változatnyilvántartás
+
+1. Bevezetés
+
+1.1. Szükséges alapismeretek
+
+A fõbb Linux összeállítások - mint amilyen a SuSE, Redhat, Caldera és sok
+másik - segítségével a Linux rendszerek használata mind könnyebbé válik.
+Mindezek ellenére még mindig szükség van a UNIX alapjainak bizonyos fokú
+ismeretére. Ez a HOGYAN feltételezi az Olvasóról, hogy rendelkezik egy UNIX
+rendszer használatához szükséges ismeretekkel, beleértve a számítógépes
+programok fordítását (compile - a lektor) és telepítését is.
+
+Íme néhány forrás, amelyeket az évek folyamán hasznosnak találtunk:
+
+     * "A Practical Guide to the UNIX System" (Gyakorlati kalauz UNIX
+       rendszerhez), Mark G. Sobel
+     * "Advanced Programming in the UNIX Environment" (Programozás UNIX
+       környezetben haladóknak), a néhai W. Richard Stevens
+     * "Running LINUX" (A LINUX futtatása), Matt Welsh és mások
+     * "LINUX Device Drivers" (LINUX eszközmeghajtók), Alessandro Rubini
+
+   Ez nem egy oktató kézikönyv vagy referencia a csillagászat alapjairól
+   illetve csillagászati mûszerekrõl. A csillagászat talán a
+   leghatalmasabb tudományág az összes közül. Egymástól távol álló
+   tudományokat használ fel abban a merész vállalkozásban, amelynek célja
+   nem kevesebb, mint magának a világegyetemnek a megértése.
+   Érdeklõdésed számos irányba elvezet majd. Íme néhány általunk
+   felhasznált referencia:
+
+     * "Explanatory Supplement to the Astronomical Almanac" (A
+       csillagászati évkönyv kiegészítõ melléklete), P. Kenneth
+       Seidelmann
+     * "Astronomy with your Personal Computer" (Csillagászat a személyi
+       számítógépeddel), Peter Duffett-Smith
+     * "Astronomy on the Personal Computer" (Csillagászat a személyi
+       számítógépen), Oliver Montenbruck és mások
+     * "Textbook on Spherical Astronomy" (Tankönyv a szférikus
+       csillagászatról), W. M. Smart
+     * "The Astronomy and Astrophysics Encyclopedia" (Csillagászati és
+       asztrofizikai enciklopédia), Stephen P. Maran szerkesztette
+     _________________________________________________________________
+
+1.2. A dokumentum célja
+
+A szerzõk meghatározása szerint ezen dokumentum elsõdleges célja, keresési
+segédinformációkkal szolgálni olyan linuxos eszközökrõl, amelyek
+csillagászati tevékenységre használhatók. Általában NEM állt szándékunkban
+interneten fellelhetõ csillagászati referenciák listájának összeállítása.
+Saját érdeklõdési körünk a puszta csillagászatnál távolabbra mutató
+mûszaki tudomány. Üdvözlünk minden hozzájárulást azoktól, akik olyan Linux
+rendszer alatt használható eszközt találtak, amely hozzájárul a csillagászat
+új útjainak felfedezéséhez. Kérünk vedd fel velünk a kapcsolatot a fenti
+e-mail címen.
+     _________________________________________________________________
+
+1.3. A felelõsség teljes elhárítása
+
+A dokumentum tartalmáért semmilyen felelõsséget nem vállalunk. Az összes
+elgondolást, példát és egyéb tartalmat a saját felelõsségedre használhatod.
+Mivel ez a dokumentumnak egy új változata, elõfordulhatnak benne hibák,
+pontatlanságok, amelyek károkat okozhatnak a rendszeredben. Bár mindez
+eléggé valószínûtlen, a szerzõ(k) semmilyen felelõsséget nem vállalnak
+ezért.
+
+Minden szerzõi jogot a megfelelõ tulajdonos birtokol, hacsak másként nincs
+jelezve. Ebben a dokumentumban használt szakkifejezéseknek az érvényességi
+vonatkozása nem kell tekintettel legyenek semmilyen védjegynek vagy szerviz
+márkának.
+
+Az egyéni termékekre vagy márkákra történõ hivatkozás nem szabálysértés.
+
+Nagyon ajánljuk, hogy készíts biztonsági másolatot a rendszeredrõl
+rendszeres idõközönként, illetve minden lényegesebb telepítéskor.
+     _________________________________________________________________
+
+1.4. Utolsó változat
+
+$Revision: 1.1 $
+
+$dátum: 2003.04.22 17:35:13 $
+
+Ezen dokumentum legfrissebb változatát mindig megtalálod az [33]Astronomy
+Net webhely [34]Astronomy HOWTO (Csillagászat HOGYAN) honlapján.
+
+Mohón várjuk javaslataidat a [35]Astronomy HOWTO Editors (Csillagászat
+HOGYAN szerkesztõinek) e-mail címére.
+     _________________________________________________________________
+
+1.5. Szerzõi jog
+
+Copyright 2000-2003 by Elwood Downey and John Huggins. Ez a dokumentum
+szabadon terjeszthetõ az LDP licencben található kikötések és feltételek
+betartásával, azonban kizárólag a szerzõk beleegyezésével tehetõ közzé
+módosított formában.
+
+A betû szerinti másolás minden fizikai, elektronikai adathordozóra
+megengedett a szerzõk engedélye nélkül. A más nyelvre fordítás
+engedélyezett a szerzõk kifejezett engedélye nélkül is, amennyiben a
+fordító fel van tüntetve. A kereskedelmi terjesztés engedélyezett és
+támogatott; mindezek mellett a szerzõk szeretnének értesítést kapni
+mindenféle terjesztésrõl.
+
+A dokumentumból részlet elõzetes engedély nélkül közzétehetõ, amennyiben a
+származtatott munka szó szerinti másolatot tartalmaz, illetve ilyenre
+hivatkozik.
+
+Ezen dokumentum szó szerinti másolása engedélyezve van, amennyiben a
+szerzõi jogi nyilatkozat és ez a beleegyezõ nyilatkozat változatlan
+formában megtalálható minden egyes másolatban.
+
+Röviden, szeretnénk támogatni ezen információk mindenféle csatornán
+keresztüli terjesztését. Mindezek ellenére szeretnénk fenntartani az erre a
+HOGYANra vonatkozó szerzõi jogainkat, valamint szeretnénk értesítést kapni
+a HOGYAN terjesztésére vonatkozó tervedrõl.
+     _________________________________________________________________
+
+1.6. Közremûködõk
+
+A Csillagászat HOGYAN céljait követve, itt szeretnénk méltányolni mindazok
+fáradozását akik adatokkal segítették munkánkat.
+
+     * Progga - Segített nekünk ezt a dokumentumot a régi linuxdoc
+       formátumból a modern idõk docbook formátumába konvertálni.
+     _________________________________________________________________
+
+1.7. Fordítások
+
+Mióta a csillagászat nemzetközi munka, támogatjuk eme HOGYAN bármilyen
+nyelvre történõ fordítását. Mindössze a következõket kérjük:
+
+     * Amennyiben fordító vagy, kérünk vedd fel velünk a kapcsolatot a
+       fenti címen, hogy valódi stáblista kerülhessen ide. Így az olvasók
+       azonnal látni fogják, hogy milyen nyelven és hol találhatók
+       fordítások errõl a dokumentumról.
+     * Kérünk arra, hogy a Csillagászat HOGYAN legutolsó változatának
+       másolatát használd, ezt megtalálod a [36]Astronomy Net webhelyen.
+
+   A következõknek köszönetet mondunk fordítási munkájukért:
+
+     * Michael Moltenbrey ([37]német fordítás)
+     * Shouhei Nagaoka ([38]japán fordítás)
+     _________________________________________________________________
+
+1.8. A szerzõk bemutatása
+
+Elwood Downeynek több mint húsz éves, különbözõ csillagászati projektekben
+szerzet tapasztalata van a szoftvertechnológia terén. Többet megtudhatsz
+róla a [39]Clear Sky Institute (Tiszta Égbolt Intézmény) honlapján.
+
+John Hugginsnek tizenöt éves - ebbõl nyolc év csillagászati projekttel
+kapcsolatos - tapasztalata van a hardvermérnöki tudományok területén. Többet
+is megtudhatsz róla a [40]John's Site webhelyen.
+     _________________________________________________________________
+
+1.9. Magyar fordítás
+
+A magyar fordítást [41]Kóra Sándor készítette (2002.07.31). A lektorálást
+[42]Daczi László végezte el (2002.10.10). Utoljára [43]Daczi László
+frissítette (2003.05.05). Bármilyen fordítással kapcsolatos észrevételt a
+[44]linuxhowto@sch.bme.hu címre küldjetek. Eme dokumentum legfrissebb
+változata megtalálható a [45]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Alkalmazások
+
+Alkalmazások fejezet
+     _________________________________________________________________
+
+2.1. Gyûjtemények
+
+Íme néhány linuxos csillagászati programok gyûjteményére és egyéb indexre
+mutató hivatkozás.
+
+     * [46]The Linux for Astronomy CDROM (Linux a csillagászatért CDROM)
+     * [47]Scientific Applications on Linux (SAL), Physics and Astronomy
+       (Tudományos alkalmazások Linuxon, fizika és csillagászat)
+     * [48]Linux Applications and Utilities Page, Science and Math (Linux
+       alkalmazások és segédprogramok oldala, tudomány és matematika)
+     * [49]AstroMake - ennek a segédprogramnak az a célja, hogy
+       megkönnyítse néhány általános (bináris formátumú) csillagászati
+       csomag telepítését.
+     * A linuxastro levelezõlistán szintén találsz egy listát
+       alkalmazásokról és csomagokról. További információért látogass el
+       a [50]linuxastro honlapra.
+     * [51]Astronomy at sourceforge.net (Csillagászat a Sourceforge.net
+       webhelyen)
+
+   Ha a fentiek nem elégítik ki igényeidet, az alábbi hivatkozások
+   segíthetnek ezen:
+
+     * [52]Linux Astronomy Software from the Google Search Engine
+       (linuxos csillagászati programok a Google keresõmotorból)
+     * [53]Astronomy Software from the Yahoo Listings (Csillagászati
+       programok a Yahoo listájáról)
+     _________________________________________________________________
+
+2.2. Csillagvizsgálóban használt számítógépes programok
+
+Itt bemutatjuk mindazon Linuxon futó számítógépes programokat, amelyek
+természetes vagy mesterséges égi objektumok felkutatására használhatók.
+
+     * [54]XEphem - 15 éve dédelgetett projektünk (Downey). Folyamatosan
+       fejlõdve a csillagászati táblázatok számításának egyik legjobb
+       interaktív eszközzé válik.
+     * [55]XSky - egy nélkülözhetetlen interaktív csillagászati atlasz,
+       készítette Terry R. Friedrichsen, terry@venus.sunquest.com
+     * [56]KStars - egy KDE alatt futó csillagvizsgáló program.
+     * [57]Skymap - egy Fortran és C nyelven - Unix munkaállomásokra -
+       készített csillagászati-térkép program. Doug Mink a Smithsonian
+       Astrophysical Observatory Telescope Data Center munkatársa
+       készítette.
+     * [58]Xplns - megjelenít egy igazán csillagos égboltot az X Window
+       rendszered képernyõjén.
+     * [59]Nightfall - ez egy csillagászati alkalmazás, amely
+       szórakoztatási, oktatási és tudományos célokat szolgál. Képes a
+       kettõs csillagok fényváltozásának mozgóképes megjelenítésére,
+       kiszámítja az összegzett fényhajlást és a sugárirányú gyorsulási
+       görbét, végül meghatározza egy kettõscsillag-rendszer
+       megfigyelési adataihoz legjobban illeszkedõ modellt.
+     * [60]NOVA - szabadon használható beépített megfigyelõhely
+       csillagászok számára.
+     _________________________________________________________________
+
+2.3. Hordozható és kézi alkalmazások
+
+Az kézi (palm) számítógépek elõnye nyilvánvaló. A Linux megnyitotta az utat
+ezen a területen is.
+
+     * A Clear Sky Institute (Tiszta Égbolt Intézet) elkészítette nekünk
+       a [61]Personal Sky Chart (személyi térkép az égboltról) programot
+       Sharp Zaurus PDA masinára.
+     _________________________________________________________________
+
+2.4. Szimulátorok
+
+Számítógépes programok, amelyek önmagukat a szimulátorok közé sorolják.
+
+     * [62]Celestia - az ûr valós idejû képi megjelenítése Windows és
+       Unix (Linux) rendszerek alatt.
+     * [63]OpenUniverse - a naprendszerben keringõ égitestek térbeli
+       szimulációja Windows és Linux rendszerek alatt.
+     _________________________________________________________________
+
+2.5. Képfeldolgozás
+
+     * Az Astronomical Information Processing System (AIPS)
+       (Csillagászati Információ Feldolgozó Rendszer) ezt szakértõ
+       csillagászok is rendszeresen használják. Az [64]AIPS++ honlapon
+       találod meg, egyébként az [65]AIPS Classic (hagyományos AIPS)
+       rendszer is mûködik és rendszeresen karbantartják.
+     * A [66]GNU Image Manipulation Program (GIMP) kiválóan használható
+       mindenféle digitális kép feldolgozásához, bizonyíthatóan
+       csillagászati képek feldolgozásához is.
+     _________________________________________________________________
+
+2.6. Nap és Hold
+
+Meglepõ a kizárólag Nappal és Holddal foglalkozó alkalmazások száma.
+
+     * A [67]wmMoonClock egy meglehetõsen nagy pontosságú Hold évkönyv,
+       ezen a webhelyen található egy egyéb érdekes alkalmazásokat
+       tartalmazó lista is.
+     * Az [68]XVMoontool egy Xview alkalmazás, amely valósidejû
+       információkat jelenít meg a Holdról.
+     * [69]XTide - egy Harmonic árapály óra és árapály elõrejelzõ.
+     _________________________________________________________________
+
+2.7. Programozói könyvtárak
+
+Ebben a fejezetben szerepelnek azok az apró-cseprõ programok, amelyek
+alapjai lehetnek egy szakmai projektnek.
+
+     * [70]SLALIB (a [71]Starlink Project része) - szubrutinokból
+       felépített komplett programozói könyvtár asztrometrikai
+       számításokhoz.
+     * [72]Astrophysics Source Code Library - asztrofizikai folyamatok
+       számtani modellezéséhez felhasználható hivatkozások gyûjteménye.
+     * [73]Astronomy and numerical software source codes - a
+       csillagászathoz kapcsolódó, C programnyelvû forráskódok
+       gyûjteménye.
+     * [74]Hogyan számítsuk ki bolygók helyzetét.
+     * [75]CCD Astronomy on Linux. - eljárásokból készített programozói
+       könyvtár, amely segít az SBIG kamera vezérlésében.
+     _________________________________________________________________
+
+2.8. Játékok
+
+Igen, játékok.
+
+     * [76]Orbit - legyél ûrharcos Windows és Linux alatt.
+     _________________________________________________________________
+
+2.9. Egyéb
+
+Minden listában szükséges egy egyéb fejezet, ez tehát az, a számítógépes
+programok listájában.
+
+     * [77]IRAF - ez egy óriási, de kivételesen hasznos csillagászati
+       elemzõ rendszer, amelynek fejleszését több mint 20 éve Dong Tody
+       a NOAO munkatársa irányítja. A rendszerben számtalan, vezetõ
+       csillagászoktól származó hiteles információ gyûlt össze, a
+       csillagászati adatelemzés minden területérõl. Ha komolyan érdekel
+       a csillagászati adatok szûrése és sok idõt fordítasz rá, ez a
+       rendszer meghálálja.
+     * [78]Nightfall Eclipsing Binary Star Program
+     * [79]Xplanet - nagyon valósághû Föld, más bolygók és holdak
+       renderelésére használható program. Az X Window és OpenGL
+       használatával mûködik.
+     * [80]StarPlot - térbeli csillagtérkép megjelenítõ Linux alatt, a
+       C++ és Gtk+ használatával mûködik.
+     _________________________________________________________________
+
+3. Folyamatosan elérhetõ eszközök
+
+Tudom azt mondtam, hogy nem kezdjük el felsorolni a webhelyeket, de itt
+mégis megadok néhány hivatkozást olyan webhelyekre, amelyeken teljesen
+mûködõképes, folyamatosan elérhetõ, különösen hasznos vagy érdekes
+eszközök használhatók/futtathatók egy böngészõvel bármely számítógépen.
+     _________________________________________________________________
+
+3.1. Hagyományos ûrlap-alapú alkalmazások
+
+     * [81]A Nap és a Hold keltének és nyugtának számítása
+     * [82]A MICA (Több évre szóló Interaktív Számítógépes Évkönyv) webes
+       változata 
+     * [83]JPL bolygótáblázat-generátor
+     * [84]Naprendszer szimulátor
+     * [85]Clear Sky Clock (A tiszta égbolt órája) elsõ pillantásra
+       megmutatja mikor várhatunk tiszta és sötét égboltot egy adott
+       megfigyelõhelyen.
+     * A [86]Simbad csillagászati adatbázis, amely alapadatokkal lát el,
+       segít az azonosításban, valamint a naprendszeren kívüli objektumok
+       tudományos jegyzéke. (Astronomical database provides basic data,
+       cross- identifications and bibliography for astronomical objects
+       outside the solar system. - Tudna erre valaki egy precíz
+       fordítást? - a lektor)
+     _________________________________________________________________
+
+3.2. Java kisalkalmazások
+
+     * [87]GeoAstro kisalkalmazás-gyûjtemény Juergen Giesen-tõl 
+     * [88]Aladin - interaktív csillagatlasz 
+     * [89]Cluster szimulátor 
+     * [90]Csillagászati képek feldolgozása
+     * [91]J-Track 3D - mûholdak nyomon követése
+     _________________________________________________________________
+
+4. Csillagászattal kapcsolatos képek a világhálón
+
+Számos kezdeményezés létezik a csillagászati témájú képek közzététele
+érdekében, mint például a FITS, amely bármely böngészõvel elérhetõ. Íme
+néhány hivatkozás.
+     _________________________________________________________________
+
+4.1. Lista
+
+A Harvard Egyetemnek van egy listája a képgyûjteményekrõl és
+képböngészõkrõl.
+
+     * [92]Csillagászattal kapcsolatos képek a világhálón 
+     _________________________________________________________________
+
+5. Szervezetek
+
+     * Az évenként megrendezett [93]Astronomical Data Analysis Software
+       and Systems, ADAAS, (Csillagászati Adatelemzõ Alkalmazások és
+       Rendszerek) konferenciasorozat fórum a tudósok és számítógépes
+       szakemberek számára, amelyen megbeszélhetik az algoritmusok,
+       alkalmazások és operációs rendszerek szerepét a csillagászati
+       adatok begyûjtésében, válogatásában/egyszerûsítésében és
+       vizsgálatában. A programban meghívott és fizetett elõadók,
+       poszterelõadások továbbá felhasználó-csoportok és különleges
+       felhasználási területek képviselõi találkoznak ("BOFs"). Mindezek
+       célja, hogy elõmozdítsa a párbeszédet a számítógépes szakemberek
+       és felhasználók között, valamint serkentse a csillagászati
+       alkalmazások és rendszerek fejlesztését.
+     * A linuxastro levelezõlista - linuxastro@majordomo.cv.nrao.edu -
+       azoknak az embereknek szól, akik érdeklõdnek a csillagászati
+       programok Linux rendszer alá való átírása iránt. További
+       információkért keresd fel a [94]linuxastro honlapot.
+     _________________________________________________________________
+
+6. Hardvervezérlés
+
+Még népesebb a Linuxot hardvervezérlésre használók tábora. A felhasználók
+köre a mezõkön bóklászó amatõr csillagászoktól egészen a
+csillagvizsgálókig terjed.
+     _________________________________________________________________
+
+6.1. Távcsõvezérlés
+
+     * A [95]KTelescope egy nagy teljesítményû kliens-szerver alapú
+       vezérlés programozói könyvtára Meade's LX200 alapú távcsövekhez.
+       Az Instrument Neutral Distributed Interface (INDI) protokollt
+       használja.
+     * [96]XEphem - képes kommunikálni a távcsövet vezérlõ
+       memóriarezidens meghajtóprogrammal.
+     _________________________________________________________________
+
+6.2. CCD kamera vezérlés
+
+     * [97]Apogee Instruments Inc - a cég profi CCD kamera
+       termékvonalának támogatása Linux alatt.
+     * A [98]Finger Lates Instrumentation webhelyen CCD kamera- és
+       szûrõcserélõ-gyártók, valamint linuxos meghajtóprogramok
+       találhatók.
+     * [99]SBIG - segítséget nyújt az ST7 és ST8 CCD kamerák Linux
+       rendszer alatti használatához.
+     * [100]CCD Astronomy on Linux (CCD csillagászat Linuxon) ezeken az
+       oldalakon egyfajta nézõpont szerint leírják a csillagászati CCD
+       kamerák használatát fényképezésre és képfeldolgozásra Linux alatt.
+     * A [101]Gccd egy gnome alapú CCD kamera és szûrõcserélõt
+       vezérlõ program.
+     _________________________________________________________________
+
+7. Telepítési segítség
+
+Neked tudnod kell mit tehetsz a Linux rendszerrel és a telepített
+programokkal, de néhányhoz segítség is található. Íme életed könnyebbé
+tételének néhány módja.
+
+     * [102]AstroMake - ennek a segédprogramnak az a célja, hogy
+       megkönnyítse néhány általános (bináris formátumú) csillagászati
+       csomag telepítését.
+     * Az XEphem megköveteli számos tényezõ meglétét a gépeden.
+       Jelentõsen egyszerûsíti a telepítést a CD lemezes változat, amin
+       található egy telepítõprogram (script), ez betölti a megfelelõ
+       elõre lefordított bináris állományt a legtöbb rendszeren,
+       valamint a helyére rakja az összes kiegészítõ állományt. Látogass
+       el az [103]XEphem CDROM honlapjára.
+     _________________________________________________________________
+
+8. Linuxot használó projektek
+
+Íme egy lista azon csillagászati projektekrõl, amelyek mûszereik
+vezérlésére részben vagy egészben Linuxot használnak.
+
+     * [104]The CHARA Array - optikai interferométer projekt, az
+       irányítóberendezéseikben használnak Linuxot.
+     * [105]CAOS Club of Amateurs in Optical Spectroscopy (Optikai
+       Spektroszkópiával Foglalkozó Amatõrök Egyesülete)
+     _________________________________________________________________
+
+9. Változatnyilvántartás
+
+Törekszünk a dokumentum fejlõdésének nyomon követésére, ezért egy CVS
+tárolóban tartjuk karban. A következõ lépések vezettek a jelenlegi
+dokumentum kialakulásához.
+
+$Log: Astronomy-HOWTO.sgml,v $
+változat 1.1  2003.04.22 17:35:13  gferg
+bõvítve
+
+változat 1.44  2003.04.21 11:44:17  jhuggins
+Egy közremûködõ nevének helyesbítése.
+
+változat 1.43  2003.04.21 01:58:59  jhuggins
+Nagy változások, számos új hivatkozás, néhány új szakasz és egy pár javítás.
+
+változat 1.42  2003.04.20 19:26:09  jhuggins
+CVS kulcsszavak és docbook jelölések tesztelése.
+
+változat 1.41  2003.04.20 15:45:12  jhuggins
+A CVS Log kulcsszavai screen paraméterek közé helyezve a hibák elkerülése érdek
+ében.
+
+változat 1.40  2003.04.20 15:42:13  jhuggins
+Változások története lista hozzáfûzése a dokumentum végéhez, elkerülendõ a
+doksi elejének összekutyulását.
+
+változat 1.39
+dátum: 2003.04.20 03:58:00;  szerzõ: jhuggins;  állapot: Exp;  sorok: +540 -26
+4
+Az elsõ konverzió Docbook formátumra. A tartalom nem változott csak a címkék.
+
+változat 1.38
+dátum: 2001.08.27 20:45:52;  szerzõ: astro;  állapot: Exp;  sorok: +4 -4
+Michael Moltenbrey német fordítása hozzáadva a fordítások listájához.
+
+változat 1.37
+dátum: 2001.08.19 18:24:25;  szerzõ: ecdowney;  állapot: Exp;  sorok: +8 -3
+gccd hozzáadása
+
+változat 1.36
+dátum: 2001.07.25 19:58:54;  szerzõ: astro;  állapot: Exp;  sorok: +26 -7
+"Fordítások" fejezet létrehozása és néhány szövegformázás javítása.
+
+változat 1.35
+dátum: 2001.06.18 18:48:42;  szerzõ: astro;  állapot: Exp;  sorok: +5 -3
+Még néhány sgml hiba javítása.
+
+változat 1.34
+dátum: 2001.06.18 18:43:42;  szerzõ: astro;  állapot: Exp;  sorok: +12 -5
+További hibák javítása.
+
+változat 1.33
+dátum: 2001.06.18 18:23:11;  szerzõ: astro;  állapot: Exp;  sorok: +6 -5
+Néhány az 1.32. változatban lévõ hiba javítása. John
+
+változat 1.32
+dátum: 2001.06.18 18:11:39;  szerzõ: astro;  állapot: Exp;  sorok: +19 -4
+Hozzáadva néhány új hivatkozás a szimulátorok és a játékok részhez. Néhány
+szóköz hiba is javítása. John.
+
+változat 1.31
+dátum: 2001.06.15 13:37:58;  szerzõ: astro;  állapot: Exp;  sorok: +13 -6
+Megváltozott a "Folyamatosan elérhetõ eszközök" fejezet, "Hagyományos ûrlap-a
+lapú
+alkalmazások" és "Java kisalkalmazások"
+részre lett felosztva. Néhány új lista lett hozzáadva.
+
+változat 1.30
+dátum: 2001.06.14 20:17:26;  szerzõ: astro;  állapot: Exp;  sorok: +4 -4
+A CAOS hivatkozása és neve közé egy szóköz lett beszúrva.
+
+változat 1.29
+dátum: 2001.06.14 20:07:08;  szerzõ: astro;  állapot: Exp;  sorok: +5 -5
+A "Linux" szó törölve a Yahoo hivatkozásból, mivel ezek csak csillagászati szof
+tverek.
+
+változat 1.28
+dátum: 2001.06.14 20:03:18;  szerzõ: astro;  állapot: Exp;  sorok: +4 -4
+Hiányzó idézõjel javítása a Yahoo Astronomy Software hivatkozásban.
+
+változat 1.27
+dátum: 2001.06.14 19:59:33;  szerzõ: astro;  állapot: Exp;  sorok: +5 -4
+Hozzáadva a Yahoo Astronomy Software könyvtárra mutató hivatkozás.
+
+változat 1.26
+dátum: 2001.06.14 19:34:32;  szerzõ: ecdowney;  állapot: Exp;  sorok: +16 -9
+***  üres bejegyzés  ***
+
+változat 1.25
+dátum: 2001.06.14 18:48:10;  szerzõ: astro;  állapot: Exp;  sorok: +47 -49
+A htmlurl címkék url címkére cserélve, így a hivatkozások a txt
+formátum is látszanak. A htmlurl címke elrejti a hivatkozásokat
+a txt formátumban.
+
+változat 1.24
+dátum: 2001.06.14 18:29:25;  szerzõ: astro;  állapot: Exp;  sorok: +3 -10
+Néhány hivatkozás javítása.
+
+változat 1.23
+dátum: 2001.06.14 18:19:24;  szerzõ: astro;  állapot: Exp;  sorok: +8 -4
+További általános keresõmotorra mutató hivatkozások hozzáadása, speciálisan li
+nuxos csillagászati szoftverek keresésére beállítva.
+
+változat 1.22
+dátum: 2001.06.14 18:14:34;  szerzõ: astro;  állapot: Exp;  sorok: +13 -3
+Néhány általános keresõmotorra mutató hivatkozás hozzáadása, speciálisan linux
+os
+csillagászati szoftverek keresésére beállítva.
+
+változat 1.21
+dátum: 2001.06.13 22:06:47;  szerzõ: ecdowney;  állapot: Exp;  sorok: +4 -4
+***  üres bejegyzés  ***
+
+változat 1.20
+dátum: 2001.06.13 18:11:27;  szerzõ: ecdowney;  állapot: Exp;  sorok: +5 -5
+*** üres bejegyzés ***
+
+változat 1.19
+dátum: 2001.06.13 18:05:05;  szerzõ: ecdowney;  állapot: Exp;  sorok: +42 -4
+***  üres bejegyzés  ***
+
+változat 1.18
+dátum: 2001.06.13 16:49:06;  szerzõ: astro;  állapot: Exp;  sorok: +4 -4
+Megváltozott a szerzõi jogi megjegyzés, a 2001-es évet is magába foglalja.
+
+változat 1.17
+dátum: 2001.04.10 21:47:17;  szerzõ: astrohowto;  állapot: Exp;  sorok: +4 -4
+A www.astronomy.net megváltozott astronomy.net -re.
+
+változat 1.16
+dátum: 2001.04.10 21:43:43;  szerzõ: astrohowto;  állapot: Exp;  sorok: +0 -2
+Törölt bejegyzés.
+
+változat 1.15
+dátum: 2001.04.10 21:42:56;  szerzõ: astrohowto;  állapot: Exp;  sorok: +5 -3
+Log információ hozzáadása.
+
+változat 1.14
+dátum: 2001.04.10 21:40:14;  szerzõ: astrohowto;  állapot: Exp;  sorok: +4 -4
+A HOGYAN fõ webhelye howto.astronomy.net -re változott.
+
+változat 1.13
+dátum: 2000.11.28 15:23:37;  szerzõ: astrohowto;  állapot: Exp;  sorok: +6 -4
+Felülvizsgálva a szerzõkrõl szóló rész.
+
+változat 1.12
+dátum: 2000.11.21 22:00:45;  szerzõ: astrohowto;  állapot: Exp;  sorok: +16 -4
+Hozzáadva a "Linuxot használó projektek" rész, ehhez pedig a CHARA hivatkozás.
+
+változat 1.11
+dátum: 2000.11.21 21:39:11;  szerzõ: astrohowto;  állapot: Exp;  sorok: +14 -7
+Hozzáadva számos hivatkozás, és törölve egy hibás AstrHorloge-re mutató.
+
+változat 1.10
+dátum: 2000.11.07 17:22:16;  szerzõ: astrohowto;  állapot: Exp;  sorok: +220 -
+225
+Törölve néhány további sorvége probléma.
+
+változat 1.9
+dátum: 2000.09.21 15:55:48;  szerzõ: astrohowto;  állapot: Exp;  sorok: +4 -4
+Megváltozott az XSky programra mutató hivatkozás, miutána kaptam egy levelet
+Terry Friedrichsen-tõl.
+
+változat 1.8
+dátum: 2000.08.14 18:33:47;  szerzõ: astrohowto;  állapot: Exp;  sorok: +12 -3
+Hozzáadva a  Nightfall a planetáriumban használt programokhoz.
+
+változat 1.7
+dátum: 2000.08.14 18:16:28;  szerzõ: astrohowto;  állapot: Exp;  sorok: +38 -6
+2
+Soremelések törölve néhány Elwood által írt fejezetben.
+Néhány e-mail-ben kapott javaslat hozzáadása.
+
+változat 1.6
+dátum: 2000.05.03 22:01:25;  szerzõ: astrohowto;  állapot: Exp;  sorok: +15 -3
+Szerzõi jogi megjegyzés hozzáadása.
+
+változat 1.5
+dátum: 2000.05.02 11:59:19;  szerzõ: astrohowto;  állapot: Exp;  sorok: +8 -4
+A "Linux" hozzáadása a címhez és néhány kapcsolattartási információ hozzáadása.
+ JSH.
+
+változat 1.4
+dátum: 2000.05.02 09:05:20;  szerzõ: astrohowto;  állapot: Exp;  sorok: +224 -
+110
+Elwood bõvítései.
+
+változat 1.3
+dátum: 2000.04.30 15:14:25;  szerzõ: astrohowto;  állapot: Exp;  sorok: +4 -3
+További RCS hozzáadása.
+
+változat 1.2
+dátum: 2000.04.30 14:45:16;  szerzõ: astrohowto;  állapot: Exp;  sorok: +5 -0
+Néhány RCS kulcsszó hozzáadása.
+
+változat 1.1
+dátum: 2000.04.30 14:43:43;  szerzõ: astrohowto;  állapot: Exp;
+Elsõ változat.
+
+References
+
+   1. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#INTRO
+   2. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN24
+   3. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN51
+   4. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#DISCLAIMER
+   5. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN60
+   6. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN69
+   7. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN76
+   8. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN83
+   9. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN101
+  10. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN107
+  11. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#SOFTWARE
+  12. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN118
+  13. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN150
+  14. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN176
+  15. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN184
+  16. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN195
+  17. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN206
+  18. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN220
+  19. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN241
+  20. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN249
+  21. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#ONLINETOOLS
+  22. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN269
+  23. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN291
+  24. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#ASTROIMAGES
+  25. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN313
+  26. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#ORGS
+  27. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#HARDWARECONTROL
+  28. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN334
+  29. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#AEN344
+  30. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#INSTALLHELP
+  31. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#PROJECTS
+  32. file://localhost/home/dacas/temp/Astronomy-HOWTO-hu.html#REVISIONS
+  33. http://astronomy.net/
+  34. http://howto.astronomy.net/howto/
+  35. mailto:howto@astronomy.net
+  36. http://howto.astronomy.net/
+  37. http://www.michael-moltenbrey.de/misc.html
+  38. http://www.linux.or.jp/JF/JFdocs/Astronomy-HOWTO.html
+  39. http://www.clearskyinstitute.com/resumes/ecdowney/resume.html
+  40. http://www.johnhuggins.com/resume/
+  41. mailto:kora@korhaz.rethy.hu_NO_SPAM
+  42. mailto:dacas@freemail.hu_NO_SPAM
+  43. mailto:dacas@freemail.hu_NO_SPAM
+  44. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  45. http://tldp.fsf.hu/index.html
+  46. http://www.randomfactory.com/lfa.html
+  47. http://SAL.KachinaTech.COM/Z/4/index.shtml
+  48. http://home.xnet.com/~blatura/linapp3.html#science
+  49. http://bima.astro.umd.edu/nemo/linuxastro/astromake/
+  50. http://bima.astro.umd.edu/nemo/linuxastro
+  51. http://sourceforge.net/softwaremap/trove_list.php?form_cat=134
+  52. http://www.google.com/search?q=Astronomy+Software+Linux
+  53. http://dir.yahoo.com/Science/Astronomy/Software/
+  54. http://clearskyinstitute.com/xephem/
+  55. http://www.astrotrf.net:8080/xsky_blurb.html
+  56. http://edu.kde.org/kstars/
+  57. http://tdc-www.harvard.edu/software/skymap.html
+  58. http://www.astroarts.com/products/xplns/
+  59. http://www.lsw.uni-heidelberg.de/~rwichman/Nightfall.html
+  60. http://nova.sourceforge.net/
+  61. http://www.clearskyinstitute.com/psc/
+  62. http://www.shatters.net/celestia/
+  63. http://openuniverse.sourceforge.net/
+  64. http://aips2.nrao.edu/docs/aips++.html
+  65. http://www.aoc.nrao.edu/aips/
+  66. http://www.gimp.org/
+  67. http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
+  68. http://www.paganlink.org/downloads/astronomy/xvmoontool.html
+  69. http://www.flaterco.com/xtide/
+  70. http://rlspc5.bnsc.rl.ac.uk/star/docs/sun67.htx/sun67.html#xref_
+  71. http://star-www.rl.ac.uk/
+  72. http://ascl.net/
+  73. http://people.ne.mediaone.net/moshier/index.html
+  74. http://hem.passagen.se/pausch/comp/ppcomp.html
+  75. http://dimensional.com/~ashe/ccd-astro.html
+  76. http://www.head-crash.com/orbit/
+  77. http://iraf.noao.edu/
+  78. http://www.lsw.uni-heidelberg.de/~rwichman/Nightfall.html
+  79. http://xplanet.sourceforge.net/
+  80. http://www.princeton.edu/~kmccarty/starplot.html
+  81. http://aa.usno.navy.mil/data/docs/RS_OneYear.html
+  82. http://aa.usno.navy.mil/data/docs/WebMICA_2.html
+  83. http://ssd.jpl.nasa.gov/cgi-bin/eph
+  84. http://space.jpl.nasa.gov/
+  85. http://www.cleardarksky.com/csk/
+  86. http://simbad.harvard.edu/cgi-bin/WSimbad.pl
+  87. http://www.sweethome.de/giesen/GeoAstro/GeoAstro.html
+  88. http://aladin.u-strasbg.fr/
+  89. http://www.astro.queensu.ca/~dursi/dm-tutorial/cluster-sim.html
+  90. http://www.phys.vt.edu/~jhs/SIP
+  91. http://liftoff.msfc.nasa.gov/RealTime/JTrack/3d/JTrack3D.html
+  92. http://tdc-www.harvard.edu/astro.image.html
+  93. http://hea-www.harvard.edu/adass
+  94. http://bima.astro.umd.edu/nemo/linuxastro
+  95. http://ktelescope.sourceforge.net/
+  96. http://clearskyinstitute.com/xephem/
+  97. http://www.apogee-ccd.com/software.html
+  98. http://www.fli-cam.com/
+  99. http://www.sbig.com/sbwhtmls/linux_announcement.htm
+ 100. http://dimensional.com/~ashe/ccd-astro.html
+ 101. http://home.earthlink.net/~dschmenk
+ 102. http://bima.astro.umd.edu/nemo/linuxastro/astromake/
+ 103. http://www.clearskyinstitute.com/ecommerce/xephem/order.html
+ 104. http://www.chara.gsu.edu/CHARA/index.html
+ 105. http://www.eso.org/projects/caos

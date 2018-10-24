@@ -1,0 +1,524 @@
+
+Debian és Windows megosztott nyomtatás mini-HOGYANIan Ward
+
+   ian at excess dot org
+
+   2002.12.01
+   Verziótörténet
+   Verzió: 1.4 2004.01.05 Átdolgozta: iw
+   Szavak javítása.
+   Verzió: 1.3 2003.11.18 Átdolgozta: iw
+   Az lpadmin -h helytelen használata törölve.
+   Verzió: 1.2 2003.10.03 Átdolgozta: iw
+   Megjegyzés a woody-ról és a gs-esp-rõl, ütközés a bash enable
+   parancsával, javítás az XP/2000 kliensekhez.
+   Verzió: 1.1 2003.06.26 Átdolgozta: iw
+   Hozzáadva a jelszó megadása megosztott windowsos nyomtatónál,
+   javítások.
+   Verzió: 1.0 2003.05.15 Átdolgozta: tmm
+   Elsõ kiadás, az LDP átnézte.
+   Verzió: 0.8 2003.04.11 Átdolgozta: iw
+   LaTeX-rõl konvertálva.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+   2. [2]Alapok
+
+        2.1. [3]Linux nyomtatási komponensek
+        2.2. [4]Szükséges csomagok
+        2.3. [5]CUPS helyi nyomtató beállítás
+        2.4. [6]Linux nyomtatási alapok
+
+   3. [7]Nyomtatás windowsos számítógépre
+
+        3.1. [8]Kapcsolódás a Windowshoz
+        3.2. [9]A CUPS beállítása
+
+   4. [10]Linuxos nyomtatók megosztása windowsos számítógépekkel
+
+        4.1. [11]Megosztási alapfogalmak
+        4.2. [12]Samba beállítások
+        4.3. [13]CUPS beállítások
+
+   5. [14]Hibaelhárítás
+
+        5.1. [15]Nem lehet elérni a windowsos nyomtatókat
+        5.2. [16]Egyéb hibák
+
+   6. [17]Licenc
+   7. [18]Magyar fordítás
+
+1. Bevezetés
+
+A Debian GNU/Linux ([19]http://www.debian.org) az elsõ önkéntesek által
+támogatott Linux disztribúció. Sajnos Debianban a nyomtatóbeállítás nem
+mindig egyszerû feladat. Nehéz találni olyan Windows és Linux közötti
+nyomtatómegosztást lépésenkét leíró dokumentumot, amelyben a legújabb
+programeszközöket használják fel. Ez a HOGYAN mindkét probléma megoldását
+célozza meg.
+
+Ez a HOGYAN bemutatja, miként lehet beállítani Debian rendszerben a
+nyomtatást parancssoros eszközök segítségével. Kifejti, hogyan lehet
+Linuxból dokumentumokat küldeni windowsos nyomtatókra, és hogyan lehet
+linuxos nyomtatókat Windowszal felszerelt számítógépekkel megosztani. Néhány
+gyakori probléma megoldására is mutatunk példát.
+
+Ezen dokumentum legfrissebb változata megtalálható a
+[20]http://excess.org/docs/linux_windows_printing.html honlapon. Ezen
+dokumentumhoz kapcsolódó Docbook/XML és az EPS fájlok letölthetõk a
+[21]http://excess.org/docs/src/ webhelyrõl. Kérjük, hogy a dokumentummal
+kapcsolatos hibajelentéseket, javításokat és javaslatokat az ian@excess.org
+e-mail címre küldjétek.
+     _________________________________________________________________
+
+2. Alapok
+
+2.1. Linux nyomtatási komponensek
+
+A legfõbb komponensek, amiket használni fogunk:
+
+     * CUPS
+       Az Egységes UNIX Nyomtatási Rendszer (Common UNIX Printing System;
+       [22]http://www.cups.org) egy nyomtatási sorkezelõ, valamint a
+       nyomtatóhasználatot és adminisztrációt segítõ programok
+       gyûjteménye.
+     * Samba
+       A Samba ([23]http://www.samba.org) egy olyan program, amely a
+       Windows fájl- és nyomtatómegosztási protokollok implementálásával
+       lehetõvé teszi a nem Windowst futtató számítógépek számára, hogy
+       egy hálózaton windowsos gépként viselkedjenek.
+     * Nyomtató eszközmeghajtók
+       A LinuxPrinting.org ([24]http://www.linuxprinting.org) webhelyen a
+       legtöbb nyomtatóhoz található eszközmeghajtó, itt egy adatbázisban
+       tárolják a Linux alatt használható nyomtatók listáját. A Linux
+       alatt használni kívánt nyomtatók minden típusához le kell tölteni
+       egy eszközmeghajtót. Egy nyomtató eszközmeghajtó egy PPD fájlból
+       és egy szûrõ programból áll, PostScript nyomtatók esetén pedig
+       csak egy PPD fájlból.
+     _________________________________________________________________
+
+2.2. Szükséges csomagok
+
+Minden szükséges program és programkönyvtár része a szabványos Debian
+rendszernek. Ezek a csomagok a megszokott Debian csomagkezelõkkel
+letölthetõk és telepíthetõk. A következõ csomagokra van szükség:
+
+   cupsys
+          CUPS szerver
+
+   cupsys-bsd
+          CUPS BSD parancsok
+
+   cupsys-client
+          CUPS kliens programok
+
+   foomatic-bin
+          A LinuxPrinting.org nyomtatást segítõ programjai
+
+   samba
+          Samba SMB/CIFS szerver UNIX-hoz
+
+   smbclient
+          Samba SMB/CIFS klines UNIX-hoz
+
+   gs-esp
+          ESP Ghostscript ([25] http://www.cups.org/ghostscript.php)
+
+          Nem érhetõ el Debian GNU/Linux 3.0 (más néven woody)
+          csomagként, használd a "gs" programot helyette.
+
+   a2ps
+          GNU A2PS ([26] http://www.gnu.org/software/a2ps/)
+
+   A következõ parancsok segítségével telepítheted ezeket a csomagokat:
+
+apt-get update
+apt-get install cupsys cupsys-bsd cupsys-client foomatic-bin samba smbclient
+gs-esp a2ps
+
+   Bizonyos nyomtatókhoz esetleg további csomagok is szükségesek. Például
+   a HP InkJet nyomtatók helyes mûködéséhez a hpijs csomagot is
+   telepítened kell.
+     _________________________________________________________________
+
+2.3. CUPS helyi nyomtató beállítás
+
+Az lpadmin parancsot használd nyomtatók beállításához. Íme egy példa egy
+lézernyomtató CUPS-al történõ beállításához:
+
+/usr/sbin/lpadmin -p Laser -v parallel:/dev/lp0 -P
+/root/laser.ppd
+/usr/bin/enable Laser
+/usr/sbin/accept Laser
+/usr/sbin/lpadmin -d Laser
+
+   Kérlek vedd figyelembe, hogy a bash-ban van egy enable-nak nevezett
+   belsõ parancs, így a bash felhasználóknak a teljes elérési utat kell
+   használniuk (/usr/bin/enable) a nyomtatók engedélyezéséhez.
+
+   Az elsõ parancs egy új nyomtatót hoz létre "Laser" néven, amely az
+   elsõ párhuzamos portra csatlakozik és a /root/laser.ppd nevû PPD
+   fájt használja. Ezután engedélyezd a "Laser" nevû nyomtató
+   használatát, és állítsd be, hogy az enable és az accept parancsokkal
+   fogadjon nyomtatási feladatokat. Az utolsó parancs a "Laser" nevû
+   nyomtatót állítja be alapértelmezett nyomtatónak. A nyomtató
+   beállításról részletesebb információk a CUPS dokumentációjában
+   olvashatsz.
+     _________________________________________________________________
+
+2.4. Linux nyomtatási alapok
+
+   Ábra 1. Helyi nyomtatás
+
+   [printing_basics-hu.png]
+
+   Dokumentumokat a nyomtatási sorba az lpr vagy az lp paranccsal vehetsz
+   fel, a parancs után megadva a fájl nevét. A nyomtatási sort
+   megtekintheted és a nyomtató állapota ellenõrizheted az lpstat -o
+   illetve az lpstat -p parancs használatával. Egy nyomtatási feladat
+   törléséhez a cancel vagy az lprm parancsot használd, megadva utána a
+   feladat azonosítóját.
+
+   A CUPS nyomtatási sorkezelõ démon neve cupsd. Ez a dokumentumokat
+   elõször PostScript formátumra, majd pedig a nyomtató saját
+   formátumára konvertálja ([27]1 Ábra). A PostScriptet nem ismerõ
+   nyomtatók egy raszteres vagy bittérképes dokumentum formátumot
+   használnak. A raszteres formátum mérete az eredeti PostScript
+   formátumúnál sokkal nagyobb lehet, és elküldése a nyomtatóhoz több
+   idõt vesz igénybe.
+
+   A szûrõk (filters) olyan programok, amelyek a dokumentumokat egyik
+   formátumról egy másikra konvertálják. A CUPS nyomtatási sorkezelõ
+   mindent megtesz, hogy az elküldött dokumentumok számára találjon egy
+   megfelelõ szûrõt. Ha nincs olyan szûrõ telepítve, amellyel a
+   dokumentumot konvertálni lehetne, egy ehhez hasonló hibaüzenettet
+   kapsz: lpr: unable to print file:
+   client-error-document-format-not-supported.
+
+   Sok alkalmazás nem tartalmaz szûrõket a saját dokumentum
+   formátumaihoz. Ezekkel az alkalmazásokkal készített dokumentumok csak
+   magából az alkalmazásból nyomtathatók ki, hacsak nem mented el a
+   dokumentumot PostScript vagy más szabványos formátumba.
+     _________________________________________________________________
+
+3. Nyomtatás windowsos számítógépre
+
+3.1. Kapcsolódás a Windowshoz
+
+   Ábra 2. Hálózati nyomtatás
+
+   [to_windows-hu.png]
+
+   Az SMB és a CIFS, a Windows fájl- és nyomtatómegosztási protokollja. A
+   Samba szervert használhatod arra, hogy ezekkel a protokollokkal
+   kommunikálj a Windowst futtató számítógépekkel. A CUPS konfigurálása
+   elõtt meg kell gyõzõdnöd arról, hogy kapcsolódni tudsz a Samba
+   SMB/CIFS kliensével, az smbclient programmal a windowsos számítógéphez
+   ([28]2 Ábra).
+
+   Íme egy példa windowsos számítógéppel való kapcsolat létrehozására:
+/usr/bin/smbclient -L rice -U fred
+
+added interface ip=10.6.7.234 bcast=10.6.7.255 nmask=255.255.255.0
+Got a positive name query response from 10.6.7.8 ( 10.6.7.8 )
+Password: (not shown)
+
+Sharename  Type  Comment
+PRINTER$   Disk
+INKJET     Printer
+STUFF      Disk
+IPC$       IPC    Remote Inter Process Communication
+
+   A bemutatott parancs a "rice" nevû windowsos számítógép azon
+   megosztott erõforrásainak listáját kéri le, melyekhez a "fred" nevû
+   felhasználó hozzáférhet. Ez az "INKJET" elnevezésû nyomtatót jeleníti
+   meg.
+
+   Ha a Windows névszolgáltatása nem érhetõ el, meg kell adnod a
+   windowsos számítógép IP címét az -I kapcsoló segítségével:
+   /usr/bin/smbclient -I 10.6.7.8 -L rice -N
+
+   További információkért az smbclient használatával kapcsolatban olvasd
+   el a Samba dokumentációját.
+     _________________________________________________________________
+
+3.2. A CUPS beállítása
+
+Mihelyt rendelkezésre áll egy Windows rendszerrõl mûködtetett nyomtató, be
+lehet állítani a CUPS-t. Elsõ lépésként ellenõrizd a következõ
+paranccsal, hogy a telepített CUPS tartalmazza-e az smb háttérszolgáltatást
+(backend):
+
+ls -l /usr/lib/cups/backend/smb
+
+   Ha ez a fájl nem létezik, hozd létre a következõ paranccsal:
+   ln -s `which smbspool` /usr/lib/cups/backend/smb
+
+   Egy példa a fent említett nyomtató beállítására:
+/usr/sbin/lpadmin -p RicePrinter -v
+smb://fred:mypass@rice/INKJET -P /root/inkjet.ppd
+/usr/bin/enable RicePrinter
+/usr/sbin/accept RicePrinter
+/usr/sbin/lpadmin -d RicePrinter
+
+   Ahogy fent említettem a bash-ban van egy enablenak nevezett belsõ
+   parancs, így a bash felhasználóknak a teljes elérési utat kell
+   használniuk (/usr/bin/enable) a nyomtatók engedélyezéséhez.
+
+   Az "lpadmin" parancs egy megosztott windowsos nyomtatót állít be a
+   felhasználói név, jelszó, netbios név és nyomtató név paraméterként
+   történõ megadásával. A fent említett parancsok bõvebb magyarázatát
+   olvasd el a [29]2.3 fejezetben.
+
+   Most már készen áll a nyomtató a tesztelésre. Küldj egy fájlt a
+   nyomtatóra az lp paranccsal, utána írva a fájl nevét, vagy nyomtass
+   egy dokumentumot valamelyik alkalmazásból.
+     _________________________________________________________________
+
+4. Linuxos nyomtatók megosztása windowsos számítógépekkel
+
+4.1. Megosztási alapfogalmak
+
+   Ábra 3. Nyomtató megosztása
+
+   [from_windows-hu.png]
+
+   A Samba az nmbd és az smbd démonokat hasznája windowsos gépekkel való
+   fájl és nyomtató megosztáshoz. Az nmbd windowsos névkiszolgálóként
+   mûködik, üzenetszórással tájékoztatva a gép nevérõl a helyi hálózat
+   windowsos számítógépeit. Az smbd fájl és nyomtatási kéréseket fogad
+   windowsos gépektõl ([30]3 Ábra).
+
+   Minden megosztott linuxos nyomtatóhoz le kell tölteni és telepíteni
+   kell a windowsos nyomtató eszközmeghajtókat. A windowsos nyomtató
+   eszközmeghajtókat a nyomtató gyártójának honlapján lehet megtalálni.
+     _________________________________________________________________
+
+4.2. Samba beállítások
+
+Ha a nyomtatóhoz az anonim (anonymous) hozzáférés engedélyezve van, akkor a
+távoli nyomtatási feladatok elvégzéséhez létre kell hoznod egy új
+felhasználót:
+
+/usr/sbin/adduser --system --disabled-password smbprint
+
+   Ez a parancs létrehoz egy "smbprint" nevû felhasználót. Bizonyosodj
+   meg arról, hogy a /home/smbprint könyvtárban, az "smbprint" nevû
+   felhasználó munkakönyvtárában (home) elegendõ lemezterület áll
+   rendelkezésre a nyomtatási sor kezeléséhez. Ellenõrizd, hogy az
+   "smbprint" nevû felhasználónak ne legyen jogosultsága a rendszer
+   mûködésében fontos szerepet játszó fájlok és könyvtárak olvasásához
+   vagy módosításához. Ha a CUPS beállítása csak bizonyos felhasználóknak
+   teszi lehetõvé a nyomtatást, az "smbprint" nevû felhasználó számára
+   engedélyezned kell azon nyomtatókhoz való hozzáférést, amelyeket meg
+   akarsz osztani.
+
+   Az /etc/samba/smb.conf a Samba konfigurációs fájl. A következõ példa
+   egy konfigurációs fájl, amely a CUPS-t az "smbprint" nevû felhasználó
+   számára állítja be:
+[global]
+  printcap name = cups
+  printing = cups
+  security = share
+[printers]
+  browseable = yes
+  printable = yes
+  public = yes
+  create mode = 0700
+  guest only = yes
+  use client driver = yes
+  guest account = smbprint
+  path = /home/smbprint
+
+   Jegyezd meg, hogy ez a beállítás mindenki számára engedélyezi a
+   nyomtatást, aki hálózati kapcsolatot tud létesíteni számítógépünkkel,
+   és ezért nem ajánlott használni olyan, nem megbízható hálózatra
+   csatlakozó gépek esetén, mint például közvetlen Internet hozzáféréssel
+   rendelkezõ számítógépek. Ha a hozzáférést szabályozni szeretnéd,
+   akkor szúrj be a security = user vagy a security = domain sort, és
+   további információkért olvasd el a Samba kézikönyv oldalait.
+
+   Ha a Samba konfigurációs fájlhoz hozzáadtad a fenti beállításokat,
+   újra kell indítanod a Samba szervert a következõ parancs
+   segítségével:
+   /etc/init.d/samba restart
+     _________________________________________________________________
+
+4.3. CUPS beállítások
+
+A windowsos eszközmeghajtók egy meghatározott formátumra alakítják a
+nyomtatónak küldött kimenetüket, mielõtt a hálózatra küldik azt. Az
+/etc/cups/mime.convs fájl következõ sorának elején lévõ
+megjegyzés-karakter törlésével be kell állítanod a CUPS-t, hogy fogadja az
+elõre formázott kimenetet:
+
+application/octet-stream   application/vnd.cups-raw   0
+-
+
+   Az /etc/cups/mime.types fájl következõ sorának elejérõl szintén
+   távolítsd el a megjegyzés karaktert:
+   application/octet-stream
+
+   Most pedig állítsd be a CUPS-t, hogy engedélyezze a kapcsolódást a
+   hálózat többi gépe számára. Az /etc/cups/cupsd.conf fájlhoz add hozzá
+   ezeket a sorokat:
+<Location /printers>
+ AuthType None
+ Order Deny,Allow
+ Deny From None
+ Allow From All
+</Location>
+
+   Ahogy a Samba beállítások esetén, ez a konfiguráció is engedélyezi a
+   nyomtatóhoz való hozzáférést bármilyen számítógép számára, ezért nem
+   ajánlott biztonsági szempontból megbízhatatlan hálózatokra csatlakozó
+   számítógépek esetén. A nyomtatókhoz való hozzáférés szabályozásával
+   kapcsolatos információkért olvasd el a cupsd.conf kézikönyv oldalait
+   és a CUPS dokumentációt.
+
+   Végül indítsd újra a CUPS-t a következõ paranccsal:
+   /etc/init.d/cupsys restart
+
+   Ha minden jól ment, a linuxos nyomtatók most már meg vannak osztva a
+   helyi hálózat windowsos gépei számára. Windowsos számítógépek esetén
+   hálózati nyomtató hozzáadása a szokásos módon történik, és ne felejts
+   el tesztoldalt nyomtatni.
+     _________________________________________________________________
+
+5. Hibaelhárítás
+
+5.1. Nem lehet elérni a windowsos nyomtatókat
+
+Ha az smbclient CUPS által használt segédprogramja, az smbspool nem tud
+kapcsolatot létesíteni, hibaüzeneteket ad, amelyek tréfásak ugyan, de nem
+túl hasznosak. Ilyen üzenetre példa: Unable to connect to SAMBA host:
+Success. A kapcsolódási hibáknak egy másik jele, amikor úgy tûnik, hogy a
+dokumentumok megrekednek a nyomtatási sorban, ha windowsos nyomtatóra
+nyomtatunk.
+
+A CUPS naplójának legfrissebb bejegyzéseit a következõ paranccsal nézheted
+meg:
+
+/usr/bin/tail /var/log/cups/error_log
+
+   Ha a cli_connect() failed... üzenethez hasonlót látsz, akkor az
+   smbspool nem tatálta meg azt windowsos számítógépet, amihez
+   csatlakozni próbáltunk. Ellenõrizd, hogy jól írtad-e a windowsos
+   számítógép nevét (host name). Ellenõrizd, hogy a windowsos számítógép
+   be van-e kapcsolva, és hogy a hálózati kapcsolata mûködik-e.
+   Bizonyosodj meg arról, hogy az smbclient segítségével tudsz
+   csatlakozni hozzá a [31]3.1 fejezetben bemutatott módon.
+
+   Ha az SMB tree connect failed: ERRSRV - ERRinvnetname üzenethez
+   hasonlót látsz, akkor az smbclient sikeresen kapcsolódott a windowsos
+   számítógéphez, de nem tudta felvenni a kapcsolatot a kért nyomtatóval.
+   Ellenõrizzük az smbclient segítségével a [32]3.1 fejezetben
+   bemutatottak szerint, hogy helyesen írtad-e a megosztott nyomtató
+   nevét.
+     _________________________________________________________________
+
+5.2. Egyéb hibák
+
+Ide tartozik az, ha nem lehet nyomtatni egy helyi nyomtatóra, és ha a
+nyomtatási feladatok anélkül tûnnek el a nyomtatási sorból, hogy
+nyomtatásra kerülnének. Esetleg olyan elbizonytalanító hibaüzeneteket is
+láthatsz, mint például a Child process 2384 exited with status 32. üzenet.
+
+A CUPS naplózását "debug" szintre beállítva több üzenetet láthatsz arról,
+hogy mi történik mielõtt egy nyomtatási feladat hibát jelezve megszûnik.
+
+    1. Nyisd meg a CUPS elsõdleges konfigurációs fájlját, az
+       /etc/cups/cupsd.conf fáljt egy ASCII szövegszerkesztõvel.
+    2. Írd be a "LogLevel warn" sor helyett a "LogLevel debug" sort.
+    3. Mentsd el a konfigurációs fájlt és lépj ki a
+       szövegszerkesztõbõl.
+    4. Indítsd újra a CUPS szervert a következõ paranccsal:
+
+/etc/init.d/cupsys restart
+
+   A CUPS naplózását a következõ paranccsal követheted nyomon:
+   /usr/bin/tail -f /var/log/cups/error_log
+
+   Léteznie kell a Scheduler shutting down due to SIGTERM sornak. Ez azt
+   jelenti, hogy a CUPS szerver sikeresen leállt.
+
+   A nyomtatási feladatot küldd el újra, és keress a kiírt nyomkövetési
+   üzenetek (debug messages) között valami hasznavetõt. A GNU
+   Ghostscript 7.05: Can't start ijs server 'hpijs'. egy ilyen hasznos
+   nyomkövetési üzenet. Ez esetben a megoldás a "hpijs" csomag
+   telepítése.
+
+   Ha nem tudod meghatározni a hiba okát, a kapott hibaüzenetek
+   kulcsszavaira az Interneten keress rá. Valószínû, hogy valaki már
+   korábban megoldotta a problémát. Meg lehet próbálni a [33]2.2
+   fejezetben felsorolt csomagok legújabb verzióra történõ frissítését
+   is.
+     _________________________________________________________________
+
+6. Licenc
+
+Copyright © 2003 Ian Ward.
+
+Ez a kézikönyv egy szabad szoftver; továbbterjeszthetõ és/vagy módosítható
+a Free Software Foundation (Szabad Szoftver Alapítvány) által közzétett GNU
+General Public License feltételei szerint; a GNU GPL2 vagy késõbbi
+változata alapján.
+
+Annak reményében került közzétételre, hogy hasznosnak bizonyul, de
+mindenféle garancia nélkül; beleértve a eladhatóságot vagy egyéb célokra
+való használhatóságot Olvasd el a GNU GPL-t a további részleteket
+illetõlen.
+
+A GNU GPL másolata megtalálható a /usr/share/common-licenses/GPL könyvtárban
+a Debian GNU/Linux összeállítás esetén, vagy a WEB-en a
+http://www.gnu.org/copyleft/gpl.html honlapon. Megkaphatod postai úton is,
+ha írsz a Szabad Szoftver Alapítványnak a következõ címre: Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+     _________________________________________________________________
+
+7. Magyar fordítás
+
+A magyar fordítást [34]Mócza Zsolt készítette (2002.09.09). A lektorálást
+[35]Daczi László végezte el (2003.09.15). Utoljára frissítve 2004.04.16-án.
+A dokumentum legfrissebb változata megtalálható a [36]Magyar Linux
+Dokumentációs Projekt honlapján.
+
+References
+
+   1. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#introduction
+   2. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#getting_started
+   3. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#linuxprintingcomponents
+   4. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#packages
+   5. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#basicprconfig
+   6. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#basics
+   7. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#printing_to_windows
+   8. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#to_windows
+   9. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#to_windows_cupsconfig
+  10. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#sharing_with_windows
+  11. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#sharing_basics
+  12. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#share_samba_config
+  13. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#share_cups_config
+  14. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#troubleshooting
+  15. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#connect_failure
+  16. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#other_failure
+  17. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#license
+  18. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#hungarian_translation
+  19. http://www.debian.org/
+  20. http://excess.org/docs/linux_windows_printing.html
+  21. http://excess.org/docs/src/
+  22. http://www.cups.org/
+  23. http://www.samba.org/
+  24. http://www.linuxprinting.org/
+  25. http://www.cups.org/ghostscript.php
+  26. http://www.gnu.org/software/a2ps/
+  27. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#printlocal
+  28. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#netprint
+  29. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#basicprconfig
+  30. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#printshare
+  31. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#to_windows
+  32. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#to_windows
+  33. file://localhost/home/dacas/tldp/convert/Debian-and-Windows-Shared-Printing-hu.html#packages
+  34. mailto:moczaz@freemail.hu_NO_SPAM
+  35. mailto:dacas@freemail.hu_NO_SPAM
+  36. http://tldp.fsf.hu/index.html

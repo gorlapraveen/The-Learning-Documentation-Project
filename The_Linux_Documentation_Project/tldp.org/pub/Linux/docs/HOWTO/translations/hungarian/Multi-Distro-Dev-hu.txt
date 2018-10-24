@@ -1,0 +1,164 @@
+
+Programfejlesztés több Linux terjesztésre mini-HOGYANEd Hill
+
+   <ed@eh3.com>
+
+   2001.03.01
+   Verziótörténet
+   Verzió: 0.9.1 2002.08.14 Átdolgozta: EH3
+   Egy kis frissítés az X11 (socketek) használatához.
+   Verzió: 0.9   2001.12.03 Átdolgozta: EH3
+   Elsõ kiadás.
+
+   Ez a dokumentum leírja, hogyan lehet alkalmazásokat fejleszteni és
+   tesztelni több Linux terjesztésre.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Szerzõi jog és licenc
+        1.2. [3]Magyar fordítás
+
+   2. [4]Beállítás
+   3. [5]További Linux terjesztések használata
+   4. [6]Készítõk
+
+1. Bevezetés
+
+Fejlesztõként néha szükség van a programok írására és/vagy tesztelésére
+többféle Linux terjesztésen. Ez a mini-HOGYAN leír egy csinos chroot
+trükköt, amivel sok esetben elkerülhetõ a különbözõ Linux terjesztéseken
+történõ tesztelés vagy fejlesztéskor a rendszer újraindítása.
+
+Dióhéjban, a "trükk" az, hogy a különbözõ Linux terjesztések fájljait külön
+könyvtárba rakjuk, aztán chroot-olunk abba a könyvtárba, hogy
+fejleszthessük/tesztelhessük/nyomkövessük a programot. Ez a megközelítés
+mûködni fog ha:
+
+    1. A "fõ" vagy "elsõdleges" terjesztés rendszermagjának verziója
+       (legalább valamennyire) kompatibilis a "másodlagos" vagy
+       chroot-olt terjesztésével.
+    2. Az alkalmazásod elsõsorban felhasználói (például nem rendszermag
+       modul), és nem függ semmilyen különös rendszermag sajátságtól
+       (például a /proc viselkedésétõl).
+     _________________________________________________________________
+
+1.1. Szerzõi jog és licenc
+
+This document is copyright 2001 by Ed Hill III. Engedélyezett a dokumentum
+másolása, terjesztése és/vagy módosítása a GNU Free Documentation License
+1.1 (kiadja a Free Software Foundation) vagy bármelyik késõbbi változata
+szerint, nem változtatható fejezetek, elõ- és hátoldali szövegek nélkül. A
+licenc egy másolata megtalálható a [7]http://www.gnu.org/copyleft/fdl.html
+honlapon.
+     _________________________________________________________________
+
+1.2. Magyar fordítás
+
+A magyar fordítást [8]Koller Csaba készítette (2003.05.06). A lektorálást
+[9]Daczi László végezte el (2003.11.17). A fordítás javítva (R1)
+2003.12.09.-én. A dokumentum legfrissebb változata megtalálható a [10]Magyar
+Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Beállítás
+
+Feltételezzük a következõket:
+
+    1. Egy "fõ" vagy "elsõdleges" Linux terjesztés van telepítve, ami
+       2.4-es vagy újabb rendszermagot használ.
+    2. Van egy szabad partíciód 2-4 giga hellyel.
+    3. Elegendõ hely van a lemezen a másodlagos terjesztések
+       telepítéséhez (és a késõbbi fejlesztésekhez/teszteléshez).
+
+   Ha ezek a feltételek adottak, a következõekben felvázoljuk egy a
+   fejlesztéshez, teszteléshez vagy más célokra használatos másodlagos
+   Linux disztribúció telepítésének egy módját:
+
+    1. Elõször hozz létre egy nem használt partíciót az egyik
+       merevlemezeden ami elég nagy (általában 2-4Gb szükséges) a
+       másodlagos Linux terjesztés telepítéséhez.
+    2. Telepítsd a másodlagos terjesztést erre a lemezrészre, de ne add
+       hozzá a rendszerindító beállításához. Vedd figyelembe, hogy ennek
+       a telepítésnek csak azokra a csomagokra van szüksége, amit a
+       célalkalmazások (vagy tesztek) igényelnek. Például, talán nem lesz
+       szükséged olyan alkalmazásokra mint az X szerver vagy más
+       helyfalók.
+    3. Indítsd újra az elsõdleges Linuxodat, és csatold fel az újonnan
+       telepített "másodlagos" terjesztést. Másold (elsõsorban a tar -cp
+       paranccsal vagy más olyan módszerrel ami megõrzi az engedélyeket)
+       a másodlagos disztró összes fájlját egy helyre, például az
+       /opt/distros/DISTRO_NAME könyvtárba.
+    4. Ismételd a 2-3 lépést bármely más terjesztés telepítésekor. Az
+       eredmény egy a következõhöz hasonló könyvtárrendszer:
+
+/opt/distros/redhat_6.2/
+             suse_7.2/
+             mandrake_8.1/
+             debian-potato/
+             slackware_8.0/
+
+       Ebben minden könyvtár a telepítésbõl származó terjesztések összes
+       fájlját tartalmazza.
+     _________________________________________________________________
+
+3. További Linux terjesztések használata
+
+A telepített másodlagos terjesztések használatához a következõ lépések
+végrehajtása szükséges:
+
+    1. Fontos a 2.4-es vagy újabb Linux rendszermagok használata az
+       "elsõdleges" Linux terjesztésekhez, a többszörös csatolás pont
+       (multiple mount points) szolgáltatás használatához, amit a 2.4-es
+       rendszermagok megengednek. Sok feladathoz a /proc és /tmp
+       fájlrendszereket újra fel kell csatolni a következõ parancsok
+       használatával:
+
+mount --bind /proc /opt/distros/redhat_6.2/proc
+mount --bind /tmp /opt/distros/redhat_6.2/tmp
+
+    2. Az is hasznos lehet, ha újra felcsatoljuk (a másolás helyett) a
+       forrásfát az elsõdleges terjesztésrõl a másodlagosra:
+
+mount --bind /home/USER/src/PROJECT /opt/distros/redhat_6.2/USER/src/PROJECT
+
+    3. root felhasználóként használd a következõ parancsot:
+
+xhost +localhost chroot /opt/distros/redhat_6.2
+/bin/bash
+
+       Így lesz egy héjad (shell) a másodlagos terjesztésen belül.Az
+       xhost parancs csak akkor szükséges, ha X-window alkalmazásokat
+       akarsz futtani.
+    4. Végül, hozz létre egy felhasználót (ha szükséges) a chroot-olt
+       héjon belül, és fejleszd, építsd és/vagy teszteld az
+       alkalmazásaidat ezen a "másik" Linux terjesztésen! Lehet, hogy meg
+       kell adnod a DISPLAY környezeti változódat, ha X-es alkalmazásokat
+       akarsz használni.
+
+   Kész! Most már van egy parancsértelmezõd ami az általad választott
+   másodlagos Linux terjesztésen belül fut.
+     _________________________________________________________________
+
+4. Készítõk
+
+Ebben a mini-HOGYANban leírt ötletek eredetileg nem tõlem származnak. Ben
+Reed ([11] OpenNMS ) egyik [12]TriLUG levelezõ listára küldött leveleibõl
+lett kiválasztva. Olyan hasznosnak találtam az ötletet, hogy dokumentálni
+akartam másoknak.
+
+References
+
+   1. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#INTRODUCTION
+   2. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#COPYRIGHT
+   3. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#AEN40
+   4. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#SETUP
+   5. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#USE
+   6. file://localhost/home/dacas/temp/Multi-Distro-Dev-hu.html#CREDITS
+   7. http://www.gnu.org/copyleft/fdl.html
+   8. mailto:ckoller@mailbox.hu_NO_SPAM
+   9. mailto:dacas@freemail.hu_NO_SPAM
+  10. http://tldp.fsf.hu/index.html
+  11. http://www.opennms.org/
+  12. http://www.trilug.org/

@@ -1,0 +1,2772 @@
+  Linux Hardware Kompatibilitas HOWTO
+  Patrick Reijnen, <patrickr@bart.nl>
+  diterjemahkan oleh Iwan Setiawan <setiawan@sby.cen-
+  trin.net.id> dan Mohammad DAMT <mdamt@indoglobal.com>
+  v97.5, 9 November 1997, diterjemahkan tanggal 1 April 1998
+
+  Dokumen ini memberikan daftar dari beberapa hardware yang mendukung
+  linux dan membantu mencari lokasi dari driver yang dibutuhkan.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. Pendahuluan
+
+     1.1 Selamat datang
+     1.2 Hak Cipta
+     1.3 Arsitektur sistem
+
+  2. Komputer/motherboard/BIOS
+
+     2.1 Sistem spesifik
+     2.2 Tidak didukung
+
+  3. Laptop
+
+     3.1 Laptop spesifik
+     3.2 PCMCIA
+
+  4. CPU/FPU
+
+  5. Video cards
+
+     5.1 Diamond video cards
+     5.2 SVGALIB (grafik untuk console)
+     5.3 XFree86 3.3.1
+        5.3.1 Accelerated
+        5.3.2 Unaccelerated
+        5.3.3 Monochrome
+        5.3.4 Lainnya
+     5.4 X Servers Komersial
+        5.4.1 Accelerated-X 1.2
+        5.4.2 Metro-X 2.3
+
+  6. Controllers (hard drive)
+
+  7. Controllers (SCSI)
+
+     7.1 Yang didukung
+     7.2 Lainnya
+     7.3 Yang tidak didukung
+
+  8. Controllers (I/O)
+
+  9. Controllers (multiport)
+
+     9.1 Non-intelligent cards
+        9.1.1 Yang didukung
+     9.2 Intelligent cards
+        9.2.1 Yang didukung
+        9.2.2 Lainnya
+
+  10. Network adapters
+
+     10.1 Yang didukung
+        10.1.1 Ethernet
+        10.1.2 ISDN
+        10.1.3 Pocket dan portable adapters
+        10.1.4 Slotless
+        10.1.5 ARCnet
+        10.1.6 Token Ring
+        10.1.7 FDDI
+        10.1.8 Amateur radio (AX.25)
+        10.1.9 PCMCIA cards
+     10.2 Lainnya
+        10.2.1 Ethernet
+        10.2.2 ISDN
+        10.2.3 ATM
+        10.2.4 Frame Relay
+        10.2.5 Wireless
+     10.3 Yang tidak didukung
+
+  11. Sound cards
+
+     11.1 Yang didukung
+     11.2 Lainnya
+     11.3 Tidak didukung
+
+  12. Hard drives
+
+  13. Tape drives
+
+     13.1 Yang didukung
+     13.2 Lainnya
+     13.3 Yang Tidak didukung
+
+  14. CD-ROM
+
+     14.1 Yang didukung
+     14.2 Lainnya
+     14.3 Catatan
+
+  15. Removable drives
+
+  16. Mouse
+
+     16.1 Yang didukung
+     16.2 Lainnya
+     16.3 Catatan
+
+  17. Modem
+
+  18. Printer/Plotter
+
+     18.1 Ghostscript
+        18.1.1 Printer yang bisa digunakan oleh Ghostscript
+        18.1.2 Lainnya
+
+  19. Scanner
+
+     19.1 Yang didukung
+
+  20. Hardware Lainnya
+
+     20.1 Monitor VESA Power Savings Protocol (DPMS)
+     20.2 Touch screen
+     20.3 Joystick
+     20.4 Video capture boards / Frame Grabbers
+     20.5 UPS
+     20.6 Multifunction boards
+     20.7 Data acquisition
+     20.8 Watchdog timer interfaces
+     20.9 Lain-lain
+
+  21. Informasi Lain
+
+  22. Ucapan Terima Kasih
+
+  23. Lampiran A. Card S3 yang didukung XFree86 3.3.1.
+
+  24. Lampiran B. Card PCMCIA yang bisa dipakai
+
+     24.1 Ethernet card
+     24.2 Fast Ethernet (10/100baseT) adapters
+     24.3 Token-ring adapters
+     24.4 Wireless network adapters
+     24.5 ISDN
+     24.6 Modem dan card serial
+     24.7 Memory card
+     24.8 SCSI adapter
+     24.9 ATA/IDE CD-ROM adapters
+     24.10 Multifunction card
+     24.11 ATA/IDE card drive
+     24.12 Card lainnya
+     24.13 Yang sedang dikerjakan ...
+     24.14 Yang tidak dapat dipakai
+
+  25. Lampiran C. Perangkat Plug and Play
+
+  26. Lampiran D. Hardware Yang Tidak Kompatibel dengan Linux
+
+  27. Glosari
+
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  Catatan : lihat lampiran C dalam PnP Device dan ISA PNP Tools.
+
+
+  1.1.  Selamat datang
+
+  Selamat datang di HOWTO kompatibilitas Hardware Linux .  Dokumen ini
+  adalah daftar dari komponen perangkat keras (bukan komputer built-in)
+  yang didukung oleh Linux, jadi bacalah dokumen ini jika Anda akan
+  memilih komponen untuk komputer dg basis Linux. Karena daftar komponen
+  yang mendukung Linux berkembang dengan pesat, maka dokumen ini tidak
+  mungkin pernah bisa komplit. Jadi apabila ada komponen yang tidak
+  terdaftar di dokumen ini, berarti penulis belum tahu apakah komponen
+  tersebut bisa digunakan pada Linux.
+
+
+  Sub bab dengan judul Daftar Hardware Lainnya dengan driver alpha atau
+  beta berada dalam tingkatan penggunaan yang beragam ataupun tidak
+  terdapat dalam kernel standar.  Perhatikan bahwa banyak driver
+  terdapat hanya dalam kernel alpha, jadi jika Anda melihat bahwa pada
+  dokumen ini dikatakan didukung oleh Linux tetapi pada kenyataannya
+  tidak dalam Kernel Linux Anda maka upgrade-lah.
+
+
+
+  Versi terakhir dari dokumen terdapat pada
+  <http://users.bart.nl/~patrickr/hardware-howto/Hardware-HOWTO.html>,
+  SunSite dan mirror lainnya.  Terjemahan Bahasa Indonesia terdapat pada
+  koleksi HOWTO Linux Indonesia di <http://www.linux.or.id/HOWTO>
+
+  Jika anda mengetahui hardware lain yang mendukung Linux, tidak
+  terdapat disini, silahkan kirim kepada penulis melalui email.
+  Terimakasih.
+
+  Ingin informasi banyak setelah membaca dokumen ini ?  Cek the "Build
+  Your Own PC" site di  <http://www.verinet.com/pc/>.
+
+
+
+  1.2.  Hak Cipta
+
+  Hak Cipta 1997 Patrick Reijnen
+
+  HOWTO ini adalah dokumen gratis, anda dapat menyebarkannya atau
+  merubahnya yang tergabung dalam GNU General Public License yang di
+  publikasikan oleh the Free software Foundation; Dokumen ini
+  disebarluaskan dengan harapan untuk digunakan, tetapi tanpa garansi;
+  lihat GNU  General Public License  untuk keterangan lebih detail.
+  anda akan mendapatkan duplikat dari GNU General Public License dengan
+  cara berkirim surat ke the Free Software Foundation,, Inc., 675 Mass
+  Ave, Cambridge, MA 02139, USA.  Jika anda menggunakan dokumen ini atau
+  Linux HOWTO yang lainnya untuk kepentingan komersial, alangkah baiknya
+  bila Anda juga mengirimkan produk komersial itu kepada penulis.
+
+
+  1.3.  Arsitektur sistem
+
+  Dokumen ini hanya membahas Linux untuk platform Intel, untuk platform
+  lain silahkan lihat :
+
+  o  ARM Linux
+     <http://www.arm.uk.linux.org/~rmk92/armlinux.html>
+
+  o  Linux/68k
+
+  o  Linux/8086
+     <http://www.linux.org.uk/Linux8086.html>
+
+  o  Linux/Alpha
+     <http://www.azstarnet.com/~axplinux/>
+
+  o  Linux/MIPS
+     <http://www.fnet.fr/linux-mips/>
+
+  o  Linux/PowerPC
+     <http://www.linuxppc.org/>
+
+  o  Linux for Acorn
+     <http://www.ph.kcl.ac.uk/~amb/linux.html>
+
+  o  Linux for PowerMac
+     <http://ftp.sunet.se/pub/os/Linux/mklinux/mkarchive/info/index.html>
+
+
+  2.  Komputer/motherboard/BIOS
+
+  ISA, VLB, EISA, dan PCI bus semuanya didukung Linux.
+
+
+  PS/2 dan Microchannel (MCA) juga didukung pada kernel 2.0.7.  MCA juga
+  didukung pada kernel 2.1.16 dan yang lebih baru, tetapi masih ada
+  bugnya. Untuk informasi yang lebih lanjut anda dapat melihat pada
+  Micro Channel Linux Home Page ( <http://glycerine.itsmm.uni.edu/mca/>)
+
+
+  2.1.  Sistem spesifik
+
+
+  o  Sistem IBM PS/2 MCA
+     <ftp://ftp.dcrl.nd.edu/pub/misc/linux/>
+
+  Kini banyak motherboard PCI yang menyebabkan Linux mengeluarkan pesan
+  error pada saat boot sewaktu melakukan "Probing PCI Hardware". Pesan
+  error tersebut adalah
+
+
+      Warning : Unknown PCI device (8086:7100).  Please read include/linux/pci.h
+
+
+  Pesan tersebut menghendaki Anda untuk membaca file pci.h. Dari file
+  tersebut penulis kutipkan sebagai berikut:
+
+
+          LANGKAH-LANGKAH MELAPORKAN PERANGKAT PCI BARU
+
+      Kami mencoba mengumpulkan informasi perangkat PCI baru dengan
+      menggunakan prosedur identifikasi PCI standar. Bila Ada pesan
+      peringatan pada saat boot, maka tolong laporkan:
+      - /proc/pci
+      - deskripsi lengkap hardware Anda. Cobalah untuk mencari perangkat
+        yang dikatakan unknown. Mungkin itu berupa chipset motherboard,
+        PCI-CPU bridge atau PCI-ISA brigde.
+      - Bila Anda tak dapat mencari info aktual tentang hardware Anda,
+        bacalah catatan pada papan rangkaian motherboard.
+      - Kirimkan informasi tersebut kepada linux-pcisupport@cao-vlsi.ibp.fr,
+        dan saya akan menambahkan perangkat tersebut dalam daftar secepatnya.
+
+      SEBELUM mengirimkan mail, tolong periksa rilis Linux terakhir untuk
+      memastikan bahwa perangkat tersebut belum terdaftar.
+             Thanks
+                   Frederic Potter.
+
+
+
+  Biasanya motherboard dan perangkat PCI yang tidak dikenal akan bekerja
+  dengan baik.
+
+
+  2.2.  Tidak didukung
+
+
+  o  Supermicro P5MMA dengan BIOS versions 1.36, 1.37 dan 1.4.Linux
+     tidak bisa boot pada motherboard ini. Rilis BIOS barunya (beta)
+     yang membuat Linux bisa boot pada motherboard ini ada di
+     <ftp.supermicro.com/mma9051.zip>
+
+  o  Supermicro P5MMA98. Linux tidak bisa boot pada motherboard ini.
+     Rilis BIOS barunya (beta) yang membuat Linux bisa boot pada
+     motherboard ini ada di  <ftp.supermicro.com/a98905.zip>?
+
+
+  3.  Laptop
+
+  untuk informasi yang lainnya tentang linux dan laptop, coba kunjungi
+  site berikut
+
+  o  Linux Laptop Homepage
+     <http://www.cs.utexas.edu/users/kharker/linux-laptop/>
+
+  Informasi yang lainnya dapat anda lihat pada sites:
+
+
+  o  Avanced Power Management
+     <ftp://ftp.cs.unc.edu/pub/users/faith/linux/>
+
+  o  Notebook battery status
+     <ftp://sunsite.unc.edu/pub/Linux/system/power/>
+
+  o  non-blinking cursor
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/console/noblink-1.7.tar.gz>
+
+  o  other general info
+     <ftp://tsx-11.mit.edu/pub/linux/packages/laptops/>
+
+
+  3.1.  Laptop spesifik
+
+
+  o  Compaq Concerto (pen driver)
+     <http://www.cs.nmsu.edu/~pfeiffer/>
+
+  o  Compaq Contura Aero
+     <http://domen.uninett.no/~hta/linux/aero-faq.html>
+
+  o  IBM ThinkPad
+     <http://peipa.essex.ac.uk/tp-linux/tp-linux.html>
+
+  o  NEC Versa M dan P
+     <http://www.santafe.edu:80/~nelson/versa-linux/>
+
+  o  Tadpole P1000
+     <http://www.tadpole.com/Support/linux.html>
+
+  o  Tadpole P1000 (another one)
+
+  o  TI TravelMate 4000M
+     <ftp://ftp.biomath.jussieu.fr/pub/linux/TM4000M-mini-HOWTO.txt.Z>
+
+  o  TI TravelMate 5100
+
+  o  Toshiba Satellite Pro 400CDT
+     <http://terra.mpikg-teltow.mpg.de/~burger/T400CDT-Linux.html>
+
+
+  3.2.  PCMCIA
+
+
+  o  PCMCIA
+     <http://hyper.stanford.edu/HyperNews/get/pcmcia/home.html>
+
+
+  Driver PCMCIA kebanyakan mendukung semua kontroler PCMCIA, termasuk
+  Databook TCIC/2, Intel i82365SL, Cirrus PD67xx, dan Vadem VG-468
+  chipsets.  Motorola 6AHC05GA controller yang digunakan dalam Hyundai
+  tidak didukung. Lihat lampiran B untuk daftar card PCMCIA yang
+  didukung.
+
+
+  4.  CPU/FPU
+
+  Intel/AMD/Cyrix 386SX/DX/SL/DXL/SLC, 486SX/DX/SL/SX2/DX2/DX4 didukung
+  semuanya Juga Pentium dan Pentium Pro. AMD K5 dan K6 juga bisa
+  dipakai, walaupun ada beberapa versi K6 yang harus dihindari karena
+  bermasalah.
+
+  Linux memiliki fasilitas emulasi FPU jika Anda tidak memiliki mathco.
+
+  Dukungan terhadap SMP (multiple CPU) yang merupakan masih dalam tahap
+  percobaan telah ada di kernel 1.3.31 dan yang lebih baru. Silahkan
+  cari informasinya di site Linux/SMP project.
+
+  o  Linux/SMP Project
+     <http://www.linux.org.uk/SMP/title.html>
+
+  Ada beberapa tipe lama AMD 486DX's yang hang dalam situasi tertentu.
+  Semua chip yang ada sekarang seharusnya bisa dipakai dan mendapatkan
+  chip swap untuk CPU lama juga harusnya bisa dipakai.
+
+  Seri ULSI Math*Co mempunyai bug dalam perintah FSAVE dan FRSTOR. Hal
+  ini dikarenakan mode O/S terprotect. Beberapa versi lama dari IIT dan
+  Cyrix chips juga mempunyai masalah ini.
+  Masalah juga ditemukan pada TLB flushing dalam UMC U5S chips dalam
+  versi yang lama kernels. (1.1.x)
+
+
+  o  enable cache on Cyrix processors
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/CxPatch030.tar.z>
+
+  o  Cyrix software cache control
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/linux.cxpatch>
+
+  o  Cyrix 5x86 CPU register settings
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/cx5x86mod_1.0c.tgz>
+
+
+  5.  Video cards
+
+  Linux akan berjalan dengan semua VGA dalam mode text, VGA card yang
+  belum terdaftar akan berjalan lancar dengan VGA mono dan/atau VGA
+  driver standar .
+
+  Jika anda ingin memasang video card murahan untuk menjalankan X,
+  ingatlah bahwa card yang terakselerasi  (ATI Mach, ET4000/W32p, S3)
+  kecepatannya JAUH lebih cepat dan dari card yang tak terakselerasi
+  atau terakselerasi parsial (card Cirrus, WD).
+
+  ``32 bpp'' sebenarnya adalah 24 bit color berjajar dalam batas 32 bit
+  .  Hal ini tidak berarti bahwa ia bisa tampil dalam warna 32 bit,
+  melainkan akan tampil dalam 24 bit warna (16,777,216 warna). Mode 24
+  bit packed pixels tidak didukung dalam XFree86, sehingga card akan
+  berjalan diatas mode 24 bit untuk mendapatkan resolusi yang lebih
+  tinggi pada OS lain tak mungkin melakukannya dalam X menggunakan
+  XFree86. Card seperti itu misalnya Mach32, Cirrus 542x, S3 801/ 805/
+  868/ 968,ET4000, dan lainnya.
+
+
+  5.1.  Diamond video cards
+
+  Kebanyakan Diamond cards DIDUKUNG oleh XFree86. Sebagian kecil Diamond
+  cards tipe lama tidak begitu didukung XFree86, tetapi masih bisa
+  diakali sehingga dapat berjalan dengan baik. Diamond-lah yang sekarang
+  aktif mendukung proyek XFree86 (dulu tidak sama sekali).
+
+
+  5.2.  SVGALIB (grafik untuk console)
+
+
+  o  VGA
+
+  o  EGA
+
+  o  ARK Logic ARK1000PV/2000PV
+
+  o  ATI VGA Wonder
+
+  o  ATI Mach32
+
+  o  Cirrus 542x, 543x
+
+  o  OAK OTI-037/67/77/87
+
+  o  S3 (limited support)
+
+  o  Trident TVGA8900/9000
+
+  o  Tseng ET3000/ET4000/W32
+
+  5.3.  XFree86 3.3.1
+
+
+
+  5.3.1.  Accelerated
+
+
+  o  ARK Logic ARK1000PV/VL, ARK2000PV/MT
+
+  o  ATI Mach8
+
+  o  ATI Mach32 (16 bpp didukung untuk card dengan RAMDAC ATI68875,
+     AT&T20C49x, BT481 dan 2Mb video ram)
+
+  o  ATI Mach64 (16/32 bpp didukung untuk card dengan RAMDAC ATI68860,
+     ATI68875, CH8398, STG1702, STG1703, AT&T20C408, 3D Rage II,
+     internal, IBM RGB514)
+
+  o  Chips & Technologies 64200/64300/65520/
+     65525/65530/65535/65540/65545/65546/65548/65550/65554
+
+  o  Cirrus Logic 5420, 542x/5430 (16 bpp), 5434 (16/32 bpp), 5436,
+     544x, 546x, 5480, 62x5, 754x
+
+  o  IBM 8514/A
+
+  o  IBM XGA-I, XGA-II
+
+  o  IIT AGX-010/014/015/016 (16 bpp)
+
+  o  Matrox MGA2064W (Millennium)
+
+  o  Matrox MGA1064SG (Mystique)
+
+  o  Number Nine Imagine I128
+
+  o  Oak OTI-087
+
+  o  S3 732 (Trio32), 764 (Trio64), Trio64V+, 801, 805, 864, 866, 868,
+     86C325 (ViRGE), 86C375 (ViRGE/DX), 86C385 (ViRGE/GX), 86C988
+     (ViRGE/VX), 911, 924, 928, 964, 968
+
+  o  Daftar card S3 ada pada Appendix A
+
+  o  SiS 86c201, 86c202, 86c205
+
+  o  Trident 9440, 96xx, Cyber938x
+
+  o  Tseng ET4000/W32/W32i/W32p, ET6000
+
+  o  Weitek P9000 (16/32 bpp)
+
+  o  Diamond Viper VLB/PCI
+
+  o  Orchid P9000
+
+  o  Western Digital WD90C24/24A/24A2/31/33
+
+
+  5.3.2.  Unaccelerated
+
+
+  o  Alliance AP6422, AT24
+
+  o  ATI VGA Wonder series
+
+  o  Avance Logic AL2101/2228/2301/2302/2308/2401
+
+  o  Cirrus Logic 6420/6440, 7555
+
+  o  Compaq AVGA
+
+  o  DEC 21030
+
+  o  Genoa GVGA
+
+  o  MCGA (320x200)
+
+  o  MX MX68000/MX68010
+
+  o  NCR 77C22, 77C22E, 77C22E+
+
+  o  NVidia NV1
+
+  o  Oak OTI-037C, OTI-067, OTI-077
+
+  o  RealTek RTG3106
+
+  o  SGS-Thomson STG2000
+
+  o  Trident 8800CS, 8200LX, 8900x, 9000, 9000i, 9100B, 9200CXr,
+     9320LCD, 9400CXi, 9420, 9420DGi, 9430DGi
+
+  o  Tseng ET3000, ET4000AX
+
+  o  VGA (standard VGA, 4 bit, slow)
+
+  o  Video 7 / Headland Technologies HT216-32
+
+  o  Western Digital/Paradise PVGA1, WD90C00/10/11/30
+
+
+  5.3.3.  Monochrome
+
+
+  o  Hercules mono
+
+  o  Hyundai HGC-1280
+
+  o  Sigma LaserView PLUS
+
+  o  VGA mono
+
+
+  5.3.4.  Lainnya
+
+
+  o  EGA (jaman batu, sekitar tahun 1992)
+     <ftp://ftp.funet.fi/pub/Linux/BETA/Xega/>
+
+
+  5.4.  X Servers Komersial
+
+  X server komersial menyediakan dukungan untuk card yang tidak didukung
+  oleh XFree86, dan memberikan performa lebih baik dari pada card yang
+  mendukung Xfree86. Secara umum mereka mendukung lebih banyak card
+  daripada XFree86, jadi penulis hanya memberikan daftar-daftar card
+  yang tidak mendukung Xfree86 saja. Hubungi Vendor untuk mengetahui
+  info yang lebih banyak lagi atau baca Commercial HOWTO.
+
+
+
+  5.4.1.  Accelerated-X 1.2
+
+
+  o  Chips & Technologies 82C45x, 82C48x
+
+  o  Compaq QVision 2000
+
+  o  Weitek P9100
+
+  X Inside, Inc. <info@xinside.com>
+
+  Accel-X mendukung card dalam mode 16 dan 32 bpp dan juga mendukung
+  mode 24 bit packed pixel untuk card yang mempunyai beberapa mode,
+  termasuk di dalamnya ATI Mach32, Mach64 (1280x1024@24bpp),
+  ET4000/W32p, S3-866/868/968, dan yang lainnya. Accel-X juga mendukung
+  berbagai macam hardware input graphic tablets dan layar sentuh.
+
+  Accel-X juga mendukung XVideo (Xv) extensions (pada Matrox Comet,
+  Marvel- dan SPEA ShowTime Plus), PEX, dan XIE.
+
+
+  5.4.2.  Metro-X 2.3
+
+  Metro Link <sales@metrolink.com>
+
+  Metro-X mendukung banyak boards mengenai XFree tetapi kurang dari
+  Accel-X, selain hal itu saya kurang mengetahui banyak informasi
+  tentang ini karena penulis tidak dapat membaca file Postscript yang
+  mereka kirimkan. Silahkan berkirim surat kepada mereka untuk informasi
+  lebih jauh.
+
+  Katanya Metro-X tidak akan mendukung card The S3 ViRGE.
+
+
+  6.  Controllers (hard drive)
+
+  Linux berjalan tanpa masalah dengan standard IDE, MFM dan RLL
+  controllers.  Jika menggunakan MFM/RLL controllers memungkinkan ext2fs
+  dan check kerusakan bad blok dan dapat dikontrol lewat formatnya.
+  Enhanced IDE (EIDE) interfaces juga bisa dipakai. Dengan dua IDE
+  interfaces dan empat hard drives dan/atau CD-ROM drives. Linux akan
+  mendeteksi keberadaan interface berikut:
+
+
+  o  CMD-640
+
+  o  DTC 2278D
+
+  o  FGI/Holtek HT-6560B
+
+  o  RZ1000
+
+  o  Triton I (82371FB) (with busmaster DMA)
+
+  o  Triton II (82371SB) (with busmaster DMA)
+
+  ESDI controllers mengemulasikan ST-506 (MFM/RLL/IDE) interface juga
+  berjalan.  Bad block check juga berlaku pada kontroler ini.
+
+  Generic 8 bit XT controllers juga tidak ada masalah.
+
+  Mulai pre-patch-2.0.31-3 IDE/ATAPI disediakan.
+
+
+
+
+  7.  Controllers (SCSI)
+
+  Hati-hatilah dalam memilih kontroler SCSI. Banyak kontroler ISA SCSI
+  murahan yang didisain untuk CD-ROM. Ada juga kontroler SCSI low end
+  yang tidak lebih baik dari IDE. Silahkan baca SCSI HOWTO dan lihat
+  kinerjanya sebelum membeli.
+
+
+  7.1.  Yang didukung
+
+
+  o  AMI Fast Disk VLB/EISA (BusLogic compatible)
+
+  o  Adaptec AVA-1505/1515 (ISA) (Adaptec 152x compatible)
+
+  o  Adaptec AHA-1510/152x (ISA/VLB) (AIC-6260/6360)
+
+  o  Adaptec AHA-154x (ISA) (all models)
+
+  o  Adaptec AHA-174x (EISA) (in enhanced mode)
+
+  o  Adaptec AHA-274x (EISA) / 284x (VLB) (AIC-7770)
+
+  o  Adaptec AHA 2920
+
+  o  Adaptec AHA-2940/3940 (PCI) (AIC-7870) (since 1.3.6)
+
+  o  Adaptec AVA1502E (ISA/VLB) (AIC-6360). Use the AHA 152x driver
+
+  o  Always IN2000
+
+  o  BusLogic (ISA/EISA/VLB/PCI) (all models)
+
+  o  DPT PM2001, PM2012A (EATA-PIO)
+
+  o  DPT Smartcache/SmartRAID Plus,III,IV families (ISA/EISA/PCI)
+     Lihatlah  <http://www.uni-mainz.de/~neuffer/scsi/dpt/>(EATA-DMA)
+     Card yang termasuk adalah PM2011, PM2021, PM2041, PM3021, PM2012B,
+     PM2022, PM2122, PM2322, PM2042, PM3122, PM3222, PM3332, PM2024,
+     PM2124, PM2044, PM2144, PM3224, PM3334
+
+  o  DTC 329x (EISA) (Adaptec 154x compatible)
+
+  o  Future Domain TMC-16x0, TMC-3260 (PCI)
+
+  o  Future Domain TMC-8xx, TMC-950
+
+  o  ICP-Vortex SCSI-Host-Adapters
+     Patch untuk Linux 1.2.13 dan 2.0.29 tersedia di <ftp://icp-
+     vortex.com/download/linux/>.  Patch tersebut digunakan untuk
+     kontroler GDT. Anda juga bisa menggunakan pre-patch-2.0.31-4 hingga
+     pre-patch-2.0.31-9.
+
+  o  Media Vision Pro Audio Spectrum 16 SCSI (ISA)
+
+  o  NCR 5380 generic cards
+
+  o  NCR 53c400 (Trantor T130B) (use generic NCR 5380 SCSI support)
+
+  o  NCR 53c406a (Acculogic ISApport / Media Vision Premium 3D SCSI)
+
+  o  NCR 53c7x0, 53c8x0 (PCI)
+
+  o  Qlogic / Control Concepts SCSI/IDE (FAS408) (ISA/VLB)
+
+
+  o  Quantum ISA-200S, ISA-200MG
+
+  o  Seagate ST-01/ST-02 (ISA)
+
+  o  SoundBlaster 16 SCSI-2 (Adaptec 152x compatible) (ISA)
+
+  o  Trantor T128/T128F/T228 (ISA)
+
+  o  UltraStor 14F (ISA), 24F (EISA), 34F (VLB)
+
+  o  Western Digital WD7000 SCSI
+
+
+  7.2.  Lainnya
+
+
+  o  AMD AM53C974, AM79C974 (PCI) (Compaq, HP, Zeos onboard SCSI)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/AM53C974-0.3.tgz>
+
+  o  Adaptec ACB-40xx SCSI-MFM/RLL bridgeboard
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/adaptec-40XX.tar.gz>
+
+  o  Always Technologies AL-500
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/al500-0.2.tar.gz>
+
+  o  BusLogic (ISA/EISA/VLB/PCI) (new beta driver)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/BusLogic-1.3.0.tar.gz>
+
+  o  Iomega PC2/2B
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/iomega_pc2-1.1.x.tar.gz>
+
+  o  Qlogic (ISP1020) (PCI)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/scsi/isp1020-0.5.gz>
+
+  o  Ricoh GSI-8
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scsi/gsi8.tar.gz>
+
+
+  7.3.  Yang tidak didukung
+
+
+  o  Parallel port SCSI adapters
+
+  o  Non Adaptec compatible DTC boards (327x, 328x)
+
+
+  8.  Controllers (I/O)
+
+  Semua serial/parallel/joystick/combo standar didukung. Linux mendukung
+  UART 8250, 16450, 16550, dan 16550A. Cards yang mendukung non-standard
+  IRQ's (IRQ > 9) bisa dipakai.
+
+  lihat National Semiconductor's ``Application Note AN-493'' oleh Martin
+  S. Michael. Section 5.0 mendeskripsikan detail tentang NS16550 dan
+  NS16550A. NS16550 yang mempunyai error dalam rangkaian FIFO, tetapi
+  pada NS16550A (dan versi keatasnya) hal ini sudah diperbaiki.  Tapi
+  ada beberapa NS16550 produksi National. Dan banyak komponen 16550
+  dipakai pada rangkaian yang ada sekarang ini dari pabrik-pabrik lain
+  yang tidak menggunakan akhiran ``A''. Juga beberapa tipe board
+  menggunakan 16552 atau 16554 atau chip multiport atau multifungsi lain
+  dari National atau pabrik lain (biasanya pada kemasan yang disolder
+  pada papan, bukanlah yang tipe 40 pin DIP). Jangan terlalu khawatir
+  tentang hal ini, kecuali board yang Anda miliki adalah chip 40 pin DIP
+  National ``NS16550A'' (tanpa A), yang dianggap sebagai 16450 (bukan
+  FIFO) daripada 16550A.- Zhahai Stewart <zstewart@hisys.com>
+
+  9.  Controllers (multiport)
+
+  9.1.  Non-intelligent cards
+
+  9.1.1.  Yang didukung
+
+
+  o  AST FourPort dan clones (4 port)
+
+  o  Accent Async-4 (4 port)
+
+  o  Arnet Multiport-8 (8 port)
+
+  o  Bell Technologies HUB6 (6 port)
+
+  o  Boca BB-1004, 1008 (4, 8 port) - no DTR, DSR, dan CD
+
+  o  Boca BB-2016 (16 port)
+
+  o  Boca IO/AT66 (6 port)
+
+  o  Boca IO 2by4 (4 serial / 2 parallel, uses 5 IRQ's)
+
+  o  Computone ValuePort (4, 6, 8 port) (AST FourPort compatible)
+
+  o  DigiBoard PC/X (4, 8, 16 port)
+
+  o  Comtrol Hostess 550 (4, 8 port)
+
+  o  PC-COMM 4-port (4 port)
+
+  o  SIIG I/O Expander 4S (4 port, uses 4 IRQ's)
+
+  o  STB 4-COM (4 port)
+
+  o  Twincom ACI/550
+
+  o  Usenet Serial Board II (4 port)
+
+  Non-intelligent cards HADIR DALAM DUA JENIS, Satu menggunakan standard
+  com port addresses dan menggunakan 4 IRQ's, dan lainnya menggunakan
+  AST FourPort compatible dan bisa memilih blok address dan satu IRQ
+  saja.  (Addresses dan IRQ's diset menggunkan setserial.) Bila Anda
+  memiliki card semacam ini, periksa standar mana yang digunakan, dalam
+  hal ini harga tidak berpengaruh.
+
+
+  9.2.  Intelligent cards
+
+  9.2.1.  Yang didukung
+
+
+  o  Cyclades Cyclom-8Y/16Y (8, 16 port) (ISA/PCI)
+
+  o  DigiBoard PC/Xe (ISA), PC/Xi (EISA) dan PC/Xeve
+     <ftp://ftp.digibd.com/drivers/linux/>
+
+  o  Stallion EasyIO (ISA) / EasyConnection 8/32 (ISA/MCA)
+
+  o  Stallion EasyConnection 8/64 / ONboard (ISA/EISA/MCA) / Brumby /
+     Stallion (ISA)
+
+
+
+
+
+  9.2.2.  Lainnya
+
+
+  o  Comtrol RocketPort (8/16/32 port)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/serial/comtrol-1.04.tar.gz>
+
+  o  Computone IntelliPort II (4/8/16 port)
+     contact Michael H. Warfield <mhw@wittsend.com>
+
+  o  DigiBoard COM/Xi
+     contact Simon Park <si@wimpol.demon.co.uk>
+
+  o  Hayes ESP8
+     contact Dennis Boylan <dennis@lan.com>
+
+  o  Moxa C102, C104, C168, C218 (8 port), C320 (8/16/24/32 expandable)
+     dan C320T
+     <ftp://ftp.moxa.com.tw/drivers/linux/>
+
+  o  Specialix SIO/XIO (modular, 4 to 32 ports)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/serial/sidrv.taz>
+
+
+  10.  Network adapters
+
+  Ethernet adapters sangat bagus dalam performanya. Biasanya tipe yang
+  baru memiliki kualitas yang lebih bagus. Beberapa yang lama seperti
+  3Com 3C501 juga bagus dan bisa didapat di pasar loak dengan hanya $ 5.
+  Hati-hati dengan card klon, karena tidak semuanya baik dan bila Anda
+  memiliki yang jelek bisa menyebabkan lock-up dalam Linux.  Bacalah
+  Ethernet HOWTO,  <http://sunsite.unc.edu/LDP/HOWTO/>, untuk informasi
+  detilnya.
+
+
+  10.1.  Yang didukung
+
+  10.1.1.  Ethernet
+
+  Ethernet card dengan DECchip DC21x4x family the "Tulip" driver bisa
+  dipakai. Informasi lebih lanjut tentang hal ini bisa dilihat di
+  <http://cesdic.gsfc.nasa.gov/linux/drivers/tulip.html>.
+
+
+  o  3Com 3C501 - ``avoid like the plague''
+
+  o  3Com 3C503, 3C505, 3C507, 3C509/3C509B (ISA) / 3C579 (EISA)
+
+  o  3Com Etherlink III Vortex Ethercards (3C590, 3c592, 3C595, 3c597)
+     (PCI), 3Com Etherlink XL Boomerang Ethercards (3c900, 3c905) (PCI)
+     dan 3Com Fast EtherLink Ethercard (3c515) (ISA)
+     Versi yang lebih baru bisa dilihat di
+     <http://cesdic.gsfc.nasa.gov/linux/drivers/vortex.html>
+
+  o  AMD LANCE (79C960) / PCnet-ISA/PCI (AT1500, HP J2405A,
+     NE1500/NE2100)
+
+  o  AT&T GIS WaveLAN
+
+  o  Allied Telesis AT1700
+
+  o  Allied Telesis LA100PCI-T
+
+  o  Ansel Communications AC3200 EISA
+
+  o  Apricot Xen-II / 82596
+
+  o  Cabletron E21xx
+
+  o  Cogent EM110
+
+  o  Danpex EN-9400
+
+  o  DEC DE425 (EISA) / DE434/DE435 (PCI) / DE450/DE500 (DE4x5 driver)
+
+  o  DEC DE450/DE500-XA (Tulip driver)
+
+  o  DEC DEPCA dan EtherWORKS
+
+  o  DEC EtherWORKS 3
+
+  o  DEC QSilver's (Tulip driver)
+
+  o  Fujitsu FMV-181/182/183/184
+
+  o  HP PCLAN (27245 dan 27xxx series)
+
+  o  HP PCLAN PLUS (27247B dan 27252A)
+
+  o  HP 10/100VG PCLAN (J2577, J2573, 27248B, J2585) (ISA/EISA/PCI)
+     Informasi tambahan ada di
+     <http://cesdic1.gsfc.nasa.gov:80/linux/drivers/100vg.html>
+
+  o  ICL EtherTeam 16i / 32 EISA
+
+  o  Intel EtherExpress
+
+  o  Intel EtherExpress Pro
+
+  o  NE2000/NE1000 (be careful with clones)
+
+  o  New Media Ethernet
+
+  o  PureData PDUC8028, PDI8023
+
+  o  SEEQ 8005
+
+  o  SMC Ultra / EtherEZ (ISA)
+
+  o  SMC 9000 series
+
+  o  SMC PCI EtherPower 10/100 (Tulip driver)
+
+  o  Schneider & Koch G16
+
+  o  Western Digital WD80x3
+
+  o  Zenith Z-Note / IBM ThinkPad 300 built-in adapter
+
+  o  Znyx 312 etherarray (Tulip driver)
+
+
+  10.1.2.  ISDN
+
+
+  o  Linux ISDN WWW page
+     <http://www.ix.de/ix/linux/linux-isdn.html>
+
+
+  o  3Com Sonix Arpeggio
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/network/sonix.tgz>
+
+
+  o  AVM A1
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  Combinet EVERYWARE 1000 ISDN
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/network/combinet1000isdn-1.02.tar.gz>
+
+  o  Creatix PnP S0
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  Elsa Microlink PCC-16, PCF, PCF-Pro, PCC-8
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  ELSA QuickStep 1000
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  ICN ISDN cards
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  ITK ix1-micro Rev.2
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  Octal PCBIT
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  Teles 8.0/16.0/16.3 dan compatible ones
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  o  Teles S0
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+  ISDN cards yang mengemulasikan modem standar atau Ethernet adapters
+  tidak membutuhkan driver khusus.
+
+
+  10.1.3.  Pocket dan portable adapters
+
+
+  o  AT-Lan-Tec/RealTek parallel port adapter
+
+  o  D-Link DE600/DE620 parallel port adapter
+
+
+  10.1.4.  Slotless
+
+
+  o  SLIP/CSLIP/PPP (serial port)
+
+  o  EQL (serial IP load balancing)
+
+  o  PLIP (parallel port) - menggunakan ``kabel LapLink cable'' atau
+     kabel bi-directional
+
+
+  10.1.5.  ARCnet
+
+
+  o  Semua tipe card ARCnet bisa dipakai
+
+
+  10.1.6.  Token Ring
+
+
+  o  Semua token ring card IBM yang tidak menggunakan DMA
+
+  o  IBM Tropic chipset cards
+
+  10.1.7.  FDDI
+
+
+  o  DEC DEFEA (EISA) / DEFPA (PCI) (kernel 2.0.24 dan yang lebih baru)
+
+
+  10.1.8.  Amateur radio (AX.25)
+
+
+  o  Gracilis PackeTwin
+
+  o  Ottawa PI/PI2
+
+  o  generic 8530 based HDLC boards
+
+
+  10.1.9.  PCMCIA cards
+
+
+  o  Lihat Apendik B untuk daftar lengkapnya
+
+
+  10.2.  Lainnya
+
+  10.2.1.  Ethernet
+
+
+  o  Racal-Interlan NI5210 (i82586 Ethernet chip)
+
+  o  Racal-Interlan NI6510 (am7990 lance chip).  Mulai kernel 1.3.66
+     lebih 16Mb Ram bisa digunakan.
+
+  o  Racal-Interlan PCI card (AMD PC net chip 97c970) ??
+
+
+  10.2.2.  ISDN
+
+
+  o  SpellCaster's Datacomute/BRI, Telecomute/BRI (ISA)
+     <ftp://ftp.franken.de/pub/isdn4linux/>
+
+
+  10.2.3.  ATM
+
+
+  o  Efficient Networks ENI155P-MF 155 Mbps ATM adapter (PCI)
+     <http://lrcwww.epfl.ch/linux-atm/>
+
+
+  10.2.4.  Frame Relay
+
+
+  o  Sangoma S502 56K Frame Relay card
+     <ftp://ftp.sovereign.org/pub/wan/fr/>
+
+
+  10.2.5.  Wireless
+
+
+  o  Proxim RangeLan2 7100 (ISA) / 630x (OEM mini-ISA)
+     <http://www.komacke.com/distribution.html>
+
+
+
+
+
+  10.3.  Yang tidak didukung
+
+
+  o  Xircom adapters (PCMCIA dan parallel port)
+
+  o  IBM PCI Token Ring cards (all of them)
+
+  o  Sysconnect / Schneider & Koch Token Ring cards (semuanya)
+
+
+  11.  Sound cards
+
+  11.1.  Yang didukung
+
+
+  o  6850 UART MIDI
+
+  o  Adlib (OPL2)
+
+  o  Audio Excell DSP16
+
+  o  Aztech Sound Galaxy NX Pro
+
+  o  Crystal CS4232 (PnP) based cards
+
+  o  ECHO-PSS cards (Orchid SoundWave32, Cardinal DSP16)
+
+  o  Ensoniq SoundScape
+
+  o  Gravis Ultrasound
+
+  o  Gravis Ultrasound 16-bit sampling daughterboard
+
+  o  Gravis Ultrasound MAX
+
+  o  Logitech SoundMan Games (SBPro, 44kHz stereo support)
+
+  o  Logitech SoundMan Wave (Jazz16/OPL4)
+
+  o  Logitech SoundMan 16 (PAS-16 compatible)
+
+  o  MPU-401 MIDI
+
+  o  MediaTriX AudioTriX Pro
+
+  o  Media Vision Premium 3D (Jazz16)
+
+  o  Media Vision Pro Sonic 16 (Jazz)
+
+  o  Media Vision Pro Audio Spectrum 16
+
+  o  Microsoft Sound System (AD1848)
+
+  o  OAK OTI-601D cards (Mozart)
+
+  o  OPTi 82C928/82C929 cards (MAD16/MAD16 Pro/ISP16/Mozart)
+
+  o  Sound Blaster
+
+  o  Sound Blaster Pro
+
+  o  Sound Blaster 16
+
+  o  Turtle Beach Wavefront cards (Maui, Tropez)
+
+
+  o  Wave Blaster (dan other daughterboards)
+
+  o  Card ESS Technologies AudioDrive chips (688, 1688, 1868, etc)
+
+
+  11.2.  Lainnya
+
+
+  o  MPU-401 MIDI (intelligent mode)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/sound/mpu401-0.2.tar.gz>
+
+  o  AWE32 dimulai pada kernel seri 2.1.x?
+
+  o  PC speaker / Parallel port DAC
+     <ftp://ftp.informatik.hu-berlin.de/pub/os/linux/hu-sound/>
+
+  o  Turtle Beach MultiSound/Tahiti/Monterey
+     <ftp://ftp.cs.colorado.edu/users/mccreary/archive/tbeach/multisound/>
+
+
+  11.3.  Tidak didukung
+
+  Chip ASP di Sound Blaster 16 dan AWE32 tidak didukung.  Onboard E-mu
+  MIDI synthesizer pada AWE32 juga tidak didukung.
+
+  Nathan Laredo <laredo@gnu.ai.mit.edu> berminat menulis tentang card
+  AWE32 bila Anda mengirimkannya card contoh.  Beliau juga bersedia
+  menuliskan driver untuk hardware bila Anda mengirimkan contoh hardware
+  kepada beliau.
+
+  Sound Blaster 16's dengan DSP 4.11 dan 4.12 mempunyai kesalahan
+  hardware dimana ia akan hang untuk memainkan MIDI dan digital audio
+  pada saat yang bersamaan. Masalah ini timbul dengan daugterboards Wave
+  Blaster atau perangkat MIDI pada colokan MIDI. Tidak diketahui cara
+  untuk mengatasinya.
+
+
+  12.  Hard drives
+
+  Semua tipe hard drive harusnya bisa digunakan bila kontrolernya juga
+  bisa digunakan.
+
+  (Dari the SCSI HOWTO) Semua akses langsung pada perangkat SCSI devices
+  dengan ukuran blok 256, 512, atau 1024 harusnya bisa bekerja.
+  Selainnya tidak (Perhatikan bahwa hal ini bisa diperbaiki dengan
+  mengganti ukuran blok atau sektor dengan menggunakan perintah MODE
+  SELECT SCSI)
+
+  Large IDE (EIDE) drives bisa dipakai pada kernel baru. Partisi boot
+  harus diletakkan pada 1024 silider pertama karena batasan dari PC
+  BIOS.
+
+  Ada tipe Conner CFP1060S yang mengalami masalah bila diinstall Linux
+  dan ext2fs. Gejala yang muncul adalah error inode pada saat e2fsck dan
+  juga timbulnya kerusakan pada sistem file. Conner telah mengeluarkan
+  upgradenya untuk hal ini, silahkan hubungi Conner di 1-800-4CONNER
+  (Amerika Serikat) atau di +44-1294-315333 (Eropa). Catat dan
+  beritahukan nomor microcodenya ( ada pada label drive, 9WA1.6x) pada
+  saat menelepon.
+
+  Beberapa tipe drive Micropolis juga mengalami masalah dengan card
+  Adaptec dan BusLogic. Hubungi pabrik untuk meminta upgrade bila Anda
+  mengalaminya.
+
+
+
+  o  Multiple device driver (RAID-0, RAID-1)
+     <ftp://sweet-smoke.ufr-info-p7.ibp.fr/public/Linux/>
+
+
+  13.  Tape drives
+
+  13.1.  Yang didukung
+
+
+  o  SCSI tape drives
+     (Dari the SCSI HOWTO) Drive yang menggunakan panjang blok yang
+     tetap atau berubah yang lebih kecil dari panjang buffer driver
+     (diset pada ukuran 32k) bisa digunakan. Biasanya semua drive dapat
+     bekerja dengan baik. (Mohon kirimkan email pada penulis bila Anda
+     menemui drive yang tidak kompatibel)
+
+  o  QIC-02 drives
+
+
+  13.2.  Lainnya
+
+
+  o  Drive QIC-117, QIC-40/80, QIC-3010/3020 (QIC-WIDE)
+     Biasanya tape drive yang menggunakan controller floppy bisa
+     dipakai. Ada beberapa controler khusus yang juga bisa dipakai
+     (Colorado FC-10/FC-20, Mountain Mach-2, Iomega Tape Controller II).
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/tapes>
+
+  o  ATAPI tape drives
+     Drive di bawah ini didukung oleh driver alpha (ide-tape.c).
+
+  o  Seagate TapeStor 8000
+
+  o  Conner CTMA 4000 IDE ATAPI Streaming tape drive
+
+
+  13.3.  Yang Tidak didukung
+
+
+  o  Emerald dan Tecmar QIC-02 tape controller cards - Chris Ulrich
+     <insom@math.ucr.edu>
+
+  o  Drives yang disambung pada port paralel(eg: Colorado Trakker)
+
+  o  Beberapa tipe kontroler kecepatan tinggi (Colorado TC-15)
+
+  o  Irwin AX250L/Accutrak 250 (not QIC-80)
+
+  o  IBM Internal Tape Backup Unit (not QIC-80)
+
+  o  COREtape Light
+
+
+  14.  CD-ROM
+
+  Untuk informasi lebih lanjut pada drive CD-ROM silahkan lihat CDROM-
+  HOWTO di <http://sunsite.unc.edu/LDP/HOWTO/>.
+
+
+  14.1.  Yang didukung
+
+
+  CD-ROM drive biasa
+
+  o  SCSI CD-ROM drives
+     (Dari the CD-ROM HOWTO) Semua CD-ROM drive dengan ukuran blok 512
+     atau 2048 bisa dipakai; ini termasuk CD-ROM drive yang biasa dijual
+     di pasaran.
+
+  o  EIDE (ATAPI) CD-ROM drives (IDECD)
+     Hampir semua drive double, quad, dan six speed didukung, termasuk
+
+  o  Mitsumi FX400
+
+  o  Nec-260
+
+  o  Sony 55E
+
+  Proprietary CD-ROM drives
+
+  o  Aztech CDA268-01A, Orchid CDS-3110, Okano/Wearnes CDD-110, Conrad
+     TXC, CyCDROM CR520ie/CR540ie/CR940ie (AZTCD)
+
+  o  Creative Labs CD-200(F) (SBPCD)
+
+  o  Funai E2550UA/MK4015 (SBPCD)
+
+  o  GoldStar R420 (GSCD)
+
+  o  IBM External ISA (SBPCD)
+
+  o  Kotobuki (SBPCD)
+
+  o  Lasermate CR328A (OPTCD)
+
+  o  LMS Philips CM 206 (CM206)
+
+  o  Longshine LCS-7260 (SBPCD)
+
+  o  Matsushita/Panasonic CR-521/522/523/562/563 (SBPCD)
+
+  o  MicroSolutions Backpack parallel portdrive (BPCD)
+
+  o  Mitsumi CR DC LU05S (MCD/MCDX)
+
+  o  Mitsumi FX001D/F (MCD/MCDX)
+
+  o  Optics Storage Dolphin 8000AT (OPTCD)
+
+  o  Sanyo H94A (SJCD)
+
+  o  Sony CDU31A/CDU33A (CDU31A)
+
+  o  Sony CDU-510/CDU-515 (SOMYCD535)
+
+  o  Sony CDU-535/CDU-531 (SONYCD535)
+
+  o  Teac CD-55A SuperQuad (SBPCD)
+
+
+  14.2.  Lainnya
+
+
+  o  LMS/Philips CM 205/225/202
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/cdrom/lmscd0.4.tar.gz>
+
+  o  NEC CDR-35D (old)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/cdrom/linux-
+     neccdr35d.patch>
+
+  o  Sony SCSI multisession CD-XA
+     <ftp://tsx-11.mit.edu/pub/linux/patches/sony-multi-0.00.tar.gz>
+  o  Parallel Port Driver
+     <http://www.torque.net/linux-pp.html>
+
+
+
+  14.3.  Catatan
+
+  Semua drive CD-ROM biasanya memiliki cara kerja yang sama. Ada
+  beberapa ketidakcocokan dengan utility audio CD. (Khususnya dengan
+  drive low-end NEC yang baru.) Ada driver alpha yang tidak memiliki
+  dukungan terhadap audio.
+
+  CD-ROM NEC yang lama (single speed) mungkin akan mengalami masalah
+  bila dipasang pada kontroler SCSI yang ada sekarang.
+
+  PhotoCD (XA) dapat digunakan. Program hpcdtoppm (buatan Hadmit
+  Danisch) mengkonversi file-file berformat PhotoCD menjadi format
+  pixmap. Program tersebut bisa didownload dari
+  <ftp://ftp.gwdg.de/pub/linux/hpcdtoppm> atau dari utility PBM.
+
+  Biasanya hampir tiap CD-Writer kini didukung oleh Linux. Untuk daftar
+  lengkapnya silahkan baca CD-Writing mini HOWTO di
+  <http://sunsite.unc.edu/LDP/HOWTO/mini/CD-Writing>.  Paket X-CD-Roast
+  untuk Linux adalah suatu front-end grafis dalam menggunakan CD-Writer.
+  Paket ini dapat diambil dari
+  <ftp://sunsite.unc.edu/pub/Linux/utils/disk-
+  management/xcdroast-0.95.tar.gz>.
+
+  Juga sekarang bisa membaca video CD (mulai kernel 2.1.3x). Patch untuk
+  kernel 2.0.30 juga tersedia sekarang.
+
+  Terakhir, IDE CD-ROM Changers juga sekarang hampir semuanya bisa
+  digunakan pada Linux.
+
+
+  15.  Removable drives
+
+  Semua drive SCSI harusnya bisa digunakan asalkan kontrolernya didukung
+  oleh Linux, termasuk jenis optical (MO), WORM, floptical, Bernoulli,
+  Zip, Jaz, SyQuest, P dan lainnya.
+
+
+  o  Parallel port Zip drives
+     <ftp://gear.torque.net/pub/>
+
+  o  Parallel port Avatar Shark-250
+     <http://www.torque.net/shark.html>
+
+  Removable drive memiliki cara kerja yang mirip dengan hard disk dan
+  disket, jadi tinggal di fdisk, mkfs, dan mount saja. Linux juga
+  menyediakan fasilitas penguncian drive bila drivenya mendukung.
+  Utiliti mtools juga bisa digunakan pada removable disk bila ia
+  diformat dalam format MS-DOS.
+
+  Drive CD-R membutuhkan software khusus bila ingin dipakai, silahkan
+  baca CD-R mini HOWTO untuk lebih jelasnya.
+
+  Linux mendukung disk dengan konfigurasi 512 dan 1024 byte/sektor.
+  Mulai kernel 2.1.32, Linux juga mendukung disk 2048 byte/sektor. Patch
+  untuk kernel 2.0.30 tersedia di  <http://liniere.gen.u-
+  tokyo.ac.jp/2048.html>.
+
+  Konfigurasi 2048 byte/sektor dibutuhkan untuk membaca
+
+  o  Fujitsu magneto-optical disk drives M2513
+
+  Mulai pre-patch-2.0.31-3 ID/ATAPI internal Zip bisa digunakan pada
+  Linux.
+
+
+  16.  Mouse
+
+  16.1.  Yang didukung
+
+
+  o  Microsoft serial mouse
+
+  o  Mouse Systems serial mouse
+
+  o  Logitech Mouseman serial mouse
+
+  o  Logitech serial mouse
+
+  o  ATI XL Inport busmouse
+
+  o  C&T 82C710 (QuickPort) (Toshiba, TI Travelmate)
+
+  o  Microsoft busmouse
+
+  o  Logitech busmouse
+
+  o  PS/2 (auxiliary device) mouse
+
+
+  16.2.  Lainnya
+
+
+  o  Sejin J-mouse
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/console/jmouse.1.1.70-jmouse.tar.gz>
+
+  o  MultiMouse
+     <ftp://sunsite.unc.edu/pub/Linux/system/misc/MultiMouse-1.0.tgz>
+
+  o  Microsoft Intellimouse
+
+
+
+  16.3.  Catatan
+
+  Touchpad (misalnya Alps Glidepoint) juga bisa dipakai, asalkan
+  kompatibel dengan protokol mouse biasa.
+
+  Mouse Logitech yang ada sekarang (kecuali MouseMan) menggunakan
+  protokol Microsoft dan ketiga tombolnya juga bisa dipakai. Walaupun
+  mouse buatan Microsoft hanya memiliki dua buah tombol, protokol
+  tersebut mendukung hingga tiga tombol.
+
+  Port mouse pada ATI Graphics Ultra dan Ultra Pro menggunakan protokol
+  busmouse Logitech. (Silahkan baca Busmouse HOWTO)
+
+
+  17.  Modem
+
+  Semua modem baik internal maupun external yang terhubung ke port
+  serial seharusnya bisa digunakan pada Linux. Sialnya, ada beberapa
+  pabrik yang hanya merancang modemnya khusus untuk Windows 95 saja.
+  Silahkan baca Lampiran D untuk daftar hardware yang tidak kompatibel
+  dengan Linux.
+
+  Ada jenis modem yang menyertakan software MS-DOS yang mendownload
+  program kontrol pada saat dijalankan. Modem seperti ini biasanya bisa
+  dipakai dengan cara menjalankan program tersebut di DOS dan lakukan
+  boot. Modem semacam ini sebaiknya tidak digunakan karena tidak akan
+  bisa dipakai lagi di masa yang akan datang.
+
+  Semua modem PCMCIA seharusnya bisa digunakan bersama-sama dengan
+  driver PCMCIA-nya.
+
+  Fax modem membutuhkan software fax yang tepat untuk digunakan.
+
+  o  Digicom Connection 96+/14.4+ - DSP code downloading program
+     <ftp://sunsite.unc.edu/pub/Linux/apps/serialcomm/smdl-
+     linux.1.02.tar.gz>
+
+  o  ZyXEL U-1496 series - ZyXEL 1.4, modem/fax/voice control program
+     <http://www.pe1chl.demon.nl/ZyXEL/ZyXEL-1.6.tar.gz>
+
+  o  ZyXEL Elite 2864 series - modem/fax/voice control program
+     <http://www.pe1chl.demon.nl/ZyXEL/ZyXEL-1.6.tar.gz>
+
+  o  ZyXEL Omni TA 128 - modem/fax/voice control program
+     <http://www.pe1chl.demon.nl/ZyXEL/ZyXEL-1.6.tar.gz>
+
+
+  18.  Printer/Plotter
+
+  Semua printer dan plotter yang terhubung ke port parallel atau serial
+  bisa digunakan. Sialnya lagi, ada pabrik yang hanya membuat printernya
+  khusus untuk Windows 95. Lampiran D untuk daftar hardware yang tidak
+  kompatibel dengan Linux.
+
+  o  HP LaserJet 4 series - free-lj4, printing modes control program
+     <ftp://sunsite.unc.edu/pub/Linux/system/printing/free-
+     lj4-1.1p1.tar.gz>
+
+  o  BiTronics parallel port interface
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/misc/bt-
+     ALPHA-0.0.1.module.patch.gz>
+
+
+  18.1.  Ghostscript
+
+  Biasanya program-program di Linux mengeluarkan output dalam bentuk
+  PostScript. Printer non-PostScript bisa mengemulasikan PostScript
+  Level 2 dengan bantuan Ghostscript.
+
+  o  Ghostscript
+     <ftp://ftp.cs.wisc.edu/pub/ghost/aladdin/>
+
+
+  18.1.1.  Printer yang bisa digunakan oleh Ghostscript
+
+
+  o  Apple Imagewriter
+
+  o  C. Itoh M8510
+
+  o  Canon BubbleJet BJ10e (bj10e)
+
+  o  Canon BubbleJet BJ200, BJC-210 (B/W only), BJC-240 (B/W only)
+     (bj200)
+
+  o  Canon BubbleJet BJC-600, BJC-610, BJC-4000, BJC-4100, BJC-450,
+     MultiPASS C2500, BJC-240, BJC-70 (bjc600)
+
+  o  Canon BubbleJet BJC-800 (bjc800)
+
+
+  o  Canon LBP-8II, LIPS III
+
+  o  DEC LA50/70/75/75plus
+
+  o  DEC LN03, LJ250
+
+  o  Epson 9 pin, 24 pin, LQ series, AP3250
+
+  o  Epson Stylus Color/Color II/500/800 (stcolor)
+
+  o  HP 2563B
+
+  o  HP DesignJet 650C
+
+  o  HP DeskJet, Deskjet Plus (deskjet)
+
+  o  HP Deskjet 500, Deskjet Portable (djet500)
+
+  o  HP DeskJet 400/500C/540C/690C/693C (cdj500)
+
+  o  HP DeskJet 550C/560C/600/660C/682C/683C/693C/850/870Cse (cdj550)
+
+  o  HP DeskJet 850/870Cse/870Cxi/680 (cdj850)
+
+  o  HP DeskJet 500C/510/520/5540C/693C printing black only (cdjmono)
+
+  o  HP DeskJet 600 (lj4dith)
+
+  o  HP DeskJet 600/870Cse, LaserJet 5/5L (ljet4)
+
+  o  HP Deskjet 500/500C/510/520/540/550C/560C/850C/855C
+     <ftp:ftp.pdb.sni.de/pub/utilities/misc/hpdj-2.1.tar.gz>
+
+  o  HP PaintJet XL300, Deskjet 600/1200C/1600C (pjxl300)
+
+  o  HP LaserJet/Plus/II/III/4
+
+  o  HP PaintJet/XL
+
+  o  IBM Jetprinter color
+
+  o  IBM Proprinter
+
+  o  Imagen ImPress
+
+  o  Mitsubishi CP50 color
+
+  o  NEC P6/P6+/P60
+
+  o  Oki OL410ex LED (ljet4)
+
+  o  Okidata MicroLine 182
+
+  o  Ricoh 4081/6000 (r4081)
+
+  o  SPARCprinter
+
+  o  StarJet 48 inkjet printer
+
+  o  Tektronix 4693d color 2/4/8 bit
+
+  o  Tektronix 4695/4696 inkjet plotter
+
+  o  Xerox XES printers (2700, 3700, 4045, etc.)
+
+
+  18.1.2.  Lainnya
+
+
+  o  Canon BJC600/800 color printers
+     <ftp://petole.imag.fr/pub/postscript/ghostscript/bjc600/>
+
+
+  19.  Scanner
+
+  Kini terdapat paket SANE (Scanner Access Now Easy) di (
+  <ftp://tsx-11.mit.edu/pub/linux/packages/sane/>).  SANE merupakan
+  interface scanner universal. Dalam paket itu disertakan dokumentasi
+  dan beberapa front-end dan backend.
+
+
+  19.1.  Yang didukung
+
+
+  o  A4 Tech AC 4096 / AS 8000P
+     <ftp://ftp.informatik.hu-
+     berlin.de/pub/local/linux/a4scan/a4scan.tgz>
+
+  o  Adara Image Star I
+     <http://fb4-1112.uni-muenster.de/ffwd/>
+     <ftp://fb4-1112.uni-muenster.de/pub/ffwd/mtekscan-0.2.tar.gz>
+
+  o  Epson GT6000
+     <ftp://sunsite.unc.edu/pub/Linux/apps/graphics/capture/ppic0.5.tar.gz>
+
+  o  Fujitsu SCSI-2 scanners
+     contact Dr. G.W. Wettstein <greg%wind.UUCP@plains.nodak.edu>
+
+  o  Genius ColorPage-SP2
+     <http://fb4-1112.uni-muenster.de/ffwd/>
+     <ftp://fb4-1112.uni-muenster.de/pub/ffwd/mtekscan-0.2.tar.gz>
+
+  o  Genius GS-B105G
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scanner/gs105-0.0.1.tar.gz>
+
+  o  Genius GeniScan GS4500 handheld scanner
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scanner/gs4500-2.0.tar.gz>
+
+  o  HP ScanJet II series SCSI
+     <ftp://sunsite.unc.edu/pub/Linux/apps/graphics/capture/hpscanpbm-0.3a.tar.gz>
+
+  o  HP ScanJet IIc, IIcx, IIp, 3c, 4c, 4p, 5p, 5pse, plus
+     <http://www.tummy.com/xvscan/>
+
+  o  Logitech Scanman 32 / 256
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scanner/logiscan-0.0.4.tar.gz>
+
+  o  Microtek ScanMaker E3, E6, II, IIXE, III dan 35t models
+     <http://fb4-1112.uni-muenster.de/ffwd/>
+     <ftp://fb4-1112.uni-muenster.de/pub/ffwd/mtekscan-0.2.tar.gz>
+
+  o  Mustek M105 handheld scanner with GI1904 interface
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scanner/scan-
+     driver-0.1.8.tar.gz>
+
+  o  Mustek Paragon 6000CX
+     <ftp://sunsite.unc.edu/pub/Linux/apps/graphics/capture/muscan-2.0.6.taz>
+
+  o  Nikon Coolscan SCSI 35mm film scanner
+     <ftp://sunsite.unc.edu/pub/Linux/apps/graphics/capture/coolscan-0.2.tgz>
+
+
+  o  UMAX SCSI scanners
+     <ftp://tsx-11.mit.edu/pub/linux/ALPHA/scanner/umax-0.5.5.tar.gz>
+
+
+  20.  Hardware Lainnya
+
+  20.1.  Monitor VESA Power Savings Protocol (DPMS)
+
+  Dalam kernel telah termasuk dukungan terhadap power saving. Silahkan
+  gunakan setterm untuk menggunakan fasilitas ini.
+
+
+  20.2.  Touch screen
+
+  Server Metro-X mendukung touch screen berikut:
+
+  o  Carrol Touch serial touch screen.  <http://www.carrolltouch.com>
+
+
+  20.3.  Joystick
+
+  Joystick mulai dapat digunakan pada distribusi XFree86 terbaru (3.3.x)
+  dan pada kernel versi 2.1.xx. Untuk kernel sebelumnya, silahkan baca
+  link di bawah ini.
+
+
+  o  Joystick driver
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/console/joystick-0.8.0.tgz>
+
+  o  Joystick driver (module)
+     <ftp://sunsite.unc.edu/pub/Linux/kernel/patches/console/joyfixed.tgz>
+
+
+  20.4.  Video capture boards / Frame Grabbers
+
+
+  o  Data Translation DT2803
+
+  o  Data Translation DT2851 Frame Grabber
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/dt2851-2.01.tar.gz>
+
+  o  Data Translation DT3155
+     <http://krusty.eecs.umich.edu/people/ncowan/linux/welcome.html>
+
+  o  Diamond DTV2000 (based on BT848)
+
+  o  Dipix XPG1000/FPG/PPMAPA (based on TI C40 DSP). Most add-on cards
+     are supported.
+     <http://www.thp.Uni-Koeln.DE/~rjkm/linux/bttv.html>
+
+  o  Epix SVM
+
+  o  Epix Silicon Video MUX series of video frame grabbing boards
+     <http://www.ssc.com/lj/issue13/npc13c.html>
+
+  o  FAST Screen Machine II
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/ScreenMachineII.2.0.tgz>
+
+  o  Hauppage Wincast TV PCI (based on BT848)
+     <http://www.thp.Uni-Koeln.DE/~rjkm/linux/bttv.html>
+
+  o  Imaging Technology ITI/IC-PCI
+     <ftp://ftp.gom-online.de/pub/IC-PCI/icpci-0.3.2.tar.gz>
+
+  o  ImageNation Cortex I
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/cortex.drv.1.1.tgz>
+  o  ImageNation CX100
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/cxdrv-0.86.tar.gz>
+
+  o  ImageNation PX500 (being worked on). Ask for current status
+     rubini@linux.it
+
+  o  Imaging Technology Inc. IC-PCI frame grabber board
+     <ftp://gandalf.expmech.ing.tu-bs.de/pub/driver/icpci-0.2.0.tar.gz>
+
+  o  Matrox Meteor
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/meteor-1.4a.tgz>
+
+  o  Matrox PIP-1024
+     <http://www.powerup.com.au/~sobeyp/pip_tar.gz>
+
+  o  Miro PCTV (based on BT848)
+     <http://www.thp.Uni-Koeln.DE/~rjkm/linux/bttv.html>
+
+  o  MuTech MV1000 PCI
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/mv1000drv-0.33.tgz>
+
+  o  MuTech MV200
+     <http://www.powerup.com.au/~sobeyp/mu_tar.gz>
+
+  o  Philips PCA10TV (not in production anymore)
+     <ftp://ftp.il.ft.hse.nl/pub/tv1000/pctv1000.02.tgz>
+
+  o  Pro Movie Studio
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/PMS-grabber.3.0.tgz>
+
+  o  Quanta WinVision B&W video capture card
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/fgrabber-1.0.tgz>
+
+  o  Quickcam
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/qcam-0.7c-5.tar.gz>
+
+  o  Sensus 700
+     <http://www.robots.com/s700.htm>
+
+  o  Smart Video Recorder III (based on BT848)
+     <http://www.thp.Uni-Koeln.DE/~rjkm/linux/bttv.html>
+
+  o  STB TV PCI Television Tuner (based on BT848)
+     <http://www.thp.Uni-Koeln.DE/~rjkm/linux/bttv.html>
+
+  o  Video Blaster, Rombo Media Pro+
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/vid_src-0.6.tgz>
+
+  o  VT1500 TV cards
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/vt1500-1.0.9.tar.gz>
+
+
+  20.5.  UPS
+
+
+  o  APC SmartUPS
+     <ftp://sunsite.unc.edu/pub/Linux/system/ups/apcd-0.5.tar.gz>
+
+  o  APC-BackUPS 400/600, APC-SmartUPS SU700/1400RM
+     <ftp://sunsite.unc.edu/pub/Linux/system/ups/apcupsd-2.2.tar.gz>
+
+  o  UPS's with RS-232 monitoring port (genpower package)
+     <ftp://sunsite.unc.edu/pub/Linux/system/ups/genpower-1.0.1.tgz>
+
+  o  A daemon to shut down dan up computers connected to ups's. It's
+     network aware dan allows server- dan client-mode
+     <ftp://sunsite.unc.edu/pub/Linux/system/ups/powerd-2.0.tar.gz>
+
+  o  various other UPS's are supported, read the UPS HOWTO
+
+
+  20.6.  Multifunction boards
+
+
+
+  o  Pro Audio Spectrum 16 SCSI / Sound interface card
+
+
+  20.7.  Data acquisition
+
+  Site Linux Lab Project berisi koleksi driver untuk hardware yang
+  berhubungan dengan data acquisition. Project ini juga memiliki mailing
+  list dengan topik yang sama. Penulis tidak memiliki pengalaman dalam
+  bidang ini, jadi silahkan cek saja site berikut.
+
+
+  o  Linux Lab Project
+     <http://www.llp.fu-berlin.de/>
+
+
+  o  CED 1401
+
+  o  DBCC CAMAC
+
+  o  IEEE-488 (GPIB, HPIB) boards
+
+  o  Keithley DAS-1200
+
+  o  National Instruments AT-MIO-16F / Lab-PC+
+
+
+  o  Analog Devices RTI-800/815 ADC/DAC board
+     contact Paul Gortmaker <gpg109@anu.edu.au>
+
+
+  20.8.  Watchdog timer interfaces
+
+
+  o  ICS WDT500-P (
+     <http://www.indcomp.src.com/products/data/html/wdt500-p.html>)
+
+  o  ICS WDT501-P (with dan without fan tachometer) (
+     <http://www.indcomp.src.com/products/data/html/wdt500-p.html>)
+
+
+  20.9.  Lain-lain
+
+
+  o  Mattel Powerglove
+
+  o  AIMS Labs RadioTrack FM radio card
+     <ftp://sunsite.unc.edu/pub/Linux/apps/sound/radio/radiotrack-1.1.tgz>
+
+  o  Reveal FM Radio card
+     <ftp://magoo.uwsuper.edu/docs/radio.html>
+
+  o  Videotext cards
+     <ftp://sunsite.unc.edu/pub/Linux/apps/video/videoteXt-0.6.tar.gz>
+
+
+
+
+  21.  Informasi Lain
+
+
+  o  Cameron Spitzer's hardware FAQ archive (??)
+     <ftp://ftp.rahul.net/pub/cameron/PC-info/>
+
+  o  Computer Hardware dan Software Vendor Phone Numbers
+     <http://mtmis1.mis.semi.harris.com/comp_ph1.html>
+
+  o  Guide to Computer Vendors
+     <http://guide.sbanetweb.com/>
+
+  o  System Optimization Information
+     <http://www.dfw.net/~sdw/>
+
+
+  22.  Ucapan Terima Kasih
+
+  Terima kasih untuk semua penulis dan kontributor dari HOWTO lain,
+  karena semua yang ada di sini merupakan hasil kutipan dari hasil karya
+  mereka; juga untuk FRiC, Zane Healy dan Ed Carp, yang merupakan
+  penulis pertama HOWTO ini, dan juga untuk semua yang mengirimkan
+  update dan tanggapan.  Juga khusus kepada Eric Boerner dan lilo
+  (orangnya, bukan programnya).  Juga terima kasih kepada Dan Quinlan
+  untuk konversi SGMLnya.
+
+
+  23.  Lampiran A. Card S3 yang didukung XFree86 3.3.1.
+
+
+
+  CHIPSET   RAMDAC            CLOCKCHIP   BPP   CARD
+
+  801/805   AT&T 20C490                    16    Actix GE 32 / 32+ 2Mb
+                                                 Orchid Fahrenheit 1280(+)
+  801/805   AT&T 20C490       ICD2061A     16    STB PowerGraph X.24
+  801/805                                        Del S3 805
+                                                 Miro Crystal 8S
+                                                 Orchid Fahrenheit VA
+                                                 VL-41
+  805       S3 GENDAC                      16    Miro 10SD VLB/PCI
+                                                 SPEA Mirage VLB
+  801/805   SS2410            ICD2061A     8     Diamond Stealth 24 VLB
+  801/805   AT&T 20C490       Ch8391       16    JAX 8231/8241, SPEA Mirage
+  801/805   S3 GENDAC                            Miro Crystal 10SD
+  805i                                           Actix GE 32i
+                                                 ELSA Winner 1000 ISA
+  928       AT&T 20C490                    16    Actix Ultra
+  928       Sierra SC15025    ICD2061A     32    ELSA Winner 1000 ISA/VLB/EISA
+  928       Bt485             ICD2061A     32    STB Pegasus VL
+  928       Bt485             SC11412      16    SPEA(/V7) Mercury VLB
+  928       Bt485             ICD2061A     32    #9 GXE Level 10/11/12
+  928       Ti3020            ICD2061A     32    #9 GXE Level 14/16
+  928                                            928Movie
+                                                 Diamond Stealth Pro
+                                                 ELSA Winner 1000TwinBus
+                                                 ELSA Winner 1000VL
+                                                 ELSA Winner 2000
+                                                 Miro Crystal 16S
+  864                         ICD2061A           Miro Crystal 20SD (BIOS 2.xx)
+  864       AT&T 20C498       ICS2494      32    Miro (Crystal) 20SD (BIOS 1.xx)
+  864       AT&T 20C498/      ICD2061A/    32    ELSA Winner 1000 PRO VLB/PCI
+  864       STG1700           ICS9161            MIRO 20SD (BIOS 2.x)
+                                                 ELAS Winner 1000 PRO
+  864       STG1700           ICD2061A     32    Actix GE 64 VLB
+
+  864       AT&T 20C498/      ICS2595      16    SPEA(/V7) Mirage P64 DRAM (BIOS 3.x)
+            AT&T 21C498
+  864       S3 86C716 SDAC                 32    ELSA Winner 1000 PRO
+                                                 Miro 20SD (BIOS 3.x)
+                                                 SPEA Mirage P64 DRAM (BIOS 4.x)
+                                                 Diamond Stealth 64 DRAM
+                                                 Genoa Phantom 64i
+                                                 Miro Crystal 20SD VLB (BIOS 3.xx)
+  864       ICS5342           ICS5342      32    Diamond Stealth 64 DRAM (some)
+  864       SDAC                                 Diamond Stealth 64 Graphics 2001
+  864       AT&T 20C498-13    ICD2061A     32    #9 GXE64 PCI
+  864                                            ASUS Video Magic PCI V864
+                                                 VidTech FastMax P20
+
+
+
+  CHIPSET   RAMDAC            CLOCKCHIP   BPP   CARD
+
+  964                                            ELSA Winner 2000 PRO-2,4
+                                                 spider Tarantula 64
+  964       AT&T 20C505       ICD2061A     32    Miro Crystal 20SV PCI/40SV
+  964       Bt485             ICD2061A     32    Diamond Stealth 64
+  964       Bt9485            ICS9161A     32    SPEA Mercury 64
+  964       Ti3020            ICD2061A     8     ELSA Winner 2000 PRO PCI
+  964       Ti3025            Ti3025       32    #9 GXE64 Pro VLB/PCI
+                                                 Miro Crystal 40SV
+  964       IBM RGB                        32    Hercules Graphite Terminator 64
+  868       S3 86C716 SDAC                 32    ELSA Winner 1000AVI
+                                                 Miro Crystal 20SD PCI
+  868       AT&T 29C409                          ELSA Winner 1000AVI
+  868                                            Diamond Stealth Video DRAM
+                                                 Diamond Stealth 64 Video 2120/2200
+                                                 ELSA Winner 1000PRO/X
+                                                 #9 FX Motion 531
+                                                 VideoLogic GrafixStar 500
+  968                                            Diamond Stealth 64 Video 3200
+                                                 ELSA Gloria-4/8
+                                                 ELSA Winner 2000AVI
+                                                 ELSA Winner 2000PRO/X-2/X-4/X-8
+                                                 Genoa VideoBlitz III AV
+                                                 Hercules Graphite Terminator Pro 64
+                                                 LeadTek WinFast S430
+                                                 LeadTek WinFast S510
+                                                 Miro Crystal 80SV
+                                                 Miro Crystal 20SV
+                                                 #9 FX Motion 771
+                                                 VideoLogic GrafixStar 700
+                                                 WinFast S430/S510
+  968       TVP3026                        32    ELSA Winner 2000PRO/X
+                                                 Diamond Stealth 64 Video VRAM
+  968       IBM RGB                        32    Genoa VideoBlitz III AVI
+                                                 Hercules Terminator Pro 64
+                                                 STB Velocity 64 Video
+                                                 #9 FX Motion 771
+                                                 Diamond Stealth 64 Video 3240/3400
+  968       TI RAMDAC                            Diamond Stealth 64 Video 3240/3400
+  732       (Trio32)                       32    Diamond Stealth 64 DRAM SE
+                                                 (all Trio32 based cards)
+  764       (Trio64)                       32    SPEA Mirage P64 (BIOS 5.x)
+                                                 Diamond Stealth 64 DRAM
+                                                 Diamond Stealth 64 Graphics 2xx0
+                                                 #9 FX Vision 330
+                                                 STB PowerGraph 64
+                                                 (all Trio64 based cards)
+
+
+  CHIPSET   RAMDAC        CLOCKCHIP   BPP   CARD
+
+            (Trio64V+)                       DSV3326
+                                             Diamond Stealth 64 Video 2001
+                                             DataExpert DSV3365
+                                             ExpertColor DSV3365
+                                             MAXColor S3 Trio64V+
+                                             ELSA Winner 1000TRIO/V
+                                             Hercules Terminator 64/Video
+                                             #9 FX Motion 331
+                                             STB Powergraph 64 Video
+                                             VideoLogic GrafixStar 400
+            (Trio64V2)                       ELSA Winner 1000/T2D
+            (ViRGE)                          Canopus Co. Power Window 3DV
+                                             DSV3325
+                                             DataExpert DSV3325
+                                             Diamond Multimedia Stealth 3D 2000
+                                             Diamond Multimedia Stealth 3D 2000 PRO
+                                             Diamond Stealth 3D 2000
+                                             Diamond Stealth 3D 2000 PRO
+                                             Diamond Stealth 3D 3000
+                                             ELSA Victory 3D
+                                             ELSA Victory 3DX
+                                             ELSA Winner 3000-S
+                                             Expertcolor DSV3325
+                                             Hercules Terminator 64/3D
+                                             LeadTek WinFast 3D S600
+                                             MELCO WGP-VG4S
+                                             #9 FX Motion 332
+                                             Orchid Tech. Fahrenheit Video 3D
+                                             STB systems Powergraph 3D
+                                             WinFast 3D S600
+            (ViRGE/DX)                       Hercules Terminator 3D/DX
+            (ViRGE/GX)                       STB Nitro 3D
+            (ViRGE/VX)                       ELSA Winner 2000AVI/3D
+                                             ELSA Winner 3000
+                                             ELSA Winner 3000-L-42/-M-22
+                                             MELCO WGP-VX8
+                                             STB Systems Velocity 3D
+  911/924                                    Diamond Stealth VRAM
+  924       SC1148 DAC
+
+
+  CATATAN: Untuk chipset tipe ViRGE/VX,DX,GX,GX2 dapat digunakan mulai
+  XFree86 3.3.1 dan gunakan server XF86_SVGA.
+
+
+  24.  Lampiran B. Card PCMCIA yang bisa dipakai
+
+  Card berikut dapat digunakan dengan menggunakan paket PCMCIA David
+  Hind dan daftar berikut diperoleh dari web sitenya.
+
+
+
+  24.1.  Ethernet card
+
+
+  o  SMC, Megahertz dan Ositech menggunakan the smc91c92_cs
+
+  o  Untuk 3Com dan Faralloncards gunakan driver 3c589_cs
+
+  o  Fujitsu, TDK, RATOC, CONTEC, Eagle dan Nextcom cards gunakan driver
+     fmvj18x_cs
+
+     Card lain gunakan driver pcnet_cs. Card NE2000 dan kompatibelnya
+     yang tidak ada pada daftar ini juga bisa digunakan dengan driver
+     pcnet_cs.
+
+
+
+  o  3Com 3c589, 3c589B, 3c589C, 3c589D
+
+  o  Accton EN2212, EN2216 EtherCard
+
+  o  Allied Telesis CentreCOM CE6001, LA-PCM
+
+  o  Asante FriendlyNet
+
+  o  AST 1082 Ethernet
+
+  o  CeLAN EPCMCIA
+
+  o  CNet CN30BC, CN40BC Ethernet
+
+  o  Compex/ReadyLINK Ethernet Combo
+
+  o  Connectware LANdingGear Adapter
+
+  o  CONTEC C-NET(PC)C
+
+  o  Danpex EN-6200P2 Ethernet
+
+  o  Datatrek NetCard
+
+  o  Dayna Communications CommuniCard E
+
+  o  Digital DEPCM-AA Ethernet
+
+  o  Digital EtherWORKS Turbo Ethernet
+
+  o  D-Link DE-650, DE-660
+
+  o  Eagle NE200 Ethernet
+
+  o  Edimax Technology Ethernet Combo
+
+  o  EFA InfoExpress 205, 207 Combo
+
+  o  Eiger Labs EPX-ET10T2 Combo
+
+  o  ELECOM Laneed LD-CDWA, LD-CDX, LD-CDNIA, LD-CDY
+
+  o  EP-210 Ethernet
+
+  o  Epson Ethernet
+
+  o  EtherPRIME Ethernet
+
+  o  Explorer NE-10000 Ethernet
+
+  o  EZLink 4109 Ethernet
+
+  o  Farallon Etherwave
+
+  o  Fiberline FL-4680
+
+  o  Fujitsu FMV-J181, FMV-J182, FMV-J182A
+
+  o  Fujitsu Towa LA501
+
+  o  Gateway 2000 Ethernet
+
+  o  Genius ME3000II Ethernet
+
+  o  Grey Cell Ethernet
+
+  o  GVC NIC-2000P Ethernet Combo
+
+  o  Hitachi HT-4840-11 EtherCard
+
+  o  Hypertec HyperEnet
+
+  o  IBM CreditCard Ethernet Adapter
+
+  o  IC-Card Ethernet
+
+  o  Infotel IN650ct Ethernet
+
+  o  I-O Data PCLA/T
+
+  o  Katron PE-520 Ethernet
+
+  o  Kingston KNE-PCM/M, KNE-PC2
+
+  o  LANEED Ethernet
+
+  o  LanPro EP4000A
+
+  o  Lantech Ethernet
+
+  o  Linksys EtherCard
+
+  o  Logitec LPM-LN10T, LPM-LN10BA Ethernet
+
+  o  Longshine Ethernet
+
+  o  Macnica ME-1 Ethernet
+
+  o  Maxtech PCN2000 Ethernet
+
+  o  Megahertz XJ10BT, CC10BT Ethernet
+
+  o  Melco LPC-TJ, LPC-TS
+
+  o  Micronet Etherfast Adapter
+
+  o  NDC Instant-Link
+
+  o  Network General ``Sniffer''
+
+  o  New Media EthernetLAN
+
+  o  New Media LiveWir (NOT the LiveWire+)
+
+  o  New Media BASICS Ethernet
+
+  o  NextCom NC5310
+
+  o  Novell/National NE4100 InfoMover
+
+  o  Ositech Four of Diamonds
+
+  o  Panasonic CF-VEL211P-B
+
+  o  Planet SmartCom 2000, 3500
+
+  o  PreMax PE-200 Ethernet
+
+  o  Proteon Ethernet
+
+  o  Ratoc REX-9822, REX-5588A/W
+
+  o  Relia RE2408T Ethernet
+
+  o  RPTI EP400, EP401 Ethernet
+
+  o  SCM Ethernet
+
+  o  SMC 8020BT EtherEZ (not the EliteCard)
+
+  o  Socket Communications Socket EA LAN Adapter
+
+  o  SuperSocket RE450T
+
+  o  Surecom Ethernet
+
+  o  SVEC PN605C
+
+  o  TDK LAC-CD02x, LAK-CD021, LAK-CD022A, LAK-CD021AX Ethernet
+
+  o  Thomas-Conrad Ethernet
+
+  o  Trust Ethernet Combo
+
+  o  Volktek NPL-402CT Ethernet
+
+  o  Xircom CreditCard CE2
+
+
+  24.2.  Fast Ethernet (10/100baseT) adapters
+
+
+  o  Linksys EtherFast 10/100
+
+  o  Xircom CreditCard CE3
+
+
+  24.3.  Token-ring adapters
+
+  Gunakan kernel > 1.3.72
+
+
+  o  IBM Token ring Adapter
+
+  o  3Com 3c689 TokenLink III
+
+
+  24.4.  Wireless network adapters
+
+
+  o  AT&T GIS / NCR WaveLAN version 2.0
+
+  o  DEC RoamAbout/DS
+
+  o  Xircom CreditCard Netwave
+
+
+  24.5.  ISDN
+
+
+  o  ELSA PCMCIA
+
+
+
+  24.6.  Modem dan card serial
+
+  Biasanya semua card modem, card port serial biasa, dan modem digital
+  seluler bisa dipakai. Modem ISDM yang mengemulasi standar UART juga
+  bisa dipakai.
+
+
+  o  Advantech COMpad-32/85 dual serial
+
+  o  Quatech, IOTech dual RS-232 cards
+
+  o  Quatech quad RS-232 card
+
+  o  Socket Communications dual RS-232 card
+
+
+  24.7.  Memory card
+
+  Semua card SRAM bisa dipakai. Flash card yang tidak didukung hanya
+  bisa melakukan pembacaan saja tetapi tidak bisa dipakai untuk menulis.
+
+
+  o  Epson 2MB SRAM
+
+  o  IBM 8MB Flash
+
+  o  Intel Series 2 dan Series 2+ Flash
+
+  o  Maxtor MobileMax 16MB Flash
+
+  o  New Media SRAM
+
+  o  TDK Flash Memory SFM20W/C 20MB
+
+
+  24.8.  SCSI adapter
+
+
+  o  Adaptec APA-1460, APA-1460A SlimSCSI
+
+  o  Digital SCSI II adapter
+
+  o  Eiger Labs SCSI (Not the Eiger SS-1000)
+
+  o  Future Domain SCSI2GO
+
+  o  IBM SCSI
+
+  o  Iomega ZIP Card
+
+  o  IO-DATA PCSC-II, PCSC-II-L
+
+  o  IO-DATA CDG-PX44/PCSC CD-ROM
+
+  o  Logitec LPM-SCSI2
+
+  o  Logitec LCD-601 CD-ROM
+
+  o  MACNICA mPS110, mPS110-LP SCSI
+
+  o  Melco IFC-SC2, IFC-DC
+
+  o  NEC PC-9801N-J03R
+
+  o  New Media Bus Toaster SCSI (older cards only)
+
+  o  New Media Toast 'n Jam (SCSI only)
+
+  o  Panasonic KXL-D740, KXL-DN740A, KXL-DN740A-NB 4X CD-ROM
+
+  o  Pioneer PCP-PR1W CD-ROM
+
+  o  Qlogic FastSCSI
+
+  o  Raven CD-Note 4X
+
+  o  RATOC REX-9530 SCSI-2
+
+  o  Simple Technologies SCSI
+
+  o  Sony CD-ROM Discman PRD-250
+
+  o  Taxan ICD-400PN
+
+  o  Toshiba NWB0107ABK, SCSC200B
+
+
+  24.9.  ATA/IDE CD-ROM adapters
+
+  Gunakan Kernel > 1.3.72
+
+
+
+  o  Argosy EIDE CD-ROM
+
+  o  Caravelle CD-36N
+
+  o  Creative Technology CD-ROM
+
+  o  Digital Mobile Media CD-ROM
+
+  o  EXP CD940 CD-ROM
+
+  o  IO-DATA CDP-TX4/PCIDE, CDP-TX6/PCIDE, CDP-TX10/PCIDE, CDV-
+     HDN6/PCIDE, MOP-230/PCIDE
+
+  o  H45 Technologies Quick 2x CD-ROM
+
+
+  24.10.  Multifunction card
+
+  Gunakan Kernel > 1.3.73
+
+
+  o  3Com 3c562, 3c562B/C/D, 3c563B/C/D
+
+  o  ActionTec Comnet EF336 modem 28.8 + ethernet 10Mb (only modem part
+     works)
+
+  o  IBM Home dan Away Card
+
+  o  Linksys LANmodem 28.8, 33.6
+
+  o  Megahertz EM1144, EM3288, EM3336
+
+  o  Motorola Mariner
+
+  o  Motorola Marquis
+
+  o  Ositech Jack of Diamonds
+
+
+  o  Xircom CreditCard CEM28, CEM33, CEM56
+
+
+  24.11.  ATA/IDE card drive
+
+  Drive berikut didukung mulai dari kernel 1.3.72. Card Flash-ATA dan
+  card rotating-media juga bisa dipakai.
+
+
+  24.12.  Card lainnya
+
+
+  o  Trimble Mobile GPS (menggunakan driver serial/modem)
+
+
+  24.13.  Yang sedang dikerjakan ...
+
+  Orang-orang `pinter' sedang sibuk mengerjakan driver untuk card
+  berikut:
+
+  o  Nat'l Inst DAQCard (Eric Gonzalez root@colomsat.net.co)
+
+  o  IBM Smart Capture (Koij Okamura oka@nanotsu.kobe-u.ac.jp)
+
+  o  Roland SCP-55 MIDI (Toshiaki Nakatsu ir9k-nkt@asahi.net.or.jp)
+
+  o  CyberRom CD-ROM (David Rowntree rowntree@dircon.co.uk)
+
+  o  IO DATA PCSC-II (Katayama Nobuhiro kata-n@po.iijnet.or.jp)
+
+  o  Macnica mPS-1x0 (Katayama Nobuhiro kata-n@po.iijnet.or.jp)
+
+  o  FORTEZZA encryption (Rex Riggins rriggins@radium.ncsc.mil)
+
+  o  Harris PRISM/AM79C930 (Mark Mathews mark@mail.absoval.com)
+
+  o  IBM Etherjet (Danilo Beuche danili@cs.tu-berlin.de). The driver can
+     be found at  <http://www.first.gmd.de/~danilo/pc-driver>
+
+  o  Teles PCMCIA
+
+  o  Xircom CE3 (Werner Koch werner.koch@guug.de)
+
+
+  24.14.  Yang tidak dapat dipakai
+
+
+  o  ActionTec Comnet EF336 modem 28.8 + ethernet 10Mb (ethernet part
+     not supported)
+
+  o  Adaptec/Trantor APA-460 SlimSCSI
+
+  o  CanonCompaq PCMCIA floppy drive
+
+  o  Motorola Mariner
+
+  o  New Media .WAVjammer dan all other sound cards
+
+  o  All 100baseT ethernet adapters
+
+  o  Panasonic KXL-D720, KXL-D745
+
+  o  SMC 8016 EliteCard
+
+  o  Telxon/Aironet wireless adapter
+
+  o  Xircom CE II Ethernet/Modem
+
+  o  Xircom CE-10BT Ethernet
+
+
+
+  25.  Lampiran C. Perangkat Plug and Play
+
+  Utiliti ISA PnP yang dibuat oleh Peter Fox sekarang telah tersedia.
+  Berikut adalah cuplikan README-nya:
+
+
+  Program ini dapat digunakan untuk mengkonfigurasikan perangkat ISA Plug-And-Play
+  pada mesin Linux.
+
+  Program ini cocok untuk semua sistem, walaupun tidak memiliki BIOS PnP.
+
+
+
+  Perintah-perintah yang berlaku diambil dari the Plug and Play ISA
+  specification Version 1.0a. ( <ftp://ftp.redhat.com/pub/pnp/docs/>)
+
+  Info lebih lanjut tentang utiliti ISA PnP bisa dibaca pada website
+  Peter Fox:  <http://www.roestock.demon.co.uk/isapnptools/>
+
+  Mohon untuk memberitahukan penulis tentang perangkat yang bisa
+  dikonfigurasikan dengan utiliti ini (tetapi belum ada pada HOWTO ini).
+  Daftar hardware tersebut akan dimasukkan dalam lampiran ini.
+
+
+  26.  Lampiran D. Hardware Yang Tidak Kompatibel dengan Linux
+
+  Ada beberapa pabrik yang hanya membuat hardware khusus untuk MS-DOS
+  dan Windows 95. Dalam kasus ini, mereka membuat suatu emulasi software
+  yang menirukan kerja hardware pada perangkat yang biasa, dan software
+  ini (berupa driver) disertakan pada hardwarenya. Spesifikasi tentang
+  device ini tidak dipublikasikan sehingga hampir tidak mungkin untuk
+  menuliskan drivernya.  Berikut adalah device yang dilaporkan tidak
+  kompatibel dengan Linux.
+
+  Singkat kata, jangan beli hardware yang ada tulisan "Needs Windows"
+  atau "Windows only".
+
+
+
+  o  All Hewlet Packard HP Deskjet 820xx printers
+
+  o  The Multiwave Innovation CommWave V.34 modem (
+     <http://www.multiwave.com/>)
+
+  o  US Robotics WinModem series
+
+  o  US Robotics Sportster Voice/Fax modem (X2 model 1785 internal PnP)
+
+  o  Boca modem (model M336l)
+
+  o  Boca Research 28.8 internal modem (model MV34AI)
+
+  o  Zoltrix 33.6 Win HSP Voice/Speaker Phone modem
+
+  o  Motorola ModemSURFR internal 56K??
+
+  o  DSVD modem??
+
+  o  Compaq 192 pcmcia modem/serial card
+
+  o  New Media Winsurfer pcmcia mode/serial card
+
+
+  27.  Glosari
+
+
+     AGP
+        Accelerated Graphics Port.  Suatu mekanisme bus interconnect
+        yang dirancang untuk meningkatkan kinerja aplikasi grafis 3D.
+        AGP adalah bus khusus pada subsistem grafis menuju chipset core-
+        logic.
+        <http://www.euro.dell.com/intl/euro/r+d/r+dnews/vectors/vect_2-1/v2-1_agp.htm>
+
+     ATAPI
+        AT Attachment Packet Interface.  Suatu protokol untuk
+        mengendalikan perangkat penyimpanan data yang mirip dengan
+        protokol SCSI. Protokol ini dibuat pada interface ATA (AT
+        Attachment), yang merupakan nama resmi ANSI Standard untuk
+        interface IDE yang dikembangkan khusus untuk hard disk. ATAPI
+        sekarang biasa digunakan untuk hard disk, CD-ROM, tape drive dan
+        perangkat lainnya.
+
+     ATM
+        Asynchronous Transfer Mode
+
+     DMA
+        Direct Memory Access
+
+     EGA
+        Enhanced Graphics Adapter
+
+     EIDE
+        Enhanced IDE
+
+     EISA
+        Extended Industry System Architecture
+
+     FDDI
+        ??
+
+     IDE
+        Integrated Drive Electronics. Tiap drive mempunyai kontroler
+        built-in sendiri.
+
+     ISA
+        Industry System Architecture
+
+     ISDN
+        Integrated Services Digital Network
+
+     MCA
+        MicroChannel Architecture
+
+     MFM
+        Modified Frequency Modulation
+
+     PCI
+        ??
+
+     RAID
+        Redudant Arrays of Inexpensive Disks.  Ide dasar RAID adalah
+        mengkombinasikan beberapa disk drive yang kecil dan murah ke
+        dalam suatu array disk drive yang menghasilkan kinerja yang
+        melebihi dari satu drive besar yang mahal. Ada lima tipe
+        arsitektur redundant array; yaitu RAID-1 hingga RAID-5. Suatu
+        array disk yang tidak redundant biasanya diberi istilah RAID-0.
+        <http://www.uni-mainz.de/~neuffer/scsi/what_is_raid.html>
+
+     RLL
+        Run Length Limited
+
+     SCSI
+        Small Computer Systems Interface.  Interface standar untuk semua
+        perangkat dalam komputer. Interface ini memungkinkan untuk
+        menggunakan hanya satu adapter untuk semua device.
+        <http://www.uni-mainz.de/~neuffer/scsi/what_is_scsi.html>
+
+     SVGA
+        ??
+
+     UART
+        Universal Asynchronous Receiver Transmitter
+
+     VGA
+        Video Graphics Adapter
+
+     VLB
+        VESA Local Bus
+
+     WORM
+        Write Once Read Many
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,263 @@
+
+                         Linux érintõképernyõ HOGYAN
+
+Christoph Baumann, cgb@debian.org
+
+   v3.1, 2002.11.06
+     _________________________________________________________________
+
+   Ez a dokumentum leírja, hogyan állítsunk be egy érintõképernyõt mint
+   beviteli eszközt XFree86 alatt. A szerzõnek mindössze EloTouch® és
+   MicroTouch® eszközökkel volt alkalma dolgozni, így ez a HOGYAN
+   leginkább ezek beállításához használható. Az ebben a HOGYANban
+   található példák a /dev/ttyS0 vagy /dev/ttyS1 soros porton keresztül
+   csatlakoztatott eszközökre koncentrálnak. (Értékelnénk ha valaki USB
+   eszközrõl is adna információt!)
+     _________________________________________________________________
+
+   (c) 2002 by Christoph Baumann. Ez a dokumentáció szabadon
+   terjeszthetõ a GNU Free Documentation License leírása szerint.
+
+1. Az eszköz beállítása
+
+   Az érintõképernyõ eszközök beállítása az XF86Config állomány (ált.
+   /etc/X11/XF86Config vagy /etc/XF86Config) Xinput szakaszában szerepel.
+   Elõször ellenõrizzük le, hogy az eszközmeghajtó modul létezik. Ezek
+   az /usr/X11R6/lib/modules/ könyvtárban találhatók (a fent említett
+   eszközökhöz az xf86Elo.so és xf86MuTouch.so modulok tartoznak). Most
+   vessünk egy pillantást az XF86Config állományra. Valahol szerepelni
+   kell benne egy szakasznak, ami ehhez hasonlóan néz ki:
+
+Section "Files"
+...
+ModulePath "/usr/X11R6/lib/modules"
+...
+EndSection
+
+   Ahhoz, hogy az X szerver betöltse a modult lennie kell egy hasonló
+   szakasznak benne:
+
+Section "Module"
+Load "xf86Elo.sõ
+EndSection
+
+   Most egy még trükkösebb rész következik. Az X szervernek szüksége van
+   az eszköz néhány paraméterére. Ennek a résznek valami hasonlónak kell
+   lenni (a "man XF86Config" parancs segítségével részletesebb
+   információhoz juthatunk):
+
+Section "Xinput"
+ SubSection "Elographics"
+#MicroTouch eszközök használatakor a következõ alfejezetet
+#kellene bejegyeznünk: SubSection "MicrotouchFinger"
+  Port "/dev/ttyS1" # az eszköz a 2. soros portra csatlakozik
+  DeviceName "TouchScreen" #itt egyértelmû azonosítót kötelezõ megadnunk
+  MinimumXPosition 300
+  MaximumXPosition 3700
+  MinimumYPosition 300
+  MaximumYPosition 3700
+  UntouchDelay 10 #MuTouch eszközök nem támogatják
+  ReportDelay 10  #MuTouch eszközök nem támogatják
+  AlwaysCore #az eszköz induláskor aktiválódik
+ EndSubSection
+EndSection
+
+   A MinimumXPosition stb. bejegyzések értékei természetesen az
+   érintõképernyõ beállításai (úgymint az érintõképernyõ monitortól
+   számított viszonylagos helyzete az adott síkban). Ezek az értékek
+   határozzák meg a monitorunkon megjelenített (0,0) és (xmax,ymax)
+   pontok hozzárendelését az érintõképernyõnkhöz (az xmax és ymax
+   értékek az X szerverben beállított felbontástól függenek, pl.
+   1024x768). Az érintõképernyõ kiolvassa ezeket az értékeket és
+   felhasználja a képpontok interpolálásához. Próbáljuk megérteni a
+   következõ szemléltetõ ábra alapján:
+
+ ---------------érintõképernyõ-------------------
+ I                                              I
+ I  ########látható kép területe##############  I
+ I  #x                                       #  I
+ I  # (0,0)                                  #  I
+ I  # (MinimumXPosition,MinimumYPosition)    #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #                                        #  I
+ I  #     (MaximumXPosition,MaximumYPosition)#  I
+ I  #                             (xmax,ymax)#  I
+ I  #                                       x#  I
+ I  ##########################################  I
+ I                                              I
+ ------------------------------------------------
+
+   Ezt megtehetjük próbálgatással vagy az eszköz kimeneti jelének
+   olvasásával (némelyik soros portnak programozásra van szüksége, errõl
+   a "The Linux Serial Programming HOWTÕ ("A soros port programozása
+   Linux alatt HOGYAN") leírásban olvashatunk. EloTouch és MicroTouch
+   tipusú eszközökhöz létezik egy kezdetleges beállító segédprogram, amit
+   ezen leírás szerzõje készített. Ezt a következõ helyen találjuk meg:
+   [1]ftp://metalab.unc.edu/pub/linux/X11/xutils/touchcal-0.1.tar.gz).
+
+2. Az eszköz beüzemelése
+
+   Az X szerver indítása után, egy Xterminal ablakba gépeljük be a
+   következõ parancsot:
+
+   xsetpointer <devicename>
+
+   ahol <devicename> az XF86Configban a következõ sorral meghatározott
+   név: DeviceName ".....", ebben a példában ennek "TouchScreen"-nek kell
+   lennie.
+
+   Ha az eszközt az X szerver indulásával egyidejûleg szeretnénk
+   indítani használjuk az "AlwaysCore" beállítást (lásd feljebb).
+
+3. Érintõképernyõ és egér párhuzamos használata
+
+   Az érintõképernyõ és egér párhuzamos használatának beállításához
+   lépjünk be az Xinput szakasz egér beállítási részébe. A meghatározások
+   ugyanazok mint a "pointer" szakaszban. Íme egy példa PS/2 egér
+   beállításra:
+Section "Xinput"
+   SubSection "Mouse"
+      Protocol "PS/2"
+      Port "/dev/mouse" #ez lehet "/dev/psaux" is
+      DeviceName "Mouse"
+      AlwaysCore
+   EndSubSection
+...
+EndSection
+
+   Néhány ember hívta fel a figyelmem erre, különösen az "AlwaysCore"
+   beállítás használatára. Köszönet nekik érte.
+
+4. Beállítás XFree86 4.x alatt
+
+   (Lee Monamy készítette)
+
+   Példa egy ELO tipusú érintõképernyõ beállítására XF86Config-4.x
+   alatt:
+
+Section "InputDevice"
+        Identifier "ELO touchscreen"
+        Driver "elographics"
+        Option  "Device"        "/dev/ttyS0"
+        Option  "MinimumXPosition"      "300"
+        Option  "MaximumXPosition"      "3700"
+        Option  "MinimumYPosition"      "300"
+        Option  "MaximumYPosition"      "3700"
+        Option  "UntouchDelay"  "10"
+        Option  "ReportDelay"   "10"
+        Option  "SendCoreEvents"        "yes"
+EndSection
+
+   Lényeges különbségek a 3.x változathoz képest, hogy egy eszközt kell
+   megadnunk __nem__ pedig egy portot, különben hibajelzést kapunk. Az
+   "AlwaysCore" helyett "SendCoreEvents"-t kell használni.
+
+   Ki kell egészítenünk a ServerLayout szakaszt annak ellenére, hogy az X
+   a következõt írja ki: "(II) XINPUT: Adding extended input device
+   "TOUCHSCREEN" (type: Elographics Touch Screen)" magyarul: "(II)
+   XINPUT: Kibõvített beviteli eszköz hozzáadva "ÉRINTÕKÉPERNYÕ"
+   (típus: Elographics Touch Screen)"
+
+Section "ServerLayout"
+        Identifier      "Default Layout"
+        Screen  "Default Screen"
+        InputDevice "Generic Keyboard"
+...
+        InputDevice "ELO touchscreen"
+EndSection
+
+4.1 Másik beállítási példa
+
+   Dirk Mueller-tõl (Microtouch SMT3 sorozat):
+
+Section "InputDevice"
+        Identifier  "MicroTouchFinger"
+        Driver      "mutouch"
+        Option      "Type" "finger"
+        Option      "Device" "/dev/ttyS0"
+        Option      "ScreenNõ "0"
+        Option      "MinimumXPosition" "0"
+        Option      "MaximumXPosition" "16383"
+        Option      "MinimumYPosition" "0"
+        Option      "MaximumYPosition" "16383"
+EndSection
+
+   A "Type" beállítás lehet "finger" vagy "stylus" Mióta a Microtouch-ot
+   felvásárolta a 3M-Touch támogatás az eszközökhöz a következõ helyen
+   található:
+   [2]http://www.3M.com/3MTouchSystems/downloads/legacy.jhtml#Linux
+
+4.2 Kiegészítés
+
+   Wong Yeow Sen szerint a beállítási változók nevei megváltoztak az
+   XFree86 4.2 változatában (legfeljebb a Red Hat 7.3 óta). Ha úgy néz
+   ki, hogy a beállított kalibrációs értékeket nem dolgozza fel, próbáld
+   meg a következõt:
+
+...
+        Option  "MinX"      "100"
+        Option  "MaxX"      "4000"
+        Option  "MinY"      "100"
+        Option  "MaxY"      "4000"
+...
+
+5. Érintõképernyõk Fujitsu LifeBooks gépeken
+
+   (Joerg Hau-tól)
+
+   Ezen eszközökrõl a következõ helyeken találsz információt:
+
+   "...
+
+   Harald Hoyer Linux érintõpanel meghajtó programok Fujitsu Lifebooks
+   gépekhez B112/B142/B2130, [3]http://parzelle.de/Linux/Lifebook/.
+   Sajnos ez csak az XFree 3.x változatával használható és úgy néz ki,
+   hogy az itt lévõ információ nem változik (halott?).
+
+   Kenan Esau Lifebook B sorozat érintõképernyõ meghajtóprogram, amely
+   Harald programjának átirata az XFree 4.x változatára.
+   [4]http://www.conan.de/lifebook/lifebook.html.
+
+   Én [Joerg Hau] Kenan meghajtó programját használom a Fujitsu LifeBook
+   B142 gépemen (a leírás ezen a helyen található:
+   [5]http://www.mysunrise.ch/users/joerg.hau/linux/b142.htm), és tuti
+   jól mûködik.
+
+   ..."
+
+6. Ajánlott irodalom
+
+     * Az XF86Config használati útmutatója (manual page - a ford.)
+     * [6]http://www.elotouch.com/Support/linux.asp
+     * [7]http://www.3M.com/3MTouchSystems/downloads/legacy.jhtml#Linux
+     * [8]http://www.hof-berlin.de/tablet/tablet.html (Köszönet Christer
+       Olofssonnak amiért elküldte ezt az URL-t)
+     * Az érintõképernyõhöz mellékelt használati utasítás :-)
+
+7. Magyar fordítás
+
+   A magyar fordítást [9]Daczi László készítette (2002.07.18). Bármilyen
+   fordítással kapcsolatos észrevételt a [10]linuxhowto@sch.bme.hu címre
+   küldjetek. A lektorálást [11]Abrudán Attila végezte el (2002.09.06).
+   Frissítve 2002.11.07.-én. A dokumentum legfrissebb változata
+   megtalálható a [12]Magyar Linux Dokumentációs Projekt honlapján.
+
+References
+
+   1. ftp://metalab.unc.edu/pub/linux/X11/xutils/touchcal-0.1.tar.gz
+   2. http://www.3M.com/3MTouchSystems/downloads/legacy.jhtml#Linux
+   3. http://parzelle.de/Linux/Lifebook/
+   4. http://www.conan.de/lifebook/lifebook.html
+   5. http://www.mysunrise.ch/users/joerg.hau/linux/b142.htm
+   6. http://www.elotouch.com/support/linux.asp
+   7. http://www.3M.com/3MTouchSystems/downloads/legacy.jhtml#Linux
+   8. http://www.hof-berlin.de/tablet/tablet.html
+   9. mailto:dacas@freemail.hu_NO_SPAM
+  10. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  11. mailto:abrudana@freemail.hu_NO_SPAM
+  12. http://tldp.fsf.hu/index.html

@@ -1,0 +1,265 @@
+
+Linux Crash HOGYANNorman Patten
+
+   nepatten@us.ibm.com
+
+   2002.01.30
+   Verziótörténet
+   Verzió: 1.0 2002.01.30 Átdolgozta: NM
+   Elsõ kiadás.
+
+   Ez a dokumentum az LKCD (Linux Kernel Crash Dump) csomag telepítését
+   és használatát írja le.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Szerzõi jog és licenc
+        1.2. [3]Magyar fordítás
+
+   2. [4]Hogyan mûködik az LKCD
+
+        2.1. [5]Mire van szükséged?
+
+   3. [6]Az lkcd telepítése
+
+        3.1. [7]Telepítés forráskódból
+        3.2. [8]Az LKCD programok fordítása és telepítése
+        3.3. [9]Telepített állományok
+        3.4. [10]Az LKCD telepítése RPM csomagból
+        3.5. [11]A kernel foltozása
+        3.6. [12]A kernel fordítása és telepítése
+
+   4. [13]A crash beállítása, tesztelése és futtatása
+
+        4.1. [14]A crash dump beállítása
+        4.2. [15]A crash tesztelése
+        4.3. [16]A crash futtatása
+
+1. Bevezetés
+
+Az LKCD (Linux Kernel Crash Dump) projekt kernel foltok és alkalmazások
+együttese, mely lehetõvé teszi a kernel memóriatartalmának elmentését
+kernel pánik esetén. A kernel állapotát tartalmazó állomány a mellékelt
+alkalmazásokkal együtt lehetõvé teszi a kernel pánik utólagos
+hibakeresését. A legtöbb fizetõs Unix operációs rendszert hasonló crash
+alkalmazásokkal szállítják, de ez a csomag meglehetõsen új a Linuxban, és
+kézzel kell hozzáadni. Az LKCD alkalmazás nem alkalmas megfelelõ
+információk összegyûjtésére hardver okozta pánik vagy szegmenshiba esetén.
+A teljes LKCD csomag letölthetõ a [17]http://lkcd.sourceforge.net/
+oldalról.
+     _________________________________________________________________
+
+1.1. Szerzõi jog és licenc
+
+This document is copyrighted (c) 2002 by Norman Patten. Ezen dokumentum
+másolása, terjesztése és/vagy módosítása engedélyezett a GNU Free
+Documentation License 1.1 változata, vagy bármelyik késõbbi, a Free
+Software Foundation által közzétett változat feltételei szerint; állandó
+fejezetek nélkül, elõlapi és hátoldali szöveg nélkül. A licenc másolata
+elérhetõ a [18]http://www.gnu.org/copyleft/fdl.html oldalon.
+
+A Linux védjegy Linus Torvalds tulajdona. Az lkcd a Silicon Graphics Inc.
+által meghatározott feltételek szerint terjeszthetõ.
+
+Visszajelzést a [19]nepatten@us.ibm.com címre lehet küldeni.
+     _________________________________________________________________
+
+1.2. Magyar fordítás
+
+A magyar fordítást [20]Furi Zoltán készítette (2003.04.15). A lektorálást
+[21]Daczi László végezte el (2003.04.16). Bármilyen fordítással kapcsolatos
+észrevételt a [22]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum
+legfrissebb változata megtalálható a [23]Magyar Linux Dokumentációs Projekt
+honlapján.
+     _________________________________________________________________
+
+2. Hogyan mûködik az LKCD
+
+Amikor a kernel olyan hibával találkozik amelyet nem tud lekezelni, meghívja
+a "panic" (pánik) függvényt. Ez a pánik az LKCD-ben egy ún. kernel dump-ot
+eredményez, ekkor a kernel memóriájának a tartalma egy elõre kijelölt, ún.
+dump területre másolódik. Dump eszközként alapból az elsõdleges swap
+terület van beállítva. A kernel nem teljes mértékben mûködõképes ekkor, de
+még elegendõ mértékben ahhoz, hogy kimásolja a memória tartalmát a lemezre.
+Miután a dump befejezte a memória tartalmának másolását a lemezre, a
+rendszer újraindul. Amikor a rendszer újraindul, új crash dump fájlt keres.
+Ha talál, akkor átmásolja azt a dump helyérõl egy másik partícióra, alapból
+a "/var/log/dump" könyvtárba. Az állomány másolása után a rendszer folytatja
+a normális indulási folyamatot. A vizsgálatokat egy késõbbi idõpontban el
+lehet végezni.
+     _________________________________________________________________
+
+2.1. Mire van szükséged?
+
+Az lkcd-kernelxxx.diff fájlra a kernel foltozásához. A támogatott
+kernelverzió folyamatosan változik. Az lkcdutils-xx.src.rpm tartalmazza az
+alkalmazás forráskódját és a beállításhoz, illetve a crash adatok
+olvasásához szükséges programokat. E szöveg írásának idején egy futtatható
+i386 rpm csomag elérhetõ az [24]lkcd.sourceforge.net webhelyen, de így is
+szükséged lesz az indításhoz a szkriptekre a forrás rpm csomagból.
+     _________________________________________________________________
+
+3. Az lkcd telepítése
+
+3.1. Telepítés forráskódból
+
+Szerezd be az lkcdutils-xxx.src.rpm csomagot és telepítsd az rpm -i
+kcdutils-xxx.src.rpm paranccsal. Ez egy lkcdutils-xxx.tar.gz nevû fájlt
+helyez az /usr/src/redhat/SOURCES könyvtárba. Ez a fájl az lkcd források
+tömörített tar állománya. Csomagold ki a forrást egy tetszõleges könyvtárba
+(például "/usr/src" a tar -zxvf kcdutils-xxx.src.rpm paranccsal. Ez létre
+fogja hozni a "kcdutils-xxx" könyvtárat, amelyben az LKCD csomag részeinek
+forráskódja lesz.
+     _________________________________________________________________
+
+3.2. Az LKCD programok fordítása és telepítése
+
+Az LKCD a hagyományos GCC fordítót és make fájlokat használja. A programok
+fordításához lépj be LKCD forráskönyvtárába, és futtasd a ./configure
+szkriptet a konfigurációs állományok elkészítéséhez. A következõ lépés a
+make futtatása az alkalmazás fordításához, és végül futtasd a make install
+parancsot a programok és kézikönyv oldalak telepítéséhez.
+     _________________________________________________________________
+
+3.3. Telepített állományok
+
+  /etc/sysconfig/dump             # A dump konfigurációs állománya
+  /sbin/lcrash                    # A crash alkalmazás
+  /sbin/lkcd                      # Szkript a crash konfigurálására és mentésér
+e
+  /sbin/lkcd_config               # A dump konfigurációs programja
+  /sbin/lkcd_ksyms                # A kernel szimbólumok visszaállító programja
+
+  /usr/include/sial_api.h         # A SIAL API header állománya
+  /usr/lib/libsial.a              # Simple Image Access Language függvénykönyvt
+ár
+  /usr/man/man1/lcrash.1          # lcrash kézikönyv oldalak
+  /usr/man/man1/lkcd_config.1     # lkcd_config kézikönyv oldalak
+  /usr/man/man1/lkcd_ksyms.1      # lkcd_ksyms kézikönyv oldalak
+  /usr/share/sial/lcrash/ps.sial  # A SIAL ps parancsának implementációja
+     _________________________________________________________________
+
+3.4. Az LKCD telepítése RPM csomagból
+
+Telepítheted az elõre lefordított programokat rpm csomagból az rpm -i
+kcdutils-xxx.rpm futtatásával. Azonban még foltozni kell a kernelt, és
+telepíteni az indító szkriptet. Egyébként kihagyhatod az alkalmazás
+fordításának lépéseit.
+     _________________________________________________________________
+
+3.5. A kernel foltozása
+
+A következõ lépés a kernel foltozása és újrafordítása. Foltoznod kell a
+kernel forrást az a [25]http://lkcd.sourceforge.net/ oldalról letöltött
+lkcd-xxx.diff fájlal. Másold a foltot ugyanabba a könyvtárba, ahol a
+kerneled forrása van, és futtasd a patch -p0 < lkcd-kernelxxx.diff
+parancsot. Gyõzõdj meg róla, hogy a folt verziója azonos a használt
+kernelével. A következõ lépésben a kernel konfigurálásával engedélyezned
+kell a crash dump támogatást. Alapbeállításban a crash támogatás, miután
+alkalmaztad a foltot, ki van kapcsolva. Ha a make menuconfig vagy a make
+xconfig parancsot használod, az "LKCD support" opció a "kernel hacking"
+fejezet alatt található. Szükséged lehet még további opciók engedélyezésére.
+További részletekért olvasd el a [26]The Linux Kernel HOWTO (Linux kernel
+HOGYAN) leírást .
+     _________________________________________________________________
+
+3.6. A kernel fordítása és telepítése
+
+A következõ lépés a crash opcióval engedélyezett kernel fordítása és
+telepítése. A kernel forráskönyvtárban futtasd egymás után a következõ
+parancsokat:
+
+
+  make depend
+  make install
+  make modules
+  make modules_install
+
+   Ez lefordítja és telepíti az új kernelt, de neked kell átmásolnod a
+   Kerntypes állományt a kernel forráskönyvtárból a /boot könyvtárba.
+   Szükség lesz még a lilo.conf állomány szerkesztésére is, hogy legyen
+   benne az új kerneledre mutató bejegyzés is. További információért
+   olvasd el a [27]http://www.tldp.org/HOWTO/Kernel-HOWTO.html leírást.
+     _________________________________________________________________
+
+4. A crash beállítása, tesztelése és futtatása
+
+4.1. A crash dump beállítása
+
+A swap partícióra írt core állomány elmentéséhez, azt (mármint a core fájlt
+- a lektor) az indulási folyamat során a swap partíció aktiválása elõtt át
+kell másolni egy másik partícióra. Ennek végrehajtásához a sysinit
+indítóállományt meg kell változtatni. Az lkcd forrás tartalmaz egy scripts
+könyvtárat, amely foltokat tartalmaz különbözõ sysinit indító szkriptekhez.
+Ezek a foltok hozzáadják az indító szkripthez a lkcd config és az lkcd save
+parancsokat , ezek engedélyezik a crash dump szolgáltatást, illetve a
+létezõ crash dump fájl elmentésérõl gondoskodnak.
+     _________________________________________________________________
+
+4.2. A crash tesztelése
+
+Az új crash beállítás tesztelése érdekében, pánik kieszközöléséért, fordítsd
+le a következõ forrásprogramot a cc -c -I/usr/src/linux/include panic.c
+paranccsal. A panic.o modul lefordítása után pánik elõidézéséhez csak
+töltsük be azt insmod panic.o paranccsal.
+
+  ### panic.c ###########################
+
+  #define __KERNEL__
+  # MODULE
+
+  # include init_module(void)
+
+  int init_module (void)
+  {
+      panic(" panic has been called");
+      return 0;
+  }
+     _________________________________________________________________
+
+4.3. A crash futtatása
+
+A core állomány megtekintéséhez futtasd a lcrash parancsot a következõ
+paraméterekkel:
+
+  lcrash [ System.map fájl ] [ dump fájl ] [ Kerntypes ]
+
+  Példa:
+
+  lcrash /boot/System.map ./dump.1 /boot/Kerntypes
+
+   Néhány percet igénybe fog venni a kernel állomány betöltése a
+   memóriába, majd kidob a crash parancssorba. A crash parancssorba
+   beírhatsz egy ? karaktert a használható parancsok megtekintéséhez.
+
+References
+
+   1. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#INTRO
+   2. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#COPYRIGHT
+   3. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN32
+   4. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#HOWITWORKS
+   5. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#WHATYOUNEED
+   6. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#INSTALL
+   7. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN50
+   8. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN60
+   9. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN66
+  10. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN69
+  11. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN73
+  12. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN82
+  13. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#SETUP
+  14. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN93
+  15. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN100
+  16. file://localhost/home/dacas/temp/Linux-Crash-HOWTO-hu.html#AEN107
+  17. http://lkcd.sourceforge.net/
+  18. http://www.gnu.org/copyleft/fdl.html
+  19. mailto:nepatten@us.ibm.com
+  20. mailto:zfuri@avaya.com_NO_SPAM
+  21. mailto:dacasa@freemail.hu_NO_SPAM
+  22. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  23. http://tldp.fsf.hu/index.html
+  24. http://lkcd.sourceforge.net/
+  25. http://lkcd.sourceforge.net/
+  26. http://tldp.org/HOWTO/Kernel-HOWTO.html
+  27. http://tldp.org/HOWTO/Kernel-HOWTO.html

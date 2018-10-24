@@ -1,0 +1,1782 @@
+  The dosemu HOWTO
+  oleh Mike Deisher.  Updated oleh Uwe Bonnes, bon@elek-
+  tron.ikp.physik.th-darmstadt.de Diterjemahkan oleh Dian
+  Oktosoma, oktosoma@efn.org
+  v0.64.4, 15 March 1997 for dosemu-0.64.4 (in progress),
+  diterjemahkan 13 April 1998
+
+  Dokumen ini adalah `Frequently Asked Questions' (FAQ) / HOWTO tentang
+  dosemu.  Versi yang terbaru dokumen dosemu-HOWTO dapat dilihat di
+  ftp.mathematik.th-darmstadt.de:/pub/linux/bonnes/.  Catatan pener-
+  jemah: Untuk versi Indonesia Anda dapat baca di
+  http://www.linux.or.id/HOWTO.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. Pendahuluan
+
+     1.1 Apakah dosemu itu ?
+     1.2 Penamaan dan penomoran
+     1.3 Versi dosemu berapakah yang sebaiknya saya gunakan ?
+     1.4 Berapa versi terbaru dosemu dan di mana bisa didapatkan ?
+     1.5 Kemana saya dapat bertanya?
+     1.6 Di mana saya dapat melaporkan bugs dan bertanya?
+     1.7 Di mana saya dapat mengikuti proses pengembangan?
+     1.8 Dokumentasi apa saja yang tersedia untuk dosemu?
+     1.9 Saya mempunyai program yang tidak bisa dijalankan namun tidak terdaftar dalam EMUfailure
+     1.10 Bagaimana cara untuk melakukan perubahan atau menambah isi HOWTO?
+     1.11 Pesan dari Greg...
+
+  2. Mengkompilasi dan instalasi dosemu
+
+     2.1 Di mana terdapat instruksi instalasi?
+     2.2 Sepuluh masalah umum dalam kompilasi dan instalasi dosemu.
+     2.3 Bagaimana saya dapat menggunakan dosemu pada versi linux kernel yang lama.
+     2.4 Bagaimana saya dapat membuat aout binaries?
+     2.5 Bagaimana saya mengkompilasi dosemu menggunakan mesin dengan memori kecil?
+     2.6 Kompilasi gagal dengan kesalahan aneh "slang"
+     2.7 Option konfigurasi apa saja yang tersedia
+     2.8 bagaimana mempercepat proses kompilasi ?
+     2.9 Tips kompilasi dari Marty...
+     2.10 Perlukah saya menjadi root untuk mengkompilasi dosemu ?
+     2.11 Bagaimana saya dapat melakukan patch dosemu.
+     2.12 Versi DOS berapa saja yang dapat dijalankan dengan dosemu.
+     2.13 Versi yang diketahui tidak berjalan
+
+  3. Setup Hard disk
+
+     3.1 Bagaimana menggunakan hard disk saya dengan dosemu?
+     3.2 Bagaimana saya dapat mengakses hdimage dari Linux?
+     3.3 Dapatkah saya gunakan disk yang memakai stacked/double-spaced/ super-stored?
+
+  4. Port parallel, serial dan mouse
+
+     4.1 Akses port dapat dilakukan pada versi lama, tapi tidak pada versi yang lebih baru!
+     4.2 Akses port lebih cepat pada versi lama!
+     4.3 Di manakah driver untuk mouse (microsoft compatible)?
+     4.4 Mengapa mouse drivernya tidak bekerja?
+     4.5 Mengapa dosemu clobber COM4?
+     4.6 Bagaimana saya dapat menjalankan dosemu lewat port serial?
+     4.7 Bagaimana saya dapat men-switch antara dosemu dan shell yang menggunakan serial line?
+     4.8 Bagaimana membuat port paralel dapat digunakan?
+
+  5. Multi-user dan sesi Non-interactive
+
+     5.1 Dapatkah saya gunakan dosemu pada sebuah sistem multi-user?
+     5.2 Bagaimana menjalankan perintah dos dengan non-interaktiv?
+
+  6. dosemu dan Netware
+
+     6.1 Bagaimana saya dapat mengakses Netware dari dosemu?
+
+  7. dosemu dan X-windows(97/2/9).
+
+     7.1 Dapatkah saya menjalankan dosemu dalam mode console ketika menjalankan X?
+     7.2 Mungkinkah menjalankan dosemu dalam sebuah window di X-windows?
+     7.3 Xdos tidak berjalan dalam sebuah remote X-display!
+     7.4 Xdos tidak menemukan font VGA
+     7.5 Font vga terlalu kecil pada display resolusi tinggi
+     7.6 Proses kompilasi Dosemu gagal menghasilkan error yang berhubungan dengan X!
+     7.7 Apakah emulasi ansi berjalan sempurna ?
+
+  8. dosemu dan MS-Windows 3.1
+
+     8.1 Mungkinkah menjalankan MS-Windows 3.1 di bawah dosemu?
+     8.2 Windows 3.x dalam xdos:
+     8.3 Dapatkah saya menginstall windows dari dalam dosemu?
+     8.4 Catatan untuk mouse di bawah win31-in-xdos:
+     8.5 Mengapa Icon saya hilang dari Program manager?
+
+  9. Video dan suara
+
+     9.1 Dapatkah saya menjalankan  video game 32-bit di bawah dosemu?
+     9.2 Keluar dari dosemu menyebabkan layar penuh dengan garbage.
+     9.3 Bagaimana membuat dosemu berjalan dengan video card Trident/Actix/other?
+     9.4 Mengapa software soundcard saya tidak bekerja dengan dosemu?
+
+  10. Games
+
+     10.1 Duke3d tidak berjalan
+
+  11. Hardware lain
+
+     11.1 Bagaimana saya dapat menjalankan device xxxxx device di bawah dosemu?
+
+  12. Masalah-masalah dan cara menanganinya
+
+     12.1 Masalah keamanan
+     12.2 Dosemu berhenti ketika booting. Saya menginstall Win95.
+     12.3 Dosemu hangs! Bagaimana saya dapat meng-kill-nya?
+     12.4 Dosemu crash dan sekarang saya tidak dapat mengetikkan apapun.
+     12.5 Saya telah meng-enabled EMS memory dalam dosemu.conf tapi tidak membantu.
+     12.6 Bagaimana saya menghilangkan pesan "disk change" yang mengganggu?
+     12.7 Mengapa dosemu tidak bisa dijalankan untuk kedua kalinya setelah keluar dalam mode console?
+     12.8 Mengapa dosemu jalan dalam sebuah term tapi tidak dalam console?
+     12.9 bagaimana meningkatkan kecepatan dosemu?
+     12.10 Drive CDROM saya mempunyai masalah membaca beberapa file di bawah dosemu.
+     12.11 Bagaimana saya dapat melihat keluaran debugging?
+     12.12 Mengapa penekanan tombol saya ditampilkan dduuaa kali??
+     12.13 Dosemu mengacaukan layar saya?
+     12.14 MS FoxPro 2.6 tidak jalan
+
+  13. Kontribusi dalam proyek dosemu
+
+     13.1 Siapa yang bertanggung jawab akan dosemu?
+     13.2 Saya ingin membantu.  Siapa yang harus saya hubungi?
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  1.1.  Apakah dosemu itu ?
+
+  Mengutip dari manual, "dosemu" adalah sebuah program pada tingkat user
+  yang menggunakan feature spesial dari kernel Linux dan prosesor 80386
+  untuk menjalankan MS-DOS di dalam sesuatu yang disebut sebuah
+  kemampuan :
+
+  o  dapat mem-virtualisasi-kan seluruh input/output dan instruksi
+     kontrol prosesor
+
+  o  dapat mendukung word size dan mode pengalamatan keluarga prosesor
+     iAPX86 dalam "real mode," dan masih dapat berjalan di dalam
+     lingkungan full protected mode
+
+  o  dapat men-trap seluruh system call DOS and BIOS system calls dan
+     meng-emulasikan call yang dibutuhkan untuk operasi dengan unjuk
+     kerja yang tinggi
+
+  o  dapat men-simulasikan suatu lingkungan hardware seperti yang biasa
+     digunakan program DOS untuk mengontrolnya.
+
+  o  dapat menyediakan layanan MS-DOS melalui layanan Linux native;
+     sebagai contoh, dosemu dapat menyediakan sebuah hard disk virtual
+     yang sebenarnya adalah sebuah hirarki direktori dalam Linux.
+
+  1.2.  Penamaan dan penomoran
+
+
+       (xx/yy/zz) berarti hari ke zz dalam bulan yy tahun xx(97/2/9).
+
+
+
+       winemu berarti WinOS/2 dijalankan dalam dosemu(97/2/10).
+
+
+
+  1.3.  Versi dosemu berapakah yang sebaiknya saya gunakan ?
+
+  Dosemu menggunakan skema penomoran versi yang sama dengan kernel.
+  Bilangan kedua ganjil menunjukkan keluaran versi developer yang belum
+  stabil, sedangkan bilangan kedua genap menunjukkan versi yang stabil.
+  Pada saat penulisan dokumen ini, 0.64.4 adalah versi akhir yang paling
+  stabil, sedangkan 0.65.0.6 adalah versi akhir yang sedang dalam
+  pengembangan. Jadi jika anda ingin menggunakan dosemu, gunakan versi
+  akhir yang paling stabil (97/02/28).
+
+
+
+       (xx/yy/zz) berarti hari ke zz dalam bulan yy tahun xx(97/2/9).
+
+
+
+       winemu berarti WinOS/2 dijalankan dalam dosemu(97/2/10).
+
+
+
+  1.4.  Berapa versi terbaru dosemu dan di mana bisa didapatkan ?
+
+  Versi terbaru dosemu sampai tanggal (97/2/9) adalah dosemu0.64.4 dan
+  dapat diperoleh dari:
+
+       tsx-11.mit.edu:/pub/linux/ALPHA/dosemu/
+
+
+
+       ftp.suse.com:/pub/dosemu/
+
+
+
+  Selain itu, versi pre-release juga tersedia untuk para developer dan
+  ALPHA tester.  Versi ini dapat diambil dari:
+
+       http://www.ednet.ns.ca/auto/rddc
+
+
+  Perlu diingat ini adalah ALPHA code, bagaimanapun: mungkin masih ter-
+  dapat bug serius dan sangat sedikit dokumentasi mengenai feature yang
+  baru. Saat ini, versi yang masih dalam pengembangan telah diketahui
+  mempunyai beberapa bugs. Gunakan jika dan hanya jika anda ingin
+  mengerjakan pengembangan. Jangan melaporkan bugs dalam versi pengem-
+  bangan tersebut, tapi usahakan untuk memperbaikinya.
+
+  1.5.  Kemana saya dapat bertanya?
+
+  Jika anda mempunyai masalah yang berkaitan dengan instalasi dan
+  menjalankan dosemu setelah membaca dokumentasi yang ada, cobalah untuk
+  menolong diri sendiri: Pertanyaan anda mungkin sudah ditanyakan dan
+  dijawab sebelumnya.  Cobalah gunakan search engine di internet untuk
+  mencari informasi tersebut. Contoh, anda dapat menggunakan
+
+
+       http://www.dejanews.com
+
+
+  untuk menemukan semua artikel newsnet yang mengandung kata kunci dari
+  pertanyaan anda.  Mencari jawaban sendiri mungkin lebih cepat untuk
+  menyelesaikan masalah. Hal tersebut juga memberikan waktu untuk para
+  developer untuk mengembangkan dosemu lebih lanjut daripada untuk
+  menjawab pertanyaan yang sudah umum (97/2/9)
+
+
+  1.6.  Di mana saya dapat melaporkan bugs dan bertanya?
+
+  Jika anda ingin bertanya dan melaporkan bugs pada dosemu, anda
+  sebaiknya mendaftarkan diri pada mailing list linux-msdos-digest.
+  Untuk subscribe, kirimkan mail keo Majordomo@vger.rutgers.edu dengan
+  perintah berikut pada body email anda:
+
+      subscribe linux-msdos-digest your_username@your.email.address
+
+
+  Jika mungkin anda ingin keluar dari mailing list, anda dapat mengir-
+  imkan mail ke Majordomo@vger.rutgers.edu dengan perintah berikut pada
+  body email anda:
+
+      unsubscribe linux-msdos-digest your_username@your.email.address
+
+
+  (95/8/11). Bila anda sudah berhasil terdaftar ke linux-msdos, anda
+  dapat mengirimkan laporan bugs anda di dalam email ke linux-
+  msdos@vger.rutgers.edu. Juga disediakan gate untuk mengirimkan mail ke
+  linux-msdos@vger.rutgers.edu dengan melakukan posting ke newsgroup
+  linux.dev.msdos. Jika provider news anda tidak menyediakannya, minta-
+  lah administrator untuk menambahkannya.(97/2/10).
+
+
+  1.7.  Di mana saya dapat mengikuti proses pengembangan?
+
+  Jika anda ingin mengikuti proses pengembangan dosemu, terdapat mailing
+  list untuk itu.  Untuk subscribe, kirim mail ke Majordomo@ednet.ns.ca
+  dengan perintah berikut pada body email anda:
+
+      subscribe msdos-devel your_username@your.email.address
+
+
+  Jika mungkin anda ingin keluar dari mailing list, anda dapat mengir-
+  imkan mail ke Majordomo@ednet.ns.ca dengan perintah berikut pada body
+  email anda:
+
+      unsubscribe dosemu-devel your_username@your.email.address
+
+
+  Harap, jangan gunakan mailing list ini untuk kepentingan yang sama
+  seperti linux-dosemu-digest. Kontribusi ke dalam msdos-devel harus
+  memperhatikan pengembangan lanjut dosemu. Problem instalasi jangan
+  dilaporkan di sini, dan biasanya tidak akan diperhatikan yang memba-
+  canya (97/2/9).
+
+  1.8.  Dokumentasi apa saja yang tersedia untuk dosemu?
+
+  Manual dosemu (dosemu.texinfo) ditulis oleh Robert Sanders, belum
+  diperbaharui hingga saat ini namun masih merupakan sumber informasi
+  yang baik.  Manual tersebut didistribusikan bersama dengan dosemu.
+
+  "dosemu Novice's Altering Guide" atau DANG adalah petunjuk yang lebih
+  ke dalam dosemu.  DANG didesain untuk yang tertarik memodifikasi
+  source codenya. DANG dikembangkan  oleh by Alistair MacDonald
+  (alistair@slitesys.demon.co.uk) dan dapat diperoleh di directory doc
+  dalam source dosemu.
+
+  The EMU failure list (EMUfailure.txt) berisi daftar program yang
+  diketahui tidak berjalan di bawah dosemu.
+
+
+  Dan tentu saja, terdapat dosemu FAQ/HOWTO.  Tapi anda sudah tahu khan?
+  Dokumen ini juga dikirimkan dalam selang waktu tertentu ke mailing
+  list dan dapat diperoleh di dalam direktory doc.  Versi yang paling
+  akhir dapat diperoleh di ftp.mathematik.th-
+  darmstadt.de:/pub/linux/bonnes/(97/2/9).
+
+
+  1.9.  terdaftar dalam EMUfailure Saya mempunyai program yang tidak
+  bisa dijalankan namun tidak
+
+  Pertama, cek apakah program yang tidak berjalan tersebut tidak
+  disebabkan karena ketidakmampuan fundamental dari dosemu, daftarnya
+  dapat dilihat dalam EMUfailure. Jika anda yakin memang terdapat
+  sesuatu yang baru, silahkan hubungi linux-msdos@vger.rutgers.edu.
+  Mungkin yang lain dapat membantu. Beri penjelasan rinci mengenai
+  setup, versi kernel,dosemu yang digunakan, dll serta jelaskan
+  kesalahannya.  Anda dapat menggunakan xdos untuk "cut and paste"
+  pesan-pesan kesalahan ke dalam penjelasan anda. Tapi usahakan agar
+  bentuk penjelasan anda mudah untuk dibaca.  Kami tahu isi dari
+  ../etc/config.dist. Jadi hanya kirimkan active lines dari dosemu.conf
+  anda. Juga scan semua output debug anda dan untuk pertama, hanya
+  kirimkan bagian yang relevan saja. Hanya beberapa orang yang mau
+  melakukan decode attachment yang cukup panjang dalam sebuah mail.
+  Siapkan logs anda, terutama jika ada yang menanyakannya lebih jauh.
+  (97/2/10).
+
+
+  1.10.  HOWTO?  Bagaimana cara untuk melakukan perubahan atau menambah
+  isi
+
+  Lakukan peng-edit-an file dosemu-HOWTO-xx.x.sgml untuk melakukan
+  perubahan, buat sebuah file diff dengan mengetikkan
+
+
+       diff -uw file-asli file-baru
+
+
+  dan kirimkan ke bon@elektron.ikp.physik.th-darmstadt.de.  Anda tidak
+  harus mengerti SGML.  Perubahan atau informasi baru dalam format
+  apapun akan diterima.  Membuat file diff hanya untuk mempermudah HOWTO
+  maintainer.  :-)(97/2/9)
+
+
+  1.11.  Pesan dari Greg...
+
+  Kecuali disebutkan berbeda, Hak cipta Linux HOWTO dimiliki oleh
+  pengarangnya. Dokumen Linux HOWTO boleh diperbanyak dan disebarkan
+  keseluruhan atau hanya per bagian, dalam media fisik atau elektronik
+  apapun, selama hak ciptanya disebutkan.  Pendistribusian kembali
+  secara komersial diperbolehkan dengan syarat pemberitahuan terlebih
+  dahulu ke pengarangnya.
+
+  Semua penerjemahan, dan penurunannya harus berada dalam lingkup
+  copyright notice ini.  Jadi anda tidak diperbolehkan untuk memberi
+  batasan tambahan dalam hasil pekerjaan anda terhadap HOWTO.
+  Pengecualian terhadap aturan ini bisa diberikan dalam kondisi
+  tertentu; silahkan hubungi koordinator Linux HOWTO pada alamat di
+  bawah.
+
+  Kami ingin menyebarkan informasi ini sebanyak mungkin. Bagaimanapun,
+  kami yang memiliki hak cipta, ingin diberitahu mengenai hal-hal yang
+  berhubungan denagn pendistribusian kembali HOWTO.
+
+  Jika anda mempunyai pertanyaan, silahkan hubungi Greg Hankins,
+  koordinator Linux HOWTO, di gregh@cc.gatech.edu(95/8/11).
+
+
+  2.  Mengkompilasi dan instalasi dosemu
+
+  2.1.  Di mana terdapat instruksi instalasi?
+
+  Terdapat di dalam file, "QuickStart", dalam distribusi dosemu.
+
+
+  2.2.  Sepuluh masalah umum dalam kompilasi dan instalasi dosemu.
+
+
+  1. Tidak membaca petunjuk QuickStart.
+
+  2. Mencoba mengkompilasi versi dosemu yang lama.
+
+  3. Mencoba mengkompilasi menggunakan kernel sebelum versi 2.0.28 atau
+     2.1.15.
+
+  4. Kesalahan setting source kernel linux dalam /usr/src/linux atau
+     /usr/src/linux/include/version.h hilang
+
+  5. Menggunakan dosemu dengan kernel yang tidak mempunyai IPC
+     terkompilasi di dalamnya.
+
+  6. Mengkompilasi dengan gcc sebelum 2.7.2 atau libc sebelum x.x.x.
+
+  7. Tidak meng-edit file /etc/dosemu.conf anda.
+
+  8. Menjalankan DOSEMU dengan mengakses partisi yang sedang di-mount.
+
+  9. Tidak menginstall dosemu dengan hak yang mencukupi (misal, sebagai
+     root).  (97/04/08)
+
+  2.3.  yang lama.  Bagaimana saya dapat menggunakan dosemu pada versi
+  linux kernel
+
+  Jika anda tetap menggunakan 1.2.13 dan tidak dapat mengupgrade karena
+  sesuai hal, gunakan dosemu-0.60.4. Jika anda menggunakan versi dosemu
+  di bawah 2.0.28 dan 2.1.15, Hans Lermen (lermen@elserv.ffm.fgan.de)
+  menyatakan (97/1/25 dan 97/2/11)
+
+       Apakah versi dosemu-0.64.3.tgz untuk versi kernel linux 2.xx.yy ??
+
+
+
+
+
+
+
+
+  Ya, tapi ...
+
+    if ( ((xx == 0) && (yy >= 28)) || ((xx >= 1) && (yy >= 15)) )
+      take_dosemu_0_64_4();
+    else {
+      if (xx == 1)  exit(1);
+      take_dosemu_0_64_2_x();
+    }
+
+  ;-)
+
+
+
+
+
+  2.4.  Bagaimana saya dapat membuat aout binaries?
+
+  Sejak versi 0.64.4 tidak ada lagi dukungan untuk a.out.  Jika anda
+  membutuhkannya anda harus gunakan versi 0.64.3.1.  Configure script
+  akan mengaturnya, jika anda menggunakan setup standard (97/2/11).
+
+
+  2.5.  memori kecil?  Bagaimana saya mengkompilasi dosemu menggunakan
+  mesin dengan
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menyatakan (95/4/8) bahwa
+
+  Jika anda mempunyai masalah kehabisan swap space, anda dapat
+  menambahkan CFLAGS+=-fno-inline setelah CFLAGS yang didefinisikan
+  dalam dpmi/Makefile.  Hati-hati sebelum melakukan hal ini dan cek
+  keberadaan swap space.  Saya mengalami sekali crash ketika tidak
+  mempunyai swap space.
+
+
+  2.6.  Kompilasi gagal dengan kesalahan aneh "slang"
+
+  Mungkin anda sudah menginstall sendiri versi library Slang.  Hans
+  Lermen <lermen@elserv.ffm.fgan.de> menulis (97/2/11):
+
+
+         configure --enable-force-slang
+
+
+
+
+
+  2.7.  Option konfigurasi apa saja yang tersedia
+
+  Coba
+
+       configure --help
+
+
+  untuk mendapatkan daftar option konfigurasi (97/2/12)
+
+
+  2.8.  bagaimana mempercepat proses kompilasi ?
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menyatakan (95/4/8)
+
+  Optimisasi default adalah -O2.  Anda dapat saja meng-edit makefile
+  untuk menggunakan -O (mengkompilasi lebih cepat/lebih kecil).
+
+
+
+
+  2.9.  Tips kompilasi dari Marty...
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menyatakan (95/4/8)
+
+  Anda harus mengkompilasi kernel dalam sistem anda untuk versi saat
+  ini.  Jika tidak, anda harus melakukan sendiri modifikasi
+  KERNEL_VERSION di dalam bagian awal file Makefile.  Angka yang
+  digunakan dalam format, "nmmmppp", di mana "n" adalah versi, "mmm"
+  adalah versi minor, dan "ppp" adalah patchlevel.  Contoh, kernel
+  1.1.88 berarti "1001088" dan kernel 1.2.1 berarti "1002001".
+
+  Tambahan dari (lermen@elserv.ffm.fgan.de):
+
+  Untuk versi di atas 0.64.3 penjelasan di atas tidak berlaku. Anda
+  perlu mempunyai <linux/version.h> yang valid;, yang menjadi bagian
+  dari /usr/include standard. Jika anda tidak memilikinya, anda dapat
+  memilih, melakukan 'make clean' pada source kernel atau distibutor
+  anda tidak dapat mendukungnya.
+
+
+  2.10.  Perlukah saya menjadi root untuk mengkompilasi dosemu ?
+
+  (95/4/8)
+
+  Anda harus menjadi root lebih dahulu.
+
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menambahkan
+
+  Untuk mengakses port I/O (termasuk console) dosemu anda perlu menjadi
+  root.  Menjalankan dosemu dalam xterm atau X windows dan membutuhkan
+  akses hardware langsung, anda dapat menjalankan dosemu sebagai seorang
+  user.  Implikasi dalam security/setuid dapat digunakan dalam versi
+  development (95/8/11).
+
+  Lihat ..;/doc/SECURITY.readme too(97/2/9).
+
+
+  2.11.  Bagaimana saya dapat melakukan patch dosemu.
+
+  Jika anda melakukan patch dosemu dari satu versi ke versi lain lakukan
+  "make pristine;./configure; make". Jika anda tidak membuat aslinya,
+  setidaknya akan menyebabkan kesalahan pada versi executable yang baru
+  (97/2/9).
+
+
+  2.12.  Versi DOS berapa saja yang dapat dijalankan dengan dosemu.
+
+  Caldera's OpenDos (dikenal sebagai DrDOS) dilaporkan dapat berjalan
+  dengan dosemu (Nicolas St-Pierre <draggy@kosmic.org>.  Karena OpenDos
+  dapat digunakan secara gratis untuk kepentingan non komersial, anda
+  disarankan menggunakannya. Saat ini, pendistribusian kembali OpenDos
+  tidak diperbolehkan. Anda harus mengambil sendiri OpenDos dari site
+  Caldera http://www.caldera.com/dos Semoga hal ini segera berubah, jadi
+  dosemu dapat mendistribusikan sebuah bootable hdimage.  MsDos-6.22
+  diketahui dapat bekerja dengan dosemu.  MsDos-7 dikenal sebagai Win95
+  juga dapat bekerja dengan dosemu, jika anda mematikan logo pada saat
+  boot dan anda tidak menjalankan shell modus grafik pada saat bootup.
+  Jika anda membuat bootable hdimage dengan "Rescue Disk", anda dibri
+  pilihan untuk membuatnya pada saat instalasi Windows, anda telah
+  memperoleh setting yang benar. Jika anda menggunakan instalasi normal
+  Win95, lihat msdos.sys yang ada dalam hdimage dan ubah settingnya di
+  bagian [Options] menjadi
+
+  [Options] Logo=0 BootGUI=0
+
+  (97/3/7)
+
+
+  2.13.  Versi yang diketahui tidak berjalan
+
+  DOS 4.01 mempunyai masalah di dalamnya, jadi tidak akan bekerja dengan
+  dosemu (Mattias Hembruch <mghembru@ece.uwaterloo.ca> 97/04/03)
+
+
+  3.  Setup Hard disk
+
+  3.1.  Bagaimana menggunakan hard disk saya dengan dosemu?
+
+  Pertama, mount partisi dos hard disk anda sebagai sebuah subdirectory
+  Linux.  Contoh, anda dapat membuat directory dalam Linux seperti /dos
+  (mkdir -m 755 /dos) dan tambahkan baris
+
+     /dev/hda1       /dos     msdos   umask=022
+
+
+  dalam /etc/fstab anda. (Pada contoh ini, hard disk di-mount read-only.
+  Anda dapat me-mountnya read/write dengan mengganti "022" menjadi "000"
+  dan gunakan option -m 777 pada saat mkdir).  Sekarang mount /dos.
+  Setelah itu anda dapat menambahkan baris
+
+    lredir d: linux\fs/dos
+
+
+  di dalam file AUTOEXEC.BAT dalam hdimage anda (lihat komentar untuk
+  LREDIR di bawah).  Pada sistem multi-user anda dapat menggunakan
+
+    lredir d: linux\fs\${home}
+
+
+  di mana "home" adalah nama variabel environment yang berisi lokasi
+  directory dos (/dos pada contoh ini)(95/8/11).
+
+  ---------------------
+
+
+  Tim Bird (Tim_R_Bird@Novell.COM) menyatakan bahwa pemakai LREDIR agar
+  berhati-hati ketika menggunakannya dalam autoexec, karena COMMAND.COM
+  akan melanjutkan memparsing autoexec.bat dari drive yang di-redirect
+  dengan offset file yang sama seperti dalam autoexec.bat pada physical
+  drive.  Karena hal ini, akan lebih aman jika autoexec.bat dalam drive
+  yang di-redirect sama dengan autoexec.bat dalam physical drive
+  (diskimage) (95/8/11).
+
+  ---------------------
+
+
+  Robert D. Warren (rw11258@xx.acs.appstate.edu) menyatakan (94/4/28)
+
+  Saya mem-boot dengan file hdimage berukuran kecil (kurang dari 1 MB),
+  dan baris terakhir file config.sys saya dalam hdimage :
+
+
+          install=c:\lredir.exe c: LINUX\FS\home/dos
+
+
+  Hal tersebut akan mengeksekusi lredir sebelum command interpreter ber-
+  jalan. Dan saya berhasil menjalankannya dengan command.com dan 4DOS.
+  Hal ini dapat menghilangkan masalah offset ketika menggunakan lredir
+  dalam autoexec.bat.
+
+
+  Uwe Bonnes (bon@elektron.ikp.physik.th-darmstadt.de) menambahkan
+  (95/8/11)
+
+  Hal berikut dapat dikerjakan :
+
+
+  install=C:\subst.exe g: c:
+
+
+  sebelumnya, anda tetap harus mengakses hdimage anda sebagai drive g:
+  Tip yang lain adalah dengan mengkonfigurasi dosemu untuk menggunakan
+  "autoexec.emu".
+
+
+  3.2.  Bagaimana saya dapat mengakses hdimage dari Linux?
+
+  Gunakan mtools, version 3.0 pada saat penulisan dokumen ini. Dengan
+  baris dalam /etc/mtools.conf
+
+     drive g:  file="/var/lib/dosemu/hdimage" Offset=8832
+
+
+  Anda dapat menggunakan mtools dalam hdimage, seperti "mdir g:". "mcopy
+  g:/config.emu /tmp" meng-copy file config.emu dari hdimage ke
+  /tmp/config.emu. Anda dapat mengeditnya di sana dan mengcopykannya
+  kembali. Gunakan drive letter yang menurut anda cocok. "G:" hanyalah
+  sebuah contoh (07/2/9).
+
+
+  3.3.  super-stored?  Dapatkah saya gunakan disk yang memakai
+  stacked/double-spaced/
+
+  Saat ini, drive terkompresi tidak dapat di akses via redirector
+  (lredir atau emufs) pada kernel  standard. Terdapat patch kernel
+  tersebut untuk me-mount file terkompresi dengan nama "dmsdosfs".
+  Dapat ditemukan di sunsite.unc.edu dan mirrornya
+
+       http://sunsite.unc.edu:/pub/Linux/system/Filesystems/dosfs/
+
+
+  Lihat pula dalam http://sunsite.unc.edu:/pub/Linux/Incoming untuk
+  versi yang lebih baru. Bagaimanapun, banyak juga yang berhasil dengan
+  menghilangkan komentar pada baris
+
+     disk { wholedisk "/dev/hda" }       # 1st partition on 1st disk
+
+
+  dalam config file dosemu.  Ada pula yang berhasil dengan menggunakan
+
+     disk { partition "/dev/hda1" }
+
+
+  Melakukan hal tersebut dapat menghilangkan data pada saat dosemu
+  crash(97/2/9)!
+
+  Jika partisi dos anda sudah di-mount dengan write access dan anda
+  mencoba menjalankan dosemu dengan partition atau whole disk access,
+  dosemu akan menampilkan pesan dan membatalkannya.  Hal ini mencegah
+  DOS dan Linux melakukan penulisan masing-masing ke disk dan
+  mengacaukan data anda dalam partisi dos tersebut (95/8/11).
+
+  ---------------------
+
+  Jika LILO anda install, cara di atas tidak akan berhasil. ...
+
+
+  Thomas Mockridge (thomas@aztec.co.za) melaporkan (94/8/5) bahwa
+
+  Untuk boot dosemu dengan LILO dan Stacker 4.0, saya melakukan hal
+  berikut ...
+
+  1. dd MBR ke sebuah file. (atau  norton utility, dll., 512 bytes
+     pertama)
+
+  2. Boot dos (dari boot dos yang asli bukan emu), lakukan fdisk /mbr,
+     aktifkan pertisi dos anda dengan (dos) fdisk.
+
+  3. Copy MBR baru ke sebuah file.
+
+  4. Ganti MBR yang lama
+
+  5. Copykan MBR yang kedua ke /var/lib/dosemu/partition.hda? (partisi
+     dos anda)
+
+  6. Set dosemu.conf
+
+                    disk {partition "/dev/hda? ?"}
+
+
+
+  7. Jalankan dosemu dan voila!  Tanpa LILO.
+
+     ---------------------
+
+  Holger Schemel (q99492@pbhrzx.uni-paderborn.de) melaporkan (94/2/10)
+
+  Bekerja dibawah dosemu dengan MS-DOS 6.0. Jika anda mempunyai masalah,
+  anda harus meng-edit manual file 'DBLSPACE.INI' dan mengubah disk
+  letter anda menjadi drive letter anda di bawah dosemu.
+
+  ---------------------
+
+  Darren J Moffat (moffatd@dcs.gla.ac.uk) melaporkan juga (94/3/27)
+
+  "...Gunakan 6.2 jika anda mempunyainya!!  Yakinkan anda mempunyai boot
+  disk LILO karena dos 6{.2} akan mengubah MBR."
+
+
+  4.  Port parallel, serial dan mouse
+
+  4.1.  versi yang lebih baru!  Akses port dapat dilakukan pada versi
+  lama, tapi tidak pada
+
+  Baca ../doc/README.port-io  dan port-section dalam ..
+  /etc/config.dist
+
+
+  4.2.  Akses port lebih cepat pada versi lama!
+
+  Untuk melakukan log terhadap akses port, secara default tiap akses
+  port menghasilkan sebuah exception out dari vm86-mode. Hal ini
+  memboroskan waktu. Jika anda tidak ingin mencatat log akses port,
+  gunakan keyword "fast" pada statemen port yang tepat.
+
+
+
+  4.3.  Di manakah driver untuk mouse (microsoft compatible)?
+
+  Tom Kimball (tk@pssparc2.oc.com) menyatakan (93/11/24)
+
+  Beberapa orang menyarankan untuk menggunakan driver mouse yang berbeda
+  dan menyarankan beberapa diantaranya.  Saya menemukan beberapa yang
+  bekerja dengan baik :
+
+     oak.oakland.edu:/pub/msdos/mouse/mouse701.zip   (mscmouse)
+     oak.oakland.edu:/pub/msdos/mouse/gmous102.zip   (gmouse)
+
+
+  Biasanya anda dapat menggunakan internaldriver dalam dosemu, jadi
+  sebenarnya anda tidak memerlukan tambahan driver mouse yang lain dalam
+  dosemu kecuali jika anda ingin menjalankannya dalam winemu (97/2/10).
+
+
+  4.4.  Mengapa mouse drivernya tidak bekerja?
+
+  Mark Rejhon (mdrejhon@magi.com) menyatakan (95/4/7)
+
+  Jika anda menjalankan driver mouse kemudian anda menunggu lebih dari
+  satu menit sampai driver tersebut baru bekerja, cobalah menambahkan
+  nomor COM port mouse anda pada command line ketika menjalankan mouse
+  driver.
+
+
+  4.5.  Mengapa dosemu clobber COM4?
+
+  Rob Janssen (rob@pe1chl.ampr.org) menyatakan (94/3/24)
+
+  Menurut jmorriso@bogomips.ee.ubc.ca, "dosemu masih clobbers COM4
+  (0x2e8, IRQ 5). 0x2e8 tidak ada dalam ports{} pada config.  Saya
+  mencoba menjalankan setserial /dev/cua3 irq setelah keluar dari
+  dosemu."
+
+  Hal ini disebabkan oleh VGA BIOS anda.  Saya menemukannya dengan
+  mencoba meng-enable trace port IO dan akan nampak bahwa ada clobber.
+
+  Disable baris "allowvideoportaccess on" dalam config dan semuanya akan
+  berjalan normal.  Saat anda mempunyai masalah dengan video, cobalah
+  dengan meng-enable range adress IO secara selektif (contoh, 40-43).
+
+
+  4.6.  Bagaimana saya dapat menjalankan dosemu lewat port serial?
+
+
+
+  4.7.  menggunakan serial line?  Bagaimana saya dapat men-switch antara
+  dosemu dan shell yang
+
+  John Taylor (taylor@pollux.cs.uga.edu) menyatakan(94/5/25)
+
+  Saya menggunakan Linux 1.1.13 dan ingin menggunakan fasilitas yang
+  seharusnya disediakan dan tidak dihilangkan (IMHO).  Dengan versi 52,
+  saya dapat menjalankan program "screen."  Dari screen, saya dapat
+  menjalankan dos -D-a. Yang sangat bagus (IMHO) bahwa perintah screen
+  (perintah CTRL-A) tetap berjalan.  Berarti saya tetap dapat
+  menjalankan CTRL-A C dan menambhak lagi shell unix, dan switch antara
+  keduanya (DOS / UNIX).  Hal ini memunginkan saya untuk menggunakan
+  dosemu dengan serial line, karena kemudahan melakukan switch.
+
+
+  4.8.  Bagaimana membuat port paralel dapat digunakan?
+
+  Terdapat pada baris terakhir Dosemu.conf untuk me-redirect printer ke
+  lpr atau ke sebuah file.  Jika anda ingin melakukan akses langsung,
+  komentari baris berikut dan tambahkan baris
+
+       ports { device /dev/lp0 fast range 0x3bc 0x3bf  } # lpt0
+
+
+  untuk "monitor card" port printer (korespondensi dengan /dev/lp0),
+  atau
+
+       ports { device /dev/lp1 fast range 0x378 0x37f } # lpt1
+
+
+
+       ports { device /dev/lp1 fast range 0x278 0x27f } # lpt2
+
+
+  untuk LPT1 (/dev/lp1) dan LPT2 (/dev/lp2) (97/2/9).
+
+
+  5.  Multi-user dan sesi Non-interactive
+
+  5.1.  Dapatkah saya gunakan dosemu pada sebuah sistem multi-user?
+
+  Corey Sweeney (corey@amiganet.xnet.com) menyatakan(93/12/8)
+
+  Jika anda menjalankan dosemu pada sistem dimana lebih dari satu orang
+  yang ingin menjalankan dosemu, anda perlu mengubah directory tempat
+  image hard drive anda.  Dalam file /etc/dosemu.conf terdapat baris
+  yang menyatakan bahwa image hard drive anda yaitu "hdimage".  Jika
+  anda menggantinya menjadi /var/lib/dosemu/hdimage, maka siapapun tidak
+  perlu khawatir, ia sedang ada di dalam directory mana, untuk
+  menjalankan dosemu, dan hdimage tidak harus anda pindahkan ketika anda
+  akan meng-upgrade ke versi patch berikutnya.
+
+  Jika anda ingin melakukan hal tersebut untuk dosemu yang multi-user,
+  maka anda dapat jadikan hdimage di dalam /var/lib/dosemu menjadi read-
+  only untuk everyone kecuali untuk administrator dosemu administrator.
+
+  Anda dapat menggunakan emufs.sys yang baru untuk me-mount directory
+  "public" dan/atau  sebuah directory "private" (sebuah  sub-directory
+  dalam tiap home directory seseorang).
+
+
+  [Catatan: Tiap user boleh membuat configurasinya sendiri dengan nama
+  /.dosrc (formatnya sama dengan /etc/dosemu.conf) untuk menjalankan
+  dosnya masing-masing.]
+
+
+  5.2.  Bagaimana menjalankan perintah dos dengan non-interaktiv?
+
+  Penulis bermaksud untuk menulis artikel terpisah untuk hal ini namun
+  belum untuk saat ini.  Berikut ini beberapa petunjuk dari beberapa
+  orang :
+
+
+  Dan Newcombe (newcombe@aa.csc.peachnet.edu) menyatakan (94/1/27)
+
+  Salah satu idenya (belum dicoba) untuk menjalankan sebuah perintah DOS
+  dari command line (atau pilihan menu, dsb...) tanpa memodifikasi
+  emulatornya. [Asumsi : Partisi dos sudah dimount di bawah Linux.]
+
+  Misalnya anda ingin menjalankan wp60.exe dengan parameter "wp60
+  d:\doc\paper.txt".  Anda dapat lakukan "dosrun wp60 d:\doc\paper.txt".
+  "dosrun" akan menjadi program shell linux yang a) meng-edit/
+  modifikasi/membuat kembali autoexec.bat dos dari partisi dos dan b)
+  menjalankan (yaitu, "dos -C >/dev/null". Langkah a) akan tetap menjaga
+  apapun yang anda inginkan dalam autoexec.bat (misalnya mouse.com) dan
+  baris terakhirnya akan menjadi "wp60 d:\doc\paper.txt".
+
+  Dari sisi dosemu, sebelumnya anda modifikasi file config.sys (yang ada
+  dalam hdimage) jadi akan 1) menggunakan emufs untuk mengakses partisi
+  dos sebagai D:, 2) men-set "COMPSEC=D:\ (Saya tidak mempunyai manual
+  DOS.), dan 3) men-set "shell=c:\command.com /p".
+
+  Idenya adalah setiap kali anda me-load the DOS emulator, anda akan
+  membuat kembali sebuah file autoexec.bat spesifik ke sesi tersebut.
+  Yang menjadikannya spesifik yaitu baris paling akhir yang akan
+  mengeksekusi program yang anda inginkan.  Modifikasi yang dilakukan
+  dalam hdimage digunakan untuk membertitahu emulator/DOS bahwa anda
+  ingin anda menggunakan boot off D:, yang akan menjadi partisi dos
+  aktual.
+
+  Jika anda tidak menggunakan hdimage dan mengakses file sistem dos
+  secara langsung selama dosemu boot-up, maka hal di atas dapat
+  dilakukan dan anda tidak perlu mengubah bagian hdimage sama sekali.
+
+  ---------------------
+
+
+  Daniel T. Schwager (danny@dragon.s.bawue.de) menyatakan (94/7/2)
+
+  Anda dapat menggunakan file dosemu.conf yang berbeda (dan hd-boot-
+  images yang berbeda dengan autoexec.bat-nya masing-masing) dan
+  memanggil dosemu dengan
+
+  $ dos -F my_quicken_q_exe_dosemu.conf
+
+
+
+  ---------------------
+
+
+  Dietmar Braun (braun@math20.mathematik.uni-bielefeld.de) menyatakan
+  (94/7/4)
+
+  Bukan masalah jika anda menggunakan dosemu redirector.  Mungkin saja
+  me-redirect sebuah  drive letter ke sebuah path linux yang diberikan
+  oleh sebuah variabel environment.
+
+  Saya mempunyai sebuah shell script bernama "DOS" yang melakukan
+
+   mkdir /tmp/dos.$$
+   DOSTMP=/tmp/dos.$$; export DOSTMP
+
+
+  dan sedikit trik untuk mendapat "echo $* > $DOSTMP/startup.bat" dapat
+  dilakukan (yang sebenarnya adalah sebuah program kecil dalam C yang
+  menggantikan '/' dalam menambahkan ^Z di akhir file), membuat file-
+  file startup, link dan sebaginya dalam directory ini, kemudian men-
+  jalankan dosemu.  "Autoexec.bat" drive c: di-redirect dari hdimage ke
+  tmp-directory tersebut, yaitu yang mempunyai links ke $HOME dan $PWD.
+
+  Jadi jika saya ingin melihat nama file dengan model 8.3 saya ketikkan
+  "DOS dir" dan mendapatkan listing directory aktif saat ini.  Jadi saya
+  mempunyai multi user DOS (Saya tidak mempunyai satupun partisi DOS dan
+  me-redirect ke Linux preserves user permissions) dan multi tasking.
+  (sesi dosemu adalah bagian yang berdiri sendiri).  Saya lakukan hal
+  ini agar dapat menggunakan driver dos untuk printer saya.  Printcap df
+  milik saya adalah sebuah program DOS. Anda bahkan dapat membuat DOS
+  executables berfungsi sebagai filter lpr.
+
+
+  6.  dosemu dan Netware
+
+  6.1.  Bagaimana saya dapat mengakses Netware dari dosemu?
+
+  Seperti biasanya, akses melalui file system Linux lebih sering
+  dilakukan. Mount drive Netware anda dengan utilitas Netware Caldera
+  atau Volker Lendecke's free ncpfs utility
+  (ftp://ftp.gwdg.de:/pub/linux/misc/ncpfs).  Jika anda membutuhkan akes
+  real IPX, misal menjalankan "syscon" Novell, baca ../doc/NOVELL-
+  HOWTO.txt.
+
+
+  7.  dosemu dan X-windows(97/2/9).
+
+  7.1.  menjalankan X?  Dapatkah saya menjalankan dosemu dalam mode con-
+  sole ketika
+
+  Ronald Schalk (R.Schalk@uci.kun.nl) menyatakan (94/1/17)
+
+  Ya, bukan masalah. Perlu diingat untuk menggunakan ctrl-alt-<Fn> untuk
+  menuju sebuah Virtual Console (VC), dan anda dapat menjalankan
+  sembarang aplikasi Linux (dosemu adalah sebuah aplikasi linux). Saya
+  hampir selalu menjalankan WP5.1 dalam sebuah dos session.
+
+  [Catatan:  Gunakan ctrl-alt-F7 untuk switch kembali ke X dari dosemu,
+  jika X berjalan dalam VC7.]
+
+
+  7.2.  Mungkinkah menjalankan dosemu dalam sebuah window di X-windows?
+
+  Jika anda meng-install X installed dan telah berhasil mengkompilasi
+  dosemu kemudian berhasil menjalankannya di luar X-windows, anda
+  seharusnya dapat menjalankan "xdos" atau "dos -X" untuk membuka sebuah
+  window dosemu.  Jika tidak berhasil, pastikan:
+
+
+    1. Dosemu terkompilasi dengan  support untuk X. Ini adalah default,
+       bagaimanapun juga jika anda mengkonfigurasi dosemu dengan
+       "./configured --without-x", anda tidak mempunyai X support. Lakukan
+       "make pristine; ./configure; make; make install", akan membuat
+       dosemu-executable dengan X support, jika anda mempunyai
+       X-libraries terinstall dalam /usr/X11R6.
+    2. Set up key-mapping X anda.  Dalam sebuah xterm, ketik
+
+       xmodmap -e "keycode 22 = 0xff08"
+       xmodmap -e "keycode 107 = 0xffff"
+
+       Baris tersebut akan memperbaiki backspace dan delete.
+    3. Konfigurasikan option yang berhubungan dengan X dalam file
+       /etc/dosemu.conf anda.
+
+
+
+  Pilihan lain, anda dapat menjalankan dosemu dalam sebuah color xterm,
+  Yang tidak direkomendasikan karena banyak color xterm yang mempunyai
+  buggy support untuk kapabilitas dosemu menampilkan text.  Hal tersebut
+  tidak memerlukan X_SUPPORT terkompilasi di dalam dosemu. Namun jika
+  anda benar-benar ingin melakukan hal tersebut ikuti langkah-langkah
+  berikut :
+
+
+
+
+
+
+
+
+
+
+
+
+
+    1. Install ansi_xterm. Package yang direkomendasikan ada
+       tsx-11.mit.edu:/pub/linux/ALPHA/dosemu/Development/ansi-xterm-R6.tar.gz
+
+    2. Set up key-mapping X anda.  Dalam sebuah xterm, ketik
+
+       xmodmap -e "keycode 22 = 0xff08"
+       xmodmap -e "keycode 107 = 0xffff"
+
+       Baris tersebut akan memperbaiki backspace dan delete.
+
+    3. Konfigurasikan setting yang berhubungan dangan terminal (bukan X)
+       dalam /etc/dosemu.conf
+
+
+  (972/9).
+
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menyatakan (95/3/31)
+
+  Saya mempunyai log xrdb berikut
+
+       dosxterm*Font:  vga dosxterm*geometry:      80x25 dosxterm*saveLines:
+       25
+
+
+  atau saya aliaskan "dosxterm" ke "term -fn vga -title dosxterm -geome-
+  try 80x25 -sl 25"
+
+  Jika anda menggunakan metode xrdb, yang harus anda lakukan hanyalah
+  menjalankan "xterm -name dosxterm"
+
+
+  7.3.  Xdos tidak berjalan dalam sebuah remote X-display!
+
+  Saat ini, dosemu di-set up menggunakan extension shared memory MIT.
+  Extension ini hanya bekerja pada sebuah local display. Jika anda
+  menginginkan xdos berjalan dalam sebuah remote display, konfigurasikan
+  dosemu dengan "./configure --enable-nomitshm" setelah "make pristine"
+  atau pada clean source tree(97/2/9).
+
+
+  7.4.  Xdos tidak menemukan font VGA
+
+  Cek apakah font vga yang anda install terdaftar dalam font.dir dari
+  directory di mana anda menginstall font:
+
+
+       hertz:~> grep misc /usr/X11R6/lib/X11/XF86Config
+           FontPath    "/usr/X11R6/lib/X11/fonts/misc/"
+       hertz:~> grep vga /usr/X11R6/lib/X11/fonts/misc/fonts.dir
+       vga.pcf vga
+       vga11x19.pcf vga11x19
+       hertz:~> ls /usr/X11R6/lib/X11/fonts/misc/vga*
+       /usr/X11R6/lib/X11/fonts/misc/vga.pcf
+       /usr/X11R6/lib/X11/fonts/misc/vga11x19.bdf
+       /usr/X11R6/lib/X11/fonts/misc/vga11x19.pcf
+
+
+
+
+  Jika anda meng- installed beberapa font X, seperti yang anda lakukan
+  ketika menginstall dosemu dengan X-support pertama kali,  "mkfontdir"
+  kemudian jalankan "xset fp rehash". Instalasi dosemu akan memper-
+  hatikan "mkfontdir" dan memberi tahu tentang "xset fp rehash".
+  Hubungi kami jika anda tidak dapat melakukannya.  (97/2/13)
+
+  7.5.  Font vga terlalu kecil pada display resolusi tinggi
+
+  Cobalah font vga11x19.  (97/2/13)
+
+
+  7.6.  berhubungan dengan X!  Proses kompilasi Dosemu gagal meng-
+  hasilkan error yang
+
+  Seperti disebutkan di atas, dosemu menggunakan extension shared memory
+  MIT secara default.  Di bawah Xfree86 hanya tersedia Versi 3.1.2 ke
+  atas.  Jika anda mempunyai versi yang lebih lama, pertimbangkan untuk
+  melakukan upgrade atau konfigurasikan dosemu agar tidak menggunakan
+  extension tersebut (lihat bagian akhir di atas) (97/2/9).
+
+
+  7.7.  Apakah emulasi ansi berjalan sempurna ?
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) menyatakan (95/3/31)
+
+  Ya. Saya gunakan nnansi.com di bawah X windows. Saya temukan mode 25,
+  43 dan 50 line bekerja dengan baik, bagaimanapun mode 50 line sulit
+  digunakan dalam resolusi layar 1024x768 (kecuali font yang lebih kecil
+  digunakan dan anda gunakan layar yang lebih besar.  Mode 43 line akan
+  me-resize xterm window untuk menggunakan 43 line.
+
+
+  8.  dosemu dan MS-Windows 3.1
+
+  8.1.  Mungkinkah menjalankan MS-Windows 3.1 di bawah dosemu?
+
+  File /doc/README.Windows berisi:
+
+
+  ****************************************************************
+  *   PERINGATAN!!! PERINGATAN!!! PERINGATAN!!! PERINGATAN!!!    *
+  *                                                              *
+  *  Bahaya Will Robinson!!!  Hal ini belum didukung sepenuhnya  *
+  *  dan banyak diketahui kesalahan. Program besar hampir selalu *
+  *  TIDAK BERJALAN !!!   BERSIAP UNTUK SISTEM CRASH JIKA ANDA   *
+  *  MENCOBA HAL INI !!!                                         *
+  *                                                              *
+  *   PERINGATAN!!! PERINGATAN!!! PERINGATAN!!! PERINGATAN!!!    *
+  ****************************************************************
+
+
+
+  Oke, mungkin saja mem-boot ke WINOS2 (versi Windows 3.1 yang
+  dimodifikasi dan digunakan oleh OS/2) di bawah DOSEMU.  Terma kasih
+  untuk Lutz & Dong!
+
+  Bagaimanapun, anda membutuhkan lisensi keduanya, WINDOWS-3.1 dan
+  OS/2!!!
+
+  Diketahui ada banyak masalah.  Windows crash, dan mempengaruhi data ,
+  program besar tidak dapat di-load, dsb. dsb. dsb.  Dengan kata lain,
+  hal ini belum siap untuk penggunaan sehari-hari.  Banyak video card
+  diketahui mempunyai masalah (anda akan melihat layar putih, di bawah
+  win31-in-xdos).  Program group anda akan menghilang.  ...  Secara
+  umum, anda akan kesulitan menggunakannya.
+
+  Di lain hal, jika anda mati-matian untuk melihat layar kecil
+  menjalankan Windows di bawah Linux, anda harus membaca ini HATI-HATI
+  dan BERJANJI TIDAK MEMBORBARDIR DEVELOPER DOSEMU DENGAN  PESAN "MS
+  Word 6.0 tidak berjalan!!!" ...
+
+
+  1.  Ambil DOSEMU & distribusi source Linux.
+  2.  Unpack DOSEMU.
+  3.  Konfigurasi DOSEMU, ketik './configure' dan _jangan_ disable
+      vm86plus.
+  4.  Kompilasi DOSEMU, ketik 'make'.
+  5.  Ambil distribusi OS2WIN31.ZIP dari ... ????
+      ... nah, ini masalah pertama anda. File ini _dulu_ ada di
+      ibm.com, namun kemudian dibuang dari site tersebut dan selama itu
+      masih ada di sana, kami dapat menyediakan mirrornya. ... Anda
+      lihat masalahnya? Bagaimanapun, gunakan 'archie' untuk
+      menemukannya, pasti ada di suatu tempat dalam internet...
+      untuk beberapa waktu ;-)
+  5.  Unpack file OS2WIN31 ke directory WINDOWS\SYSTEM.
+      (Anda hanya butuh WINDOWS/SYSTEM/os2k386.exe dan driver mouse)
+  7.  Startup dosemu (pastikan DPMI di-set ke nilai misalnya 4096)
+  8.  Copy file winemu.bat ke drive c: anda.
+  9.  Silangkan jari anda.
+
+
+
+  Semoga berhasil!
+
+
+  INGAT : SEMUA INI TIDAK DIREKOMENDASIKAN!!!  TIDAK DIREKOMENDASIKAN!!!
+          KAMI TIDAK MEREKOMENDASIKAN ANDA MELAKUKAN HAL INI!!!
+
+
+  ---------
+
+  8.2.  Windows 3.x dalam xdos:
+
+  Versi 0.64.3 DOSEMU dapat menjalankan Windows dalam xdos. Tentu saja,
+  hal ini tidak direkomendasikan sama sekali, tapi jika anda benar-benar
+  ingin mencoba, hal ini lebih aman dibanding mencoba menjalankan
+  windows-31 dalam console, karena _ketika_ crash tidak akan memblok
+  keyboard anda atau memberhentikan layar anda.
+
+  Petunjuk:
+
+  1. Ambil Dosemu & source Linux.
+  2. Unpack dosemu.
+  3. Jalankan "./configure" untuk mengkonfigurasi Dosemu (defaultnya,
+     hal ini akan meng-enable vm86plus).
+  4. Ketika "make" untuk mengkompilasi.
+  5. Ambil driver SVGA Trident untuk Windows. Filenya yaitu tvgaw31a.zip
+     dan/atau tvgaw31b.zip. Tersedia di garbo.uwasa.fi dalam
+     /windows/drivers (ada mirrornya?).
+  6. Unpack driver Trident.
+  7. Dalam Windows setup, install Trident dengan driver "800x600 256
+     color for 512K boards".
+  8. Lakukan hal yang dijelaskan di atas untuk mendapat dan menginstall
+     OS2WIN31.
+  10. Jalankan xdos.
+  11. Dalam Dosemu, buka windows directory dan jalankan winemu.
+  12. Silangkan jari anda.
+
+
+
+
+  8.3.  Dapatkah saya menginstall windows dari dalam dosemu?
+
+  No Tidak bisa. Dos akan menampilkan pesan seperti
+
+       The XMS driver you have on your system is not compatible with Win-
+       dows...
+
+  Anda perlu menginstall windows dari Dos. Anda dapat mengcopy tree win-
+  dows ke manapun dalam file sistem Linux anda dan gunakan lredir untuk
+  me-mountnya dalam tempat yang sama seperti dalam dos. Contoh:
+
+       Windows anda di dalam d:\windows Anda memiliki d:\ di-mount sebagai
+       /dosc dalam Linux Anda copy tree windows ke dalam Linux, contoh "cp -a
+       /dosd/windows /usr/share Dalam dosemu anda redirect tree yang tercopy
+       seperti, lredir d: linux\fs\dosd
+
+
+  Sekarang dosemu tidak akan bingung dalam directory windows anda, tapi
+  perubahan dalam directory windows juga tidak akan tampak oleh dosemu.
+  Jika anda ingin untuk melakukan hal yang sama dengan windows pada
+  drive c:> lihat dalam FAQ ini bagaimana cara meredirect c:.
+
+  Tapi anda dapat gunakan "setup" dari dalam directory windows untuk
+  menginstall driver dan merubah beberapa setting.  (97/2/1497)
+
+
+  8.4.  Catatan untuk mouse di bawah win31-in-xdos:
+
+  1. Gunakan driver mouse "mouse.drv" dari WinOS2
+
+  2. Untuk mendapatkan moouse anda bekerja dengan baik anda membutuhkan
+  hal berikut di dalam file win.ini anda:
+
+       [windows]
+       MouseThreshold1=0
+       MouseThreshold2=0
+       MouseSpeed=0
+
+
+
+  3. Kursor mouse tidak akan tergambar oleh X, namun oleh windows
+  sendiri, jadi hal itu tergantung kepada refresh rate, seberapa sering
+  akan di-update, sedangkan koordinat pergerakan mousenya sendiri tidak
+  akan tertunda. ( Anda akan memiliki 2 kursor, namun kursor-X akan
+  diberi shape 'invisible' ketika di dalam DOS-Box. )
+
+  4. Karena koordinat dipas ke windows diinterpretasikan secara relatif,
+  kita perlu mengkalibrasi kursornya. Hal ini dilakukan secara otomatis
+  pada saat anda masuk ke dalam window DOS-Box: Kursor akan dipaksa ke
+  posisi 0,0 dan kemudian kembali ke koordinat yang benar.  Karena itu,
+  jika anda ingin mengkalibrasi ulang kursornya, lakukan hanya dengan
+  menggerakkan kursor keluar dan kemudian masuk kembali ke dalam DOS-
+  Box.  (97/2/10)
+
+
+  8.5.  Mengapa Icon saya hilang dari Program manager?
+
+  MS-Windows dan WinOS2 menangani group program manager dengan berbeda.
+  MS-Win menyimpan setupnya di dalam progman.ini, sedangkan WinOS2
+  menyimpan apa isi progman.ini dalam system.ini. berikut tip dari
+  (friest@acm.org (Todd T. Fries)):
+
+       cat progman.ini >> system.ini
+
+
+  Be sure to use >> :-)
+
+
+  9.  Video dan suara
+
+
+
+
+  9.1.  Dapatkah saya menjalankan  video game 32-bit di bawah dosemu?
+
+  Mark Rejhon (mdrejhon@magi.com) menyatakan (95/4/8)
+
+  Dengan peningkatan DPMI sampai 0.60, sekarang anda dapat menjalankan
+  beberapa video game 32-bit dalam dosemu.   Jika game tidak kompatibel
+  di dalam box OS/2 DOS, masih ada kesempatan untuk menjalankannya di
+  bawah dosemu.(Contoh game 32-bit games termasuk Descent, Dark Forces,
+  Mortal Kombat 2, Rise of The Triad, semuanya sudah berhasil dicoba di
+  release dosemu terakhir).
+
+  Sebelum anda coba menjalankan video game, anda harus mengkonfigurasi
+  keyboard dalam raw keyboard mode dan meng-enable mode grafik VGA,
+  dalam file /etc/dosemu.conf.  Jika anda telah berhasil menjalankan
+  program grafik dalam dosemu dan bersiap untuk mengambil resiko sistem
+  crash(hal ini disebabkan anda membolehkan dosemu berjalan dengan akses
+  root ke video card, dan menimbulkan kemungkinan video card berada
+  dalam status yang buruk yang sulit untuk dikembalikan ke keadaan yang
+  benar) maka anda dapat meneruskan untuk mencoba menjalankan video
+  game.
+
+  Sebagai catatan, bagaimanapun anda harus mematikan suara dalam game.
+  (Harus ada seseorang yang memprogram emulasi suara sebelum kita dapat
+  menghindari hal tersebut).  Catat bahwa kecepatan program dapat
+  menjadi lambat, sehubungan dengan multitasking Linux dan kekurangan
+  dukungan terhadap timer frekuensi tinggi.  Jadi mungkin game akan
+  berjalan dengan kecepatan 5 sampai 100 persen.  Umumnya kecepatannya
+  sekitar 50 persen dalam release dosemu terakhir dan diharap dapat
+  ditingkatkan.
+
+  Siapa yang tahu, apakah hal di atas dapat berjalan. Jika anda tidak
+  dapat menjalankannya, cek EMUfailure, apakah program terdaftar di
+  sana, atau termasuk salah satu dalam kategori program yang saat ini
+  mungkin tidak akan dapat berjalan dalam dosemu. Jika menurut anda
+  program tersebut seharusnya terdaftar dalam EMUfailure, laporkan ke
+  linux-msdos@vger.rutgers.edu
+
+  Tambahan dari (lermen@elserv.ffm.fgan.de(97/2/11)):
+
+  Terdapat security hole ketika DPMI di-enable dan menjalankan dosemu
+  dengan suid root (terutama ketika menjalankan dos4gw-based game).
+  Client dapat mengakses seluruh space user, juga dapat memodifikasi
+  kode dosemu itu sendiri. Gunakan option 'secure on' dalam
+  /etc/dosemu.conf untuk mendisable hal ini tapi anda tidak akam dapat
+  menjalankan games tersebut.
+
+
+  9.2.  Keluar dari dosemu menyebabkan layar penuh dengan garbage.
+
+  (95/4/8)
+
+  Masalahnya adalah informasi font untuk VGA text screen tidak disimpan.
+  Gunakan copy package svgalib.  Source terakhir ada di
+
+  sunsite.unc.edu:/pub/Linux/libs/graphics/svgalib125.tar.gz
+
+
+  Juga tersedia sebagai pre-compiled package dalam distribution Linux
+  kesukaan anda (misal, Slackware, dll.).  Gunakan savetextmode untuk
+  menyimpan mode text terakhir dan fontnya ke sebuah file dalam /tmp
+  sebelum menjalankan dosemu.  Kemudian jalankan textmode selama keluar
+  dari dosemu untuk mengembalikannya.
+
+  Tambahan dari (lermen@elserv.ffm.fgan.de(97/2/11)):
+
+
+  Lihat juga src/arch/linux/debugger/README.recover dan README.dosdebug,
+  dosdebug dapat membantu anda mengembalikan layar.
+
+
+  9.3.  Trident/Actix/other?  Bagaimana membuat dosemu berjalan dengan
+  video card
+
+  [Layar ber-flicker, menampilkan pesan video BIOS startup dan hang.]
+
+  Andrew Tridgell (tridge@nimbus.anu.edu.au) menyatakan (94/1/29)
+
+
+  Saya dapatkan versi sebelumnya bekerja jika saya gunakan:
+
+     ports { 0x42 }
+
+
+  tapi terkadang mesin saya akan crash ketika men- cycling video BIOS
+  dalam dosemu. Hal ini disebabkan karena anda memperbolehkan VGA BIOS
+  untuk memprogram kembali clock anda.
+
+  Hal tersebut mengingatkan saya untuk menulis patch read-only dan
+  masking untuk dosemu, yang saya yakin masih ada di versi terakhir.
+  Saat ini saya menggunaan:
+
+     ports { readonly 0x42 }
+
+
+  dan mem-boot dosemu lebih lambat namun lebih reliable.
+
+  ---------------------
+
+  Tim Shnaider (tims@kcbbs.gen.nz) menyatakan juga (94/1/18)
+
+  Salah satu cara untuk memecahkan masalah ini adalah dengan menggunakan
+  program GETROM untuk men-dump video BIOS anda ke sebuiah file dan
+  mengedit file config dalam /etc/dosemu directory.  Terdapat beberapa
+  baris tentang video.  Berikut ini baris video milik saya
+
+    video { vga console graphics chipset trident memsize 1024 vbios_file
+    /etc/dosemu/vbios }
+
+
+  dimana vbios adalah file yang dibuat dengan mengetikkan
+
+     getrom > vbios
+
+
+
+  ---------------------
+
+
+  Douglas Gleichman (p86884@tcville.edsg.hac.com) menyatakan (94/9/1)
+  (menggunakan ATI Graphics Ultra)
+
+  Untuk dosemu 0.52 anda perlu menambahkan baris berikut ke dalam file
+  dosemu.conf anda:
+
+     ports {0x1ce 0x1cf 0x238 0x23b 0x23c 0x23f 0x9ae8 0x9ae9 0x9aee 0x9aef}
+
+
+  Board self test akan memberikan kegagalan namun program grafik akan
+  berjalan dengan benar.
+
+
+
+  9.4.  Mengapa software soundcard saya tidak bekerja dengan dosemu?
+
+  Hannu Savolainen (hsavolai@cs.Helsinki.FI) menyatakan (94/3/21)
+
+  Dosemu dan program DOS apapun akan berjalan di bawah kontrol sistem
+  operasi mode protected. Ini berarti bahwa memori tidak dipetakan
+  berdasarkan apa yang diinginkan program.  Jika  entah bagaimana
+  program tersebut memulai perekaman berbasiskan DMA dengan SB, suara
+  yang terekam tidak akan menemukan jalannya ke aplikasi. Hal itu hanya
+  akan menghancurkan beberapa data dalam memory.
+
+
+  James B. MacLean (macleajb@ednet.ns.ca) menambahkan (94/6/19)
+
+  Maaf bila mengecewakan, namun saat ini dosemu tidak mendukung langsung
+  kebutuhan mengintercept interrupt atau DMA yang umumnya dibutuhkan
+  oleh pengaksesan sound card lewat dosemu :-(.
+
+  Hal ini masih akan berlaku beberapa waktu ke depan :-),
+
+  And Corey Sweeney (orey@d94.nnb.interaccess.com) menyatakan (97/2/15)
+
+       Kode untuk suara sedang dikerjakan
+
+
+
+  10.  Games
+
+  10.1.  Duke3d tidak berjalan
+
+  Hans Lermen <lermen@elserv.ffm.fgan.de> mengatakan (97/2/16): duke3d
+  harus di 'konfigurasi' lewat setup, dalam setup ini anda harus memilih
+  'keyboard + mouse', atau ini tidak akan bekerja.
+
+
+  11.  Hardware lain
+
+  11.1.  Bagaimana saya dapat menjalankan device xxxxx device di bawah
+  dosemu?
+
+  Corey Sweeney (corey@bbs.xnet.com) menyatakan (94/5/30)
+
+  Verikut ini log petualangan saya untuk mencoba mendapatkan device yang
+  bekerja di bawah dosemu.  Sejauh ini voice mail system saya bekerja
+  dan scanner saya bisa digunakan walau tidak sepenuhnya.  Berikut ini
+  caranya:
+
+  1. Lihat manual anda dan temukan apabila card anda menggunakan salah
+     satu port.  Jika ada dalam manual anda, taruh di dalam file config
+     di bagian "ports".  Ingatlah bahwa suatu saat anda membutuhkan
+     beberapa port dalam satu baris dan mungkin hanya yang paling awal
+     yang terdokumentasi.
+
+  2. Cobalah. Jika tidak bekerja atau anda tidak mempunyai manualnya
+     (atau manual anda 'crappy' seperti manual AT&T saya:) maka jalankan
+     dosemu dengan "dos -D+T 2> /tmp/io.debug".  Jalankan software
+     device anda, kemudian keluar dari dosemu.  Lihat ke dalam
+     /tmp/io.debug dan temukan nomor port yang mungkin diberikan pada
+     anda. Coba menambahkannya ke baris port dan coba jalankan dosemu
+     kembali. Port di bawah 0x400 dengan keyword fast tidak akan ter-
+     log(97/2/9)!
+
+  3. Jika tetap saja gagal, mungkin anda memerlukan interrupt.
+
+  Temukan interrupt berapa yang digunakan card anda dan verifikasi bahwa
+  kernel tidak menggunakan IRQ tersebut (cat /proc/interrupts).  Hans
+  Lermen menulis(97/2/17):
+
+
+       1. Pastikan Linux tidak menggunakan network card ini
+
+       2. Set 'sillyint { use_sigio 5 }' dalam /etc/dosemu.conf
+
+
+
+
+  (beberapa tambahan (97/2/11)) mengenai hal di atas ...
+
+  Tanya: Bagaimana jika card saya menggunakan DMA?  Jawab: Anda tidak
+  dapat berbuat apapun.
+
+
+  12.  Masalah-masalah dan cara menanganinya
+
+  12.1.  Masalah keamanan
+
+  Dosemu yang berfasilitas penuh harus dijalanan dalam suid root,
+  misalnya untuk mengakses port. Dosemu berjalan dengan suid "root"
+  hanya di mana diperlukan dan melepaskan right ini setelahnya.  Tapi
+  dengan DPMI, program client DOS dapat mengakses seluruh user space,
+  juga dapat memodifikasi kode dosemu itu sendiri. Gunakan option anda
+  tidak akan dapat menjalankan beberapa aplikasi sperti 32-bit video
+  games
+
+  (lermen@elserv.ffm.fgan.de(97/2/11)).
+
+  Menjalankan sebuah kompiler yang terkenal dengan akses penuh akan
+  mempunyai implikasi keamanan yang kecil maka beberapa game mempunyai
+  beberapa source yang tidak jelas.
+
+
+  12.2.  Dosemu berhenti ketika booting. Saya menginstall Win95.
+
+  Dosemu mempercayakan bahwa Dos-Version dalam hdimage dan Drive yang
+  anda petakan mempunyai contain command.com yang sama. Jika tidak,
+  dosemu akan crash segera atau pada saatnya nanti. Dengan option dual
+  boot yang ditawarkan Win95 ketika menekan kunci F4,F5 dan F8 ketika
+  text "Starting Win95", versi dalam drive Win95 mungkin ditukar.
+  Perhatikan command.com. Buat variable shell anda dalam config.emu
+  menunjuk ke versi statik command.com yang benar, misal:
+  shell=c:\win95\command.com c:\ /P /E:1024 (97/02/28)
+
+
+  Pelajari dosdebug dan gunakan untuk mengontrol sebuah sesi dosemu.
+  (97/2/9)
+
+
+  12.3.  Dosemu hangs! Bagaimana saya dapat meng-kill-nya?
+
+  Pelajari dosdebug dan gunakan untuk mengontrol sebuah sesi dosemu.
+  (97/2/9)
+
+
+  12.4.  Dosemu crash dan sekarang saya tidak dapat mengetikkan apapun.
+
+  Daniel Barlow(jo95004@sable.ox.ac.uk) menyatakan (95/4/8)
+
+  Jika anda tidak mempunyai terminal atau akses network yang dapat anda
+  gunakan untuk log in, mungkin anda harus menekan tombol reset.  Jika
+  entah bagaimana anda masih dapat menggunakan shell, jalankan "kbd_mode
+  -a" untuk men-switch keyboard keluar dari mode raw, dan/atau "stty
+  sane" pada console sehingga anda tahu apa yang anda ketikkan.
+  Sesuatu yang berguna anda lakukan adalah menggunakan script untuk
+  menjalankan dosemu, dan jalankan "kbd_mode -a" otomatis setelah
+  dosemu.  Ketika dosemu crash, script biasanya akan tetap berjalan dan
+  mengeksekusi perintah "kbd_mode -a".
+
+
+  12.5.  membantu.  Saya telah meng-enabled EMS memory dalam dosemu.conf
+  tapi tidak
+
+  Rob Janssen (rob@pe1chl.ampr.org) menyatakan (94/7/11)
+
+  Jangan lupa untuk me-load ems.sys yang diberikan dalam file
+  config.sys.
+
+
+  12.6.  Bagaimana saya menghilangkan pesan "disk change" yang meng-
+  ganggu?
+
+  (94/8/11)
+
+  Ambil dan install klogd.  Coba
+
+           sunsite.unc.edu:/pub/Linux/system/Daemons/sysklogd1.2.tgz
+
+
+
+
+  12.7.  keluar dalam mode console?  Mengapa dosemu tidak bisa
+  dijalankan untuk kedua kalinya setelah
+
+  Aldy Hernandez (aldy@sauron.cc.andrews.edu) menyatakan (94/7/8)
+
+  Yanda harus men-disable video dan/atau BIOS caching.
+
+
+  12.8.  Mengapa dosemu jalan dalam sebuah term tapi tidak dalam con-
+  sole?
+
+  JyiJiin Luo (jjluo@casbah.acns.nwu.edu) menyatakan (94/4/19)
+
+
+  Saya mengalami hal yang sama persis sebelumnya.  Saya membuat semua
+  video shadow dalam AMI BIOS saya menjadi disabled. Sekarang dosemu
+  berjalan baik dalam sistem saya.
+
+
+  12.9.  bagaimana meningkatkan kecepatan dosemu?
+
+  Dalam beberapa kasus akan berguna menggunakan nilai dari variabel
+  HogThreshold dalam file dosemu.conf anda.
+
+
+  Daniel Barlow(jo95004@sable.ox.ac.uk) menyatakan (95/4/8)
+
+  HogThreshold harus di set kira-kira separuh dari nilai BogoMips yang
+  dilaporkan sistem ketika boot.
+
+
+  12.10.  bawah dosemu.  Drive CDROM saya mempunyai masalah membaca
+  beberapa file di
+
+  Vinod G Kulkarni (vinod@cse.iitb.ernet.in) menyatakan (94/4/7)
+
+  Ketika sebuah CDROM di-mount dari linux dan digunakan dari dosemu
+  (mapped drive), mungkin timbul beberapa masalah. Driver CD-ROM
+  (iso9660) dalam kernel mencoba untuk menemukan tipe dari file (yaitu
+  binary atau text).  Jika tidak menemukannya, akan dicoba menebak tipe
+  file tersebut dengan sebuah heuristic. Heuristic terkadang gagal dalam
+  kondisi tertentu ketika sebuah file text diperlakukan sebgai file
+  binary.  (Saya tidak tahu apakah hal itu merupakan fasilitas atau bug)
+
+  Pengaruh hal tersebut adalah jika anda  mengcopy file dari CD-ROM
+  (dari linux sendiri, dan tidak perlu dari dosemu), file hasilnya
+  biasanya lebih besar dari file aslinya. (Blank ditambahkan sebelum
+  ^J,^M.)  Jadi sebuah program yang sedang berjalan dalam dosemu akan
+  memberikan kesalahan atau hang, yang merupakan kesalahan dalam dosemu.
+
+
+  Rob Janssen (pe1chl@rabo.nl) menyatakan (94/8/10)
+
+  Cara untuk memecahkan msalah ini adalah dengan mematikan semua
+  konversi.  Tambahkan option "-o conv=binary" ke dalam perintah
+  mounting CD-ROM, atau gunakan baris berikut dalam /etc/fstab:
+
+  /dev/cdrom      /cdrom          iso9660 conv=binary,ro
+
+
+  Patch kernel tidak dibutuhkan.
+
+
+  12.11.  Bagaimana saya dapat melihat keluaran debugging?
+
+  Daniel Barlow(jo95004@sable.ox.ac.uk) menyatakan (95/4/8)
+
+  Dari dosemu 0.60, keluaran debugging di-redirect ke sebuah file yang
+  dispesifikasikan dalam command line. Gunakan "dos -D+a -o /tmp/debug"
+  untuk me-log semua keluaran debug ke /tmp/debug.  Tidak ada yang perlu
+  anda lakukan untuk me-redirect stderr.
+
+
+  12.12.  Mengapa penekanan tombol saya ditampilkan dduuaa kali??
+
+  Nick Holloway (alfie@dcs.warwick.ac.uk) menyatakan (94/2/22)
+
+
+  Setelah menjalankan dos dan setelah bermaindengan beberapa setting
+  stty, saya mengalami penekanan key ganda. Sekarang saya tahu alasannya
+
+  Hal ini hanya terjadi ketika dos dijalankan dalam the console dengan
+  set 'istrip'.  Hal ini (saya kira) disebabkan karena raw scancodes
+  ditutupi oleh 'istrip', jadi pelepasan key nampak seperti even
+  penekanan key.
+
+  Jadi, pemrosesan input perlu dimatikan ketika penggunaan scan codes
+  dalam sebuah console (bukan ide yang baik untuk melakukan hal ini
+  untuk tty line).
+
+
+  12.13.  Dosemu mengacaukan layar saya?
+
+  Untuk grafik card yang tidak didukung penuh dalam dosemu, yang
+  membolehkan grafik console dosemu crash, mungkin memberi anda console
+  dalam keadaan kacau dan hampir tidak dapat digunakan. Untuk mencegah
+  situasi ini, Spudgun <spudgun@earthlight.co.nz> mengirimkan solusi
+  berikut. Pertama simpan register anda yang berjalan dalam console ~>
+  cat /usr/bin/savetextmode ~> restoretextmode -w /etc/textregs ~>
+  restorefont -w /etc/fontdata Ketika crash terjadi, jalankan script
+  berikut: restoretextmode -r /etc/textregs restorefont -r /etc/fontdata
+  restorepalette
+
+  Jika cara tersebut tidak dapat memperbaiki tidak ada cara lain Saya
+  juga menemukan, script ini memperburuk segalanya, ketika sedang
+  menjalankan sebuah sebuah X server, yaitu kadang-kadang membuat
+  register Video Card saya menjadi kaceu. Saya pikir, mengganti X
+  servers dan/atau menjalankan savetextmode dalam sebuah vt ketika X
+  sedang berjalan dapat membantu. (97/04/08)
+
+
+  12.14.  MS FoxPro 2.6 tidak jalan
+
+  FoxPro 2.6 tidak akan jalan dalam network drive. Alexey Naidyonov
+  <growler@growler.tsu.tula.ru> mencatat masalah ini: Saya duga file
+  FoxPro anda ada dalam lredir disk, ya khan? Masalahnya adalah FoxPro
+  tidak akan dapat dijalankan dalam disk seperti itu, tapi bila saya
+  sebutkan disk { partition ... } dalam /etc/dosemu/conf, program akan
+  berjalan normal.
+
+
+  13.  Kontribusi dalam proyek dosemu
+
+  13.1.  Siapa yang bertanggung jawab akan dosemu?
+
+  (97/2/9)
+
+  Dosemu dibuat di dalam kerangka kerja Matthias Lautner dan Robert
+  Sanders. James B. MacLean (jmaclean@ednet.ns.ca) bertanggung jawab
+  untuk mengatur release dosemu yang paling akhir.
+
+                          Sejarah dosemu
+
+            Versi      Tanggal             Oleh
+           -------------------------------------------------
+            0.1        September 3, 1992   Matthias Lautner
+            0.2        September 13, 1992  Matthias Lautner
+            0.3        ???                 Matthias Lautner
+            0.4        November 26, 1992   Matthias Lautner
+            0.47       January 27, 1993    Robert Sanders
+            0.47.7     February 5, 1993    Robert Sanders
+            0.48       February 16, 1993   Robert Sanders
+            0.48pl1    February 18, 1993   Robert Sanders
+            0.49       May 20, 1993        Robert Sanders
+            0.49pl2    November 18, 1993   James MacLean
+            0.49pl3    November 30, 1993   James MacLean
+            0.49pl3.3  December 3, 1993    James MacLean
+            0.50       March 4, 1994       James MacLean
+            0.50pl1    March 18, 1994      James MacLean
+            0.52       June 16, 1994       James MacLean
+            0.60       April 9, 1995       James MacLean
+            0.64.4     February 9,1997     Hans Lermen
+
+
+
+
+  13.2.  Saya ingin membantu.  Siapa yang harus saya hubungi?
+
+  Proyek dosemu  adalah usaha sebuah tim.  Jika anda ingin memberi
+  kontribusi, lihat DPR (dosemu Project Registry).  Copynya dapat
+  ditemukan dalam ../doc/DANG (97/2/9).
+
+
+
+
+
+
+
+
+
+

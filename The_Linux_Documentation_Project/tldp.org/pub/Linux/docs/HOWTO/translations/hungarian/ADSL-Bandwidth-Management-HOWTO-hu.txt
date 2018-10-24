@@ -1,0 +1,942 @@
+
+ADSL sávszélesség-gazdálkodás HOGYANDan Singletary
+
+   dvsing@sonicspike.net
+
+   Verziótörténet
+   Verzió: 1.3 2003.04.07 Átdolgozta: ds
+   A [1]hivatkozások rész hozzáadása.
+   Verzió: 1.2 2002.09.26 Átdolgozta: ds
+   Az új [2]levelezõlistára mutató hivatkozás hozzáadása. Hozzáadva egy
+   kis fejtörõ a fenntartott részhez az új, továbbfejlesztett Linux
+   QoS-hez, amit specifikusan a hamarosan kiadandó ADSL-hez
+   fejlesztettek.
+   Verzió: 1.1 2002.08.26 Átdolgozta: ds
+   Néhány javítás (Köszönet sokaknak, akik felhívták rájuk a figyelmet!).
+   Információs kikötések hozzáadása a megvalósítási részhez.
+   Verzió: 1.0 2002.08.21 Átdolgozta: ds
+   Jobb ellenõrzés a sávszélesség felett, több teória, frissítve a
+   2.4-es kernelekhez
+   Verzió: 0.1 2001.08.06 Átdolgozta: ds
+   Elsõ kiadás
+
+   A dokumentum leírja, hogyan állítsunk be egy Linux útválasztót, hogy
+   hathatósabban kezelje a kimenõ forgalmat egy ADSL modemen vagy más
+   olyan eszközön, ami hasonló sávszélesség-tulajdonságokkal rendelkezik
+   (kábelmodem, ISDN stb.). Hangsúlyt fektettünk az interaktív forgalom
+   várakozási, lappangási idejének csökkentésére még akkor is, ha a
+   feltöltési és/vagy letöltési sávszélesség teljesen telített.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [3]Bevezetés
+
+        1.1. [4]A dokumentum új verziói
+        1.2. [5]Levelezõlista
+        1.3. [6]A felelõsség teljes elhárítása
+        1.4. [7]Szerzõi jog és licenc
+        1.5. [8]Visszajelzések és javítások
+        1.6. [9]Magyar fordítás
+
+   2. [10]Háttér
+
+        2.1. [11]Elõzetesen szükséges dolgok
+        2.2. [12]Elrendezés
+        2.3. [13]Csomagok várakozósorai
+
+   3. [14]Hogyan mûködik?
+
+        3.1. [15]A HTB alkalmazása a kimenõ forgalom visszafogására
+        3.2. [16]Prioritásos várakozósor kialakítása HTB-vel
+        3.3. [17]A kimenõ csomagok osztályozása iptables-szel
+        3.4. [18]Még néhány fogás...
+        3.5. [19]Próbálkozás a bejövõ forgalom visszafogására
+
+   4. [20]Megvalósítás
+
+        4.1. [21]Kikötések
+        4.2. [22]Szkript: myshaper
+
+   5. [23]Az új várakozósor tesztelése
+   6. [24]Rendben, mûködik! Hogyan tovább?
+   7. [25]Kapcsolódó hivatkozások
+
+1. Bevezetés
+
+Jelen dokumentum célja, hogy ajánljon egy módszert egy internethez
+kapcsolódó ADSL (vagy kábel) modemen kimenõ forgalom kezeléséhez. A
+probléma az, hogy a legtöbb ADSL vonalat lekorlátozták 128kbs vagy e körüli
+adatfeltöltési sebességre. Még súlyosabbá teszi a problémát a csomagok
+várakozási sora az ADSL modemen belül, ami ha tele van, 2 vagy 3 másodpercet
+is igénybe vesz, míg kiürül. Ez együttesen azt jelenti, hogy amikor a
+feltöltési sávszélesség teljesen telítve van, a többi csomagnak 3
+másodpercet is igénybe vehet, amíg kijutnak az Internetre. Ez megbéníthatja
+az interaktív alkalmazásokat, mint a telnet vagy a többszereplõs játékok.
+     _________________________________________________________________
+
+1.1. A dokumentum új verziói
+
+Mindig megtalálod a jelen dokumentum legújabb verzióját a világhálón a
+[26]http://www.tldp.org webhelyen.
+
+Az új verziók ezen kívül különbözõ Linux WWW és FTP szerverre is fel vannak
+téve, beleértve az LDP honlapját a [27]http://www.tldp.org webhelyen.
+     _________________________________________________________________
+
+1.2. Levelezõlista
+
+Az ADSL sávszélesség-gazdálkodást illetõ kérdések és friss információk
+vonatkozásában kérlek, iratkozz fel a téma levelezési listájára a
+[28]http://jared.sonicspike.net/mailman/listinfo/adsl-qos honlapon.
+     _________________________________________________________________
+
+1.3. A felelõsség teljes elhárítása
+
+Sem a szerzõ, sem a terjesztõk, sem más közremûködõ munkatárs nem
+felelõs semmilyen módon a fizikai, pénzügyi, morális vagy bármely más
+típusú kárért, amit a szövegben ajánlott dolgok követése okozott.
+     _________________________________________________________________
+
+1.4. Szerzõi jog és licenc
+
+A jelen dokumentum Dan Singletary (2002) szellemi tulajdona, amelyet a GNU
+FDL (GNU Szabad Dokumentációs Licenc) alatt adtak ki, amelyet ezennel
+hivatkozásként beolvasztottunk.
+     _________________________________________________________________
+
+1.5. Visszajelzések és javítások
+
+Ha kérdéseid vagy ajánlásaid vannak a dokumentumhoz kapcsolódóan, nyugodtan
+lépj kapcsolatba a szerzõvel a [29]dvsing@sonicspike.net e-mail címen.
+     _________________________________________________________________
+
+1.6. Magyar fordítás
+
+A magyar fordítást [30]Szíjjártó László készítette (2002.07.28). A
+lektorálást [31]Daczi László végezte el (2002.09.05). A dokumentum
+legfrissebb változata megtalálható a [32]Magyar Linux Dokumentációs Projekt
+honlapján.
+     _________________________________________________________________
+
+2. Háttér
+
+2.1. Elõzetesen szükséges dolgok
+
+A dokumentumban vázolt módszernek mûködnie kell más Linux konfigurációkon
+belül is, de nem teszteltük máson, csak a következõk alatt:
+
+     * Red Hat Linux 7.3
+     * 2.4.18-5 Kernel teljes QoS támogatással (modulok: OK) és beleértve
+       a következõ kernel-foltokat (amik történetesen az újabbakban
+       benne is lehetnek már):
+          + HTB várakozósor - [33]http://luxik.cdi.cz/~devik/qos/htb/
+
+            Megjegyzés
+
+   jelentették, hogy a 2.4.18-3 kernelverziót követõen a Mandrake (8.1,
+   8.2) már a HTB-hez adott folttal szállítja a rendszert.
+          + IMQ eszköz - [34]http://luxik.cdi.cz/~patrick/imq/
+     * iptables v1.2.6a vagy késõbbi (a Red Hat 7.3-mal szállított
+       iptables verzióból hiányzik a "length" modul)
+
+   Megjegyzés
+
+   a dokumentum elõzõ verzióiban olyan sávszélesség-kezelési módszert
+   adtunk meg, ami magában foglalta a meglévõ sch_prio várakozósor
+   megfoltozását. Késõbb úgy találtuk, hogy ez a folt teljesen
+   felesleges. Ezen felül a jelen dokumentumban taglalt módszer jobb
+   eredményt ad (bár a doksi írása idején 2 kernelfolt szükséges :)
+   Szerencsés foltozást.)
+     _________________________________________________________________
+
+2.2. Elrendezés
+
+A dolgok egyszerûsítése érdekében, a dokumentumban az összes hálózati
+eszközre és beállításra vonatkozó hivatkozás a következõ hálózati
+elrendezést tükrözi:
+
+               <-- 128kbit/s      --------------     <-- 10Mbit -->
+  Internet <--------------------> | ADSL modem | <--------------------
+                1.5Mbit/s -->     --------------                     |
+                                                                     | eth0
+                                                                     V
+                                                         ----------------------
+--------
+                                                         |
+       |
+                                                         | Linux útválasztó (ro
+uter)  |
+                                                         |
+       |
+                                                         ----------------------
+--------
+                                                          | .. | eth1..ethN
+                                                          |    |
+                                                          V    V
+
+                                                       Helyi hálózat
+     _________________________________________________________________
+
+2.3. Csomagok várakozósorai
+
+A csomagok várakozási sorai (queue) olyan "edények", amik az adatokat
+tárolják a hálózati eszköz számára, amikor azokat nem lehet azonnal
+elküldeni. A legtöbb várakozósor egy FIFO ("ami elsõnek megy be, elsõnek
+megy ki") fegyelmezési rendszert, diszciplínát használ (röviden qdisc - a
+ford.), hacsak speciálisan másra nem állítják be. Ez azt jelenti, hogy
+amikor egy eszköz várakozósora teljesen tele van, a várakozási sorba
+utoljára került csomagot csak akkor továbbítja az eszköz, amikor az összes
+többit már elküldte.
+     _________________________________________________________________
+
+2.3.1. A kimenõ ág
+
+ADSL csatlakozás esetén a sávszélesség aszimmetrikus, tipikusan 1.5Mbit/s a
+bejövõ és 128kbit/s a kimenõ ág teljesítménye. Bár ez a vonali sebesség, a
+Linux útválasztó PC és az ADSL modem közötti illesztõ tipikusan 10Mbit/s
+vagy a feletti sebességet tud. Ha a helyi hálózat felé nézõ csatoló szintén
+10Mbit/s sebességû, akkor tipikusan NEM LESZ várakozósor az útválasztónál,
+amikor a helyi hálózat küld csomagokat az Internet felé. Az eth0 eszközön
+keresztül olyan sebességgel mennek ki a csomagok, ahogy a helyi hálózatból
+érkeztek. Ehelyett viszont a csomagok beállnak a sorba az ADSL modemnél,
+mivel 10Mbit/s-el érkeznek, és csak 128 kbit/s-el mehetnek ki. Idõlegesen a
+csomagok várakozósora a modemnél megtelhet, és minden további csomag, amit
+küldenek neki, csendben eldobásra kerül. A TCP protokollt úgy tervezték,
+hogy kezelje ezt, és be fogja állítani a küldési ablak (transmit window)
+méretét úgy, hogy teljesen kihasználja a rendelkezésre álló sávszélességet.
+
+Amíg a várakozósorok a TCP-vel kombinálva a sávszélesség lehetõ legjobb
+kihasználását teszik lehetõvé, a nagy FIFO sorok megemelik az interaktív
+forgalom lappangási idejét.
+
+Egy másik, a FIFO-ra hasonlító várakozósor az n-sávos prioritásos sor. Ennél
+ahelyett, hogy csak egy várakozósort alakítanánk ki a bejövõ csomagok
+számára, az n-sávos sornak n darab FIFO sora van, amibe a csomagokat az
+osztályozásuk alapján helyezzük be. Minden sornak van egy prioritása, és a
+csomagok mindig a legnagyobb prioritású, csomagokat tartalmazó sorból jönnek
+ki. Ezt a fegyelmezési szabályt alkalmazva az FTP csomagok egy alacsonyabb
+prioritású sorba helyezhetõk, mint a telnet csomagjai, így még egy FTP
+feltöltés alatt is, egy darab telnet csomag is kijuthat a sorból és azonnal
+továbbküldésre kerülhet.
+
+A dokumentumot átalakítottuk az új linuxos várakozósor, a Hierarchical Token
+Bucket (HTB) használatához. A HTB sor nagyban hasonlít a fent leírt n-sávos
+sorra, de megvan az a tulajdonsága, hogy képes minden osztályának forgalmát
+korlátozni. Ezen kívül képes arra, hogy forgalmi osztályokat alakítson ki
+más osztályok alatt, egy hierarchikus osztályokból álló rendszert
+létrehozva. A HTB teljes leírása meghaladja a dokumentum kereteit, de
+további információ található a [35]http://www.lartc.org webhelyen.
+     _________________________________________________________________
+
+2.3.2. A bejövõ ág
+
+Az ADSL modembe befelé érkezõ forgalom a kimenõhöz hasonló módon áll
+várakozósorba, azonban a sor a szolgáltatódnál helyezkedik el. Emiatt
+valószínûleg nincs közvetlen befolyásod arra, hogyan álljanak sorba a
+csomagok vagy melyik fajta forgalom kapjon megkülönböztetett kezelést. Az
+egyetlen mód a várakozási idõ alacsonyan tartására itt az, hogy
+megbizonyosodsz, miszerint nem küldik az adatokat túl gyorsan számodra.
+Sajnos nincs mód az érkezõ csomagok sebességének közvetlen befolyásolására,
+de mivel a forgalmazás többsége valószínûleg TCP, van néhány módja a
+küldõk lelassításának:
+
+     * Szándékosan eldobni a bejövõ csomagokat - a TCP protokollt úgy
+       tervezték, hogy kihasználja a rendelkezésre álló teljes
+       sávszélességet, miközben próbálja elkerülni a kapcsolaton belül a
+       torlódást. Ez azt jelenti, hogy nagy mennyiségû adat küldésekor a
+       TCP több és több adatot küld, amíg végül is egy csomag eldobásra
+       kerül. A TCP érzékeli ezt, és csökkenti az átviteli ablak méretét.
+       Ez a folyamat ismétlõdik a kapcsolat alatt, így biztosítja az
+       adatok lehetõ leggyorsabb átvitelét.
+     * A meghirdetett vételi ablak manipulálása - A TCP forgalmazás alatt
+       a fogadó oldal az ACK (elfogadás) csomagok folyamatos sorát küldi
+       vissza. Az ACK csomagokban található az ablakméret meghirdetése,
+       ami kifejezi annak a nem elfogadott adatnak a mennyiségét, amit a
+       fogadó küldeni tud. A kimenõ ACK csomagok ablakméretének
+       babrálásával szándékosan lelassíthatjuk a küldõt. Ennek a
+       folyamatszabályozásnak jelen pillanatban nincs (szabadon
+       elérhetõ) megvalósítása Linuxon (de lehet, hogy dolgozom egyen!)
+     _________________________________________________________________
+
+3. Hogyan mûködik?
+
+Két alapvetõ lépéssel optimalizálhatjuk a kifelé menõ sávszélességet.
+Elõször találnunk kell egy módot arra, hogy megakadályozzuk az ADSL modemet
+a csomagok sorba állításában, mivel nincs ráhatásunk a várakozósor
+kezelésére. Ennek érdekében visszafogjuk az útválasztó által az eth0-n
+kiküldött adat mennyiségét, kicsit kevesebbre, mint a modem teljes kimenõ
+sávszélessége. Ez azt eredményezi, hogy az útválasztó rakja várakozósorba a
+helyi hálózatról érkezõ csomagokat, amik gyorsabban érkeznek, mint
+megengedett kiküldésük.
+
+A második lépés egy prioritásos várakozósor-fegyelmi szabály felállítása az
+útválasztón. Meg fogunk valósítani egy olyan sort, amit be lehet állítani
+úgy, hogy elsõbbséget adjon az interaktív forgalomnak, mint a telnet vagy a
+többszereplõs játékok.
+
+   A HTB várakozósor használatával meg tudjuk valósítani a sávszélesség
+   korlátozását és prioritásos várakozósort, egyidejûleg meggyõzõdünk,
+   hogy nincs olyan osztály, amit egy másik "kiéheztetne". A kiéheztetés
+   elkerülése érdekében nem választható a dokumentum 0.1-es javításánál
+   megadott módszer.
+
+   A végsõ lépés a tûzfal beállítása, hogy az fwmark segítségével
+   biztosítsa a csomagok elsõbbségét.
+     _________________________________________________________________
+
+3.1. A HTB alkalmazása a kimenõ forgalom visszafogására
+
+Bár az útválasztó és a modem közti kapcsolat 10 Mbit/s sebességû, a modem
+csak 128 kbit/s sebességgel tud adatokat küldeni. Minden ezt a rátát
+meghaladó sebességû csomag várakozósorba áll a modemnél. Ezért egy ping
+csomag, amit az útválasztóról küldünk, azonnal elmehet a modemhez, de néhány
+másodpercet vehet igénybe, amíg ténylegesen kikerül az Internetre, ha a
+modem várakozósora tartalmaz már valamennyi csomagot. Sajnos a legtöbb ADSL
+modem esetében nem adhatjuk meg a várakozósor kezelésének módját illetve
+annak nagyságát. Így elõször a kimenõ csomagokat átirányítjuk oda, ahol
+mindezt megtehetjük.
+
+Ezt a HTB sorral valósítjuk meg, így csökkentve az ADSL modemhez küldött
+csomagok számát. Még ha a kifelé menõ sávszélességünk a 128kbit/s is
+lehetne, kicsivel ez alá korlátozzuk le a csomagküldés mértékét. Ha
+csökkenteni akarjuk a lappangási idõt, BIZONYOSNAK kell lennünk, hogy soha
+egyetlen csomag sem áll sorba a modemnél. Kísérletezések során azt találtam,
+hogy a kimenõ forgalom körülbelül 90kbit/s-ra való visszavételével a
+sávszélesség majdnem 95%-át tudom elérni a HTB vezérlés nélkül. A HTB
+engedélyezésével ennél a mértéknél kivédjük, hogy a modem várakozósorba
+rakja a csomagokat.
+     _________________________________________________________________
+
+3.2. Prioritásos várakozósor kialakítása HTB-vel
+
+   Megjegyzés
+
+   Megjegyzés: az ebben a részben lévõ elõzõ igények (eredetileg
+   N-sávos prioritásos várakozósor kialakításának hívták) késõbb
+   hibásnak találtattak. LEHETETLEN volt a várakozósor különbözõ
+   sávjaiba tartozó csomagok megjelölése csak a fwmark mezõ által,
+   viszont ezt gyengén dokumentáltuk a dokumentum 0.1-es verziójának
+   írásakor.
+
+   Ennél a pontnál még nem veszünk észre semmi változást a
+   teljesítményben. Pusztán csak áthelyezzük a FIFO sort az ADSL
+   modemtõl az útválasztóhoz. Valójában, a Linux alapértelmezésben
+   beállított 100 csomag méretû FIFO sorával, valószínûleg még
+   rosszabbá is tettük a helyzetünket! De nem sokáig...
+
+   Minden szomszédos osztálynak adhatunk egy prioritást a HTB soron
+   belül. A különbözõ típusú forgalom különbözõ osztályokba
+   helyezésével, majd ezen osztályokhoz különbözõ prioritások
+   csatolásával, vezérelhetjük a csomagok várakozási sorból való
+   kivételét és elküldését. A HTB lehetõvé teszi ezt, miközben
+   megakadályozza egy osztály "kiéheztetését", mivel megadhatjuk a
+   minimálisan garantált mértéket minden osztály számára. Ezenfelül a HTB
+   megengedi azt is, hogy megadjuk egy osztálynak: használhatja másik
+   osztályok nem használt sávszélességét, egy bizonyos felsõ határig.
+
+   Miután beállítottuk az osztályainkat, szûrõket helyezünk el, hogy a
+   forgalmat elhelyezzük beléjük. Több útja is van ennek, de az itt leírt
+   módszer az ismerõs iptables/ipchains-t használja a csomagok fwmark-al
+   (tûzfal jelölése a csomagon) történõ megjelölésére. A szûrõk a
+   csomagok fwmark-ját figyelembe véve helyezik el a forgalmat a HTB sor
+   osztályaiba. Ezen a módon képesek leszünk megfelelõ szabályok
+   felállítására az iptables-en belül, hogy bizonyos típusú forgalmat egy
+   bizonyos osztályba küldjön.
+     _________________________________________________________________
+
+3.3. A kimenõ csomagok osztályozása iptables-szel
+
+   Megjegyzés
+
+   eredetileg a dokumentumban az ipchains-t használtuk a csomagok
+   besorolására. Most az újabb iptables-t használjuk.
+
+   Az utolsó lépés ahhoz, hogy az útválasztó elsõbbséget adjon az
+   interaktív forgalomnak - a tûzfal beállítása: adjuk meg a forgalom
+   besorolásának módját. Ez a csomag fwmark mezõjének beállításával
+   érhetõ el.
+
+   Anélkül, hogy túlzottan a részletekbe merülnénk, álljon itt az
+   egyszerûsített leírása annak, hogyan lehet a kimenõ csomagokat 4
+   osztályba sorolni úgy, hogy a legmagasabb prioritású lesz a 0x00:
+
+    1. Jelöljünk MINDEN csomagot 0x03-al. Ez alapértelmezésben minden
+       csomagot a legalacsonyabb prioritású sorba helyez el.
+    2. Jelöljük az ICMP csomagokat 0x00-al. Szeretnénk, ha a ping mutatná
+       a legmagasabb prioritású csomagok várakozási idejét.
+    3. Jelöljünk minden csomagot, aminek célportja 1024 vagy kisebb,
+       0x01-el. Ez elsõbbséget biztosít az olyan
+       rendszerszolgáltatásoknak, mint a Telnet és SSH. Az FTP portja
+       szintén ebbe a körbe esik, de az FTP adatforgalom a magasabb
+       portokon helyezkedik el és marad a 0x03 sávban.
+    4. Jelöljünk minden csomagot, aminek a célportja 25 (SMTP), a
+       0x03-al. Ha valaki levelet fog küldeni egy nagy csatolt
+       állománnyal, nem akarjuk, hogy elárassza az interaktív forgalmat.
+    5. Jelöljünk minden csomagot, aminek célja egy többszereplõs
+       játék-szerver, 0x02-vel. Ez a játékosoknak alacsony lappangási
+       idõt biztosít, de megakadályozza, hogy elfoglalják az alacsony
+       várakozást igénylõ rendszerszolgáltatásokat.
+       Jelöljünk minden "kicsi" csomagot 0x02-vel. A kimenõ ACK
+       csomagokat a befelé irányuló letöltésekbõl azonnal ki kell
+       küldenünk, hogy biztosítsuk a megfelelõ letöltéseket. Ez az
+       iptables "length" moduljával lehetséges.
+
+   Természetesen ezeket a kívánalmaknak megfelelõen átalakíthatod.
+     _________________________________________________________________
+
+3.4. Még néhány fogás...
+
+Két további dolgot tehetsz a lappangási idõ javítására. Elõször is, a
+maximális átvihetõ egység (MTU) méretét kisebbre veheted, mint az
+alapértelmezett 1500 bájt. Ennek a számnak a csökkentése egyben az átlagos
+idõt is csökkenti, amit az elsõbbséget élvezõ csomagok elküldésére kell
+fordítani, ha már egy teljes méretû alacsony prioritású csomag küldése
+folyamatban van. Ennek az értéknek a csökkentése kicsit csökkenti a
+teljesítményt is, mivel minden csomag legalább 40 bájtnyi IP és TCP
+fejléc-információt tartalmaz.
+
+A másik dolog a javításhoz, még alacsony prioritású forgalom esetén is, hogy
+csökkented a várakozási sor méretét az alapértelmezett 100-ról, ami egy ADSL
+vonalon 10 másodperc alatt ürül ki egy 1500 bájtos MTU-t alapul véve.
+     _________________________________________________________________
+
+3.5. Próbálkozás a bejövõ forgalom visszafogására
+
+A "közbensõ várakozósor-eszköz" (Intermediate Queuing Device, IMQ)
+használatával az összes bejövõ csomagot ugyanúgy egy várakozósoron
+futtathatjuk át, mint amilyen módon a kimenõket is. A csomagok prioritása
+ebben az esetben jóval egyszerûbb. Mivel csak a bejövõ TCP forgalmat
+(próbáljuk meg) vezérelni, az összes nem-TCP forgalmat a 0x00 osztályba
+rakjuk, az összes TCP forgalmat pedig a 0x01 osztályba. A "kis" TCP
+csomagokat szintén a 0x00 osztályba soroljuk, mert ezek nagy
+valószínûséggel a már elküldött kimenõ adatok ACK csomagjai. Egy standard
+FIFO sort állítunk be a 0x00 osztályhoz, illetve egy "véletlenszerû korai
+eldobás" (Random Early Drop, RED) várósort a 0x01 osztályhoz. A RED jobb a
+FIFO-nál a TCP vezérlését tekintve, mert eldobja a csomagokat már a sor
+olyan túlcsordulása elõtt, mikor megpróbálja lelassítani a forgalmat az
+ellenõrzés fenntartása érdekében. Ezen kívül mindkét osztályt le fogjuk
+korlátozni egy maximális bejövõ forgalmi határra, ami kisebb, mint a valós,
+ADSL modemen bejövõ sebesség.
+     _________________________________________________________________
+
+3.5.1. Miért nem olyan jó a bejövõ forgalom korlátozása?
+
+Korlátozni szeretnénk a bejövõ forgalmunkat, hogy elkerüljük a várakozósor
+betelését a szolgáltatónál, ami néha 5 másodpernyi adat pufferelését
+jelentheti. A probléma abban áll, hogy jelenleg a bejövõ TCP forgalom
+korlátozásának egyetlen módja a teljesen jó csomagok eldobálása. Ezek a
+csomagok már foglaltak némi sávszélességet az ADSL modemen, csak a Linux gép
+dobta el õket abból a célból, hogy a jövõbeni csomagokat lelassítsa. Ezek
+az eldobott csomagok idõnként újra elküldésre kerülnek, még több
+sávszélességet foglalva. Amikor korlátozzuk a forgalmat, korlátozzuk azon
+csomagok mértékét, amiket elfogadunk a hálózatunk számára. Mivel az aktuális
+bejövõ adatráta valahol efölött van az eldobott csomagok miatt, a bejövõ
+águnkat sokkal jobban le kell korlátoznunk az ADSL modem aktuális rátájánál,
+az alacsony lappangási idõ biztosítása érdekében. A gyakorlatban az én
+1.5Mbit/s bejövõ ágamat 700kbit/s-re kellett korlátoznom, hogy elfogadható
+szinten tartsam a lappangást 5 egyidejû letöltésnél. Minél több TCP
+folyamatod van, annál több sávszélességet vesztesz az eldobott csomagok
+miatt, és annál kisebbre kell venned a korlátozás mértékét.
+
+A bejövõ TCP forgalom ellenõrzésének sokkal jobb módja a TCP ablak
+manipulációja, de ebben a pillanatban nincs (szabadon elérhetõ)
+megvalósítása ennek Linuxra (amennyire én tudom...).
+     _________________________________________________________________
+
+4. Megvalósítás
+
+Mindezen okfejtés után most már ideje, hogy megvalósítsuk a
+sávszélesség-gazdálkodást Linuxon.
+     _________________________________________________________________
+
+4.1. Kikötések
+
+A DSL modemhez aktuálisan küldött adatok mértékének korlátozása nem olyan
+egyszerû, mint amilyennek látszik. A legtöbb DSL modem igazából csak egy
+ethernet híd, amik továbbítják az adatokat oda-vissza a Linux gép és a
+szolgáltatónál lévõ gateway között. A legtöbb DSL modem ATM-et használ
+adatátviteli csatolófelületként. Az ATM mindig 53 bájtos cellákban küldi az
+adatokat. Ezekbõl 5 bájt a fejléc információ, és 48 bájt marad az
+adatoknak. Még ha csak 1 bájt adatot küldesz is, a teljes 53 bájt
+sávszélességet foglal, mivel az ATM cellák mindig 53 bájt hosszúak. Ez azt
+jelenti, hogy ha egy tipikus TCP ACK csomagot küldesz, ami 0 bájt adatot +
+20 bájt TCP fejlécet + 20 bájt IP fejlécet + 18 bájt Ethernet fejlécet
+tartalmaz. Valójában, még ha a kiküldött ethernet csomagnak csak 40 bájtnyi
+"hasznos terhe" van is (TCP és IP fejléc), a legkisebb méret egy Ethernet
+csomagnál 46 bájtnyi adat, így a maradék 6 bájt 0-val töltõdik ki. Ez azt
+jelenti, hogy az Ethernet csomag plusz a fejléc információk aktuális hossza
+18 + 46 = 64 bájt. Az ATM-mel 64 bájt átküldéséhez két ATM cellát kell
+küldened, ami 106 bájt sávszélességet foglal. Vagyis minden TCP ACK
+csomagnál 42 bájt sávszélességet vesztesz. Ez rendben van, ha a Linux
+figyelembe veszi a DSL modem által használt csomag-beágyazást, de ehelyett a
+Linux csak a TCP és IP fejlécet és 14 bájtos MAC címet jegyzi (a Linux nem
+számolja a 4 bájtos CRC-t, mivel ezt a hardver szint kezeli). A Linux nem
+számol a 46 bájtos minimális Ethernet csomagmérettel, sem a fix méretû ATM
+cellával.
+
+Mindez azt jelenti, hogy a kimenõ sávszélességet valamivel kisebbre kell
+állítani, mint a valós kapacitás (amíg nem találunk egy csomag-idõzítõt,
+ami jegyzi a különbözõ típusú csomag-beágyazásokat). Azt találhatod, hogy
+sikerült egy jó értékre beállítani a sávszélességet, de amikor egy nagy
+fájlt töltesz le, a lappangás felszökik 3 másodperc fölé. Ez
+legvalószínûbben amiatt van, mivel a Linux rosszul számítja ki a bizonyos
+kis ACK csomagok által igényelt sávszélességet.
+
+Néhány hónapot dolgoztam ennek a problémának a megoldásán, és majdnem
+lezártam a dolgot egy olyan megoldással, amit hamarosan közreadok további
+tesztelésre. A megoldás egy felhasználói szintû várakozósor használatát
+mutatja be a Linux QoS-e helyett a csomagok korlátozására. Alapvetõen egy
+egyszerû HTB sort alkalmaztam, ami a Linux felhasználói szintû sorait
+használja. Ez a megoldás (eddig) képes volt a kimenõ forgalom OLYAN JÓ
+korlátozására, hogy még egy masszív letöltés (több szálon) és ugyanilyen
+feltöltés (gnutella, több szálon) alatt is, a lappangás 400 ms CSÚCSÉRTÉKET
+ért csak el a névleges, forgalom nélküli 15 ms-hoz képest. További
+információért errõl a QoS módszerrõl, iratkozz fel a frissítések
+levelezõlistájára vagy késõbb nézd meg ennek a HOGYANnak a frissebb
+változatait.
+     _________________________________________________________________
+
+4.2. Szkript: myshaper
+
+A következõkben egy általam a Linux útválasztón a sávszélesség
+korlátozására használt szkript listája található. Ez több, a dokumentumban
+foglalt koncepciót is felhasznál. A kimenõ forgalom a 7 típustól függõ
+várósor egyikébe kerül. A bejövõ forgalom két sorba kerül, a TCP csomagokat
+(alacsonyabb prioritásúak) elõbb eldobjuk, ha a bejövõ adatok a mérték
+fölöttiek. A szkriptben megadott ráták úgy tûnik, jól mûködnek az én
+beállításomban, de az eredmények változhatnak.
+
+   A szkript eredetileg az ADSL WonderShaper-en alapult, amint
+   megtalálható a [36]LARTC webhelyen.
+
+#!/bin/bash
+#
+# myshaper - DSL/kabelmodem kimeno forgalmanak szabalyozasa.
+#            Az ADSL/Cable wondershaper (www.lartc.org) szkripten alapszik.
+#
+# Irta: Dan Singletary (8/7/02)
+#
+# FIGYELEM: a szkript feltetelezi,  hogy a kernelt megfoltoztuk a megfelelo HTB
+
+# sor és  IMQ foltokkal,  amik hozzaferhetok  itt (megj.:  az ujabb kerneleknel
+
+# lehet, hogy nem kell folt):
+#
+#       http://luxik.cdi.cz/~devik/qos/htb/
+#       http://luxik.cdi.cz/~patrick/imq/
+#
+# Konfiguracios beallitasok:
+#  DEV    - ethX-re allitsuk, ami kapcsolodik a DSL/kabelmodemhez
+#  RATEUP - allitsuk valamivel kisebbre, mint a modem kimeno savszelessege.
+#           Nekem 1500/128  DSL vonalam  van, es a  RATEUP=90 jol mukodik a
+#           128 kbps-os feltoltessel. De ahogy jonak latod.
+#  RATEDN - allitsd valamivel kisebbre, mint a bejovo savszelesseg.
+#
+#
+# Teoria az imq hasznalatarol a bejovo forgalom alakitasahoz:
+#
+#
+# BEJOVO  TCP  KAPCSOLATOK  BEFOLYASOLASAT.  Ennek  ertelmeben  minden   nem-TC
+P
+# forgalmat egy  magas prioritasu  osztalyba kell  sorolnunk, mivel  egy nem-TC
+P
+# csomag eldobasa valoszinuleg a csomag  ujrakuldeset okozza. Ez semmi mast  ne
+m
+# jelent,  csak  a  savszelesseg  szuksegtelen  lefoglalasat,  hogy specifikusa
+n
+# valaszthatunk:  NEM  dobunk  el  bizonyos  tipusu  csomagokat, amiket magasab
+b
+# prioritasu tarolokba  helyezunk el  (ssh, telnet  stb). Ez  azert van,  mert
+a
+# csomagok  mindig  az  alacsonyabb  prioritasu  osztalybol  jonnek  elo azzal
+a
+# kikotessel,  hogy  a  csomagok  meg  minden osztalybol egyforman egy minimali
+s
+# mertekben jonnek ki (ebben a szkriptben minden tarolo legalabb a  tisztessege
+s
+# 1/7 savszelessegnyivel A TCP csomag  eldobasa egy kapcsolaton belul a  fogada
+s
+# alacsonyabb mertekehez vezet, a torlodas-elkerulo algoritmus miatt.
+#
+#     *  Semmit  nem  nyerunk  a  nem-TCP  csomagok  eldobasaval.  Valojaban, h
+a
+#     fontosak  voltak,  ugyis  ujra  elkuldik  oket, igy megprobaljuk azt, hog
+y
+#     sosem dobjuk el oket. Ez azt jelenti, hogy a telitett TCP kapcsolatok  ne
+m
+#     befolyasoljak  negativan  azokat  a  protokollokat,  amelyeknel  nincs
+a
+#     TCP-hez hasonlo beepitett ujrakuldes.
+#
+#     * A TCP kapcsolatok lelassitasa  ugy, hogy a teljes bejovo  rata kevesebb
+,
+#     mint az eszkoz  valos kapacitasa AZT  OKOZHATJA, hogy keves  vagy egyetle
+n
+#     csomag   sem   all   varakozosorba   a   szolgaltatoi   oldalon    (DSLAM
+,
+#     kabel-koncentrator  stb).   Mivel  ezek  a  sorok  kepesek  megtartani
+4
+#     masodpercnyi adatot 1500Kbps sebessegen  vagy 6 megabitnyi adatot,  ha eg
+y
+#     csomag sem all sorba, az alacsonyabb lappangast okoz.
+#
+# Kikotesek (kerdesfeltevesek a teszteles elott):
+# * A bejovo forgalom ezen a modon valo korlatozasa gyenge TCP-teljesítmenyt ad
+?
+#       - Az elozetes valsz: nem! Ugy nez ki, hogy az ACK csomagok prioritasana
+k
+#       beallitasa (kicsi <64b) anelkul  maximaljuk a kimeno telesitmenyt,  hog
+y
+#       nem  vesztunk  savszelesseget a mar meglevo ujrakuldott  csomagok miatt
+.
+
+# Megjegyzes: a kovetkezo konfiguracio jol mukodik az en beallitasaimmal:
+# 1.5M/128K ADSL a Pacific Bell Internet-en keresztul (SBC Global Services)
+
+DEV=eth0
+RATEUP=90
+RATEDN=700      # Figyeld meg, hogy ez jelntosen kisebb mint az 1500-as kapacit
+as.
+                # Emiatt nem kell a bejovo  forgalom korlatozasaval torodnod, a
+mig
+                # nem hasznalhatunk  jobb megvalositast,  mint például a TCP ab
+lak
+                # manipulacioja.
+#
+# konfiguracios beallitasok vege
+#
+
+if [ "$1" = "status" ]
+then
+        echo "[qdisc]"
+        tc -s qdisc show dev $DEV
+        tc -s qdisc show dev imq0
+        echo "[class]"
+        tc -s class show dev $DEV
+        tc -s class show dev imq0
+        echo "[filter]"
+        tc -s filter show dev $DEV
+        tc -s filter show dev imq0
+        echo "[iptables]"
+        iptables -t mangle -L MYSHAPER-OUT -v -x 2> /dev/null
+        iptables -t mangle -L MYSHAPER-IN -v -x 2> /dev/null
+        exit
+fi
+
+# Mindent visszaalitunk alapallapotba (torlunk)
+tc qdisc del dev $DEV root    2> /dev/null > /dev/null
+tc qdisc del dev imq0 root 2> /dev/null > /dev/null
+iptables -t mangle -D POSTROUTING -o $DEV -j MYSHAPER-OUT 2> /dev/null > /dev/n
+ull
+iptables -t mangle -F MYSHAPER-OUT 2> /dev/null > /dev/null
+iptables -t mangle -X MYSHAPER-OUT 2> /dev/null > /dev/null
+iptables -t mangle -D PREROUTING -i $DEV -j MYSHAPER-IN 2> /dev/null > /dev/nul
+l
+iptables -t mangle -F MYSHAPER-IN 2> /dev/null > /dev/null
+iptables -t mangle -X MYSHAPER-IN 2> /dev/null > /dev/null
+ip link set imq0 down 2> /dev/null > /dev/null
+rmmod imq 2> /dev/null > /dev/null
+
+if [ "$1" = "stop" ]
+then
+        echo "Shaping removed on $DEV."
+        exit
+fi
+
+###########################################################
+#
+# Kimeno korlatozas (a teljes savszelesseg RATEUP-ra allitva)
+
+# a varakozosor meretet ugy allitjuk be, hogy kb. 2 mp lappangas legyen az alac
+sony
+# prioritasu csomagoknal
+ip link set dev $DEV qlen 30
+
+# a kimeno eszkozon MTU-t allitunk. Az MTU csokkentese alacsonyabb lappangast
+# ad, de valamivel kisebb kimeno teljesitmenyt is az IP es TCP protokoll
+# felulvezerlese miatt
+
+ip link set dev $DEV mtu 1000
+
+# a HTB-t gyoker qdisc-nek allitjuk be
+tc qdisc add dev $DEV root handle 1: htb default 26
+
+# hozzaadjuk a fobb korlatozo osztalyokat
+tc class add dev $DEV parent 1: classid 1:1 htb rate ${RATEUP}kbit
+
+# hozzadjuk  az  alosztalyokat  -  garantaljuk  minden  osztalynak  LEGALABB
+a
+# "tisztesseges" osztozast  a savszelessegen.  Emiatt egy  osztalyt sem  fog eg
+y
+# masik kieheztetni.  Ezenkivul mindegyik  osztaly hasznalhatja  a rendelkezesr
+e
+# allo savszelesseget, ha a tobbi nem hasznalja.
+
+tc class add dev $DEV parent 1:1 classid 1:20 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 0
+tc class add dev $DEV parent 1:1 classid 1:21 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 1
+tc class add dev $DEV parent 1:1 classid 1:22 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 2
+tc class add dev $DEV parent 1:1 classid 1:23 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 3
+tc class add dev $DEV parent 1:1 classid 1:24 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 4
+tc class add dev $DEV parent 1:1 classid 1:25 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 5
+tc class add dev $DEV parent 1:1 classid 1:26 htb rate $[$RATEUP/7]kbit ceil ${
+RATEUP}kbit prio 6
+
+
+# az  alosztalyokhoz  qdisc-eket adunk - SFQ-t adunk  minden osztalyhoz. Az SFQ
+
+# biztositja,  hogy minden osztalyon  belul a kapcsolatokat (majdnem) egyenloen
+
+# kezeljuk.
+
+
+tc qdisc add dev $DEV parent 1:20 handle 20: sfq perturb 10
+tc qdisc add dev $DEV parent 1:21 handle 21: sfq perturb 10
+tc qdisc add dev $DEV parent 1:22 handle 22: sfq perturb 10
+tc qdisc add dev $DEV parent 1:23 handle 23: sfq perturb 10
+tc qdisc add dev $DEV parent 1:24 handle 24: sfq perturb 10
+tc qdisc add dev $DEV parent 1:25 handle 25: sfq perturb 10
+tc qdisc add dev $DEV parent 1:26 handle 26: sfq perturb 10
+
+# az fwmark-kal  szurjuk osztalyokba a   forgalmat - itt  a csomagon  beallitot
+t
+# fwmark-nak megfeleloen iranyitjuk a forgalmat az osztalyokba (az fwmark-ot  a
+z
+# iptables  segitsegevel  kesobb  allitjuk  be).  Figyeld  meg,  hogy fentebb a
+z
+# alapertelmezett  prioritasu  osztalyt  1:26-ra  allitottuk,  igy  a nem jelol
+t
+# csomagok (vagy a nem  ismert ID-ju csomagok) alapertelmezesben  az alacsonyab
+b
+# prioritasu osztalyba mennek.
+
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 20 fw flowid 1:20
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 21 fw flowid 1:21
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 22 fw flowid 1:22
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 23 fw flowid 1:23
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 24 fw flowid 1:24
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 25 fw flowid 1:25
+tc filter add dev $DEV parent 1:0 prio 0 protocol ip handle 26 fw flowid 1:26
+
+#
+# a MYSHAPER-OUT lanc hozzadasa az  iptables "mangle" tablajahoz - ez beallitja
+
+# azt a tablat, amit a csomagok szuresehez es megjelolesehez hasznalunk.
+
+iptables -t mangle -N MYSHAPER-OUT
+iptables -t mangle -I POSTROUTING -o $DEV -j MYSHAPER-OUT
+
+# a fwmark ertekek  beallitasa a kulonbozo  tipusu forgalomhoz - a  fwmark-ot 2
+0-26
+# kozottire allitjuk a kivant osztalynak megfeleloen. A 20 a legmagasabb priori
+tas.
+
+iptables -t mangle -A MYSHAPER-OUT -p tcp --sport 0:1024 -j MARK --set-mark 23
+# Alapertek az
+# alacsony portokon zajlo forgalomhoz
+iptables -t mangle -A MYSHAPER-OUT -p tcp --dport 0:1024 -j MARK --set-mark 23
+# ""
+iptables -t mangle -A MYSHAPER-OUT -p tcp --dport 20 -j MARK --set-mark 26
+# ftp-data port, alacsony prioritas
+iptables -t mangle -A MYSHAPER-OUT -p tcp --dport 5190 -j MARK --set-mark 23
+# aol instant messenger
+iptables -t mangle -A MYSHAPER-OUT -p icmp -j MARK --set-mark 20
+# ICMP (ping) - magas prioritas, baratok ismertetojegye
+iptables -t mangle -A MYSHAPER-OUT -p udp -j MARK --set-mark 21
+# DNS nevfeloldas (kis csomagok)
+iptables -t mangle -A MYSHAPER-OUT -p tcp --dport ssh -j MARK --set-mark 22
+# secure shell
+iptables -t mangle -A MYSHAPER-OUT -p tcp --sport ssh -j MARK --set-mark 22
+# secure shell
+iptables -t mangle -A MYSHAPER-OUT -p tcp --dport telnet -j MARK --set-mark 22
+# telnet (ew...)
+iptables -t mangle -A MYSHAPER-OUT -p tcp --sport telnet -j MARK --set-mark 22
+# telnet (ew...)
+iptables -t mangle -A MYSHAPER-OUT -p ipv6-crypt -j MARK --set-mark 24
+# IPSec - viszont nem tudjuk, mi a "hasznos teher"...
+iptables -t mangle -A MYSHAPER-OUT -p tcp --sport http -j MARK --set-mark 25
+# helyi webszerver
+iptables -t mangle -A MYSHAPER-OUT -p tcp -m length --length :64 -j MARK --set-
+mark 21 # kis csomagok (valoszinuleg csak ACK-k)
+iptables -t mangle -A MYSHAPER-OUT -m mark --mark 0 -j MARK --set-mark 26
+# redundans- jeloljunk minden nem jelolt csomagot 26-tal (alacsony prioritas)
+
+# vegeztunk a kimeno korlatozassal
+#
+####################################################
+
+echo "Outbound shaping added to $DEV.  Rate: ${RATEUP}Kbit/sec."
+
+# tavolitsd el a megjegyzest a kovetkezo sor elol, ha csak kimeno forgalomszaba
+lyozast akarsz
+# exit
+
+####################################################
+#
+# Bejovo korlatozas (a teljes savszelesseg RATEDN-re allitva)
+
+# megnezzuk, hogy az imq modul betoltodott-e
+
+modprobe imq numdevs=1
+
+ip link set imq0 up
+
+# a qdisc hozzadasa - alapertelmezett alcsony prioritasu 1:21-es osztaly
+
+tc qdisc add dev imq0 handle 1: root htb default 21
+
+# a fo korlatozo osztalyok hozzaadasa
+tc class add dev imq0 parent 1: classid 1:1 htb rate ${RATEDN}kbit
+
+# alosztalyok hozzaadasa - TCP forgalom a 21-ben, nem-TCP forgalom a 20-ban
+#
+tc class add dev imq0 parent 1:1 classid 1:20 htb rate $[$RATEDN/2]kbit ceil ${
+RATEDN}kbit prio 0
+tc class add dev imq0 parent 1:1 classid 1:21 htb rate $[$RATEDN/2]kbit ceil ${
+RATEDN}kbit prio 1
+
+# az alosztalyokhoz qdisc-eket  adunk - SFQ-t adunk minden osztalyhoz. Az SFQ
+# biztositja, hogy minden osztalyon belul a kapcsolatokat (majdnem) egyenloen
+# kezeljuk.
+
+tc qdisc add dev imq0 parent 1:20 handle 20: sfq perturb 10
+tc qdisc add dev imq0 parent 1:21 handle 21: red limit 1000000 min 5000 max 100
+000 avpkt 1000 burst 50
+
+# az fwmark-kal  szurjuk osztalyokba  a forgalmat  - itt  a csomagon  beallitot
+t
+# fwmark-nak megfeleloen iranyitjuk a forgalmat az osztalyokba (az fwmark-ot  a
+z
+# iptables  segitsegevel  kesobb  allitjuk  be).  Figyeld  meg,  hogy fentebb a
+z
+# alapertelmezett  prioritasu  osztalyt  1:21-re  allitottuk,  igy  a nem jelol
+t
+# csomagok (vagy a nem  ismert ID-ju csomagok) alapertelmezesben  az alacsonyab
+b
+# prioritasu osztalyba kerulnek.
+
+
+tc filter add dev imq0 parent 1:0 prio 0 protocol ip handle 20 fw flowid 1:20
+tc filter add dev imq0 parent 1:0 prio 0 protocol ip handle 21 fw flowid 1:21
+
+
+# a MYSHAPER-IN lanc hozzadasa az iptables "mangle" tablajahoz - ez beallitja a
+zt a tablat,
+#               amit a csomagok szuresehez es megjelolesehez hasznalunk.
+
+iptables -t mangle -N MYSHAPER-IN
+iptables -t mangle -I PREROUTING -i $DEV -j MYSHAPER-IN
+
+# a fwmark ertekek beallitasa a kulonbozo tipusu forgalomhoz - a fwmark-ot 20-2
+6 kozottire
+#               allitjuk a kivant osztalynak megfeleloen. A 20 a legmagasabb pr
+ioritas.
+
+
+iptables -t mangle -A MYSHAPER-IN -p ! tcp -j MARK --set-mark 20              #
+ A nem-tcp csomagokat a legnagyobb prioritasura allitja
+iptables -t mangle -A MYSHAPER-IN -p tcp -m length --length :64 -j MARK --set-m
+ark 20 # rovid TCP csomagok, valoszinuleg ACK-k
+iptables -t mangle -A MYSHAPER-IN -p tcp --dport ssh -j MARK --set-mark 20    #
+ secure shell
+iptables -t mangle -A MYSHAPER-IN -p tcp --sport ssh -j MARK --set-mark 20    #
+ secure shell
+iptables -t mangle -A MYSHAPER-IN -p tcp --dport telnet -j MARK --set-mark 20 #
+ telnet (ew...)
+iptables -t mangle -A MYSHAPER-IN -p tcp --sport telnet -j MARK --set-mark 20 #
+ telnet (ew...)
+iptables -t mangle -A MYSHAPER-IN -m mark --mark 0 -j MARK --set-mark 21
+       # redundans- minden nem jelolt csomagot 21-el jelolunk (alacsony priorit
+as)
+
+# vegul utasitjuk ezeket a csomagokat, hogy menjenek keresztul a fent beallitot
+t imq0-on
+
+iptables -t mangle -A MYSHAPER-IN -j IMQ
+
+# vegeztunk a bejovo forgalommal
+#
+####################################################
+
+echo "Inbound shaping added to $DEV.  Rate: ${RATEDN}Kbit/sec."
+     _________________________________________________________________
+
+5. Az új várakozósor tesztelése
+
+A legkönnyebben azzal tesztelheted az új beállítást, hogy telíted a felfelé
+irányuló ágat alacsony prioritású forgalommal. Ez a prioritások
+beállításától függ. A példa kedvéért, mondjuk a telnet és a ping forgalmat
+helyezted magasabb prioritásba (alacsonyabb fwmark), a többi magasabb portot
+(amik FTP átvitelhez stb. használatosak) pedig alacsonyabba. Ha indítasz egy
+FTP feltöltést a kifelé menõ sávszélesség telítésére, csak a gateway felé
+(a DSL vonal másik felén lévõ) menõ ping idõk kis mértékû növekedését
+tapasztalhatod, összehasonlítva a prioritásos várósor nélküli értékekkel. A
+100 ms alatti ping idõk tipikusak attól függõen, hogyan állítottad be a
+dolgokat. Az egy vagy két másodpercnél nagyobb idõk valószínûleg az
+jelzik, hogy nem mûködnek rendben a dolgok.
+     _________________________________________________________________
+
+6. Rendben, mûködik! Hogyan tovább?
+
+Most, hogy sikeresen elkezdtél gazdálkodni a sávszélességeddel,
+elgondolkodhatsz azon, hogyan használod ki. Végül is, valószínûleg fizetsz
+érte!
+
+     * Gnutella kliens használata és FÁJLJAID MEGOSZTÁSA a hálózat
+       teljesítményének kedvezõtlen befolyásolása nélkül.
+     * Web szervert futtathatsz anélkül, hogy a weblapok kiszolgálása
+       lelassítaná a Quake partit.
+     _________________________________________________________________
+
+7. Kapcsolódó hivatkozások
+
+     * Bandwidth Controller for Windows -
+       [37]http://www.bandwidthcontroller.com
+     * [38]dsl_qos_queue - (béta) Linuxhoz. Nincs kernel-foltozás, és
+       jobb a teljesítmény.
+
+References
+
+   1. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#links
+   2. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#emaillist
+   3. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#intro
+   4. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN43
+   5. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#emaillist
+   6. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN53
+   7. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#copyright
+   8. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN59
+   9. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN63
+  10. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#background
+  11. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN71
+  12. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN93
+  13. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN97
+  14. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#how-it-works
+  15. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN122
+  16. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN126
+  17. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN133
+  18. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN152
+  19. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN156
+  20. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#implementation
+  21. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN168
+  22. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#AEN173
+  23. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#testing
+  24. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#onward
+  25. file://localhost/home/dacas/temp/ADSL-Bandwidth-Management-HOWTO-hu.html#links
+  26. http://www.tldp.org/
+  27. http://www.tldp.org/
+  28. http://jared.sonicspike.net/mailman/listinfo/adsl-qos
+  29. mailto:dvsing@sonicspike.net
+  30. mailto: laca[AT]janus.gimsz.sulinet.hu_NO_SPAM
+  31. mailto:dacas[AT]freemail.hu_NO_SPAM
+  32. http://tldp.fsf.hu/index.html
+  33. http://luxik.cdi.cz/~devik/qos/htb/
+  34. http://luxik.cdi.cz/~patrick/imq/
+  35. http://www.lartc.org/
+  36. http://www.lartc.org/
+  37. http://www.bandwidthcontroller.com/
+  38. http://www.sonicspike.net/software#dsl_qos_queue

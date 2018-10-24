@@ -1,0 +1,3828 @@
+  Linux Chinese HOWTO Versi Bahasa Indonesia
+  Chih-Wei Huang cwhuang@phys.ntu.edu.tw. Cd Chen
+  cdchen@linux.ntcic.edu.tw
+  v1.04, 2 Juni 1998
+
+  Dokumen ini mendemonstrasikan bagaimana mengimplementasikan bahasa
+  Mandarin yang tersedia untuk sistem Linux, termasuk beberapa masalah
+  umum yang biasa ditemukan pada sistem Linux/UNIX saat menggunakan
+  bahasa Mandarin, cara memperoleh, dan menunjukkan bagaimana menginstal
+  dan mensetup beragam software bahasa Mandarin. Akhirnya, kami ingin
+  menjelaskan sekilas mengenai cara untuk menjadikan lingkungan bahasa
+  Mandarin lengkap pada sistem Linux.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. Pengantar
+
+     1.1 Pendahuluan
+     1.2 Perhatian
+     1.3 Versi Terbaru
+     1.4 Hak Cipta dan Pemberitahuan
+     1.5 Tujuan
+     1.6 Ucapan Terima Kasih
+     1.7 Catatan dari Penterjemah--Frank J.S. Chen
+
+  2. Kesulitan-kesulitan dalam menggunakan bahasa Mandarin dalam sistem Linux
+
+  3. Di mana memperoleh software-software berbahasa Mandarin ?
+
+     3.1 Website untuk software-software Mandarin
+     3.2 Menggunakan Archie
+
+  4. Tampilan dan Input bahasa Mandarin
+
+     4.1 xcin+crxvt
+        4.1.1 Memperoleh software
+        4.1.2 Instalasi xcin
+     4.2 yact
+     4.3 bcs16
+     4.4 chdrv
+        4.4.1 Memperoleh chdrv
+        4.4.2 Instalasi chdrv
+     4.5 cxterm
+        4.5.1 Memperoleh cxterm
+        4.5.2 Instalasi cxterm
+        4.5.3 Patch warna untuk CXterm
+     4.6 XA (Xcin Anywhere)
+     4.7 Tambahan baru
+        4.7.1 xcin
+        4.7.2 yact & bcs16
+        4.7.3 chdrv
+        4.7.4 cxterm
+     4.8 Masalah-masalah berkaitan dengan masukan
+
+  5. Sistem X Window Berbahasa Mandarin
+
+     5.1 CXWin
+        5.1.1 Bagaimana memperolehnya ?
+        5.1.2 Patches
+        5.1.3 Instalasi
+     5.2 Instalasi font-font berbahasa Mandarin
+        5.2.1 Di mana memperoleh font-font ini ?
+        5.2.2 Instalasi font-font X
+        5.2.3 Transformasi dari font lain ke font X
+     5.3 TaBE & B5LE
+
+  6. Mencetak untuk bahasa Mandarin
+
+     6.1 cnprint
+        6.1.1 Di mana memperolehnya ?
+        6.1.2 Mensetup cnprint
+        6.1.3 Instalasi font-font HBF
+        6.1.4 Transformasi Kode
+     6.2 ps2cps
+     6.3 bg2ps
+        6.3.1 Instalasi bg2ps
+        6.3.2 Instalasi nps2cps
+     6.4 gb2ps
+        6.4.1 Bagaimana memperoleh gb2ps ?
+        6.4.2 Instalasi gb2ps
+
+  7. Software-software Pencetak Berbahasa Mandarin
+
+     7.1 LaTeX + CJK
+        7.1.1 Memperoleh software ini
+        7.1.2 Instalasi
+        7.1.3 Uji
+        7.1.4 Menambahkan font-font baru
+        7.1.5 Membuat dokumen-dokumen CJK
+     7.2 ChiTeX
+        7.2.1 Cara Memperoleh
+        7.2.2 Instalasi
+        7.2.3 Instalasi font-font
+        7.2.4 Uji
+     7.3 Dtop
+        7.3.1 Bagaimana memperolehnya ?
+        7.3.2 Instalasi
+     7.4 ChinesePower
+     7.5 EasyFlow
+
+  8. Software-software Berbahasa Mandarin yang Bermanfaat
+
+     8.1 cjoe - Joe's Own Chinese Editor
+     8.2 celvis
+     8.3 cvim
+     8.4 he
+     8.5 hztty
+     8.6 ktty
+     8.7 Cemacs dan CChelp For Emacs
+     8.8 Mule
+        8.8.1 Memperoleh Mule-2.3 dan patch untuk Linux
+        8.8.2 Kompilasi dan Instalasi
+        8.8.3 Menggunakan bahasa Mandarin dalam Mule-2.3
+     8.9 hc
+     8.10 ctin
+     8.11 Beberapa mainan lain
+
+  9. Masalah-masalah Bahasa Mandarin dengan Lainnya
+
+     9.1 Netscape Navigator
+     9.2 sendmail
+     9.3 procmail
+     9.4 telnet
+     9.5 less
+     9.6 pine
+     9.7 samba
+     9.8 lynx
+     9.9 minicom
+     9.10 fingerd
+     9.11 tintin++
+
+  10. Linux Berbahasa Mandarin
+
+     10.1 Proyek Dokumentasi Linux Berbahasa Mandarin (CLDP)
+     10.2 Proyek Linux Berbahasa Mandarin
+     10.3 Website berbahasa Mandarin untuk Linux
+     10.4 Kelompok Diskusi Linux
+
+  11. FAQ (Pertanyaan-pertanyaan yang sering diajukan)
+
+     11.1 Mengapa saya tidak dapat memasukan bahasa Mandarin ?
+     11.2 Saya telah mendapat font-font NTU TTF, tetapi bagaimana saya mendekompresnya ?
+     11.3 Judul dan tag Netscape tidak dapat melihat bahasa Mandarin ?
+     11.4 Netscape tidak dapat melihat bahasa Mandarin?
+     11.5 Bagaimana memasukkan bahasa Mandarin dalam Netscape?
+     11.6 Apa beda antara ChiTeX dan CJK? Dapatkah saya menginstalnya pada saat yang sama?
+
+  12. Terjemahan ke bahasa Indonesia
+
+  13. Lampiran - Software-sofware Berbahasa Mandarin di FTP.IFCSS.ORG
+
+
+
+  ______________________________________________________________________
+
+  1.  Pengantar
+
+  1.1.  Pendahuluan
+
+  Catatan : Saya menulis dokumen ini untuk membantu para pemula. Namun
+  bila tidak, itu masalah anda, bukan saya! Jangan mengeluh bahwa saya
+  membuang waktu anda, karena tak seorangpun harus menjawab pertanyaan-
+  pertanyaan anda, dan tak seorangpun harus menulis dokumen untuk
+  membantu anda! Anda telah diperingatkan.
+
+  Ini adalah sebuah dokumen bagian Chinese Linux Documentation Projects,
+  memperkenalkan kemajuan dalam memenuhi bahasa Mandarin pada Linux.
+  Satu hal yang membedakannya dari dokumen-dokumen CLDP lainnya adalah
+  dokumen HOWTO ini, akan menjadi yang pertama dan juga satu-satunya
+  yang ditulis dalam bahasa Mandarin dahulu dan kemudian diterjemahkan
+  ke bahasa Inggris.^-^
+
+  Saya telah berusaha keras untuk memastikan ketepatan dokumen ini,
+  namun demikian, saya tidak dapat memberi jaminan bahwa seluruh operasi
+  dan konfigurasi dapat dieksekusi secara tepat dan lancar di sistem
+  anda. Jika ada masalah atau kerusakan terjadi di sistem anda karena
+  contoh-contoh executable yang ditulis dalam dokumen ini yang telah
+  anda ikuti, kami, para penulis, tidaklah bertanggung jawab.
+
+  Tujuan dasar yang diemban oleh dokumen ini adalah untuk mengurangi
+  pertanyaan-pertanyaan yang berulang-ulang, seperti "Mengapa saya tidak
+  dapat memasukkan/melihat karakter Mandarin?", "Mengapa saya tidak
+  dapat menset xxx?" dan seterusnya, yang muncul di Internet. Dalam
+  kenyataannya, menurut saya itu adalah mustahil.
+
+
+  1.2.  Perhatian
+
+  Program shell yang digunakan dalam dokumen ini adalah sh/bash. Jika
+  sistem lain (seperti csh/tcsh) adalah pilihan anda, anda perlu
+  memperhatikan perbedaan-perbedaan di antara mereka. Dalam konfigurasi
+  variabel-variabel lingkungan, sebagai contoh, penggunaan dengan
+  sh/bash adalah.
+
+
+       # export TERM=vt100
+
+
+
+
+  sementara untuk csh/tcsh,
+
+
+       #setenv TERM vt100
+
+
+
+
+
+  1.3.  Versi Terbaru
+
+  Secara bersamaan, saya menyediakan berbagai format berikut dalam
+  versi-versi berbeda oleh karena adanya mekanisme format dokumen SGML.
+  o  Teks Biasa
+
+  o  HTML
+
+  o  PostScript
+
+  o  SGML
+
+  Anda dapat mendownload format-format ini dari
+  <ftp://ftp.phys.ntu.edu.tw/pub/CLDP/howto-translations/>
+
+  Anda juga dapat membaca secara langsung versi terbaru dokumen ini
+  secara online.
+
+  o  <http://www.phys.ntu.edu.tw/~cwhuang/pub/os/linux/CLDP/Chinese-
+     HOWTO.html>
+
+  o  Homepage for Chinese Linux Documentation Projects
+     <http://www.linux.org.tw/CLDP/Chinese-HOWTO.html>
+
+  Versi bahasa Inggris dapat diperoleh dari :
+
+  o  <http://sunsite.unc.edu/LDP/HOWTO/Chinese-HOWTO.html>
+
+  o  <http://www.phys.ntu.edu.tw/~cwhuang/documents/linux-howto/Chinese-
+     HOWTO.html>
+
+  Terjemahan bahasa Jepang juga tersedia di (terima kasih kepada
+  isaji@mxu.meshnet.or.jp) :
+
+  o  <http://jf.gee.kyoto-u.ac.jp/JF/JF-ftp/other-
+     formats/Chinese/Chinese-HOWTO.html>
+
+  o  <ftp://ftp.kuis.kyoto-u.ac.jp/Linux/JF/other-formats/Chinese/>
+
+
+  1.4.  Hak Cipta dan Pemberitahuan
+
+  Hak cipta dokumen Chinese HOWTO ini adalah milik Chih-Wei Huang. Anda
+  boleh membuat salinan, distribusi dan menyebar seluruh atau sebagian
+  dokumen ini. Anda didorong untuk menjadikannya kenyataan sehingga
+  semakin banyak netter yang memperoleh bantuan darinya dalam penggunaan
+  non-komersil. (Tolong, JANGAN menghapus nama saya darinya). Untuk
+  kebutuhan komersil, hubungi para penulis dahulu. Merk dagang atau
+  paket-paket yang disebutkan di dokumen ini adalah milik perusahaan
+  atau individu.
+
+
+  1.5.  Tujuan
+
+  Saya harap dokumen ini dapat memberikan suatu penjelasan yang lengkap
+  dan mencukupi dalam seluruh aspek penggunaan bahasa Mandarin pada
+  sistem Linux. Hal-hal yang terkait dengan implementasi bahasa Mandarin
+  pada Linux akan ditaruh di sini secara bersamaan! Namun, oleh karena
+  keterbatasan kepandaian dan kemampuan individu, tujuan utama keinginan
+  saya adalah hampir suatu "misi yang mustahil", karena itu, jika di
+  sana sini terdapat kekurangan, tolong beritahu saya.
+
+
+  1.6.  Ucapan Terima Kasih
+
+  Saya ingin berterima kasih kepada Hong Zhang sebagai pendiri awal
+  dokumen Chinese HOWTO dan atas papernya yang merupakan landasan versi
+  baru ini. Saya juga ingin berterima kasih kepada Cd Chen atas
+  penyelesaian bagian ``Tampilan dan Masukan berbahasa Mandarin''.
+
+  Penterjemah, Frank J.S Chen, juga patut mendapat ucapan terima kasih
+  atas penterjemahan dokumen ini ke dalam bahasa Inggris.
+
+  Di sini, banyak orang yang perlu dihargai atas usaha-usaha mereka
+  untuk menjadikan Linux lebih dapat diandalkan dalam bahasa Mandarin.
+  Oleh karena kerja keras mereka, saat ini kita dapat menikmati
+  lingkungan Linux berbahasa Mandarin yang menyenangkan.
+
+
+  1.7.  Catatan dari Penterjemah--Frank J.S. Chen
+
+  Pekerjaan ini dimulai pada 8/1/98 dan berakhir pada 11/1/98, yang saya
+  sebut versi 0,1 , sebagaimana biasanya saya lakukan terhadap awal
+  sesuatu. Saya menghargai kerja keras versi bahasa Mandarin atas
+  pernyataan-pernyataannya yang mudah dan tidak meninggalkan rincian
+  dalam bidang praktik-praktik bahasa Mandarin. Semakin banyak saya
+  menerjemahkan, semakin banyak saya belajar. Setelah memeriksa seluruh
+  kalimat yang telah saya buat, terdapat banyak yang tidak seperti
+  bahasa Inggris-Amerika yang sebenarnya, atau disebut bahasa Mandarin
+  bergaya Inggris. Jika anda ahli dalam bidang penterjemahan atau
+  tertarik dalam bidang ilmu komputer, sesuatu seperti artikel bahasa
+  Inggris ini, menyukai tata bahasa, menulis, internasionalisasi Linux,
+  penterjemahan, pemrograman C/C++, dan sebagainya, akan sangat dihargai
+  dan sangat dipersilakan.(11/1/98, dimodifikasi pada 2/6/98). Ini
+  merupakan modifikasi kedua, memfokuskan pada kesalahan-kesalahan
+  pengetikan, tata bahasa yang tidak benar, dan memperbaiki arti kata-
+  kata yang rancu (mungkin sedikit penelitian tentang arti kata, hanya
+  untuk dokumen ini :-)). Saya tidak mempunyai ideal tentang kualitas
+  penterjemahan dokumen ini, jika anda merasa aneh atau ragu pada saat
+  membaca, tolong beritahu saya. Menunjukkan bagian-bagian yang tidak
+  baik akan sangat baik dalam menyebarkan howto ini. Sejauh yang saya
+  tahu, versi bahasa Inggrisnya telah diterjemahkan ke beberapa bahasa
+  asing termasuk Jepang, Swedia, dsb. Jika anda ingin melakukan
+  terjemahan ke bahasa lainnya, teruskan, tetapi kami sarankan anda
+  untuk memberitahu salah satu dari kami tentang hal itu. (2/6/98)
+
+
+  2.  Kesulitan-kesulitan dalam menggunakan bahasa Mandarin dalam sistem
+  Linux
+
+  Bagian ini akan berusaha menjelaskan secara garis besar beberapa
+  halangan dalam menggunakan bahasa Mandarin pada Linux; kemudian anda
+  dapat menemukan titik-titik kunci jauh lebih mudah ketika anda
+  menghadapi masalah-masalah ini. Pada kenyataannya, kesulitan-kesulitan
+  yang dijelaskan di sini tidak hanya terdapat pada Linux tetapi juga
+  sistem lain. Lebih lagi, kami dapat mengatakan bahwa seluruh
+  lingkungan komputer adalah memprihatinkan. Jika bagian ini tidak
+  sesuai dengan selera anda atau atau ingin segera bertindak, maka anda
+  dapat lompat ke bagian ``Tampilan dan Masukan berbahasa Mandarin''!
+
+  Sebagaimana kita tahu, sebuah kata bahasa Mandarin terdiri dari dua
+  byte di komputer. Metode pengkodean yang paling populer mencakup kode-
+  kode BIG5 yang ada di Taiwan dan kode-kode GB yang ada di Cina. Byte
+  pertama setiap kata hampir lebih besar dari 128, yang kita sebut kode-
+  kode non-ASCII. (Kode-kode ASCII berarti kode-kode dengan nilai lebih
+  kecil dari 128).
+
+  Ya! Lalu bagaimana? Ini adalah intinya! Oleh karena berbagai alasan,
+  dahulu banyak program yang tidak memperhitungkan kemungkinan kode-kode
+  ASCII sebagai bagian dari pemasukan data.
+
+  Program-program macam ini selalu berasumsi bahwa data yang disiapkan
+  untuk dimanipulasi seluruhnya dalam daerah kode-kode ASCII, dan yang
+  paling buruknya adalah ketika mereka menjumpai kode-kode non-ASCII,
+  sebuah asumsi tentang ketidakadaan mereka dan pemotongan bit ke-8
+  adalah merupakan satu metode yang sering diambil. Ini disebut masalah
+  pembersihan 8-bit.
+
+  Program anda, sebagai contoh, selalu menerima bahwa input anda
+  seluruhnya adalah kode-kode ASCII lebar 7-bit. Ketika anda memasukan
+  kata-kata Mandarin, ia akan menghapus bit ke-8 sehingga masukan
+  tersebut akan menjadi tidak bermakna dalam bahasa Mandarin. Program-
+  program komunikasi di Internet biasanya hanya dapat mentransmisikan
+  data 7-bit. Suatu substansi yang terkenal pada program sendmail awal.
+  Sendmail hanya dapat mengirim dan menerima surat-surat 7-bit,
+  menyebabkan strategi-strategi metode pengkodean yang ganjil,
+  "Encoding" yang menyebabkan penerima terganggu, dikenali sebagai
+  mengirimkan surat-surat berbahasa Mandarin (seperti uuencode, base64,
+  QP dan sebagainya). (Seringkali, saya memikirkan bahwa jika para
+  pembuat email memiliki pandangan yang cukup jauh ke depan, mungkin
+  kita akan memiliki sedikit masalah saat ini).
+
+  Masalah ini tampaknya lebih rumit di Internet. Meskipun anda dan
+  penerima anda memiliki mesin yang terpasang dengan program sendmail
+  yang mampu memanipulasi surat-surat berbahasa Mandarin, penerima
+  mungkin masih akan memperoleh surat-surat pengganggu. Hal ini
+  dikarenakan surat sebelum tiba pada sasaran mungkin melalui beberapa
+  host di Internet, jika salah satu sendmailnya memotong bit ke-8, maka
+  akan ada masalah. Untuk program-program dengan arsitektur
+  client/server, masalahnya mungkin ada pada client, atau pada server;
+  jika tidak, mungkin pada keduanya.
+
+  Aplikasi-aplikasi yang tidak mampu mengidentifikasi pengkodean bahasa
+  Mandarin juga merupakan masalah utama, selain karena tidak dapat
+  menangani data berkode non-ASCII. Banyak program (bahkan jika mampu
+  menangani 8-bit secara tepat) menganggap sebuah kata Mandarin sebagai
+  dua buah byte individual. Hal ini tidak akan menyebabkan masalah dalam
+  kondisi tertentu, namun akan menimbulkan kekacauan di situasi
+  tertentu.
+
+  Alasan yang paling jelas adalah, sebagai contoh, bahkan jika anda
+  mampu memasukkan kata-kata Mandarin secara tepat, tetapi ketika anda
+  menekan tombol backspace berusaha menghapus seluruh kata, semua kata
+  akan terbagi ke dalam dua bagian arti yang hanya satu byte (kolom)
+  yang dapat dihapus dari monitor dan satu bagian lagi menjadi kode
+  pengganggu. Terlebih lagi, anda mungkin mengganti baris pada byte
+  kedua kata Mandarin dalam suatu editor teks dan kemudian kode
+  penganggu muncul. Selain itu, editor teks ini mungkin menganggap
+  kalimat Mandarin yang panjang sebagai suatu kalimat Inggris yang
+  panjang tanpa mengadakan pergantian baris, menjadikan layar buruk dan
+  kacau.
+
+  Terdapat hal-hal yang lebih buruk lagi! Beberapa kata Mandarin
+  mengandung kode-kode khusus yang berkaitan dengan arti tertentu pada
+  beberapa aplikasi dan mungkin membuat program-program ini menghasilkan
+  kesalahan fatal saat mengikuti kode tersebut atau hanya diam
+  (collapse).
+
+  Di bawah ini terdapat beberapa usulan untuk menanganinya namun tidak
+  lengkap, terpecah-pecah dan juga tidak memuaskan. Hanya ketika seluruh
+  software sesuai dengan bahasa Mandarin, maka permasalahan mungkin
+  dapat terpecahkan.
+
+  Namun, semakin banyak program memperhatikan pentingnya
+  internasionalisasi, sebagai contoh, kebanyakan program sendmail host
+  sekarang mampu menangani surat-surat 8-bit secara tepat--Tidak hanya
+  mentransmisikan surat Mandarin yang membutuhkan 8-bit, tetapi juga
+  banyak surat-surat multimedia membutuhkan 8-bit. "Banyak Software"
+  sudah tidak memerlukan modifikasi sama sekali atau hanya membuka
+  beberapa pilihan (option) tertentu untuk dapat menggunakan bahasa
+  Mandarin. Secara bersamaan, kini semakin banyak orang yang terlibat
+  pada kelahiran software berbahasa Mandarin. Mari kita tunggu dan
+  mengharapkannya.
+
+
+  3.  Di mana memperoleh software-software berbahasa Mandarin ?
+
+  3.1.  Website untuk software-software Mandarin
+
+  Kebanyakan software berbahasa Mandarin dalam dokumen ini dapat
+  diperoleh dari site-site berikut :
+
+  o  <ftp://linux.cis.nctu.edu.tw>
+
+  o  <ftp://linux.csie.nctu.edu.tw/pub/chinese>
+
+  o  <ftp://chinese.linux.org.tw/pub/Chinese>
+
+  o  <ftp://NCTUCCCA.edu.tw/Chinese/ifcss/software>
+
+  o  <ftp://cnapps.ifcss.org>
+
+  o  <ftp://irpslibrary.ucsd.edu/software/chinese_software/index.htm>
+
+
+  3.2.  Menggunakan Archie
+
+  Terkadang ada beberapa pertanyaan umum seperti "Di mana saya dapat
+  menemukan xxx...?" muncul di Internet. Sebenarnya, ada utilitas yang
+  sangat baik bernama archie yang dapat membantu anda untuk mencari
+  software-software yang anda butuhkan. Buat sebuah link ke
+  http://archie.edu.tw/archie.html <http://archie.edu.tw/archie.html>,
+  lalu masukkan nama software yang anda inginkan. Jika anda ingin
+  menggunakan xcin, sebagai contoh, dengan hanya memasukkan xcin anda
+  memperoleh seluruh software terkait dengan xcin ditampilkan di layar.
+  Lalu,pilih site terdekat untuk mendownload software-software tersebut.
+  Ilustrasi lebih rinci dapat ditemukan di homepage archie sebagai
+  acuan.
+
+  Anda pun dapat menggunakan mode teks. telnet archie.edu.tw dan login
+  sebagai archie lalu ketikkan prog NAMAFILE dan tekan tombol ENTER.
+
+
+              Archie > prog xcin-2.1d.tar.gz
+              # Search type: sub.
+              # Your queue position: 1
+              # Estimated time for completion: 5 seconds.
+              working... =
+
+              Host linux.cis.nctu.edu.tw    (140.113.166.117)
+              Last updated 08:47 27 Nov 1997
+
+              Location: /packages/chinese/xcin
+              FILE    -rw-r--r-- 1106789 bytes  08:58 25 Jul 1997  xcin-2.1d.tar.gz
+
+
+
+
+
+  4.  Tampilan dan Input bahasa Mandarin
+
+  Untuk sistem berbahasa Mandarin di DOS atau Windows 95 for Chinese
+  yang selalu anda gunakan untuk masuk ke host Linux, tidak ada keraguan
+  bahwa anda tidak perlu memperhatikan dengan cermat bagian ini. Namun,
+  bilamana local host anda adalah sistem berbasis Linux, konfigurasi
+  untuk sistem berbahasa Mandarin merupakan suatu keharusan.
+
+
+  4.1.  xcin+crxvt
+
+  Sangat disarankan anda mengkombinasikan xcin dan crxvt sebagai suatu
+  cara untuk mengatasi masalah pada I/O berbahasa Mandarin bila Sistem X
+  Window anda kuasai.
+
+  Xcin, dengan singkatan X Window Chinese INput, adalah Sistem Input
+  berbahasa Mandarin dieksekusi di bawah mode X. Karena xcin menggunakan
+  arsitektur client/server, yang perlu anda lakukan hanyalah memulai
+  satu jendela xcin sehingga anda dapat memanipulasi dengan banyak
+  virtual terminal crxvt di bawah satu jendela, yang hanya menghabiskan
+  sedikit sumber daya. Ia juga menawarkan beberapa program "paham input"
+  seperti Wang-Hsing Input atau Natural Input, yang dapat memilih fase
+  yang sesuai secara otomatis. Pada tahap awal, untuk mengkonversi font
+  dan tabel input agar sesuai dengan xcin, anda perlu ETen Chinese
+  System dimount dahulu sebelum instalasi xcin. Setelah, Tung-Han Hsieh
+  bertanggung jawab atas pemeliharaan sukarela xcin, masalah buruk ini
+  telah dipecahkan !
+
+  Versi terbaru adalah 2.3.02. Tetapi ia hanya merupakan versi beta.
+  Untuk yang lebih stabil, saya menyarankan anda untuk mem-fetch
+  xcin-2.1d.
+
+
+  4.1.1.  Memperoleh software
+
+  Download xcin source dari site ftp berikut :
+
+  o  <ftp://linux.cis.nctu.edu.tw/packages/chinese/xcin/xcin-2.1d.tar.gz>
+
+  o  <ftp://linux.cis.nctu.edu.tw/packages/chinese/xcin/xcin-2.3.02.tar.gz>
+
+
+  4.1.2.  Instalasi xcin
+
+  Anda perlu terlebih dulu memiliki file xcin-2.3.02.tar.gz untuk
+  mensetup xcin versi 2.3.02 dan melakukan untar dan unzip terhadapnya
+  di suatu direktori tertentu.
+
+
+       # tar xzvf xcin-2.3.02.tar.gz
+       ....
+       # cd xcin-2.3.02
+       # ./configure (Ikuti perintah di layar untuk memodifikasi pilihan yang anda ambil).
+       # make
+       # make install
+
+
+
+
+  Jadi, anda telah selesai mensetup xcin versi 2.3.02 saat ini.
+
+  Anda dapat juga memperoleh semacam xcin, bernama xcin-2.3.02.i386.rpm,
+  dipelihara oleh Cd Chen untuk Sistem Linux RedHat.
+  <ftp://linux.ntcic.edu.tw/personal/cdchen/Chinese-RedHat-
+  Packages/XCIN/RPMS/xcin-2.3.02-1.i386.rpm>
+
+  Installah dengan cara
+
+
+       # rpm -Uvv xcin-2.3.02-3.i386.rpm
+
+
+
+
+
+  4.2.  yact
+
+  yact adalah sistem untuk menampilkan dan menerima masukan berbahasa
+  Mandarin yang berjalan di mode terminal. Yang membedakannya dengan
+  chdrv adalah yact menggunakan card display komputer anda melalui
+  pustaka svgalib. Tanpa informasi video card anda di dalam svgalib,
+  anda mungkin tidak dapat menjalankan yact di Linux anda.
+
+  Hal yang paling mengagumkan dari yact adalah font-font di-scan dengan
+  ukuran 24x24 di monitor dan lebih indah dibanding sistem masukan
+  berbahasa Mandarin lainnya. Dan lebih halus dibanding yang lain
+  berkaitan dengan penggeseran halaman. Versi terbaru yact saat ini
+  adalah yact-p4.
+
+  Anda dapat memperoleh yact dari,
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/yact/yactp4.tar.gz>
+
+  Cara untuk mensetup yact juga mudah. Setelah memperoleh kode sumber
+  yact, decompresslah dan uji apakah file Makefile benar atau tidak,
+  lalu ketik make all install secara langsung di prompt shell untuk
+  menyelesaikan instalasi file-file bits. Bacalah file README untuk
+  informasi lebih lengkap.
+
+  Selanjutnya adalah mensetup font-font. yact menggunakan font-font HBF,
+  tetapi anda tidak dapat menemukan font-font di dalam paket yact,
+  artinya anda perlu melakukan tindakan tambahan untuk memperolehnya.
+  Mempunyai ETen Chinese System yang termounted adalah suatu rekomendasi
+  asli dari pencipta font-fontnya. Salinlah file deskripsi font-font HBF
+  et24.hbf dari direktori sumber yact ke direktori /usr/local/lib/yact
+  dan gantilah namanya menjadi hzfont.hbf. Lalu salin file-file font
+  STDFONT.24, SPCFONT.24 dan ASCFONT.24 ke direktori /usr/local/lib/yact
+  dan ganti nama ASCFONT.24 menjadi 12x24.
+
+  Font-font HBF gratis juga tersedia. Ubahlah nama-nama ke 256 font
+  ASCII ini sebagai 12x24 dan namakan file deskripsi font-font HBF
+  sebagai hzfont.hbf. Taruh kedua file ini dalam /usr/local/lib/yact,
+  maka semuanya akan beres.
+
+
+  4.3.  bcs16
+
+  Oleh karena yact memerlukan mode 1024x768 svgalib agar bekerja, banyak
+  netter tanpa card seri ET4000 tidak dapat memperoleh dukungan yang
+  baik darinya, menyebabkan keengganan mereka terhadap sistem bahasa
+  Mandarin yang baik ini. bsc16 dimodifikasi dari yact berdasarkan
+  kekurangan ini. Ia hanya memerlukan 640x480 dan dapat bekerja dengan
+  baik pada kebanyakan video card.
+
+  bsc16 dapat diperoleh dari :
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/bcs/bcs007a.tgz>
+
+  Instalasi
+
+  o  Dekompres dan kompilasi untuk mensetup
+
+
+       # tar zxvf bcs007a.tgz
+       # cd bcs16
+       # make
+       # cp bcs16 /usr/local/bin
+
+
+
+
+  o  bcs16 mengambil tabel input yact sebagai default dan inilah alasan
+     anda perlu mensetup yact dulu sebelum bcs16 dapat bekerja. Namun,
+     versi 0,05 atau setelahnya telah berkembang dengan dukungan masukan
+     Boshiamy individual, jadi jika anda tidak perlu masukan yang
+     disediakan yact, anda tidak perlu menginstal yact dulu. Masukkan
+     saja tabel input Boshiamy, liubig5.tab, versi DOS dan taruhlah di
+     direktori /usr/local/lib/yact.
+
+  o  Taruh file-file direktori data ke /usr/local/lib/yact dan seluruh
+     file-file font legal, spcfont.15, spcsupp.15, dan stdfont.15, perlu
+     juga dimasukkan di tempat yang sama.
+
+  o  Jika anda ingin melihat kode-kode GB atau bahasa Jepang atau Korea,
+     ambillah font-font cclib.16.gz, cclib.16a.gz, jis.16.gz, ksc.16.gz
+     dari site berikut dan dekompres mereka ke dalam
+     /usr/local/lib/yact.
+     <ftp://nctuccca.edu.tw/Chinese/ifcss/software/fonts/>
+
+  o  Jika anda memiliki file-file untuk menciptakan font atau
+     seperangkat Sea-Fonts, anda dapat menyalinkan mereka ke direktori
+     /usr/local/lib/yact/usrfont.15m.
+
+  o  Eksekusi bcs16. Dengan menekan Alt-H dapat memperoleh penjelasan
+     instruksi lebih lanjut.
+
+  Pembuat bcs16 adalah cnoize.bbs@bbs.cis.nctu.edu.tw
+
+
+  4.4.  chdrv
+
+  chdrv adalah program emulator berbahasa Mandarin untuk menampilkan dan
+  memasukkan bahasa Mandarin melalui console. Karena chdrv mengakses
+  piranti tty secara langsung, ia harus diaktifkan oleh root. Saat ini,
+  chdrv dipelihara oleh Yu-Chung Wang dan versi terbaru adalah
+  chdrv-1.0.10.
+
+
+  4.4.1.  Memperoleh chdrv
+
+  Anda dapat memperolehnya dari :
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/chdrv/>
+
+  Ambillah paket sumber, chdrv-1.0.10.tar.gz, paket biner.
+  chdrvbin-1.0.10.tar.gz, dan paket font, chdrvfont.tar.gz.
+
+
+  4.4.2.  Instalasi chdrv
+
+  Unzip dan untar file biner terkompres,
+
+
+       # tar xvzf chdrvbin-1.0.10.tar.gz
+       # mv chdrvfont.tar.gz chdrv-1.0.10/
+       # cd chdrv-1.0.10
+
+
+
+
+  Bacalah ilustrasi untuk instalasi dalam file INSTALL.1.0 untuk
+  memodifikasi file instalasi. Jika anda ingin shadow password bekerja,
+  anda perlu merubah setting dalam chinese.conf. Hapuslah komentar
+  berikut ,
+
+
+       LOGINPROGRAM /bin/telnet
+
+
+
+  Remarklah baris berikut,
+
+
+       LOGINPROGRAM /bin/login
+
+
+
+
+  Sekarang, anda dapat mengeksekusi script instalasi.
+
+
+       # ./installbin
+
+
+
+
+
+  4.5.  cxterm
+
+  cxterm adalah sebuah terminal virtual berbahasa Mandarin yang berjalan
+  di Sistem X Window, dan merupakan terminal virtual penampilan dan
+  pemasukan bahasa Mandarin tertua, yang menyediakan berbagai kode untuk
+  bahasa Mandarin, termasuk kode BIG5, kode GB, kode HZ dan sebagainya.
+  Karena setiap cxterm yang dibuka perlu untuk memuat data berbahasa
+  Mandarin ke memori utama, sumber daya sistem banyak digunakan.
+
+
+  4.5.1.  Memperoleh cxterm
+
+  Versi terbaru adalah 5.0.p3 bernama cxterm5.0.p3.tar.gz, yang memiliki
+  kode cxterm dan font-font berbahasa Mandarin. Anda dapat memperolehnya
+  dari, <ftp://ftp.ifcss.org/pub/software/x-win/cxterm/>
+
+  Atau rpm di ftp.redhat.com: cxterm-color-5.0p3-1.i386.rpm, cxterm-
+  color-big5-5.0p3-1.i386.rpm, cxterm-color-gb-5.0p3-1.i386.rpm.
+  <ftp://ftp.redhat.com/pub/contrib/hurricane/i386/>
+
+
+  4.5.2.  Instalasi cxterm
+
+  Dekompres,
+
+
+       # tar -xvzf cxterm5.0.p3.tar.gz
+
+
+
+
+  Instruksi di atas akan menghasilkan direktori baru cxterm-5.0, dan
+  kemudian berikan instruksi-instruksi berikut :
+
+
+       # cd cxterm-5.0
+       # ./config.sh
+
+
+
+
+  Anda perlu login sebagai root untuk mengeksekusi "./config.sh" jika
+  anda ingin seluruh pemakai komputer anda dapat menggunakan cxterm
+  pula, kemudian anda dapat menyelesaikan langkah-langkah setup dengan
+  mengikuti deskripsi berikut :
+
+
+
+
+      0. Read COPYRIGHT Notice
+      1. Compile, Install, and Configure "CXTERM 5.0" in One Step
+
+      2. Compile cxterm (not to install)
+      3. Install cxterm (after successful compilation in 2)
+      4. Install additional Chinese font(s) for your X window
+      5. Configure your account for using cxterm (after installation in 3)
+
+      x. Exit
+    Please choose (0/1/2/3/4/5/x) :
+
+
+
+
+  Jika anda ingin seluruh hal dikerjakan secara otomatis, silakan pilih
+  1, dan kemudian masukkan nama direktori untuk menyimpan cxterm. Jika
+  anda bertanya ke saya, saya akan menyarankan tempat ini,
+  /usr/local/chinese. Terdapat dua macam font bahasa Mandarin yang
+  disertakan dalam paket, dengan memilih 1 dan 3 akan menjadikan
+  prosedur instalasi seluruhnya otomatis. Sebagai tambahan, anda dapat
+  memilih 4 untuk menginstal beberapa font tambahan. Setelah melalui
+  setup ini, anda perlu menaruh cxterm dan CXterm ke dalam path untuk
+  pencarian direktori.
+
+
+       # export PATH=$PATH:/usr/local/chinese/bin
+
+
+
+
+  CXterm hanyalah sebuah script shell untuk memuat sumber daya X dan
+  cxterm. Untuk menggunakan kode GB, masukkan perintah berikut,
+
+
+       # CXterm -gb
+
+
+
+
+  Untuk kode BIG5, lakukan perintah berikut,
+
+
+       # CXterm -big5
+
+
+
+
+
+  4.5.3.  Patch warna untuk CXterm
+
+  Di website  <ftp://ftp.ifcss.org/pub/software/x-win/cxterm>, terdapat
+  sebuah patch warna untuk cxterm pula. Dengan menggunakan patch ini
+  akan membuat cxterm menunjukkan warna ANSI. Dengan mengasumsikan anda
+  menaruh file asli cxterm ke /tmp/cxterm-5.0, maka
+
+
+              # cp cxterm-5.0.p3-color.patch.gz /tmp
+              # gzip -d cxterm-5.0.p3-color.patch.gz
+              # patch < cxterm-5.0.p3-color.patch
+              # cd cxterm-5.0
+              # ./config.sh
+
+
+
+
+
+  4.6.  XA (Xcin Anywhere)
+
+  XA adalah sebuah tool kecil yang merupakan singkatan dari Xcin
+  Anywhere, yang dapat membuat anda memasukkan kata-kata berbahasa
+  Mandarin dengan xcin dalam software-software umum berbasis X. Dengan
+  membuat XA berkoordinasi dengan CXWin (atau XA+CV), anda dapat
+  memperoleh suatu lingkungan untuk mengakses bahasa Mandarin untuk
+  software-software yang tidak mendukung bahasa Mandarin. Lalu, xterm
+  akan menjadi seperti cxterm secara alami. Hebat bukan ? XA saat ini
+  belum stabil, dan anda harus menanggung seluruh risiko jika anda ingin
+  mengeksplorasinya. Sebagaimana banyak hal lain, sebelum bekerja dengan
+  XA, anda harus menginstal xcin terlebih dulu. Anda dapat memperoleh XA
+  dari : <ftp://linux.cis.nctu.edu.tw/packages/chinese/xcin/XA/>
+
+  Dekompres paket. Jalankan ./configure untuk menghasilkan mk dan
+  config.h di account untuk kompilasi dengan cara ./mk. Jika bekerja,
+  ketik ./mk uji xterm untuk melihat apakah xcin dapat dipanggil dan
+  masukkan bahasa Mandarin dalam xterm untuk menguji. Jika tidak ada
+  masalah, salin wrap.so ke /usr/local/lib dengan mengikuti sintaks
+  berikut :
+
+
+              # LD_PRELOAD=/usr/local/lib/wrap.so netscape &
+
+
+
+
+  Kemudian, ikuti metode umum untuk menggunakan xcin.
+
+  Pembuat XA
+
+
+  4.7.  Tambahan baru
+
+  Saat ini, terdapat dua format umum tabel masukan, yaitu tit dan cin,
+  yang keduanya memiliki format teks biasa. (Artinya anda dapat mengedit
+  mereka secara langsung dari editor teks). Namun, kebanyakan Sistem
+  Berbahasa Mandarin juga menyediakan utilitas untuk pertukaran bentuk
+  teks murni ke bentuk biner khusus dalam rangka mempercepat metode
+  pencarian. Sebelum anda mensetup beberapa jenis masukan, anda harus
+  memiliki tit, cin, atau bentuk lainnya setelah transformasi.
+
+  Saya akan mengetengahkan masukan Bo-Shia-My sebagai contoh untuk
+  menunjukkan bagaimana menambahkannya ke dalam setiap sistem berbahasa
+  Mandarin. Tabel masukan yang disebut di sini dapat dijumpai di
+  <ftp://ftp.cis.nctu.edu.tw/UNIX/Chinese/Boshiamy/>
+
+  File-file tit lain juga tersedia di
+  <ftp://ftp.ifcss.org/pub/software/x-win/cxterm/dict/>.
+
+
+  4.7.1.  xcin
+
+  Gunakan utilitas cin2tab yang disediakan oleh xcin untuk
+  mentranformasi tabel cin ke tab
+
+
+       # cin2tab boshiamy.cin
+
+
+
+
+  Akan dihasilkan dua buah file : boshiamy.tab dan boshiamy.tab.rev.
+  Taruh keduanya ke dalam direktori xcin dan kemudian aktifkan xcin :
+
+
+  # xcin -in9 boshiamy.tab
+
+
+
+
+  Untuk menggunakan masukan Bo-Shia-My, tekan kombinasi tombol CTRL-
+  ALT-9.
+
+
+  4.7.2.  yact & bcs16
+
+  yact menggunakan cit versi 2, sama seperti cxterm. Anda dapat
+  menggunakan tool tit2cit yang disertakan dengan yact untuk
+  mentransformasi antara boshiamy.tit dan cit.
+
+  Pindahkan boshiamy.cit ke /usr/local/lib/yact dan buatlah link
+  simbolik untuknya :
+
+
+       # ln -s boshiamy.cit 9
+
+
+
+
+  Tekan CTRL-ALT-9 untuk memanggil masukan Bo-Shia-My.
+
+
+  4.7.3.  chdrv
+
+  Taruhlah boshiamy.tbl ke /usr/local/lib/chinese. Kemudian, modifikasi
+  /etc/chinese.conf, tambahkan bagian INPUT berikut ke dalamnya.
+
+
+       ______________________________________________________________________
+         BEGIN INPUT
+         PHONETIC /usr/local/lib/chinese/phone.def
+         MULTI /usr/local/lib/chinese/boshiamy.tbl
+         END INPUT
+       ______________________________________________________________________
+
+
+
+
+  Akhirnya, gunakan utilitas chconfig dari chdrv untuk menjadikan isi
+  /etc/chinese.conf efektif.
+
+
+  4.7.4.  cxterm
+
+  Ubahlah boshiamy.tit ke cit atau citnf dengan utilitas tit2cit dari
+  cxterm, lalu modifikasi .Xdefaults untuk mengeset kunci kombinasi
+  untuk mengaktifkan masukan Bo-Shia-My. Silakan lihat dokumen teknis
+  yang disertakan pada cxterm untuk informasi mengenai instalasi dan
+  implementasi secara lengkap.
+
+
+  4.8.  Masalah-masalah berkaitan dengan masukan
+
+  Setelah anda selesai memasang Sistem Berbahasa Mandarin, anda telah
+  dapat menampilkan bahasa Mandarin di Linux anda melalui monitor.
+  Namun, untuk menggunakan editor berbahasa Mandarin, anda akan
+  menjumpai bahwa sistem Linux hanya dapat menampilkan bahasa Mandarin
+  namun tidak dapat menerima masukan berbahasa Mandarin. Anda perlu
+  memodifikasi dua bagian untuk menjadikan sistem Linux dapat menerima
+  keluaran dan masukan berbahasa Mandarin jika anda ingin memperbaiki
+  masalah-masalah ini. Pertama, anda perlu menambahkan setting lokal ke
+  file profile shell (Bacalah locale-mini-HOWTO bila terkait dengan
+  lokal). Kedua, penambahan himpunan masukan ke file .inputrc di
+  direktori anda juga perlu. (Silakan buat sendiri bila .inputrc tidak
+  ada). Berikut ini adalah konfigurasi file shell profile dan file
+  .inputrc yang didistribusikan secara public domain (hanya sebagai
+  referensi) :
+
+  Bash Shell : Silakan tambah isi berikut ini ke /etc/profile
+
+
+       ______________________________________________________________________
+         stty cs8 -istrip
+         stty pass8
+         export LANG=C
+         export LC_CTYPE=iso-8859-1
+       ______________________________________________________________________
+
+
+
+
+  Tcsh Shell : Silakan tambah isi berikut ini ke /etc/csh.login atau
+  /etc/csh.cshrc
+
+
+
+       ______________________________________________________________________
+         stty cs8 -istrip
+         stty pass8
+         setenv LANG C
+         setenv LC_CTYPE iso-8859-1
+       ______________________________________________________________________
+
+
+
+
+  File $HOME/.inputrc untuk mensetup list adalah sebagai berikut :
+
+
+       ______________________________________________________________________
+         set convert-meta off
+         set output-meta on
+       ______________________________________________________________________
+
+
+
+
+  Siapkan file teks berisi kata-kata berbahasa Mandarin, dan gunakan
+  grep untuk mencarinya. Jika ia dapat menemukan sesuatu dengan tepat,
+  artinya sistem Linux anda telah dapat bekerja dengan kata-kata
+  berbahasa Mandarin.
+
+
+  5.  Sistem X Window Berbahasa Mandarin
+
+  Sistem X Window adalah suatu software dengan lingkungan yang
+  "powerful" bagi antar muka pemakai grafis yang berjalan di sistem
+  UNIX. XFree86 adalah versi modifikasi dari Sistem X Window MIT dan
+  didistribusikan secara bebas.
+
+
+  5.1.  CXWin
+
+  Chinese X, disingkat CXWin, adalah merupakan sebuah patch XFree86,
+  membuatnya dapat menampilkan kata-kata berbahasa Mandarin dalam Sistem
+  X Window. Pembuatnya adalah srlee. Saat ini CXWin hanya mendukung kode
+  BIG5, dan dapat membuat anda 'tersihir' dengan pop-up menu berbahasa
+  Mandarin, titel window berbahasa Mandarin, dan menampilkan bahasa
+  Mandarin dalam beragam window manager dan aplikasi.
+
+
+  5.1.1.  Bagaimana memperolehnya ?
+
+  Anda dapat memperoleh CXWin 3.3 dari site ftp berikut :
+  <ftp://linux.cis.nctu.edu.tw/packages/X/Xserver/CXwin/3.3/>
+
+  Jika anda menggunakan XFree86 3.2, anda dapat memperoleh format Linux
+  ELF untuk versi 3.2.
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/CXwin/binaries/>
+
+  Yang anda perlukan hanyalah memperoleh X server yang sesuai. Sebagai
+  contoh, jika video card anda sesuai dengan XF86_SVGA, ambillah
+  XF86_SVGA.gz. XF86_SVGA.gz seharusnya bekerja dengan baik di
+  kebanyakan video card.
+
+  Jika sistem anda kompatibel dengan rpm, anda dapat pula memperoleh
+  CXWin 3.3.1 versi rpm.
+  <ftp://linux.cis.nctu.edu.tw/packages/X/Xserver/CXwin/3.3.1/>
+
+
+  5.1.2.  Patches
+
+  Anda dapat memperoleh patches di tempat yang sama untuk mengkompilasi
+  ke file biner oleh anda sendiri jika anda telah memiliki kode sumber
+  XFree86.
+
+
+  5.1.3.  Instalasi
+
+  Pastikan bahwa anda telah memiliki pustaka bersama berikut jika
+  pilihan anda adalah CXWin 3.3 (Anda dapat menggunakan ldconfig -p
+  untuk observasi) :
+
+
+              libm.so.5 => /lib/libm.so.5.0.6
+              libdl.so.1 => /lib/libdl.so.1.7.14
+              libc.so.5 => /lib/libc.so.5.3.12
+
+
+
+
+  Jika pilihan anda adalah CXWin 3.2, maka anda perlu libc versi 5.2.18
+  atau yang lebih baru.
+
+  Pertama, unzip file terkompres dengan gzip.
+
+
+       # gzip -d XF86_SVGA.gz
+
+
+
+
+  Duplikatkan X server asli sebagai salinan sebagai identifikasi root.
+
+
+              # cd /usr/X11R6/bin
+              # mv XF86_SVGA XF86_SVGA_BACKUP
+
+
+
+
+  Taruh CXWin yang terdekompres ke tempat yang tepat dan buat link
+  simbolik :
+         # mv /tmp/XF86_SVGA /usr/X11R6/bin
+         # chown root.bin XF86_SVGA
+         # chmod 4755 XF86_SVGA
+         # ln -sf XF86_SVGA X
+
+
+
+
+  Jika pilihan anda adalah rpm, maka segalanya menjadi lebih mudah dan
+  lebih kompak.
+
+
+       # rpm -Uvv XFree86-SVGA-3.3.1-1c.i386.rpm
+
+
+
+
+  CXWin membutuhkan font-font BIG5 berikut untuk bekerja secara normal :
+  taipei15, taipei16, taipeik20, dan taipeik24. Instal font-font
+  berbahasa Mandarin berikut sesuai dengan metode di bagian berikut.
+
+
+  5.2.  Instalasi font-font berbahasa Mandarin
+
+  5.2.1.  Di mana memperoleh font-font ini ?
+
+  Mungkin anda telah menginstal beberapa font bahasa Mandarin; untuk
+  font GB, anda dapat menemukannya melalui cara berikut :
+
+
+              # xlsfonts | grep gb
+              -cclib-song-medium-r-normal--0-0-72-72-c-0-gb2312.1980-1
+              -cclib-song-medium-r-normal--16-160-72-72-c-160-gb2312.1980-1
+              -isas-fangsong ti-medium-r-normal--0-0-72-72-c-0-gb2312.1980-0
+              -isas-fangsong ti-medium-r-normal--16-160-72-72-c-160-gb2312.1980-0
+              -isas-song ti-medium-r-normal--0-0-72-72-c-0-gb2312.1980-0
+              -isas-song ti-medium-r-normal--16-160-72-72-c-160-gb2312.1980-0
+              -isas-song ti-medium-r-normal--24-240-72-72-c-240-gb2312.1980-0
+              hanzigb13fs
+              hanzigb13st
+              hanzigb16fs
+              hanzigb16st
+              hanzigb24st
+
+
+
+
+  Lima buah font terakhir adalah alias dari lima font sebelumnya. Untuk
+  memeriksa font-font BIG5 yang terinstal, gunakan
+
+
+              # xlsfonts | grep big5
+              -kc-kai-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -kc-kai-medium-r-normal-fantizi-20-200-75-75-c-200-big5.eten.3.10-1
+              -kc-kai-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-15-150-75-75-c-160-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+              -uw-ming-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -uw-ming-medium-r-normal-fantizi-16-160-75-75-c-160-big5.eten.3.10-1
+              -uw-ming-medium-r-normal-fantizi-20-200-75-75-c-200-big5.eten.3.10-1
+              -uw-songti-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -uw-songti-medium-r-normal-fantizi-20-200-75-75-c-200-big5.eten.3.10-1
+              -uw-songti-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+
+
+  Anda dapat memperoleh seluruhnya dari
+  <ftp://ftp.ifcss.org/pub/software/fonts/> jika anda belum
+  menginstalnya atau jika anda ingin lebih. gb/bdf adalah font GB
+  sementara big5/bdf adalah font BIG5.
+
+
+  5.2.2.  Instalasi font-font X
+
+  Dengan mengasumsikan anda telah memiliki font BIG5, eb5-24k2.bdf.gz,
+  dan font GB, gb24st.bdf.gz. Apa yang perlu anda kerjakan dahulu adalah
+  merubah format mereka ke dalam format .pcf.
+
+
+              # gzip -cd eb5-24k2.bdf.gz | bdftopcf -t > eb5-24k2.pcf
+              # gzip -cd gb24st.bdf.gz | bdftopcf -t > gb24st.pcf
+              # compress *.pcf
+
+
+
+
+  Lalu instal ke dalam /usr/X11R6/lib/X11/fonts/misc
+
+
+              # mv *.pcf.Z /usr/X11R6/lib/X11/fonts/misc/
+              # cd /usr/X11R6/lib/X11/fonts/misc
+              # mkfontdir .
+
+
+
+
+  Dalam fonts.dir sekarang seharusnya terdapat dua buah baris berikut :
+
+
+              eb5-24k2.pcf.Z -kc-kai-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+              gb24st.pcf.Z -isas-song ti-medium-r-normal--24-240-72-72-c-240-gb2312.1980-0
+
+
+
+
+  Anda dapat membuat alias lain untuk font-font ini demi mempermudah
+  pengetikan ketika menggunakan software-software berbahasa Mandarin.
+  Tambahkan dua buah baris dalam fonts.alias,
+
+
+              gb24st    "-isas-song ti-medium-r-normal--24-240-72-72-c-240-gb2312.1980-0"
+              taipeik24 "-kc-kai-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1"
+
+
+
+
+  Kemudian, beritahu X Server untuk mereload font-font ini,
+
+
+       # xset fp rehash
+
+
+
+
+  Jika segalanya lancar, anda dapat menggunakan font-font baru sekarang
+  :
+
+
+       # cxterm -GB -fn 12x24 -fh gb24st &
+
+
+
+  Anda pun dapat menaruh font-font ini ke direktori lain, sebagai
+  contoh, /usr/X11R6/lib/X11/fonts/chinese. Jika bekerja, anda perlu
+  menambah baris berikut ke /etc/XF86Config ke bagian "Files",
+
+
+                  FontPath    "/usr/X11R6/lib/X11/fonts/chinese/"
+
+
+
+
+  Jadi, ketika anda memulai X di lain waktu, anda dapat menggunakan
+  font-font ini tanpa masalah.
+
+
+  5.2.3.  Transformasi dari font lain ke font X
+
+  Terdapat program TTF2BDF, ditulis oleh lwj, yang dapat mentranformasi
+  font TTF Windows ke font BDF. Anda dapat memperolehnya dari :
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/TTF2BDF.EXE>
+
+  Ini adalah sebuah program Win32, karena itu anda harus mengeksekusinya
+  pada Windows 95 atau NT.
+
+  Langkah berikutnya adalah mengubah BDF ke PCF, kemudian anda dapat
+  menggunakannya dalam X (Anda dapat menggunakan BDF secara langsung
+  dalam X; tetapi karena BDF berukuran besar PCF akan merupakan pilihan
+  yang lebih baik).
+
+
+       # bdftopcf -t < ming.bdf > ming.pcf
+
+
+
+
+  Anda juga boleh merubah HBF ke font BDF dan PCF. Berikut ini adalah
+  site ftp untuk utilitas transformasi.
+  <ftp://ftp.ifcss.org/pub/software/fonts/utils/hbf.tar.gz>
+
+
+              # hbftobdf ccfs24.hbf > ccfs24.bdf
+              # bdftopcf -t < ccfs24.bdf > ccfs24.pcf
+
+
+
+
+  Program konversi font yang bagus lainnya tersedia di :
+
+
+       <url url="ftp://crl.nmsu.edu/CLR/multiling/General/ttf2bdf-1.8-ELF.tar.gz">
+       <url url="ftp://crl.nmsu.edu/CLR/multiling/General/xmbdfed-3.0.tar.gz">
+
+
+
+
+
+  5.3.  TaBE & B5LE
+
+  TaBE dan B5LE (Big5 Locale Environment) adalah proyek-proyek yang
+  didasarkan pada lokal untuk mengatasi kemampuan bahasa Mandarin dalam
+  X. Jika kita dapat menyelesaikannya, maka masalah-masalah berkaitan
+  dengan I/O bahasa Mandarin di bawah X dapat diselesaikan.
+
+  Penulis TaBE, shawn, sedang menjalani wajib militer di Taiwan, dan
+  homepage TaBE telah pula dihapus (dengan begitu buruk?), sehingga
+  proyek ini telah terhenti.  Penulis B5LE adalah Thinker. Namun
+  demikian, platform utamanya adalah FreeBSD. Jika seseorang berhasil
+  menginstal B5LE dalam platform Linux, tolong beritahu saya.
+  Homepagenya ada di :  <http://ftp-cnpa.yzit.edu.tw/~thinker/B5LE/>
+
+
+  6.  Mencetak untuk bahasa Mandarin
+
+  Bagian ini akan mengajarkan anda bagaimana mencetak dokumen-dokumen
+  berbahasa Mandarin, tetapi tanpa demonstrasi bagaimana mensetup
+  printer anda; anda perlu menyiapkannya sendiri. Alat-alat yang
+  diperkenalkan di bagian ini adalah untuk transformasi ke format
+  PostScript; karena itu anda perlu mensetup printer anda untuk mencetak
+  file PostScript. Jika printer anda tidak mendukung PostScript secara
+  langsung, anda dapat menginstal ghostscript. Silakan lihat Printing
+  HOWTO.
+
+
+  6.1.  cnprint
+
+  cnprint adalah suatu alat bantu cetak dengan kegunaan merubah file
+  teks berbahasa Mandarin ke format PostScript, yang memiliki perintah-
+  perintah yang sama dengan standar. Mendukung kode GB, HZ, dan BIG5.
+
+
+  6.1.1.  Di mana memperolehnya ?
+
+  Download dari  <ftp://ftp.ifcss.org/pub/software/unix/print>, dengan
+  nama cnprint280.tar.gz.
+
+
+  6.1.2.  Mensetup cnprint
+
+  cnprint280.tar.gz hanya terdiri dari lima file.
+
+
+              # ls
+              cnprint.1          cnprint.cmd        cnprint280.README
+              cnprint.c          cnprint.help
+
+
+
+
+  Kompilasi dengan cara :
+
+
+              # gcc cnprint.c -o cnprint
+              # mv cnprint /usr/local/bin
+              # mv cnprint.1 /usr/local/man/man1
+
+
+
+
+
+  6.1.3.  Instalasi font-font HBF
+
+  Font-font HBF mencakup file deskripsi dan font. Sebuah .hbf adalah
+  header file yang menggambarkan font, dengan tekstur teks biasa,
+  mencatat nama-nama file dari file font. Kedua file tersebut harus anda
+  instal sendiri. Anda dapat menemukannya di
+  <ftp://ftp.ifcss.org/pub/software/fonts/>.
+
+  Jika anda ingin menggunakan ccfs24.hbf, sebagai contoh, yang merupakan
+  sebuah penyederhanaan font bergaya tiruan Sung, anda perlu memperoleh
+  ketiga file berikut : ccfs24.hbf, cclib.n24, dan ccsym.24. Dalam
+  direktori font ifcss, 00index.txt mendaftar seluruh nama font HBF.
+  Buatlah direktori khusus untuk menyimpan font-font HBF, seperti
+  /usr/local/lib/chinese/HBF/, sebagai contoh. Taruh seluruh file
+  deskripsi HBF dan font yang anda peroleh ke dalam direktori ini, lalu
+  ekspor pathname direktori lengkap untuk HBF ke luar variabel
+  lingkungan.
+
+
+       # export HBFPATH="/usr/local/lib/chinese/HBF/">
+
+
+
+
+  File cnprint.cmd berisikan beberapa nilai baku untuk cnprint, anda
+  perlu memperbaikinya agar mengarah ke font-font HBF yang telah anda
+  instal, dan kemudian mengeskpornya ke $HBFPATH.
+
+
+       # cp cnprint.cmd $HBFPATH
+
+
+
+
+  Sekarang, anda dapat menggunakan "cnprint -w FILENAME" untuk merubah
+  file teks bahasa Mandarin ke file PostScript. Untuk informasi lebih
+  lengkap, silakan lihat manual cnprint.
+
+
+  6.1.4.  Transformasi Kode
+
+  cnprint 2.80 telah ditambahkan berbagai kemampuan mengagumkan seperti
+  transformasi antara berbagai format kode, sebagai contoh, BIG5 <=> GB
+  <=> HZ. Untuk BIG5 <=> GB, anda perlu tabulasi lain untuk
+  penginstalan, yang dapat ditemukan dari site berikut :
+  <ftp://ftp.ifcss.org/pub/software/unix/convert/hc.tab>
+
+  Taruhlah dalam direktori font HBF, dan modifikasi cnprint.cmd,
+  tambahkan
+
+
+              DEFAULT_GBB5_TABLEFILE: /usr/local/lib/chinese/HBF/hc.tab
+
+
+
+
+  Transformasi cnprint 2.80 secara per kata, tidak hanya untuk BIG5 ke
+  kode GB, namun juga dapat dilakukan secara per fase. Namun demikian,
+  cnprint sendiri tidak menawarkan kamus untuk transformasi, artinya
+  anda perlu menciptakan sebuah kamus sendiri jika anda perlu. Silakan
+  mengacu pada man cnprint untuk lebih lengkapnya.
+
+
+  6.2.  ps2cps
+
+  Kegunaan program kecil ini adalah untuk membuat file PostScript, yang
+  tidak dapat mencetak bahasa Mandarin ke device keluaran, tersedia
+  untuk keluaran berbahasa Mandarin. Sebagai contoh, ketika Netscape
+  mencetak file, ia akan mentranpor file ke bentuk PostScript dulu;
+  namun, keluaran PostScript tidak akan memuat font-font berbahasa
+  Mandarin sehingga bagian-bagian terdahulu kata-kata berbahasa Mandarin
+  akan menjadi kode-kode rusak ke keluaran. Program ini dapat membaca
+  PostScript, dan mengganti kode-kode rusak dengan kata yang sesuai;
+  setelah itu mengirim hasilnya ke device keluaran standar, yang
+  kemudian mengirim data ke printer untuk dicetak.
+
+  ps2cps terdapat di :
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/misc/ps2cps-0.1.tgz>
+
+
+  Untar dan unzip file ini, dan modifikasi Makefile sesuai dengan
+  permintaan anda:
+
+
+                  BINPATH    : Pathname untuk biner ps2cps
+                  PS2CPSPATH : Pathname file sumber daya PS2CPS
+                  PS2CPSRC   : Nama file sumber daya PS2CPS
+
+
+
+
+  Langkah selanjutnya adalah make all install.
+
+  Anda harus menginstal dulu font HBF berbahasa Mandarin berdasarkan
+  bagian terdahulu, dan kemudian memodifikasi file ps2cpsrc :
+
+
+                  HBF_PATH:      Definisi pathname untuk direktori font HBF
+                  HBF_NAME:      Definisi nama file HBF (tidak termasuk pathname)
+                  CH_WORD_SHIFT: Definisi pergantian font-font bahasa Mandarin
+
+
+
+
+  Item terakhir digunakan sebagai penyesuaian lokasi font-font bahasa
+  Mandarin. Beberapa font bahasa Mandarin dan font bahasa Inggris
+  mungkin tidak terletak pada level horisontal yang sama, sehingga anda
+  dapat menset variabel ini, yang memiliki nilai berkisar dari -1.0 ke
+  +1.0, aktivasikan untuk menyesuaikan naik atau turun.
+
+  Jadi, anda dapat menggunakan contoh-contoh yang dibuat penulisnya
+  untuk melakukan beberapa uji :
+
+
+       # ps2cps thhsieh.ps > c-thhsieh.ps
+
+
+
+
+  Gunakan ghostview untuk menguji apakah anda dapat melihat kata-kata
+  berbahasa Mandarin atau tidak.
+
+  Namun demikian, program ini masih merupakan program beta, terdapat
+  banyak masalah untuk diselesaikan. Jika anda memiliki pertanyaan atau
+  rekomendasi, anda dapat mengirimkan pesan ke penulisnya secara
+  langsung : Tung-Han Hsieh.
+
+
+  6.3.  bg2ps
+
+  Ini adalah program lain yang dapat mentransformasi file berbahasa
+  Mandarin berbasis BIG5 ke PostScript untuk dicetak (sama seperti
+  cnprint). Tetapi karena ia menggunakan font-font TrueType, keluaran
+  menjadi lebih baik daripada yang lain. Sebagai tambahan, ia memiliki
+  script yang dapat mentransformasi PostScript dari Netscape ke bahasa
+  Mandarin. Penulisnya adalah Chen-Shan Chin.
+
+  Software ini dapat diperoleh dari site :
+  <http://weber.u.washington.edu/~cschin/bg2ps/>
+
+
+  6.3.1.  Instalasi bg2ps
+
+  Dekompres dan kompilasi :
+
+
+         # mkdir bg2ps
+         # cd bg2ps
+         # tar xzvf bg5ps.tgz
+         # gcc -O2 ttf2psm.c -o ttf2psm
+
+
+
+
+  Kemudian instal font-font TrueType. Anda dapat menginstalnya ke dalam
+  direktori yang sama dengan bg2ps atau dapat menaruhnya di direktori
+  lain. Lihatlah ke ``Instalasi font-font TTF'' untuk penjelasan lebih
+  lanjut. Lalu buatlah .bg5ps.conf di direktori, dan anda dapat
+  mengambil secara langsung file contoh yang disertakan oleh program ini
+  untuk dimodifikasi. Yang paling penting adalah menugaskan direktori
+  tempat anda menginstal font-font TrueType ke chineseFontPath, dan
+  merename isi fontName ke nama font yang anda gunakan.
+
+  Uji contoh yang disertakan, dan lihat keluaran dengan ghostview atau
+  gv.
+
+
+              # ./bg5ps -if test.big5 -of test.ps
+              # ghostview test.ps
+
+
+
+
+
+  6.3.2.  Instalasi nps2cps
+
+  nps2cps tidak memiliki file konfigurasi tambahan. Anda perlu
+  memodifikasi chineseFontPath dan fontName dalam script nps2cps
+  sendiri.
+
+  Uji nps2cps:
+
+
+              # nps2cps < netscape.ps > test.ps
+              # ghostview test.ps
+
+
+
+
+
+  6.4.  gb2ps
+
+  Program gb2ps adalah alat lain untuk mencetak kode GB dan HZ.
+
+
+  6.4.1.  Bagaimana memperoleh gb2ps ?
+
+  Paket : gb2ps.2.02.tar.gz
+  <ftp://ftp.ifcss.org/pub/software/unix/print>
+
+  Font :
+
+
+                    csong24.ccf     ckai24.ccf
+                    cfang24.ccf     chei24.ccf
+
+
+
+
+  <ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/>
+
+
+  Taruh font-font ke dalam direktori tersendiri, seperti
+  /usr/local/lib/chinese/CFONT.
+
+
+  6.4.2.  Instalasi gb2ps
+
+  Ubah setting dalam Makefile sebelum kompilasi gb2ps.
+
+
+              CFONT=/usr/local/lib/chinese/CFONT/
+              COVERPAGE=/usr/local/lib/chinese/lib/cover.ps
+
+
+
+
+  Lalu ketik perintah-perintah berikut dan tekan tombol Enter,
+
+
+              # make
+              # cp gb2ps /usr/local/bin
+
+
+
+
+
+  7.  Software-software Pencetak Berbahasa Mandarin
+
+  7.1.  LaTeX + CJK
+
+  TeX/LaTeX adalah seperangkat software pencetak, yang kualitas
+  keluarannya yang sangat bagus dan elegan telah dikagumi dan diadopsi
+  ke luar lingkaran akademis selama beberapa tahun. CJK adalah sebuah
+  paket makro LaTeX2e, yang dapat membuat anda menggunakan kode-kode
+  literal CJK (Chinese/Japanese/Korean) dalam dokumen TeX.
+
+  Anda perlu menginstal TeX/LaTeX terlebih dulu di sistem Linux anda;
+  banyak distribusi Linux telah memasukkan teTeX/LaTeX. Jika belum, anda
+  dapat menginstalnya sendiri. Silakan link ke teTeX HOWTO untuk
+  informasi lebih lanjut.
+
+
+  7.1.1.  Memperoleh software ini
+
+  Ambillah CJK 4.1.3 dari site :
+  <ftp://nctuccca.edu.tw/Chinese/ifcss/software/tex/CJK-4.1.3.src.tar.gz>
+
+  Font TTF di :
+  <ftp://nctuccca.edu.tw/Chinese/ifcss/software/fonts/big5/ms-win/>
+
+
+  7.1.2.  Instalasi
+
+  Anda harus memiliki ideal yang jelas tentang direktori tempat
+  menginstal teTeX/LaTeX, $TEXMF, sebagai contoh, /usr/lib/texmf. Dan
+  saya berasumsi bahwa anda akan menggunakan font ntu_kai.ttf; jika
+  tidak, buat perubahan untuk menyesuaikan.
+
+  o  Taruh font-font yang telah didownload, setelah dekompresi, ke dalam
+     $TEXMF/fonts/truetype/chinese
+
+  o  Unzip dan untar CJK-4.1.3.src.tar.gz, dan mv subdirektori texinput
+     ke $TEXMF/tex/latex, dan ganti namanya ke CJK, dan buat direktori
+     font.
+
+
+
+         # cd 4_1.3/; mv ./texinput $TEXMF/tex/latex/CJK
+         # mkdir -p $TEXMF/fonts/tfm/chinese/ntukai
+         # mkdir $TEXMF/ttf2pk
+         # mkdir $TEXMF/hbf2gf
+
+
+
+
+  o  Langkah ini mungkin yang paling sulit. Anda perlu memanggil
+     perintah patch untuk menambah *.diff di 4_1.3/doc/teTeX ke file-
+     file berikut :
+
+
+                /usr/bin/MakeTeX*
+                $TEXMF/web2c/texmf.cnf
+                $TEXMF/fontname/special.map
+
+
+
+
+
+  Sebagai contoh:
+
+
+              # cd /usr/bin
+              # patch -s < 4_1.3/doc/teTeX/MakeTeXPK.diff
+
+
+
+
+
+  Berdasarkan banyaknya versi TeX, tindakan anda dengan patch mungkin
+  gagal. Jika benar, anda perlu melakukannya secara manual untuk mem-
+  patch bagian-bagian yang salah (bagian kesalahan akan dicatat di
+  .rej). Jika anda tidak paham teori patch dengan baik, anda lebih baik
+  meminta seseorang yang berpengalaman untuk membantu.
+
+  o  Kompilasi dan instalasi bg5conv
+
+
+              # cd 4_1.3/utils/Bg5conv; gcc -o bg5conv bg5conv.c
+              # chmod 755 bg5latex
+              # cp bg5conv bg5latex /usr/local/bin/
+              # gzip bg5conv.1; cp bg5conv.1.gz /usr/local/man/man1/
+
+
+
+
+
+  Oleh karena terdapat beberapa kode dalam dokumen TeX BIG5 yang mungkin
+  mengandung {, }, & dan seterusnya, yang merupakan token khusus bagi
+  TeX, bg5conv dapat merubah kode-kode ini ke format tertentu yang dapat
+  dimanipulasi TeX.
+
+  o  Kompilasi dan instal ttf2pk, yang dapat merubah font TrueType ke
+     font pk TeX.
+
+
+
+
+
+
+
+
+
+
+         # cd 4_1.3/utils/ttf2pk/src
+         # make all OS=unix
+         # cp ttf2pk /usr/local/bin/
+         # cd ..
+         # cp config/ttf2pk.cfg  $TEXMF/ttf2pk/
+         # gzip ttf2pk.1; cp ttf2pk.1.gz /usr/local/man/man1/
+         # cp c00kai.fd $TEXMF/tex/latex/CJK/Bg5/
+         # cp MakeTTFPK /usr/local/bin
+
+
+
+
+  o  Jika anda ingin mencetak dokumen secara vertikal, anda perlu
+     mengedit file c00kair.fd di $TEXMF/tex/latex/CJK/Bg5/ :
+
+
+       ______________________________________________________________________
+            % traditional Chinese characters in Big 5 encoding scheme.
+
+            % font shape: kai
+            % ntu_kai.ttf is Kai3 Shu1 ("model book")
+
+            \DeclareFontFamily{C00}{kair}{}
+
+            \DeclareFontShape{C00}{kair}{m}{n}{<-> CJK * ntukar}{}
+            \DeclareFontShape{C00}{kair}{bx}{n}{<-> CJKb * ntukar}{\CJKbold}
+
+            \endinput
+       ______________________________________________________________________
+
+
+
+
+  o  Eksekusi texconfig:
+
+
+              # texconfig rehash
+              # texconfig hyphen
+
+
+
+
+
+  7.1.3.  Uji
+
+
+  o  Uji cetak horizontal :
+
+
+         # cd 4_1.3/examples
+         # bg5latex Big5.tex          (Apakah ada Big5.dvi ?)
+         # xdvi Big5.dvi              (Dapatkah terlihat bhs Mandarin ? Tentu, dl mode X)
+         # dvips Big5.dvi -o Big5.ps  (Ubah ke format PostScript)
+         # ghostview Big5.ps          (Lihat dengan ghostview)
+         # lpr Big5.ps                (Cetak, lihat jika ada bahasa Mandarin tercetak.)
+
+
+
+
+  o  Uji cetak vertikal : anda dapat menggunakan file Big5vert.tex untuk
+     mengulangi prosedure sebelumnya.
+
+
+
+
+
+  7.1.4.  Menambahkan font-font baru
+
+  Sebagai contoh, jika anda ingin merubah ke font bergaya Ming
+  ntu_mm.ttf, maka
+
+  o  taruh font-font TrueType di $TEXMF/fonts/truetype/chinese.
+
+  o  dan kemudian tambah dua baris dalam $TEXMF/ttf2pk/ttf2pk.cfg:
+
+
+              ntumm:  -e Big5 $TEXMF/fonts/truetype/chinese/ntu_mm.ttf
+              ntummr: -r 1 -e Big5 $TEXMF/fonts/truetype/chinese/ntu_mm.ttf
+
+
+
+
+  o  Buat file c00ming.fd :
+
+
+              # cd 4_1.3/utils/ttf2pk
+              # cp c00ming.fd $TEXMF/tex/latex/CJK/Bg5/
+
+
+
+
+  o  Eksekusi texconfig lagi.
+
+  o  Ubah kai ke ming dalam file 4_1.3/examples/Big5.tex, dan kemudian
+     ulangi langkah ini, bg5latex, xdvi, dvips dan seterusnya, untuk
+     melihat bila hasil benar atau tidak.
+
+  o  Jika anda ingin mencetak file secara vertikal, ulangi instalasi
+     bagian ini dan buat file c00mingr.fd seperti di bawah ini, dan
+     kemudian ubah kair ke mingr dalam file Big5vert.tex, dan ulangi
+     proses pengujian.
+
+
+       ______________________________________________________________________
+            \def\fileversion{4.1.0}
+            \def\filedate{1996/11/20}
+            \ProvidesFile{c00kair.fd}[\filedate\space\fileversion]
+
+            \DeclareFontFamily{C00}{mingr}{}
+
+            \DeclareFontShape{C00}{mingr}{m}{n}{<-> CJK * ntummr}{}
+            \DeclareFontShape{C00}{mingr}{bx}{n}{<-> CJKb * ntummr}{\CJKbold}
+
+            \endinput
+       ______________________________________________________________________
+
+
+
+
+
+  7.1.5.  Membuat dokumen-dokumen CJK
+
+  Perbedaan utama antara dokumen TeX bahasa Mandarin CJK dan LaTeX biasa
+  adalah :
+
+  o  Harus ada perintah \usepackage{CJK} di bagian pembukaan
+     (\documentclass ke \begin{document}, artinya anda harus memiliki
+     CJK.sty termuat.
+
+  o  Kata-kata Mandarin harus memenuhi syarat-syarat CJK atau CJK*.
+
+
+  o  Jika anda ingin merubah font, anda dapat menggunakan perintah
+     \CJKfamily, sebagai contoh, perintah \CJKfamily{fs} akan merubah
+     font berikut sebagai font imitasi-Song (Tentunya, nama font fs
+     harus didefinisikan dalam c00fs.fd).
+
+     Ini adalah demonstrasi untuk dokumen CJK:
+
+
+       ______________________________________________________________________
+              \documentclass[12pt]{article}
+              \usepackage{CJK}
+              \begin{document}
+                \begin{CJK*}{Bg5}{kai}
+
+                  \section{first section}
+                  \section{second section}
+                  Paragraphs, sections, pictures, tables, references and so forth...
+                  ...
+
+                \end{CJK*}
+              \end{document}
+       ______________________________________________________________________
+
+
+
+
+
+  7.2.  ChiTeX
+
+  Dikembangkan oleh Profesor Chen Hung-Yih. Operasi-operasi dengan
+  ChiTeX semudah TeX berbahasa Inggris, kecuali untuk beberapa perintah
+  khusus.
+
+
+  7.2.1.  Cara Memperoleh
+
+  Dari sini, anda dapat memperolehnya :
+  <ftp://dongpo.math.ncu.edu.tw/tex-archive/local/chitex/chitex/Linux/>
+
+
+  7.2.2.  Instalasi
+
+  Anda perlu tahu versi TeX yang terinstal di Linux anda. Dalam sistem
+  lama, yang terinstal biasanya NTeX, sementara dalam sistem baru,
+  selalu teTeX. Bagaimana mengetahui TeX yang telah terinstal, teTeX
+  atau NTeX, di sistem Linux anda. Jalankan saja TeX. Jika monitor
+  menampilkan
+
+
+              This is TeX, Version 3.14159
+
+
+
+
+  maka ini merupakan teTeX. Bila,
+
+
+              This is TeX, Version 3.1415N
+
+
+
+
+  Ini adalah NTeX. Download ChiTeX yang sesuai dengan versi TeX anda.
+
+  Untuk menginstal ChiTeX adalah mudah. Taruh saja chitex60.tgz (teTeX)
+  atau chitexN.tgz(NTeX) dan fonts1.tgz, fonts2.tgz ke /usr/local. Dan
+  dekompres chitex60.tgz untuk mengeksekusi program setup csetup.
+
+
+              # tar zxvf chitex60.tgz
+              # cd chitex60
+              # ./csetup
+
+
+
+
+  Jika anda menggunakan Red Hat 5.0, anda dapat menginstal paket rpm
+  yang saya buat :
+  <ftp://ftp.phys.ntu.edu.tw/pub/os/linux/rpm/chitex-6.0.7-1.i386.rpm>
+
+
+  7.2.3.  Instalasi font-font
+
+  Anda dapat menginstal font-font TrueType Mandarin untuk ChiTeX.
+
+  o  Taruh font-font TrueType di $TEXMF/fonts/chinese/ttf.
+
+  o  Modifikasi $TEXMF/tex/chinese/chitex.fdf, dan tambah sebuah baris
+     baru :
+
+
+       \choosechfont{fontname}{filename}
+
+
+
+
+
+  Di dalamnya, nama file adalah nama font yang dihapus bagian .ttfnya,
+  dan \fontname adalah makro yang dapat anda gunakan untuk font ini
+  dalam dokumen anda. Sebagai contoh, jika anda ingin menggunakan font
+  avntmv.ttf, taruh baris \choosechfont{ming}{avntmv}, dan gunakan makro
+  \ming untuk menggunakan font avntmv.ttf.
+
+  o  Dalam chitex.fdf, terdapat beberapa font yang didefinisikan; bila,
+     anda ingin menginstal font-font ini, anda tidak perlu lagi merubah
+     chitex.fdf.
+
+
+               \kai    ---->  ntukai.ttf
+               \li     ---->  ntuli.ttf
+               \mr     ---->  ntumr.ttf
+               \fs     ---->  ntufs.ttf
+
+
+
+
+
+  7.2.4.  Uji
+
+  Sekarang, anda dapat mengambil contoh-contoh yang disertakan dengan
+  ChiTeX untuk menguji :
+
+
+              # chilatex math2.tex        (Kompilasi)
+              # xdvi math2                (Preview)
+              # dvips math2               (Ubah ke file PostScript)
+              # ghostview math2.ps        (Gunakan ghostview untuk melihat hasil)
+
+
+
+
+
+  Anda juga dapat menulis sebuah dokumen kecil untuk menguji font-font
+  yang terinstal :
+
+
+       ______________________________________________________________________
+         \documentclass[12pt]{article}
+         \begin{document}
+         \ming
+            This is a test(You should type these words in Chinese).
+         \end{document}
+       ______________________________________________________________________
+
+
+
+
+  Untuk informasi lebih lanjut, silakan lihat Homepage Profesor Chen
+  <http://www.math.ncu.edu.tw/yih/intro.htm>.
+
+
+  7.3.  Dtop
+
+  Dtop adalah software pencetak berbahasa Mandarin untuk platform UNIX,
+  yang dikembangkan oleh Behavior Design Corporation
+  <http://www.bdc.com.tw/>. Di awal November 1995, dikeluarkan versi
+  v1.4, yang terdiri dari lima platform secara bersamaan. Versi beta
+  Linux memberikan pengguna sebuah versi percobaan yang bebas dan tidak
+  kadaluarsa, yang telah menciptakan suatu lingkungan berbahasa Mandarin
+  yang baik untuk penggemar Linux. Namun demikian, versi resmi adalah
+  terlambat untuk penerbitan hingga saat ini karena kecilnya pasar
+  bisnis. Tampaknya ia telah dihentikan pengembangannya.
+
+
+  7.3.1.  Bagaimana memperolehnya ?
+
+  Versi beta Dtop untuk Linux dapat didownload dari site ftp setiap
+  sekolah :
+
+  o  <ftp://nctuccca.edu.tw/Chinese/ifcss/software/linux/X11R6/dtop1.4/pub/>
+
+  o  <ftp://ftp.ntu.edu.tw/Chinese/ifcss/software/linux/X11R6/dtop1.4/pub/>
+
+  o  <ftp://ftp.ccu.edu.tw/pub3/chinese/linux/X11R6/dtop1.4/pub/>
+
+  o  <ftp://ftp.ncu.edu.tw/OS/linux/X/ifcss/X11R6/dtop1.4/pub/>
+
+  o  <ftp://ftp.ifcss.org/pub/software/linux/X11R6/dtop1.4/pub/>
+
+
+  Terdapat tiga buah sub-direktori mengatakan,
+
+
+       dtop.linux
+           Penyimpanan bagi file biner dan data Dtop, yang dapat dibagi ke dalam tiga file utama. Setelah dekompresi, ruang disk yang dibutuhkan sekitar 40MB.
+
+       dtop.readme
+           Penyimpanan untuk dokumen-dokumen terkait Dtop, yang disimpan sebagai format file didefinisikan oleh Dtop. Pemakai dapat membaca tulisan-tulisan ini melalui versi beta secara langsung.
+
+       dtop.manual
+           Penyimpanan bagi referensi versi X Dtop, yang disimpan sebagai format file yang didefinisikan Dtop. Versi X dapat diakses melalui Linux, IBM AIX, HP-UX, Sun 4.1.x, dan Solaris secara langsung.
+
+
+
+
+
+
+
+  7.3.2.  Instalasi
+
+  Hardware yang dibutuhkan adalah sebagai berikut : CPU 486 DX-33 atau
+  lebih, RAM 16 MB atau lebih, sekitar 50 MB ruang disk. Jika tidak
+  terdapat cukup memori di sistem anda, anda akan "nuts" suatu hari.
+
+  Dekompresi seluruh file dalam dtop.linux ke sebuah direktori,
+  misalnya, /usr/local/dtop.
+
+  Sebelum mengimplementasikannya, anda harus menset variabel lingkungan
+  $DTOPHOME, yang merupakan direktori persiapan untuk menginstal Dtop.
+  $DTOPTMP adalah direktori temporer bagi Dtop, yang biasanya /tmp.
+  XAPPLRESDIR adalah direktori bagi file-file sumber daya Dtop, yang
+  diset di $DTOPHOME/user.
+
+
+              # export DTOPHOME=/usr/local/dtop
+              # export DTOPTMP=/tmp
+              # export XAPPLRESDIR=DTOPHOME/user
+
+
+
+
+  Anda perlu menset direktori font-font Mandarin yang digunakan Dtop.
+
+
+       # xset fp+ $DTOPHOME/pcf.chn
+
+
+
+
+  Akhirnya, anda perlu mengkonfigurasi tabel pencocokan Keysym
+  disebabkan pencocokan antara Keysym dan Keycode dalam X berbeda dari
+  workstation. BackSpace dan Delete Keysyms, sebagai contoh, seluruhnya
+  cocok dengan Keycode dalam X yang sama, tanpa memandang bahwa
+  karakteristik BackSpace adalah Delete dalam realita. Untuk mengatasi
+  masalah ini, Dtop menciptakan sebuah file Keysym, terletak di
+  $DTOPHOME/user dengan nama dtop_keysys.linux. Setelah memulai X,
+  berikan perintah,
+
+
+       # xmodmap dtop_keysym.linux
+
+
+
+
+  Solusi lain adalah memberikan perintah-perintah secara langsung pada
+  shell:
+
+
+
+              # xmodmap -e "keycode 22 = BackSpace"
+              # xmodmap -e "keycode 107 = Delete"
+
+
+
+
+  Bila semuanya telah siap, anda dapat mengeksekusi Dtop.
+
+
+       # $DTOPHOME/bin/dtop14
+
+
+
+
+
+  Anda dapat membaca seluruh referensi online yang disertakan dalam Dtop
+  untuk perkenalan yang lebih rinci.
+
+
+  7.4.  ChinesePower
+
+  ChinesePower adalah sebuah Far-East Editor berjalan dalam X, yang
+  mudah dan diklasifikasikan sebagai WYSIWYG. Mendukung BIG5, GB, Bahasa
+  Jepang, dan Korea sebagai masukan, dan mencetak dan menampilkan format
+  PostScript. Ia dapat menghasilkan grafik GIF tujuh warna bagi dokumen-
+  dokumen, yang cukup untuk homepage-homepage berbahasa Mandarin.
+  ChinesePower menggunakan font HBF atau TTF.
+
+  Anda dapat memperolehnya dari, <ftp://ftp.ifcss.org/pub/software/x-
+  win/editor/chpower-2.0.tar.gz>
+
+  Untuk mengkompilasi Chinese Power, anda membutuhkan font-font HBF dan
+  pustaka Motif. Pertama, modifikasi Makefile agar sesuai dengan sistem
+  anda, kemudian
+
+
+       # make
+
+
+
+
+  Setelah langkah pembuatan, akan tercipta file biner. Lalu ekspor
+  variabel-variabel lingkungan :
+
+
+              # export HBFPATH=/usr/local/lib/chinese/HBF/
+              # export TTFPATH=/usr/local/lib/chinese/TTF/
+              # export HZINPUTDIR=/usr/local/lib/chinese/dict/
+              # export CHPOWERPATH=path_of_chinesepower
+
+
+
+
+
+  7.5.  EasyFlow
+
+  Dikembangkan oleh wycc, yang dapat mencetak sederhana bagi dokumen-
+  dokumen berbahasa Mandarin. Informasi ada di
+  <http://formosa.iis.sinica.edu.tw/~wycc/>
+
+
+  8.  Software-software Berbahasa Mandarin yang Bermanfaat
+
+  8.1.  cjoe - Joe's Own Chinese Editor
+
+  JOE adalah editor kode ASCII yang free dan profesional beroperasi pada
+  platform UNIX, yang sama seperti editor teks pada IBM PC. Untuk
+  menggunakan bahasa Mandarin dalam JOE, anda harus memodifikasi .joerc
+  di direktori home anda. Silakan melihat ke homepage untuk lebih
+  lengkap:  <http://www.neto.net/~bv1al/linux/cjoe.html>
+
+  CJOE adalah versi bahasa Mandarin JOE. Ambillah dari :
+  <ftp://ftp.ifcss.org/pub/software/unix/editor/cjoe-2.8.tgz>
+
+  Ia sangat mudah dikompilasi dan diinstal. Kecuali anda ingin merubah
+  lokasi file biner atau manual, atau ikuti saja langkah-langkah berikut
+  :
+
+
+
+
+  # make
+  # make install
+
+
+
+
+
+  8.2.  celvis
+
+  Celvis adalah sebuah editor menyerupai vi/ex pada UNIX, yang hampir
+  mendukung seluruh instruksi yang dimiliki vi/ex. Anda dapat mengedit
+  artikel termasuk berbahasa Mandarin atau Inggris dengan menggunakan
+  Celvis. Secara bersamaan, ia juga mendukung kode-kode GB2312-80 dan
+  BIG5.
+
+  Anda dapat memperolehnya dari,
+  <ftp://ftp.ifcss.org/pub/software/unix/editor/celvis-1.3.tar.gz>
+
+  Dekompresilah,
+
+
+              # tar zxvf celvis-1.3.tar.gz
+              # cd celvis
+
+
+
+
+  Anda perlu merubah tmp.c, menghapus baris 93-95.
+
+
+       ______________________________________________________________________
+         #if OS9
+                           Jika kita tidak memiliki izin menulis...
+         #endif
+       ______________________________________________________________________
+
+
+
+
+  Kemudian anda dapat melanjutkan kompilasinya.
+
+
+              # cp Makefile.s5 Makefile
+              # make install
+
+
+
+
+  Karena Makefile-nya bukan ditujukan untuk Linux secara khusus, anda
+  mungkin melihat pesan-pesan peringatan pada saat kompilasi dan
+  linking; namun, biarkan saja. Setelah selesai, celvis akan diinstal di
+  /usr/local/bin.
+
+
+  8.3.  cvim
+
+  cvim adalah patch program bahasa Mandarin untuk vim-4.2, termasuk
+  beberapa feature seperti vi tetapi tidak ada di celvis-1.3, misalnya
+  nomor baris, dan edisi file besar dan memutar baris. Anda dapat
+  memperoleh vim-4.2-Chinese-patch dan vim-4.2.tar.gz dari,
+  <ftp://ftp.csie.nctu.edu.tw/pub/Unix/Chinese/cvim>
+
+  Untar dan unzip mengikuti langkah berikut :
+
+
+
+         # tar -xvzf vim-4.2.tar.gz
+         # cd vim-4.2/src
+         # patch < ../../vim-4.2-Chinese-patch
+
+
+
+
+  Rubah vim-4.2/src/feature.h sesuai kebutuhan anda. Ia mudah
+  dikompilasi dan diinstal, yaitu
+
+
+       # make
+       # make install
+
+
+
+
+
+  8.4.  he
+
+  he adalah editor terkenal pada DOS, dan sebuah penyimpangan versi
+  Linux. Tetapi ini adalah program shareware, terbatas dengan edisi
+  seratus baris.
+
+  Dapat diperoleh dari,
+  <ftp://linux.cis.nctu.edu.tw/packages/he_linux/he_linux.tar.Z>
+
+  Login sebagai root,
+
+
+              # cd /
+              # decompress he_linux.tar.Z
+              # tar xvf he_linux.tar
+
+
+
+
+  Silakan lihat /usr/lib/he/notes2.2, /usr/lib/he/chap15 dan
+  /usr/lib/he/appendix untuk ilustrasi sederhana lain.
+
+
+  8.5.  hztty
+
+  Hztty dapat membuat transformasi dari berbagai kode bahasa Mandarin.
+  Dekompres dulu hztty-2.0.tar.gz
+
+
+         # tar -xvzf hztty-2.0.tar.gz
+         # cd hztty-2.0
+         # make linux
+
+
+
+
+  Setelah kompilasi, pindahkan file biner hztty ke direktori bin, dan
+  pindahkan halaman man ke direktori man.
+
+
+              # mv hztty /usr/local/bin
+              # chmod 555 /usr/local/bin/hztty
+              # cp hztty.1 /usr/local/man/man1
+              # chmod 444 /usr/local/man/man1/hztty.1
+
+
+
+
+  Silakan lihat ke manual online hztty untuk menggunakannya.
+
+
+  8.6.  ktty
+
+  Ini merupakan alat lain, seperti hztty, digunakan untuk membaca bahasa
+  Mandarin pada kterm atau pxvt. Perolehlah dari,
+  <ftp://ftp.ifcss.org/pub/software/unix/convert/ktty1.3.tar.gz>
+
+  Namun, ia tidak dapat dikompilasi pada Linux, anda perlu menggunakan
+  ``tty.c'' dalam hztty-2.0.tar.gz dan tambahkan dua baris ke dalamnya.
+
+
+              linux:
+                    ${MAKE} ${MFLAGS} DEFINES='-DPOSIX -DSYSV -DUSE_SYSV_UTMP' ${PROG}
+
+
+
+
+  Lalu anda dapat membuatnya bekerja.
+
+
+
+       # make linux
+
+
+
+
+
+  8.7.  Cemacs dan CChelp For Emacs
+
+  Cemacs, menggunakan GNU Emacs untuk menampilkan dan mengedit file-file
+  berbahasa Mandarin, harus menjalankan Emacs dalam virtual terminal
+  berbahasa Mandarin sementara CCHELP adalah suatu sistem yang
+  memberikan pesan-pesan bantuan berbahasa Mandarin. Setelah menginstal
+  CCHELP, anda dapat menaruh mouse ke sembarang kata Mandarin dan
+  meng'click'-nya tanpa tersesat, kemudian tampil pesan tentang kata
+  tersebut, termasuk pengucapannya, penjelasan berbahasa Inggris dan
+  sebagainya. Ia mendukung kode-kode GB dan BIG5.
+
+  Anda dapat memperolehnya dari :
+  <ftp://ftp.math.psu.edu/pub/simpson/chinese/>
+
+  Instal cemacs dan cchelp sesuai dengan file README.
+
+
+  8.8.  Mule
+
+  MULE adalah singkatan dari MULtilingual Enhancement GNU Emacs. Secara
+  sederhana, ia menambahkan beberapa hal kepada GNU Emacs agar mampu
+  menangani (sistem pengkodean) multi-bahasa. Ia mengkodekan sistem
+  pengkodean multi byte lagi di dalam mekanisme dalamnya; maka, satu
+  lembar kertas dapat secara bersamaan menggunakan bahasa Mandarin (BIG5
+  dan GB), bahasa Jepang, bahasa Korea, bahasa Inggris, Thai, dan
+  seterusnya.
+
+
+  8.8.1.  Memperoleh Mule-2.3 dan patch untuk Linux
+
+  Anda dapat memperoleh mule-2.3.tar.gz dan patch mule-2.3+lx.diff.gz
+  untuk Linux :
+  <ftp://sunsite.unc.edu/pub/Linux/distributions/je/sources/mule/>
+
+  Jika sistem anda adalah Red Hat Linux, anda dapat mengambil
+  mule-2.3-1.i386.rpm, mule-common-2.3-1.i386.rpm dan mule-
+  elipspsrc-2.3-1.i386.rpm:
+  <ftp://sunsite.unc.edu/pub/Linux/distributions/redhat/contrib/contrib-2.0.x/RPMS/>
+
+
+  8.8.2.  Kompilasi dan Instalasi
+
+  Dekompresi file-file terpaket dan tambahkan patch.
+
+
+              # tar -xvzf mule-2.3.tar.gz
+              # patch < mule-2.3+lx.diff
+              # cd mule-2.3/
+              # ./configure "i386-*-linux" --with-x11 --with-x-toolkit --with-gcc
+
+
+
+
+  Jika anda ingin memodifikasi tampilan luar mule agar sesuai selera
+  anda, baca file INSTALL. Dan jalankan /configure --help. Kemudian,
+  benahi src/Makefile, rubah -lcurses ke -lncurses. Lalu,
+
+
+       # make
+       # make install
+
+
+
+
+  Direktori instalasi baku adalah /usr/local.
+
+
+  8.8.3.  Menggunakan bahasa Mandarin dalam Mule-2.3
+
+  Jika anda telah menginstal font-font, anda dapat menggunakan mule
+  untuk memasukkan dan melihat bahasa Mandarin. Kebanyakan font
+  berukuran 16 atau 24 poin, jadi anda dapat :
+
+
+       # mule -fn 8x16 &
+
+
+
+
+  atau
+
+
+       # mule -fn 12x24 &
+
+
+
+
+  Berdasarkan M-x load-library RETURN chinese RETURN. "Ctrl-]" untuk
+  menggeser masukan.
+
+
+  8.9.  hc
+
+  Ini merupakan program konversi kode BIG5 dan GB. Dapat diperoleh dari
+  :  <ftp://ftp.ifcss.org/pub/software/unix/convert/hc-30.tar.gz>
+
+  Dekompres dan instal :
+
+
+
+
+
+
+         # tar zxvf hc-30.tar.gz
+         # cd hc3
+         # make
+         # mv hc /usr/local/bin
+         # mv hc.tab /usr/local/lib/chinese
+         # mv hc.1 /usr/local/man/man1
+
+
+
+
+  Untuk konversi GB ke BIG5, gunakan
+
+
+       o       hc -m g2b -t /usr/local/lib/chinese/hc.tab < INPUT_FILE > OUTPUT_FILE
+
+
+
+
+  Untuk menukar BIG5 ke GB, gunakan
+
+
+              hc -m b2g -t /usr/local/lib/chinese/hc.tab < INPUT_FILE > OUTPUT_FILE
+
+
+
+
+  Anda dapat menulis script shell untuk menyederhanakan instruksi-
+  instruksi tersebut.
+
+
+  8.10.  ctin
+
+  ctin adalah pembaca berita newsreader untuk seluruh pesan-pesan
+  berbahasa Mandarin. Dapatkan dari,
+  <ftp://linux.cis.nctu.edu.tw/packages/chinese/ctin/ctin-970625.src.bin.tgz>
+
+  Set dahulu variabel lingkungan $NNTPSERVER untuk mengekspor ke server
+  berita yang anda inginkan sebelum mengeksekusi ctin.
+
+
+       # export NNTPSERVER=netnews.ntu.edu.tw
+
+
+
+
+  Lalu jalankan tin.
+
+
+  8.11.  Beberapa mainan lain
+
+  Anda dapat menemukan beberapa mainan kecil yang mampu menunjukkan
+  bahasa Mandarin, seperti cuptime, cw, cless, cwrite, cytalk, dan
+  sebagainya.  <ftp://ftp.vit.edu.tw/unix/linux/chinese/>
+
+
+  9.  Masalah-masalah Bahasa Mandarin dengan Lainnya
+
+  9.1.  Netscape Navigator
+
+  Netscape 2.0 atau selanjutnya mendukung kode-kode BIG5 dan GB, yang
+  telah didiskusikan di beberapa homepage. Untuk menampilkan bahasa
+  Mandarin dalam Netscape, terdapat tiga langkah :
+
+  1. Instal font-font bahasa Mandarin X. Silakan lihat bagian
+     ``Instalasi Font-font bahasa Mandarin''.
+
+  2. Jalankan Netscape, dan konfigurasi Document Encoding menjadi
+     Traditional Chinese (Big5) atau Simplified Chinese.
+
+  o  Dalam Netscape 2.x atau 3.x, konfigurasi pada Options/Document
+     Encoding/...
+
+  o  Dalam Netscape Communicator 4.x, konfigurasi ada pada
+     View/Encoding/...
+
+  3. Pilih font-font bahasa Mandarin yang anda inginkan.
+
+  o  Dalam Netscape 2.x atau 3.x, konfigurasi ada di Options/General
+     Preferences/Fonts.
+
+  o  Dalam Netscape Communicator 4.x, konfigurasi ada di
+     Edit/Preferences.../Appearance/Fonts.
+
+  Mungkin anda akan merasa aneh mengapa anda hanya dapat menggunakan
+  Fixed(HKU) Size 16.0, yang disebabkan dari setting dalam
+  /usr/X11R6/lib/X11/app-defaults/Netscape. Dengan mengasumsikan bahwa
+  anda memiliki font-font BIG5 berikut :
+
+
+              # xlsfonts | grep big5
+              -hku-fixed-medium-r-normal--0-0-72-72-c-0-big5.hku-0
+              -hku-fixed-medium-r-normal--16-160-72-72-c-160-big5.hku-0
+              -kc-kai-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -kc-kai-medium-r-normal-fantizi-20-200-75-75-c-200-big5.eten.3.10-1
+              -kc-kai-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-0-0-75-75-c-0-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-15-150-75-75-c-160-big5.eten.3.10-1
+              -kc-ming-medium-r-normal-fantizi-24-240-75-75-c-240-big5.eten.3.10-1
+
+
+
+
+  Tambahkan satu baris ke /usr/X11R6/lib/X11/app-defaults/Netscape
+
+
+              *documentFonts.charset*big5.eten.3.10-1:              x-x-big5
+
+
+
+
+  Lalu, Netscape dapat menggunakan font-font ini dengan baik.
+
+  Solusi lain adalah dengan memberi alias ke nama font anda: menambah
+  alias dalam file fonts.alias (ciptakan jika belum ada) dalam direktori
+  font anda.
+
+
+              -big5-taipeik-medium-r-normal--16-160-72-72-c-160-big5.hku-1 taipei16
+              -big5-taipeik-medium-r-normal--20-200-72-72-c-200-big5.hku-1 taipeik20
+              -big5-taipeik-medium-r-normal--24-240-72-72-c-240-big5.hku-1 taipeik24
+
+
+
+
+  Nama-nama font, seperti taipeik20, adalah yang anda butuhkan untuk
+  memberi alias. Setelah modifikasi, lakukan
+
+
+       # xset fp rehash
+
+
+
+  untuk memuat kembali nama-nama font sehingga tersedia.
+
+  Anda mungkin menemukan bahwa ukuran bahasa Mandarin dan bahasa Inggris
+  tidak proporsional dalam homepage berbahasa Mandarin-Inggris (seperti
+  kata-kata Inggris terlalu kecil), yang merupakan alasan bahwa apa yang
+  telah anda pilih sebagai font bahasa Inggris dan bahasa Mandarin tidak
+  seimbang ukurannya. Kembali ke konfigurasi font, dan pilih
+  Western(iso-8859-1). Kemudian, dalam opini anda, rubah ukuran font-
+  font bahasa Inggris agar menjadi proporsional.
+
+
+  9.2.  sendmail
+
+  Oleh karena bentuk baku sendmail 8.8.x akan mengkodekan seluruh surat
+  8-bit dulu sebelum dikirimkan, yang mungkin atau tidak akan mengurangi
+  pengaruh terhadap penerima. (Silakan lihat "Subbagian berikut" untuk
+  solusi). Kebanyakan host dapat mengirim secara langsung surat-surat
+  8-bit, sehingga anda sebaiknya mengkompilasi ulang sendmail dan
+  meniadakan kemampuan pengkodean (encoding).
+
+
+  o  Ambillah versi terbaru dari site berikut (atau site mirror):
+     <ftp://ftp.sendmail.org/ucb/src/sendmail/>
+
+  o  Dekompres dan modifikasi Makefile :
+
+
+              # tar zxvf sendmail-8.8.8.tar.gz
+              # cd src/Makefiles
+              # chmod u+w Makefile.Linux
+              # vi Makefile.Linux
+
+
+
+
+  Tambahkan -DMIME8TO7=0 setelah CFLAGS+=.
+
+  o  Kompilasi dan instal sendmail:
+
+
+       # cd ..
+       # ./makesendmail all install
+
+
+
+
+  o  Instal halaman-halaman man (man pages) ke direktori yang sesuai
+     secara manual (Tidak apa jika tidak diinstal).
+
+  o  Hapus proses sendmail yang lama :
+
+
+       # kill -9 `head -1 /var/run/sendmail.pid`
+
+
+
+
+  o  Mulai kembali sendmail:
+
+
+       # /usr/sbin/sendmail -bd -q1h
+
+
+
+
+
+  9.3.  procmail
+
+  procmail adalah sebuah penyaring surat elektronik, yang dapat
+  memanipulasi surat-surat sebelum menyimpannya ke dalam kotak surat
+  anda, sebagai contoh, mengklasifikasikannya dan sebagainya. Namun,
+  saya ingin mengajarkan anda bagaimana menggunakan procmail untuk
+  membuka kode ke dalam file teks murni dan bagaimana mengkonversi
+  berbagai surat-surat terkode ke sistem pengkodean yang anda gunakan.
+
+  Buat file .procmailrc di direktori home anda, sebagai berikut :
+
+
+       ______________________________________________________________________
+         # Untuk menghindari kecelakaan, simpan surat-surat sebelum pakai procmail.
+         # Anda dapat menyaring surat untuk memastikan surat yg tidak perlu disalin
+         # sebagai contoh, MAILER-DAEMON.
+         :0 c
+         * !^From.*MAILER-DAEMON
+         mail/procmail-backup
+
+         # Buka surat yang dikodekan dengan quoted-printable atau base64.
+         :0
+         * ^Content-Type: *text/plain
+         {
+             :0 fbw
+             * ^Content-Transfer-Encoding: *quoted-printable
+             | mimencode -u -q
+
+                 :0 Afhw
+                 | formail -I "Content-Transfer-Encoding: 8bit" \
+                           -I "X-Mimed-Autoconverted: quoted-printable to 8bit by procmail"
+
+             :0 fbw
+             * ^Content-Transfer-Encoding: *base64
+             | mimencode -u -b
+
+                 :0 Afhw
+                 | formail -I "Content-Transfer-Encoding: 8bit" \
+                           -I "X-Mimed-Autoconverted: base64 to 8bit by procmail"
+         }
+
+         # Di sini akan ditentukan apakah sebuah surat berkode GB/tidak; jika ya
+         # konversi ke kode BIG5. Jika anda ingin konversi kode BIG5 ke GB, anda
+         # perlu menukar big5 dengan gb2312 dan mengganti 'hc -m b2g dg 'hc -m g2b'
+
+         :0
+         * ^Content-Type:.*text/plain;.*charset=gb2312
+         {
+             :0 fw
+             | hc -m b2g -t /usr/local/lib/chinese/hc.tab
+
+                 :0 Afhw
+                 | formail -I "Content-Type: text/plain; charset=big5" \
+                           -I "X-Charset-Autoconverted: gb2312 to big5 by procmail"
+         }
+
+         # Simpan surat-surat dalam kotak surat.
+         :0:
+         ${ORGMAIL}
+       ______________________________________________________________________
+
+
+
+
+  Dalam hal ini, mengintegrasikan dengan mimencode, formail untuk
+  mendekode surat, dan menggunakan ``hc'' untuk konversi surat berkode
+  GB ke BIG5. Maka anda perlu menginstal alat-alat ini sebelum
+  menggunakan procmail.
+
+  Ubahlah file .forward anda
+
+
+              "|IFS=' ' && exec /usr/bin/procmail -f- ~/.procmailrc ||exit 75 #login"
+
+
+
+
+
+  9.4.  telnet
+
+  Jika anda dapat mengakses bahasa Mandarin di mesin anda, tetapi tidak
+  dapat mengakses bahasa Mandarin pada saat telnet ke mesin lain, maka
+  masalah mungkin disebabkan oleh telnet. Ketika telnet sedang
+  berhubungan, anda dapat menekan Ctrl-] untuk keluar sementara, dan set
+  binary di prompt telnet untuk memastikan transmisi bit secara penuh.
+  Anda dapat juga menggunakan telnet -8 untuk membuat hubungan (tetapi
+  tampaknya tidak bekerja untuk beberapa site...?). Metode sederhana
+  lain adalah menggunakan secara langsung program telnet 8-bit. Download
+  file biner dari: <ftp://linux.cis.nctu.edu.tw/packages/chinese/misc/>
+
+
+  9.5.  less
+
+  less dapat menampilkan bahasa Mandarin secara langsung; hanya perlu
+  menset variabel lingkungan berikut :
+
+
+       # export LESSCHARSET=latin1
+
+
+
+
+
+  9.6.  pine
+
+  Pine versi 3.95 atau lebih lanjut dapat mendukung pembacaan dan
+  pemasukan surat-surat berbahasa Mandarin. Pada saat eksekusi pine,
+  pilih SETUP/Config dalam list, pilih (tekan X):
+
+
+                 [X]  enable-8bit-esmtp-negotiation
+                 [X]  enable-8bit-nntp-posting
+
+
+
+
+  Kemudian, tekan C di character-set, dan rubah nilainya ke big5 atau
+  gb2312. Akhirnya tekan E untuk keluar dan menyimpan perubahan.
+
+  Anda dapat juga menginstal cpine yang mampu menunjukkan pesan-pesan
+  berbahasa Mandarin :
+  <ftp://ftp.vit.edu.tw/unix/linux/chinese/cpine-3.91.bin.tgz>
+
+
+  9.7.  samba
+
+
+  o  Mula-mula, ambillan versi terbaru samba-1.9.17p5 dan big5 patch.
+     <ftp://linux.cis.nctu.edu.tw/packages/network/samba/samba-1.9.17p5.tar.gz>
+     <ftp://linux.cis.nctu.edu.tw/packages/chinese/samba-
+     big5-patch/samba-1.9.17p2-BIG5-patch-0.gz>
+
+  o  Dekompres samba-1.9.17p5.tar.gz dan tambahkan patch :
+
+
+         # tar zxvf samba-1.9.17p5.tar.gz
+         # cd samba-1.9.17p5/source
+         # zcat samba-1.9.17p2-BIG5-patch-0.gz | patch -s
+
+
+
+
+  o  Menurut prosedur normal, anda dapat mengkompilasi dan
+     menginstalnya. Silakan lihat Samba Homepage
+
+
+  9.8.  lynx
+
+  Lynx v2.7 dapat melihat homepage-homepage berbahasa Mandarin secara
+  langsung. Eksekusi lynx, dan tekan O)ption/C)haracter set, dan
+  kemudian pilih Taipei(Big5) dengan tombol panah, dan akhirnya tekan
+  '>' untuk menyimpan perubahan.
+
+
+  9.9.  minicom
+
+  Gunakan switch -l untuk memulai minicom, kemudian anda dapat melihat
+  bahasa Mandarin dalam minicom.
+
+
+  9.10.  fingerd
+
+  Jika anda mengetik bahasa Mandarin dalam .plan anda tetapi tidak dapat
+  dilihat oleh yang lain, ini mungkin disebabkan oleh karena
+  ketidakmampuan fingerd untuk mengirim kata-kata Mandarin 8-bit.
+  Ambillah cfingerd dari :
+  <ftp://nctuccca.edu.tw/OS/Linux/packages/network/finger/cfingerd-1.3.2.tar.gz>
+
+  Dekompres dan eksekusi ./Configure, kemudian implementasikan make all.
+
+  Kemudian, modifikasi /etc/inetd.conf, rubahlah finger asli ke :
+
+
+              finger  stream  tcp     nowait  root    /usr/sbin/tcpd  /usr/sbin/in.cfingerd
+
+
+
+
+  Biarkan inetd membaca file konfigurasi lagi :
+
+
+              # kill -HUP `cat /var/run/inetd.pid`
+
+
+
+
+
+  9.11.  tintin++
+
+  TinTin++ bukanlah sebuah software bahasa Mandarin melainkan sebuah
+  tool yang berguna untuk bermain-main mud bahasa Mandarin. Anda dapat
+  mendownloadnya dari : <ftp://ftp.princeton.edu/pub/tintin++>
+
+  Beberapa site mud bahasa Mandarin :
+
+
+
+
+    FengYun                  fengyun.com       5555
+    Xi You Ji                129.105.79.24     6905
+    Xia ke Xing              207.76.64.2       5555
+
+
+
+
+
+  10.  Linux Berbahasa Mandarin
+
+  Jika anda mengetahui beberapa proyek lain tentang Linux Berbahasa
+  Mandarin, tolong beritahu saya ?
+
+
+  10.1.  Proyek Dokumentasi Linux Berbahasa Mandarin (CLDP)
+
+  CLDP sekarang bertugas untuk menerjemahkan dokumen-dokumen HOWTO
+  Linux, terletak di  <http://www.linux.org.tw/CLDP/>. CLDP memiliki
+  sebuah mailing list . Tujuannya adalah :
+
+  o  Mengkombinasikan daya setiap orang untuk mengimplementasikan
+     terjemahan HOWTO Linux yang ada.
+
+  o  Mendiskusikan SGML Tools yang menangani bahasa Mandarin.
+
+  o  Membagi dan memelihara pengalaman terjemahan bagi HOWTO Linux.
+
+  o  Mempromosikan proyek terjemahan HOWTO Linux.
+
+  o  Lain-lain yang terkait dengan Linux Berbahasa Mandarin.
+
+  Jika anda ingin bergabung dengan kami, silakan kirimkan surat berisi
+  (tanpa judul) subscribe ke . Untuk penjelasan lebih lanjut, silakan
+  kirim surat berisi info ke alamat di atas. Jika anda ingin mengetahui
+  penggunaan mailing list, kirimkan sebuah surat berisi help ke alamat
+  yang sama. Jika ada saran atau keraguan terhadap mailing list, silakan
+  tulis ke .
+
+  Jika anda ingin berkontribusi, silakan bergabung dengan mailing list
+  ini.
+
+
+  10.2.  Proyek Linux Berbahasa Mandarin
+
+  Didirikan untuk lingkungan berbahasa Mandarin Linux, dimulai oleh
+  cdchen. Masih dalam tahap pembentukan, menunggu usaha setiap orang.
+
+  Homepage proyek ini ada di  <http://chinese.linux.org.tw> yang
+  bertanggung jawab atas pengumuman resmi; dan menyediakan diskusi
+  masalah, saran dan kritik, pengumuman kemajuan dan sebagainya.
+
+
+  10.3.  Website berbahasa Mandarin untuk Linux
+
+  Beberapa website untuk informasi Linux Berbahasa Mandarin. Jika anda
+  memiliki yang tidak terdapat di sini, tolong beritahu saya.
+
+  BIG5
+
+  o  <http://www.linux.org.tw/>
+
+  o  <http://chinese.linux.org.tw/>
+
+  o  <http://linux.cis.nctu.edu.tw/>
+
+
+  o  <http://linux.ntcic.edu.tw/>
+
+  o  <http://freebsd.ee.ntu.edu.tw/bbs/6/index.html>
+
+  o  <http://cc.shu.edu.tw/~rick/wwwguide/c_linux_hopenet.html>
+
+  o  <http://henry.cis.nctu.edu.tw/~linuxwww/>
+
+  o  <http://marr.dorm9.nccu.edu.tw/~marr/Comp/PC-Unix/index.html>
+
+  o  <http://www.phys.ntu.edu.tw/~cwhuang/pub/os/linux/>
+
+  GB
+
+  o  <http://csun01.ihep.ac.cn/>
+
+  o  <http://www.clinux.ml.org/>
+
+
+  10.4.  Kelompok Diskusi Linux
+
+  Jika anda memiliki masalah, anda dapat mengirimkannya ke sini,
+  menggunakan bahasa Mandarin juga tak apa. Namun, pastikan bahwa
+  pertanyaan masih belum diketahui atau belum terjawab dalam dokumen-
+  dokumen terkait atau HOWTO, atau mengulang beberapa FAQ adalah sangat
+  tidak populer di tempat ini.
+
+  o
+
+  o
+
+
+  11.  FAQ (Pertanyaan-pertanyaan yang sering diajukan)
+
+  11.1.  Mengapa saya tidak dapat memasukan bahasa Mandarin ?
+
+  Jawab: Pertanyaan ini cukup membingungkan. Saya tidak memberitahu
+  kondisi apa yang telah anda penuhi? Jika anda tidak dapat memasukkan
+  bahasa Mandarin pada layar shell, silakan lihat ``Masalah-masalah
+  Masukan Berbahasa Mandarin'' untuk lebih lengkapnya.
+
+  Atau bahwa anda tidak dapat memasukkan bahasa Mandarin dalam sebuah
+  editor, ini mungkin disebabkan editor anda tidak mendukung bahasa
+  Mandarin. Silakan lihat bagian ``Software-software Berbahasa Mandarin
+  yang Berguna'' untuk menginstal editor yang mendukung bahasa Mandarin.
+
+  Jika ini sesuai pada saat telnet, maka aculah ke bagian ``telnet''
+  untuk penjelasan lebih lanjut.
+
+
+  11.2.  Saya telah mendapat font-font NTU TTF, tetapi bagaimana saya
+  mendekompresnya ?
+
+  Jawab: Font-font NTU TTF dikompres dengan format arj dan dibagi ke
+  dalam beberapa file agar memudahkan pemasukkan ke dalam disk,
+  menyebabkan dekompresi sedikit sulit. Jika anda ingin font
+  ntu_kai.ttf, sebagai contoh, anda harus mengambil ntu_kai.arj,
+  ntu_kai.a01, ntu_kai.a02, dan ntu_kai.a03. Dengan mengasumsikan anda
+  memiliki tool arj versi DOS, taruh keempat file ini ke direktori yang
+  sama dan beri perintah berikut untuk dekompresi:
+
+
+       C:\> arj x -va -y ntu_kai
+
+
+
+  Jika anda ingin mendekompresnya pada Linux, anda harus menggunakan
+  unarj untuk meng-unarj mereka satu persatu, dan kemudian menggunakan
+  cat untuk menggabungkannya:
+
+
+              # unarj e ntu_kai.arj ; mv ntu_kai.ttf ntu_kai.ttf0
+              # unarj e ntu_kai.a01 ; mv ntu_kai.ttf ntu_kai.ttf1
+              # unarj e ntu_kai.a02 ; mv ntu_kai.ttf ntu_kai.ttf2
+              # unarj e ntu_kai.a03 ; mv ntu_kai.ttf ntu_kai.ttf3
+              # cat ntu_kai.ttf* > ntu_kai.ttf
+
+
+
+
+
+  11.3.  Judul dan tag Netscape tidak dapat melihat bahasa Mandarin ?
+
+  Jawab: Dengan menginstal CXWin akan memecahkan masalah. Silakan acu
+  ``CXWin'' untuk lebih lengkapnya.
+
+
+  11.4.  Netscape tidak dapat melihat bahasa Mandarin?
+
+  Jawab: Jika anda tidak dapat melihat bahasa Mandarin di semua
+  homepage, maka ini mungkin disebabkan anda tidak menginstal font-font
+  bahasa Mandarin, atau belum membuat Netscape menetap. Silakan lihat
+  ``Netscape''.
+
+  Tetapi jika anda dapat melihat bahasa Mandarin di kebanyakan homepage
+  berbahasa Mandarin, namun hanya di beberapa website anda tidak dapat
+  melihatnya, mungkin ini bukan masalah anda sendiri. Sebuah website
+  kecil menggunakan Frontpage untuk membuat homepage, dan bahasa
+  pengkodeannya adalah x-x-big5 bukan big5 umum.
+
+  Hal ini akan menyebabkan semua browser kecuali IE tidak dapat
+  mengenali pengkodean, yang merupakan sebuah trik kotor oleh Microsoft
+  untuk memenuhi ambisinya menguasai pasar browser. Untuk memecahkan
+  masalah ini, kirim surat ke administrator site tersebut, katakan bahwa
+  ada browser lain selain IE di seluruh dunia. Jika mereka ingin
+  mengelolanya secara baik, mereka seharusnya memperbaiki pengkodean
+  yang tidak normal ke yang normal.
+
+  Tentu saja, jika anda memiliki solusi yang lebih baik, silakan
+  beritahu saya.
+
+
+  11.5.  Bagaimana memasukkan bahasa Mandarin dalam Netscape?
+
+  Jawab:Instal xcin+XA. Silakan lihat bagian ``XA''.
+
+
+  11.6.  Apa beda antara ChiTeX dan CJK? Dapatkah saya menginstalnya
+  pada saat yang sama?
+
+  Jawab:
+
+  o  Sistem pembacaan dan pencarian CJK yang idependen dan efisien
+     didasarkan pada NFSS LaTeX.
+
+  o  CJK dapat menggunakan bahasa Mandarin, Jepang, dan Korea; dan
+     ChiTeX hanya untuk BIG5.
+
+  o  CJK hanya dapat digunakan pada LaTeX sementara ChiTeX dapat
+     digunakan pada TeX dan LaTeX.
+
+
+  o  Instruksi-instruksi ChiTeX sederhana dan berguna.
+
+  o  ChiTeX semakin mendekati Chinese LaTeX yang sebenarnya.
+
+  o  Perbedaan dalam kegunaan...
+
+  ChiTeX dan CJK seharusnya kompatibel bila diinstal pada sistem yang
+  sama, tetapi jika ttf2pk memiliki nama yang sama bagi ChiTeX dan CJK,
+  maka akan menyebabkan masalah-masalah tertentu. Solusinya adalah
+  mendefinisikan variabel $PATH dalam setiap script shell, untuk
+  menunjuk ke lokasi yang tepat bagi ttf2pk. (Terima kasih kepada
+  Profesor Chen Hung-Yih)
+
+
+  12.  Terjemahan ke bahasa Indonesia
+
+  Diterjemahkan oleh Tedi Heriyanto
+
+  Selesai : 14 Maret 1999.  Koreksi : 19 Maret 1999.
+
+  Catatan: Ada beberapa kata yang bila diterjemahkan ke dalam bahasa
+  Indonesia, memiliki arti yang berbeda dengan bahasa Inggrisnya, oleh
+  karena itu saya tidak menerjemahkan kata tersebut.
+
+  Jika anda menemukan kata yang membingungkan, tolong beritahu saya.
+
+  Saran/kritik yang bersifat membangun akan diterima dengan senang hati.
+
+
+  13.  Lampiran - Software-sofware Berbahasa Mandarin di FTP.IFCSS.ORG
+
+  Peringatan: Kebanyakan file eksekutabel yang telah di-pre kompilasi
+  kuno dan tidak dapat digunakan secara normal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ****
+    UNIX
+    ****
+
+    ========
+    UNIX:BBS
+    ========
+
+    software: Phoenix BBS
+    versi   : 4.0, 1995.08.31
+    fungsi  : o sistem BBS multi-user untuk platform UNIX,
+              o forum diskusi, email pribadi
+              o chat banyak saluran, one-to-one chat
+              o Internet Email, gateway News,
+              o Pengumuman : interface query informasi mirip Gopher.
+              o memungkinkan 256 pemakai online
+              o menu, tampilan layar dapat disesuaikan.
+              o Pesan-pesan berbahasa Mandarin
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/bbs/PhoenixBBS-4.0.tar.gz
+    pembuat : Ji-Tzay Yang, Ming-Feng Chen, Tzung-Yu Wen
+
+    ============
+    UNIX:C-UTILS
+    ============
+
+    software: addpy
+    versi   : 1.0
+    fungsi  : Menganotasi Pinyin ke Hanzi langka dan sebagian Hanzi umum
+              yang dipilih secara random. Versi GB (disederhanakan) dan
+              Big5 (tradisional). Didasarkan pada statistik diturunkan dari
+              korpus bahasa Mandarin dan tabel hazni-freq-pinyin yang disiapkan
+              dengan baik. Kode sumber dan data mentah disediakan.
+    URL     : ftp://ifcss.org/pub/software/unix/c-utils/addpy.tar.gz
+    namafile: README.addpy, b5addpy.l, gbaddpy.l, b5addpy.dat,
+              gbaddpy.dat, makefile
+    pembuat : Guo Jin
+
+    software: rm4mat
+    versi   : n/a
+    fungsi  : menghilangkan kode-kode format untuk pencetakan file GB
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/rm4mat.c
+    pembuat : Chenghong Wang
+
+    software: mail_hxwz
+    versi   : 1.1
+    fungsi  : Mengekstraksi HXWZ dari surat anda (Bayangkan anda berlangganan
+              kepadanya). Merupakan program shell Bourne yang bekerja di
+              kebanyakan sistem Unix. Dapat dijalankan secara otomatis pada
+              setiap hari Jumat.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/mail_hxwz
+    pembuat : Yaoen Zhang
+
+    software: auto_get_hxwz
+    Versi   : 1.2
+    Fungsi  : Memperoleh hal terbaru HXWZ dalam format GB atau postscript.
+              Memproses dan mencetak file-file ini, dan melakukan pembersihan.
+              Menghemat waktu anda dan waktu mesin anda.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/auto_get_hxwz
+    pembuat : Yaoen Zhang
+
+    software: Chinese less
+    versi   : 290, 1995.5.25
+    fungsi  : Browse file teks BIG5 dan GB
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/cless-290.tar.gz
+    pembuat : Paul W. Shew
+    komentar: Membutuhkan terminal berbahasa Mandarin, seperti cxterm.
+    software: cscreen
+    versi   : 3.2b
+    fungsi  : Merupakan modifikasi layar untuk meniru ETen dalam cxterm.
+              Setelah anda menjalankan csscreen dalam cxterm, ia akan
+              memotong setiap pergerakan kunci dan menguji bilamana
+              posisi layar saat ini memiliki karakter Mandarin. Jika ya,
+              pergerakan kunci otomatis akan dilakukan.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/cscreen-3.2b.tar.gz
+    pembuat : Shih-Kun Huang
+
+    software: ytalk
+    versi   : 3.0.2c6
+    fungsi  : memberikan kompatibilitas yang lebih baik bagi workstation DEC,
+              penyegaran dua-byte bagi terminal seperti cxterm, dan
+              mampu melewatkan kode karakter 254, secara internal digunakan sbg
+              fungsi penghapus dalam ytalk-3.0; Kompatibel dg ytalk-3.0,
+              cytalk-3.0,cytalk-3.0.2, ytalk-3.02c0/1/2/3/4/5, yaitu, anda masih
+              dapat menggunakan kunci Delete, atau Backspace. Jika kedua terminal
+              menggunakan ytalk-3.02c4, kode 254 transparan, anda dapat
+              menggunakan lebih banyak kata-kata berbahasa Mandarin untuk bicara
+              dengan yang lain.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/ytalk-3.0.2c6.tar.gz
+    pembuat : Sze-Yao Ni
+
+    software: lunar
+    versi   : 2.1
+    fungsi  : konversi program antara kalendar matahari dan bulan Cina;
+              juga perhitungan ulang tahun dalam astrologi "4 kolom"
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/lunar-2.1.tar.gz
+    pembuat : Ricky Yeung and Fung Fung Lee
+    komentar: dapat menghasilkan kode GB, bitmap, atau ASCII
+
+    software: DateStar - Produser Kalender Cina
+    versi   : 1.1
+    fungsi  : Menampilkan kalender barat dan Cina dalam kode ASCII,
+              BIG-5 (Hongkong, Taiwan), GuoBiao (Standar RRC), dan
+              HZ (Jaringan).
+              Mencetak pada dua printer laser populer
+                  printer laser PostScript, dan HP LaserJet (PCL)
+              Menghasilkan empat format yang berbeda
+                  Kalender tahunan, bulanan
+                  Satu hlm kalendar mingguan, dan 2 hlm kalender mingguan
+              Menampilkan kalender dengan Istilah 24 Matahari (JieQi),
+                  Heavenly Stems dan Earthly Branches
+                  (TianGan DiZhi Eight Characters)
+              Mendukung anotasi yang didefinisikan pemakai
+              Dapat dipakai dari tahun 1841 hingga 2060
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/datestar-1.1.tar.gz
+    pembuat : Youzhen Cheng
+    komentar: Versi UNIX bekerja pada workstation SUN dengan SUN OS 4.1.x
+              lihat /software/dos/c-utils untuk versi DOS
+
+    software: pull
+    versi   : 2.9, 1996.4.7
+    fungsi  : 1. Ekstraksi file asli dari file uuencoded/compressed/split.
+                 a) uudecode file dan menampilkan nama file terdekode
+                 b) decompress file .zz (= .gz/.Z/.zip)
+                 c) uudecode + decompress
+                 d) uudecode + cat (concatenate) + gunzip
+              2. Pack file. Kebalikan proses ekstrak di atas.
+                 compresses, (splits), lalu encodes file
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/utils/pull.c.gz
+    pembuat : Yao Li
+
+    software: utf-utils
+    versi   : 15 Oct 1993.
+    fungsi  : Beberapa program utilitas untuk manipulasi teks Unicode/ISO-10646
+              dalam pengkodean FSS-UTF.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/utf-utils.tar.gz
+    pembuat : Ross Paterson
+
+    software: gbfmt
+    versi   : 1.0
+    fungsi  : pemformatan GB dengan lebar baris variabel, GB<->HZ
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/c-utils/gbformat.tar.gz
+    pembuat : Dongxiao Yue (http://www.cs.umn.edu/~dyue/wiihist/gbfmt.html)
+
+    ===========
+    UNIX:EDITOR
+    ===========
+
+    software: celvis
+    versi   : 1.3
+    fungsi  : editor vi dengan kemampuan menangani bahasa Mandarin.
+              Kebanyakan berjalan di terminal berbahasa Mandarin, cxterm, atau
+              IBM PC dengan DOS berbahasa Mandarin. Bekerja serupa dengan
+              editor vi, kecuali ia menggulung ke samping baris yang panjang
+              bukannya memotong.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/editor/celvis.tar.gz
+              ftp://ftp.cs.purdue.edu/pub/ygz
+    pembuat  : Man-Chi Pong, Yongguang Zhang
+    komentar : komentar, laporan kesalahan, modifikasi ke: c-elvis@cs.purdue.edu
+
+    software: Chinese JOE (Joe's Own Editor)
+    versi   : 2.8c
+    fungsi  : Editor teks berbahasa Mandarin BIG5. Urutan kunci adalah
+              seperti WordStar dan Turbo Pascal. Menggunakan termcap/terminfo
+              secara maksimal, didesain untuk bekerja dengan baik pada jaringan
+              lambat dan modem dengan baud rate kecil, dan memiliki feature
+              terbaik vi. Umumnya berguna untuk mengedit teks tidak berformat,
+              seperti artikel USENET dan untuk mengedit bahasa berstruktur blok
+              seperti C dan PASCAL.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/editor/joe2.8_c.tar.gz
+    pembuat : <htmlurl url="mailto:u8222034@cc.nctu.edu.tw">
+
+    ============
+    UNIX:CONVERT
+    ============
+
+
+    software: cn2jp
+    versi   : 1.3.2, 1996.4.11
+    fungsi  : rutin konversi kode bagi bahasa Mandarin dan Jepang
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/cn2jp1.3.2.tar.gz
+    pembuat : Seke Wei
+
+    software: ktty
+    versi   : 1.3, 1996.4.11
+    fungsi  : Merupakan penterjemah terminal kanji di antara bahasa Mandarin
+              dan Jepang. Memungkinkan translasi kode secara online sehingga
+              anda dapat melihat kode tertentu secara real time menggunakan
+              terminal berbahasa Mandarin atau Jepang.
+              Berjalan di Unix dan diturunkan dari paket 'hztty'
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/ktty1.3.tar.gz
+    pembuat : Seke Wei
+
+    software: code1
+    versi   : 1.3, 1996.4.11
+    fungsi  : Merupakan penjelajah file banyak bahasa untuk bahasa Mandarin
+              dan Jepang. Berjalan di Unix dan memungkinkan penjelajahan
+              file dalam berbagai kode menggunakan terminal berbahasa
+              Mandarin dan Jepang.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/code1.3.tar.gz
+    pembuat : Seke Wei
+
+    software: program HUG
+    versi   : 1.0, 1995.5.20
+    fungsi  : Konversi antara kode HZ, Uudecode/uuencode, GB
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/shug.osf.zip
+              ftp://ftp.ifcss.org/pub/software/unix/convert/shug.sun4.zip
+    pembuat : Yinrong Huang
+
+    software: hztty
+    versi   : 2.0 Jan 29, 1994
+    Fungsi  : Program ini mengubah sesi tty dari satu pengkodean ke yang lain.
+              Sebagai contoh, dengan menjalankan hztty pada cxterm memungkinkan
+              anda membaca/menulis bahasa Mandarin dalam format HZ, yang tidak
+              didukung oleh cxterm.
+              Jika anda memiliki banyak aplikasi dalam pengkodean yang berbeda
+              tetapi program terminal favorit anda hanya mendukung satu, hztty
+              dapat memudahkan hidup anda. Sebagai contoh, hztty dapat mengubah
+              cxterm GB ke terminal HZ, Unicode (16bit, atau UTF8, atau UTF7),
+              atau terminal Big5.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/hztty-2.0.tar.gz
+    pembuat : Yongguang Zhang
+
+    software: EHZ
+    versi   : 2.0
+    fungsi  : Konversi antara GB/BIG5/CNS and EHZ-BIG5/GB/CNS.
+              Patch hztty untuk mendukung EHZ-BIG5/GB/CNS.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/EHZ-2.0.tar.gz
+    pembuat : Ricky Yeung
+    komentar: Juga mengandung spec EHZ dan spec EHZ-BIG5-CNS Fung Fung Lee.
+
+    software: b5cns
+    versi   : prototip
+    fungsi  : fungsi-fungsi untuk konversi Big5 <-> CNS
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/b5cns.tar.gz
+    pembuat : Ross Paterson
+
+    software: c2t
+    versi   : tidak tersedia
+    fungsi  : konversi kode GB atau BIG5 ke pinyin
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/c2t.tar.gz
+    pembuat : Tommi Kaikkonen dan Katya Ta
+
+    software: BeTTY/CCF/B5Encode package
+    versi   : 1.534, 1995.03.22
+    fungsi  : paket konversi kode bahasa Mandarin untuk kode-kode
+              yang banyak digunakan di Taiwan dan kode GB yang banyak digunakan
+              di Daratan, ditambah metode pengkodean Big5 7-bit.(B5Encode3/B5E3,
+              perluasan pengkodean HZ untuk GB), mencakup konverter off-line
+              (CCF/Chinese Code Filter dan B5E/B5Encode) dan konverter on-line
+              (BeTTY) yang mensimulasi terminal bahasa Mandarin anda agar tahu
+              sistem pengkodean yang banyak digunakan di Taiwan dan GB, HZ).
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/BeTTY-1.534.tar.gz
+              ftp://hermes.ee.nthu.edu.tw/shin/betty/BeTTY-1.534.tar.gz
+    pembuat : Jing-Shin Chang
+
+    software: BeTTY-ws_2fl.p1
+    versi   : 1.0 (patch untuk BeTTY-1.534) Oct. 1995.
+    fungsi  : 1. membuat BeTTY mengetahui ukuran jendela (tty).
+              2. filter konversi kode bahasa Mandarin kedua dapat ditambahkan.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/BeTTY-ws2fl.p1.tar.gz
+    pembuat : Wei Dong
+
+    software: c2gif
+    versi   : 0.01, 1995.10.21
+    fungsi  : Konversi file teks BIG5 ke file GIF
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/c2gif001.tar.gz
+              http://www.math.ncu.edu.tw/~luors/c2gif/
+    pembuat : Luoh Ren-Shan
+
+    software: gb2jis
+    versi   : 1.5, 1995.11.19
+    fungsi  : Konversi GB(atau HZ) ke JIS dengan pinyin dua huruf
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/gb2jis.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/bdf/guobiao16.bdf.gz
+    pembuat : Koichi Yasuoka
+
+    software: jis2gb
+    versi   : 1.5, 1996.1.10
+    fungsi  : Konversi JIS ke GB (atau HZ)
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/jis2gb.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/bdf/guobiao16.bdf.gz
+    pembuat : Koichi Yasuoka
+
+    software: HZ
+    versi   : 2.0
+    fungsi  : Konversi antara GB, HZ dan zW
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/HZ-2.0.tar.gz
+    pembuat : Fung F. Lee
+
+    software: HZ+ spesifikasi dan utilitas konversi
+    versi   : 0.77
+    fungsi  : HZ+ adalah sebuah representasi 7-bit yang menyenangkan dari
+              Big5, GB, dan teks ASCII untuk digunakan dalam email, news, dsb.
+              Kode sumber bagi utilitas konversi Big5<-> HZ+ dan GB<-> HZ+
+              tersedia. Eksekutabel DOS dapat dijumpai di arsip lain,
+              /software/dos/convert/hzp.zip.  Hal baru dalam versi Unix ini
+              adalah program terminal HZ+ sederhana bagi cxterm yang
+              memungkinkan pemakai membaca mail dan news HZ+ secara
+              transparan.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/hzp.tar.gz
+    pembuat : Stephen G. Simpson
+
+    software: hc
+    versi   : 3.0
+    fungsi  : konversi antara GB dan BIG5
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/hc-30.tar.gz
+    pembuat : Fung F. Lee dan Ricky Yeung
+
+    software: Support Table for Hanzi Convert (hc)
+    versi   : 1994/05/01
+    fungsi  : Konversi dukungan tabel program Hanzi Convert
+              (Pembuat  : Fung F. Lee dan Ricky Yeung) GB<->Big5.
+              Mencakup bahasa Rusia, bilangan, bahasa Jepang, simbol-simbol
+              penggambaran dan kode-kode "tidak benar". File teks, komentar
+              di dalamnya.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/sym-supp.tab
+              ftp://ftp.ifcss.org/pub/software/unix/convert/in-corr.tab
+    pembuat : Chi-Ming Tsai
+
+    software: pbmbig5
+    versi   : 0.01, 1995.11.2
+    fungsi  : konversi file teks kode big5 ke file grafik pbm
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/pbmbig5-0.01.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/big/hbf/kck24.hbf
+              ftp://ftp.ifcss.org/pub/software/fonts/big/hbf/kcchin24.f02
+    pembuat : Wei-Jou Chen
+
+    software: UTF utilities
+    versi   : 31 May 1994.
+    fungsi  : berbagai utilitas untuk pengkodean UTF Unicode/ISO-10646,
+              mencakup konversi dari ISO-2033 dan (sebagian) kembali lagi.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/utf.tar.gz
+    pembuat : Ross Paterson
+
+    software: utf7
+    versi   : prototipe, gunakan dengan risiko anda tanggung sendiri
+    fungsi  : fungsi-fungsi konversi antara UTF-7 dan kode-kode lain
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/utf7.tar.gz
+    pembuat : Ross Paterson
+
+    software: ISO-2022-CN encoder and decoder
+    versi   : beta 960408
+    fungsi  : Konversi antara kode CN-GB dan CN-CNS
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/convert/iso-cn.tgz
+    pembuat : handa@etl.go.jp
+    komentar: kode BIG5 belum didukung.
+
+    ===============
+    UNIX:NETWORKING
+    ===============
+
+    software: gopher2.014c
+    versi   : 2.0.14
+    fungsi  : Sebuah client gopher bahasa Mandarin mampu mencari string
+              8-bit BIG5 bahasa Mandarin pada IBM AIX, SUN OS, dan mesin
+              lain. Kompatibel dengan sembarang sistem BIG5 seperti ET dan
+              cxterm. Biner eksekutabel untuk IBM dan SUN disertakan.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/networking/gopher2.014c.tar.gz
+              ftp://ftp.ifcss.org/pub/software/unix/networking/gopher.ibm.tar.gz
+              ftp://ftp.ifcss.org/pub/software/unix/networking/gopher.sun.tar.gz
+    pembuat : Hoo-Tung Cheuk (NCTU CIS, Taiwan)
+
+    software: Chinese Tin
+    versi   : 1.2PL2a
+    fungsi  : newsreader tin 1.2PL2 dengan pilihan pesan Inggris/Big5.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/networking/ctin122a.tar.gz
+    pembuat : Shih-Kun Huang
+
+    software: NcFTP dengan pesan bahasa Mandarin kompatibel
+    versi   : 2.3.0c, 1996.1.17
+    fungsi  : patch bahasa Mandarin (BIG5) untuk NcFTP.
+              Sekarang mampu menampilkan pesan bahasa Mandarin dari server ftp
+              daripada "\xxx". Kompatibel warna ANSI dalam Line Mode.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/networking/ncftp-2.3.0.chinese.tgz
+    pembuat  : NCEMRSoft (asli), Aiken Sam (patch bahasa Mandarin)
+
+    ==========
+    UNIX:PRINT
+    ==========
+
+    software: C2PS
+    versi   : 1.30 Aug 1 1995
+    fungsi  : Translasi dokumen bahasa Mandarin Big5 ke PostScript tingkat 2.
+              Versi ini untuk Sparcstation. Menggunakan font TrueType bahasa
+              Mandarin, anda dapat menciptakan dokumen-dokumen cantik dengan
+              C2PS. Ini merupakan versi DEMO. Anda dapat secara bebas menyalin
+              dan menggunakannya.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/c2ps130sos.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/big5/ms-win/
+    pembuat : Hsueh-I Lu
+
+    software: cnprint
+    versi   : 2.60  JAN-25-95
+    fungsi  : mencetak GB/Hz/BIG5/JIS/KSC/UTF8 dsb atau konversi ke PostScript
+              (sesuai EPSF-3.0). Cepat.  Multi kolom. Pencetakan vertikal.
+              Kebutuhan ruang disk kecil.  Perlakuan "Intelligent" untuk
+              tanda baca.  Perubahan fleksibel untuk font, ukuran karakter,
+              lebar/tinggi, spasi kar dan baris, orientasi kertas dan
+              margin, dsb.  Mendukung karakter Eropa. Mode khusus untuk
+              mencetak HXWZ.  Lihat readme lebih lanjut.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/cnprint260.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/{gb,big5,misc,unicode}/hbf/
+    pembuat : Yidao Cai
+    komentar: v2.60 juga VMS, gunakan v2.61 untuk DOS
+
+    software: GBscript
+    versi   : 1.11
+    fungsi  : Konversi teks campuran GB/ASCII ke output PostScript.
+              Kecepatan pencetakan tinggi (4ppm di LaserWriter NTX).
+              Mendukung Adobe-2.1.
+              Ukuran file PS kecil (400K untuk satu isu HXWZ).
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/gbscript-1.11.tar.gz
+    pembuat : Yan Zhou
+
+    software: gb2ps
+    versi   : 2.02
+    fungsi  : konversi GB/HZ ke postscript, mendukung pemformatan sederhana
+              (merubah font dan ukurannya, sampul halaman, nomor halaman,dsb).
+              Lima font bahasa Mandarin disediakan, yaitu Song, Kai, Fang Song,
+              Hei, dan FanTi.
+              Enkoding HZ juga didukung.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/gb2ps.2.02.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/fan24.ccf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/fang24.ccf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/hei24.ccf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/kai24.ccf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/misc/song24.ccf.gz
+    pembuat : Wei SUN
+
+    software: news2ps
+    versi   : tidak tersedia
+    fungsi  : news2ps mengkonversi BIG5 ke Postscript
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/news2ps.c
+              ftp://ftp.ifcss.org/pub/software/fonts/big5/misc/chinese.16.new
+    pembuat : The Society of HKU Postgraduate on Chinese Affairs
+    komentar: rubah nama chinese.16.new ke chinese.16
+
+    software: hz2ps
+    versi   : 3.1
+    fungsi  : konversi teks hanzi (GB/BIG5) ke PostScript.
+              Gunakan file font HBF
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/print/hz2ps-3.1.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/{gb,big5}/hbf/
+    pembuat : Fung F. Lee
+
+    ===========
+    UNIX:VIEWER
+    ===========
+
+    software: ChiRK
+    versi   : 1.2a
+    fungsi  : Pembaca teks GB/HZ/BIG5 pada terminal (atau emulation) yang mampu
+              menampilkan grafik Tektronics 401x, seperti GraphOn,DEC
+              VT240/330, Xterm, Tektool pada Sun, EM4105 pada PC,
+              VersaTerm-Pro pada Mac, dsb.
+              menampilkan hingga 17x40 karakter Mandarin per layar.
+              bekerja secara langsung pada program mail dan news UNIX.
+              Disertakan dengan empat buah font.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/ChiRK-1.2a.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/hbf/cclib.v
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/hbf/cclib.16
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/hbf/cclibf.16.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/big5/misc/chinese.16.new.gz
+    pembuat : Bo Yang
+    komentar: rubah nama chinese.16.new ke chinese.16
+
+    software: Cbanner
+    versi   : 1.10, 950821
+    fungsi  : menampilkan banner kata-kata Mandarin
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/banner/cbanner1.10.tar.gz
+    pembuat : Sheen Cherng-Dar, ditulis kembali oleh Jonen Liu
+    komentar: membutuhkan font ETen Big5 Chinese System
+
+    software: gb2text
+    versi   : tidak tersedia
+    fungsi  : konversi GB ke teks
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/gb2text.c
+    pembuat : Ding Yijun
+
+    software: hzbanner
+    versi   : 1.1, Feb 15, 1995
+    fungsi  : Menampilkan GuoBiao gaya Song dalam character besar ASCII,
+              mendukung GB2312-80 (^[$A), GB2312-80 + GB8565-88 (^[$(E),
+              Chinese-EUC (8-bit Guobiao) CNS Plane 1 & 2, BIG5 dan HZ-encoding
+              ( ???)
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/hzbanner11.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/gb/bdf/guobiao16.bdf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/cns/bdf/cns1hku16.bdf.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/cns/bdf/cns2hku16.bdf.gz
+    pembuat : Koichi Yasuoka
+
+    software: hzview
+    versi   : 3.1
+    fungsi  : Menampilkan teks hanzi (GB/BIG5) pada dumb terminal.
+              Menggunakan font HBF.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/hzview-3.1.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/{gb,big5}/hbf/
+    pembuat : Fung F. Lee
+
+    Software: cnview
+    Versi   : 3.1 (versi UNIX. Versi DOS tersedia di /software/dos/viewer)
+    Fungsi  : Menampilkan file teks berkode GB/Hz/Big5 pada HP-UNIX (X-window)
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/cnview.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/{big5,gb}/hbf/
+    Pembuat : Jifang Lin
+
+    software: readgb
+    versi   : tidak tersedia
+    fungsi  : konversi GB ke teks.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/readgb.c
+    pembuat : Yuzhao Lu
+    komentar: dimodifikasi dari readnews.c
+
+    software: readnews
+    versi   : tidak tersedia
+    fungsi  : readnews mengkonversi BIG5 ke gambar ascii dot-matrix
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/viewer/readnews.c
+              ftp://ftp.ifcss.org/pub/software/fonts/big5/misc/chinese.16.new.gz
+    pembuat : The Society of HKU Postgraduate on Chinese Affairs
+    komentar: ubah chinese.16.new ke chinese.16
+
+    ==========
+    UNIX:INPUT
+    ==========
+
+    software: CCTeach
+    versi   : 1.0
+    fungsi  : Chinese Character input method Teacher.
+              Membantu pemakai baru untuk belajar masukan CC dan beberapa
+                  program utilitas "cxterm NewFace" untuk alat kamus terkait,
+                  tool hotkey, enkode frase WuBi, dan konverter dengan
+                  ".tit" <==> ".titnf".
+              Didasarkan pada GB dan Big5 (ETen dan HongKong).
+              Mendukung seluruh metode masukan oleh file kamus eksternal.
+              Membutuhkan cxterm di unix, CC DOS atau ZW DOS di PC.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/input/CCTeach1.0.tar.gz
+    pembuat : Xiaokun Zhu
+
+    =========
+    UNIX:MISC
+    =========
+
+    software: ICCS 1.3
+    versi   : 1.3, June 26, 1994
+    fungsi  : Internet Chinese Chess Server
+    URL     : ifcss.org:/software/unix/misc/iccs-1.3.tar.gz
+    pembuat : Xi Chen
+    komentar: file off-line karena status resmi 3 Juli 1996. Silakan hubungi
+              pembuat Xi Chen di xichen@abel.math.harvard.edu untuk info.
+
+    ========
+    UNIX:WWW
+    ========
+
+    software: cdelegate
+    versi   : 1.4a, 1996.5.1
+    fungsi  : Ini merupakan patch bahasa Mandarin untuk DeleGate, sebuah gateway
+              untuk pelayanan WWW.
+              Memberikan translasi kode antara bhs Mandarin/Jepang bagi browser
+              WWW.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/www/cdelegate1.4.tar.gz
+    pembuat : Seke Wei
+
+    software: Chinese Lynx
+    versi   : 2.5FMc, 1996.7.19
+    fungsi  : patch bahasa Mandarin BIG5/GB untuk lynx, client WWW bagi terminal
+              vt100.
+              Dibutuhkan sukarelawan untuk melanjutkan pemeliharaan patch.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/www/clynx25.zip
+    pembuat : Nelson Chin
+
+    software: Internet MahJong Server (server + client applet)
+    versi   : 0.2beta
+    fungsi  : menyediakan server dan klien grafik untuk bermain MahJong
+              di Internet.
+    URL     : ftp://ftp.ifcss.org/pub/software/unix/www/MJ_dist.tar.gz
+    pembuat : Zuwei Thomas Feng
+
+    *****
+    LINUX
+    *****
+
+    software: D Series (Chinese Tools, ELF binary)
+    versi   : 1.00,  March 25, 1995
+    fungsi  : Distribusi biner untuk berbagai tools bermanfaat bahasa Mandarin:
+              Pembaca -- cxterm, crxvt; Server Masukan-- xcin; GB,Big5,HZ,B5E3
+              Konverter kode -- ccf, hc, hz2gb, gb2hz, zw2hz, b5decode,
+              b5encode; Tool Cetak -- lunar, ttf2ps; tty semu -- hztty,
+              betty; berbagai script berguna, man pages, kamus, font HBF,
+              mencakup xfonts; chdrv, celvis, elm, sendmail
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/CLinux/CTool/d1
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/CTool/d2
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/CTool/d3
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/CTool/d4
+    pembuat : Eric Lin
+    komentar: requires XFree86 3.1+, ELF libraries
+
+    software: C Series (Paket-paket bahasa Mandarin untuk Slackware)
+    versi   : tidak tersedia
+    fungsi  : Paket-paket bahasa Mandarin dikumpulkan oleh Wei-Jou Chen dapat
+              diinstal dengan tool setup Slackware. Ide dasar adalah kita
+              memiliki hak untuk instal dan menghilangkan software bahasa
+              Mandarin secara mudah dan pemula dapat memainkannya tanpa banyak
+              kesulitan.
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/CLinux/c1/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/c2/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/c3/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/c4/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/c5/
+    kompiler: CHEN, Wei-Jou
+
+    software: MU Series (Paket-paket Mule untuk Slackware)
+    versi   : tidak tersedia
+    fungsi  : Paket-paket Multilingual Emacs 2.0 untuk XFree86 2.X dan 3.1
+              dikumpulkan oleh Shawn Hsiao dapat diinstal dengan setup tool
+              Slackware.
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu1/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu2/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu3/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu4/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu5/
+              ftp://ftp.ifcss.org/pub/software/linux/CLinux/mu6/
+    kompiler: Shawn Hsiao
+
+    =============
+    LINUX:C-UTILS
+    =============
+
+    software: GNU fileutils-3.9
+    versi   : 3.9, 1 August 1994
+    fungsi  : Versi bahasa Mandarin program utilitas file GNU untuk Linux.
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/c-utils/fileutils-3.9-bin-chinese.tar.gz
+    pembuat : Patrick D'Cruze
+
+    software: C2PS
+    versi   : 1.30 Aug 1 1995
+    fungsi  : Translasi dokumen Mandarin berkode Big5 ke PostScript Level 2.
+              Ini versi untuk Linux. Menggunakan font TrueType bahasa Mandarin,
+              anda dapat membuat dokumen Mandarin cantik dengan C2PS.
+              Ini adalah versi DEMO. Anda bebas menyalin dan menggunakannya.
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/chinese_utils/c2ps130lnx.tar.gz
+              ftp://ftp.ifcss.org/pub/software/fonts/big5/ms-win/
+    pembuat : Hsueh-I Lu
+
+    ============
+    LINUX:EDITOR
+    ============
+
+    software: ?????? for Linux (versi promosi)
+    versi   : v2.163
+    fungsi  : Editor teks mirip PE2, khusus didesain untuk bahasa Mandarin
+    URL     : ftp://ftp.ifcss.org/pub/software/
+    agen    : LU, Heman
+
+    =========
+    LINUX:TTY
+    =========
+
+    software: chdrv
+    versi   : 1.0.7, 1995.12.20
+    fungsi  : Simulator Terminal bahasa Mandarin. Tidak membutuhkan X-Windows.
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/tty/chdrv-1.0.7.tar.gz
+              ftp://ftp.ifcss.org/pub/software/linux/tty/chdrvbin-1.0.7.tar.gz
+              ftp://ftp.ifcss.org/pub/software/linux/tty/chdrvfont.tar.gz
+    pembuat : WANG, Yu-Chung
+
+    ===========
+    LINUX:X11R6
+    ===========
+
+    software: Behavior DTop (untuk Linux)
+    versi   : 1.4, Beta
+    fungsi  : Paket software DeskTop Publishing bahasa Mandarin yang ditandai
+              dengan desain berorientasi obyek untuk manipulasi berbagai obyek
+              dokumen, termasuk teks, tabel, grafik, persamaan, gambar,
+              dalam cara yang terintegrasi. Dua font utama disertakan
+              dalam versi Beta. Output PostScript. Baik juga sebagai
+              paket software DeskTop Publishing bahasa Inggris.
+              (Lihat README dan file manual DTop untuk daftar fungsi dan
+              karateristik yang panjang dan lengkap
+              complete list of fungsi and characteristics).
+    URL     : ftp://ftp.ifcss.org/pub/software/linux/X11R6/dtop1.4/
+    pembuat : DTop Development Group
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

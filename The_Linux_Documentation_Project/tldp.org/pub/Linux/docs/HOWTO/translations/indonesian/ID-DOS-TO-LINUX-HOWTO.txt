@@ -1,0 +1,1980 @@
+  From DOS to Linux Howto
+  by Guido Gonzato guido@ibogfs.df.unibo.it
+  <mailto:guido@ibogfs.df.unibo.it> diterjemahkan oleh Agus
+  Hart hartx@writeme.com <mailto:hartx@writeme.com>
+  ??
+
+  Howto ini dipersembahkan kepada semua pengguna DOS, yang memutuskan
+  untuk beralih ke LINUX, yaitu kloning (duplikat) Unix yang freeware
+  (gratis) untuk komputer 386+, Serta memberikan kemiripan antara DOS
+  dan Unix. Tujuan dari dokumen ini adalah untuk membantu menterjemahkan
+  pengetahuan Anda tentang DOS menuju ke lingkungan Linux.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. Pendahuluan
+
+     1.1 Apakah Linux tepat untuk Anda ?
+     1.2 Sekarang Apa lagi yaa?.
+     1.3 Untuk yang tidak sabar.
+
+  2. File dan program.
+
+     2.1 File - file : pengertian dasar
+     2.2 Symbolic links (link/penghubungan secara simbolis)
+     2.3 Hak akses dan kepemilikan.
+     2.4 Menterjemahkan perintah dari DOS ke LINUX
+     2.5 Menjalankan program: Multitasking dan pembahasan
+     2.6 Menjalankan program di remote komputer.
+
+  3. Menggunakan Direktori
+
+     3.1 Pendahuluan tentang Direktori
+     3.2 Hak permisi akses direktori (permission directory)
+     3.3 Menterjemahkan perintah dari DOS ke Linux.
+
+  4. Floppy, Harddisk dan sejenisnya
+
+     4.1 Mengatur peralatan
+     4.2 Membackup
+
+  5. Apa itu Windows ?
+
+  6. Menyesuaikan Sistem
+
+     6.1 File file inisialisasi sistem
+     6.2 File-file program inisialisasi
+
+  7. Sedikit tentang pemrograman.
+
+     7.1 Skrip shell: .BAT pada Linux
+     7.2 C untuk Anda.
+
+  8. Sisa 1%
+
+     8.1 Membuat memori Virtual.
+     8.2 Menggunakan tar dan gzip
+     8.3 Menginstall aplikasi
+     8.4 Anda tidak dapat berbuat tanpa.....
+     8.5 Program program berguna dan perintah perintah.
+     8.6 Ekstension dan program program yang berhubungan.
+
+  9. Sampai disini dulu.
+
+     9.1 Hak cipta
+     9.2 Kritik dan saran.
+
+  10. Penerjemah
+
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+
+  1.1.  Apakah Linux tepat untuk Anda ?
+
+  Anda ingin beralih dari DOS ke Linux? Ide Bagus! tapi hati hati, ada
+  kemungkinan bahwa ini tidak akan berguna bagi Anda, IMHO, tidak ada
+  komputer ataupun sistem operasi yang dikatakan sebagai komputer atau
+  sistem operasi yang terbaik. Inilah yang membuat penulis tidak percaya
+  bahwa Linux adalah solusi yang terbaik untuk setiap orang. Anda akan
+  mendapat manfaat yang sangat besar dari Linux jika Anda menggunakan :
+  pemrograman sw, internet, TeX,... dan sw teknikal secara umum. tapi
+  jika Anda membutuhkan kebanyakan sw yang komersial, dan Anda merasakan
+  seperti tidak belajar dan mengetikkan perintah perintah, silakan lihat
+  ke lain tempat.
+
+  Linux untuk sekarang tidak semudah Windows ataupun Mac dalam
+  penggunaan maupun pengkonfigurasiannya, Dalam peringatan ini ijinkan
+  penulis memberitahukan kepada Anda bahwa penulis yakin 100% bahwa jika
+  anda termasuk dalam tipe pengguna yang tepat Anda akan mendapatkan
+  dalam Linux, bahwa komputer Anda adalah komputer nirvana (sangat
+  nyaman dan menyenangkan). Ini semua bergantung pada Anda. Dan ingat
+  bahwa Linux + Windows/DOS dapat berjalan dengan baik pada satu mesin
+
+  prasyarat untuk howto ini: penulis akan menganggap bahwa :
+
+  o  Anda telah mengetahui dasar dari konsep dan perintah perintah dos.
+
+  o  Linux, dan mungkin Xwindows, telah terinstall pada komputer Anda.
+
+  o  shell Anda---yang setara dengan COMMAND.COM---adalah bash
+
+  o  Dan Anda mengerti bahwa HOWTO ini belum komplit. Untuk informasi
+     lebih lanjut, silahkan baca ''Linux Installation and Getting
+     Startted'' karangan Matt Wellsh atau ''Linux User Guide'' karangan
+     Larry Greenfield di .  HOWTO ini adalah pembaharuan dari "From Dos
+     to Linux - Quick" mini howtto
+
+
+  1.2.  Sekarang Apa lagi yaa?.
+
+
+  Begini ceritanya. Anda menginstall Linux dan program program yang
+  dibutuhkan pada PC Anda, dan Anda buat sendiri account untuk Anda
+  (jika tidak, ketikkan adduser sekarang!)  dan Linux sudah berjalan.
+  Anda sudah memasukkan name dan password. Dan sekarang Anda lihat pada
+  layar monitor dan berpikir : "Sudah, sekarang saya mau apa lagi yaa?"
+
+  Sekarang, jangan putus asa, sekarang Anda siap mengerjakan seperti
+  yang Anda kerjakan jika bekerja dengan DOS, dan bahkan lebih lagi.
+  Jika anda menjalankan DOS, Anda pasti akan mengerjakan sbb:
+
+
+  o  menjalankan program dan menciptakan, mengkopy, menampilkan,
+     menghapus, mencetak, mengganti namafile.
+
+  o  men-'CD' , men-'MD', men-'RD' , men-'DIR' direktori Anda
+
+  o  memformat disk, dan mengkopi dari dan ke disk tsb.
+
+  o  mengotak-atik CONFIG.SYS ataupun AUTOEXEC.BAT
+
+  o  Menulis .BAT file dan atau bermain dengan program Qbasic
+
+  o  menghabiskan space hard disk hingga tinggal 1% lagi dan Anda
+     tentunya akan senang, bahwa semua itu dapat dilakukan di Linux
+
+  Linux dalam gaya dan caranya itu mirip dengan DOS. Dibawah DOS, rata
+  rata pemakai menggunakan sangat sedikit dari 100 lebih perintah
+  perintah yang tersedia: sama seperti Linux,
+
+  Beberapa hal sebelum mulai:
+
+
+  o  Cara keluar dari Linux, Untuk keluar dari Linux, jika Anda melihat
+     layar mode teks, tekan CTRL-ALT-DEL, tunggu sebentar agar system
+     menyelesaikan prosesnya hingga semuanya oke, baru matikan komputer
+     Anda. Jika anda bekerja dibawah sistem Xwindow, tekan CTRL-ALT-
+     BACKSPACE dahulu, baru kemudian CTRL-ALT-DEL. Hindari untuk
+     mematikan komputer atau mereset komputer secara langsung, tanpa
+     melakukan proses shutdown, ini kemungkinan akan menyebabkan
+     kerusakkan pada filesystem.
+
+  o  Tidak seperti DOS, Linux mempunyai mekanisme sekuriti yang
+     terintegrasi,masing masing user mempunyai hak tersendiri. File dan
+     direktori mempunyai jenis hak akses yang berbeda. Beberapa file
+     tidak dapat diakses oleh user biasa. (silakan lihat bagian ``Hak
+     Akses'' (baca: permissions)).  Dan hanya user dengan nama login
+     "root" yang mempunyai kekuatan penuh. (ini disebut sebagai
+     administrator sistem, dan jika Anda mengerjakan di PC anda sendiri
+     maka anda akan menjadi root), Tidak seperti DOS yang mana
+     mengijinkan user untuk mengakses seluruh isi harddisk Anda.
+
+  o  Anda tidak usah takut untuk melakukan eksperimen, bermain, dan
+     mencoba sendiri. Anda dapat mendapatkan bantuan dengan mengetikkan
+     pada prompt ( $ untuk prompt standar (user biasa), # untuk prompt
+     root )
+
+
+
+          $ help
+
+
+
+
+
+  (ini akan menampilkan informasi tentang bash ), atau jika Anda ingin
+  mendapatkan info tentang perintah tertentu ketikkan :
+
+
+
+          $ man command
+
+
+
+
+
+  yang mana jika Anda menginstall man pages, akan meminta manual pages
+  yang berhubungan dengan perintah tsb.  silakan coba:
+
+
+
+          $ apropos command
+          $ whatis command
+
+
+
+
+
+  dan tekan 'q' untuk keluar.
+
+  o  kekuatan terbesar dan fleksibelitas dari unix terletak pada konsep
+     yang sederhana dari pengalihan dan pemipaan, yang mana lebih
+     canggih jika dibandingkan dengan DOS. Perintah yang sederhana dapat
+     diberikan bersama sama untuk melakukan tugas yang kompleks, gunakan
+     ciri khas ini!
+
+  o  KONVENSI: <...> adalah sesuatu yang harus ditulis, kalau ...]
+     sesuatu yang bersifat opsional (boleh ada boleh tidak). Contoh :
+
+     $ tar -tf <file.tar> [> file_pengalihan]
+
+
+
+
+  dalam hal ini file.tar harus ditulis, tapi filepengalihan boleh dit-
+  ulis boleh tidak ( bersifat opsional )
+
+  o  "RMP" berarti silakan baca manual page (halaman manual) untuk
+     keterangan lebih lanjut.
+
+
+  1.3.  Untuk yang tidak sabar.
+
+  Ingin cepat ? silakan lihat dibawah ini :
+
+
+        DOS                             Linux                            Catatan
+       ------------------------------------------------------------------------------
+        BACKUP                          tar -Mcvf device dir/   berbeda samasekali
+        CD dirname\                     cd dirname/             hampir sama bentuknya
+        COPY file1 file2                cp file1 file2          idem
+        DEL file                        rm file                 hati hati. Tidak ada
+                                                                perintah undelete
+        DELTREE dirname  rm -R dirname/ idem
+        DIR                             ls                      bentuknya tidak
+                                                                sama persis
+        EDIT file                       vi file                 penulis pikir Anda
+                                                                tidak terlalu suka
+                                        emacs file              ini lebih baik
+                                        jstar file              terasa spt
+                                                                'edit'-nya dos
+        FORMAT                          fdformat,
+                                        mount, umount           samasekali beda sintak
+        HELP command                    man command             filosofinya sama
+        MD dirname                      mkdir dirname/          sintak hampir sama
+        MOVE file1 file2                mv file1 file2          idem
+        NUL                             /dev/null               idem
+        PRINT file                      lpr file                idem
+        PRN                             /dev/lp0,
+                                        /dev/lp1                idem
+        RD dirname                      rmdir dirname/          sintak hampir samax
+        REN file1 file2                 mv file1 file2          tidak untuk
+                                                                banyak file
+                                                                sekaligus
+        RESTORE                         tar -Mxpvf device       sintak berbeda
+        TYPE file                       less file               lebih baik
+        WIN                             startx                  kutub tersendiri
+
+
+
+
+  jika Anda menginginkan lebih dari tabel perintah, silakan ikuti bagian
+  dibawah ini.
+
+
+  2.  File dan program.
+
+
+  2.1.  File - file : pengertian dasar
+
+
+  Linux mempunyai filesystem--- artinya struktur direktori dan file file
+  yang terkandung di dalamnya. yang mana hal ini sangat mirip dengan
+  DOS.  File file mempunyai nama yang harus mengikuti peraturan khusus
+  yang tersimpan dalam direktori, beberapa bisa dieksekusi (executable)
+  dan diantaranya mempunyai perintah sebagai switch. Lebih lanjut, Anda
+  dapat menggunakan karakter wildcard, pengalihan (redirection), dan
+  pemipaan (piping) :
+
+  Dibawah ini akan menjelaskan perbedaan kecil dengan DOS :
+
+  o  Kalau di DOS, penamaan file hanya mengikuti aturan/bentuk 8.3 (8
+     karakter namafile dan 3 extension) contohnya NOTENOUG.TXT . Kalau
+     di Linux kita akan dapat berbuat lebih baik. Jika Anda telah
+     menginstall Linux dengan filesystem seperti ext2 atau umsdos , Anda
+     dapat menggunakan nama yang lebih panjang (hingga 255 karakter) dan
+     nama file bisa memiliki lebih dari satu titik. contohnya :
+     This_is.a.VERY.long.filename (perhatikan huruf besar dan kecilnya)
+
+  o  Huruf besar dan huruf kecil pada perintah dan nama file adalah
+     berbeda.  Contohnya :  FILENAME.tar.gz adalah berbeda dengan
+     filename.tar.gz juga perhatikan : perintah ls akan salah jika
+     dituliskan LS
+
+  o  Tidak ada ekstension wajib spt .COM dan .EXE untuk program atau
+     .BAT untuk Batchfile. file yg dapat dieksekusi (Executable file)
+     akan ditandai dengan tanda asterisk contoh :
+
+
+
+         $ ls -F
+         letter.to.joe    cindy.jpg    cjpg*    I_am_a_dir/    my_1st_script*   old~
+
+
+
+
+
+  file cjpg* dan my_1st_script* adalah file executable.  kalau di DOS
+  file backup akan berektensi .BAK kalau di Linux akan diberi tanda '~'
+  kalau file yang dimulai dengan tAnda titik (.) adalah file tersembunyi
+  (hidden file). contohnya: file dengan nama .I.am.a.hidden.file tidak
+  akan ditampilkan jika kita memberikan perintah ls
+
+  o  program DOS menggunakan tanda / sebagai parameter/switch kalau
+     Linux menggunakan tanda - atau -- sebagai parameter/switch. contoh
+     :  di dos menggunakan perintah dir /s kalau Linux menggunakan
+     perintah ls -R catatan: ada program DOS spt pkzip, arj dan
+     sebagainya yang menggunakan tAnda - sebagai parameter/switch,
+     seperti parameter gaya Unix.
+
+
+  2.2.  Symbolic links (link/penghubungan secara simbolis)
+
+
+  Unix mempunyai beberapa jenis file yang tidak terdapat pada DOS, yaitu
+  link secara simbol (symbolic link). Kita dapat berpikir bahwa symbolic
+  link adalah pointer/penunjuk yang menunjuk ke suatu file atau
+  direktori.  dan ini dapat digunakan sebagai pengganti dari file atau
+  direktori tersebut, hal ini mirip dengan shortcuts pada windows 95.
+  contoh dari symbolic link adalah : /usr/X11, yang mana menunjuk pada
+  /usr/X11R6, /dev/modem yang mana menunjuk pada /dev/cua0 atau
+  /dev/cua1.
+
+  Untuk membuat symbolic link:
+
+
+          $ ln -s <file_or_dir> <nama_link>
+
+
+
+
+  contoh :
+
+
+          $ ln /usr/doc/g77/DOC g77manual.txt
+
+
+
+
+  sekarang Anda dapat menganggap g77manual.txt sebagai pengganti dari
+  /usr/doc/g77/DOC.
+
+
+  2.3.  Hak akses dan kepemilikan.
+
+
+  File file dan direktori dalam DOS mempunyai atribut atribut sbb :
+
+  A (arsip), H (Tersembunyi/hidden), R (Read-only/hanya baca), dan S
+  (System). dan di Linux hanya ada H dan R, sedangkan untuk hidden
+  namafile dimulai dengan titik, dan untuk atribut Read-only, silakan
+  baca :
+
+  Didalam unix file mempunyai hak permisi akses (permission) , dan
+  kepunyaan (owner), yang mana termasuk dalam grup, contoh :
+
+
+
+          $ ls -l /bin/ls
+          -rwxr-xr-x    1   root   bin   27281   Aug   15   1995   /bin/ls*
+
+
+
+
+  pada field pertama terdapat hak permisi dari file /bin/ls, yang mana
+  kepunyaan dari root, group bin dan informasi informasi di sampingnya (
+  Buku dari Matt adalah untuk tujuan ini ), dan ingatlah bahwa -rwxr-xr-
+  x berarti (dari kiri ke kanan) :
+
+  - adalah tipe file ( - = file biasa, d = direktori, l = link, dan
+  sebagainya ); rwx adalah hak permisi akses untuk pemilik file
+  (read/baca, write/tulis, execute/eksekusi). r-x adalah hak permisi
+  akses untuk group dari pemilik file (read/baca, execute/ekse kusi).
+  (penulis akan menjelaskan konsep dari group, tapi Anda akan tetap
+  dapat bertahan hidup tanpa ini, selama Anda masih pemula ;-) r-x
+  adalah hak permisi akses untuk semua pengguna yang lain (read/baca,
+  execute/eksekusi)
+
+  Inilah yang menyebabkan kenapa Anda tidak dapat menghapus file /bin/ls
+  jika tidak sebagai root. Anda tidak mempunyai hak tulis untuk
+  melakukannya. Untuk melakukan perubahan hak akses terhadap suatu file,
+  perintahnya adalah :
+
+
+
+          $ chmod <whoXperm> <file>
+
+
+
+
+  dimana who adalah u (user, yaitu pemilik), g (group), o (other/yg
+  lain), dan X adalah tanda + atau - , perm adalah r (read), w (write),
+  x (execute).
+
+  Contoh:
+
+
+     $ chmod u+x file
+
+
+
+
+  ini adalah untuk mengeset file menjadi executeble terhadap pemiliknya,
+  atau bisa disingkat menjadi chmod +x file
+
+
+
+          $ chmod go-wx file
+
+
+
+
+  ini adalah untuk menghilangkan hak write dan execute dari group dan
+  other.
+
+
+
+          $ chmod ugo+rwx file
+
+
+
+
+  ini memberikan hak read, write, dan execute kepada semua orang.
+
+
+
+          # chmod +s file
+
+
+
+
+  ini membuat sesuatu yang dinamakan file "setuid" atau "suid" --- yaitu
+  file yang mana setiap orang dapat mengakses dengan hak root.
+
+  Jalan pintas untuk mengeset hak permisi adalah dengan menggunakan
+  angka, rwxr-xr-x dapat dituliskan 755 ( setiap angka menunjukkan bit
+  bit: --- adalah 0, --x adalah 1, -w- adalah 2, -wx adalah 3 dst ). Ini
+  terlihat sulit tapi dengan sedikit latihan Anda akan memahami konsep
+  ini.
+
+  root disebut superuser, yang dapat merubah hak permisi akses dari
+  setiap orang. untuk lebih jelas tentang ini --- RMP ( Baca manual
+  pagenya ! )
+
+
+  2.4.  Menterjemahkan perintah dari DOS ke LINUX
+
+
+  Dikiri adalah perintah DOS, dan perintah Linux di kanannya
+
+
+
+
+              COPY:           cp
+              DEL:            rm
+              MOVE:           mv
+              REN:            mv
+              TYPE:           more, less, cat
+
+
+
+
+
+  pengalihan dan pemipaan:  < > >> |
+
+  Wildcards: * ?
+
+  nul: /dev/null
+
+  prn, lpt1:   /dev/lp0 or /dev/lp1; lpr
+
+  - CONTOH -
+
+
+              DOS                                    Linux
+              ---------------------------------------------------------------------
+              C:\GUIDO>copy joe.txt joe.doc          $ cp joe.txt joe.doc
+              C:\GUIDO>copy *.* total                $ cat * > total
+              C:\GUIDO>copy fractals.doc prn         $ lpr fractals.doc
+              C:\GUIDO>del temp                      $ rm temp
+              C:\GUIDO>del *.bak                     $ rm *~
+              C:\GUIDO>move paper.txt tmp\           $ mv paper.txt tmp/
+              C:\GUIDO>ren paper.txt paper.asc       $ mv paper.txt paper.asc
+              C:\GUIDO>print letter.txt              $ lpr letter.txt
+              C:\GUIDO>type letter.txt               $ more letter.txt
+              C:\GUIDO>type letter.txt               $ less letter.txt
+              C:\GUIDO>type letter.txt > nul         $ cat letter.txt > /dev/null
+                      n/a                            $ more *.txt *.asc
+                      n/a                            $ cat section*.txt | less
+
+
+
+
+  Catatan :
+
+  o  * adalah karakter yang paling fleksibel, * mewakili semua file
+     kecuali file hidden.
+
+  o  ketika menggunakan perintah more, tekan SPASI untuk melihat semua
+     file, mengijinkan menggunakan panah.
+
+  o  Tidak ada UNDELETE, maka dari itu berpikirlah dua kali sebelum
+     menghapus
+
+  o  tambahan tAnda < > >> nya DOS, Linux mempunyai 2> untuk mengalihkan
+     pesan kesalahan (stderr), lebih lagi, 2>&1 untuk mengalihkan stderr
+     ke stdout, dan 1>&2 untuk mengalihkan stdout ke stderr;
+
+  o  Linux mempunyai wildcard yang lain : yaitu []. gunakan: abc]* untuk
+     mewakili file file yang dimulai dengan huruf a,b,c;  *[I-N,1,2,3]
+     mewakili file yang diakhiri dengan huruf :  I,J,K,L,M,N,1,2,3 ;
+
+  o  Tidak seperti RENAME - nya DOS ; yaitu perintah mv *.xxx *.yyy
+     tidak berlaku di Linux (tidak ada rename massal).
+
+  o  menggunakan cp -i dan mv -i akan ditampilkan peringatan apabila
+     akan terjadi penimpaan file (overwritten) thd file lain.
+
+
+  2.5.  Menjalankan program: Multitasking dan pembahasan
+
+
+  Untuk menjalankan program, ketikkan nama program seperti jika Anda
+  menjalankannya pada DOS, Jika direktori (pembahasan ``direktori'' )
+  tempat program berada, tertulis dalam PATH (pembahasan ``System
+  initialization''), program akan berjalan. Pengecualian: tidak seperti
+  di DOS, di Linux program yang terletak di direktori aktif tidak dapat
+  dijalankan kecuali direktori tsb termasuk dalam PATH, ketikkan ./prog
+  untuk menjalankannya.
+  ini adalah apa yang menjadi ciri khas baris perintah :
+
+
+
+          $ perintah -s1 -s2 -s3 ... -sn par1 par2 par3...parn < input > output
+
+
+
+
+  dimana -a1,...,-sn adalah switch program, dan par1,...,parn adalah
+  parameter program, Anda dapat memberikan beberapa perintah dalam satu
+  baris perintah dengan :
+
+
+
+          $ perintah1 ; perintah2 ; ... ; perintahn
+
+
+
+
+  Itu semua adalah tentang menjalankan program, tapi lebih enak kalau
+  kita pergi ke langkah yang lebih jauh, Salah satu alasan penting untuk
+  menggunakan Linux adalah terletak pada multitasking-nya. Sistem
+  operasi --- yang dapat menjalankan beberapa program dalam waktu yang
+  bersamaan.  Anda dapat membawa suatu proses menuju ke latar belakang
+  (background), dan meneruskan pekerjaan kita lebih jauh lagi. lebih
+  lagi, Linux mengijinkan Anda untuk mempunyai beberapa sesion, yang
+  mana membuat kita seperti mempunyai beberapa komputer untuk bekerja
+  dalam waktu yang sama !
+
+
+  o  untuk berpindah sesion 1..6 :
+
+
+
+          $ ALT+F1 ... ALT+F6
+
+
+
+
+
+  o  untuk memulai sesion baru tanpa meninggalkan sesion yang aktif :
+
+
+          $ su - <loginname>
+
+
+
+
+  contoh :
+
+
+          $ su - root
+
+
+
+
+
+  ini sangat berguna, ketika Anda membutuhkan untuk memount (memuat)
+  disk (Pembahasan ``Floppies''): umumnya hanya root yang dapat
+  melakukannya.
+
+  o  untuk mengakhiri sebuah sesion :
+
+
+
+     $ exit
+
+
+
+
+
+  jika ada pekerjaan yang terhenti, Anda akan diperingatkan.
+
+  o  untuk menjalankan  program sebagai foreground (latar depan):
+
+
+
+          $ namaprogram [-switches] [parameter] [< input] [> output]
+
+
+
+
+
+  o  Untuk menjalankan program  sebagai background (latar belakang)
+
+
+
+          $ namaprogram [-switches] [parameter] [< input] [> output] &
+          [123]
+
+
+
+
+
+  untuk mengenali proses yg berjalan digunakan angka (lihat dibawah ini,
+  dan dengan PID 123 adalah sebagai contoh))
+
+  o  untuk melihat berapa proses yang sedang berjalan :
+
+
+
+          $ ps -a
+
+
+
+
+
+  Ini akan menampilkan daftar dari proses yang sedang berjalan.
+
+  o  untuk menghentikan/membunuh suatu proses :
+
+
+          $ kill <PID>
+
+
+
+
+
+  Anda mungkin perlu untuk menghentikan/membunuh suatu proses jika anda
+  tidak mengetahui bagaimana  untuk keluar... ;-) Kadang kadang proses
+  hanya akan terhenti/terbunuh oleh yang lain dengan memberikan perintah
+  :
+
+
+
+          $ kill -15 <PID>
+          $ kill -9 <PID>
+
+
+
+
+  tambahan di sini, shell mengijinkan Anda untuk menghentikan ataupun
+  menunda proses untuk sementara, mengirim proses ke background, membawa
+  proses dari background ke foreground. Dalam konteks ini proses proses
+  tersebut dinamakan "job"
+
+  o  untuk mengetahui ada berapa banyak "job" :
+
+
+          $ jobs
+
+
+
+
+
+  ini akan menampilkan pekerjaan/job berdasarkan nomor job, bukan
+  berdasarkan PID mereka.
+
+  o  untuk menghentikan proses yang berjalan di foreground (tapi tidak
+     selalu bisa) :
+
+
+
+          $ CTRL-C
+
+
+
+
+
+  o  untuk menunda proses yang berjalan di foreground (tapi tidak selalu
+     bisa) :
+
+
+
+          $ CTRL-Z
+
+
+
+
+
+  o  untuk mengirim proses yang tertunda ke background (menjadi job):
+
+
+
+          $ bg <job>
+
+
+
+
+
+  o  untuk membawa job ke foreground :
+
+
+
+          $ fg <job>
+
+
+
+
+
+  o  untuk menghentikan/membunuh job:
+
+
+
+          $ kill <%job>
+
+
+  dimana job bisa bernilai 1,2,3,... , dengan menggunakan perintah ini,
+  Anda dapat memformat disket, menggabungkan file file, mengkompilasi
+  program, dan mengunzip arsip-arsip dalam waktu yang bersamaan.
+  Bisakah Anda melakukannya di DOS ?? atau cobalah di Windows dan lihat-
+  lah perbedaan performa nya !
+
+
+  2.6.  Menjalankan program di remote komputer.
+
+
+  untuk menjalankan program di remote komputer (remote mechine) yang
+  mempunyai alamat : remote.bigone.edu, ketikkan :
+
+
+
+          $ telnet remote.bigone.edu
+
+
+
+
+  Setelah logging in, silakan jalankan program favorit Anda. tapi anda
+  harus mempunyai account di remote komputer tersebut.
+
+  jika Anda mempunyai X11, anda dapat menjalankan aplikasi-X (X-
+  application) di remote komputer, dan menampilkannya di X-Screen Anda.
+  Biarkan remote.bigone.edu menjadi x-remote komputer dan
+  local.Linux.box menjadi mesin Linux Anda, untuk menjalankan program-X
+  (program berbasis X-Win) yang ada di remote.bigone.edu dari
+  local.Linux.box, ikuti langkah langkah berikut :
+
+  o  nyalakan X11,  lalu jalankan xterm atau emulator terminal lain yang
+     sejenis, dan kemudian ketikkan :
+
+
+
+          $ xhost +remote.bigone.edu
+          $ telnet remote.bigone.edu
+
+
+
+
+
+  o  setelah login masuk (logging in), ketikkan :
+
+
+          remote:$ DISPLAY=local.Linux.box:0:0
+          remote:$ namaprogram &
+
+
+
+
+
+  (pengganti dari DISPLAY..., ada kemungkinan Anda untuk menuliskan
+  setenv DISPLAY local.Linux.box:0.0. Ini tergantung pada remote shell.
+  )
+
+  Yup ! sekarang namaprogram yang dipanggil akan ssegera dimulai di
+  remote.bigone.edu dan akan ditampilkan pada komputer Anda.
+
+
+  3.  Menggunakan Direktori
+
+
+
+
+
+  3.1.  Pendahuluan tentang Direktori
+
+
+  Ada perbedaan antara file file dan direktori under DOS dan Linux.
+  Untuk direktori root di DOS, disebut direktori / di Linux. Dengan cara
+  yang sama, kumpulan atau rentetan direktori di DOS di pisahkan dengan
+  tanda \ , sedangkan di Linux dengan tanda /
+
+  contoh :
+
+
+
+       DOS:   c:\PAPERS\GEOLOGY\MID_EOC.TEX
+       Linux:   /home/guido/papers/geology/mid_eocene.tex
+
+
+
+
+  Seperti biasa, Direktori induk (parent directory) adalah current
+  directory.  Dan ingatlah bahwa sistem tidak mengijinkan kita untuk
+  men- cd,rd, atau md di tempat sesuka kita.  Masing masing user akan
+  dimulai pada home direktori masing masing, pada contoh diatas adalah
+  /home/guido
+
+
+  3.2.  Hak permisi akses direktori (permission directory)
+
+
+  Direktori direktori di Linux juga mempunyai hak permisi akses.
+  Seperti yang telah kita lihat di bagian ``hak permisi akses dan
+  kepunyaan''.  Perhatikan direktori baik baik (user, group dan other).
+  Untuk direktori, rx berarti Anda dapat men-cd ke direktori tsb dan w
+  berarti anda dapat menghapus file di dalam direktori (sesuai dengan
+  hak permisi file didalamnya), atau menghapus direktori itu sendiri.
+
+  Contoh, untuk menjaga user lain agar tidak dapat mengintai
+  /home/guido/text
+
+
+
+          $ chmod o-xrw /home/guido/text
+
+
+
+
+
+  3.3.  Menterjemahkan perintah dari DOS ke Linux.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         DIR:                    ls, find, du
+         CD:                     cd, pwd
+         MD:                     mkdir
+         RD:                     rmdir
+         DELTREE:                rm -R
+         MOVE:                   mv
+
+    - CONTOH -
+
+         DOS                          Linux
+         -----------------------------------------------------
+
+         C:\GUIDO>dir                 $ ls
+         C:\GUIDO>dir file.txt        $ ls file.txt
+         C:\GUIDO>dir *.h *.c         $ ls *.h *.c
+         C:\GUIDO>dir/p               $ ls | more
+         C:\GUIDO>dir/a               $ ls -l
+         C:\GUIDO>dir *.tmp /s        $ find / -name "*.tmp"
+         C:\GUIDO>cd                  $ pwd
+                 n/a - lihat catatan  $ cd
+                 sama                 $ cd ~
+                 sama                 $ cd ~/temp
+         C:\GUIDO>cd \other           $ cd /other
+         C:\GUIDO>cd ..\temp\trash    $ cd ../temp/trash
+         C:\GUIDO>md newprogs         $ mkdir newprogs
+         C:\GUIDO>move prog ..        $ mv prog ..
+         C:\GUIDO>md \progs\turbo     $ mkdir /progs/turbo
+         C:\GUIDO>deltree temp\trash  $ rm -R temp/trash
+         C:\GUIDO>rd newprogs         $ rmdir newprogs
+         C:\GUIDO>rd \progs\turbo     $ rmdir /progs/turbo
+
+
+
+
+  Catatan :
+
+  1. ketika menggunakan rmdir, direktori yang mau di hapus harus kosong,
+     Untuk menghapus direktori dan semua yang terkandung didalamnya
+     gunakan rm -R (hati hati ini resiko Anda)
+
+  2. karakter '~' adalah bentuk pendek dari nama dari home direktori
+     Anda, perintah cd atau cd ~ akan membawa Anda ke home direktori
+     anda dimanapun Anda berada, dan perintah cd ~/tmp akan membawa anda
+     menuju /home/home_Anda/tmp.
+
+  3. cd - akan mengembalikan Anda ke direktori terakhir sebelum current
+     directory.
+
+
+  4.  Floppy, Harddisk dan sejenisnya
+
+
+  4.1.  Mengatur peralatan
+
+
+  Anda tidak usah berpikir tentang ini, tapi sebenarnya perintah DOS:
+  FORMAT A:  lebih banyak melakukan pekerjaan dari yang kita lihat,
+  kenyataannya perintah FORMAT A: itu akan melakukan:
+
+  1. memformat disk secara fisik
+
+  2. menciptakan direktori A: (=menciptakan filesystem);
+
+  3. membuat disk dapat digunakan langsung oleh user (=me-mountdisk)
+
+
+  tiga langgah diatas merupakan bagian bagian yang terpisah di Linux,
+  Anda dapat menggunakan floppy yang mempunyai format ms-dos, meskipun
+  banyak format format lain yang lebih baik dan tersedia bagi Linux ----
+  Format ms-dos tidak mengijinkan Anda untuk mempunyai file yang namanya
+  panjang.  Sekarang ini adalah cara menyiapkan sebuah disket (Anda
+  harus memulai session sebagai root) :
+
+  o  untuk memformat stAndar disket/floppy 1.44 MB  di drive A :
+
+     # fdformat /dev/fd0H1440
+
+  o  untuk membuat filesystem :
+
+     # mkfs -t ext2 -c /dev/fd0H1440
+
+     atau
+
+     # mformat a:
+
+     untuk membuat filesystem MS-DOS. Dan sebelum Anda dapat menggunakan
+     disket, anda harus me-mount (memuat) disket terlebih dahulu.
+
+  o  untuk me-mount disket :
+
+     # mount -t ext2 /dev/fd0 /mnt
+
+     atau
+
+     # mount -t msdos /dev/fd0 /mnt
+
+     sekarang Anda dapat menempatkan file file ke dalam floppy/disket.
+     Ketika semuanya sudah selesai, sebelum mengeluarkan disket anda
+     harus men-unmount-nya  terlebih dahulu.
+
+  o  untuk men-unmount disket :
+
+     # umount /mnt
+
+     dan sekarang Anda dapat mengeluarkan disket tsb. Tentunya, anda
+     anda melakukan fdformat dan mkfs hanya pada disket disket yang
+     belum diformat (unformatted disk), yang belum pernah digunakan.
+     Jika anda ingin menggunakan drive B, gunakan fd1H1440 dan fd1 se
+     bagai pengganti dari fd0H1440 seperti contoh diatas.
+
+  Semua yang Anda kerjakan dengan A: atau B: sekarang akan digantikan
+  dengan /mnt Contoh :
+
+
+
+                  DOS                         Linux
+              ---------------------------------------------------------------------
+              C:\GUIDO>dir a:                 $ ls /mnt
+              C:\GUIDO>copy a:*.*             $ cp /mnt/* /docs/temp
+              C:\GUIDO>copy *.zip a:          $ cp *.zip /mnt/zip
+              C:\GUIDO>a:                     $ cd /mnt
+              A:>_                            /mnt/$ _
+
+
+
+
+  Apa yang berlaku bagi disket/floppy juga berlaku untuk alat alat yang
+  lain; dilain hal mungkin Anda ingin me-mount harddisk lain atau CD-
+  ROM, Dan ini adalah cara me-mount CD-ROM :
+
+  # mount -t iso9660 /dev/cdrom /mnt
+
+  ini adalah cara biasa untuk memount disk Anda, tapi ada trik trik yang
+  tersimpan.  setiap user dapat diijinkan untuk me-mount peralatan
+  peralatan tsb, caranya :
+
+  o  Login sbg root, lalu ciptakan direktori /mnt/a , /mnt/a: dan
+     /mnt/cdrom
+
+  o  tambahkan baris dibawah ini di file  /etc/fstab :
+
+
+        /dev/cdrom     /mnt/cdrom  iso9660   ro,user,noauto          0       0
+        /dev/fd0       /mnt/a:     msdos     user,noauto             0       0
+        /dev/fd0       /mnt/a      ext2      user,noauto             0       0
+
+
+
+
+  Sekarang untuk me-mount DOS floppy, floppy ext2, dan CD-ROM caranya :
+
+
+
+              $ mount /mnt/a:
+              $ mount /mnt/a
+              $ mount /mnt/cdrom
+
+
+
+
+
+  sekarang /mnt/a, /mnt/a: dan /mnt/cdrom dapat diakses oleh setiap
+  user, dan penulis menemukan bahwa untuk menulis di /mnt/a tidak usah
+  menjadi root.  Dan dibawah ini adalah hal penting untuk dilakukan :
+
+
+              # mount /mnt/a
+              # chmod 777 /mnt/a
+              # umount /mnt/a
+
+
+
+
+
+  Dan ingatlah bahwa mengijinkan setiap orang untuk memount disk
+  terkadang akan menimbulkan celah di dalam lubang keamanan, hati hati.
+
+
+  4.2.  Membackup
+
+  Sekarang Anda sudah tahu bagaimana menangani floppy dan lain lain. Dan
+  hal lain yang perlu untuk kita ketahui adalah bagaimana caranya
+  membackup. Ada beberapa paket program yang dapat membantu anda, Tapi
+  cara yang paling sederhana untuk dapat mengerjakan multi-volume adalah
+  :
+
+
+
+           # tar -M -cvf /dev/fd0H1440 /dir_to_backup
+
+
+
+
+  Pastikan bahwa terdapat disket yang telah diformat di Disk Drive Anda,
+  dan beberapa disket lain.  Untuk me-restore (mengembalikan) hasil
+  backup Anda, silakan masukkan disket pertama di disk drive dan lakukan
+  :
+
+          # tar -M -xpvf /dev/fd0H1440
+
+
+
+
+
+
+  5.  Apa itu Windows ?
+
+
+  Tandingan dari Windows adalah sistem grafik X11. Tidak seperti Windows
+  atau Mac, X11 bukan didesign untuk kemudahan dalam penggunaan, atau
+  tampilan yang baik. Tapi hanya untuk menyediakan fasilitas grafik
+  untuk mesin unix.  Dibawah ini adalah perbedaan utama :
+
+  o  Pada Windows kita melihat dan merasakan persamaan tampilan dan
+     citarasa di seluruh dunia, X11 tidak demikian: ini lebih mudah
+     untuk dikonfigurasikan. X11  terlihat diberikan oleh komponen kunci
+     yang dinamakan "windows manager". disitu ada banyak pilihan yang
+     dapat Anda pilih. Yang paling umum adalah fvwm, sederhana tapi
+     menyenangkan dan efisien dalam penggunaan memori, fvwm2-95 dan
+     level level berikutnya memberikan X11 sentuhan rasa seperti Windows
+     95, bahkan memiliki tambahan yang lain. Terlihat betul betul indah.
+
+
+  o  Window manager Anda dapat dikonfigurasikan, Windows: anda klik pada
+     objek dan objek akan menjadi latar depan. Kemungkinan yang lain
+     adalah Objek akan otomatis menjadi latar depan ketika mouse berada
+     di objek tsb. Tampilan ini ("terpusat") dan beberapa yang lain
+     dapat dirubah dengan meengedit satu atau lebih file konfigurasi.
+     Bacalah dokumen (docs) dari window manager Anda.
+
+  o  X application (aplikasi X) ditulis dengan menggunakan library yang
+     special("Widget sets");  tersedia beberapa jenis, dan aplikasi
+     terlihat berbeda beda. Yang paling dasar adalah yang menggunakan
+     Athena widgets (terlihat 2-D;xdvi, xman, xcalc); yg lain m
+     enggunakan motif  (netscape), ada juga yang menggunakan Tcl/Tk,
+     Xforms, Qt dan lain lain. Beberapa (tidak semua) dari library
+     library disediakan dengan tampilan dan citarasa seperti Windows.
+
+  o  Sejauh ini kita membicarakan tampilan X11, tapi apa citarasa nya ?
+     Sayangnya, Semua aplikasi mempunyai karakteristik yang berbeda
+     beda. Contoh, jika Anda memilih baris text dengan menggunakan
+     mouse, dan menekan BACKSPACE, Dan anda menginginkan untuk
+     menghilangkan baris tsb,  benar ? tapi ini tidak dapat bekerja pada
+     apli kasi berbasis Athena. hanya dapat dikerjakan oleh Motif, Qt,
+     dan Tc1/Tk ;
+
+  o  Scrollbar, penggantian ukuran (resizing), dan permainan icon:
+     bergantung pada window manager dan set pada widget. Dan terlalu
+     banyak untuk di sebutkan disini. Hanya saja ketika menggunakan
+     Aplikasi berbasis Athena scroll bar akan lebih mudah untuk
+     digerakkan dengan menggunakan tombol tengah mouse. Jika Anda tidak
+     mempunyai mouse yang bertombol tiga, coba dengan menekan 2 tombol
+     secara bersama sama.
+
+  o  Aplikasi aplikasi tidak mempunyai icon default. Tapi mempunyai
+     bermacam macam jenis. Ini tergantung pada window manager. Desktop
+     dikatakan "root window" dan Anda dapat merubah penampilan ini
+     dengan menggunakan aplikasi seperti xsetroott atau xloadimage;
+
+
+  o  Clipboard hanya dapat menampung teks, dan berlaku aneh. Sekali Anda
+     sudah memilih teks, dan ini akan siap untuk dikopi ke clipboard:
+     gerakan ke lain tempat dan tekan tombol tengah. Itu adalah
+     aplikasi, xclipboard, yang menyediakan untuk buffer clipboard
+     gAnda.
+
+  o  drag dan drop (mendrag dan meletakkan dgn mouse) adalah pilihan,
+     dan ini hanya tersedia apabila Anda menggunakan x-applications
+     (aplikasi x) yang mendukungnya.
+
+     Untuk menghemat memori, lebih baik menggunakan aplikasi yang
+     menggunakan library library yang sama, tapi ini sulit untuk
+     dilakukan dalam praktek. Ada rencana yang dinamakan  K Desktop
+     Environment ( Lingkungan K Desktop ) yang sasarannya pada membuat
+     X11 t ampilan dan gayanya saling berkaitan seperti windows.  ini
+     sekarang dalam tahap awal beta. tapi percayalah. Ini akan membawa
+     Windows interface malu, silakan buka browser Anda dan kunjungi
+     http://www.kde.org
+
+
+  6.  Menyesuaikan Sistem
+
+
+  6.1.  File file inisialisasi sistem
+
+  Dua file penting di DOS adalah config.sys dan autoexec.bat, yang mana
+  digunakan pada saat booting untuk menginisialisasi/menyiapkan sistem,
+  mengeset beberapa variabel sistem seperti PATH, dan FILES, dan
+  kemungkinan untuk menjalankan suatu program atau bat ch file. Di Linux
+  juga terdapat beberapa file inisialisasi, beberapa file lebih baik
+  Anda tidak mengotak-atiknya terlebih dahulu hingga anda benar benar
+  tahu tnetang file tsb. Penulis akan memberitahu anda file file yang
+  penting, diantaranya :
+
+
+
+               FILES                          keterangan
+             -----------------------------------------------------------------
+              /etc/inittab                    jangan disentuh dahulu sekarang
+              /etc/rc.d/*                     idem
+
+
+
+
+  jika Anda menginginkan untuk mensetting PATH atau variabel lingkungan
+  yang lain, atau anda ingin merubah pesan atau tulisan pada saat login,
+  atau mungkin juga anda ingin menjalankan program atau batchfile.
+  Silakan lihat daftar file file dibawah ini:
+
+
+
+              FILES                           keterangan
+            ------------------------------------------------------------------------
+              /etc/issue                      Mengeset pesan pada saat sebelum login
+              /etc/motd                       mengeset pesan pada saat post-login
+              /etc/profile                    mengeset PATH dan variabel yang lain.
+              /etc/bashrc                     mengeset fungsi, alias dll (lihat dibawah)
+              /home/your_home/.bashrc         mengeset alias dan fungsi
+              /home/your_home/.bash_profile   mengeset lingkungan + memulai prog Anda
+              /home/your_home/.profile        idem
+
+
+
+
+  Jika file file di bawah ada(ingat: file itu adalah file tersembunyi
+  (hidden file) ), maka file file tsb akan dibaca dan perintah
+  perintahnya akan dieksekusi.
+
+  Sebagai contoh lihat pada .profile dibawah ini :
+
+    _____________________________________________________________________
+    # ini adalah komentar
+    echo Environment:
+    printenv | less   # ini setara dengan perintah SET di DOS
+    alias d='ls -l'   # untuk mempermudah memahami apa itu alias
+    alias up='cd ..'
+    echo "Saya ingatkan pathnya adalah "$PATH
+    echo "Sekarang tanggal `date`"  # menggunakan perintah keluaran 'date'
+    echo "Ini hari yang baik, "$LOGNAME
+    # Dibawah ini adalah  "shell function"
+    ctgz() # Tabel arsip .tar.gz .
+    {
+      for file in $*
+      do
+        gzip -dc ${file} | tar tf -
+      done
+    }
+    # akhir dari .profile
+    _____________________________________________________________________
+
+
+
+
+  PATH dan LOGNAME adalah variabel lingkungan, Ada beberapa hal yang
+  lain yang berkenaan dengannya untuk sesuatu hal, silakan baca manual
+  pagenya (RMP).
+
+
+  6.2.  File-file program inisialisasi
+
+  Di bawah Linux, sesungguhnya semuanya dapat di sesuaikan  atau di
+  design sesuai dengan kebutuhan Anda. Kebanyakan program memiliki satu
+  atau lebih file file inisialisasi yang mana dapat anda otak atik,
+  kebanyakan file dinamakan : .namaprogramrc yang terle tak di home
+  direktori. Yang pertama Anda inginkan untuk di ubah adalah:
+
+
+
+       /usr/lib/X11/fvwm/system.fvwmrc
+
+
+
+
+  programs.
+
+  untuk semua ini dan yang lain lain Anda akan berjumpa dengannya, cepat
+  atau lambat, RMP.
+
+
+  7.  Sedikit tentang pemrograman.
+
+
+  7.1.  Skrip shell: .BAT pada Linux
+
+  Jika Anda menggunakan .BAT file untuk menciptakan kependekan dari
+  baris perintah yang panjang, tujuan ini akan dapat tercapai dengan
+  menyisipkan baris alias ( lihat contoh dibawah ) di profile atau
+  .profile Tapi jika .BAT Anda lebih kompleks, anda nantinya akan
+  menyukai bahasa skrip yang tersedia untuk shell. Yang se-ampuh Q-
+  Basic. Skrip ini mempunyai variabel, struktur seperti while, for,
+  case, if...then...else, dan masih banyak lagi, dan ini dapat dijadika
+  n alternatif baik untuk pemrograman.
+
+  Untuk menulis skrip---seperti pada .BAT file di DOS, yaitu Anda
+  diharuskan untuk menuliskan dalam bentuk standart ASCII yang berisikan
+  perintah perintah, lalu meyimpannya dan kemudian membuatnya menjadi
+  executable dengan perintah chmod +x <file skrip> . D an untuk
+  menjalankannya ketikkan nama program.
+
+  Kata peringatan. Sistem editor yang bernama vi, pada pengalaman
+  penulis banyak pengguna baru yang menemukan kesulitan untuk
+  menggunakannya.  Dan penulis tidak akan menjelaskan bagaimana cara
+  menggunakannya, Karena penulis tidak terlalu suka dan tidak meng
+  gunakannya, Lihatlah Matt Wels'h "Linux Installation..", halaman 109
+  Anda akan menemukan editor lain yang lebih baik seperti joe atau emac
+  for X.  Tapi di sini akan dituliskan sedikit tentang vi untuk
+  melengkapi pembahasan kita :
+
+  o  untuk menyisipkan teks, tekan "i" kemudian sisipkan teks Anda
+
+  o  untuk keluar dari vi tanpa menyimpan tekan <ESC> kemudian :q!
+
+  o  untuk menyimpan dan keluar, tekan >ESC< lalu :wq
+
+  Menuliskan skrip skrip under bash adalah pembahasan yang luas sekali
+  dan membutuhkan buku yang tersendiri, Dan penulis tidak akan memasuki
+  topik ini lebih jauh lagi. Tapi penulis akan memberikan Anda contoh
+  dari skrip shell, yang mana anda dapat memperole h beberapa aturan
+  dasar :
+
+
+         _____________________________________________________________________
+         #!/bin/sh
+         # contoh.sh
+         # ini adalah komentar
+         # jangan merubah baris pertama, itu harus ada
+         echo "System ini adalah: `uname -a`"    # menggunakan output dari perintah
+         echo "Nama penulis adalah $0"           # variabel built-in
+         echo "Anda memberi penulis $            # parameters: "$*
+         echo "parameter pertama adalah: "$1
+         echo -n "Siapa nama Anda? " ; read your_name
+         echo lihat perbedaannya "hi $your_name"   # dikutip dengan "
+         echo lihat perbedaannya: 'hi $your_name'  # dikutip dengan '
+         DIRS=0 ; FILES=0
+         for file in `ls .` ; do
+           if [ -d ${file} ] ; then                # bila direktori
+             DIRS=`expr $DIRS + 1`                 # DIRS = DIRS + 1
+           elif [ -f ${file} ] ; then
+             FILES=`expr $FILES + 1`
+           fi
+           case ${file} in
+             *.gif|*jpg) echo "${file}: graphic file" ;;
+             *.txt|*.tex) echo "${file}: text file" ;;
+             *.c|*.f|*.for) echo "${file}: source file" ;;
+             *) echo "${file}: generic file" ;;
+           esac
+         done
+         echo "terdapat ${DIRS} directories dan ${FILES} file"
+         ls | grep "ZxY--!!!WKW"
+         if [ $? != 0 ] ; then                 # kode keluar dari perintah terakhir
+           echo "ZxY--!!!WKW tidak ditemukan"
+         fi
+         echo "Cukup... ketik 'man bash' jika Anda ingin informasi lebih."
+         _____________________________________________________________________
+
+
+
+
+
+
+
+
+  7.2.  C untuk Anda.
+
+  Dibawah Unix, bahasa sistemnya (system language) adalah C, suka atau
+  tidak. Nilai nilai dari bahasa bahasa yang lain (fortran, pascal,
+  lisp. basic. perl ) juga tersedia diambil dari pengalaman Anda tentang
+  C, ini adalah petunjuk petunjuk untuk anda yang  sudah dimanjakan oleh
+  turbo C++ atau salah satu dari keluarga DOS.  Compiler C di Linux
+  disebut gcc dan mempunyai kekurangan pada semua fasilitas fasilitas
+  kenyamanan , yang biasanya menemani kita di DOS: tidak ada IDE, online
+  help(bantuan), debugger yang terintegrasi dll.  hanya berupa kompiler
+  kasar untuk perintah perintah, sangat ampuh dan efisien. Sekarang
+  untuk mengkompile stAndar hello.c anda , anda harus melakukan :
+
+
+
+          $ gcc hello.c
+
+
+
+
+  yang mana akan menciptakan file executabel yang kita namakan a.out. ,
+  sedangkan untuk memberikan file executable yang berlainan nama,
+  lakukan :
+
+
+
+          $ gcc -o hola hello.c
+
+
+
+
+  untuk menggabungkan library di luar program, tambahkan switch
+  -l<libname>. contoh, untuk menggabungkan library math :
+
+
+
+          $ gcc -o mathprog mathprog.c -lm
+
+
+
+
+  (switch -l<libname> memaksa gcc untuk menggabungkan library
+  /usr/lib/lib<libname>.a; jadi -lm akan menggabungkan dengan
+  /usr/lib/libm.a )
+
+  Tapi jika program Anda terbuat dari beberapa file sumber, anda harus
+  menjalankan utility "make".  misal anda menuliskan ekspresi terurai:
+  file sumber dinamakan parser.c dan dua buah file header yang ter
+  #include, yaitu parser.h dan xy.h. Kemudian anda men ginginkan untuk
+  menggunakan rutin di parser.c di dalam program, katakanlah calc.c,
+  yang mana di dalamnya ter- #includes parser.h.  kacau ! Apa yang dapat
+  Anda lakukan untuk mengkompile calc.c ?
+
+  Anda harus menulis sesuatu yang dinamakan makefile, yang mana
+  memberitahu kompiler tentang ke terkaitan/ketergantungan  antara file
+  sumber(source file) dan file objek(object file ). Contoh :
+
+
+
+
+
+
+
+
+
+
+   ______________________________________________________________________
+    # ini adalah makefile, digunakan untuk mngkompile calc.c
+    # tekan tombol <TAB> pada posisi yang tepat!
+
+    calc: calc.o parser.o
+    <TAB>gcc -o calc calc.o parser.o -lm
+    # calc bergantung pada 2 file objek: calc.o and parser.o
+
+    calc.o: calc.c parser.h
+    <TAB>gcc -c calc.c
+    # calc.o bergantung pada dua buah source file
+
+    parser.o:  parser.c parser.h xy.h
+    <TAB>gcc -c parser.c
+    # parser.o bergantung pada tiga source files
+
+    # end of makefile.
+    ____________________________________________________________________
+
+
+
+
+  simpan file ini sebagai makefile dan ketikkan :
+
+
+
+          $ make
+
+
+
+
+  untuk mengkompilasi program Anda, alternatif lain, simpan program ini
+  sebagai calc.mak dan ketikkan :
+
+
+
+          $ make -f calc.mak
+
+
+
+
+  dan pelajaran lebih lanjut silakan baca manual page (RMP)
+
+  Anda dapat meminta beberapa bantuan tentang fungsi fungsi di C, yang
+  mana di jelaskan di man page, section 3, untuk contoh :
+
+
+
+          $ man 3 printf
+
+
+
+
+  Disitu terdapat banyak librari librari yang tersedia, antara lain Anda
+  akan membutuhkan ncurses, yang berguna untuk menangani efek efek mode
+  teks, dan svgalib, untuk mengerjakan grafik. Jika anda mempunyai rasa
+  keberanian yang cukup untuk mengerjakan-X (X -programming) dapatkan
+  Xforms (di ) dan/atau MGUI () , dua buah library yang cukup ampuh yang
+  membuat X programming menjadi mudah. Lebih lagi, jika Anda tidak dapat
+  hidup tanpa IDE dari Borland, dapatkan paket xwpe dari Anda pasti
+  suka.
+
+
+
+
+
+  8.  Sisa 1%
+
+
+  8.1.  Membuat memori Virtual.
+
+
+  Meskipun secara teori Linux dapat berjalan di memori 2 MB, tapi lebih
+  besar memori akan lebih banyak yang dapat Anda kerjakan. sistem X-
+  Windows tidak mau berjalan jika memorinya lebih kecil dari 8 MB.
+  Untuk menciptakan tambahan memori virtual sebanyak 8 MB, ketikkan (sbg
+  root) :
+
+
+
+              # dd if=/dev/zero of=/swapfile bs=1024 count=8192
+              # mkswap /swapfile 8192
+              # sync
+              # swapon /swapfile
+
+
+
+
+  tambahkan pada baris terakhir di /etc/rc.d/rc.local untuk membuat
+  swapfile tersedia diwaktu yang akan datang ketika Anda booting, atau
+  tambahkan baris ini di /etc/fstab :
+
+
+
+          /swapfile   swap    swap    defaults
+
+
+
+
+
+  8.2.  Menggunakan tar dan gzip
+
+
+  Dibawah unix, ada beberapa aplikasi yang dapat digunakan untuk
+  mengarsip dan mengkompress file. tar berguna untuk mengarsip--- ini
+  seperti PKZIP tapi dia tidak melakukan kompresi, dan yang dia kerjakan
+  hanya mengarsip saja. Untuk membuat arsip baru :
+
+
+
+          $ tar -cvf <nama_arsip.tar> <file> [file...]
+
+
+
+
+  Untuk meng-ekstrak atau mengembalikan :
+
+
+
+          $ tar -xpvf <nama_arsip.tar> [file...]
+
+
+
+
+  untuk melihat daftar isi dari suatu arsip :
+
+
+
+          $ tar -tf <nama_arsip.tar> | less
+
+
+
+  Anda dapat mengkompresi file dengan menggunakan compress, atau gzip :
+
+
+
+          $ compress <file>
+          $ gzip <file>
+
+
+
+
+  yang akan menciptakan file terkompresi dengan ekstensi .Z (compress)
+  atau .gz (gzip) . Program ini hanya dapat mengompress satu buah file
+  dalam satu waktu.  untuk men-dekompress (mengembalikan), gunakan :
+
+
+
+          $ compress -d <file.Z>
+          $ gzip -d <file.gz>
+
+
+
+
+  untuk lebih lanjut....RMP.
+
+  program bantu unarj, zip dan unzip (PK??ZIP kompatibel) juga tersedia,
+  File dengan ekstensi .tar.gz atau .tgz (di arsip dengan tar lalu
+  dikompress dengan gzip)  adalah hal yang lazim didalam dunia unix
+  seperti .ZIP di DOS. Dan dibawah ini adalah bagaimana caranya
+  menampilkan daftar file yang terkandung di dalam .tar.gz :
+
+
+
+          $ gzip -ddc <file.tar.gz> | tar tf - | less
+
+
+
+
+
+  8.3.  Menginstall aplikasi
+
+  Permulaan dari semuanya: menginstall paket aplikasi adalah pekerjaan
+  dari root. Beberapa aplikai Linux didistribusikan dalam bentuk arsip
+  .tar.gz atau .tgz , untuk men-dekompress dari / ketikkan perintah
+  berikut :
+
+
+
+          $ gzip -dc <file.tar.gz> | tar xvf -
+
+
+
+
+  File file tersebut akan di-dekompress ke dalam direktori yang benar,
+  yang mana direktori akan otomatis tercipta jika belum ada, pengguna
+  dari distribusi slackware mempunyai program yang gampang (user-
+  friendly) yaitu program pkgtool; yang lain adalah rpm; yang tersedia
+  bagi semua distribusi, terimakasih buat red hat.
+
+  Paket program yang lain tidak dapat di install dari / ; cirikhas,
+  arsip akan mempunyai direktori yg dinamakan pkgname/ dan banyak file
+  atau subdirektori dibawah pkgname/.  Aturan yang bagus adalah untuk
+  menginstallnya dari direktori /usr/local, disamping, beberapa paket
+  program didistribusikan dalam C atau C++ (source code), yang mana Anda
+  harus mengkompilasi untuk menciptakan file binary. Dalam hal ini anda
+  membutuhkan kom piler gcc.
+
+  8.4.  Anda tidak dapat berbuat tanpa.....
+
+  Perintah penyelesaian: tekan <TAB> ketika Anda ingin memberitahu bahwa
+  perintah anda akan di buat menjadi baris perintah yang lengkap, contoh
+  : anda ingin mengetikkan perintah gcc ini_adalah_file_yang_panjang.c ;
+  karena malas mengetik, maka ketikkan saja gcc ini<TAB> (jika Anda
+  mempunyai file lain yang dimulai dengan karakter yang sama (ini) ;
+  tambahkan karakter lagi agar diperoleh cukup karakter untuk
+  menghindari kemungkinan mendua arti).
+
+  Menggulung layar ke atas: tekan SHIFT+PAGE UP (tombol abu abu) akan
+  mengijinkan Anda untuk melihat halaman diatas, banyaknya skrolling
+  tergantung pada kapasitas video memori anda.
+
+  Mereset layar : jika Anda mengalami me-more atau men-cat file binary,
+  maka layar anda akan dipenuhi karakter karakter aneh (garbage), untuk
+  mengatasinya : secara buta ketikkan reset atau echo CTRL-V ESC c
+  RETURN
+
+  Mempaste teks : di dalam console, lihat dibawah ini: di X; klik dan
+  drag untuk memilih teks di dalam xterm window, kemudian klik tombol
+  tengah (atau dua tombol bersamaan jika Anda hanya mempunyai 2 tombol
+  mouse ) untuk meletakkan/mempaste.  bisa juga xclipboard (penulisng ,
+  hanya untuk teks ); jangan bingung jika Anda mendapatkan respon yang
+  lambat.
+
+  Menggunakan mouse : install gpm, mouse driver untuk console, Click dan
+  drag untuk memilih teks, kemudian klik tombol kanan untuk meletakkan
+  teks yang terpilih, ini juga bekerja antar VCs yang berlainan.
+
+  Pesan dari kernel : dapat dilihat di /var/adm/messages atau di
+  /var/log/messages oleh root, yang mana memberikan pesan pesan yang
+  ingin disampaikan oleh kernel. termasuk pesan pada waktu bootup.
+
+
+  8.5.  Program program berguna dan perintah perintah.
+
+  Ini bertolak dari pengalaman penulis, Sebagai permulaan, dimana kita
+  bisa mendapatkannya. Sejak Anda mengetahui bagaimana untuk berselancar
+  di Net dan bagaimana menggunakan arsip dan ftp. Penulis akan
+  memberitahu tiga dari alamat alamat terpenting untuk Linux yaitu :
+  sunsite.unc.edu , tsx-11.mit.edu , dan nic.funet.fi silakan gunakan
+  mirror yang paling dekat dengan Anda.
+
+
+  o  at mengijinkan Anda untuk menjalankan pprrogram pada tanggal dan
+     waktu tertentu.
+
+  o  awk adalah program sederhana yang terampuh untuk sekarang yang
+     berguna untuk memanipulasi file data (tidak hanya itu). Contoh :
+     data.dat adalah  file multifiled data Anda.  perintah :
+
+
+
+          $ awk '$2' ~ "abc" {print $1, "\t", $4}' data.dat
+
+
+
+
+
+  akan menampilkan field 1 dan field 4 dari setiap baris di data.dat
+  yang mempunyai "abc" di field ke dua.
+
+  o  delete dan undelete mengerjakan sesuai dengan arti dari nama
+     mereka.
+
+  o  df memberikan kita informasi mengenai disk-disk yang ter-mount
+
+  o  dosemu mengijinkan Anda untuk menjalankan beberapa (tidak semua)
+     program DOS, termasuk windows 3.xx, dengan beberapa manipulasi bit.
+
+  o  file <filename> memberitahu Anda jenis dari file tsb (apakah teks
+     ASCII, executable, arsip dan lain lain)
+
+  o  find (lihat juga bagian "dir") adalah salah satu dari perintah yang
+     tergolong ampuh dan sangat berguna. Ini berguna untuk menemukan
+     file dengan karakteristik khusus. dan melakukan sesuatu dengannya.
+     Penggunaan yang umum dari find adalah :
+
+
+
+          $ find <direktori> <ekspresi>
+
+
+
+
+
+  dimana <ekspresi> adalah kriteria pencarian dan yang akan kita
+  lakukan. contoh :
+
+
+
+          $ find . -type l exec ls -l {} \;
+
+
+
+
+
+  Menemukan semua file yang mana mempunyai link simbolik dan menunjukkan
+  ter link ke mana.
+
+
+
+          $ find / -name "*.old" -ok rm {} \;
+
+
+
+
+
+  menemukan file file yang mempunyai pola pola tsb dan menghapusnya,
+  lihat permisi aksesnya dahulu.
+
+
+
+          $ find . -perm +111
+
+
+
+
+
+  menemukan file file yang mempunyai permisi akses 111 (executable)
+
+
+
+          $ find . -user root
+
+
+
+
+
+  menemukan file file yang menjadi hak dari root. Untuk kemungkinan
+  kemungkinan disini silakan lihat manual page, RMP
+  o  gnuplot adalah program pintar yang berguna untuk plotting ilmiah.
+
+  o  grep untuk menemukan teks dengan pola pola tertendu di dalam file.
+     Contoh :
+
+
+
+          $ grep -l "geology" *.tex
+
+
+
+
+
+  akan menampilkan file file *.tex yang mempunyai kata "geology". Jenis
+  yang lain adalah zgrep yaitu bekerja pada file file gzip. RMP
+
+  o  gzexe mengkompressi file file binary executable dan menjaga mereka
+     agar tetap executable.
+
+  o  joe adalah editor yang sangat baik. memintanya dengan mengetikkan
+     jstar dan Anda akan mendapat cara cara editing seperti wordstar dan
+     turunan turunannya, termasuk DOS dan Borland's Turbo editor.
+
+  o  less barangkali adalah browser/penampil teks yang terbaik. dan jika
+     terkonfigurasi dengan benar, maka akan mengijinkan Anda untuk
+     membrowse/menampilkan file file ter-gzip, tar, dan ter - zip dengan
+     baik
+
+  o  lpr <file> melakukan pencetakan pada file di bacground. Untuk
+     mengetes status dari antrian pencetakkan, gunakan lpq ; dan untuk
+     menghapus file dari antrian pencetakkan, gunakan lprm;
+
+  o  mc adalah file manager besar.
+
+  o  pine adalah program email yang nyaman.
+
+  o  script <script_file> mengkopi ke script_file apa yang tampil di
+     layar hingga Anda memberikan perintah exit. ini berguna untuk
+     proses debugging
+
+  o  sudo mengijinkan pengguna untuk menjalankan beberapa dari tugas
+     root ( spt memformat dan memount disk, lihat manual page... RMP );
+
+  o  uname -a memberikan Anda informasi tentang system yang anda
+     gunakan.
+
+  o  zcat dan zless adalah berguna untuk menampilkan teks file yang ter
+     gzip tanpa harus men-un-gzip terlebih dahulu, kemungkinan
+     penggunaan :
+
+
+
+          $ zless textfile.gz
+          $ zcat textfile.gz | lpr
+
+
+
+
+
+  o  perintah perintah yang sering kali berguna : bc, cal, cmp, cut,
+     fmt, head, hexdump, nl, passwd, printf, sort, split, strings, tac,
+     tail, tee, touch, uniq, w, wall, wc, whereis, write, xargs, znew
+     dan lain lain.. lihat manual page---RMP
+
+
+
+  8.6.  Ekstension dan program program yang berhubungan.
+
+  Sekarang Anda menginjak arti dari ekstension file, dengan
+  mengecualikan yang tidak lazim (spt font dll), Daftar :
+
+  o  1 ... 8: halaman manual.mendapatkan manual.
+
+  o  arj: mode arsip dengan arj. untuk mengembalikan pakai unarj
+
+  o  dvi: File keluaran yang dihasilkan TeX (lihat dibawah). xdvi untuk
+     menampilkan; dvips untuk memasukkan ke PostScript file .ps .
+
+  o  gif: file grafik. Dapatkan seejpeg atau xpaint.
+
+  o  gz: arsip yg dibuat dengan gzip.
+
+  o  info: file info (alternatif pendek dari halaman manual).
+     mendapatkan info.
+
+  o  jpg, jpeg: file grafik . dapatkan seejpeg.
+
+  o  lsm: File map dari Software Linux. Berisi file text sederhana yang
+     mendeskripsikan paket paket program.
+
+  o  ps: file postscript. Untuk menampilkan atau mencetak gunakan gs
+     dan, alternatif lain, ghostview.
+
+  o  rpm: Paket program redhat. Anda dapat menginstallnya di setiap
+     sistem dengan menejer paket rpm.
+
+  o  tgz, tar.gz: arsip yang dibuat dengan tar dan dikompressi dengan
+     gzip.
+
+  o  tex: file teks untuk mengajukan ke TeX, Program ampuh untuk
+     mengetik.  Dapatkan paket program tex, yang tersedia di beberapa
+     distribusi; Tapi hati hati dengan NTeX, yang mana memiliki fonts
+     yang terkorupsi dan ini termasuk dibeberapa versi slackware.
+
+  o  texi: file infoteks, dapat menghasilkan antara TeX dan file info
+     (cp  info). Dapatkan xinfo.
+
+  o  xbm, xpm, xwd: file grafik. Dapatkan xpaint.
+
+  o  Z: Arsip yang terbuat dengan compress.
+
+  o  zip: Arsip yang dibuat dengan zip. dapatkan zip dan unzip.
+
+
+  9.  Sampai disini dulu.
+
+  Selamat Anda kini sudah mengetahui sedikit tentang unix dan siap untuk
+  memulainya . tapi ingatlah bahwa pengetahuan anda tentang system
+  sekarang masih terbatas. dan diharapkan untuik lebih banyak untuk
+  berlatih dan mencoba nya, Linux adalah sangat menyena ngkan. tapi jika
+  semua yang Anda kerjakan disertai dengan paket paket  aplikasi dan
+  memulai bekerja dengannya, penulis bertaruh bahwa apa yang termasuk di
+  sini adalah mencukupi.
+
+  Saya yakin Anda akan menikmati dan menyenangi Linux dan akan akan
+  terus belajar lebih tentang Linux. Penulis juga akan bertaruh, anda
+  tidak akan kembali pada DOS ! penulis berharap ini menjadi pengetahuan
+  pribadi dan layanan yang baik bagi 3 atau 4 pembaca.
+
+
+
+
+  9.1.  Hak cipta
+
+  Kalau di distribusikan di lain tempat, Linux howto adalah hakcipta
+  masing masing penulis.  Linux Howto boleh di distribusikan sebagian
+  atau seluruhnya dalam media fisik ataupun elektronik, selama hak cipta
+  ini diumumkan dan dipegang teguh dalam setiap kop i. Distribusi secara
+  komersial diijinkan, tapi penulis harus di beritahu dalam setiap
+  distribusi.  Setiap terjemahan, saduran, atau pengumpulan dari setiap
+  dokumen Linux howto harus patuh dibawah pengumuman hak cipta ini.
+  Anda tidak diijinkan untuk memproduksi tambahan tambahan dari HOWTO
+  dan membebani tambahan larangan dari setiap distribusi. Pengecu alian
+  dari aturan ini mungkin diakui dibawah kondisi tertentu. Silakan
+  hubungi koordinator Linux-HOWTO pada alamat dibawah ini.
+
+  Pendek kata, kami berharap untuk mempromosikan penyebaran dari
+  informasi ini melalui saluran saluran yang memungkinkan. tapi, kami
+  juga berharap untuk memegang teguh setiap hakcipta dari dokumen HOWTO,
+  dan diberitahu setiap rencana pendistribusian ulang d ari HOWTO.
+
+  Jika Anda mempunyai pertanyaan, silakan hubungi Greg Hankins,
+  koordinator Linux howto di gregh@sunsite.unc.edu
+  <mailto:gregh@sunsite.unc.edu> melalui email.
+
+
+  9.2.  Kritik dan saran.
+
+  "From Dos to Linux howto" ditulis oleh Guido Gonzato,
+  guido@ibogfs.df.unibo.it <mailto:guido@ibogfs.df.unibo.it>. Penulis
+  mengucapkan terima kasih kepada Matt Welsh, penulis dari "Linux
+  installation howtto and getting started", kepada Ian Jackson, penulis
+  dari "Linux frequenly asked questions wi th answers". , kepada
+  Giuseppe Zanetti, penulis dari "Linux" , dan kepada Anda semua yang
+  telah mengirimkan saran kepada penulis melalui email, Terutama kepada
+  Linuz Torvalds dan GNU yang memberi kami Linux.
+
+  Dokumen ini disediakan "as is". Penulis menulisnya dengan usaha keras
+  dan  menulisnya dengan seakurat mungkin, semampu penulis. Tapi Anda
+  menggunakan informasi yang terdapat disini adalah tanggung jawab anda.
+  Penulis tidak bertanggung jawab atas segala ke rusakkan yang terjadi.
+
+  Tanggapan akan diterima dengan baik, untuk setiap permintaan, kritik
+  dan saran, Jangan canggung untuk menghubungi penulis.
+
+  Nikmati Linux dan kehidupan !
+
+  Guido =8-)
+
+
+  10.  Penerjemah
+
+
+  Diterjemahkan oleh Agus Hart
+
+  email : hartx@writeme.com <mailto:hartx@writeme.com>
+
+  Website: http://come.to/hartx <http://come.to/hartx>
+
+
+
+
+
+
+
+
+
+

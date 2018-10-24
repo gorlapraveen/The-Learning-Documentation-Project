@@ -1,0 +1,1254 @@
+  CD-Writing HOWTO
+  Winfried Truemmper <winni@xpilot.org> Diterjemahkan oleh
+  Wima S.Y. <wima%its.ac.id@iptek.net.id>
+  v2.4.1, 16 December 1997 Terj. 1 Jan 1999
+
+  Dokumen ini berisi tentang proses penulisan CD dibawah Linux
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Pendahuluan
+
+     1.1 Disclaimer (Tidak diterjemahkan)
+     1.2 Referensi tambahan
+     1.3 Terminologi ... lasers maksimum ... tembak!
+     1.4 CD-Writers yang didukung
+     1.5 Kemampuan yang didukung
+     1.6 Mailinglists
+     1.7 Ketersediaan
+
+  2. Menyiapkan kotak Linux Anda untuk menulis CD-ROM
+
+     2.1 Set up hardware
+     2.2 Catatan untuk menulis CD dibawah Linux
+     2.3 Membuat divais generik
+     2.4 Mengaktifkan penggunaan dari SCSI generik dan divais loopback
+     2.5 Build dan install kernel
+     2.6 Booting ulang komputer untuk melihat efek perubahan.
+     2.7 Membuat divais loopback
+     2.8 Mendapatkan user-software untuk menulis CD
+        2.8.1 Command line utilities
+        2.8.2 Graphical User Interface (optional)
+
+  3. "If to smoke you turn I shall not cease to fiddle while you burn." (Pendapat Kaisar Nero tentang membuat CD Klasik-nya: (AD64. He misunderstood it completly.))
+
+     3.1 Menentukan divais scsi generik yang terhubung pada writer
+     3.2 Mengumpulkan perangkat lunak / data
+     3.3 Menyimpan data pada CD
+     3.4 Membuat file sistem iso9660
+     3.5 Test image CD
+     3.6 CD-Recordable tanpa merek (blank)
+     3.7 Menulis image CD ke CD
+     3.8 Apabila ada sesuatu yang salah
+
+  4. Pertanyaan yang sering ditanyakan dengan jawaban
+
+     4.1 Seberapa sensitif proses pembakaran ?
+     4.2 Apakah fragmentasi akan menyebabkan jeleknya laju data ?
+     4.3 Apakah mungkin menyimpan iamge CD pada sistem file UMSDOS ?
+     4.4 Apakah ada jalan untuk mengatasi kekurangan iso9660 ?
+     4.5 Bagaimana membaca dan menulis audio CD?
+     4.6 Bagaimana melakukan probing untuk divais SCSI setelah booting ?
+     4.7 Apakah dimungkinkan membuat salinan 1:1 dari data CD?
+     4.8 Apakah Linux bisa membaca CD Joliet?
+     4.9 Bagaimana membaca / mount CD-ROM dengan CD-writer?
+
+  5. Pencarian kesalahan
+
+     5.1 Tidak dapat bekerja: dibawah Linux
+     5.2 Tidak dapat bekerja: dibawah DOS dan teman-temannya.
+     5.3 Ada error pada SCSI ketika sedang membakar
+     5.4 Kredit
+
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  Pengalaman pertama penulis dengan CD writer berasal dari "Linux CD
+  Writer mini-HOWTO" oleh Matt Cutts <cutts@cs.unc.edu>.
+
+  Walaupun intensi penulis hanya untuk mengembangkan dokumen tersebut,
+  namun penulis menulis ulang setelah menyadari banyak perkembangan
+  sejak 1994
+
+  Apabila terdapat kesalahan dan kekurangan dalam penterjemahan  hubungi
+  harap menghubungi Wima <wima%its.ac.id@iptek.net.id>
+
+
+  1.1.  Disclaimer (Tidak diterjemahkan)
+
+  I (Winfried Truemper) DISCLAIM ALL WARRANTIES WITH REGARD TO THIS
+  DOCUMENT, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  FITNESS FOR A CERTAIN PURPOSE; IN NO EVENT SHALL I BE LIABLE FOR ANY
+  SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER
+  RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+  CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+  CONNECTION WITH THE USE OF THIS DOCUMENT.
+
+  Terjemahan pendek : bacalah dan gunakan dengan resiko Anda sendiri
+
+
+  1.2.  Referensi tambahan
+
+
+  CD-R FAQ <http://www.cd-info.com/CDIC/Technology/CD-R/FAQ.html> adalah
+  FAQ umum mengenai compact-disk recordables  (CD-R)
+
+  Linux CD-ROM HOWTO menjelaskan apa yang perlu diketahui mengenai drive
+  CD-ROM dibawah Linux. Sebagai tambahan Anda dianjurakn juga untuk
+  membaca Linux SCSI HOWTO dan Linux Kernel HOWTO.
+
+
+  1.3.  Terminologi ... lasers maksimum ... tembak!
+
+  CD-ROM adalah singkatan dari Compact Disc Read Only Memory, merupakan
+  media penyimpanan yang memakai laser optik untuk membaca jalur
+  mikrokospik (pits) pada piringan perak. (Warna perak sebenarnya adalah
+  lapisan substrat aluminium.) Pits merepresentasikan bit informasi /
+  data dan pada setiap disk terdapat jutaan pits. Hal ini menjadikan CD
+  sebagai media penyimpanan yang berkapasitas besar.
+
+  Istilah CD-R adalah kependekan dari CD-ROM recordable dan mengacu pada
+  CD yang tidak mempunyai pits pada permukaannya, atau kosong.
+
+  CD-R tidak menggunakan lapisan aluminium namun menggunakan film
+  lapisan khusus (biasanya emas), dimana lapisan tersebut dapat dibakar
+  untuk membentuk pits. Hal ini dilakukan dengan memberikan daya sedikit
+  lebih besar pada laser yang biasanya digunakan untuk membaca pits,
+  namun kini digunakan untuk membakar dan membentuk pits. Hal ini hanya
+  dapat dilakukan sekali saja pada CD-R.
+
+  Anda dapat menulisi sebagian CD-R untuk kemudian ditulis lagi pada
+  kesempatan yang lain, hal ini dikenal sebagai multi-session CD.
+
+  Mini-HOWTO ini menjelaskan mengenai penulisan CD-R. Selamat datang di
+  anjungan kapten.
+
+
+
+  1.4.  CD-Writers yang didukung
+
+  Daftar dari model-model yang telah dilaporkan (tidak) bekerja dengan
+  baik ada pada
+
+  <http://www.shop.de/cgi-bin/winni/lsc.pl>
+
+  Daftar tersebut akan disertakan pada versi mendatang dari mini-HOWTO
+  ini.  Hampir semua cd-writer SCSI didukung dan versi terbaru dari
+  cdrecord bahkan juga mendukung cd-writer ATAPI.
+
+  Apabila hardware Anda tidak didukung, maka Anda tetap dapat
+  menggunakan Linux untuk membuat image dari sesuatu yang akan Anda
+  tulis, dan Anda dapat menggunakan software DOS/Windows untuk menulis
+  image tersebut ke dalam CD-R.  Hal ini perlu Anda lakukan dikarenakan
+  tata cara penamaan file di Linux agak berbeda dengan tatacara penamaan
+  file di DOS/Windows.
+
+  Dalam hal ini Anda dapat melewati semua yang berkaitan dengan hardware
+  pada dokumen ini.
+
+
+  1.5.  Kemampuan yang didukung
+
+  Saat ini, software untuk menulis CD dibawah Linux, mendukung kemampuan
+  seperti dibawah ini :
+
+
+         Kemampuan       cdwrite-2.1     cdrecord-1.7
+         --------------------------------------------
+         ATAPI support   tidak           ya
+         Multisession    sebagian        ya
+
+         RockRidge       ya (mkisofs)    ya (mkisofs)
+         El Torito       ya (mkisofs)    ya (mkisofs)
+         HFS             ya (mkhybrid)   ya (mkhybrid)
+         Joliet          ya (mkhybrid)   ya (mkhybrid)
+
+
+
+  RockRidge merupakan ekstensi yang memungkinkan penamaan file yang
+  panjang dan hirarki direktori yang lebih dalam. El Torito dapat
+  digunakan untuk membuat CD bootable. Anda dianjurkan untuk membaca
+  dokumen mengenai kemampuan khusus ini. HFS memungkinkan Macintosh
+  untuk membaca CD-ROM seperti pada volume HFS. Joliet memberikan
+  penamaan yang panjang pada beberapa versi Windows (95,NT).
+
+  Bagian ``'' menunjukan daftar mengenai ketersediaan dari software yang
+  disebutkan
+
+
+  1.6.  Mailinglists
+
+  Apabila Anda ingin bergabung dengan team pengembang, dengan intensi
+  untuk membantu mereka, maka kirimlah e-mail ke
+
+  <mailto:cdwrite-request@pixar.com>
+
+  dan tulislah subscribe pada isi surat.
+
+
+  1.7.  Ketersediaan
+
+  Versi terbaru dari dokumen ini selalu tersedia dari
+
+
+  <http://www.shop.de/~winni/linux/cdr/>
+
+
+  2.  Menyiapkan kotak Linux Anda untuk menulis CD-ROM
+
+  Sebelum Nopember 1997, software untuk Linux tidak mendukung cd-writer
+  ATAPI. Sebagai hasilnya maka HOWTO ini dikonsentrasikan pada divais
+  SCSI.
+
+  Kabar baiknya adalah bahwa ATAPI jauh lebih mudah dan Anda masih dapat
+  memakai HOWTO ini dan melewati bagian "divais SCSI generik". Untuk
+  mengetahui bagaimana mengalamati divais ATAPI Anda dapat menggunakan
+  perintah -scanbus pada software cdrecord atau cdrecord -scanbus.
+
+  Versi mendatang dari HOWTO ini akan memuat lebih detil mengenai cd-
+  writer ATAPI.
+
+
+  2.1.  Set up hardware
+
+  Shutdown dan matikan komputer anda, kemudian sambungkanlah CD Writer
+  pada kabel SCSI.
+
+  Yakinkan bahwa SCSI-bus ter-terminasi dengan benar dan pilihlah SCSI-
+  ID yang kosong untuk writer anda. Bacalah pada Linux SCSI-HOWTO
+  apabila Anda tidak yakin dan apabila Anda kesulitan maka tanyalah
+  orang yang berpengalaman disekitar anda.
+
+  Hidupkan power komputer anda, dan periksalah pesan dari BIOS kontroler
+  SCSI yang tercetak sesaat setelah power komputer Anda nyalakan.
+  Apabila writer Anda tidak dikenali maka periksalah ulang pemasangan
+  hardwarenya.
+
+
+  2.2.  Catatan untuk menulis CD dibawah Linux
+
+  Kernel Linux tidak membutuhkan patch tambahan untuk menulis CD.
+  Meskipun pada file drivers/scsi/scsi.c dari source kernel mengandung
+  baris
+
+
+         case TYPE_WORM:
+         case TYPE_ROM:
+          SDpnt->writeable = 0;
+
+
+
+  ini tidak berarti bahwa CD dan WORM tidak dapat ditulisi melalui
+  divais standar /dev/sda - /dev/sdh.
+
+  Penulisan CD tidak dilakukan melalui divais standar melainkan melalui
+  pemanggilan divais SCSI generic yang mengijinkan semua aktifitas
+  termasuk penulisan ke CD.
+
+
+  2.3.  Membuat divais generik
+
+  Pada Linux SCSI-HOWTO disebutkan mengenai divais SCSI generik : Divais
+  SCSI generik menyediakan antarmuka untuk mengirim perintah SCSI kepada
+  semua divais SCSI - disks, tapes, CDROM, media changer robots, dan
+  lain lain Berbicara mengenai divais generik sebagai antarmuka berarti
+  bahwa mereka menyediakan alternatif untuk mengakses hardware SCSI
+  tanpa melalui divais standar.
+
+  Alternatif ini dibutuhkan karena divais standar, didisain untuk
+  membaca data blok dari disk, tape atau cd-rom. Dibandingkan dengan hal
+  ini, mengendalikan cd-writer (atau scanner) adalah lebih eksotis,
+  seperti mengirimkan perintah posisi laser. Untuk mengimplementasikan
+  divais standar secara bersih dan cepat maka aktifitas yang eksotis ini
+  harus dilakukan melalui divais SCSI generik
+
+  Semua aktifitas dapat dilakukan oleh hardware SCSI melalui divais
+  generik, dan tidak digunakan untuk melakukan aktifitas khusus sehingga
+  dinamakan generik.
+
+  Masuklah ke direktori /dev dan periksalah divais SCSI generic dan
+  lakukan perintah ls dan akan menunjukan daftar (hampir/mirip) seperti
+  ini :
+
+
+         bash> cd /dev
+         bash> ls -l sg*
+         crw-------   1 root   sys     21,   0 Jan  1  1970 sga
+         crw-------   1 root   sys     21,   1 Jan  1  1970 sgb
+         crw-------   1 root   sys     21,   2 Jan  1  1970 sgc
+         crw-------   1 root   sys     21,   3 Jan  1  1970 sgd
+         crw-------   1 root   sys     21,   4 Jan  1  1970 sge
+         crw-------   1 root   sys     21,   5 Jan  1  1970 sgf
+         crw-------   1 root   sys     21,   6 Jan  1  1970 sgg
+         crw-------   1 root   sys     21,   7 Jan  1  1970 sgh
+
+
+
+  Apabila Anda tidak mempunyai file divais, Anda dapat membuatnya dengan
+  menggunakan skrip /dev/MAKEDEV :
+
+
+         bash> cd /dev/
+         bash> ./MAKEDEV sg
+
+
+
+  Setelah ini maka file divais akan terlihat.
+
+
+  2.4.  Mengaktifkan penggunaan dari SCSI generik dan divais loopback
+
+  Kernel Linux membutuhkan modul yang akan memberikan kemampuan untuk
+  menangani divais SCSI generik. Apabila Anda menjalankan kernel yang
+  mempunyai kemampuan ini, maka akan Anda jumpai pada file pseudo
+  /proc/devices :
+
+
+    bash> cat /proc/devices
+    Character devices:
+     1 mem
+     2 pty
+     3 ttyp
+     4 ttyp
+     5 cua
+     7 vcs
+    21 sg          <----- kependekan "SCSI Generic device"
+
+    30 socksys
+
+    Block devices:
+     2 fd
+     7 loop        <----- kita dapat menggunakan loop-devices
+     8 sd
+    11 sr          <----- kependekan "SCSI cd-Rom"
+
+
+  Anda mungkin perlu memberikan perintah insmod sg, insmod loop atau
+  insmod sr_mod untuk menjalankan modul pada kernel. Periksalah lagi
+  setelah melakukannya.
+
+  Apabila tidak berjalan dengan baik maka Anda harus melakukan
+  konfigurasi ulang dan mengkompile kernel anda.
+
+
+         bash> cd /usr/src/linux
+         bash> make config
+
+         [..]
+         *
+         * Additional Block Devices
+         *
+         Loopback device support (CONFIG_BLK_DEV_LOOP) [M/n/y/?] M
+
+         [..]
+         *
+         * SCSI support
+         *
+         SCSI support (CONFIG_SCSI) [Y/m/n/?] Y
+         *
+         * SCSI support type (disk, tape, CD-ROM)
+         *
+         SCSI disk support (CONFIG_BLK_DEV_SD) [Y/m/n/?] Y
+         SCSI tape support (CONFIG_CHR_DEV_ST) [M/n/y/?] M
+         SCSI CD-ROM support (CONFIG_BLK_DEV_SR) [M/n/y/?] M
+         SCSI generic support (CONFIG_CHR_DEV_SG) [M/n/y/?] M
+
+         [..]
+         ISO9660 cdrom filesystem (CONFIG_ISO9660_FS) [Y/m/n/?] M
+
+
+
+  Pada baris diatas pertanyaan yang tidak berhubungan dengan subjek
+  HOWTO ini dihilangkan.
+
+
+  2.5.  Build dan install kernel
+
+  Apabila Anda mempunyai pertanyaan mengenai hal ini maka Anda
+  dianjurkan untuk membaca Linux Kernel-HOWTO. Beberapa distribusi
+  menyertakan dokumentasi mengenai hal ini.
+
+  Tips: sambil menunggu hasil kompile kernel Anda dapat melanjutkan
+  membaca langkah ``'' s.d ``''
+
+
+  2.6.  Booting ulang komputer untuk melihat efek perubahan.
+
+  Jangan panik apabila kernel Linux menampilkan pesan dengan cepat, Anda
+  dapat menampilkan hasil inisialisasi divais SCSI dengan perintah :
+  dmesg.
+
+
+
+
+
+
+
+
+
+
+
+
+         scsi0 : NCR53c{7,8}xx (rel 17)
+         scsi : 1 host.
+         scsi0 : target 0 accepting period 100ns offset 8 10.00MHz
+         scsi0 : setting target 0 to period 100ns offset 8 10.00MHz
+
+           Vendor: FUJITSU   Model: M1606S-512        Rev: 6226
+           Type:   Direct-Access                      ANSI SCSI
+         Detected scsi disk sda at scsi0, channel 0, id 0, lun 0
+
+           Vendor: NEC       Model: CD-ROM DRIVE:84   Rev:  1.0a
+           Type:   CD-ROM                             ANSI SCSI
+         Detected scsi CD-ROM sr0 at scsi0, channel 0, id 4, lun 0
+
+         scsi : detected 1 SCSI disk total.
+         SCSI device sda: hdwr sector= 512 bytes. Sectors= 2131992
+
+
+
+  Hasil diatas merupakan sebagian dari pesan inisialisasi divais SCSI
+  yang dilaporkan terdeteksi secara fisik
+
+
+  2.7.  Membuat divais loopback
+
+  Masuklah ke direktori /dev dan periksalah divais loopback. Ini  tidak
+  mutlak dan kritis apabila Anda tidak mempunyainya, namun lebih baik
+  apabila Anda mempunyainya (baca seksi ``''). Apabila Anda telah
+  mempunyainya maka dengan perintah ls Anda dapat melihat :
+
+
+         bash> cd /dev
+         bash> ls -l loop*
+         brw-rw----   1 root  disk    7,   0 Sep 23 17:15 loop0
+         brw-rw----   1 root  disk    7,   1 Sep 23 17:15 loop1
+         brw-rw----   1 root  disk    7,   2 Sep 23 17:15 loop2
+         brw-rw----   1 root  disk    7,   3 Sep 23 17:15 loop3
+         brw-rw----   1 root  disk    7,   4 Sep 23 17:15 loop4
+         brw-rw----   1 root  disk    7,   5 Sep 23 17:15 loop5
+         brw-rw----   1 root  disk    7,   6 Sep 23 17:15 loop6
+         brw-rw----   1 root  disk    7,   7 Sep 23 17:15 loop7
+
+
+
+  Apabila Anda tidak mempunyai file divais, maka Anda dapat membuatnya
+  dengan skrip /dev/MAKEDEV
+
+
+    bash> cd /dev/
+    bash> ./MAKEDEV loop
+
+
+
+  Perintah terakhir hanya akan sukses apabila Anda mempunyai modul loop
+  dalam kernel (lihat ``''). Apabila insmod loop tidak membantu, maka
+  anda harus menunggu hingga kernel baru terinstall (lihat ``'').
+
+
+  2.8.  Mendapatkan user-software untuk menulis CD
+
+
+  2.8.1.  Command line utilities
+
+  Paket berikut ini dibutuhkan untuk membentuk prototip dari CD-R
+
+  o  mkisofs <ftp://tsx-11.mit.edu/pub/linux/packages/mkisofs/>
+
+  o  mkhybrid <ftp://ftp.ge.ucl.ac.uk/pub/mkhfs>
+
+  Tergantung dari model cd-writer (lihat ``''), salah satu dari software
+  berikut ini dibutuhkan untuk menulis prototip CD-R :
+
+
+  o  cdrecord <ftp://ftp.fokus.gmd.de/pub/unix/cdrecord/>
+
+  o  cdwrite <ftp://sunsite.unc.edu/pub/Linux/utils/disk-management/>
+
+  Gunakanlah mirror terdekat dari server ftp tersebut atau Anda dapat
+  mendapatkannya dari CD distribusi.
+
+  Pakailah versi 2.0 dari cdwrite atau yang terbaru. Tidak ada versi
+  lama dan terutama versi beta yang bekerja dengan baik. Jangan percaya
+  pada man mkisofs yang menuliskan bahwa Anda membutuhkan versi 1.5 dari
+  cdwrite.
+
+  Untuk informasi mengenai porting cdwrite ke Irix dan AIX kunjungi URL
+
+  <http://lidar.ssec.wisc.edu/~forrest/>
+
+  Apabila Anda menggunakan kernel sebelum 2.0.31, Anda mungkin
+  memerlukan patch mkisofs untuk memperbaiki bug pada kode filesystem
+  Linux. Debian menyertakan patch untuk release 1.05 dari mkisofs (1.11
+  juga dapat bekerja) yang menambahkan option '-K' (lihat ``''); ini
+  tersedia pada
+
+  <ftp://ftp.debian.org/pub/debian/bo/source/otherosfs/mkisofs_1.11-1.diff.gz>
+
+  Patch ini hanya penting apabila Anda ingin melakukan mount CD image
+  melalui divais loopback (lihat ``'')
+
+
+  2.8.2.  Graphical User Interface (optional)
+
+  X-CD-Roast adalah CD-Writer-Program berbasis X, dan ini merupakan
+  lanjutan dari cdwtools-0.93. Ini tersedia dari
+
+  <http://www.fh-
+  muenchen.de/home/ze/rz/services/projects/xcdroast/e_overview.html>
+
+  Saat ini X-CD-Roast merupakan versi patch dari cdwrite-2.0 dan
+  mempunyai kemampuan yang sama (lihat ``''). Versi mendatang mungkin
+  berbasis dari cdrecord.
+
+
+  3.  "If to smoke you turn I shall not cease to fiddle while you burn."
+  (Pendapat Kaisar Nero tentang membuat CD Klasik-nya: (AD64. He misun-
+  derstood it completly.))
+
+
+  Penulisan CD dibawah Linux dilakukan dengan dua langkah :
+
+
+  1. Memasukan sesuatu yang akan ditulis kedalam satu file besar dengan
+     menggunakan utiliti mkisofs/mkhybrid
+
+  2. Menulis file besar tersebut ke CD-R dengan cdwrite atau cdrecord
+
+  Juga dimungkinkan untuk mengkombinasikan kedua langkah tersebut
+  melalui pipe tetapi tidak disarankan dikarenakan tidak handal.
+
+
+
+
+  3.1.  Menentukan divais scsi generik yang terhubung pada writer
+
+  Catatan : Tata penamaan divais SCSI dibawah Linux cukup komplek namun
+  tidak perlu dan kurang handal. Fakta yang disebutkan disini bukan
+  untuk di salah interpretasikan sebagai konfirmasi dari tata cara
+  penamaan ini.  Apabila Anda menggunakan cd-writer ATAPI, Anda dapat
+  menggunakan cdrecord -scanbus untuk mendeteksi divais dan melewati
+  sisa dari bagian ini.
+
+  Setelah mengikuti langkah dari bagian kedua maka sistem Anda telah
+  siap untuk menangani tugas penulisan CD. Bagian ini dapat digunakan
+  sebagai jaminan bahwa semua bekerja sesuai dengan yang dikehendaki.
+
+  Perintah dmesg akan mencetak laporan dari kernel Linux termasuk yang
+  ditampilkan sewaktu booting (terbatas pada 200 baris terakhir), dan
+  akan memuat informasi mengenai CD-Writer yang terkoneksi ke SCSI.
+
+  Contoh:
+
+
+           Vendor: YAMAHA  Model: CDR100       Rev: 1.11
+           Type:   WORM                        ANSI SCSI revision: 02
+         Detected scsi CD-ROM sr1 at scsi0, channel 0, id 3, lun 0
+
+
+
+  Mesin ini mempunyai 4 divais SCSI (Anda tidak dapat melihat, dan saya
+  beritahu Anda), dengan SCSI-ID dari 0 hingga 3. Writer adalah divais
+  SCSI ke empat dan tersambung pada /dev/sgd (divais SCSI generic ke
+  empat apabila dimulai dari a). Dalam hal ini perintah
+
+
+         cdwrite  --eject  --device /dev/sgd
+
+
+
+  akan membuka tray CD-writer dan ini merupakan test apakah sistem anda
+  berjalan dengan baik. Contoh yang lebih komplek :
+
+
+         scsi0 : AdvanSys SCSI 1.5: ISA (240 CDB)
+         scsi1 : Adaptec 1542
+         scsi : 2 hosts.
+
+           Vendor: HP      Model: C4324/C4325  Rev: 1.20
+           Type:   CD-ROM                      ANSI SCSI revision: 02
+         Detected scsi CD-ROM sr0 at scsi0, channel 0, id 2, lun 0
+
+           Vendor: IBM     Model: DPES-31080   Rev: S31Q
+           Type:   Direct-Access               ANSI SCSI revision: 02
+         Detected scsi disk sda at scsi1, channel 0, id 0, lun 0
+
+         scsi : detected 1 SCSI cdrom 1 SCSI disk total.
+         SCSI device sda: hdwr sector= 512 bytes.
+
+
+
+  Dalam hal ini terdapat dua kontroler SCSI yang menajadi host bagi dua
+  divais SCSI. Merupakan pemborosan, mengingat SCSI bisa menangani tujuh
+  divais (atau lebih untuk Ultra Wide SCSI).
+
+  Pada contoh diatas CD-Writer mempunyai SCSI-ID 2 tetapi terasosiasi
+  dengan divais generic SCSI pertama yaitu /dev/sga dikarenakan ini
+  merupakan divais SCSI fisik pertama yang terdeteksi oleh Linux. Hal
+  ini menunjukan bahwa SCSI-ID dari divais tidak berhubungan dengan
+  nomor divais generik.
+  Terdapat dua pertanyaan, apakah yang terjadi apabila terdeteksi divais
+  yang salah ?. Apabila Anda tidak memberikan pilihan --<MANUFACTURER>
+  atau juga tidak menulis data ke divais, maka anada kan mendapatkan
+  pesan warning dan tidak akan terjadi apapun :
+
+
+         bash> cdwrite  --eject  --device /dev/sgb
+
+         Unknown CD-Writer; if this model is compatible with any
+         supported type, please use the appropriate command line
+         flag.
+
+         Manufacturer:  IBM
+         Model:         DPES-31080
+         Revision:      S31Q
+
+
+
+  Dalam hal ini divais /dev/sbg merupakan harddisk SCSI dari IBM.
+
+  Apabila Anda menulis data pada divais yang salah, maka Anda akan
+  menulis ulang isinya dan akan menyebabkan kerusakan sistem atau
+  kehilangan data.  Berhati-hatilah sebab hal ini sudah terjadi pada
+  penulis.
+
+
+  3.2.  Mengumpulkan perangkat lunak / data
+
+
+  Biasanya hal ini akan memakan waktu yang lama. Ingatlah bahwa file-
+  file yang hilang tidak dapat ditambahkan ketika CD sudah ditulis.
+
+  Dan juga ingatlah bahwa dibutuhkan beberapa MB spasi bebas dari CD
+  untuk digunakan sebagai penyimpan informasi dari sistem file iso9660.
+
+
+  3.3.  Menyimpan data pada CD
+
+  Iso9660 merupakan format di mana data diorganisasi pada CD, atau lebih
+  lengkapnya merupakan sistem file pada CD.
+
+  File-file yang tersimpan dalam format ini akan diseragamkan oleh
+  kernel Linux seperti sistem file lainya. Sehingga apabila CD di-mount
+  pada struktur direktori maka tidak akan dapat dibedakan dari file
+  lain. Mekanisme untuk penyeragaman ini disebut virtual filesystem atau
+  VFS.
+
+  File sistem iso9660 mempunyai banyak kelebihan dibandingkan dengan
+  sistem file extended-2 yang digunakan oleh Linux. Namun dikarenakan
+  bahwa CD dapat ditulis sekali saja maka beberapa kelebihan tidak
+  berarti apapun.  Keterbatasan iso9660 adalah :
+
+  o  Hanya 8 tingkat sub direktory yang diijinkan, dan dihitung dari
+     level teratas, gunakan RockRidge Extensions untuk menambah jumlah
+     ini.
+
+  o  panjang file maksimum hanya 32 karakter
+
+  o  kapasitas maksimum 650 MB
+
+
+  3.4.  Membuat file sistem iso9660
+
+  Sebelum media penyimpanan (floppy disk, harddisk atau CD) dapat
+  digunakan, maka terlebih dahulu harus dibuat sistem file (istilah DOS
+  : diformat).  File sistem ini bertugas untuk mengorganisasi file yang
+  akan disimpan.
+
+  CD-R hanya dapat ditulisi sekali, sehingga apabila kita menulis file
+  sistem kosong, maka kita telah memformatnya dan akan tetap kosong
+  selamanya.
+
+  Apa yang kita butuhkan adalah alat yang akan membuat file sistem
+  ketika sedang menyalin file pada CD. Alat ini dinamakan mkisofs.
+  Contoh penggunaannya adalah :
+
+
+         mkisofs  -r   -o cd_image   private_collection/
+                       `---------'   `-----------------'
+                            |               |
+                     Tulis hasil ke    direktori input
+
+
+
+  Pilihan -r akan mengijinkan semua file sebagai public, sehingga semua
+  orang bisa membaca dan akan mengaktifkan ekstensi RockRidge.
+  Penggunaan pilihan tersebut direkomendasikan kecuali Anda mengetahui
+  apa yang anda lakukan. Tanpa pilihan -r maka file-file pada CD akan
+  menjadi koleksi privat.
+
+  Apabila Anda memakai Linux kernel sebelum 2.0.31, maka Anda harus
+  menambahkan pilihan -K; untuk mengatasi bug dalam file sistem. Anda
+  juga membutuhkan patch untuk mkisofs. Pilihan ini ekivalen dengan
+  pilihan -P- pada cdwrite. Bacalah manual dari mkisofs untuk detilnya.
+  Pengguna kernel yang baru tidak perlu khawatir dengan hal ini.
+
+  mkisofs akan mencoba untuk memetakan semua nama file menjadi format
+  8.3 yang digunakan oleh DOS untuk menghasilkan kemungkinan
+  kompatibilitas yang tinggi. Pada kasus konflik penamaan (dua file
+  berbeda dengan nama 8.3 yang sama), digunakan nomor untuk nama file
+  dan informasi mengenai nama file yang terpilih akan tercetak melalui
+  STDERR (biasanya layar)
+
+  JANGAN PANIC:
+         Dibawah Linux Anda tidak akan melihat namafile 8.3 dikarenakan
+  Linux menggunakan ekstensi Rock Ridge yang memuat informasi file
+  seperti ijin, nama file, dsb.
+
+  Mungkin Anda heran mengapa keluaran mkisofs tidak secara langsung
+  dikirim ke writer anda. Ada dua Alasan :
+
+
+  o  mkisofs tidak mengetahui cara mengatur CD-writer (lihat ``'')
+
+  o  cara ini tidak akan bekerja dengan baik (lihat ``'')
+
+  Dikarenakan pewaktuan pada CD-Writer merupakan titik kritis, maka kita
+  tidak akan mengambil data langsung dari mkisofs (ingatlah bahwa Linux
+  bukan real-time OS). Disarankan untuk menyimpan hasil dari mkisofs
+  pada file yang berbeda pada harddisk. File ini disebut sebagai 1:1
+  image dari CD yang akan dibuat dan akan ditulis ke CD dengan
+  menggunakan cdwrite pada langkah kedua.
+
+  Image 1:1 akan disimpan pada file yang besar, sehingga Anda
+  membutuhkan spasi harddisk seukuran dengan data/software yang akan
+  Anda tulis ke CD.  Ini adalah kelemahan.
+
+  Anda dapat berpikir untuk membuat partisi ekstra untuk menulis image
+  data Anda dari pada menulisnya pada file. Strategi ini harus dilakukan
+  secara hati-hati, dikarenakan apabila Anda menulis pada partisi yang
+  salah (akibat salah ketik) maka Anda akan kehilangan sistem Anda dan
+  data-data anda. Dan juga cara ini akan memakan spasi hardidisk anda,
+  dikarenakan image CD tersebut merupakan data sementara yang dapat
+  dihapus setelah CD ditulis.
+
+
+  3.5.  Test image CD
+
+
+  Linux mempunyai kemampuan untuk melakukan mount file yang merupakan
+  partisi dari sebuah disk. Kemampuan ini sangat berguna untuk memeriksa
+  susunan direktori dari image CD. Untuk melakukan mount dari file
+  cd_image yang dibuat diatas pada direktori /cdrom, ketiklah :
+
+
+         mount -t iso9660 -o ro,loop=/dev/loop0 cd_image /cdrom
+
+
+
+  Sekarang Anda dapat memeriksa file dibawah direktori /cdrom sama
+  seperti CD biasa. Untuk melakukan umount dari image CD, lakukan umount
+  /cdrom.  Perhatian : Apabila Anda tidak menggunakan pilihan -K untuk
+  mkisofs maka file terakhir pada /cdrom mungkin tidak akan terbaca.
+
+  Catatan :
+
+  beberapa versi lama dari mount tidak dapat bekerja dengan divais
+  loopback. Apabila Anda mempunyai mount versi tersebut maka ini
+  merupakan alasan tepat untuk melakukan upgrade Linux anda.  Beberapa
+  orang menyarankan untuk meletakan informasi mengenai bagai- mana
+  mendapatkan utiliti mount yang terbaru pada HOWTO ini. Dan penulis
+  selalu menolak ini. Apabila distribusi Linux Anda terdapat mount versi
+  ini maka laporkanlah sebagai bug. Apabila distribusi Linux Anda tidak
+  mudah diupgrade maka laporkanlah juga sebagai bug.  Apabila penulis
+  menyertakan semua informasi yang penting untuk mengatasi bug dalam
+  distribusi Linux yang buruk, maka mini HOWTO ini akan menjadi besar
+  dan sulit untuk dibaca.
+
+
+  3.6.  CD-Recordable tanpa merek (blank)
+
+  Majalah komputer Jerman "c't" mempunyai daftar tips mengenai CD blank
+  pada edisi November 1996.
+
+  o  CD "no-name" secara umum bukanlah CD kualitas baik dan disarankan
+     tidak digunakan
+
+  o  Apabila CD-R mengalami kerusakan, maka ini akan terjadi pada satu
+     batch produksi (apabila Anda membelinya beberapa kali), apabila
+     Anda beruntung maka Anda dapat menggunakan paling tidak 500MB dari
+     CD-R tersebut.
+
+  o  Jangan menyentuh CD pada bagian yang berkilau / bawah sebelum
+     ditulisi.
+
+
+  3.7.  Menulis image CD ke CD
+
+  Sebelum menunjukan perintah terkhir maka ijinkan penulis untuk
+  mengingatkan Anda bahwa CD writer harus dicatu dengan aliran data yang
+  konstan dikarenakan CD writer hanya mempunyai buffer data yang kecil.
+  Sehingga proses penulisan image CD ke CD haruslah tidak disela atau
+  anda akan menghasilkan CD yang rusak.
+
+  Untuk meyakinkan tidak ada yang menginterupsi proses ini, maka matikan
+  semua user dari sistem dan cabut kabel ethernet anda. Berlakulah tanpa
+  kompromi terhadap para user anda.
+
+  Setelah Anda menyiapkan mental, berjubah hitam, dan berdoa bahwa
+  listrik tidak akan mati (** tambahan dari penterjemah ) maka ketiklah
+  :
+
+
+         cdwrite  --device /dev/sgd  cd_image
+         atau
+         cdrecord -v speed=2 dev=4,0 cd_image
+
+
+
+  tergantung dari software yang Anda gunakan. Tentu saja Anda harus
+  merubah divais SCSI pada contoh dengan divais SCSI anda.
+
+  Sebagai catatan bahwa tidak ada CD-writer yang dapat melakukan re-
+  posisi dari lasernya dan tidak dapat melanjutkan proses pada suatu
+  titik dari CD apabila proses terganggu. Getaran keras dan kejutan akan
+  menghancurkan CD yang Anda tulis. (** tambahan dari penterjemah :
+  tahan jangan sampai anda bersin di depan Writer anda, atau berteriak
+  keras )
+
+
+  3.8.  Apabila ada sesuatu yang salah
+
+
+  Pada versi ini bagian ini telah dihapus, namun pada versi sebelumnya
+  terdapat beberapa tulisan, antara lain :
+
+  Apabila sesuatu yang salah dan mengakibatkan proses penulisan terhenti
+  maka Anda masih dapat menggunakan CD Anda untuk hal-hal sebagai
+  berikut :
+
+  o  Sebagai hiasan di mobil, meja atau sebagai koleksi anda
+
+  o  sebagai alas untuk cangkir kopi panas Anda agar meja komputer tidak
+     berbekas
+
+
+  4.  Pertanyaan yang sering ditanyakan dengan jawaban
+
+
+  4.1.  Seberapa sensitif proses pembakaran ?
+
+  Jawab : hal ini tergantung dari writer anda. Writer terbaru mempunyai
+  data buffer 1MB dan dapat bertahan 1 - 2 detik tanpa data. Lihatlah
+  manual dan tanyakan pembuatnya apabila menginginkan detilnya.
+
+  Anda harus menjaga laju data konstan pada 300kb/s atau 600kb/s.
+
+  Proses disk yang intensif seperti update database, akan mengurangi
+  laju data maksimum dan akan merusakan CD, Anda harus yakin bahwa
+  proses tersebut tidak dilakukan melalui cron atau anacron ketika Anda
+  membakar CD-R.
+
+  Tetapi ada beberapa orang yang melaporkan bahwa mereka melakukan
+  kompile kernel ketika membakar CD tanpa adanya gangguan. Tentu saja
+  Anda membutuhkan mesin yang sangat cepat untuk percobaan tersebut.
+
+
+  4.2.  Apakah fragmentasi akan menyebabkan jeleknya laju data ?
+
+  Jawab : fragmentasi pada sistem file ext2 biasanya sangat kecil
+  sehingga praktis tidak berpengaruh
+
+  Apabila Anda tidak yakin, maka lihatlah pesan yang tercetak ketika
+  booting, prosentase fragmentasi akan dilaporkan pada saat pemeriksaan
+  file sistem. Anda dapat juga memeriksa dengan perintah yang berbahaya
+  dibawah ini :
+
+
+         bash> e2fsck -n  /dev/sda5        # '-n' penting
+         [dihapus beberapa pesan error]
+         /dev/sda5: 73/12288 files (12.3% non-contiguous)
+
+
+
+  Pada contoh diatas, fragmentasi terlihat sangat tinggi namun
+  didalamnya hanya terdapat 73 file yang kecil pada file sistem ini
+  (digunakan sebagai /tmp) sehingga nilai tersebut tidak
+  mengkhawatirkan.
+
+
+  4.3.  Apakah mungkin menyimpan iamge CD pada sistem file UMSDOS ?
+
+  Jawab : Ya. Hanya Network File System (NFS) tidak begitu bagus dan
+  cepat untuk menulis ke CD.
+
+  Penulis sendiri menggunakan UMSDOS untuk melakukan sharing file antara
+  Linux dan DOS/Win pada mesin PC (486/66) yang khusus untuk menulis CD
+
+
+  4.4.  Apakah ada jalan untuk mengatasi kekurangan iso9660 ?
+
+  Jawab: Anda dapat menggunakan sistem file apapun yang Anda suka di CD.
+  tapi OS lain selain Linux tidak akan dapat menangani CD anda.
+
+  Ini adalah resepnya:
+
+  o  Buat file kosong berukuran 650MB
+
+            dd if=/dev/zero of="empty_file" bs=1024k count=650
+
+
+
+  o  Buat sistem file extended-2 pada file ini
+
+
+            bash> /sbin/mke2fs  empty_file
+            empty_file is not a block special device.
+            Proceed anyway? (y,n) y
+
+
+
+  o  Mount file kosong tersebut ke divais loopback
+
+            mount -t ext2 -o loop=/dev/loop1 empty_file /mnt
+
+
+
+
+  o  Salin file tersebut ke /mnt dan umount setelah itu.
+
+  o  Gunakan cdwrite atau cdrecord pada empty_file (yang tidak lagi
+     kosong) yang merupakan image iso9660
+
+  Apabila Anda menginginkan untuk memasukannya pada /etc/fstab untuk CD
+  tersebut maka hilangkan pilihan pemeriksaan erorr.
+
+
+         /dev/cdrom  /cdrom  ext2  defaults,ro  0 0
+
+
+  0 pertama berarti "jangan ikutkan pada dumps", kedua (penting!)
+  berarti "jangan periksa error pada startup" (fsck akan gagal untuk
+  melakukan pemeriksaan kesalahan CD"
+
+
+  4.5.  Bagaimana membaca dan menulis audio CD?
+
+  Guanakan "cdda2wav" dan "sox", yang tersedia di sunsite dan mirrornya
+  :
+
+  o  <ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/cdda2wav0.71.src.tar.gz>
+
+  o  <ftp://sunsite.unc.edu/pub/Linux/apps/sound/convert/sox-11gamma-
+     cb3.tar.gz>
+
+  cdda2wav memungkinkan Anda untuk mengambil sebagian atau semua dari
+  track audio CD Anda dan mengkonversinya menjadi file .wav. Sox akan
+  mengkonversi file wav tersebut kembali menjadi CD audio (format cdda)
+  sehingga akan dapat ditulis ke CD-R menggunakan cdwrite.
+
+
+  4.6.  Bagaimana melakukan probing untuk divais SCSI setelah booting ?
+
+  File /usr/src/linux/drivers/scsi/scsi.c  mengandung informasi
+
+         /*
+          * Usage: echo "scsi add-single-device 0 1 2 3" >/proc/scsi/scsi
+          * with  "0 1 2 3" replaced by your "Host Channel Id Lun".
+          * Consider this feature BETA.
+          *     CAUTION: This is not for hotplugging your peripherals. As
+          *     SCSI was not designed for this you could damage your
+          *     hardware !
+          * However perhaps it is legal to switch on an
+          * already connected device. It is perhaps not
+          * guaranteed this device doesn't corrupt an ongoing data transfer.
+          */
+
+
+
+  4.7.  Apakah dimungkinkan membuat salinan 1:1 dari data CD?
+
+  Jawab: Ya. Tetapi berhati-hatilah terhadap error yang sering muncul
+  ketika melakukan pembacaan CD asli akibat debu atau goresan, yang akan
+  menimbulkan kerusakan salinan.
+
+  Kasus pertama: Anda mempunyai CD-writer dan CD-ROM drive terpisah.
+  Dengan menggunakan perintah :
+
+
+         cdwrite -v -D /dev/sgc --pad -b  $(isosize  /dev/scd0) /dev/scd0
+         atau
+         cdrecord -v dev=3,0 speed=2 -isosize /dev/scd0
+
+
+
+  Anda akan membaca aliran data dari CD-ROM drive terhubung sebagai
+  /dev/scd0 dan menulis secara langsung ke /dev/sgc, CD-R.
+
+  Kasus kedua: Anda tidak mempunyai CD-ROM terpisah. Anda harus
+  menggunakan writer untuk membaca CD-ROM dan dalam hal ini :
+
+
+         dd if=/dev/scd0 of=cdimage bs=1c count=`isosize  /dev/scd0`
+
+
+
+  Perintah ini menghasilkan hal yang sama dengan mkisofs, sehingga anda
+  melakukan langkah seperti pada bagian ``''. Cara ini akan gagal pada
+  CD audio!
+
+
+  4.8.
+
+  Apakah Linux bisa membaca CD Joliet?
+
+  Jawab: Ya. Tapi Anda membutuhkan patch untuk kernel-kernel lama. Untuk
+  lebih lengkapnya lihat
+
+  <http://www.plateau.cs.berkeley.edu/people/chaffee/joliet.html>
+
+
+  4.9.  Bagaimana membaca / mount CD-ROM dengan CD-writer?
+
+
+  Jawab: Lakukan seperti Anda membaca pada drive CD-ROM biasa. Tidak ada
+  hal khusus dalam penggunaan divais scd (SCSI CD-ROM) untuk membaca CD.
+
+  Contoh pada /etc/fstab :
+
+         /dev/scd0  /cdrom  iso9660  ro,user,noauto  0  0
+
+
+
+
+  5.  Pencarian kesalahan
+
+
+
+  5.1.  Tidak dapat bekerja: dibawah Linux
+
+  Periksalah apakah writer Anda bekerja dengan baik pada OS lain
+
+  o  Apakah kontroler mengenali writer sebagai divais SCSI?
+
+  o  Apakah driver software mengenali writer?
+
+  o  Apakah bisa membuat CD dengan software yang disertakan pada
+     pembelian?
+
+  Apabila hal-hal tersebut tidak bekerja dengan baik pada OS lain maka
+  terdapat konflik hardware atau kerusakan hardware.
+
+
+  5.2.  Tidak dapat bekerja: dibawah DOS dan teman-temannya.
+
+  Coba gunakan Linux. Konfigurasi dan instalasi driver SCSI untuk DOS
+  terkenal sulit. Linux tidak terlalu kompleks, kan ?
+
+
+  5.3.  Ada error pada SCSI ketika sedang membakar
+
+  Biasanya ini disebabkan oleh :
+
+  o  adanya kehilangan kemampuan dis/reconnect pada SCSI bus
+
+  o  Hardware yang terlalu panas
+
+  o  Kerusakan hardware (lihat 5.1)
+
+     Dalam kasus tertentu divais SCSI akan melakukan dis/reconnect
+     secara otomatis dari SCSI-bus. Apabila kemampuan ini tidak tersedia
+     (periksalah kontroler dan parameter kernel) maka beberapa writer
+     akan mengalami kesulitan pada saat burning CD-R.
+
+  Untuk driver SCSI NCR 53c7,8xx mempunyai kemampuan yang dapat di
+  disable secara default, periksalah terlebih dahulu pada kernel :
+
+
+         NCR53c7,8xx SCSI support                  [N/y/m/?] y
+            always negotiate synchronous transfers [N/y/?] (NEW) n
+            allow FAST-SCSI [10MHz]                [N/y/?] (NEW) y
+            allow DISCONNECT                       [N/y/?] (NEW) y
+
+
+
+
+  5.4.  Kredit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       Andreas Erdmann <erdmann@zpr.uni-koeln.de>
+          untuk contoh pada YAMAHA-writer
+
+       Art Stone <stone@math.ubc.ca>
+          untuk ide mengenai non iso9660 pada CD
+
+       Bartosz Maruszewski <B.Maruszewski@zsmeie.torun.pl>
+          melaporkan kesalahan pengejaan
+
+       Bernhard Gubanka <beg@ipp-garching.mpg.de>
+          mengenai penggunaan versi mount terbaru pada divais loopbacx
+
+       Brian H. Toby
+          menghaluskan tata bahasa.
+
+       Bruce Perens <bruce@pixar.com>
+          yang memberi info mengenai cdwrite-mailinglist
+
+       Dale Scheetz <dwarf@polaris.net>
+          membantu dalam memperbaiki bagian pembuatan cdimage.
+
+       Edwin H. Kribbs
+          melaporkan '-K' membutuhkan patch untuk mkisofs
+
+       Gerald C Snyder <gcsnyd@loop.com>
+          memeriksa penulisan ext2 pada CD-ROM (lihat 4.4)
+
+       Ingo Fischenisch <ingo@mi.uni-koeln.de>
+          Memberikan contoh dengan 2 kontroler menjadi host 2 divais
+
+       Janne Himanka <shem@oyt.oulu.fi>
+          menunjukan patch kernel untuk membaca Joliet CD
+
+       Joerg Schilling <schilling@fokus.gmd.de>
+          informatsi mengenai cdrecord
+
+       Jos van Geffen <jos@tnj.phys.tue.nl>
+          menemukan kesalahan pada 4.9
+
+       Markus Dickebohm <m.dickebohm@uni-koeln.de>
+
+       Pierre Pfister <pp@uplift.fr>
+          membantu dalam menulis resep 1:1
+
+       Rick Cochran <rick@msc.cornell.edu>
+          petunjuk mengenai dis/reconnect pada driver ncr
+
+       Stephan Noy <stnoy@mi.uni-koeln.de>
+          informasi dan pengalamannya mengenai penulisan CD audio
+
+       Stephen Harris <sweh@mpn.com>
+          menambahkan dalam penulisan CD audio
+
+       The Sheepy One <kero@escape.com>
+          menyarankan penggunaan CD rusak sebagai alas cangkir kopi
+
+       Volker Kuhlmann <kuhlmav@elec.canterbury.ac.nz>
+          menyatakan bahwa paket cdwrite tidak menyertakan mkisofs
+
+
+
+  Dari penterjemah:
+
+
+
+
+       Mesin Linux-ku <root@ZeoRanger.its.ac.id, !nggak 24 jam online!>
+          Untuk penerimaannya yang baik terhadap CDwriter-ku Philips CDD2600
+          dan SCSI-2 Adaptec 2910-ku
+
+       Manusia - manusia ITS LUG
+
+       Mbak Mainframe <monocrystal@stones.com>
+          Untuk pinjaman Pentium II nya yang powerfull
+
+
+
+  Akhir dari Linux CD-Writing mini-HOWTO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

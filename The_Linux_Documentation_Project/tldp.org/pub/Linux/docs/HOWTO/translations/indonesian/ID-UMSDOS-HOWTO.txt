@@ -1,0 +1,1056 @@
+  UMSDOS HOW-TO
+  Jacques Gelinas, jacques@solucorp.qc.ca Diterjemahkan oleh
+  Surya Sumirat, uya@theoffice.net
+  v1.1, 13 November 1995 diterjemahkan Desember 1997
+
+  Umsdos adalah sistem file Linux, disediakan sebagai alternatif    dari
+  sistem file EXT2. Tujuan utamanya adalah untuk mendapatkan
+  kerjasama yang lebih mudah dengan data MSDOS dengan berbagi partisi
+  yang sama.      Dokumen ini pertama kali akan menjelaskan bagaimana
+  menggunakan Umsdos dalam konfigurasi yang berbeda, dan selanjutnya
+  menjelaskan bagaimana Umsdos beroperasi dan berusaha menyediakan
+  beberapa informasi sedemikian hingga anda dapat memutuskan apakah
+  hal ini adalah pilihan yang baik bagi anda. (lihat UMSDOS-WHY-TO
+  di bagian akhir).
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. UMSDOS: ada di mana?
+
+     1.1 Sejarah
+     1.2 Ketersediaan
+     1.3 Distribusi pendukung
+     1.4 Home site
+     1.5 Dokumentasi teknis
+     1.6 Penulis
+
+  2. Umsdos sebagai partisi root anda
+
+     2.1 Konsep pseudo-root
+     2.2 Hal yang perlu diketahui tentang pseudo-root
+
+  3. Topik lain mengenai cara kerja Umsdos
+
+     3.1 Mount option
+     3.2 Bagaimana mengeset default untuk root
+     3.3 Menggunakan swap file
+
+  4. Mem-boot sistem Umsdos
+
+     4.1 Loadlin
+     4.2 Menggunakan floppy
+     4.3 LILO
+     4.4 Defragmentasi partisi
+     4.5 Trik lanjutan
+
+  5. Prinsip dasar
+
+     5.1 Pengenalan
+     5.2 (EM
+     5.3 Directory Promotion
+     5.4 Bagaimana cara berpromosi: /sbin/umssync
+     5.5 Menggunakan /sbin/umssync pada saat boot
+     5.6 Membebaskan promosi (UN-promote)
+     5.7 Bagaimana file-file yang terbentuk selama sesi DOS?
+
+  6. Instalasi/UN-instalasi dan beberapa trik
+
+     6.1 Pseudo-root
+     6.2 Mempersiapkan
+     6.3 Memastikan /mnt/linux tersetup dengan benar
+     6.4 Melepas pseudo-root
+     6.5 Bagaimana meng-uninstall sistem
+     6.6 Memindahkan sistem
+     6.7 Mengenai instalasi 50 sistem
+
+  7. Pengaturan sesi
+
+  8. UMSDOS-WHY-TO
+
+     8.1 Tujuan
+     8.2 Siapa yang membutuhkannya
+     8.3 Kinerja
+
+
+  ______________________________________________________________________
+
+  1.  UMSDOS: ada di mana?
+
+
+
+
+
+
+  1.1.  Sejarah
+
+
+  Proyek Umsdos dimulai sejak tahun 1992 dan telah tersedia dalam
+  jaringan internet bulan Januari 1994 sebagai suatu patch.  Disertakan
+  dalam distribusi standar kernel di bulan Juli, dimulai pada kernel
+  1.1.36.
+
+  Umsdos pertama kali diadopsi dalam distribusi Slackware sebelum secara
+  resmi disertakan dalam kernel resmi.
+
+  Umsdos dikembangkan dimulai dari kernel 1.1.60. Kinerjanya secara
+  dramatis meningkat pesat, khususnya dalam penulisannya. sejak 1.1.70
+  (sekitar itu), menjadi stabil kembali.
+
+  Bug yang utama telah diatasi dalam Linux 1.2.2. Bug ini menyebabkan
+  kebingungan bagi pengguna sejak awal (beberapa file secara diam-diam
+  berganti nama, memberikan kesan yang buruk karena seolah-olah file-
+  file tersebut telah terhapus). Berhati- hatilah dengan Slackware 2.2,
+  karena masih menggunakan kernel 1.2.1, yang memiliki bug ini.
+
+
+  1.2.  Ketersediaan
+
+
+  Umsdos tersedia sebagai patch untuk kernel 1.0.x, namun telah
+  terintegrasi untuk kernel 1.2. Dapat dikompile atau di-load sebagai
+  suatu modul. Berhati- hatilah mulai sekarang, jika anda bermaksud me-
+  load umsdos sebagai modul, anda juga harus menggunakan sistem file MS-
+  DOS sebagai suatu modul. Hal ini muncul dari keterbatasan dalam sistem
+  modul (beberapa simbol hanya diekspor ketika driver-driver diinstal
+  sebagai modul).
+
+
+  1.3.  Distribusi pendukung
+
+
+  Sejauh ini, penulis hanya tahu Slackware saja yang mendukungnya.
+  Penulis yakin bahwa hal ini salah, untuk itu tolong berikan informasi
+  kepada penulis untuk membetulkannya.
+
+
+  1.4.  Home site
+
+
+  Home site untuk umsdos adalah sunsite.unc.edu. lihat pada direktori
+  /pub/Linux/system/filesystems/umsdos.
+
+
+  1.5.  Dokumentasi teknis
+
+
+  Terdapat cukup banyak dokumentasi mengenai 'bagian dalam' Umsdos.
+  Tersedia baik dalam format HTML maupun text pada lokasi yang sama
+  sebagai utility. sejauh yang penulis ketahui, versi HTML belum
+  tersedia secara online pada website manapun. Anda harus mendowloadnya
+  lalu meng-'UN-tar"-nya dan membaca secara lokal.
+
+
+  1.6.  Penulis
+
+
+  Jacques Gelinas, jacques@solucorp.qc.ca
+
+
+
+  2.  Umsdos sebagai partisi root anda
+
+
+
+  2.1.  Konsep pseudo-root
+
+
+  Dengan Umsdos, Linux dapat diinstall dalam partisi DOS standar.  Linux
+  diinstall sebagai sistem operasi kedua (atau ketiga) dalam partisi.
+  Untuk menghindari tabrakan nama (terdapat kemungkinan direktori bin
+  atau tmp telah ada dalam drive C:), umsdos menggunakan trik pintar:
+  pseudo-root.
+
+  Seluruh file Linux diinstall dalam subdirektori DOS dinamakan linux,
+  biasanya C:LINUX. Struktur direktori Linux/Unix yang normal terdapat
+  di situ. Anda akan mendapatkan
+
+
+  o
+
+     C:\LINUX\BIN
+
+
+
+  o
+
+     C:\LINUX\ETC
+
+
+
+  o
+
+     C:\LINUX\LIB
+
+
+
+  o
+
+     C:\LINUX\ROOT
+
+
+
+  o
+
+     C:\LINUX\SBIN
+
+
+
+  o
+
+     C:\LINUX\TMP
+
+
+
+  o
+
+     C:\LINUX\USR
+
+
+
+  o
+
+     C:\LINUX\VAR
+
+
+
+  Ketika Umsdos di-boot, akan dicari direktori linux kemudian
+  /linux/etc. Jika ada, mode pseudo-root diaktifkan.
+
+  Mode pseudo-root menukar root partisi ke C:\LINUX, yang memberikan
+  layout direktori Unix konvensional :
+
+
+  o
+
+     /bin
+
+
+
+  o
+
+     /etc
+
+
+
+  o
+
+     /lib
+
+
+
+  o
+
+     /root
+
+
+
+  o
+
+     /sbin
+
+
+
+  o
+
+     /tmp
+
+
+
+  o
+
+     /usr
+
+
+
+  o
+
+     /var
+
+
+
+  Pada list ini ditambahkan satu direktori dinamakan DOS. Ini adalah
+  direktori virtual.
+
+
+  2.2.  Hal yang perlu diketahui tentang pseudo-root
+
+
+  o  Mode ini hanya dapat dijalankan pada saat boot. Tidak ada cara lain
+     untuk mengaktifkannya dengan perintah mount.
+
+
+  o  Mekanisme ini murni cara pandang yang berbeda dari sistem file
+     Umsdos normal. Artinya bahwa partisi yang secara normal dapat
+     digunakan sebagai partisi root dapat di-mount. Tidak terdapat efek
+     pseudo-root apa pun.
+
+     Sebagai contoh, jika anda mem-boot linux dengan disket dan me-mount
+     partisi root anda di /mnt, anda akan menemukan seluruh direktori
+     linux anda dalam /mnt/linux/bin, /mnt/linux/etc, dan seterusnya.
+
+
+  3.  Topik lain mengenai cara kerja Umsdos
+
+
+
+  3.1.  Mount option
+
+
+  Anda dapat menggunakan mount option yang sama seperti pada sistem file
+  MS-DOS. Option conv= dipertanyakan dalam sistem Umsdos.  Penulis
+  menyarankan untuk menghindarinya. Option yang mungkin anda temukan
+  adalah:
+
+
+  o  uid=
+
+  o  gid=
+
+  o  umask=
+
+  Tetapi ingatlah bahwa Umsdos mengelola direktori yang tidak terpromosi
+  seperti yang dilakukan pada sistem file MS-DOS. Option di atas akan
+  berlaku global untuk semua direktori yang tidak terpromosi. uid men-
+  setup pemilik default (default owner), gid men-setup grup default
+  (default group), dan umask men-setup permission yang default.
+
+
+
+  3.2.  Bagaimana mengeset default untuk root
+
+
+  Umssetup dibuat untuk menyediakan pemilik default (default ownership)
+  untuk partisi root pada saat run time. Untuk partisi Umsdos lain,
+  dapat menggunakan mount option atau umssetup. Menyimpan mount option
+  dalam /etc/fstab lebih dipilih untuk partisi non root. Contohnya
+  adalah sebagai berikut, simpanlah dalam /etc/rc.d/rc.S.
+
+
+
+               /sbin/umssetup -u jack -g group -m 0755 /
+
+
+
+
+
+  3.3.  Menggunakan swap file
+
+
+  Secara umum swap file lebih lambat dari partisi swap, namun demikian
+  swap file lebih fleksibel. Anda dapat men-setup swap file dalam
+  partisi Umsdos dengan cara yang sama seperti dalam sistem file Linux
+  lainnya.  Sebagai contoh untuk men-setup swap file berukuran 8
+  megabyte pada direktori root:
+
+
+
+
+          dd if=/dev/zero bs=1024k count=8 of=/swap
+          mkswap /swap 8192
+          sync
+          swapon /swap
+
+
+
+
+
+  sekali dilakukan, anda dapat menyisipkan baris berikut dalam
+  /etc/fstab
+
+
+
+               /swap  swap  swap  default
+
+
+
+
+
+  dan file swap akan diaktifkan setiap boot (umumnya terdapat "swapon
+  -a" dalam /etc/rc.d/rc.S).
+
+
+
+
+  4.  Mem-boot sistem Umsdos
+
+
+
+  4.1.  Loadlin
+
+
+  Paket lodlin15.tgz tersedia di sunsite.unc.edu dalam
+  /pub/Linux/system/Bootutils. Utility ini terutama sekali digunakan
+  untuk mem-boot sistem Umsdos. Secara umum yang anda harus lakukan
+  adalah:
+
+
+
+               Boot DOS
+               C:>loadlinx zimage root=D:
+
+
+
+
+  dimana zimage adalah image kernel normal (terkompresi) yang dikopikan
+  ke suatu tempat dalam drive DOS. D: adalah drive DOS dimana Linux
+  diinstall.
+
+
+  4.2.  Menggunakan floppy
+
+
+  Mem-boot sistem Umsdos dari floppy tidak jauh berbeda dengan mem-boot
+  sistem Ext2. Anda memerlukan file zimage kernel yang secara tepat
+  terinisialisasi untuk menempatkan partisi root Umsdos anda. Hal ini
+  didapat dengan menggunakan perintah rdev. Barisan berikut akan
+  menginisialisasikan zImage dan menyimpannya dalam floppy.
+
+
+
+               rdev zImage /dev/hda1
+               rdev -R zImage 0
+               dd if=zImage bs=8192 of=/dev/fd0
+
+  Jika terlihat membingungkan, format saja suatu floppy menjadi boot-
+  able DOS lalu simpan komponen berikut :
+
+
+  o  loadlin.exe
+
+  o  loadlinx.exe
+
+  o  zimage
+
+
+  dan buat file autoexec.bat berisi :
+
+
+
+       loadlinx zimage rw root=C:
+
+
+
+
+
+
+  4.3.  LILO
+
+
+
+  LILO adalah Linux boot loader yang juga dapat digunakan untuk mem-boot
+  sistem Umsdos. Penulis belum berpengalaman dengan LILO. Utiliti ini
+  sudah mulai dapat bekerja dengan baik sejak versi 1.1.60. Tolong
+  kirimkan e-mail kepada penulis jika Anda ingin membahas lebih jauh
+  tentang LILO.
+
+
+
+
+  4.4.  Defragmentasi partisi Umsdos
+
+
+
+  Defragmentasi dapat dilakukan menggunakan tools yang biasa dipakai di
+  DOS. Tidak ada sesuatu yang khusus mengenai file yang dihasilkan
+  Umsdos. Dan Umsdos tidak mengharapkan sesuatu yang khusus (layout
+  direktori, barisan direktori entri, dan sebagainya) dari sistem file
+  di bawahnya. Sejauh penulis ketahui, tidak ada tools Linux yang bisa
+  dipakai.
+
+
+
+  4.5.  Trik lanjutan
+
+
+  Umsdos bersandar pada --linux-.--- yang ada pada direktori DOS.
+  Beberapa pengguna mungkin ingin sedikit bereksperimen.  Utility
+  udosctl yang merupakan bagian dari paket umsdos_progs (berisi umssync
+  dan umssetup) mengijinkan operasi direktori (listing, deletion) secara
+  bebas pada --linux-.--- dan direktori DOS.
+
+
+
+
+  5.  Prinsip dasar
+
+
+
+
+
+  5.1.  Pengenalan
+
+
+
+  Umsdos memetakan file-file linux secara langsung ke sistem file MS-
+  DOS. Ini adalah translasi satu ke satu. Isi file tidak dimanipulasi
+  sama sekali. Umsdos hanya bekerja pada nama. File khusus (misalnya
+  links dan devices), dikenakan pengaturan khusus. Untuk setiap
+  direktori, terdapat suatu file bernama --linux-.---.
+
+
+
+  5.2.  Umsdos  dapat menggantikan sistem file MS-DOS
+
+
+
+  Umsdos dapat dianggap sebagai superset sistem file serbaguna MS-DOS
+  dari linux. Faktanya, kemampuan dan kefleksibelan menimbulkan banyak
+  keanehan pada Umsdos. Cobalah me-mount floppy DOS yang baru diformat
+  seperti berikut :
+
+
+
+
+       mount -t umsdos /dev/fd0 /mnt
+
+
+
+
+
+  lalu lakukan hal berikut:
+
+
+
+       ls / >/mnt/LONGFILENAME
+       ls -l /mnt
+
+
+
+
+
+  anda akan mendapatkan hasil berikut :
+
+
+          -rwxr-xr-x  1   root   root   302 Apr 14 23:23 longfile
+
+
+
+
+
+  Sejauh ini, kelihatannya sistem file Umsdos tidak melakukan lebih
+  banyak hal (malah tidak sama sekali) dari sistem file normal MS-DOS.
+
+  ???
+
+
+
+  5.3.  Directory Promotion
+
+
+  Sejauh ini belum terlihat mengesankan. Inilah triknya. Jika telah
+  dipromosikan, direktori DOS akan diatur dengan cara yang sama dengan
+  Umsdos. Umsdos menggunakan suatu file khusus dalam tiap subdirektori
+  untuk mencapai translasi diantara kemampuan lebih (nama panjang,
+  kepemilikan, dsb..) dari Umsdos dan keterbatasan file sistem DOS.
+  File ini tidak terlihat oleh pengguna Umsdos, tetapi dapat terlihat
+  ketika anda mem-boot DOS. Untuk menghindari kekacauan partisi DOS
+  dengan file tersebut (--linux-.---) yang tidak berguna, kehadiran file
+  tersebut optional. Bila tidak ada, Umsdos berperilaku seperti MS-DOS.
+
+  Ketika suatu direktori dipromosikan, sembarang operasi subsekuen akan
+  dilakukan dengan semantik yang penuh seperti normalnya yang tersedia
+  untuk pengguna Unix dan Linux. Dan seluruh subdirektori yang dibuat
+  sesudahnya akan dipromosikan secara otomatis.
+
+  Keistimewaan ini mengijinkan anda secara logik mengorganisasikan
+  partisi DOS anda kedalam bagian DOS dan bagian Linux.  Sangat penting
+  untuk memahami bahwa file --linux-.--- berukuran kecil (umumnya 2k per
+  direktori). Dos umumnya menggunakan cluster yang besar (sebesar 16 k
+  untuk partisi 500M), jadi dengan menghindari penyimpanan --linux-.---
+  di sembarang tempat akan sangat bermanfaat.
+
+
+
+  5.4.  Bagaimana cara berpromosi: /sbin/umssync
+
+
+
+  Suatu direktori dapat dipromosikan kapan saja menggunakan
+  /sbin/umssync. Dapat digunakan kapan saja. untuk mempromosikan
+  direktori, lakukan operasi berikut :
+
+
+  o  Buat sebuah --linux-.---
+
+  o  Bentuklah relasi satu ke satu diantara --linux-.--- dan isi
+     direktori yang sekarang ada.
+
+
+  /sbin/umssync mengatur file --linux-.--- yang ada. File tersebut tidak
+  dibuat kembali setiap waktu. Cukup dengan menambahkan entri yang
+  hilang kedalamnya (file akan dibentuk selama sesi DOS). umssync juga
+  akan menghapus file-file yang tidak pernah ada dalam direktori DOS
+  dari --linux-.---., dimana umssync mendapatkan nama file dari tempat
+  tersebut. Umssync menyimpan --linux-.--- sejalan dengan direktori DOS
+  yang mendasarinya.
+
+
+
+  5.5.  Menggunakan /sbin/umssync pada saat boot
+
+
+  Adalah suatu ide yang baik untuk selalu memanggil /sbin/umssync pada
+  akhir /etc/rc.d/rc.S anda jika belum ada. Perintah berikut cocok untuk
+  hampir semua sistem :
+
+
+
+       /sbin/umssync -r99 -c -i+ /
+
+
+
+
+
+  option -c mencegah umssync melakukan promosi direktori. Option
+  tersebut hanya mengupdate --linux-.--- yang ada.
+
+  Perintah ini berguna jika anda mengakses direktori linux selama sesi
+  DOS. Linux tidak mempunyai cara efisien untuk memberitahukan bahwa
+  direktori telah dimodifikasi oleh DOS sehingga Umsdos tidak dapat
+  melakukan operasi umssync.
+
+  5.6.  Membebaskan promosi (UN-promote)
+
+
+  Hapus saja file --linux-.--- pada sesi DOS dan Anda akan menyesal.
+
+
+  5.7.  Bagaimana file-file yang terbentuk selama sesi DOS?
+
+
+  Kecuali anda mengunakan umssync dalam direktori dimana file-file
+  ditambahkan atau dihapus oleh DOS, anda akan menemui beberapa masalah
+  :
+
+  o  Tidak akan meng-crash-kan sistem anda dan tidak juga menyebabkan
+     masalah besar, hanya gangguan saja :-)
+
+  o  File-file dibuat oleh DOS.
+
+  o  Tidak akan terlihat dalam Linux.
+
+  o  Ketika akan mencoba membuat suatu file dengan nama yang sama, anda
+     akan mendapatkan pesan kesalahan yang menyatakan bahwa file telah
+     ada.
+
+  o  Hasil-hasil pembentukan tersebut lebih membingungkan dari masalah
+     sebenarnya. Tetapi hal itu tidak merusak sistem file.
+
+  o  File-file yang terhapus oleh DOS tidak menyebabkan masalah. Umsdos
+     akan memberitahukan kehilangan pada saat akses pertama. Suatu pesan
+     akan dikeluarkan (dan umumnya dicatat dalam /var/adm/syslog).
+
+
+
+  6.  Instalasi/UN-instalasi dan beberapa trik
+
+
+  Instalasi dari Umsdos tidak jauh berbeda dengan instalasi sistem Linux
+  yang biasa (berbasis Ext2)
+
+  Ada dua perbedaan utama.
+
+
+  6.1.  Pseudo-root /mnt/linux
+
+
+  Langkah yang normal untuk instalasi adalah :
+
+  1. Set partisi dengan fdisk dan format partisi tersebut.
+
+  2. Mount sebagai /mnt relatif terhadap instalasi root disk.
+
+  3. Salin semua paket kedalam /mnt.
+
+  Dengan Umsdos, langkah 1 tidak diperlukan (bukankah tujuan utama dari
+  Umsdos adalah untuk tidak memformat hard disk Anda ?)
+
+  Sistem Umsdos dapat diinstall hanya dengan mengkopi seluruh paket ke
+  dalam /mnt.  Cara tersebut bisa saja digunakan. Akan tetapi akan
+  menciptakan kumpulan subdirektori dalam direktori root DOS anda (C:)
+  dan anda pasti tidak akan menyukainya.  Inilah alasan mengapa seluruh
+  instalasi Umsdos menggunakan cara pseudo-root. Dan inilah perbedaan
+  utama diantara instalasi Ext2 yang normal dan cara Umsdos, yaitu :
+  Seluruh file dikopi kedalam /mnt/linux.
+
+
+
+  6.2.  Mempersiapkan /mnt/linux
+
+
+  /mnt/linux bukan direktori biasa, karena harus terlebih dahulu
+  dipromosikan sehinga nantinya mampu menangani nama panjang file Linux
+  dan file tertentu (links, device). Langkah untuk mensetup /mnt/linux :
+
+  1. mkdir /mnt/linux
+
+  2. umssync /mnt/linux
+
+  Hanya itu saja !
+
+
+  6.3.  Memastikan /mnt/linux tersetup dengan benar
+
+  Meskipun setup /mnt/linux sangat mudah, terdapat banyak paket
+  instalasi yang menjadi salah terinstall karenanya. Bagaimana bisa
+  terjadi?  Masalah terbesar pada instalasi muncul dari
+  ketidakkompatibelan program umssync. Umsdos telah diupdate dalam Linux
+  1.1.88 (penulis tidak ingat pasti) dan sebuah cacat telah ditemukan
+  dalam umssync. Untuk menghindari kebingungan dalam komunitas Linux,
+  diputuskan untuk membuat level kekompatibelan yang dibutuhkan untuk
+  semua tools Umsdos. Versi lama dari tools otomatis akan ditolak.
+
+  Sementara banyak distribusi tidak memperbaharui utility umssync mereka
+  pada disk instalasi.
+
+  Masih banyak distribusi yang seperti ini. Hasil jaringan menunjukkan
+  bahwa direktori /mnt/linux yang tidak terpromosi sama sekali dan akan
+  memotong seluruh nama panjang dan akan menolak semua file khusus.
+
+  Kita bisa melakukan test lebih dahulu selama proses instalasi untuk
+  mengecek apakah terjadi kesalahan. Berterimakasihlah kepada mekanisme
+  pseudo console dari Linux, anda dapat melakukannya tanpa meninggalkan
+  program instalasi. Lakukan langkah berikut :
+
+
+  1. Tekan Alt-F2 (tombol Alt dan tombol F2 ditekan bersamaan)
+
+  2. login sebagai root.
+
+  3. cd /mnt/linux Jika hal ini gagal, anda mencoba terlalu dini. Waktu
+     yang baik untuk melakukannya di akhir dari pemilihan paket.
+
+  4. >TOTO
+
+  5. ls -l Anda seharusnya akan melihat file kosong TOTO dalam huruf
+     besar. jika anda melihatnya dalam huruf kecil, kesalahan terjadi.
+     Cobalah lakukan langkah umssync kembali. Umssync dapat digunakan
+     berulang-ulang tanpa masalah. umssync . Jika tidak terjadi pesan
+     kesalahan, lakukan test TOTO kembali. Jika TOTO terlihat bagus,
+     maka semua sudah OK. Sesuatu yang aneh terjadi dalam instalasi,
+     tetapi simpan saja. Lanjutkan.
+
+  6. Tekan Alt-F1 untuk kembali ke layar instalasi
+
+
+  Jika test gagal, cara memperbaiki yang baik adalah mengambil instalasi
+  root disk yang terbaru. Anda dapat membetulkan root disk dengan
+  menginstall versi terbaru dari umssync. Hal ini tidak sulit tetapi
+  membutuhkan sistem linux yang bekerja. Anda cukup me-mount floppy root
+  disk dan ganti umssync yang salah dengan yang baru.
+
+
+
+  6.4.  Melepas pseudo-root
+
+
+  Hampir semua instalasi UMSDOS yang gagal, mencetak pesan yang aneh.
+  Hal ini bukan merupakan bug di UMSDOS meskipun pesan yang terlihat
+  aneh. Penyebabnya antara lain :
+
+
+  o  Kasus yang paling umum Instalasi Slackware mencoba untuk men-setup
+     suatu file swap terlalu dini selama proses instalasi. Untuk itu
+     anda diminta untuk memilih suatu partisi (drive DOS), lalu me-
+     mount-nya dan men-set file swap.
+
+     Ketika menginstall sistem Slackware, anda harus men-setup target
+     partisi utama untuk diinstall, yang selanjutnya me-mount partisi
+     DOS pada /mnt, membuat direktori /mnt/linux dan menjalankan umssync
+     di tempat itu.
+
+     Disinilah masalah yang paling banyak muncul. Hampir semua pengguna
+     melupakan langkah "setup target partition" dan langsung ke bagian
+     instalasi berikutnya . Karena /mnt sudah mount, kesalahan ini tidak
+     dibertahukan. Artinya bahwa /mnt/linux tidak dibuat dengan tepat
+     (tidak terpromosi). Semua file-file dan link-link dan nama panjang
+     tidak dapat dibuat dengan tepat.
+
+  o  Invalid umssync utility /mnt/linux tidak secara tepat di setup.
+     Umumnya disebabkan oleh ketidaktepatan utility umssync pada disket
+     instalasi root.
+
+  o  bug lama dalam Umsdos Terdapat bug pada Umsdos sebelum Linux 1.2.2.
+     Mode pseudo-root tidak dapat diatifkan secara tepat, jika file
+     /etc/init hilang. Init lalu ditempatkan  dalam       /sbin. Anda
+     dapat membetulkannya dengan mengambil kernel yang terbaru. Hal ini
+     direkomendasikan karena bug lain telah ditemukan dan telah
+     dibetulkan dalam 1.2.2. Jika anda tidak bisa meng-upgrade, lakukan
+     hal berikut :
+
+
+     1. Boot dari disket instalasi anda.
+
+     2. Login sebagai root
+
+     3. mount -b umsdos /dev/hdxx /mnt dimana /dev/hdxx adalah partisi
+        DOS anda
+
+     4. cd /mnt/linux/etc
+
+     5. ln -s ../sbin/init init
+
+     6. cd /
+
+     7. Ctrl-Alt-Del
+
+     8. Boot Umsdos anda
+
+  sayangnya dua langkah pertama (masalah instalasi) menghasilkan
+  instalasi yang tidak berguna. Uninstall (lihat sesi berikutnya)
+  kemudian install kembali.
+
+
+  6.5.  Bagaimana meng-uninstall sistem Umsdos
+
+
+  Satu hal menarik mengenai Umsdos dan mekanisme pseudo-rootnya, adalah
+  anda dapat meng-uninstall tanpa kesulitan. Anda hanya perlu mem-boot
+  DOS dan secara rekursif menghapus direktori Linux. Hanya itu saja.
+  Umsdos tidak membutuhkan driver khusus dalam config.sys, dan tidak
+  juga membuat sesuatu yang khusus diluar direktori Linux.
+
+
+  6.6.  Memindahkan sistem Umsdos  ke drive DOS lainnya
+
+
+  Hal ini bisa dilakukan dari Linux atau dari DOS. Anda cukup mengkopi
+  secara rekursif direktori Linux dari satu drive ke drive lain. Setelah
+  itu anda harus mengatur mekanisme boot anda (umumnya perintah loadlin)
+  dan file /etc/fstab. Umsdos dapat jalan di drive DOS manapun. Tidak
+  ada keharusan untuk menginstallnya pada drive C:, tidak juga terlalu
+  penting untuk menuliskannya pada hard drive pertama. Pokoknya gak
+  perlu.
+
+  Faktanya kita bisa memutuskan memiliki beberapa instalasi Umsdos pada
+  drive yang berbeda, lakukan eksperimen saja.
+
+
+  6.7.  Mengenai instalasi 50 sistem Umsdos
+
+
+  Bagaimana bila anda ingin menginstall sistem Linux dalam jumlah besar
+  tapi waktu yang tersedia terbatas?
+
+  Sistem Umsdos hidup dalam dunia DOS. Anda dapat mengambil keuntungan
+  dari hal ini bila anda ingin mudah menginstall Linux. Anda dapat
+  menginstall dan mengkonfigurasikan sistem Umsdos pada situs anda.
+  Ketika anda telah merasa puas dengan konfigurasi dan paket yang telah
+  dipilih, anda dapat mem-boot DOS dan mengkopi direktory linux lengkap
+  ke sever file DOS anda. Lalu pindah ke DOS station lain dan anda cukup
+  mengkopi file-file yang ada dalam drive network ke drive lokal.  Hanya
+  itu saja. Hanya mengatur script boot (Loadlinx) dan coba.
+
+  Dengan pengaturan minimal (nama Host, nomer IP), seseorang akan mampu
+  menginstall sistem Linux dalam beberapa menit.
+
+  Pembaca yang tertarik perlu mencatat bahwa menginstall sistem Linux
+  dengan mengkopi sistem yang sedang berjalan juga akan bekerja untuk
+  sistem Linux lain, termasuk basis Ext2.
+
+  Yang menarik dari Linux adalah tidak diperlukan file tersembunyi yang
+  harus diinstall oleh program instalasi.
+
+
+  7.  Pengaturan sesi Linux  dalam partisi DOS
+
+
+  Umsdos memiliki beberapa kegunaan bahkan bagi pengguna Ext2 (file
+  sistem Linux natif). Skenario yang umum terjadi:
+
+  o  Linux menjadi pilihan sistem operasi anda, partisi Linux anda mulai
+     terisi terisi dan terisi
+
+  o  Partisi DOS anda berisi sampah, sebagian kosong . Partisi Ext2
+     tiba-tiba sudah penuh
+
+  o  Anda tetap tidak yakin apakah ingin membuang DOS
+
+  Umsdos akan menyelamatkan hari anda. Anda dapat mensetup direktori
+  Linux dalam partisi DOS dan menggunakannya tanpa pembatasan untuk
+  penggunaan linux. Sebagai contoh, misalkan anda ingin mensetup
+  direktori baru, bernama "extra" dalam drive C:. dan anda ingin
+  direktori ini berperilaku seperti direktori Linux yang normal. Lakukan
+  hal berikut (asumsikan bahwa C: adalah /dev/hda1)
+
+               mkdir /c
+               /sbin/mount -t umsdos /dev/hda1 /c
+               mkdir /c/extra umssync /c/extra
+
+
+
+
+  anda harus login sebagai root untuk melakukan hal ini.
+
+  Dengan menset /etc/fstab seperti diatas, anda akan selalu dapat
+  mengakses direktori /c/extra.
+
+
+  8.  UMSDOS-WHY-TO
+
+
+  Menjelaskan bagaimanana cara beroperasi atau menginstall sistem Umsdos
+  tidaklah cukup. Banyak orang mencari saran apakah menggunakan Umsdos
+  atau tidak.
+
+
+  8.1.  Tujuan Umsdos
+
+
+  Tujuan Umsdos adalah untuk kemudahan instalasi Linux. Tujuan lainnya
+  adalah kemudahan un-instalasi. Idenya di sini adalah mempromosikan
+  perkembangan Linux. Menginstall sistem operasi baru selalu bermasalah.
+  OS/2 contohnya akan memenuhi root C: anda dengan kumpulan direktori
+  baru. Jika anda pintar seperti penulis, OS/2 juga akan menghapus file
+  config.sys dan autoexec.bat anda :-(
+
+  Keistimewaan pseudo-root dari Umsdos menghindari invasi tak diundang
+  seperti ini. Linux dapat di-UN-install tanpa efek samping.
+
+
+  8.2.  Siapa yang membutuhkannya
+
+
+  Jika anda memiliki harddrive kecil, Umsdos mengijinkan anda berbagi
+  ruang disk diantara DOS dan Linux. Kapasitas disk dibawah 300 M
+  menurut penulis termasuk disk kecil. Pendapat ini didasarkan pada
+  ukuran paket yang berbeda-beda yang tersedia sekarang. Salah satu
+  pengolah kata populer mungkin menghabiskan 70 M jika anda memilih
+  seluruh featurenya.
+
+  Jika anda memiliki drive yang besar, anda mungkin berharap memiliki
+  partisi Linux tersendiri yang menjalankan sistem Ext2. Ext2
+  menggunakan cluster berukuran kecil dari DOS (1 k), jadi bila
+  menginstall banyak file-file kecil akan menghabiskan kapasitas yang
+  lebih kecil dibanding bila menggunakan partisi Umsdos.
+
+
+  8.3.  Kinerja
+
+
+  Point-point berikut berlaku pada Umsdos dibandingkan dengan Ext2 .
+
+  o  Manajemen direktori lebih cepat pada Ext2. Hal ini dikarenakan
+     besarnya biaya akibat struktur direktori yang dobel pada Umsdos
+
+  o  Akses file (baca dan tulis) kemungkinan lebih cepat pada Umsdos
+     dari Ext2. Hal ini karena sederhananya sistem FAT yang digunakan
+     DOS. Berhati-hatilah karena kemudahan ini menimbulkan cost:
+
+  o  Maksimal terdapat sekitar 65.000 file atau kluster setiap partisi.
+     Ini juga berarti bahwa partisi 500 M akan menggunakan cluster 16 K
+     yang besar. Dengan kata lain, suatu file yang berisi 1 byte akan
+     menggunakan 16 K dari kapasitas disk.
+
+  o  Keseluruhan dikontrol oleh FAT yang lokasinya berada di awal hard
+     drive. sistem file DOS kemungkinan akan lebih mudah rusak karena
+     hal ini.
+
+  o  Tidak ada ketentuan untuk menghindari fragmentasi file. Sistem
+     Umsdos umumnya digunakan sebagai single user workstation. Dalam hal
+     ini tidak jadi masalah. Bila menjadi multi-user engine, file akan
+     tersebar dimana-mana dalam drive, dan akan memperendah kinerja
+     akses file.
+
+  o  Symbolic links disimpan sebagai file normal. Jika anda bermaksud
+     membuat banyak symbolic links, anda akan menemukan bahwa Umsdos
+     menghabiskan banyak kapasitas disk dibanding Ext2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

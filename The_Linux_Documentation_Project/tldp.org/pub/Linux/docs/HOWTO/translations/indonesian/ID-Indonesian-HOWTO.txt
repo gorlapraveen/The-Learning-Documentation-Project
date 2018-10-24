@@ -1,0 +1,462 @@
+  Indonesia HOWTO
+  Mohammad DAMT mdamt@linux.or.id <mailto:mdamt@linux.or.id>
+  Versi 0.3, 30 Mei 1999
+  ____________________________________________________________
+
+  Table of Contents
+
+
+  1. Pendahuluan
+
+  2. Kode Locale dan Charset untuk Indonesia
+
+  3. Kodifikasi Locale Indonesia
+
+  4. Setting Shell Environment
+
+     4.1 Locale Indonesia dalam Red Hat 6.0
+
+  5. man pages
+
+  6. LDP dan HOWTO
+
+  7. Penggunaan Bahasa Indonesia dalam LaTeX
+
+  8. Proyek Nasionalisasi Indonesia
+
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  Linux sebagaimana sistem operasi lain, adalah sistem operasi
+  internasional yang mampu menggunakan berbagai bahasa di dunia dalam
+  sistem penanggalan, lingkungan kerja, dan sebagainya.  Dokumen ini
+  berisi cara-cara untuk melakukan setting box Linux Anda agar dapat
+  menggunakan sistem penanggalan dan lokalisasi Indonesia.  Dalam
+  menuliskan dokumen ini, saya menggunakan distribusi Red Hat 6.0 yang
+  sudah mendukung lokalisasi Indonesia, walau belum sempurna.  Karena
+  lokalisasi bukan saja isu spesifik Linux, maka dokumen ini seharusnya
+  juga dapat digunakan di sistem lain yang mendukung kodifikasi locale
+  sesuai POSIX.1. Namun di dalam dokumen ini, saya menggunakan Linux
+  sebagai acuan.
+
+  Dokumen ini dibuat oleh Mohammad DAMT mdamt@linux.or.id
+  <mailto:mdamt@linux.or.id>, segala bentuk cacian, makian, kritik,
+  saran, dan hadiah silahkan dikirimken ke alamat tersebut di atas.
+
+  Usaha pertama untuk kodifikasi locale untuk mendukung Bahasa Indonesia
+  seingat saya dilakukan oleh Pablo Saratxaga pablo.sarachaga@ping.be
+  <mailto:pablo.sarachaga@ping.be> yang pada suatu hari di bulan Januari
+  1999 mengirimkan saya kodifikasi locale Indonesia untuk ditinjau.
+  Untuk hal ini saya sangat berterima kasih kepada beliau karena
+  mengingatkan anak Indonesia untuk segera "bangun".
+
+  Dokumen ini tersedia di http://ldp.linux.or.id/HOWTO
+  <http://ldp.linux.or.id/HOWTO>
+
+
+  2.  Kode Locale dan Charset untuk Indonesia
+
+  Isu internationalization (sering disingkat dengan i18n) dan
+  localization (sering disingkat dengan l10n) adalah sangat penting bagi
+  program-program yang ditujukan untuk dapat digunakan dalam skala
+  internasional. Program-program tersebut akan menggunakan seperangkat
+  aturan dan kode untuk menyesuaikan diri dengan kondisi lokal tempat ia
+  dijalankan.
+
+  Kode locale adalah kode untuk mengidentifikasi suatu aturan lokal dari
+  suatu wilayah di negara tertentu, misalnya bahasa, karakter,
+  penanggalan, dan sebagainya. Gunanya untuk memberikan petunjuk kepada
+  program yang "melek-i18n" untuk menampilkan hasil output berdasarkan
+  aturan tersebut. Penggunaan kode ini sesuai dengan standar POSIX.1
+  (Portable Operating System Interface) tentang System Application
+  Program Interface.  Kode locale untuk Bahasa Indonesia adalah id_ID
+  (Dulu kodenya adalah in_ID, namun sudah diperbaharui menjadi id_ID).
+  id pertama adalah menunjukkan kode bahasa (berdasarkan ISO 639), dan
+  ID kedua menunjukkan kode negara (berdasarkan ISO 3166). Selain Bahasa
+  Indonesia, ternyata di dalam ISO 639 juga terdapat Bahasa Sunda dan
+  Bahasa Jawa. Jadi mungkin saja di kemudian hari Anda membuat locale
+  untuk kedua bahasa tadi *-).
+
+  Charset adalah gugus karakter-karakter alfabetik yang digunakan dalam
+  suatu bahasa.  Charset untuk Indonesia menggunakan ISO-8859-1 (Latin)
+  yang juga digunakan oleh bahasa-bahasa umum lainnya. Alasan penggunaan
+  charset ini adalah karena dalam Bahasa Indonesia hanya terdapat
+  karakter-karakter alfabetik biasa yang sudah tercakup dalam standar
+  ISO-8859-1 tersebut.
+
+
+  3.  Kodifikasi Locale Indonesia
+
+  Kodifikasi locale Indonesia dibuat dalam suatu file bernama id_ID, dan
+  berisi:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  escape_char  /
+  comment_char  %
+  repertoiremap mnemonic.ds
+
+  % Indonesian language locale for Indonesia
+  % Source:
+  % Address:
+  % Contact: Pablo Saratxaga, Mohammad DAMT
+  % Email: srtxg@chanae.alphanet.ch, mdamt@cakraweb.com
+  % Tel:
+  % Fax:
+  % Language: id
+  % Territory: ID
+  % Revision: 0.4
+  % Date: 1999-05-28
+  % Application: general
+  % Users: general
+  % Repertoiremap:
+  % Charset: ISO-8859-1
+  % Distribution and use is free, also
+  % for commercial purposes.
+
+  LC_CTYPE
+  copy "en_DK"
+  END LC_CTYPE
+
+  LC_COLLATE
+  copy "en_DK"
+  END LC_COLLATE
+
+  LC_MONETARY
+  int_curr_symbol         "<I><D><R><SP>"
+  currency_symbol         "<R><p>"
+  mon_decimal_point       "<,>"
+  mon_thousands_sep       "<.>"
+  mon_grouping            3;3
+  positive_sign           ""
+  negative_sign           "<->"
+  int_frac_digits         2
+  frac_digits             2
+  p_cs_precedes           1
+  p_sep_by_space          0
+  n_cs_precedes           1
+  n_sep_by_space          0
+  p_sign_posn             1
+  n_sign_posn             1
+  END LC_MONETARY
+
+  LC_NUMERIC
+  decimal_point           "<,>"
+  thousands_sep           "<.>"
+  grouping                3;3
+  END LC_NUMERIC
+
+  LC_TIME
+  abday       "<M><i><n>";"<S><e><n>";/
+              "<S><e><l>";"<R><a><b>";/
+              "<K><a><m>";"<J><u><m>";/
+              "<S><a><b>"
+  day         "<M><i><n><g><g><u>";/
+              "<S><e><n><i><n>";/
+              "<S><e><l><a><s><a>";/
+              "<R><a><b><u>";/
+              "<K><a><m><i><s>";/
+              "<J><u><m><a><t>";/
+              "<S><a><b><t><u>"
+  abmon       "<J><a><n>";"<P><e><b>";/
+              "<M><a><r>";"<A><p><r>";/
+              "<M><e><i>";"<J><u><n>";/
+              "<J><u><l>";"<A><g><u>";/
+              "<S><e><p>";"<O><k><t>";/
+              "<N><o><v>";"<D><e><s>"
+  mon         "<J><a><n><u><a><r><i>";/
+              "<P><e><b><r><u><a><r><i>";/
+              "<M><a><r><e><t>";/
+              "<A><p><r><i><l>";/
+              "<M><e><i>";/
+              "<J><u><n><i>";/
+              "<J><u><l><i>";/
+              "<A><g><u><s><t><u><s>";/
+              "<S><e><p><t><e><m><b><e><r>";/
+              "<O><k><t><o><b><e><r>";/
+              "<N><o><p><e><m><b><e><r>";/
+              "<D><e><s><e><m><b><e><r>"
+  d_t_fmt     "<%><a><SP><%><d><SP><%><b><SP><%><Y><SP><%><r><SP><%><Z>"
+  d_fmt       "<%><d><//><%><m><//><%><y>"
+  t_fmt       "<%><T>"
+  am_pm       "";""
+  t_fmt_ampm  ""
+  END LC_TIME
+
+  LC_MESSAGES
+  yesexpr     "<<(><y><Y><)/>><.><*>"
+  noexpr      "<<(><t><T><n><N><)/>><.><*>"
+  END LC_MESSAGES
+
+
+
+  File ini diletakkan di dalam direktori /usr/share/i18n/locales.  Untuk
+  membuat agar sistem mengenalinya, maka lakukan:
+
+
+       # localedef -i id_ID -f ISO-8859-1 id
+
+
+
+
+  File ini juga tersedia di http://ldp.linux.or.id/HOWTO
+  <http://ldp.linux.or.id/HOWTO>
+
+
+  4.  Setting Shell Environment
+
+  Untuk melihat apakah locale Indonesia sudah terinstall dengan baik
+  atau belum lakukan:
+
+
+
+       # export LC_ALL=id_ID
+       # export LANG=id_ID
+
+
+
+
+  Perintah di atas meminta agar sistem menset locale pada shell yang
+  aktif untuk menggunakan aturan id_ID. Variabel LC_ALL dan LANG akan
+  digunakan sebagai acuan bagi program yang melek i18n untuk menampilkan
+
+  Lalu,
+
+
+
+  # cal 1999
+  # date
+
+
+
+
+  Kedua perintah di atas seharusnya akan menampilkan kalender dan
+  tanggal dalam format dan Bahasa Indonesia.
+
+  Agar sistem selalu menggunakan locale Indonesia, perintah export di
+  atas bisa ditambahkan dalam file /etc/profile.
+
+
+  4.1.  Locale Indonesia dalam Red Hat 6.0
+
+  Dalam Red Hat 6.0 kode local Indonesia masih dalam kode lama yaitu
+  in_ID dan tidak sempat diperbaiki karena saat saya memberitahukan
+  adanya perubahan dari in_ID ke id_ID ternyata Red Hat 6.0 sudah
+  mencapai waktu rilisnya. Terima kasih kepada Ronny Haryanto
+  giant@canada.com <mailto:giant@canada.com> yang memberitahukan
+  perubahan di ISO 639 ini.
+
+  Oleh karena itu perintah yang melibatkan kata "id_ID" di dalam dokumen
+  ini dapat diganti sebagai "in_ID" bila Anda menggunakan Red Hat 6.0.
+  Jadi untuk mengaktifkan dukungan locale Indonesia, ketikkan:
+
+
+       # export LC_ALL=in_ID
+       # export LANG=in_ID
+
+
+
+
+  Dalam Red Hat 6.0 juga terdapat beberapa program yang memiliki
+  terjemahan dalam Bahasa Indonesia (dengan kode locale in_ID), yaitu:
+
+  o  Xconfigurator
+
+  o  chkconfig
+
+  o  mouseconfig
+
+  o  kbdconfig
+
+  o  mouseconfig
+
+  Program-program tersebut akan menampilkan output dalam Bahasa
+  Indonesia setelah Anda menset shell environment sebagaimana dijelaskan
+  di atas.  Sebenarnya program instalasi Red Hat 6.0 juga memiliki
+  terjemahan dalam bahasa Indonesia, dalam program tersebut Bahasa
+  Indonesia tidak disertakan, saya tidak mengetahui alasannya, namun
+  kemungkinannya adalah apabila Bahasa Indonesia disertakan maka ukuran
+  bootdisk akan membengkak lebih dari 1.44 MB.
+
+  Oleh karena itu apabila Anda ingin memiliki program instalasi Red Hat
+  6.0 berbahasa Indonesia, lakukan kompilasi ulang program tersebut yang
+  biasa terdapat di direktori misc/ pada CD atau FTP. Dan tambahkan
+  baris berikut pada file misc/src/install/lang.c
+
+
+
+   { "Bahasa Indonesia", "in", NULL, NULL, "in_ID" },
+
+
+
+
+  di bawah Bahasa Inggris (di atasnya juga boleh).
+
+  Agar Red Hat 6.0 Anda kompatibel dengan program-program lain yang
+  menggunakan kode locale id_ID, Anda dapat membuat link khusus sehingga
+  Red Hat 6.0 akan menerima kedua kode locale tersebut sebagai kode
+  locale Indonesia. Caranya adalah:
+
+
+
+       # ln -s /usr/share/locale/in_ID /usr/share/locale/id_ID
+       # ln -s /usr/share/locale/in_ID /usr/share/locale/id
+
+
+
+
+
+  5.  man pages
+
+  Untuk dapat menampilkan man pages dalam Bahasa Indonesia, Anda perlu
+  membuat direktori /usr/man/id_ID/ yang berisi struktur direktori man
+  (man1, man2, dan seterusnya). Lalu letakkan file man dalam Bahasa
+  Indonesia ke dalam direktori-direktori tersebut sesuai dengan halaman
+  man-nya. Setelah ini, man pages dalam Bahasa Indonesia tersebut siap
+  dibaca.
+
+  Untuk memperoleh dan bergabung menerjemahkan man pages bisa
+  menghubungi I Made Wiryana made_lin@nakula.rvs.uni-bielefeld.de
+  <mailto:made_lin@nakula.rvs.uni-bielefeld.de>.
+
+
+  6.  LDP dan HOWTO
+
+  Proyek Linux Documentation Project dalam Bahasa Indonesia sudah
+  dimulai sejak sekitar bulan Desember 1997 dan sudah berjalan lumayan
+  bagus *-) Banyak sudah orang-orang baik hati yang meluangkan waktunya
+  untuk menerjemahkan dokumen-dokumen HOWTO dan sumbang saran dan
+  artikel untuk disajikan sebagai dokumentasi Linux dalam Bahasa
+  Indonesia.
+
+  Homepage proyek ini ada di http://ldp.linux.or.id
+  <http://ldp.linux.or.id>. Bagi mereka yang juga ingin berbaik hati
+  ikut dalam proyek ini silahkan kirimkan email ke saya, dan khusus
+  untuk penerjemahan HOWTO, mohon mematuhi peraturan berikut:
+
+  1. Cari dokumen yang ingin diterjemahkan di
+     http://metalab.unc.edu/pub/Linux/docs/HOWTO/other-formats/sgml
+     <http://metalab.unc.edu/pub/Linux/docs/HOWTO/other-formats/sgml>
+     atau http://metalab.unc.edu/pub/Linux/docs/HOWTO/mini/other-
+     formats/sgml
+     <http://metalab.unc.edu/pub/Linux/docs/HOWTO/mini/other-
+     formats/sgml>.
+
+  2. Periksa apakah dokumen tsb telah diterjemahkan atau belum di
+     http://ldp.linux.or.id/HOWTO <http://ldp.linux.or.id/HOWTO> dan
+     http://ldp.linux.or.id/HOWTO/mini
+     <http://ldp.linux.or.id/HOWTO/mini>.
+
+  3. Konfirmasikan dulu ke saya.
+
+  4. Setelah OK baru diterjemahkan. Dan ingat, Anda harus menerjemahkan
+     dalam format SGML. Bila tidak dalam SGML, mungkin akan lama saya
+     edit dulu satu-per-satu *-(.
+
+
+
+
+  7.  Penggunaan Bahasa Indonesia dalam LaTeX
+
+  Apabila Anda sering menggunakan LaTeX untuk pembuatan naskah teknis,
+  maka Anda dapat menggunakan Bahasa Indonesia untuk mengatur naskah
+  LaTeX yang secara default dalam Bahasa Inggris. Misalnya, LaTeX dapat
+  langsung menghasilkan kata "Daftar Isi", sedangkan secara default-nya,
+  LaTeX akan menampilkan kata "Table of Contents".
+
+  Untuk menggunakan Bahasa Indonesia, Anda perlu menggunakan paket Babel
+  yang merupakan paket typesetting multilingual. Paket ini dapat
+  digunakan di berbagai platform yang mendukung LaTeX. Paket tersebut
+  dapat diperoleh di berbagai site Comprehensive TeX Archive Network
+  (CTAN), di antaranya ada di ftp://ftp.dante.de <ftp://ftp.dante.de/>.
+
+  Penggunaannya mudah saja, yaitu aktifasi Bahasa Indonesia pada dokumen
+  LaTeX dilakukan sebagai opsi pada perintah documentstyle. Namun pada
+  LaTeX tidak menggunakan kode locale in_ID, melainkan menggunakan kode
+  "bahasa".
+
+  Misalnya dalam article, Anda dapat mengaktifkan Bahasa Indonesia
+  dengan menggunakan perintah:
+
+
+
+       \documentstyle[a4,bahasa]{article}
+       .....
+
+
+
+
+  Demikian pula untuk style lain (book, letter dan sebagainya).
+
+
+
+  8.  Proyek Nasionalisasi Indonesia
+
+  Sekarang sudah cukup banyak proyek-proyek yang bertujuan untuk
+  memudahkan akses Linux ke dalam Bahasa Indonesia. Daftar yang tidak
+  lengkapnya (dan tidak terurut) adalah:
+
+  o  i18n Indonesia <http://i18n.linux.or.id <http://i18n.linux.or.id>>,
+     koordinator Ronny Haryanto <giant@canada.com
+     <mailto:giant@canada.com>>. Tersedia pula mailing list i18n ini,
+     untuk subscribe silahkan kirim email ke i18n-subscribe@linux.or.id
+     <mailto:i18n-subscribe@linux.or.id>
+
+  o  LDP Indonesia <http://ldp.linux.or.id <http://ldp.linux.or.id>>,
+     koordinator: Mohammad DAMT <mdamt@linux.or.id
+     <mailto:mdamt@linux.or.id>>
+
+  o  KDE Indonesia < <>>, koordinator I Made Wiryana <
+     <mailto:made_lin@nakula.rvs.uni-bielefeld.de>
+
+  o  Terjemahan man pages < <>>, koordinator I Made Wiryana
+     <made_lin@nakula.rvs.uni-bielefeld.de
+     <mailto:made_lin@nakula.rvs.uni-bielefeld.de>>.
+
+  o  GNOME Indonesia, koordinator Priyadi Iman Nurcahyo
+     <priyadi@priyadi.id.org <mailto:priyadi@priyadi.id.org>
+
+     Dukungan dan bantuan rekan-rekan sangat diharapkan guna
+     mensukseskan proyek-proyek ini.
+
+
+
+

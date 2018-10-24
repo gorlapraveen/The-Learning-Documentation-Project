@@ -1,0 +1,356 @@
+
+Teljes rendszerteljesítmény-monitor HOGYANChris Lorenz
+
+   lorenzc@us.ibm.com
+
+   2003.06.10
+   Verziótörténet
+   Verzió: 2.0 2003.06.10 Átdolgozta: CL
+
+   Ez a HOGYAN egy áttekintést biztosít a Complete System Performance
+   Monitor (CSPM; Teljes rendszerteljesítmény-monitor) alkalmazásról,
+   beleértve a termék és a telepítés leírását, valamint a beállítási
+   információkat.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Szerzõi jog és licenc
+
+        1.1. [2]Magyar fordítás
+
+   2. [3]Mi a CSPM?
+   3. [4]Követelmények
+   4. [5]A CSPM telepítése és ennek követelményei
+
+        4.1. [6]A Qt 3.0-as vagy késõbbi verzió telepítése
+        4.2. [7]CSPM telepítése
+        4.3. [8]A CSPM indítása
+
+   5. [9]CSPM alapbeállítások módosítása
+   6. [10]A CSPM adatmegjelenítése
+
+        6.1. [11]System Overview fül
+        6.2. [12]IRQs fül
+        6.3. [13]CPU Utilization fül
+        6.4. [14]Memory fül
+        6.5. [15]Network fül
+        6.6. [16]Storage fül
+        6.7. [17]Tests fül
+        6.8. [18]Test Summary fül
+
+1. Szerzõi jog és licenc
+
+Copyright (c) 2003 IBM Corporation. Minden jog fenntartva.
+
+Ez a dokumentum úgy használható "AHOGY VAN", minden garancia nélkül. A
+dokumentumban lévõ információkat a saját felelõsségére használja fel!
+
+A Linux Linus Torvalds bejegyzett védjegye. A többi cég, termék,
+szolgáltatás név mások védjegyei lehetnek.
+
+Engedélyezett a dokumentum másolása, terjesztése, és/vagy módosítása a GNU
+Szabad Dokumentáció Licensz feltétele mellett, az 1.1 vagy késõbbi verzió a
+Free Software Foundation által közzétéve, megváltoztathatatlan rész,
+fedõlap és hátlap szöveg nélkül. A licensz egy másolata megtalálható a
+[19]http://www.gnu.org/licenses/fdl.txt honlapon.
+     _________________________________________________________________
+
+1.1. Magyar fordítás
+
+A magyar fordítást [20]Medgyesi László készítette (2004.07.01). A
+lektorálást [21]Daczi László végezte el (2004.07.07). A dokumentum
+legfrissebb változata megtalálható a [22]Magyar Linux Dokumentációs Projekt
+honlapján. A dokumentum fordítása a [23]Szegedi Tudományegyetem [24]nyílt
+forráskódú szoftverfejlesztés speciálkollégiumának segítségével valósult
+meg.
+     _________________________________________________________________
+
+2. Mi a CSPM?
+
+A Don Dupuis of Compaq Computer Corporation által írt CSPM egy grafikus
+eszköz, ami figyeli a Linux (R) rendszer CPU, memória, háttértár, hálózat és
+IRQ felhasználását. A CSPM automatikusan összegyûjti az összes információt,
+és utána egy hisztogramot generál, ami megjeleníti a rendszer használatát.
+     _________________________________________________________________
+
+3. Követelmények
+
+A CSPM 1.0 vagy késõbbi verziójának követelményei:
+
+     * Red Hat Linux 7.2 vagy késõbbi, Mandrake 8.2 vagy késõbbi, vagy
+       bármilyen Linux rendszermag, ami használja Stephen Tweedie féle
+       sar vagy sysstat foltot (patch) (mint a 2.4.20)
+     * Trolltech Qt 3.0 vagy késõbbi C++ alkalmazás fejlesztõ
+       környezet, ami ingyenesen letölthetõ a Trolltechtõl.
+     _________________________________________________________________
+
+4. A CSPM telepítése és ennek követelményei
+
+Ez a rész leírja, hogyan lehet megszerezni a Qt alkalmazásfejlesztõ
+környezetet, és telepíteni a CSPM-et.
+     _________________________________________________________________
+
+4.1. A Qt 3.0-as vagy késõbbi verzió telepítése
+
+A Qt 3.0 vagy késõbbi verziót telepíteni kell a rendszerre a CSPM
+telepítése elõtt. Kövesse a következõ lépéseket a Qt megszerzéséhez és
+beállításához:
+
+    1. Töltse le a Qt X/11 ingyenes kiadását a
+       [25]http://www.trolltech.com webhelyrõl.
+    2. Kövesse a Trolltech utasításait a Qt telepítéséhez.
+    3. Futassa ./configure szkriptet a -thread kapcsolóval, hogy a Qt
+       sokszálú futtatás módban legyen telepítve.
+
+# ./configure -thread
+
+    4. Gyõzõdjön meg róla, hogy exportálta a QTDIR és LD_LIBRARY_PATH
+       változókat, ahogy az a szoftverrel letöltött Qt telepítési
+       útmutatóban le van írva.
+     _________________________________________________________________
+
+4.2. CSPM telepítése
+
+A következõ rész leírja, hogyan kell a CSPM-t letölteni és telepíteni.
+Ezeket a lépéseket root felhasználóként kell végrehajtani. A telepítési
+eljárás egy spm nevû könyvtárat készít, ebben helyezi el az összes fájlt.
+     _________________________________________________________________
+
+4.2.1. Telepítés az rpm csomagból
+
+A következõ lépések a CSPM-et az rpm fájlból telepítik:
+
+    1. Töltse le a CSPM rpm csomagot a
+       [26]http://sourceforge.net/projects/cspm webhelyrõl. A fájl neve
+       spm2.
+    2. Telepítse a szoftvert:
+
+# rpm -ihv --nodeps spm2-1.0-1.586.rpm
+
+       A rpm egy spm2 nevû binárist készít az aktuális könyvtárban.
+     _________________________________________________________________
+
+4.2.2. Telepítés tar-ból
+
+Kövesse a lépéseket a CSPM tar fájlból való telepítéséhez:
+
+    1. Töltse le a CSPM tar fájlt a
+       [27]http://sourceforge.net/projects/cspm webhelyrõl. A fájl neve
+       spm2.
+    2. spm2.tar.gz fájl kicsomagolása:
+
+# tar xvzf spm2.tar.gz
+
+    3. CSPM fordítása:
+
+# make all
+
+       A make parancs egy spm2 nevû binárist készít az aktuális
+       könyvtárban.
+     _________________________________________________________________
+
+4.3. A CSPM indítása
+
+A spm2 programot a root felhasználón kívül mások is futtathatják, ezért van
+néhány alapbeállítás ami megváltozhat.
+
+Adja ki a következõ parancsot a CSPM telepítésének könyvtárából:
+
+# ./spm2
+
+   Ha szegmens hiba következik be, az spm2 indulásakor, akkor
+   bizonyosodjon meg róla, hogy beállította a QTDIR és LD_LIBRARY_PATH
+   változókat, ahogy az a szoftverrel letöltött Qt telepítési útmutatóban
+   le van írva.
+     _________________________________________________________________
+
+5. CSPM alapbeállítások módosítása
+
+Alapbeállításban minden hisztogram y tengelyén öt jelölés van. Ha nem aktív
+egy különleges eszköz sem, akkor a CSPM alap értékei 0, 0,2, 0,4, 0,6 és
+0,8. Egy eszköz aktiválódásakor a CSPM az öt értéket úgy állítja be, hogy
+azok egyenletesen növekedjenek 0-tól a csúcs értékig, amit a vizsgált
+intervallumban gyûjtött. Néha a rácsvonalak pont a beosztás számaira esnek,
+ami megnehezíti azok leolvasását. Beállíthatja a rácsvonalak színét, a
+vizsgált intervallumot, vagy eltüntetheti a rácsvonalakat.
+
+Megváltoztathatja az alap rácshálózatot, a méretezést és a megjelenítés
+beállításokat minden nézetben a Preferences (tulajdonságok) menüben. A
+Preferences menüben a következõket választhatja: System (rendszer), Tests
+(tesztek), CPU, Memory (memória), Network (hálózat), Strorage (háttértár)
+vagy IRQs (megszakítások). Ha kiválaszt egy tételt, megnézheti a hozzá
+tartozó Grid (rácshálózat), Monitoring (megjelenítés), vagy Sizing
+(méretezés) fület (ha alkalmazható).
+
+A Grid (rácshálózat) fülnél olyan dolgokat változtathat meg, mint:
+
+     * a rácsvonalak színe
+     * a távolság (vagy idõ), másodpercekben, az intervallumok között
+       adatgyûjtésnél (a horizontális vonalak minden intervallumban
+       látszanak)
+     * a különbözõ adatsávok színe (mint az read, write, user, nice és
+       sys)
+     * a horizontális jelölések száma (alapbeállítás 5)
+     * a hisztogram címének mérete
+
+   A Monitor fülön olyan dolgokat változtathat meg, mint:
+
+     * a kijelzõ dobozok magassága és szélessége (pixelben)
+     * a kijelzõ dobozok színe
+     * a megjelenítendõ adatok típusa (IOs, data, reads és writes,
+       sectors és blocks)
+
+   A Sizing fülön megváltoztathatja a kijelzõ dobozok minimum magasságát
+   és szélességét (pixelben).
+     _________________________________________________________________
+
+6. A CSPM adatmegjelenítése
+
+A CSPM hisztogramokat jelenít meg, amik információkat szolgáltatnak a
+rendszer használatáról. A programnak 8 kijelzõ füle van a különbözõ típusú
+CSPM által összegyûjtött rendszerinformációk számára. A fülek a
+következõk:
+
+     * System Overview (rendszer áttekintése)
+     * IRQs (megszakítások)
+     * CPU Utilization (CPU felhasználás)
+     * Memory (memória)
+     * Network (hálózat)
+     * Storage (háttértár)
+     * Tests (tesztek)
+     * Test Summary (teszt összefoglalás)
+
+   A kulcs minden hisztogram tábla alján elárulja, hogyan kell a tábla
+   különbözõ színeit értelmezni.
+
+   Használja a horizontális és vertikális görgetõ sávot minden
+   hisztogram megtekintéséhez, ami nem fért el az kezdõ képernyõn.
+     _________________________________________________________________
+
+6.1. System Overview fül
+
+A CSPM indításánál a System Overview képernyõ jelenik meg. A hisztogram a
+System Overview képernyõn az egész rendszerrõl mutat adatokat, beleértve a
+CPU, memória, hálózat és háttértár használatot. A következõ képernyõ kép a
+System Overview képernyõt mutatja.
+
+[sysover.png]
+
+Minden hisztogram alatt a kulcs a megjelenített adatokat írja le. Például a
+Cpu Total hisztogramnál a piros vonal a felhasználó CPU használatát mutatja,
+a zöld a módosított prioritású ütemterv szerint futtatott parancsokat
+(nice), kék vonal pedig a rendszer CPU használatát.
+     _________________________________________________________________
+
+6.2. IRQs fül
+
+Amikor az IRQs fülre kattint, egy hisztogram nyílik minden IRQ részére, ami
+a rendszerben egy ISA slothoz tartozik. A következõ képernyõ az IRQs
+képernyõt mutatja.
+
+   Megjegyzés Megjegyzés
+
+
+   A Qi 3.0-nál a horizontális görgetõ sáv nem mûködik helyesen az IRQs
+   fülnél. Ez a probléma nem fordul elõ a Qt 3.1-nál.
+
+   [irqs.png]
+
+   A nagy kék szám a hisztogram bal oldalán az IRQ száma. A piros vonal
+   minden hisztogramon a másodpercenként az IRQ ISA slotjához kapcsolt
+   eszköz által felhasznált IRQ-k számát mutatja.
+     _________________________________________________________________
+
+6.3. CPU Utilization fül
+
+Amikor a CPU Utilization fülre kattint, minden CPU-hoz a rendszerben egy
+hisztogram nyílik, mint az a következõ képen látszik:
+
+[cpu.png]
+
+A hisztogram információt mutat a felhasználó (piros), a rendszer (kék) és a
+nice prioritású (zöld) parancs felhasználásról.
+     _________________________________________________________________
+
+6.4. Memory fül
+
+A Memory fül még fejlesztés alatt áll. A jövõben bemutatandó CSPM-nél a
+Memory fül grafikusan fogja mutatni, mennyi memória folyamatot használnak, a
+legtöbbtõl a legkevesebbig.
+     _________________________________________________________________
+
+6.5. Network fül
+
+Amikor a Network fülre kattint, a hisztogram megmutatja a forgalom
+mennyiségét a rendszer loopback eszközein, és minden hálózati eszközt
+megjelenít, mint azt a következõ kép mutatja:
+
+[network.png]
+
+A küldések pirossal, a fogadások kékkel vannak jelezve.
+     _________________________________________________________________
+
+6.6. Storage fül
+
+Amikor a Storage fülre kattint, egy hisztogram gyûjtemény nyílik meg, ami
+adatokat mutat a felügyelõkrõl, lemezekrõl, partíciókról. A jelmagyarázat
+a hisztogram alján megmutatja, hogy melyik szín melyik típusú eszköznek
+felel meg.
+
+[storage.png]
+
+A képernyõ képen a lila a vezérlõkártyákat, a zöld a lemezeket, a narancs
+pedig a partíciókat jelzi. A piros vonal az eszközrõl történõ olvasást, a
+kék pedig az írást mutatja.
+
+A partíció információk megtekintéséhez (mint a fájlrendszer neve, foglalt
+terület, szabad terület) jobb klikk a partíció hisztogramra, majd bal klikk
+a Preferences gombra. Egy Partition Status ablak nyílik meg, ami
+információkat mutat a kiválasztott partícióról.
+
+[snapshot9.png]
+     _________________________________________________________________
+
+6.7. Tests fül
+
+A Tests fül egy teszt listát nyit meg, ami futtatható a rendszeren, és
+hasznos, például minõségbiztosítási alkalmazottaknak, akiknek
+tesztrendszereket kell betölteniük, amikor hardvert vagy szoftvert
+tesztelnek.
+     _________________________________________________________________
+
+6.8. Test Summary fül
+
+A Test Summary fül teszt kimeneteket és a teszt futtatáshoz használt
+számokat tartalmazza. Ezeket a teszt eredményeket kinyomtathatja, és
+megõrizheti a feljegyzéseihez.
+
+References
+
+   1. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#copy
+   2. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN25
+   3. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN33
+   4. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN36
+   5. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN46
+   6. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN49
+   7. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN65
+   8. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN100
+   9. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN109
+  10. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN151
+  11. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN181
+  12. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN190
+  13. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN202
+  14. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN210
+  15. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN216
+  16. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN224
+  17. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN236
+  18. file://localhost/home/dacas/tldp/convert/CSPM-HOWTO-hu.html#AEN241
+  19. http://www.gnu.org/licenses/fdl.txt
+  20. mailto:Medgyesi.Laszlo[kukac]stud.u-szeged[pont]hu
+  21. mailto:dacas[kukac]freemail[pont]hu
+  22. http://tldp.fsf.hu/
+  23. http://www.u-szeged.hu/
+  24. http://www.inf.u-szeged.hu/~havasi/opensource/
+  25. http://www.trolltech.com/
+  26. http://sourceforge.net/projects.cspm
+  27. http://sourceforge.net/projects.cspm

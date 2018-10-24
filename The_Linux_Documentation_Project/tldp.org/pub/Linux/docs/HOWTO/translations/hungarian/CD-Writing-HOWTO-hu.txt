@@ -1,0 +1,1872 @@
+  CD-írás HOGYAN
+  Winfried Trümper <winni@xpilot.org>
+  v2.8.8, 1999. szeptember 19.
+
+  Ez a dokumentum a Linux alatti CD-írásról szól.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+
+  1. Bevezetés
+     1.1 Copyright, licenc és a felhasználás feltételei
+     1.2 Kapcsolatba lépés a szerzõvel
+     1.3 Magyar fordítás
+     1.4 Ajánlott irodalom
+     1.5 Terminológia ... lézereket maximumra ... tûz!
+     1.6 Támogatott CD-írók
+     1.7 Támogatott sajátosságok
+     1.8 Levelezõlisták
+
+  2. A Linux rendszer beállítása CD-íráshoz
+     2.1 A Linux kernel beállítása
+        2.1.1 Különleges beállítások a kernel 2.2.9-es verziójáig
+        2.1.2 Különleges beállítások a kernel 2.2.10-es és újabb verzióihoz
+        2.1.3 Különleges beállítások a 2.0.x sorozatú kernelekhez
+     2.2 A hardver és az eszközfájlok
+        2.2.1 IDE/ATAPI CD-írók
+        2.2.2 SCSI CD-írók
+           2.2.2.1 Általános SCSI eszközök
+        2.2.3 Párhuzamos portos CD-írók
+     2.3 CD-égetéshez való felhasználói programok
+        2.3.1 Parancssori alkalmazások
+        2.3.2 Grafikus felhasználói felületek (választható)
+
+  3. CD-égetés
+     3.1 CD-ROM készítés (csak adat)
+        3.1.1 A leendõ CD-ROM image-ének elkészítése
+        3.1.2 A CD image tesztelése
+        3.1.3 A CD image CD-re írása
+     3.2 Audio CD írása
+        3.2.1 DAO
+     3.3 Vegyes módú CD-ROM-ok
+
+  4. Kedves Winfried,...
+     4.1 Milyen érzékeny az égetési folyamat?
+     4.2 A fájlok töredezettsége rossz hatással van-e az átviteli sebességre?
+     4.3 Lehet-e a CD image-et UMSDOS fájlrendszeren tárolni?
+     4.4 Nem lehet-e valahogy megkerülni az ISO-9660 korlátait?
+     4.5 Hogy olvassunk le sávokat az audio CD-rõl?
+     4.6 Hogyan kell megszondázni a SCSI eszközöket rendszerindítás után?
+     4.7 Lehetséges-e egy az egyben lemásolni egy adat CD-t?
+     4.8 Tudja-e olvasni a Linux a Joliet CD-ROM-ot?
+     4.9 Hogyan olvashatok CD-ROM-okat a CD-íróval?
+     4.10 Hogy rakhatok még több adatot a CD-R lemezre?
+     4.11 Hogyan készíthetek bootolható CD-ROM-ot?
+     4.12 Hogyan tehetnénk valahogy írhatóvá a CD-ROM-okat?
+     4.13 Lehetséges-e egyszerre több írót használni?
+     4.14 Melyik a legjobb alapanyag?
+     4.15 Mi a helyzet a Solaris, *BSD, AIX, HP-UX, stb. operációs rendszerekkel?
+     4.16 Hol kell tárolni a helyi beállításokat?
+     4.17 Hogyan olvasható ki a CD-info?
+     4.18 Mi a helyzet az újraírással?
+     4.19 Hogyan készíthetek multi-session CD-t?
+
+  5. Hibaelhárítás
+     5.1 Nem mûködik Linux alatt
+     5.2 Hibaüzenet: No read access for 'dev=0,6,0'.
+     5.3 Nem mûködik a DOS és társai alatt
+     5.4 SCSI hibák égetés közben
+
+  6. Akik hozzájárultak...
+
+
+  ______________________________________________________________________
+
+
+  1.  Bevezetés
+
+  Sok ember használ Linuxot CD-írásra, mert megbízható és könnyû.
+  Nincsenek ``kék képernyõk'' írás közben, és nem okoz fejfájást a
+  hardver és a szoftver helyes kombinációjának kiválasztása.  Egyszerûen
+  csak mûködik, miután egyszer megfelelõen telepítették.  A CD-írás
+  HOGYAN elmagyarázza a telepítést, az égetés folyamatát és néhány
+  érdekes alkalmazást, amelyekre az olvasók hívták fel a figyelmet.
+
+
+  1.1.  Copyright, licenc és a felhasználás feltételei
+
+  Copyright Winfried Trümper 1996,1997,1998,1999. Minden jog fenntartva.
+
+  A terjesztés és felhasználás engedélyezett akár eredeti, akár
+  módosított formában, csak a szerzõ nevét nem szabad felhasználni az
+  ebbõl származó termék reklámozására a szerzõ írásos engedélye nélkül.
+  Ebben az értelemben a dokumentumot szabad lefordítani, és ehhez nem
+  kell a szerzõ engedélye.
+
+  A szerzõ semmilyen felelõsséget nem vállal a dokumentum tartalmáért,
+  semmilyen esetben nem lehet felelõsségre vonni bármilyen különleges,
+  indirekt vagy direkt kárért, vagy bármiért, ami a használhatóság,
+  profit vagy adat elvesztésével jár, akár törvényes, gondatlan vagy
+  törvénytelen cselekedet során követték el, és kapcsolatba hozható
+  ezzel a dokumentummal.
+
+  Röviden: saját felelõsségedre olvasd és használd. Nincs
+  pénzvisszatérítési garancia.
+
+
+
+  1.2.  Kapcsolatba lépés a szerzõvel
+
+  Évente több száz levelet kapok a CD-írás HOGYAN-nal kapcsolatban.
+  Kérlek, légy türelmes, nem tudok pár órán belül válaszolni.  Ennek
+  ellenére mindent azonnal elolvasok, és berakom a várakozási sorba.
+  Mielõtt egy kérdést teszel fel, gyõzõdj meg arról, hogy a dokumentum
+  legfrissebb verzióját használod. Ez mindig megtalálható a
+  <http://www.guug.de/~winni/linux/> címen.
+
+
+  1.3.  Magyar fordítás
+
+  A magyar fordítást Tímár András (atimar@itp.hu) készítette.
+
+  Copyright Tímár András, 1999. Minden jog fenntartva.
+
+
+  1.4.  Ajánlott irodalom
+
+
+  A CD-R FAQ <http://www.fadden.com/cdrfaq/> egy általános FAQ az írható
+  CD-krõl, a CD-írókról és a szükséges szoftverekrõl.  Mivel a legtöbb
+  CD-író képes a CD-ROM olvasására is, esetleg érdemes elolvasni a Linux
+  CD-ROM HOWTO-t, a Linux SCSI HOWTO-t és a Linux Kernel HOGYAN-t.
+
+
+
+  1.5.  Terminológia ... lézereket maximumra ... tûz!
+
+
+  A CD-ROM a Compact Disc Read Only Memory rövidítése.  Ez egy olyan
+  tárolóeszköz, amely egy optikai lézert használ egy ezüstösen fényes
+  lemez felületén elhelyezkedõ mikroszkópikus lyukak érzékelésére. Az
+  ezüstös csillogást az alumínium hordozóréteg adja.  A lyukak
+  reprezentálják az információ bitjeit, és olyan kicsinyek, hogy több
+  milliárd ráfér egy lemezre belõlük.
+
+  A CD-R kifejezés az írható CD-ROM rövid formája, és egy olyan CD-t
+  értünk alatta, amelyen nincsenek meg azok a bizonyos mikroszkópikus
+  lyukak, ezért üres. Az alumíniumréteg helyett A CD-R lemezen egy
+  speciális (színezett) film van, amelybe bele lehet égetni a lyukakat.
+  Ezt úgy érik el, hogy a lézert, amely alapesetben csak érzékelni képes
+  a lyukakat, nagyobb teljesítménnyel mûködtetik, így az képes lyukakat
+  égetni. Ezt az égetést csak egyszer lehet megcsinálni a CD-R lemezen.
+  Bár lehet helyet hagyni a késõbbi égetésekhez az úgynevezett multi-
+  session CD létrehozásával.
+
+  Az újraírható CD-ROM-ot (röviden: CD-RW) azért fejlesztették ki, hogy
+  kiküszöböljék a CD-R média korlátait. Egy CD-RW égetõben a lézer nem
+  csak lyukakat tud égetni a felületre, hanem vissza is tudja alakítani
+  a médiát az eredeti állapotára. Ez azért lehetséges, mert a lézer nem
+  igazi lyukakat éget a felületre. Egy jó analógia a technikára a
+  jéghoki. Játék közben a játékosok (lézer) összekarcolják a jeget.  A
+  kialakult mintázat (média) információt hordoz a játékrész menetérõl.
+  A játék szünetében egy Zamboni tisztítókocsi hajt a pályára, és
+  kijavítja a karcolásokat a jég legfelsõ rétegének megolvasztásával. (A
+  Zamboni a márka a jéghokipálya-tisztító jármûvek között.) Ezáltal a
+  mintázat a jégrõl eltûnik, és egy új játékrész következhet. A
+  tudományos elnevezés a párolgásra, lecsapódásra, olvadásra és fagyásra
+  a ``fázisátalakulás'', ezért a CD-RW írókat ``fázisátalakító
+  eszközöknek'' is nevezik.
+
+  Ez a HOGYAN a CD-R és CD-RW lemezek írásával foglalkozik. Üdvözlöm a
+  fedélzeten, kapitány!
+
+
+
+  1.6.  Támogatott CD-írók
+
+
+  Nyugodtan felteheted, hogy a legújabb IDE/ATAPI és SCSI írók mûködnek
+  Linux alatt.  Az újabb meghajtók többnyire megfelelnek az MMC
+  elõírásainak, és ezért támogatottak.  Ha egy adott író SCSI változata
+  mûködik, akkor nagyon valószínû, hogy az IDE változata is mûködni fog,
+  és fordítva. Ennek ellenére sok embert meleg és jólesõ érzés tölt el,
+  ha olvashatja meghajtója nevét és típusát egy kompatibilitási listán.
+  Ezért nem dobtam ki ezt a listát a HOGYAN-ból.
+
+  Az alábbiakban egy részletes lista található azokról a meghajtókról,
+  amelyek valahol valakinek mûködtek a cdrecord programmal:
+
+
+
+  Acer:           CDRW 6206A
+  BTC:            BCE 621E (IDE)
+  Compro:         CW-7502, CW-7502B
+  Creative:       RW 4224E, MK 4211
+  Dysan:          CRW-1622
+  Elite:          Elite b444.41
+  Grundig:        CDR 100 IPW
+  Guillemot:      Maxi CD-R 4X/8X
+  HP:             SureStore 4020i, SureStore 6020i,
+                  C4324, C4325
+                  CD-writer+ 7100, CD-writer+ 7200i, CD-writer+ 7500e,
+                  CD-writer+ 8100i, CD-writer+ 8110i,
+  Hi-Val:         CDD 2242, CDD-3610,
+  JVC:            XR-W2001, XR-W2010, XR-W2042, R-2626
+  Kodak:          PCD 200, PCD 225, PCD 260, PCD 600
+  Matsushita:     CW-7502
+  Memorex:        CRW-620, CRW-1622, CRW-2224
+  Microboards:    PlayWrite 2000, PlayWrite 4000RW, PlayWrite 4001RW
+  MicroNet:       MasterCD Plus 4x4, MasterCD Plus 4x6
+  Mitsubishi:     CDRW-226
+  Mitsumi:        CR-2401-TS, CR-2600 TE,  CR-2801 TE,
+                  CR-4801 TE, CR-4802 TE
+  Nomai:          680.RW
+  Olympus:        CDS 615E, CDS 620E
+  Optima:         DisKovery 650 CD-R
+  OTI:            CDRW 965, CDRW 975 (Socrates 1.0)
+  Panasonic:      CW-7502, CW-7582
+  Philips:        CDD-521/10, CDD-522
+                  CDD-2000, CDD-2600, CDD-3600, CDD-3610
+                  Omniwriter 26, Omniwriter 26A
+  Plasmon:        CDR 480, CDR 4220, RF-4100, RF-4102, CDR 4400
+  Plextor:        CDR PX-24 CS, PX-412 C, PX-R412 C
+                  PX-R810Ti, PleXwriter 412C
+  Procom:         PCDR 4
+  Ricoh:          RO-1420C+, MP 1420C, MP 6200S, MP 6201S, MP 7040A
+  Samsung:        SW-204
+  Sanyo:          CRD-R24S
+  Smart and
+  Friendly:       CD-RW226, CD-R1002, CD-R1002/PRO, CD-R1004,
+                  CD-R2004, CD-R2006 PLUS, CD-R2006 PRO,
+                  CD-R4000, CD-R4006, CD-R4012
+  Sony:           CDU 920S, CDU 924, CDU 926S, CDU-928E,
+                  CDU 948S, CDRX 100E, CDRX 120E
+  Taiyo Yuden:    EW-50
+  TEAC:           CD-R50S, CD-R55S, CDR-55S, CDR-56S-400
+  Traxdata:       CRW 2260, CDR 4120, CDR 4120 Pro, CDRW 4260,
+  Turtle Beach:   2040R
+  WPI (Wearnes):  CDRW-622, CDR-632P
+  YAMAHA:         CDR-100, CDR 102, CDR-200, CDR-200t, CDR-200tx
+                  CDR-400, CDR-400c, CDR-400t, CDR-400tx, CDR-400Atx
+                  CRW-2260, CRW-2260t,
+                  CRW-4250tx, CRW-4260 t, CRW-4260 tx, CRW-4261,
+                  CRW-4416 S
+
+
+
+  A  <http://www.guug.de:8080/cgi-bin/winni/lsc.pl> URL-en található egy
+  részletes lista a Unix-szerû operációs rendszerek alatt mûködõ és nem
+  mûködõ modellekrõl.
+
+
+  Ha a hardvered nem támogatott, még mindig használhatod a Linuxot a CD
+  image elkészítésére. Ezt valószínûleg így akarod majd csinálni, mert a
+  DOS alatti égetõprogramok nem foglalkoznak a RockRidge
+  kiterjesztéssel. A következõ lépésben egy DOS-os vagy Macintosh-os
+  szoftverrel felírhatod az image fájlt a CD-re.
+
+
+
+  1.7.  Támogatott sajátosságok
+
+  Az CD-R író proramok két csoportba oszhatók: hardvermeghajtók és
+  adatformázók.  A hardvermeghajtók a következõ tulajdonságokkal
+  rendelkeznek:
+
+
+
+       Támogatott sajátosság   cdwrite-2.1     cdrecord-1.6    cdrdao
+       --------------------------------------------------------------
+       IDE/ATAPI               nem             igen            igen
+       Párhuzamos Port         nem             igen            igen
+       CD-RW                   nem             igen            igen
+       Audio CD                igen            igen            igen
+       Data CD-ROM             igen            igen            részben
+       Multisession            részben         igen            nem
+       TAO (Track at once)     igen            igen            igen
+       DAO (Disk at once)      nem             nem             igen
+
+
+
+  A cdwrite fejlesztése abbamaradt, csak a teljesség kedvéért került
+  említésre. Használd inkább a cdrecord programot, mert több hardvert és
+  sajátosságot támogat. A cdrdao fõ elõnye, hogy képes audio CD-k
+  írására anélkül, hogy a számok között egy kb.  2 másodperces szünet
+  lenne (disk-at-once módban írja a lemezt).
+
+  Az ``adatformázó'' csoportba tartozó segédprogramok a lemezre írandó
+  adatok elrendezésében segítenek, egy fájlrendszert hoznak létre a
+  lemezen.
+
+
+
+       Sajátosság      mkisofs          mkhybrid
+       ----------------------------------------
+       ISO-9660        igen             igen
+       RockRidge       igen             igen
+       El Torito       igen             igen
+       HFS             nem              igen
+       Joliet          igen             igen
+       Multisession    igen             igen
+
+
+
+  A legszembetûnõbb különbség az ISO-9660 és az Extended-2
+  fájlrendszerek között az, hogy az ISO-9660 fájlrendszerre felírt
+  fájlokat többé nem lehet módosítani. Az ISO-9660 fájlrendszer további
+  korlátai többek között:
+
+
+  ·  csak 8 szint mély könyvtárstruktúra engedélyezett (a CD
+     gyökérkönyvtárától számítva)
+
+  ·  a fájlok nevének maximális hossza 32 karakter
+
+  ·  650 MB kapacitás
+
+  A RockRidge egy kiterjesztése az eredeti ISO-9660 fájlrendszernek, ami
+  lehetõvé teszi a hosszabb fájlnevek és a mélyebb könyvtárstruktúrák
+  használatát.  Ha egy RockRidge kiterjesztéssel készített CD-ROM-ot
+  olvasunk Linux alatt, akkor a fájl összes ismert tulajdonságai
+  megjelennek, mint például tulajdonos, csoport, engedélyek és
+  szimbolikus linkek. Teljesen olyan, mint egy unixos fájlrendszer.
+  Ezek a kiterjesztések nem érhetõek el ha DOS vagy Windows alatt
+  olvassuk a CD-ROM-ot.
+
+  Az El Torito bootolható CD-ROM elõállítására használható.  A
+  használatához az is szükséges, hogy a PC BIOS-a támogassa a CD-rõl
+  történõ rendszerindítást. Nagy vonalakban arról van szó, hogy a CD-ROM
+  elsõ 1,44 vagy 2,88 megabájtja egy hajlékony lemez képét tartalmazza,
+  amelyet nekünk kell megadni.  Ezt a területet úgy kezeli a BIOS, mint
+  egy valódi hajlékony lemezt, és elindítja a rendszert róla. Ennek
+  következménye, hogy amíg errõl a virtuális lemezrõl bootolnuk, addig
+  nem érhetõ el az eredeti A: drive (/dev/fd0).
+
+  A HFS lehetõvé teszi, hogy egy Macintosh gépen úgy olvassuk a CD-ROM-
+  ot, mintha az egy HFS kötet lenne. (A HFS a Macintosh natív
+  fájlrendszere.)
+
+  A Joliet (sok más mellett) lehetõvé teszi a hosszú fájlnevek
+  használatát a Windowsok újabb változatai (95, 98, NT) számára. A
+  szerzõ nem ismer olyan segédprogramot, amivel hosszú fájlneveket
+  kezelhetnénk DOS vagy Windows 3.11 alatt.
+
+  A 2.3. fejezet felsorolja az itt említett szoftverek elérhetõségét.
+
+
+
+  1.8.  Levelezõlisták
+
+  Ha szeretnél csatlakozni a fejlesztõ csapathoz (azzal a szándékkal,
+  hogy aktívan segítsd õket), akkor küldj egy levelet a cdwrite-
+  request@other.debian.org címre, és a levél törzsébe írd bele:
+  subscribe.
+
+
+  2.  A Linux rendszer beállítása CD-íráshoz
+
+
+  Ez a fejezet a CD-írók minden fajtájára vonatkozik, tehát SCSI-ra,
+  IDE/ATAPI-ra és párhuzamos portra köthetõre egyaránt.  Az utóbbi két
+  típus egy olyan speciális meghajtóprogramot (compatibility driver)
+  igényel, amely segítségével igazi SCSI eszköznek látszik. Egyfelõl
+  hasznos ez az egységesítési stratégia (``minden SCSI''), mert az
+  alkalmazások szintjén megoszthatod a tudásod a többi felhasználóval,
+  függetlenül attól, hogy nekik milyen CD-írójuk van. Másfelõl viszont
+  újra kell konfigurálnod például az audio CD-lejátszót vagy a mount
+  segédprogramot, hiszen a meghajtók neve megváltozik.  Például ha eddig
+  /dev/hdc néven érted el az ATAPI CD-íródat, akkor a SCSI compatibility
+  driver telepítése után /dev/scd0 néven kell rá hivatkoznod.
+
+  Miután sikeresen telepítetted a hardvert és a Linux rendszer többi
+  részét, a `cdrecord -scanbus' parancs megmutatja a SCSI buszra
+  csatlakozó eszközöket.  A fejezet célja, hogy segítsen úgy beállítani
+  a Linuxot, hogy a végén valami ilyesmit kapj:
+
+
+
+  shell> cdrecord -scanbus
+  Cdrecord release 1.7a1 Copyright (C) 1995-1998 Jörg Schilling
+  scsibus0:
+            0) 'Quantum ' 'XP34300         ' 'F76D' Disk
+            1) 'SEAGATE ' 'ST11200N        ' '8334' Disk
+            2) *
+            3) 'TOSHIBA ' 'MK537FB/        ' '6258' Disk
+            4) 'WANGTEK ' '5150ES SCSI 36  ' 'ESB6' Removable Tape
+            5) 'EXABYTE ' 'EXB-8500-85QUE  ' '0428' Removable Tape
+            6) 'TOSHIBA ' 'XM-3401TASUNSLCD' '3593' Removable CD-ROM
+            7) *
+  scsibus1:
+          100) 'Quantum ' 'XP31070W        ' 'L912' Disk
+          101) *
+          102) *
+          103) 'TEAC    ' 'CD-R55S         ' '1.0H' Removable CD-ROM
+          104) 'MATSHITA' 'CD-R   CW-7502  ' '4.02' Removable CD-ROM
+          105) *
+          106) 'YAMAHA  ' 'CDR400t         ' '1.0d' Removable CD-ROM
+          107) *
+
+
+
+  A példa Jörg Schillingtõl származik, és összesen négy CD-írót mutat.
+  Megjegyzendõ, hogy a -scanbus a többi eszközt is megjeleníti, pl.
+  közönséges CD-ROM-okat vagy merevlemezeket. Az utolsó oszlop megadja
+  az eszköz SCSI leírását, amibõl nem lehet egyértelmûen eldönteni, hogy
+  CD-íróról, vagy közönséges CD-ROM-ról van-e szó. Szerencsére a középsõ
+  oszlopbeli termékazonosító sokszor segít; CD-íróra utal az `R', a `-R'
+  és a `-RW'.
+
+
+
+  2.1.  A Linux kernel beállítása
+
+
+  A Linux kernel sokféle meghajtóprogrammal felszerelhetõ. A
+  meghajtóprogramokat belefordíthatjuk a kernelbe statikusan, vagy
+  lefordíthatjuk õket modulként is.  A modulokat csak akkor kell
+  betölteni, ha szükség van rájuk.  Ez az utóbbi módszer ajánlható
+  akkor, ha olyan meghajtóprogramokról van szó, amelyek nem
+  létfontosságúak a rendszer talpraállásához, ugyanis így kisebb és
+  gyorsabb kernelt kapunk. Vigyázat, néhány meghajtóprogram
+  létfontosságú a rendszer számára az induláskor, ezeket nem szabad
+  modulba fordítani. Például tegyük fel, hogy a rendszer egy IDE
+  merevlemezen foglal helyet. Ekkor az IDE meghajtóprogramnak a
+  kernelben kell lenni, nem modulban.
+
+  Három fajtája van a CD-íróknak: SCSI, IDE/ATAPI és külsõ egységek,
+  amelyek a párhuzamos porton keresztül mûködnek. Az alábbi táblázat
+  bemutatja, hogy kell konfigurálni a Linux kernelt ezekhez a
+  hardverekhez. A táblázat elsõ oszlopa a kernel konfigurációs menüjének
+  azt pontját jelöli, ahol a beállítás elvégezhetõ.  A második oszlop a
+  kernel konfigurációs menüjébõl vett leírása az adott beállításnak.  A
+  harmadik oszlopban szerepel a kapott modul neve. A SCSI, IDE és PP
+  oszlopok tartalmazzák a szükséges beállításokat az adott hardverhez
+  (PP = párhuzamos port).
+
+
+
+  Menü   Leírás                      Modul    SCSI  IDE   PP
+  ------------------------------------------------------------
+  BLOCK  Enhanced IDE/MFM/RLL...                     Y
+  BLOCK  IDE/ATAPI CDROM             ide-cd          M
+  BLOCK  SCSI hostadaptor emulation  ide-scsi        M
+  BLOCK  Loopback device             loop       M    M     M
+
+  PARIDE Parallel port IDE device    paride               Y/M
+  PARIDE Parallel port ATAPI CD-ROMs                       M
+  PARIDE Parallel port generic ATAPI                       M
+  PARIDE (select a low-level driver)                       Y
+
+  SCSI   SCSI support                scsi_mod  Y/M  Y/M
+  SCSI   SCSI CD-ROM support         sr_mod    Y/M  Y/M
+  SCSI   Enable vendor-specific                 Y    Y
+  SCSI   SCSI generic support        sg        Y/M  Y/M
+  SCSI   (select a low-level driver)            Y
+
+  FS     ISO-9660 CDROM filesystem   iso9660    Y    Y     Y
+  FS     Microsoft Joliet cdrom...   joliet    M/Y  M/Y   M/Y
+
+
+
+  Az Y azt jelenti, hogy igen, és hogy ezt be kell rakni a kernelbe.  Az
+  M jelentése modul, azaz ezt modulba kell fordítani. Az Y/M esetén
+  lehet választani a kettõ közül. (A sorrend jelzi, hogy melyikkel lehet
+  kevesebb probléma.) Ha valahova nincs semmi odaírva, akkor az azt
+  jelenti, hogy ott nem kell megváltoztatni a kernel beállítását. Ha nem
+  piszkálod ezeket az üresen hagyott a beállításokat, akkor jó esélyed
+  van arra, hogy a kernel továbbra is mûködni fog (amennyiben eddig
+  mûködött). Különösen olyan környezetben van értelme minél több dolgot
+  modulba fordítani, ahol IDE és SCSI eszközök vegyesen vannak.
+
+  A loopback eszköz lefordítása nem kötelezõ. Ennek segítségével
+  tesztelheted az image fájlt felírás elõtt. Ha szeretnéd a CD-ROM-okat
+  elolvasni, akkor szükség van az ISO-9660 fájlrendszer támogatására. Ez
+  a meghajtóprogram magában foglalja a RockRidge kiterjesztés
+  támogatását is. A Microsoft Joliet kiterjesztést explicite hozzá kell
+  adni az ISO-9660 fájlrendszerhez. Minden esetben szükség lesz
+  alacsonyszintû hardvermeghajtókra. Az alacsonyszintû azt jelenti, hogy
+  ezek a meghajtóprogramok közvetlenül a hardverrel lépnek kapcsolatba.
+  Rengeteg alacsonyszintû meghajtóprogram van a SCSI-hoz és a párhuzamos
+  porthoz.
+
+  Ha szeretnéd a modulokat betölteni, akkor sorold fel õket az
+  /etc/modules konfigurációs fájlban, vagy futtasd a kerneld vagy a kmod
+  démonokat, amelyek automatikusan betöltik a modulokat, ha a kernelnek
+  szüksége van rájuk. A modulokkal kapcsolatos dolgok megkönnyítésére
+  hozzáadhatod a következõ sorokat az /etc/conf.modules fájlhoz:
+
+
+
+       alias   scd0 sr_mod                  # betölti az sr_mod modult ha az scd0 eszközhöz kell fordulni
+       alias   scsi_hostadaptor ide-scsi    # SCSI kártya emuláció
+       options ide-cd ignore=hdb            # ha a /dev/hdb a CD-író
+
+
+
+  Az alias-ok ugyanarra a modulra más nevet vezetnek be, nem
+  létszükséglet használni õket. Az options segítségével állíthatod be,
+  hogy a modul betöltése mindig ugyanúgy történjen, például miután
+  sikeresen használtad az modprobe/insmod programokkal. Ha többet
+  szeretnél megtudni a különbözõ modulok különbözõ beállításairól, akkor
+  olvass tovább!
+
+
+       Leírás                                  parancs
+       -------------------------------------------------------------
+       Megmutatja az aktív meghajtókat         cat /proc/devices
+       Kilistázza az aktív modulokat           cat /proc/modules
+       Kilistázza az elérhetõ modulokat        modprobe -l
+       Eltávolít egy modult                    modprobe -r
+       Betölt egy modult manuálisan            modprobe
+       Betölt egy modult rendszerindításkor    echo "nézd meg az /etc/modules fájlt"
+                                               (olvasd el a disztribúciód dokumentációját)
+       Betölt egy modult, amikor szükséges     echo "futtasd a kmod vagy a kerneld démont"
+
+
+
+  Ha egy olyan modulra van szükséged, amely nem található meg a
+  rendszeredben, akkor újra kell fordítanod, és újra kell telepítened a
+  kernelt. További információkért olvasd el a Kernel HOGYAN-t. A
+  kernelmodulokról szóló legfrissebb információk a Modules HOWTO-ban
+  olvashatóak. Ha sikeresen megtaláltad vagy lefordítottad a szükséges
+  modulokat, akkor vagy írd be a nevüket az /etc/modules fájlba, vagy
+  hagyd, hogy automatikusan betöltse õket egy megfelelõ program (kmod,
+  kerneld). Ha nem vagy biztos a dologban, olvasd el a disztribúciódhoz
+  adott dokumentációt.
+
+  Ha a magad ura vagy, akkor telepítsd a ``Linux Kernel source''
+  csomagot, amelyet a disztribúciódhoz adtak, és add ki a következõ
+  parancsokat:
+
+
+
+       cd /usr/src/linux
+       make menuconfig  # kövesd a menüket és az utasításokat
+       make dep
+       make zImage      # vagy "make bzImage"
+       # helyezz be egy lemezt a meghajtóba
+       dd if=arch/i386/boot/zImage of=/dev/fd0
+       make modules
+       make modules_install
+
+
+
+  A fenti parancsokkal egy rendszerindító hajlékony lemez készíthetõ.
+  Ha tényleg fogalmad sincs, hogy ez az egész mirõl szól, akkor jobban
+  teszed, ha elõbb elolvasod a Kernel HOGYAN-t vagy valami hasonló
+  írást, vagy segítséget kérsz egy barátodtól, mielõtt teljesen
+  tönkreteszed a rendszered. Ne feledd, a kernel a rendszer szíve.
+
+
+
+  2.1.1.  Különleges beállítások a kernel 2.2.9-es verziójáig
+
+
+  ATAPI CD-író tulajdonosok figyelem: ha a kernel ATAPI eszközként
+  ismeri fel az írót a rendszerinduláskor, akkor nem lehet Linux alatt
+  CD-íróként használni. Ha egyszer az IDE/ATAPI meghajtóprogram elkapta
+  az eszközt, a SCSI meghajtóprogram (a SCSI-kártya emulációra ültetve)
+  már nem tudja ezt megtenni. Fordítsd újra a kernelt úgy, hogy a CD-
+  ROM-mal kapcsolatos dolgokat modulba rakod (lásd a fenti táblázat).
+
+  A 2.2 és e feletti kernelverzióknál beállíthatod az ide-cd
+  meghajtóprogram mohóságát az ``ignore='' paraméterrel. Ha ezt
+  beállítod, akkor a meghajtóprogram nem fogja megragadni a megadott
+  eszközt, úgyhogy az rendelkezésre fog állni, amikor a SCSI-kártya
+  emuláció elindul. Például használd a `modprobe ide-cd ignore=hdb'
+  parancsot, ha az ATAPI író a hdb, és azt szeretnéd, hogy az ide-scsi
+  meghajtóprogram SCSI eszközként kezelje a hdb-t (általában sr0 lesz).
+  Ezt nem lehet sehogy megadni a kernel parancssorában (mint a 2.0
+  sorozatnál).
+
+  A kernel 2.2.9-es verziójáig ne engedélyezd a CONFIG_SCSI_MULTI_LUN
+  (``probe for multiple luns'') opciót és az ide-scsi támogatást
+  egyszerre, mert egy hiba az ide-scsi meghajtóprogramban ezt nem teszi
+  lehetõvé.
+
+  Néhány felhasználó ütközéseket tapasztalt egyes elõre lefordított
+  binárisok és a 2.2 sorozat között. A problémát a Linux kernel okozza.
+  A lehetséges megoldások:
+
+  ·  A probléma megszûnhet, ha újrafordítod a cdrecord-ot, így az
+     alkalmazkodik a linux/include/scsi/sg.h-ban levõ értékekhez. Ezek
+     az értékek meg kell hogy egyezzenek az aktuálisan futó kernel
+     értékeivel, mivel az sg felhasználói felülete egyszerû.
+
+  ·  Esetleg okozhatja egy betölthetõ sg meghajtóprogram, amely nem tud
+     a DMA-hoz szükséges mennyiségû memóriát lefoglalni (2.2.5 és ez
+     alatti kernelverziók).
+
+
+
+  2.1.2.  Különleges beállítások a kernel 2.2.10-es és újabb verzióihoz
+
+
+  Úgy hallottam, hogy a 2.2.10 és e feletti kernelekben használhatjuk a
+  2.0.x sorozatban megismert lehetõséget éppúgy, mint a korábbi 2.2.x
+  verziókban meglevõ lehetõséget.  Én azt a stratégiát javaslom, hogy
+  mondd meg egyértelmûen a kernelnek, hogy melyik eszközhöz melyik
+  meghajtóprogram való, úgy ahogy a 2.0.37-es verziónál tehetnéd. A
+  következõ fejezet megvilágítja ezt a módszert.
+
+
+
+  2.1.3.  Különleges beállítások a 2.0.x sorozatú kernelekhez
+
+
+  A 2.0.31 elõtti kernelekben számos hiba van, és nem tudják elolvasni a
+  CD-ROM-ról az utolsó fájlt. Frissíts 2.0.37-re vagy újabbra. Ebben a
+  verzióban az eddig ``SCSI emulation''-nak nevezett sajátosságot
+  átnevezték a precízebben megfogalmazott ``SCSI host adaptor
+  emulation''-ra.
+
+  A 2.0.37 és e feletti kernelverziókban kiválaszthatod, hogy melyik
+  meghajtóprogramot (IDE vagy SCSI) szeretnéd használni az adott ATAPI
+  eszközhöz. Pontosabban hozzáadhatod a ``SCSI host adaptor emulation''
+  sajátosságot a kernelhez, és az adott eszközhöz a kernel
+  parancssorában aktivizálhatod  az emulációt rendszerindításkor.
+  Például ha a CD-író a /dev/hdb, akkor add hozzá hdb=ide-scsi
+  kifejezést a parancssorhoz. A következõ listákban olvasható, hogy
+  hogyan kell módosítani a LILO és a chos bootmanagerek konfigurációs
+  fájljait, hogy állandóvá tegyük ezeket a beállításokat.
+
+
+
+       image=/boot/zImage-2.0.37
+         label=Linux
+         read-only
+         append="hdb=ide-scsi"
+
+
+
+  linux "Linux 2.0.37" {
+          image=/boot/zImage-2.0.37
+          cmdline= root=/dev/hda5 readonly hdb=ide-scsi
+  }
+
+
+
+  2.2.  A hardver és az eszközfájlok
+
+  Miután telepítetted az összes szükséges meghajtóprogramot, indítsd
+  újra a gépet az új kernellel. Ez minden olyan tulajdonsággal
+  rendelkezni fog, amire a következõ fejezetekben szükség lesz.
+
+  A devfs felhasználóinak nem kell törõdniük az eszközfájlok manuális
+  beállításával. Ha devfs-t használsz, minden meg fog jelenni
+  automatikusan a megfelelõ helyen.
+
+  Lépj be a  /dev könyvtárba, és nézd meg, hogy megvannak-e a loopback
+  eszközök. Nem súlyos hiba, ha nincsenek ott, de hasznos lehet, ha ott
+  vannak (lásd 3.5. fejezet). Ha már ott vannak, akkor az ls parancs
+  megmutatja õket:
+
+
+
+       shell> cd /dev
+       shell> ls loop*
+       loop0 loop1 loop2 loop3 loop4 loop5 loop6 loop7
+
+
+
+  Ha nincsenek meg ezek az eszközfájlok, akkor hozd létre õket a
+  /dev/MAKEDEV script segítségével:
+
+
+
+       shell> cd /dev/
+       shell> modprobe loop   # a "loop" nevû modul betöltése
+       shell> ./MAKEDEV loop
+
+
+
+  Az utolsó parancs csak akkor fog sikerülni, ha a loop modul a
+  kernelben van. Amit eddig a loop eszközök kezelésérõl olvastál, az a
+  többi eszközre is érvényes (sg*, pg*, hd*, ...), ezért ezeket nem
+  tárgyalom külön ebben a dokumentumban.
+
+  Ha a Linux diszribúciód nem tartalmazza a /dev/MAKEDEV scriptet, akkor
+  kézzel kell létrehozni az eszközfájlokat egy ilyen ciklussal:
+
+
+
+       for i in 0 1 2 3 4 5 6 7
+       do
+               mknod /dev/loop$i c 7 $i
+       done
+
+
+
+  2.2.1.  IDE/ATAPI CD-írók
+
+
+
+  Az ATAPI az IDE eszközök számára készített kiterjesztés, amely minden
+  újabb IDE eszközben megvan. Ez a kiterjesztés lehetõvé teszi a SCSI
+  protokoll használatát az IDE buszon. Az ide-scsi modullal együtt,
+  amely az IDE-vezérlõt részben SCSI-vezérlõvé alakítja, úgy
+  használhatjuk az IDE/ATAPI eszközöket, mintha SCSI eszközök lennének.
+  Töltsd be ezt a modult és folytasd a munkát, mintha SCSI CD-íród
+  lenne.
+
+
+
+  2.2.2.  SCSI CD-írók
+
+
+  Gyõzõdj meg róla, hogy az írót felismeri a számítógéped BIOS-a.  Semmi
+  értelme továbblépni, ha a számítógép nem fogadja el a hardvert.  (Az a
+  tény, hogy nem köpi ki, nem vehetõ elfogadásnak, a képernyõn egy
+  üzenetnek kell megjelennie.)
+
+  Ha a SCSI eszközt a párhuzamos porton keresztül szeretnéd a gépedhez
+  kötni (ne keverd össze a párhuzamos porton keresztül csatlakozó IDE
+  eszközökkel), akkor egy különleges kábelre és egy különleges kernel-
+  meghajtóprogramra van szükséged. Olvasd el a
+  <http://www.torque.net/parport/parscsi.html> weblapot, ha többet
+  szeretnél tudni errõl.
+
+
+  2.2.2.1.  Általános SCSI eszközök
+
+  A  /dev/sd* és a /dev/sr* eszközfájlok, amelyek a SCSI merevlemezeknek
+  és a SCSI CD-ROM meghajtóknak felelnek meg, csak blokkokban tudnak
+  adatokat küldeni és fogadni. Emiatt nagyon gyorsak, és nagyon
+  alkalmasak adattárolásra.  A CD-író lézerének vezérlése bonyolultabb,
+  és nem elégséges a blokkos író/olvasó megközelítés. Mivel az sd* és
+  sr* eszközöket célszerû a tiszta és gyors állapotukban meghagyni, egy
+  új típusú SCSI eszköz került bevezetésre, az úgynevezett általános
+  SCSI eszköz. Bármit meg lehet csinálni a SCSI hardverrel az általános
+  eszközökön keresztül, nincsenek rögzítve egy bizonyos célra, ezért
+  hívják általánosnak õket.
+
+  Akárcsak a többi eszközt, ezt is  a /dev könyvtárban kell keresni
+  (konvenció szerint):
+
+
+
+       shell> cd /dev
+       shell> ls sg*
+       sg0  sg1  sg2  sg3  sg4  sg5  sg6  sg7
+
+
+
+  Ha nincsenek meg ezek az eszközfájlok, akkor hozd létre õket a
+  /dev/MAKEDEV script segítségével:
+
+
+
+       shell> cd /dev/
+       shell> ./MAKEDEV sg
+
+
+
+  Ha a Linux diszribúciód nem tartalmazza a /dev/MAKEDEV scriptet, akkor
+  kézzel kell létrehozni az eszközfájlokat egy ilyen ciklussal:
+
+
+       for i in 0 1 2 3 4 5 6 7
+       do
+               mknod /dev/sg$i c 21 $i
+       done
+
+
+
+  2.2.3.  Párhuzamos portos CD-írók
+
+
+  Fogalmam sincs, sajnálom. Olvasd el a
+  <http://www.torque.net/parport/paride.html> weblapot, vagy a
+  /usr/src/linux/Documentation/paride.txt fájlt.
+
+
+
+  2.3.  CD-égetéshez való felhasználói programok
+
+  Egy részletesebb lista a CD-ROM készítéséhez használatos
+  segédprogramokról megtekinthetõ a
+  <http://www.fokus.gmd.de/research/cc/glone/employees/joerg.schilling/private/cdb.html>
+  weblapon.
+
+
+  2.3.1.  Parancssori alkalmazások
+
+  A következõ csomagok egyike szükséges a CD-R lemezre felírandó image
+  fájl készítéséhez (csak adatokat tartalmazó CD-ROM-okhoz kell):
+
+
+       <ftp://tsx-11.mit.edu/pub/linux/packages/mkisofs/> (mkisofs)
+
+
+
+       <ftp://ftp.ge.ucl.ac.uk/pub/mkhfs> (mkhybrid)
+
+
+  Az image fájl CD-re írásához a következõ csomagok egyike kell:
+
+
+       <ftp://ftp.fokus.gmd.de/pub/unix/cdrecord/> (cdrecord)
+
+
+
+       <http://www.ping.de/sites/daneb/cdrdao.html> (cdrdao)
+
+
+
+  Ne higgy a (régi) mkisofs kézikönyvoldalának, amely azt állítja, hogy
+  az 1.5-ös verziójú cdwrite programra van szükséged. Nyugodtan használd
+  a cdrecord-ot. Jegyezd meg, hogy az újabb cdrecord verziók csomagjában
+  egy továbbfejlesztett mkisofs van, és még sok más eszköz a misc/
+  alkönyvtárban (readcd, isosize), amelyek másutt nem találhatóak meg.
+
+
+
+  2.3.2.  Grafikus felhasználói felületek (választható)
+
+  A keretprogram tényleg csak egy keret a Linux alatt. Ez azt jelenti,
+  hogy külön kell telepíteni a parancssoros verziót is, de egy szebben
+  kinézõ módon férhetsz hozzá.
+
+  Az X-CD-Roast egy olyan programcsomag, amely céljául tûzte ki az
+  egyszerû CD-írást Linux alatt. Parancssoros programokat, mint a
+  cdrecord és az mkisofs, egyesít egy szép grafikus felhasználói felület
+  alatt.
+
+
+       <http://www.fh-muenchen.de/home/ze/rz/services/pro­
+       jects/xcdroast/e_overview.html>
+
+
+  A BurnIT egy JAVA keretprogram a cdrecord, az mkisofs és a
+  cdda2wav-0.95 programokhoz, így egy teljes CD-író csomagot képez a
+  Unix platformon. Letölthetõ a
+
+
+       <http://sunsite.auc.dk/BurnIT/>
+
+
+  webhelyrõl.
+
+  Az XDaodio egy grafikus keretprogram a cdrdao-hoz. Fõ célja az audio
+  CD-k egy az egyben történõ lemásolása.
+
+
+       <http://www.lrz-muenchen.de/~MarkusTschan/>
+
+
+
+  3.  CD-égetés
+
+
+  A CD-írás két lépésbõl áll Linux alatt:
+
+
+  ·  a felírni kívánt adatok (fájlok, hang vagy mindkettõ) becsomagolása
+     egy speciális formába
+
+  ·  az adatok felírása a CD-re a cdrecord segédprogram segítségével
+
+  Ez a fejezet részletesen tárgyalja az adat és audio CD készítésének
+  lépéseit.
+
+
+
+  3.1.  CD-ROM készítés (csak adat)
+
+  Megjegyzendõ, hogy a felírandó adatok összegyûjtése általában több
+  idõt vesz igénybe, mint az ember gondolná. Ne feledd, a hiányzó
+  fájlokat nem lehet hozzáadni a CD-hez az írás és a lezárás után.
+
+  Szintén tartsd észben, hogy a CD-n bizonyos terület az ISO-9660
+  fájlrendszer információi számára használódik el, ez általában néhány
+  MB. 620 MB adat mindig elfér egy 650 MB-os CD-n.
+
+
+  3.1.1.  A leendõ CD-ROM image-ének elkészítése
+
+  Használat elõtt bármilyen adattároló médiumot (pl. hajlékony lemez,
+  merevlemez, CD) fájlrendszerrel kell ellátni (DOS-osan fogalmazva:
+  formázni). A fájlrendszer felelõs az adathordozón elhelyezett fájlok
+  szervezéséért és tárolásáért.
+
+  A szokásos segédprogramok, amelyek merevlemezek partícióin hoznak
+  létre fájlrendszereket, úgy járnak el, hogy egy üres fájlrendszert
+  hoznak létre, amelyet csatolás után a felhasználó tölthet fel
+  fájlokkal, szükség szerint. Az írható CD csak egyszer írható, ezért ha
+  egy üres fájlrendszert hoznánk létre rajta, akkor ugyan meg lenne
+  formázva, de egyszer és mindenkorra üres maradna. Ez az újraírható
+  nyersanyagra is igaz, nem törölhesz tetszõleges szektorokat, mindig az
+  egész tartalmat le kell törölni.
+
+  Ezért szükség van egy olyan segédprogramra, amely a fájlrendszer
+  létrehozása közben másolja fel a fájlokat a CD-re. Ez a program az
+  mkisofs. Egy példán bemutatva a használatát:
+
+
+
+       mkisofs  -r   -o cd_image   magangyujtemeny/
+                     `---------'   `--------------'
+                          |               |
+                 a kimeneti fájl   ezt a könyvtárat veszi forrásnak
+
+
+
+  A `-r' kapcsoló hatására az összes fájl mindenki számára olvashatóvá
+  válik a CD-n, valamint RockRidge kiterjesztéssel készül az image.
+  Valószínûleg mindig akarod ezt a kapcsolót, kivéve ha tényleg tudod,
+  hogy mit csinálsz.  (Segítség: az `-r' kapcsoló nélkül a csatolási
+  pont a magangyujtemeny engedélyeivel fog rendelkezni!)
+
+  Az mkisofs megpróbálja az összes fájlnevet a DOS által használt 8.3
+  alakra leképezni, a lehetõ legnagyobb kompatibilitás érdekében.
+  Névütközés esetén (különbözõ fájloknak ugyanaz a 8.3 neve), számokat
+  használ a fájlnevekben, és a választott neveket kiírja a standard
+  hibakimenetre, ami általában a képernyõ.  Ne aggódj, Linux alatt sosem
+  fogod látni ezeket a 8.3 fájlneveket, mert a Linux használja a
+  RockRidge kiterjesztést, amely tartalmazza az eredeti
+  fájlinformációkat (engedélyek, fájlnév, stb.).
+
+  Felvetõdhet  a kérdés, hogy miért nem küldi az mkisofs közvetlenül az
+  íróra a kimenetet. Három oka van:
+
+
+  ·  Az mkisofs nem tud semmit a CD-írókról.
+
+  ·  Esetleg szeretnéd égetés elõtt tesztelni az image-et.
+
+  ·  Lassú gépeken nem lenne megbízható (lásd a 4. fejezetet).
+
+  Van egy módszer, amellyel egy menetben írhatunk CD-t, ez lejjebb kerül
+  kifejtésre.
+
+  Az ember gondolhatna arra is, hogy csinál egy extra partíciót, és oda
+  írja az image-et egy fájl helyett. Nem javaslom ezt a megoldást, mert
+  ha nem a megfelelõ partícióra írsz (egy elgépelés miatt), akkor az
+  egész Linux rendszered megsemmisülhet (értsd: az enyém egyszer
+  megsemmisült így...).  Ráadásul ez helypazarlás is, mert a CD image
+  ideiglenes, le lehet törölni az égetés után.  A nyers partíció
+  alkalmazásának egyetlen elõnye, hogy megtakarítod a 650 MB-os
+  ideiglenes fájl letörlésével járó idõt.
+
+
+  3.1.2.  A CD image tesztelése
+
+  A Linux képes a fájlrendszeréhez úgy csatolni fájlokat, mintha azok
+  partíciók lennének a lemezen. Ez a sajátosság igen hasznos, mert
+  ellenõrizheted, hogy a CD image-en levõ fájlok könyvtárstruktúrája és
+  engedélyei megfelelnek-e az elképzeléseidnek. Bár a nyersanyag ma már
+  nagyon olcsó, az írás mûvelete még elég lassú. Egy gyors ellenõrzéssel
+  idõt spórolhatsz.
+
+  A cd_image fájl csatolása a /cdrom könyvtár alá a következõ paranccsal
+  történhet:
+
+
+
+       mount -t iso9660 -o ro,loop=/dev/loop0 cd_image /cdrom
+
+
+
+  Ezek után megvizsgálhatod a fájlokat a /cdrom alatt -- úgy fognak
+  megjelenni, ahogy az igazi CD-n. A CD image lecsatolásához add ki az
+  `umount /cdrom' parancsot. (Vigyázat: a 2.0.31 elõtti Linux
+  kernelekben van egy hiba, emiatt az utolsó fájl a  /cdrom könyvtárban
+  nem lesz teljesen olvasható. Használj egy újabb kernelt, mondjuk a
+  2.0.36-ost. A cdrecord program -pad kapcsolója csak audio CD-kre
+  használható, és az mkisofs program -pad kapcsolója csak egy folt
+  alkalmazása után használható. A foltozás ugyanakkora munka, mint a
+  frissítés egy hibátlan kernelre.)
+
+  Megjegyzés:
+
+       A mount egyes õsi verziói nem képesek kezelni a loopback
+       eszközt.  Ha te is ilyen régi mount-tal rendelkezel, akkor
+       frissítsd a Linuxodat.  Sok ember javasolta már, hogy írjam
+       bele ebbe HOGYAN-ba a legújabb mount csomag fellelhetõségét.
+       Ezt mindig visszautasítom. Ha a Linux disztribúciód az õsi
+       mount programot használja, jelentsd hibaként.  Ha a Linux
+       disztribúciódat nehéz frissíteni, jelentsd hibaként.  Ha
+       minden olyan információt felsorolnék, ami ahhoz kell, hogy a
+       rosszul tervezett Linux disztribúciók hibáit ki lehessen
+       javítani, akkor ez HOGYAN sokkal nagyobb és nehezebben
+       olvasható lenne.
+
+
+
+  3.1.3.  A CD image CD-re írása
+
+  Már nics hátra sok tennivaló. Ha még nem próbáltad, itt a remek
+  alkalom a
+
+
+
+       cdrecord -scanbus
+
+
+
+  parancs kiadására. Ebbõl megtudhatod, hogy melyik SCSI eszközre
+  csatlakozik a CD-író. Vannak más módszerek is, hogy megszerezd azt az
+  információt, amelyet a cdrecord ilyen szépen kiír, de ezeket kivettem
+  a HOGYAN-ból (különösen az általános SCSI eszközök veszélyes
+  elnevezési sémáját).
+
+  Mielõtt megmutatnám az utolsó parancsot, hadd figyelmeztesselek, hogy
+  a CD-írókat állandó adatfolyammal kell táplálni, mert kicsi az
+  adatbufferük. Tehát a CD image CD-re írását nem szabad megszakítani,
+  különben rossz lesz a CD. Nagyon könnyû megszakítani az adatfolyamot
+  egy nagy fájl letörlésével. Például, ha törölsz egy régi 650 MB-os
+  image fájlt, akkor a kernelnek 650.000 blokk információit kell
+  frissítenie (feltéve, hogy 1 kilobájtot foglal el egy blokk a
+  fájlrendszeren).  Ez némi idõt vesz igénybe, nagyon valószínû, hogy
+  annyira lelassítja a lemezmûveleteket, hogy az adatfolyam megszakad
+  egy pár másodpercre. Ellenben a levelek olvasása, a web böngészése,
+  sõt még a kernelfordítás sem befolyásolja az írási folyamatot (a
+  modern gépeken).
+
+  Jegyezd meg, hogy egyetlen író sem képes a lézert arra a helyre
+  pozícionálni, ahol megszakadt az írás egy zavar miatt. Ezért bármilyen
+  erõs rázkódás vagy más mechanikai hatás nagy valószínûséggel
+  tönkreteszi a CD-t, amit éppen írsz.
+
+  Ha lélekben elkészültél, ölts fel egy fekete köntöst, szorozd meg a
+  CD-író SCSI-id-ját a SCSI-revision értékével, és gyújts annyi
+  gyertyát, mondj el fennhangon két versszakot az ASR-FAQ-ból
+  (alt.sysadmin.recovery hírcsoport), és végül írd be:
+
+
+
+       shell> SCSI_BUS=0   # a 2.1. listáról véve: "scsibus0:"
+       shell> SCSI_ID=6    # a 2.1. listáról véve: "TOSHIBA XM-3401"
+       shell> SCSI_LUN=0
+       shell> cdrecord -v speed=2 dev=$SCSI_BUS,$SCSI_ID,$SCSI_LUN \
+                          -data  cd_image
+
+       # ugyanaz, mint fenn, csak rövidebben:
+       shell> cdrecord -v speed=2 dev=0,6,0  -data  cd_image
+
+
+
+  A jobb olvashatóság kedvéért az író koordinátái három környezeti
+  változóban tárolódnak, amelyek a következõk: SCSI_BUS, SCSI_ID,
+  SCSI_LUN.  A -data kapcsolót nem kötelezõ megadni, csak azért írtam ki
+  mégis, hogy a parancssor jól összevethetõ legyen az audio CD-hez
+  használatos parancssorral.
+
+  Ha a cdrecord-ot egy CD-RW lemez újraírásához használod, hozzá kell
+  tenned a blank=... opciót, hogy a régi tartalom letörlõdjön. Olvasd el
+  a kézikönyvoldalt, ott több módját is tárgyalják a CD-RW letörlésének.
+
+  Mostanában, amikor rajtam kívül mindenkinek 400 MHz-es gépe van, az
+  emberek az mkisofs kimenetét közvetlenül a cdrecord-ra irányítják:
+
+
+
+       shell> IMG_SIZE=`mkisofs -R -q -print-size magangyujtemeny/  2>&1 \
+       | sed -e "s/.* = //"`
+       shell> echo $IMG_SIZE
+       shell> [ "0$IMG_SIZE" -ne 0 ] && mkisofs -r  magangyujtemeny/  \
+       |cdrecord  speed=2  dev=0,6,0
+                   tsize=${IMG_SIZE}s  -data  -
+       #         ne feledd az s-t --^         ^-- az STDIN-rõl olvas
+
+
+
+  Az elsõ parancs egy üres menet, amely meghatározza az image méretét (a
+  cdrecord disztribúcióhoz adott mkisofs kell ehhez a feladathoz).
+  Elképzelhetõ, hogy a te íródnak nem kell tudni a felírandó image
+  méretét, úgyhogy ezt a sort akár el is hagyhatod. Az image méretét a
+  tsize paraméterben kell megadni a cdrecord-nak, ez az IMG_SIZE
+  környezeti változóban tárolódik. A második parancs az mkisofs és a
+  cdrecord egymásutánja egy csõvezetékkel összekötve.
+
+
+
+  3.2.  Audio CD írása
+
+
+  Az audio CD írása hasonlít az adat CD-nél megismert folyamathoz.  Két
+  jelentõs különbség van. Az egyik, hogy az audio CD hangsávokból áll,
+  amelyek külön-külön image-ekben vannak. Tehát ha tíz számot szeretnél
+  felvenni a CD-re, akkor tíz image-et kell készítened. A másik
+  különbség, hogy az image-ek formátuma nem ISO-9660 (vagy amelyik
+  fájlrendszert szereted), hanem ``16 bites sztereó hangminta PCM
+  kódolással 44100 minta/másodperc mintavételezéssel (44,1 kHz)''.
+
+  Az egyik segédprogram, amely hangfájljaidat a kívánt formátumra
+  alakítja, a sox. Használata egyszerû:
+
+
+
+       shell> sox  killing-my-software.wav  killing-my-software.cdr
+
+
+
+  Ez a parancs a killing-my-software címû dalt WAV formátumról CDR audio
+  formátumra konvertálja. További részletek a sox által ismert
+  formátumokról és fájlnév-kiterjesztésekrõl a sox kézikönyvoldalán
+  olvashatóak.  Mivel a konverzió eredménye túl sok lemezhelyet foglal,
+  beépítették azt a sajátosságot a cdrecord-ba, hogy közvetlenül kezelje
+  a WAV és AU formátumokat. Így aztán ha a hangfájljaidnak .wav vagy .au
+  kiterjesztése van (és a mintavétel ``sztereó, 16 bit, 44,1 kHz''),
+  akkor használhatod image-ként õket manuális konverzió nélkül.
+
+  A cdrecord akkor írja fel az image-eket hangsávként, ha a -audio
+  kapcsolót adod meg. A többi paraméter megegyezik az adat CD írásánál
+  használtakkal (hacsak nincsenek különös igényeid). A következõ három
+  példa ugyanazt csinálja, de különféle formátumokból olvassák a hangsáv
+  adatait:
+
+
+
+       shell> cdrecord -v speed=2 dev=0,6,0  -audio  track1.cdr track2.cdr...
+       shell> cdrecord -v speed=2 dev=0,6,0  -audio  track1.wav track2.wav...
+       shell> cdrecord -v speed=2 dev=0,6,0  -audio  track1.au  track2.au...
+
+
+
+  Van egy érdekes eset, az MPEG Layer 3 fájlok, amelyeket az `mpg123 -s
+  track1.mp3 > track1.cdr' paranccsal lehet CD formátumúra hozni.
+  (Vigyázat: ez olyan fájlt hoz létre, amelynek a bájtsorrendjét meg
+  kell fordítani a -swab kapcsolóval a cdrecord parancssorában.)  A
+  másik irányú konverzió a 8hz-mp3 programmal valósítható meg. Szedd le
+  a WAV fájlt a CD-rõl a cdda2wav programmal, és utána alakítsd MP3
+  formátumra a 8hz-wav programmal. (A témáról bõvebben lásd: MP3 HOGYAN
+  -- a ford.)  Egy halom MP3 fájlból így kell audio CD-t csinálni:
+
+
+
+       for I in *.mp3
+       do
+           mpg123 -s $I | cdrecord -audio -pad -swab -nofix -
+       done
+       cdrecord -fix
+
+
+
+  A géped sebességétõl függõen esetleg le kell csökkentened az írási
+  sebességet a speed=1 paraméterrel a cdrecord parancssorában.  Ha a
+  speed=4 paramétert használod, akkor a gépednek le kell tudni játszani
+  az MP3 fájlokat négyszeres sebességgel. Az mpg123 rengeteg CPU idõt
+  fogyaszt!  Ha nem vagy benne biztos, futtass egy üres menetet a -dummy
+  kapcsolóval (nem kapcsolja be a lézert). Ha így teszel, egy olyan
+  audio CD-t kapsz, amelyen minden szám között két másodperc szünet van.
+
+
+  3.2.1.  DAO
+
+  Ha szeretnél megszabadulni a zeneszámok közötti szünetektõl, akkor DAO
+  (disk-at-once) módban kell írni a CD-t a fent ismertetett TAO (track-
+  at-once) mód helyett. Jelenleg a cdrdao program támogatja a legjobban
+  a DAO módot. Nézd meg a honlapját a részletekért.
+
+  A read-cd paraméter használatával akár még egy az egyben is másolhatsz
+  audio CD-ket.
+
+
+
+  3.3.  Vegyes módú CD-ROM-ok
+
+
+  Nem érdemes túl sok szót vesztegetni erre a témára. Add meg az egymás
+  után következõ image-ek típusát a -data és a -audio kapcsolókkal.
+  Példa:
+
+
+
+       cdrecord  -v dev=0,6,0  -data  cd_image  -audio  track*.cdr
+
+
+
+  4.  Kedves Winfried,...
+
+  Ez az a fejezet, amelyet általában ``Gyakran feltett kérdések
+  válaszokkal'' néven ismernek. Ha problémád van a partnereddel,
+  gyerekeddel vagy a kutyáddal, nyugodtad írd meg, amennyiben
+  kapcsolatos a CD-írással, vagy egyébként szórakoztató.
+
+
+  4.1.  Milyen érzékeny az égetési folyamat?
+
+  Próbáld ki! Használd a cdrecord -dummy kapcsolóját. Ez egy üres
+  égetési feladatot végez el. Csinálj mindenfélét, amit égetés közben
+  csinálnál, és figyeld meg, hogy túléli-e az égetési folyamat.
+
+  Amennyiben az mkisofs kimenetét közvetlenül a cdrecord bemenetére
+  irányítod, az intenzív lemezhasználattal járó feladatok, például a
+  locate adatbázisának frissítése, csökkentik az átvitt adatmennyiséget,
+  és elronthatják a CD-t. Jobban teszed, ha ellenõrzöd, hogy ilyen
+  folyamatokat ne indítsanak el a cron, az at vagy az anacron programok
+  a CD-írás ideje alatt.
+
+
+  4.2.  A fájlok töredezettsége rossz hatással van-e az átviteli
+  sebességre?
+
+  A fájlok töredezettsége általában olyan kicsi, hogy nem észrevehetõ a
+  hatása.  Ennek ellenére könnyen lehet olyan patologikus eseteket
+  létrehozni, amelyekben a merevlemez átviteli sebessége 100
+  kilobájt/másodperc alá csökken. Ne csinálj ilyet! :-)
+
+  Igen, a merevlemezen levõ fájlok töredezetté válnak az idõk során.
+  Minél inkább tele van a fájlrendszer, annál inkább így van ez. Mindig
+  hagyj 10-20% üres helyet, és akkor nem kell aggódnod a CD-írás miatt.
+
+  Ha nem vagy biztos benne, akkor nézd meg a rendszerinduláskor kiírt
+  üzeneteket.  A töredezettség mértéke kiíródik a fájlrendszerek
+  ellenõrzése közben.  A következõ nagyon veszélyes paranccsal is
+  megnézheted ezt az értéket:
+
+
+
+       shell> e2fsck -n  /dev/sda5        # A '-n' fontos!
+       [törölve -- nem érdekelnek a hibaüzenetek]
+       /dev/sda5: 73/12288 files (12.3% non-contiguous)
+
+
+
+  Ebben a példában a töredezettség mértéke nagyon magasnak tûnik,
+  viszont csak 73 nagyon kis fájl van a fájlrendszerben. Tehát ez az
+  érték nem jelez veszélyt.
+
+  Van egy e2defrag nevû kísérleti segédprogram, amely
+  töredezettségmentesíti az Extended-2 fájlrendszert. A jelenlegi verzió
+  még annyira sem mûködik megbízhatóan, hogy magáncélokra használjuk. Ha
+  komolyan szeretnéd töredezettségmentesíteni a fájlrendszeredet,
+  csinálj egy biztonsági mentést (vagy ami még jobb: kettõt), gyakorold
+  az adatok visszaállítását, azután hozz létre egy új fájlrendszert (ez
+  megsemmisíti a régit) és állítsd vissza az adatokat. Jelenleg ez a
+  módszer a legbiztonságosabb.
+
+
+
+  4.3.  Lehet-e a CD image-et UMSDOS fájlrendszeren tárolni?
+
+  Igen. Az egyetlen fájlrendszer, amely nem elég gyors és megbízható
+  CD-íráshoz, a hálózati fájlrendszer (NFS). Én magam is használtam
+  UMSDOS-t egy CD-írásra kijelölt PC-n (486/66), amelyen Linux és
+  Windows is volt, és így megoszthattam a lemezterületet a két operációs
+  rendszer között.
+
+
+
+  4.4.  Nem lehet-e valahogy megkerülni az ISO-9660 korlátait?
+
+  De lehet. Bármilyen fájlrendszert rakhatsz a CD-re, de a Linuxon kívül
+  semmilyen más operációs rendszerrel nem tudod majd elolvasni.  Ez a
+  recept:
+
+
+  ·  Hozz létre egy üres 650 MB nagyságú fájlt!
+
+
+       dd if=/dev/zero of="ures_fajl" bs=1024k count=650
+
+
+
+  ·  Hozz létre egy Extended-2 fájlrendszert ezen a fájlon!
+
+
+
+  shell> /sbin/mke2fs  -b 2048  ures_fajl
+  ures_fajl is not a block special device.
+  Proceed anyway? (y,n) y
+
+
+
+  ·  Csatold ez a fájlt a fájlrendszerbe a loopback eszközön keresztül!
+     (Ehhez kell egy viszonylag új mount, lásd fent.)
+
+
+       mount -t ext2 -o loop=/dev/loop1 ures_fajl /mnt
+
+
+
+  ·  Másold be a fájlokat a /mnt könyvtárba, majd csatold le az eszközt!
+
+  ·  Használd a  cdrecord az ures_fajl-ra (amely többé nem üres), mintha
+     az egy ISO-9660 image lenne.
+
+  Ha szeretnél az ilyen CD-k számára egy bejegyzést létrehozni az
+  /etc/fstab fájlban, akkor tiltsd meg az eszköz ellenõrzését, amely a
+  rendszerinduláskor következne be. Például:
+
+
+
+       /dev/cdrom  /cdrom  ext2  defaults,ro  0 0
+
+
+
+  Az elsõ 0 azt jelenti, hogy ``ne vegye bele a dump-ba'', a második (ez
+  a fontos) azt, hogy ``ne ellenõrizze a hibákat rendszerinduláskor''.
+  Az fsck ugyanis nem tudja a CD-ket átvizsgálni.
+
+
+
+  4.5.  Hogy olvassunk le sávokat az audio CD-rõl?
+
+  Sok programcsomag van erre a célra. A legújabb a ``cdparanoia'', amely
+  letölthetõ a
+
+       <http://www.xiph.org/paranoia/>
+
+
+
+  webhelyrõl.
+
+  Esetleg próbáld ki a cdda2wav és a sox kombinációját; mindkettõ
+  letölthetõ a sunsite-ról és tükrözéseirõl:
+
+
+       <ftp://sun­
+       site.unc.edu/pub/Linux/apps/sound/cdrom/cdda2wav0.71.src.tar.gz>
+
+
+
+       <ftp://sunsite.unc.edu/pub/Linux/apps/sound/con­
+       vert/sox-11gamma-cb3.tar.gz>
+
+
+  A cdda2wav segítségével egy megadott intervallumot (vagy egy egész
+  sávot) szedhetsz le az audio CD-rõl, és a program elmenti egy .wav
+  fájlba. A sox a WAV fájlt konvertálja vissza az audio CD cdda
+  formátumába, ezt már közvetlenül fel lehet írni CD-re a cdrecord-dal.
+  Ha a cdrecord egy viszonylag új verzióját használod, akkor nincs
+  szükség a sox-ra, az újabb verziók már közvetlenül támogatják a .au és
+  a .wav fájlokat.
+
+
+
+  4.6.  Hogyan kell megszondázni a SCSI eszközöket rendszerindítás után?
+
+  A drivers/scsi/scsi.c fájl a következõket tartalmazza (természetesen
+  angolul -- a ford.):
+
+
+
+       /*
+        * Használat: echo "scsi add-single-device 0 1 2 3" >/proc/scsi/scsi
+        * ahol  "0 1 2 3" a te "Host Channel Id Lun" értékeid.
+        * Ne feledd, hogy ez a lehetõség BÉTA.
+        *     VIGYÁZAT: Ez nem arra van, hogy menet közben cseréld ki a perifériákat.
+        *     Mivel a SCSI-t nem erre tervezték, ezzel tönkreteheted a hardvered!
+        * Ennek ellenére azt talán szabad, hogy bekapcsolj egy
+        * már csatlakoztatott eszközt. Az valószínûleg nem
+        * garantálható, hogy ez az eszköz nem fog elrontani
+        * egy folyamatban levõ adatátviteli folyamatot.
+        */
+
+
+
+  Jegyezd meg, hogy ez csak akkor használható, ha a lánc végéhez adsz
+  hozzá egy SCSI eszközt. Ha egy lánc közepére illesztesz be egy új SCSI
+  eszközt, az megzavarja az eszközök elnevezését (/dev könyvtár) és a
+  merevlemezed egész tartalmát elvesztheted.
+
+
+
+  4.7.  Lehetséges-e egy az egyben lemásolni egy adat CD-t?
+
+  Igen. De ne feledd, hogy bármilyen olvasási hiba (karcolások vagy por
+  miatt) hibás másolatot eredményez. Egyik ismertetett megoldás sem jó
+  audio CD-k másolására.  Használd a cdrdao-t vagy a cdda2wav-ot az
+  audio CD-khez!
+
+  Elsõ eset: van egy CD-íród és egy másik CD-ROM meghajtód is. A
+
+
+
+       cdrecord -v dev=0,6,0 speed=2 -isosize /dev/scd0
+
+
+
+  parancs kiadásával a /dev/scd0-n levõ CD-ROM meghajtóról leolvasott
+  adatfolyam egyenesen kiíródik a CD-íróra.
+
+  Második eset: nincs egy másik CD-ROM meghajtód. Ebben az esetben a
+  CD-írót kell arra használnod, hogy leolvasd a CD-ROM tartalmát:
+
+
+
+       dd if=/dev/scd0 of=cdimage
+
+
+
+  Ez a parancs leolvassa a /dev/scd0-ra csatlakozó CD-ROM tartalmát, és
+  kiírja a cdimage nevû fájlba. A fájl tartalma megegyezik azzal, amit
+  az mkisofs csinálna, tehát úgy folytathatod, ahogy korábban már
+  szerepelt ebben a dokumentumban (azaz a cdimage nevû fájlt használd a
+  cdrecord bemeneteként). Ha szeretnél visszajelzést a folyamat
+  haladásáról és hasonló csicsás dolgokat, akkor használhatod Jörg
+  Schillings  sdd programját.
+
+  Ha hibajelzést kapsz, akkor telepítsd a cdrecord csomag legfrissebb
+  verzióját, amelynek része a readcd segédprogram (a misc/ alatt van).
+  Ez ugyanazt eredményezi, mint a dd, de hiba esetén többször megkísérli
+  elolvasni a CD-ROM szektorait.
+
+
+
+  4.8.  Tudja-e olvasni a Linux a Joliet CD-ROM-ot?
+
+  Igen. A újabb kernelek (2.0.36 vagy újabb, illetve a 2.2 sorozat)
+  beépített joliet támogatással rendelkeznek. Ne feledd mindkét opciót
+  megadni az /etc/fstab-ban: a kulcsszavak iso9660 és joliet (az utóbbi
+  tulajdonképpen csak egy kiterjesztés).  További részletekért nézd meg
+  a  <http://www-plateau.cs.berkeley.edu/people/chaffee/joliet.html>
+  weblapot.
+
+
+  4.9.  Hogyan olvashatok CD-ROM-okat a CD-íróval?
+
+  Ugyanúgy, ahogy a közönséges CD-ROM meghajtókkal. Nincs semmi trükk.
+  Jegyezd meg, hogy az scd eszközöket (SCSI CD-ROM) kell használnod az
+  olvasandó CD-ROM fájlrendszerbe csatolásakor, akkor is ha ATAPI CD-
+  ROM-od van.  Emlékszel? Úgy konfiguráltad az ATAPI eszközeidet, hogy
+  SCSI-ként viselkedjenek.  Példa az /etc/fstab-ban egy bejegyzésre:
+
+
+
+       /dev/scd0  /cdrom  iso9660  ro,user,noauto  0  0
+
+
+
+  4.10.  Hogy rakhatok még több adatot a CD-R lemezre?
+
+  Használd a bzip2 tömörítõt a gzip, a pkzip vagy más tömörítõk helyett.
+  Akár 30% lemezhelyet is megtakaríthatsz így, ha nagyobb méretû
+  (>100kB) fájlokkal dolgozol. Letölthetõ a
+
+       <http://www.muraroa.demon.co.uk/>
+
+
+
+  webhelyrõl.
+
+  Valódi audio CD-k írása helyett a WAV hangfájlokat MP3 hangfájlokká
+  konvertálhatod, és ezeket közönséges fájlokként tárolhatod egy
+  ISO-9660 fájlrendszeren. Az MPEG III általában 1:10 tömörítési arányt
+  nyújt.  Természetesen a legtöbb CD-lejátszó nem tudja a fájlokat
+  olvasni...  ez a módszer hátránya. Másfelõl viszont miért ne
+  játszhatnád le a zenéket a merevlemezrõl a következõ bulin? Egy 18
+  gigabájtos merevlemezen akár 3000-4000 szám is elfér! :-)
+
+  Egy szoftveres MPEG III tömörítõ letölthetõ a
+
+       <http://www.stud.ifi.uio.no/~larsi/other/8hz-
+       mp3-cheng.tar.gz>
+  weblapról.
+
+  Egy MPEG III lejátszó letölthetõ a
+
+       <http://homepages.uni-tuebingen.de/stu­
+       dent/michael.hipp/mpg123/>
+
+
+
+  weblapról.
+
+  A felvett beszéd méretének csökkentésére használhatod a shorten
+  programot, vagy a ``GSM veszteséges beszédtömörítést'':
+
+
+       <ftp://svr-ftp.eng.cam.ac.uk/pub/comp.speech/>
+
+
+
+       <http://kbs.cs.tu-berlin.de/~jutta/toast.html>
+
+
+
+  4.11.  Hogyan készíthetek bootolható CD-ROM-ot?
+
+  Szükséged lesz egy 1.44 MB-os rendszerindító lemezre. Készíts egy
+  image fájlt a lemezrõl a
+
+
+
+       dd if=/dev/fd0 of=boot.img bs=18k
+
+
+
+  parancs kiadásával.
+
+  Rakd be ezt az image fájlt abba a könyvtárba, ahol a fájlokat
+  gyûjtötted össze (vagy egy alkönyvtárába, tetszés szerint). Az
+  mkisofs-nek a -b kapcsolóval lehet megadni a fájl helyét, és használd
+  még a -c kapcsolót is. A részleteket elolvashatod a README.eltorito
+  fájlban, ami benne van az mkisofs disztribúcióban.
+
+  A bootolható CD egy érdekes alkalmazása lehet a vírusbiztos DOS vagy
+  Windows.  Nem kell merevlemezre költeni (ha van hálózat, és samba-t
+  használsz a felhasználók fájljainak a fájlszerverre mentéséhez).
+  Azonban ez csak elméleti felvetés, még senkitõl sem hallottam, hogy
+  kipróbálta volna.
+
+  Néhány részlet a bootolható RedHat CD-ROM-ról:
+  <http://members.bellatlantic.net/~smithrod/rhjol-technical.html>.
+
+
+  4.12.  Hogyan tehetnénk valahogy írhatóvá a CD-ROM-okat?
+
+  Van a Linuxra egy overlay fájlrendszer, amelyik a CD-ROM fölé
+  csatolódik, és elfogja az írási mûveleteket. Az új és a módosított
+  fájlok máshol tárolódnak, de a felhasználó úgy érzékeli, hogy a CD-ROM
+  tartalma módosult.  További információkért olvasd el a
+  <http://home.att.net/~artnaseef/ovlfs/ovlfs.html> weblapot.
+
+  Ha ez nem elégíti ki az igényeidet, akkor várd meg, amíg a Linuxon is
+  lesz UDF fájlrendszer támogatás, vagy segíts a fejlesztésben (lásd
+  <http://trylinux.com/projects/udf/>).
+
+
+  4.13.  Lehetséges-e egyszerre több írót használni?
+
+  Igen, bár még csak két íróval tesztelték. Szükséged lesz vagy egy
+  friss Linux kernelre (2.2.10 az írás idején) vagy egy kernel foltra,
+  hogy több buffer álljon az általános SCSI meghajtóprogram
+  rendelkezésére ( <ftp://ftp.fokus.gmd.de/pub/unix/cdrecord/alpha>; a
+  2.2.5-ös verzióig mûködik).
+
+
+
+  4.14.  Melyik a legjobb alapanyag?
+
+  A német ``c't'' számítástechnikai magazin közölt egy tipplistát az
+  üres CD-R  lemezekrõl az 1996 novemberi számban.
+
+
+  ·  A ``noname'' lemezek általában nem a legjobb minõségûek, ha nem
+     muszáj, ne használd õket.
+
+  ·  Ha egy írható CD hibás, akkor nagy valószínûséggel az egész csomag
+     hibás (ha egynél többet vettél egyszerre). Ha szerencséd van, az
+     elsõ 500 MB használható az ilyen lemezeken.
+
+  ·  Ne érintsd meg a lemez fényes felét írás elõtt.
+
+
+
+  4.15.  Mi a helyzet a Solaris, *BSD, AIX, HP-UX, stb. operációs rend­
+  szerekkel?
+
+  Csak a 2. fejezet Linux specifikus. A 3. és 4. fejezetekben leírtakat
+  akkor is használhatod, ha nem Linux operációs rendszer fut a gépeden.
+  Olvasd el a README.NetBSD, README.aix, README.hpux, README.next,
+  README.solaris, README.sunos, README.vms illetve README.xxxBSD
+  fájlokat a cdrecord csomagban.
+
+
+
+  4.16.  Hol kell tárolni a helyi beállításokat?
+
+
+  Két lehetõség van. Vagy a cdrecord beépített konfigurációs fájlját
+  használod, vagy egy lent bemutatott burok-parancsfájlt használsz,
+  amely beolvassa a cdrecord konfigurációs fájlját, amiben a cdrecord
+  paraméterei vannak, mindegyik külön sorban. A paraméterek megegyeznek
+  a parancssori paraméterekkel, csak nincs elõttük a `-' jel. Szabad
+  megjegyzéseket is írni. Például:
+
+
+
+       # legyen bõbeszédû
+       v
+       # az írás sebessége
+       speed=2
+       # az eszközkoordináták BUS,ID,LUN formában
+       dev=0,6,0
+
+
+
+  A parancsfájlhoz tartozó konfigurációs fájlokat az /etc/cdrecord
+  könyvtárba kell rakni, és a nevüket  meg kell adni a parancssorban.
+  Például, ha az /etc/cdrecord/mywriter.cfg nevû konfigurációs fájlra
+  akarsz hivatkozni, add ki a `cdrecord.sh mywriter.cfg -audio
+  track1...'  parancsot. Minden, ami mywriter.cfg után áll, átadódik a
+  cdrecord-nak.
+
+
+
+       #! /bin/bash
+
+       CFGDIR="/etc/cdrecord"
+
+       CFG="$1"
+       shift
+       ARGS_LEFT="$@"
+
+       if [ ! -f "$CFGDIR/$CFG" ]
+       then
+           echo "Nem találom a $CFGDIR/$CFG konfigurációs fájlt. Kiléptem."
+           exit 1
+       fi
+
+       while read LINE
+       do
+           case $LINE in
+               \#*|"") continue;;
+           esac
+           old_IFS="$IFS"
+           IFS="$IFS="
+           set -- $LINE
+           IFS="$old_IFS"
+           O_NAME="$1"
+           O_VALUE=""
+           while shift
+           do
+               case $1 in
+                   "") continue;;
+               esac
+               O_VALUE="$1"
+           done
+
+           if [ -z "$O_VALUE" ]
+           then
+               O_CDRECORD="$O_CDRECORD -$O_NAME "
+               continue
+           fi
+           O_CDRECORD="$O_CDRECORD $O_NAME=$O_VALUE "
+
+       done < "$CFGDIR/$CFG"
+
+       set -x    #DEBUG
+       exec cdrecord $O_CDRECORD $ARGS_LEFT
+       echo "Nem sikerült a cdrecord-ot futtatni."
+
+
+
+  4.17.  Hogyan olvasható ki a CD-info?
+
+  Valahol az elsõ 32 k után szerepel a CD-n egy blokk, amely
+  információkat tartalmaz a lemezrõl. Ez az információ megszerezhetõ a
+  következõ parancsfájl segítségével:
+
+
+
+  #! /bin/bash
+
+  RD=/dev/cdrom
+  for i in 32768,7   32776,32 32808,32 32958,128 33086,128 33214,128 \
+           33342,128 33470,32 33581,16 33598,16  33615,16  33632,16
+  do
+      old_IFS="$IFS"
+      IFS=","
+      set -- $i
+      IFS="$old_IFS"
+      OFFSET=$1
+      LENGTH=$2
+      echo "*`dd if=$RD bs=1 skip=$OFFSET count=$LENGTH   2> /dev/null`#"
+  done
+
+
+
+  4.18.  Mi a helyzet az újraírással?
+
+  Amikor újraírsz egy CD-RW lemezt, a cdrecord parancssorában add meg a
+  blank=fast paramétert. Ennyi az egész. Olvasd el a cdrecord
+  kézikönyvoldalát, amelyben részletesen tárgyalják ezt a paramétert.
+
+
+  4.19.  Hogyan készíthetek multi-session CD-t?
+
+  A multi-session CD image-ét ISO-9660 fájlrendszerrel és a RockRidge
+  kiterjesztéssel kell elkészíteni. Ha egy session után még szeretnél a
+  lemezre írni, akkor a -multi paramétert kell beírni a cdrecord
+  parancssorába.  Tehát a -multi paramétert legalább az elsõ session-re
+  használni kell.
+
+  A második és az ezután következõ session-ök image-ét egy kicsit
+  bonyolultabb elkészíteni. Az mkisofs-nek tudnia kell, hogy hol
+  kezdõdik az üres terület a CD-R lemezen. Ez az információ
+  megszerezhetõ a cdrecord -msinfo paraméterével. Lássunk egy példát:
+
+
+
+       shell> NEXT_TRACK=`cdrecord -msinfo dev=0,6,0`
+       shell> echo $NEXT_TRACK
+       shell> mkisofs -R -o cd_image2 -C $NEXT_TRACK -M /dev/scd5
+                egetni_valo/ \
+
+
+
+  További információkért forduljunk a README.multi fájlhoz, amely a
+  cdrecord csomag része.
+
+
+  5.  Hibaelhárítás
+
+  Ne feledd, hogy az elrontott CD még mindig jó poháralátétnek. :-)
+
+
+  5.1.  Nem mûködik Linux alatt
+
+  Elõször ellenõrizd, hogy az író mûködik-e a vele adott szoftverrel
+  (azaz egy másik operációs rendszer alatt). Pontosabban:
+
+
+
+  ·  Felismeri a vezérlõkártya az írót, mint SCSI eszközt?
+
+  ·  Felismeri a meghajtóprogram az írót?
+
+  ·  Lehet CD-t írni az íróhoz adott szoftverrel?
+
+  Ha az író saját szoftverével sem mûködik, akkor a hardver ütközik
+  valamivel, vagy hibás. Ha mûködik, és loadlin-t használsz a Linux
+  indítására, akkor az a baj. A loadlin melegindítást csinál, a legtöbb
+  hardver már inicializálva van ilyenkor, és ez megzavarja a Linux
+  kernelt.
+
+
+
+  5.2.  Hibaüzenet: No read access for 'dev=0,6,0'.
+
+  Linux alatt a C programkönyvtár néhány verziója nem kompatíbilis (azaz
+  egy kissé hibás), tehát ha egy alkalmazást az egyikkel linkeltek
+  össze, akkor nem fog mûködni a másikkal. Íme egy példa egy olyan
+  hibára, amelyet egy elõre lefordított bináris fájl okozott:
+
+
+
+       [root@Blue /dev]# cdrecord -eject dev=0,6,0
+       cdrecord: No such file or directory. No read access for 'dev=0,6,0'.
+
+
+
+  5.3.  Nem mûködik a DOS és társai alatt
+
+  Próbálj Linuxot használni. DOS alatt pokolian nehéz SCSI
+  meghajtóprogramokat telepíteni és konfigurálni.  A Linux túl
+  bonyulult? Ugyan már!
+
+
+  5.4.  SCSI hibák égetés közben
+
+  Az ilyen hibák legvalószínûbb okai:
+
+
+  ·  hiányzó szét-/újrakapcsolódás funkció a SCSI buszon
+
+  ·  elégtelenül hûtött hardver
+
+  ·  hibás hardver (észre kellett venni az 5.1. alatt)
+
+  Különbözõ események hatására a SCSI eszközök lecsatolják magukat a
+  SCSI buszról (elektronikusan) aztán újrakapcsolódnak.  Ha ez a
+  lehetõség nem elérhetõ (ellenõrizd a vezérlõkártya és a kernel
+  paramétereit), akkor bizonyos írók bajba kerülnek égetéskor vagy a
+  lemez lezárásakor.
+
+  Különösen az NCR 53c7,8xx SCSI meghajtóprogramnál figyeljünk, mert ez
+  a lehetõség alapértelmezésben le van tiltva, úgyhogy elõször ezt kell
+  ellenõrizni:
+
+
+
+       NCR53c7,8xx SCSI support                  [N/y/m/?] y
+          always negotiate synchronous transfers [N/y/?] (NEW) n
+          allow FAST-SCSI [10MHz]                [N/y/?] (NEW) y
+          allow DISCONNECT                       [N/y/?] (NEW) y
+
+
+  6.  Akik hozzájárultak...
+
+
+  Nagy köszönet illeti a HOGYAN olvasói közül azokat, akik aktívan
+  hozzájárultak a tartalmához. Mivel évek óta nem férek hozzá egy
+  CD-íróhoz, ezért mindig nagyon értékesek számomra a való életbõl vett
+  példák és tapasztalatok.
+
+
+     Doug Alcorn <doug@lathi.net>
+        Segített az új kernelek kezelésében.
+
+
+     Kalle Andersson <kalle@sslug.dk>
+        Elmondta, hogyan írjunk közvetlenül audio CD-t MP3-ból.
+
+
+     Alan Brown <alan@manawatu.net.nz>
+
+     Rick Cochran <rick@msc.cornell.edu>
+        Utalt rá, hogy a szét-/újrakapcsolódás alapértelmezésben le van
+        tiltva az ncr meghajtónál.
+
+
+     Robert Doolittle <bob.doolittle@sun.com>
+        Jó érveket szolgáltatott arra, hogy a cdwrite-ot kihagyjam a
+        HOGYAN-ból.
+
+
+     Markus Dickebohm <m.dickebohm@uni-koeln.de>
+
+     Thomas Duffy <tduffy@sgi.com>
+        Sok nyelvtani és helyesírási hibát kijavított.
+
+
+     Jos van Geffen <jos@tnj.phys.tue.nl>
+        Felvetette a 4.9. fejezetbeli problémát.
+
+
+     Bernhard Gubanka <beg@ipp-garching.mpg.de>
+        Megjegyezte, hogy a mount egy újabb verzióját kell használni a
+        loopback eszközhöz.
+
+
+     Stephen Harris <sweh@mpn.com>
+        Adott egy tippet audio CD-íráshoz.
+
+
+     Janne Himanka <shem@oyt.oulu.fi>
+        Elmondta, hogy honnan tölthetõ le a Joliet CD-k olvasásához
+        szükséges kernel folt.
+
+
+     Stephan Noy <stnoy@mi.uni-koeln.de>
+        Információ és tapasztalat audio CD-írásához.
+
+
+     Don H. Olive <don@andromeda.campbellsvil.edu>
+        Az mkhybrid program URL-je.
+
+
+     Jesper Pedersen <jews@imada.ou.dk>
+
+     Pierre Pfister <pp@uplift.fr>
+        Segített kidolgozni az 1:1 másolat receptjét.
+
+     Daniel A. Quist <dquist@cs.nmt.edu>
+        Információk az IDE CD-R-rõl és az újabb kernelekrõl.
+
+
+     Martti.Rahkila@hut.fi
+        Bejelentette az elõre inicializált írók problémáját, amikor
+        loadlin-nel indul a rendszer.
+
+
+     Dale Scheetz <dwarf@polaris.net>
+
+     Joerg Schilling <schilling@fokus.gmd.de>
+        Információkat adott a cdrecord-ról.
+
+
+     Martin Schulze <joey@Infodrom.North.DE>
+        Információt adott a cdwrite levelezõlistáról.
+
+
+     Gerald C Snyder <gcsnyd@loop.com>
+        Kipróbálta az ext2 CD-ROM írását (lásd 4.4).
+
+
+     Art Stone <stone@math.ubc.ca>
+        Az õ ötlete volt, hogy nem csak ISO-9660 fájlrendszert rakhatunk
+        a CD-re.
+
+
+     The Sheepy One <kero@escape.com>
+        Javasolta, hogy az elrontott CD-ket poháralátétnek használjuk.
+
+
+     Erwin Zoer <ezoer@wxs.nl>
+
+  Továbbá szeretnék köszönetet mondani a következõ embereknek, akik
+  helyesírási hibákat jelentettek: Bartosz Maruszewski
+  <B.Maruszewski@zsmeie.torun.pl>, Ian Stirling <ian@opus131.com>, Brian
+  H. Toby.
+
+  Véget ért a Linux CD-írás HOGYAN. (Abbahagyhatod az olvasást.)
+
+
+

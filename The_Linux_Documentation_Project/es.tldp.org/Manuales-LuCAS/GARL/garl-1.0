@@ -1,0 +1,138 @@
+<html>
+<head>
+<TITLE>Gu&iacute;a de Administraci&oacute;n de Redes en Linux</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<table cellspacing=0 border=0 cellpadding=4 width=737>
+  <tr> 
+    <td width="46%" valign="TOP">&nbsp; </td>
+    <td width="11%" valign="TOP">&nbsp; </td>
+    <td width="43%" valign="TOP"> 
+      <p align="RIGHT"><a href="garl.htm"><img src="right.gif" width=37 height=34 border="0"></a> 
+    </td>
+  </tr>
+</table>
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER"><a href="garl.htm"><img src="linlogo.gif" width="64" height="75" border="0" alt="Entrar"></a></p>
+<b><u><font face="Arial" size=4 color="#000080">
+<p align="CENTER">Guia de Administraci&oacute;n de Redes con Linux</p>
+</font></u></b> 
+<hr>
+<font face="Verdana" size=2> 
+<p>Copyright Oc 1992-1994 Olaf Kirch (Traducci&oacute;n Proyecto LuCAS)</p>
+<p>Versi&oacute;n final 1.0, 1 de Junio de 1999.<br>
+  Fecha de montaje: 30 de Mayo de 1999.<br>
+  Versi&oacute;n HTML por Juan Cayetano Delgado Rold&aacute;n: Julio del 2000<br>
+  <a href="http://mundolinux.cjb.net">(http://mundolinux.cjb.net)</a></p>
+<p></p>
+</font> 
+<p><font face="Verdana" size="2">Para Britta</font></p>
+<center>
+  <table cellspacing=0 border=0 cellpadding=4 width=666>
+    <tr> 
+      <td valign="TOP"> 
+        <p align="CENTER"><b><u><font face="Verdana" size=2>Legal Notice</font></u></b></p>
+        <p><font face="Verdana" size=2>UNIX is a trademark of Univel.<br>
+          Linux is not a trademark, and has no connection to UNIXTM or Univel.<br>
+          Copyright Oc 1994 Olaf Kirch<br>
+          Kattreinstr. 38, 64295 Darmstadt, Germany<br>
+          </font><a href="mailto:okir@monad.swb.de"><font face="Verdana" size=2>okir@monad.swb.de</font></a></p>
+        <p><font face="Verdana" size="2">"The Linux Network Administrators' Guide" 
+          may be reproduced and distributed in whole or in part, subject to the 
+          following conditions:</font></p>
+        <p><font face="Verdana" size="2">0. The copyright notice above and this 
+          permission notice must be preserved complete on all complete or partial 
+          copies.</font></p>
+        <p><font face="Verdana" size="2">1. Any translation or derivative work 
+          of "The Linux Network Administrators' Guide" must be approved by the 
+          author in writing before distribution.</font></p>
+        <p><font face="Verdana" size="2">2. If you distribute "The Linux Network 
+          Administrators' Guide" in part, instructions for obtaining the complete 
+          version of "The Linux Network Administrators' Guide" must be included, 
+          and a means for obtaining a complete version provided.</font></p>
+        <p><font face="Verdana" size="2">3. Small portions may be reproduced as 
+          illustrations for reviews or quotes in other works without this permission 
+          notice if proper citation is given.</font></p>
+        <p><font face="Verdana" size="2">4. If you print and distribute "The Linux 
+          Network Administrators' Guide", you may not refer to it as the "Official 
+          Printed Version".</font></p>
+        <p><font face="Verdana" size="2">5. The GNU General Public License referenced 
+          below may be reproduced under the conditions given within it.</font></p>
+        <p><font face="Verdana" size="2">6. Several sections of this document 
+          are held under separate copyright. When these sections are covered by 
+          a different copyright, the seperate copyright is noted. If you distribute 
+          "The Linux Network Administrators' Guide" in part, and that part is, 
+          in whole, covered under a seperate, noted copyright, the conditions 
+          of that copyright apply.</font></p>
+        <p><font face="Verdana" size=2>Exceptions to these rules may be granted 
+          for academic purposes: Write to Olaf Kirch at the above address, or 
+          email </font><a href="mailto:okir@monad.swb.de"><font face="Verdana" size=2>okir@monad.swb.de</font></a><font face="Verdana" size=2>, 
+          and ask. These restrictions are here to protect us as authors, not to 
+          restrict you as educators and learners.</font></p>
+        <p><font face="Verdana" size="2">All source code in "The Linux Network 
+          Administrators' Guide" is placed under the GNU General Public License. 
+          See appendix C for a copy of the GNU "GPL." </font></p>
+        <p><font face="Verdana" size="2">The author is not liable for any damages, 
+          direct or indirect, resulting from the use of information provided in 
+          this document. </font>
+      </td>
+    </tr>
+  </table>
+</center>
+<center>
+  <table cellspacing=0 border=0 cellpadding=4 width=666>
+    <tr> 
+      <td valign="TOP"> 
+        <p align="CENTER"><b><u><font face="Verdana" size=2>Nota Legal</font></u></b></p>
+        <p><font face="Verdana" size=2>UNIX es una marca registrada de Univel.<br>
+          Linux no es una marca registrada, y no tiene relaci&oacute;n con UNIXTM 
+          o Univel.<br>
+          Copyright Oc 1994 Olaf Kirch<br>
+          Kattreinstr. 38, 64295 Darmstadt, Alemania<br>
+          </font><a href="mailto:okir@monad.swb.de"><font face="Verdana" size=2>okir@monad.swb.de</font></a></p>
+        <p><font face="Verdana" size="2">La "Gu&iacute;a de Administraci&oacute;n 
+          de redes con Linux" puede ser total o parcialmente reproducida y distribuida, 
+          bajo las siguientes condiciones:</font></p>
+        <p><font face="Verdana" size="2">0. La nota de copyright anterior y esta 
+          nota de permiso debe preservarse en toda reproducci&oacute;n total o 
+          parcial.</font></p>
+        <p><font face="Verdana" size="2">1. Cualquier traducci&oacute;n o trabajo 
+          derivado de la "Gu&iacute;a de Administraci&oacute;n de redes con Linux" 
+          debe ser aprobado por el autor antes de su distribuci&oacute;n.</font></p>
+        <p><font face="Verdana" size="2">2. Si Vd. distribuye la "Gu&iacute;a 
+          de Administraci&oacute;n de redes con Linux" en parte, deber&aacute; 
+          incluir instrucciones para obtener la versi&oacute;n completa.</font></p>
+        <p><font face="Verdana" size="2">3. Pueden reproducirse peque&ntilde;as 
+          partes como ilustraciones o citas, en otros trabajos y sin permiso expreso, 
+          siempre que se cite la procedencia.</font></p>
+        <p><font face="Verdana" size="2">4. Si imprime o distribuye la "Gu&iacute;a 
+          de Administraci&oacute;n de redes con Linux", no podr&aacute; referirse 
+          a ella como la "Versi&oacute;n Oficial Impresa".</font></p>
+        <p><font face="Verdana" size="2">5. La Licencia Publica General de GNU 
+          citada puede reproducirse bajo sus propias condiciones.</font></p>
+        <p><font face="Verdana" size="2">6. Algunas partes de este libro est&aacute;n 
+          sujetas a diferentes copyrights. Cuando esto suceda, el copyright especifico 
+          se incluir&aacute;. Si distribuye una parte de la "Gu&iacute;a de Administraci&oacute;n 
+          de redes con Linux" que este cubierta por un copyright espec&iacute;fico, 
+          se aplicar&aacute;n a dicha copia las condiciones de dicho copyright.</font></p>
+        <p><font face="Verdana" size=2>Se admiten excepciones en el cumplimiento 
+          de estas reglas con prop&oacute;sitos acad&eacute;micos: escr&iacute;base 
+          a Olaf Kirch a la direcci&oacute;n anterior o por correo electr&oacute;nico 
+          (</font><a href="mailto:okir@monad.swb.de"><font face="Verdana" size=2>okir@monad.swb.de</font></a><font face="Verdana" size=2>), 
+          y preg&uacute;ntese. Estas restricciones est&aacute;n para protegernos 
+          como autores, no para limitarles como educadores o estudiantes.</font></p>
+        <p><font face="Verdana" size="2">Todo el c&oacute;digo fuente inclu&iacute;do 
+          en la "Gu&iacute;a de Administraci&oacute;n de redes con Linux" se rige 
+          bajo la Licencia Publica General GNU (GNU General Public License). El 
+          ap&eacute;ndice C contiene una copia de dicha licencia.</font></p>
+        <p><font face="Verdana" size="2">El autor no se hace responsable de cualquier 
+          da&ntilde;o, directo o indirecto, que pueda producirse por el uso de 
+          la informaci&oacute;n proporcionada en este libro. </font>
+      </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

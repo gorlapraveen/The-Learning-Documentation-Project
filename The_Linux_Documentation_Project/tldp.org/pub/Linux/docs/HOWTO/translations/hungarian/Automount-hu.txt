@@ -1,0 +1,356 @@
+
+                      Önmûködõ felcsatolás mini-HOGYAN
+
+Rahul Sundaram, [1]rahulsundaram@yahoo.co.in
+
+   v1.6, 2002.12.27
+     _________________________________________________________________
+
+   Itt elolvashatod, hogyan kell az autofs önmûködõ
+   fájlrendszer-felcsatolást beállítani.
+     _________________________________________________________________
+
+1. Bevezetõ
+
+1.1 Kiadások története
+
+     * 1.5-ös változat alatt - Don munkája.
+     * 1.5-ös változat - Szerzõi jog és egyéb mellékes részletek Rahul
+       által hozzáadva. Sundaram átveszi a karbantartást.
+     * 1.5.1-es verzió - VFAT kérdések mélyebb részletességgel
+       kidolgozva.
+     * 1.5.2-es verzió - Kiadások története és egyéb apró javítások.
+     * 1.6-os verzió - Néhány kérdés és válasz hozzáadása.
+
+1.2 Automount - mi ez és miért használjam?
+
+   Az önmûködõ felcsatolás egy folyamat, ahol a egyes fájlrendszerek
+   felcsatolását és lecsatolását egy démon végzi. Ha a fájlrendszer
+   nincsen felcsatolva és a felhasználó megpróbálja elérni, akkor az
+   önmûködõen felcsatolódik. Ez különösen hasznos nagy hálózati
+   környezetben és keresztbe csatolt fájlrendszerek esetén (fõleg amikor
+   nincs minden gép állandóan hálózatra kapcsolva). Nagyon hasznos
+   cserélhetõ lemezes meghajtók használatakor is. Mondok más példát, ha
+   eddig nem gyõzött meg: dos fájlrendszerek felcsatolása ASCII
+   konverzióval, majd anélkül. Ha új Linux felhasználó vagy, nem tudod,
+   mi az a felcsatolás és mi a démon, akkor tanulmányozd a vonatkozó
+   dokumentációkat.
+
+1.3 Az önmûködõ felcsatolás fajtái
+
+   Az önmûködõ felcsatolás két megvalósítása lelhetõ fel Linux alatt:
+   az AMD és az autofs. Az AMD egy önmûködõ felcsatoló-démon, a
+   felszínen a SunOS AMD programhoz hasonlatosan dolgozik. Felhasználói
+   szinten megvalósított megoldás, azaz nem része a rendszermagnak. A
+   rendszermagnak nem szükséges részt vennie abban, ha NFS-t csatolsz a
+   helyi gépre, AMD démonnal, ami irányítja az összes önmûködõ
+   csatolást az NFS rendszeren keresztül. Az Autofs egy újabb fejlesztés,
+   de ez már része a rendszermagnak. A mag fájlrendszer kódja tudja, hol
+   vannak a csatolási pontok a normál fájlrendszerben, az Automount
+   program pedig kezeli ezt. Csak az autofs megoldást fogjuk
+   megvizsgálni.
+
+2. Adminisztráció
+
+2.1 Szerzõi jogok
+
+   A mini-HOGYAN szerzõi jogait Rahul Sundaram birtokolja. Minden jog
+   fenntartva. Erre a dokumentumra a [2]Linux Dokumentációs Projekt
+   licensze vonatkozik. A kereskedelmi felhasználás engedélyezett, de
+   értesíts engem errõl. Segítséget adok bárkinek, aki lefordítaná a
+   dokumentumot. Ha szükséged van a licenszfeltételek átlépésére, lépj
+   kapcsolatba velem a [3]rahulsundaram@yahoo.co.in e-mail címen. A
+   legújabb verziót mindig a The Linux Documentation Project honlapján
+   találod meg, [4]http://tldp.org/HOWTO/mini/Automount.html.
+
+2.2 A felelõsség teljes kizárása
+
+   Habár a legjobb tudásom szerint írtam meg ezt a HOGYANt, nem vagyok
+   felelõs semmiféle kárért, amit ebben a dokumentumban foglaltakra
+   alapozott tevékenység okozott. Lehetetlen letesztelni minden
+   konfiguráción a dolgokat. Ezért lehet, hogy néhány ötlet nem mûködik
+   a Te rendszereden. Ha bármi hibát találsz, értesíts engem. Javítom,
+   amint lehetséges.
+
+   A dokumentum olyan, amilyen. Nagy munka árán született meg, de csak a
+   saját felelõsségedre használd. Semmilyen esetben sem vállalok
+   felelõsséget azért, ha eme dokumentum alapján bármi kárt teszel a
+   rendszeredben.
+
+2.3 Magyar fordítás
+
+   A magyar fordítást [5]Novák Áron készítette (2003.02.10). A
+   lektorálást [6]Szijjártó László végezte el (2003.03.06). A fordítás
+   javítva (R1; 2003.03.07). Bármilyen fordítással kapcsolatos
+   észrevételt a [7]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum
+   legfrissebb változata megtalálható a [8]Magyar Linux Dokumentációs
+   Projekt honlapján.
+
+3. Telepítés
+
+   Az Autofs rendszermag-területen megvalósított eszköz, azaz a
+   rendszermagnak tartalmaznia kell az Autofs támogatást. Az összes
+   változat a 2.2.xx verziótól kezdõdõen tartalmazza ezt.
+
+   Szükséges még az Automount program és a konfigurációs fájlok. A RedHat
+   (és Debian - [9]Toldi Miklós megj.) összeállításban elérhetõek ezek a
+   csomagok (lehet, hogy már telepítéskor felkerült).
+
+4. Beállítás
+
+   Az RPM csomagokat könnyedén telepítheted, de most jön az a rész, ami
+   nem egyértelmû, ha nem csináltál még ilyet.
+
+   Az /etc könyvtárban találhatók az auto.master és az auto.misc fájlok.
+   Az alapértelmezett auto.master fájl így néz ki:
+/auto   /etc/auto.misc  --timeout=60
+
+   Az elsõ bejegyzés nem a csatolási pont. Ez a csatolási pontok
+   gyûjteménye, gyûjtõkönyvtára a második bejegyzésre vonatkozóan. A
+   harmadik érték azt határozza meg, hogy 60 másodpercnek kell eltelni
+   használat nélkül ahhoz, hogy az eszközt önmûködõen leválassza.
+   Lecsatolás elõtt majd mindig be kell fejezned a lemez használatát.
+
+   Az auto.misc egy "térképfájl". Bármilyen nevet adhatsz neki. Ez éppen
+   auto.misc névre hallgat, mert eredetileg a /misc könyvtárat
+   irányította. A térképfájlokat az auto.master fájlban lehet definiálni
+   (akár többet is). Az én auto.misc fájlom így néz ki:
+kernel          -ro,soft,intr           ftp.kernel.org:/pub/linux
+cd              -fstype=iso9660,ro      :/dev/cdrom
+zip             -fstype=auto            :/dev/hdd4
+floppy          -fstype=vfat            :/dev/fd0
+
+   Az elsõ oszlop (a kulcs) a felcsatolási pont. Ebben az esetben
+   /auto/floppy vagy bármi egyéb. A középsõ bejegyzés az opciók helye,
+   olvasd el a mount man oldalt ezzel kapcsolatban. Az utolsó oszlop
+   pedig a felcsatolandó fájlrendszert tartalmazza. A "kernel" bejegyzés
+   egy NFS csatolás. A kettõspont minden esetben azt jelöli, hogy a
+   helyi gépen található az eszköz.
+
+5. Lassú a lecsatolás
+
+   Lehet, hogy feltûnt neked a 60 másodperces idõtúllépés, és azt
+   gondolod: ez elég hosszú idõ ahhoz, hogy a floppy kiadására várjak...
+   Inkább csak szinkronizálom a lemezeket és kiszedem felcsatolt
+   állapotban, és senki se veszi észre. Javasolj õrültebb módszert!
+   Elõször is, be tudod állítani az idõtúllépést. De nem biztos, hogy
+   eredményre vezet, ha 15 másodperces lecsatolást állítasz be. A
+   rendszeredtõl függõen elképzelhetõ, hogy egyszerûen kiadod az
+   umount parancsot normál felhasználóként. Van egy másik módja, hogy
+   rávedd az Automount programot a lecsatolásra. Ha egy (program
+   leállítással) SIGUSR1 jelet kap az Automount folyamat, minden
+   lecsatolásra kerül, ahol ez lehetséges. De mielõtt "Válassz le
+   mindent!" gombot gyártanál az ablakkezelõ rendszeredhez, jó ha tudod,
+   hogy ez nem valósítható meg.
+
+   Az Automount folyamat root felhasználóként fut és kizárólag root
+   felhasználótól fogad el jeleket.(ez az, amiért normál felhasználó nem
+   tudja újraindítani a gépet - a fordító). Félmegoldás, ha normál
+   felhasználóknak is lehetõséget adunk a fel- és lecsatoláshoz.
+   Egyszerûen kivitelezhetõ ez egy suid-root C programmal, ami elvégzi
+   a piszkos munkát. A sudo-val a felhasználók is küldhetnek megfelelõ
+   kill jelet. Az egyetlen probléma, hogy a sudo nem teszi lehetõvé a
+   folyamatokon belül alparancsok (subcommand) használatát, amivel ki
+   lehet keresni az aktuális PID-et (folyamatazonosítót). Lehetséges,
+   hogy van killall parancsod, amivel már meg tudod ezt tenni (a
+   következõt írd be a /etc/sudoers fájlba - a lektor):
+
+ALL     ALL=NOPASSWD:/usr/bin/killall -USR1 automount
+
+   Egyébként engedélyezhetjük a felhasználóknak a -SIGUSR1 jel küldését
+   az összes folyamathoz. Ez különféle változásokat idéz elõ: néhány
+   ablakkezelõ újraindul, de az xemacs-ot leállítja. Reménykedjünk, hogy
+   nincs puffer túlcsordulás a killall-ban...
+
+6. Kérdések
+
+6.1 Nem látom az /auto/floppy-t és más felcsatolási pontokat
+
+   Ha az automount rendesen be van állítva, akkor a felcsatolási pont
+   csak akkor látszik ha az használatban van, amelyik nincs, az rejtve
+   marad. Ha a könyvtárakat grafikus felületen tallózod, akkor be kell
+   gépelned a könyvtárat, a legtöbb program megpróbál átváltani arra, így
+   az eszköz fel lesz csatolva. Nincs lehetõség válogatni a láthatatlan
+   felcsatolási pontokból, ez talán az autofs legnagyobb hátránya. Ha
+   viszont nem ez a gond, hanem tényleg nem mûködik a csatolás, akkor
+   szerkeszd a konfigurációs állományokat.(Segítségképpen: az egyik .c-re
+   végzõdik)
+
+   Néhány ember azzal próbálkozik, hogy egy szimbolikus linket hoz létre
+   az önmûködõ felcsatolás könyvtárára. Ez általában azt eredményezi,
+   hogy néhány program nem látja a könyvtárat (ha a felcsatolás mûködik,
+   ez a kérdésre a válasz), de egyébként felcsatolja a fájlrendszert, ha
+   listázod a könyvtárat.
+
+6.2 Hol látom, hogy mi van felcsatolva?
+
+   A df vagy a mount(opciók nélkül) parancs kiírja. A mount ráadásként a
+   felcsatolás beállításait is megmutatja.
+
+6.3 Beraktam egy win95 "vfat" fájlrendszerû lemezt, de hagyományos FAT
+rendszerûként ismeri fel
+
+   Ez nem az automount hibája. Az önmûködõ felcsatolás nem próbálja meg
+   vfat-ként kezelni a fájlrendszert, ha azt sikeresen csatolta MS-DOS
+   típusúként. A VFAT egy kiterjesztése a FAT fájlrendszernek. A hosszú
+   fájlnevek használatát biztosítja Windows 95 és Windows NT operációs
+   rendszerekhez.
+
+   Egy mount program fejlesztõ szerint, amióta a mount csak egy
+   illesztõfelület a rendszerhíváshoz, amelyiknek kötelezõ megadni a
+   fájlrendszer típusát, a felhasználón múlik a fájlrendszer típus
+   felismerése. Ahelyett, hogy a mount végigpróbálgatná sorrendben a
+   fájlrendszer típusokat felcsatolásnál, inkább a jelenlegi
+   "heurisztikus" módszer kerül elõtérbe. Néhány felhasználó egyszerûen
+   nem fordítja bele az msdos támogatást a rendszermagba; ezt
+   megelõzendõ az vfat-ot elõbb próbálja ki az msdos-nál. Ez a legtöbb
+   embernél mûködik is, azonban néhányuknak msdos fájlrendszerre van
+   szükségük. Ezt így lehet kikerülni: átmásolod a /proc/filesytems fájlt
+   az /etc/filesystems-be és átszerkeszted úgy, hogy a vfat elõbb
+   legyen, mint az msdos. (kösz Mark)
+
+   Ariel (aslinux@dsgml.com) írta:
+
+   " hogy a vfat-ot elõbb próbálja a fat-nál, csak hozd létre(vagy
+   szerkeszd át) az /etc/filesystems fájlt
+
+   A lista prioritás szerint van rendezve, ahogyan a fájlrendszer
+   típusokat végigpróbálja.
+
+   Hozd létre a fájlt: cp /proc/filesystems /etc/filesystems. Változtasd
+   meg a sorrendet a kedvenc szövegszerkesztõddel. Azokat a
+   fájlrendszer-típusokat, amiket gyakran használsz, rakd elõre. Ettõl
+   gyorsabban tudod majd felcsatolni azokat. És persze rakd a vfat-ot az
+   msdos elé. Gyõzõdj meg róla, hogy mindkettõt tartalmazza, mert
+   lehetséges, hogy szükséged lesz nem VFAT fájlrendszerek
+   felcsatolására. Az enyém így néz ki:
+
+   ext2 vfat msdos iso9660
+
+   ****
+
+   Egy másodperces idõtúllépést használok a cserélhetõ lemezes
+   meghajtókhoz. Hozz létre különálló "térképeket" különbözõ
+   idõtúllépéssel, amire éppen szükséged van.
+
+   Azt gondolod: egy másodperc? Az rengeteg erõforrást pazarol! - de nem
+   fog. Emlékezz arra, hogy a rendszer lecsatolja a nem használt
+   dolgokat.
+
+   Az egy másodperces lecsatolás azt jelenti, hogy amint nincsen
+   használatban az eszköz, lecsatolja.
+
+   A 'sync'-et el ne felejtsd a floppy-hoz beállítani!
+
+   Például:
+
+   floppy -fstype=auto,sync,user,umask=002,gid=floppy :/dev/fd0"
+
+   Ez a korrekt válasz a kérdésre.
+
+6.4 A fájlrendszeremet (/auto/grumblesmurf) felcsatoltam és a kill -SIGUSR1 nem
+csatolja le.
+
+   Akkor azt valami használja. Lehet, hogy a root sem tudja majd
+   lecsatolni manuálisan. Ha te csatoltad fel, (például: senki más nem
+   használhatta), akkor nézz egy héj után, ami ebben a könyvtárban áll.
+   Ha ilyen nincs, akkor lehet, hogy egy könyvtártallózó program a hibás.
+   Ha már feladtad a keresést, próbáld ki a fuser parancsot. Segíthet.(Ez
+   képes beazonosítani azt, hogy egy adott könyvtárat vagy fájlt milyen
+   folyamatok használnak - a fordító)
+
+6.5 Mi történik, ha a / könyvtárat adom meg az automounter programnak?
+
+   Nem ajánlom. Ha /grumblesmurf könyvtárat szeretnél, ajánlom helyette a
+   szimbolikus hivatkozást, ami sokkal biztonságosabb.
+
+6.6 Lehet két térképfájlom azonos könyvtárban?
+
+   Legjobb tudomásom szerint nem. Próbáld meg, hogy egy térképfájlt
+   használsz különbözõ beállításokkal a bejegyzésekhez.
+
+6.7 SuSE összeállítást használok és szükségem volna ---timeout-ra a --timeout
+helyett
+
+   Egy másik megoldás az "idõtúllépés nem mûködik" problémára: egy -t
+   idõ kapcsoló kell az autofs scriptnek.
+
+6.8 Hogyan tudom a jogosultságokat és a tulajdonosokat beállítani a FAT
+fájlrendszeren?
+
+   Nézd át a mount man oldalait az opciókért. Ami kellhet: uid=érték vagy
+   umask=érték. Egy valami nem mûködik FAT esetén: mode=érték. Bocs, ez
+   van. Értesítsd azokat az embereket, akik szoktak fájlrendszereket
+   csatolni.
+
+6.9 Hogyan lehet tallózni egy autofs könyvtárat, amikor az alkönyvtárai
+nincsenek felcsatolva? Philippe Froidevaux (philippe.froidevaux@unifr.ch) írta:
+
+   "Az autofs szerzõje mondja "nincs megoldás"
+
+   egy jó ötlet (egy hírcsoportból):
+
+   "ne a /home/blauser -t csatold, hanem a /mount/.auto/blauser-t, aztán
+   hozz létre egy hivatkozást: /home/blauser -> /mount/.auto/blauser
+
+   Most már tallózhatod a /home könyvtárat, aztán amikor belépsz,
+   csatolódik a blauser.
+
+   Azért van ezzel egy kis probléma: nem elegáns, mivel minden
+   felhasználónál munkát jelent. (egy héjprogrammal persze
+   automatizálható - a fordító)
+
+   Van másik megoldás, az AMD használata az autofs helyett. Tudnod kell,
+   hogy az AMD lassabb.
+
+6.10 Kinek köszönhetem az autofs programot?
+
+   Ez csak egy dokumentáció ami felhívja az emberek figyelmét arra, hogy
+   milyen nagyszerû az autofs és milyen egyszerû használni. Az eredeti
+   megvalósításhoz (AMD) képest az autofs remekül dokumentált. A
+   fejlesztõk fogadják ezért õszinte köszönetemet. Minden szerzõi
+   jogot a Transmeta cég birtokol, ezért nincsen stáblista, de Peter
+   Anvin kompetens ember a programmal kapcsolatban. Peter tartott egy
+   elõadást az autofs-rõl a LinuxWorld Expo rendezvényen, 1999. március
+   3-án.
+
+6.11 Honnan tudhatok meg többet az önmûködõ fájlrendszer-csatlakoztatásról?
+
+   Itt egy autofs útmutató:
+   [10]http://www.linuxhq.com/lg/issue24/nielsen.html. Ajánlom
+   figyelmedbe még az am-utils leírást a
+   [11]http://www.cs.columbia.edu/~ezk/am-utils honlapon.
+
+6.12 Hogyan tudok kapcsolatba kerülni a fejlesztõkkel? Van levelezõlista
+autofs témában?
+
+   Én nem tudok ilyesmirõl. Értesíts engem, ha vannak ez ügyben
+   fejlemények.
+
+6.13 Köszönetnyilvánítások, visszajelzés, ajánlás
+
+   Köszönöm Don [12]Donnak (az email cím úgy tûnik nem él) az eredeti
+   mini-HOGYANba fektetett munkáját. Köszönöm Arielnek a win95 vfat
+   témában nyújtott segítségét. Köszönöm az összes barátomnak a
+   támogatását és azt, hogy türelmesek voltak velem, míg befejeztem ezt a
+   munkát. Légyszíves írj nekem, [13]Rahul Sundaram-nek, ha bármi
+   ötleted, javaslatod van, vagy van valami jó leírásod amit
+   hozzáadhatnék a dokumentumhoz. Köszönöm. Ezt a dokumentumot elhunyt
+   szüleimnek Mr. V. Sundaram-nek és Mrs. S. Soundara Sundaram-nek
+   ajánlom.
+
+References
+
+   1. mailto:rahulsundaram@yahoo.co.in
+   2. http://tldp.org/copyright.html
+   3. mailto:Rahulsundaram@yahoo.co.in
+   4. http://tldp.org/HOWTO/mini/Automount.html
+   5. mailto:aaron@szentimre.hu_NO_SPAM
+   6. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+   7. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+   8. http://tldp.fsf.hu/index.html
+   9. mailto:toldim@index.hu_NO_SPAM
+  10. http://www.linuxhq.com/lg/issue24/nielsen.html
+  11. http://www.cs.columbia.edu/~ezk/am-utils
+  12. mailto:don@sabotage.org
+  13. mailto:rahulsundaram@yahoo.co.in

@@ -1,0 +1,1508 @@
+
+Apache-alapú WebDAV szerver, LDAP és SSL szolgáltatásokkalSaqib Ali
+
+               saqib@seagate.com
+     Offshore XML/XHTML Development
+
+   Verziótörténet
+   Verzió: v4.1.2 2003.10.17 Átdolgozta: sa
+   Hozzáadva az SSL teljesítménybeállítási fejezet
+   Verzió: v4.1.1 2003.09.29 Átdolgozta: sa
+   Frissítések az SSL részben, az olvasói visszajelzésekre alapozva.
+   Verzió: v4.1.0 2003.09.02 Átdolgozta: sa
+   Frissítések az SSL részben, az olvasói visszajelzésekre alapozva.
+   Verzió: v4.0.2 2003.08.01 Átdolgozta: sa
+   Kisebb frissítések az Apache-ot beállító parancssorban. /dev/random
+   hivatkozás az SSL részben.
+   Verzió: v4.0.1 2003.07.27 Átdolgozta: sa
+   Az SSL fejezet további információval bõvítve.
+   Verzió: v4.0   2002.06.29 Átdolgozta: sa
+   Frissítve a HOGYAN Apache 2.0.-ra. A doksi forráskódja XML formátumú.
+   Verzió: v3.4   2002.06.29 Átdolgozta: sa
+   Hozzáadva a "Hogyan generáljunk CSR-t" fejezet.
+   Verzió: v3.3   2002.04.14 Átdolgozta: sa
+   Hozzáadva a "WebDAV szerver üzemeltetése" fejezet.
+
+   Ez a HOGYAN egy Apache-alapú WebDAV szerver telepítését írja le,
+   LDAP-al az azonosításhoz, és SSL-el a titkosításhoz.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Errõl a dokumentumról
+        1.2. [3]Közremûködõk
+        1.3. [4]Mi az Apache?
+        1.4. [5]Mi a WebDAV?
+        1.5. [6]Mi a PHP?
+        1.6. [7]Mi a MySQL?
+        1.7. [8]Mire van szükségünk?
+        1.8. [9]Feltételezések
+        1.9. [10]Magyar fordítás
+
+   2. [11]Követelmények
+
+        2.1. [12]Alapok
+        2.2. [13]Apache 2.0.46
+        2.3. [14]OpenSSL
+        2.4. [15]iPlanet LDAP programkönyvtár
+        2.5. [16]mod_auth_ldap
+        2.6. [17]MySQL adatbázismotor
+        2.7. [18]PHP
+
+   3. [19]Telepítés
+
+        3.1. [20]Telepítési feltételek
+        3.2. [21]MySQL
+        3.3. [22]Apache 2.0
+        3.4. [23]mod_auth_ldap
+        3.5. [24]Tanúsítvány adatbázis az LDAPS:// részére
+        3.6. [25]PHP
+
+   4. [26]A WebDAV szolgáltatások telepítése és beállítása
+
+        4.1. [27]Módosítások az /usr/local/apache/conf/httpd.conf fájlban
+        4.2. [28]Egy DAVLockDB könyvtár létrehozása
+        4.3. [29]A DAV engedélyezése
+        4.4. [30]Egy "DAVtest" nevû könyvtár létrehozása
+        4.5. [31]Az Apache újraindítása
+        4.6. [32]A WebDAV protokoll tesztelése
+
+   5. [33]A WebDAV szerver üzemeltetése
+
+        5.1. [34]A DAV megosztott hozzáférésének korlátozása
+        5.2. [35]Írás jog korlátozása DAV megosztás alatt
+
+   6. [36]Az SSL megvalósítása és használata a HTTP forgalom
+          biztonságossá tételére
+
+        6.1. [37]Az SSL bemutatása
+        6.2. [38]Teszt tanúsítványok
+        6.3. [39]Tanúsítványok "üzemi" használatra
+        6.4. [40]Hogyan generálhatsz a CSR-t?
+        6.5. [41]A szerver titkos kulcsának és tanúsítványának telepítése
+        6.6. [42]A jelmondat (passphrase) eltávolítása az RSA titkos
+                kulcsból
+
+        6.7. [43]SSL teljesítménybeállítás
+
+   A. [44]HTTP/HTTPS teljesítménybeállító programok
+   B. [45]Hardveres SSL titkosítási megoldások
+   C. [46]Megbízott tanúsítvány hatóságok (Trusted Certificate
+          Authorities)
+
+   [47]A nyilvános kulcsú titkosítással kapcsolatos szavak gyûjteménye
+
+1. Bevezetés
+
+Jelen dokumentum célja, hogy felépítsünk egy Apache + MySQL + PHP + WebDAV
+-alapú webes alkalmazásszervert, amely LDAP szerverek használatával végzi az
+azonosítást (authentication). A dokumentum felfedi a titkosított LDAP
+tranzakciókezelés egyes részleteit is.
+
+   Megjegyzés Megjegyzés:
+
+
+   Ha bármilyen problémával találkozol az Apache vagy valamely modul
+   telepítésénél, lépj kapcsolatba velem a <[48]saqib@seagate.com> e-mail
+   címen.
+     _________________________________________________________________
+
+1.1. Errõl a dokumentumról
+
+Ez a dokumentum eredetileg 2001-ben készült. Azóta számos frissítés és
+bõvítés történt. Köszönet minden közremûködõnek a frissítésekért és
+javításokért.
+
+Eme dokumentum XML kódja megtalálható a
+[49]http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWT
+O.xml webhelyen.
+
+A dokumentum utolsó változata a
+[50]http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWT
+O.html honlapon található.
+     _________________________________________________________________
+
+1.2. Közremûködõk
+
+Ha szeretnél közremûködni a HOGYAN karbantartásában, letöltheted az XML
+kódot a
+[51]http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWT
+O.xml webhelyrõl, és elküldheted a frissített kódot a saqib@seagate.com
+e-mail címre A SZERZÕK LISTÁJÁBAN ÉS A VÁLTOZÁSOK TÖRTÉNETÉBEN A TE
+NEVEDDEL :). Ez megkönnyíti számomra a kapcsolatfelvételt mindazokkal akik
+frissítették/javították a dokumentumot. Köszönöm.
+     _________________________________________________________________
+
+1.3. Mi az Apache?
+
+Az Apache egy nyílt forráskódú http szerver modern operációs rendszerekre,
+amilyen a UNIX és a Windows NT. Http szolgáltatásokat nyújt a jelenlegi HTTP
+szabványoknak megfelelõen.
+
+Az Apache szabadon/ingyenesen letölthetõ a [52]http://httpd.apache.org/
+webhelyrõl.
+     _________________________________________________________________
+
+1.4. Mi a WebDAV?
+
+A WebDAV egy Web enabled Distributed Authoring and Versioning, vagyis Web
+alapú Elosztott Szerzõi és Változatnyilvántartó rendszer. Együttmûködési
+környezetet biztosít azoknak a felhasználóknak, akik
+szerkesztik/karbantartják egy webszerver fájljait. Technikailag a DAV a http
+protokoll kiterjesztése.
+
+Íme egy rövid leírás a DAV által biztosított bõvítésekrõl:
+
+Felülírási védelem: Zárolási és feloldási mechanizmus az "elveszett
+frissítés" probléma kiküszöbölésére. A DAV protokoll mind a megosztott, mind
+a kizárólagos zárolásokat támogatja.
+
+Tulajdonságok: Meta-adatok (cím, tárgy, készítõ, stb.)
+
+Nevek karbantartása: Fájlok másolása, átnevezése, mozgatása és törlése.
+
+Hozzáférés-szabályozás (Access Control; AC): A hozzáférés korlátozása
+bizonyos erõforrásokhoz. Jelenleg a DAV feltételezi az AC meglétét, és nem
+biztosít túl erõs azonosítási mechanizmust.
+
+Változatnyilvántartás: Dokumentumok revíziójának nyilvántartása. Még nem
+megvalósított.
+     _________________________________________________________________
+
+1.5. Mi a PHP?
+
+A PHP (rekurzív betûszó "PHP: Hypertext Preprocessor"; "PHP: Hiperszöveg
+Elõfeldolgozó") széleskörûen használt, nyíl forráskódú, általános célú
+szkript-nyelv, amely különösen Web-es fejlesztéseknél alkalmazható és
+beágyazható a HTML-be.
+
+A PHP megtalálható a [53]http://www.php.net webhelyen.
+     _________________________________________________________________
+
+1.6. Mi a MySQL?
+
+A MySQL a legnépszerûbb nyílt forráskódú SQL adatbázis-kezelõ, a MySQL AB
+fejleszti, terjeszti és támogatja.
+
+A MySQL adatbázismotor letölthetõ a [54]http://www.MySQL.com/ webhelyrõl.
+     _________________________________________________________________
+
+1.7. Mire van szükségünk?
+
+A cél eléréséhez szükséges eszközök:
+
+    i. C Compiler, például GCC
+   ii. Apache 2 Web szerver
+   iii. LDAP Module az Apache-hoz
+   iv. iPlanet LDAP lib fájlok
+    v. SSL motor
+   vi. PHP
+   vii. MySQL adatbázismotor
+
+   Megjegyzés Megjegyzés:
+
+
+   Mindezen csomagok szabadon hozzáférhetõk és letölthetõk a Net-rõl.
+     _________________________________________________________________
+
+1.8. Feltételezések
+
+A dokumentum feltételezi, hogy a következõk már telepítve vannak a
+rendszereden:
+
+    i. gzip vagy gunzip - megtalálható a [55]http://www.gnu.org webhelyen
+   ii. gcc és GNU make - megtalálható a [56]http://www.gnu.org webhelyen
+     _________________________________________________________________
+
+1.9. Magyar fordítás
+
+A magyar fordítást [57]Kilián Magdolna készítette (2003.03.28). A
+lektorálást [58]Szijjártó László végezte el (2003.07.09). Utoljára [59]Daczi
+(dacas) László frissítette (2003.12.10). A dokumentum legfrissebb változata
+megtalálható a [60]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Követelmények
+
+Le kell töltened és fordítanod (compile) néhány csomagot. Ez a HOGYAN
+elmagyarázza a fordítási folyamatot, de tudnod kell forráskódból telepíteni.
+     _________________________________________________________________
+
+2.1. Alapok
+
+Szükséged van Solarisra/Linuxra és GNU CC fordítóra a gépen. A GNU gnzip és
+GNU tar szintén szükséges.
+     _________________________________________________________________
+
+2.2. Apache 2.0.46
+
+Az Apache egy HTTP szerver, Web-es alkalmazások kiszolgálására használjuk.
+Töltsd le az Apache 2.0.46 forráskódot a
+[61]http://www.apache.org/dist/httpd/ webhelyrõl.
+     _________________________________________________________________
+
+2.3. OpenSSL
+
+Töltsd le az OpenSSL csomagot a [62]http://www.openssl.org/source/
+webhelyrõl. A legutolsó verziót töltsd le. Az OpenSSL telepítést az SSL
+könyvtárak mod_ssl fordítására használjuk Apache-csal, valamint SSL
+bizonyítványok karbantartására a webszerveren. Töltsd le az OpenSSL
+forráskódot gzippelt fájlként a /tmp/downloads könyvtárba.
+     _________________________________________________________________
+
+2.4. iPlanet LDAP programkönyvtár
+
+Töltsd le az iPlanet LDAP SDK csomagot a
+[63]http://wwws.sun.com/software/download/products/3ec28dbd.html honlapról.
+Az iPlanet LDAP SDK csomagot fogjuk használni, mert ez tartalmazza az
+ldaps-hoz szükséges programkönyvtárakat (LDAP az SSL felett).
+     _________________________________________________________________
+
+2.5. mod_auth_ldap
+
+Az mod_auth_ldap csomagot az LDAP támogatás Apache-ba fordítására fogjuk
+használni. Töltsd le a
+[64]http://www.muquit.com/muquit/software/mod_auth_ldap/mod_auth_ldap_apache
+2.html honlapról.
+     _________________________________________________________________
+
+2.6. MySQL adatbázismotor
+
+Töltsd le a soron következõ MySQL csomagot a
+[65]http://www.MySQL.com/downloads/index.html honlapról.
+     _________________________________________________________________
+
+2.7. PHP
+
+Töltsd le a PHP forráskódját a [66]http://www.php.net/downloads.php
+webhelyrõl.
+     _________________________________________________________________
+
+3. Telepítés
+
+Elõször ellenõrizd le néhány telepítési feltétel meglétét, majd kezdd meg
+a telepítést.
+     _________________________________________________________________
+
+3.1. Telepítési feltételek
+
+Az alkalmazásszerver tervünk szerinti telepítéséhez szükségesek az SSL és
+LDAP programkönyvtárak. Az SSL motorra is szüksége van az Apach 2.x-nek, az
+SSL tanúsítványok kezeléséhez/használatához.
+     _________________________________________________________________
+
+3.1.1. iPlanet LDAP SDK
+
+Jelentkezz be root felhasználóként, a su parancs használatával:
+
+$ su -
+
+   Hozzd létre az /usr/local/iplanet-ldap-sdk.5 könyvtárat. Másold az
+   ldapcsdk5.08-Linux2.2_x86_glibc_PTH_OPT.OBJ.tar.gz fájlt a
+   /tmp/downloads könyvtárból az /usr/local/iplanet-ldap-sdk.5
+   könyvtárba.
+# mkdir /usr/local/iplanet-ldap-sdk.5
+# cp /tmp/downloads/ldapcsdk5.08-Linux2.2_x86_glibc_PTH_OPT.OBJ.tar /usr/local/
+iplanet-ldap-sdk.5
+# cd /usr/local/iplanet-ldap-sdk.5
+# tar -xvf ldapcsdk5.08-Linux2.2_x86_glibc_PTH_OPT.OBJ.tar
+
+   Most az összes szükséges iPlanet LDAP lib fájlnak a megfelelõ
+   könyvtárban kell lennie.
+     _________________________________________________________________
+
+3.1.2. OpenSSL motor
+
+Ezután az OpenSSL motort kell telepítened.
+
+Az OpenSSL az SSL/TLS protokoll nyílt forráskódú megvalósítása. Az OpenSSL
+szükséges az SSL tanúsítványok létrehozásához és kezeléséhez a webszerveren.
+A telepítés a lib fájlokhoz is szükséges, ezeket az SSL modul az Apache
+kiszolgálására használja.
+
+Lépj be abba a könyvtárba, ahova az OpenSSL forráskódjának fájljait tetted.
+
+ # cd /tmp/download
+# gzip -d openssl.x.x.tar.gz
+# tar -xvf openssl.x.x.tar
+# cd openssl.x.x
+# make
+# make test
+# make install
+
+   A make install lefutása után az openssl futtatható fájljai az
+   /usr/local/ssl könyvtárban lesznek.
+     _________________________________________________________________
+
+3.2. MySQL
+
+A MySQL telepítése elég egyszerû. A letöltött futtatható állományokat a
+megfelelõ könyvtárba kell tenni.
+
+Kezdetként hozz létre egy user:group csoportot a MySQL démon számára, majd
+másold be a fájlokat a megfelelõ könyvtárakba.
+
+ # groupadd MySQL
+# useradd -g MySQL MySQL
+# cd /usr/local
+# gunzip < /path/to/MySQL-VERSION-OS.tar.gz | tar xvf - 
+# ln -s full-path-to-MySQL-VERSION-OS MySQL
+
+   Ezután futtasd az install_db szkriptet, és állítsd be a fájlok
+   jogosultságait.
+ # cd MySQL
+# scripts/MySQL_install_db
+# chown -R MySQL .
+     _________________________________________________________________
+
+3.2.1. A MySQL indítása
+
+Most indítsd el a MySQL kiszolgálót a telepítés ellenõrzéséhez.
+
+ # bin/MySQLd_safe --user=MySQL &
+
+   Ellenõrizd a MySQL démon futását, a ps -ef parancs használatával. A
+   következõ kimenetnek kell megjelennie:
+# ps -ef | grep MySQL
+root      3237     1  0 May29 ?        00:00:00 /bin/sh bin/safe_MySQLd
+MySQL     3256  3237  0 May29 ?        00:06:58 /usr/local/MySQL/bin/MySQLd --d
+efaults-extra-file=/usr/local/MySQL/data/my.cnf --basedir=/usr/local/MySQL --da
+tadir=/usr/local/MySQL/data --user=MySQL --pid-file=/usr/local/MySQL/data/downl
+oa
+     _________________________________________________________________
+
+3.2.2. A MySQL leállítása
+
+A MySQL kiszolgáló leállításához kövesd az alábbi útmutatást:
+
+# cd /usr/local/MySQL
+# ./bin/MySQLadmin -u root -p shutdown
+     _________________________________________________________________
+
+3.2.3. A Data Directory helyének meghatározása
+
+A MySQL démon minden információt egy "Data Directory" nevû könyvtárban
+tárol. Ha követted a fenti útmutatást, a Data Directory megtalálható az
+/usr/local/MySQL/data könyvtár alatt.
+
+A Data Directory helyének meghatározásához használd a MySQLadmin
+segédprogramot, az alábbi módon:
+
+# /usr/local/MySQL/bin/MySQLadmin variables -u root --password={your_password}
+| grep datadir
+     _________________________________________________________________
+
+3.3. Apache 2.0
+
+Kezdetnek állíts be néhány FLAGS-et a fordító számára.
+
+# export LDFLAGS="-L/usr/local/iplanet-ldap-sdk.5/lib/ -R/usr/local/iplanet-lda
+p-sdk.5/lib/:/usr/local/lib"
+# export CPPFLAGS="-I/usr/local/iplanet-ldap-sdk.5/include"
+
+   Ezután csomagold ki az Apache 2.0 forrásfájljait, és futtasd a
+   configure szkriptet.
+# cd /tmp/download
+# gzip -d httpd-2.0.46.tar.gz 
+# tar -xvf httpd-2.0.46.tar
+# cd httpd-2.0.46
+#./configure --enable-so --with-ssl --enable-ssl --enable-rewrite --enable-dav
+
+   Ezután add ki a make parancsot
+# make
+# make install
+     _________________________________________________________________
+
+3.3.1. Az Apache indítása
+
+# /usr/local/apache2/bin/apachectl start
+     _________________________________________________________________
+
+3.3.2. Az Apache leállítása
+
+# /usr/local/apache2/bin/apachectl stop
+     _________________________________________________________________
+
+3.4. mod_auth_ldap
+
+Csomagold ki a modauthldap_apache2.tar.gz fájlt.
+
+cd /tmp/download
+# gzip -d modauthldap_apache2.tar.gz
+# tar -xvf modauthldap_apache2.tar
+# cd modauthldap_apache2
+
+   Most állítsd be és telepítsd a mod_auth_ldap csomagot.
+# ./configure --with-apxs=/usr/local/apache2/bin/apxs  --with-ldap-dir=/usr/loc
+al/iplanet-ldap-sdk.5/
+# make
+# make install
+     _________________________________________________________________
+
+3.5. Tanúsítvány adatbázis az LDAPS:// részére
+
+Le kell töltened a cert7.db és key7.db adatbázisokat a
+[67]http://www.xml-dev.com/xml/key3.db és
+[68]http://www.xml-dev.com/xml/cert7.db webhelyrõl és el kell helyezned az
+/usr/local/apache2/sslcert/ könyvtárban.
+     _________________________________________________________________
+
+3.6. PHP
+
+Csomagold ki a PHP forrásfájlokat.
+
+gzip -d php-xxx.tar.gz
+tar -xvf php-xxx.tar
+
+   Állítsd be, majd futtasd a make parancsot.
+cd php-xxx
+./configure --with-MySQL --with-apxs=/usr/local/apache2/bin/apxs
+
+   Fordítsd le a forráskódot.
+# make 
+# make install
+
+   Másold a php.ini fájlt a megfelelõ könyvtárba.
+   cp php.ini-dist /usr/local/lib/php.ini
+     _________________________________________________________________
+
+4. A WebDAV szolgáltatások telepítése és beállítása
+
+Ez egy könnyû rész. Ebben a fejezetben engedélyezni fogjuk a WebDAV
+szolgáltatást az Apache egy fõkönyvtárában.
+     _________________________________________________________________
+
+4.1. Módosítások az /usr/local/apache/conf/httpd.conf fájlban
+
+Ellenõrizd a következõ Apache direktívák meglétét az
+/usr/local/apache/conf/httpd.conf fájlban:
+
+  Addmodule mod_dav.c
+
+   Amennyiben nincs benne, add hozzá. Ez jelzi az Apache számára a DAV
+   képesség meglétét. A direktívát mindenképp konténeren (container)
+   kívül kell elhelyezni.
+
+   Ezt követõen meg kell adnod azt, hogy az Apache hol tárolja a
+   DAVLockDB fájlt. Ez egy zárolási adatbázis a WebDAV-hoz, ezt írhatóvá
+   kell tenned a httpd processz számára.
+
+   A DAVLock fájlt én az /usr/local/apache/var könyvtárban tárolom. Én
+   ezt a könyvtárat más célokra is használom. Add hozzá a következõ sort
+   az /usr/local/apache/conf/httpd.conf fájlhoz, annak meghatározásához,
+   hogy a DAVLockDB fájl az /usr/local/apache/var könyvtárban van:
+
+     DAVLockDB      /usr/local/apache/var/DAVLock
+
+   Az utasítást a tárolón kívül helyezd el.
+     _________________________________________________________________
+
+4.2. Egy DAVLockDB könyvtár létrehozása
+
+Mint fent említettem, egy könyvtárat kell létrehoznod a DAVLockDB fájl
+számára, majd írhatóvá kell tenned a webszerver folyamat számára. Általában
+a webszerver folyamat "nobody" felhasználói néven fut. Ellenõrizd ezt a
+következõ parancs használatával:
+
+ps -ef | grep httpd
+
+Az /usr/local/apache alatt hozz létre egy könyvtárat, és állítsd be a
+hozzáférési jogokat, a következõ parancsok használatával:
+
+  # cd /usr/local/apache
+  # mkdir var
+  # chmod -R 755 var/
+  # chown -R nobody var/
+  # chgrp -R nobody var/
+     _________________________________________________________________
+
+4.3. A DAV engedélyezése
+
+A DAV engedélyezése pofonegyszerû. Az Apache fõkönyvtára alatti könyvtár
+DAV engedélyezéséhez, add hozzá annak a bizonyos könyvtárnak a tárolójához a
+következõ direktívát:
+
+  DAV On
+
+   Ez engedélyezi a DAV-ot arra a könyvtárra és alkönyvtáraira.
+
+   A következõ példa beállítás engedélyezi a DAV és LDAP
+   azonosítást/hitelesítést az /usr/local/apache/htdocs/DAVtest
+   könyvtárra. Rakd be az /usr/local/apache/conf/httpd.conf fájlba.
+ DavLockDB /tmp/DavLock
+<Directory "/usr/local/apache2/htdocs/DAVtest">
+Options Indexes FollowSymLinks
+AllowOverride None
+order allow,deny
+allow from all
+AuthName "SMA Development server"
+AuthType Basic
+LDAP_Debug On
+#LDAP_Protocol_Version 3
+#LDAP_Deref NEVER
+#LDAP_StartTLS On
+LDAP_Server you.ldap.server.com
+#LDAP_Port 389
+# Ha az SSL aktív, meg kell adnod az LDAP SSL portot, ez általában 636
+LDAP_Port 636
+LDAP_CertDbDir /usr/local/apache2/sslcert
+Base_DN "o=SDS"
+UID_Attr uid
+DAV On
+#require valid-user
+require valid-user
+#require roomnumber "123 Center Building"
+#require filter "(&(telephonenumber=1234)(roomnumber=123))"
+#require group cn=rcs,ou=Groups
+</Directory>
+     _________________________________________________________________
+
+4.4. Egy "DAVtest" nevû könyvtár létrehozása
+
+Mint egy korábbi részben említettem, minden DAV könyvtárnak írhatónak kell
+lennie a webszerver folyamat által. Ebben a példában feltételezzük, hogy a
+webszerver "nobody" név alatt fut. Ez az általános. A felhasználó
+megtekintéséhez (akinek neve alatt a webszerver fut) használd a
+
+# ps -ef | grep httpd
+
+   parancsot.
+
+   Hozz létre egy tesztkönyvtárat "DAVtest" néven az
+   /usr/local/apache2/htdocs könyvtár alatt:
+
+   # mkdir /usr/local/apache/htdocs/DAVtest
+
+   Változtasd meg a hozzáférési jogokat a könyvtárban, az legyen
+   írható-olvasható a httpd folyamat számára. Feltételezve, hogy a httpd
+   "nobody" felhasználónév alatt fut, használd a következõ parancsokat:
+  # cd /usr/local/apache/htdocs
+  # chmod -R 755 DAVtest/
+  # chown -R nobody DAVtest/
+  # chgrp -R nobody DAVtest/
+     _________________________________________________________________
+
+4.5. Az Apache újraindítása
+
+Végül le kell futtatnod az Apache-hoz mellékelt konfigurációs tesztrutint, a
+httpd.conf fájl szintaxisának ellenõrzéséhez:
+
+# /usr/local/apache/bin/apachectl configtest
+
+   Ha hibaüzenetet kapsz, akkor ellenõrizd le, hogy minden utasítást
+   helyesen követtél-e. Ha nem tudod kitalálni a hiba okát, írj nekem (a
+   hibaüzenetet is írd meg) a [69]saqib@seagate.com e-mail címre.
+
+   Ha a konfiguráció tesztje sikeres, indítsd el az Apache webszervert:
+
+   # /usr/local/apache/bin/apachectl restart
+
+   Most van egy WebDAV engedélyezett Apache szervered LDAP hitelesítéssel
+   és SSL titkosítással.
+     _________________________________________________________________
+
+4.6. A WebDAV protokoll tesztelése
+
+Nagyon fontos, hogy a most telepített WebDAV teljesen összhangban legyen a
+WebDAV-2 protokollal. Ha nem teljesen kompatibilis, akkor a WebDAV
+alkalmazások kliens oldala nem fog rendesen mûködni.
+
+A kompatibilitás teszteléséhez a Litmus nevû eszközt használjuk. A Litmus a
+WebDAV protokoll tesztelõje, amely azt vizsgálja, hogy összhangban van-e
+egy szerver az RFC2518-ben leírt WebDAV protokollal.
+
+Töltsd le a Litmus forráskódját a [70]http://www.webdav.org/neon/litmus/
+webhelyrõl, majd másold be a /tmp/downloads könyvtárba.
+
+Használd a gzip és tar programokat a kicsomagoláshoz:
+
+# cd /tmp/downloads
+# gzip -d litmus-0.6.x.tar.gz
+# tar -xvf litmus-0.6.x.tar
+# cd litmus-0.6.x
+
+   A Litmus fordítása és telepítése egyszerû:
+# ./configure
+# make
+# make install
+
+   A make install parancs a bináris fájlokat az /usr/local/bin, a súgó
+   fájljait pedig az /usr/local/man könyvtárba teszi.
+
+   A most telepített WebDAV szerver teszteléséhez használd a
+   # /usr/local/bin/litmus http://you.dav.server/DAVtest userid passwd
+
+   parancsot.
+     _________________________________________________________________
+
+5. A WebDAV szerver üzemeltetése
+
+Ebben a részben megvitatjuk a különbözõ kezelési feladatokat - például LDAP
+belépés ellenõrzése, és hogyan dolgozunk Apache-on DAV módszerrel.
+
+A legtöbb konfigurációs változást a DAV-hoz a httpd.conf fájl használatával
+tesszük. Ez a fájl az /usr/local/apache/conf/httpd.conf könyvtárban
+található.
+
+A httpd.conf egy szöveges konfigurációs fájl, amelyet az Apache használ.
+Szerkesztéséhez bármely szövegszerkesztõt használhatsz, én leginkább a vi-t
+szoktam. Készíts egy másolatot errõl a fájlról, mielõtt megváltoztatod.
+
+Miután a httpd.conf fájlban elvégezted a változtatásokat, az Apache szervert
+újra kell indítanod az /usr/local/apache/bin/apachectl restart paranccsal.
+Mielõtt újraindítanád, teszteld a httpd.conf érvényességét az
+/usr/local/apache/bin/apachectl configtest paranccsal.
+     _________________________________________________________________
+
+5.1. A DAV megosztott hozzáférésének korlátozása
+
+Az elõzõ részben, amikor létrehoztuk a DAVtest megosztást, az LDAP-ot
+hitelesítési célból használtuk. Azonban bárki, aki hitelesíti magát, az
+LDAP- ot használva a felhasználói azonosítójával/jelszavával, hozzáférhet
+ahhoz a mappához.
+
+A require direktíva használatával a httpd.conf fájlban limitálhatod adott
+egyének vagy csoportok hozzáférését.
+
+Ha megnézed a DAVtest konfigurációt az elõzõ részbõl :
+
+  <Directory /usr/local/apache/htdocs/DAVtest>
+  Dav On
+  #Options Indexes FollowSymLinks
+
+  AllowOverride None
+  order allow,deny
+  allow from all
+  AuthName "LDAP_userid_password_required"
+  AuthType Basic
+  <Limit GET PUT POST DELETE PROPFIND PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
+  Require valid-user
+  </Limit>
+  LDAP_Server ldap.server.com
+  LDAP_Port 389
+  Base_DN "o=ROOT"
+
+  UID_Attr uid
+  </Directory>
+
+Láthatod, hogy a require direktíva értéke valid-user. Ami azt jelenti, hogy
+bármely hitelesített felhasználónak hozzáférése van ahhoz a mappához.
+     _________________________________________________________________
+
+5.1.1. Hozzáférés korlátozása egyéni UID alapján
+
+LDAP UID-t is használhatjuk a DAV mappa hozzáférésének korlátozására.
+
+A require valid-user direktíva megváltoztatható require user 334455 445566
+értékre.
+
+Ez a 334455 és 445566 UID-vel rendelkezõ felhasználókra korlátozza a
+hozzáférést. Senki másnak nem lesz hozzáférése ehhez a mappához.
+     _________________________________________________________________
+
+5.1.2. Hozzáférés korlátozása csoportok tagjai számára
+
+A require direktívát használhatod csoportok tagjai hozzáférésének
+korlátozására. Ezt megteheted az LDAP csoportok vagy az LDAP szûrõk
+használatával. A szûrõt az LDAP filter szintaxis szerint kell felépíteni.
+     _________________________________________________________________
+
+5.2. Írás jog korlátozása DAV megosztás alatt
+
+Lehetséges a DAV megosztások forrásainak szerkesztését bizonyos személyekre
+korlátozni, mindemellett bárki megnézheti ezeket az erõforrásokat (például
+fájlokat - dacas). Ezt könnyen teheted a <Limit> címke használatával a
+httpd.conf fájlban.
+
+  <Directory /usr/local/apache/htdocs/DAVtest>
+  Dav On
+  #Options Indexes FollowSymLinks
+
+  AllowOverride None
+  order allow,deny
+  allow from all
+  AuthName "LDAP_userid_password_required"
+  AuthType Basic
+  <Limit GET PUT POST DELETE PROPFIND PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
+  Require valid-user
+  </Limit>
+  LDAP_Server ldap.server.com
+  LDAP_Port 389
+  Base_DN "o=ROOT"
+
+  UID_Attr uid
+  </Directory>
+
+   A <limit> megváltoztatásával korlátozhatod adott személy írási jogát:
+  <Limit PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
+  Require 334455
+  </Limit>
+
+   Alapvetõen korlátozzuk a 334455 UID-vel rendelkezõ felhasználó PUT
+   POST DELETE PROPPATH MKCOL COPY MOVE LOCK és az UNLOCK jogát. Mindenki
+   más képes lesz használni a GET és PROPFIND módszert a forrásokon, de
+   mást nem.
+     _________________________________________________________________
+
+6. Az SSL megvalósítása és használata a HTTP forgalom biztonságossá tételére
+
+Manapság a fájlszerveren tárolt adatok biztonsága nagyon fontos. A
+kompromittált adatok több ezer dollárba is kerülhetnek egy társaságnak. Az
+utolsó részben LDAP hitelesítési modult fordítottunk az Apache-ba, hogy
+biztosítsuk a hitelesítési mechanizmust. Bár a HTTP forgalom nem igazán
+biztonságos, és minden adat tiszta szövegként jelenik meg - ez azt jelenti,
+hogy az LDAP hitelesítés (userid/passwd) ugyancsak tiszta szövegként megy
+át. Ez problémát okozhat. Bárki kutathat ezen userid/passwd párosok után és
+hozzáférhet a DAV állományhoz. Ennek megelõzéséhez titkosítanunk kell a
+HTTP forgalmat, valójában a HTTP+SSL vagy HTTPS segítségével. Bármi, ami
+átmegy a HTTPS-en, titkosított lesz, így az LDAP userid/passwd-ben nem
+kutakodhatnak. A HTTPS a 443-as porton fut. Az elõzõ rész fordítási
+folyamatának eredményeként az Apache mindkét porton, a 80-ason (normál HTTP)
+és 443-ason (HTTPS) is fut. Ha csak a DAV-hoz használod majd a szervert,
+akkor nagyon ajánlott bezárni a 80-as portot. A HOGYAN ezen részében néhány
+információt nyújtok az SSL-rõl és annak üzemeltetésérõl egy Apache HTTP
+szerveren.
+     _________________________________________________________________
+
+6.1. Az SSL bemutatása
+
+Az SSL (Secure Socket Layer; Biztonsági Alréteg) egy protokoll réteg, amely
+a hálózati (Network layer) és az alkalmazási rétegek (Application layer)
+között van. Mint neve is sugallja, az SSL mindenféle forgalom titkosítására
+használható - LDAP, POP, IMAP és legfõképp HTTP.
+
+Íme egy végletekig leegyszerûsített ábra az SSL-el kapcsolatban álló
+rétegekrõl.
+
+        +-------------------------------------------+
+        |   LDAP   |    HTTP    |   POP   |   IMAP  |
+        +-------------------------------------------+
+        |                   SSL                     |
+        +-------------------------------------------+
+        |      Hálózati réteg (Network Layer)       |
+        +-------------------------------------------+
+     _________________________________________________________________
+
+6.1.1. Az SSL-ben használt titkosító algoritmusok
+
+Háromféle titkosítási technológiát használnak az SSL-ben: "nyilvános-titkos
+kulcs" (Public-Private Key), "szimmetrikus kulcs" (Symmetric Key), és
+[71]"digitális aláírás" (Digital Signature).
+
+"Nyilvános-titkos kulcs" titkosítás - SSL kapcsolat indítása: Ebben az
+algoritmusban a titkosítás és a visszafejtés nyilvános-titkos kulcspárral
+történik. A webszerveré a titkos kulcs, a nyilvános kulcsot pedig a
+tanúsítványban küldi el a kliensnek.
+
+    1. A kliens kéri a HTTPS-t használó Web szervertõl a tartalmat.
+    2. A web szerver válaszol egy Digitális Tanúsítvánnyal (Digital
+       Certificate), amiben benne van a szerver nyilvános kulcsa.
+    3. A kliens ellenõrzi, hogy lejárt-e a tanúsítvány.
+    4. Ezután a kliens ellenõrzi, hogy a tanúsítvány hatóság
+       (Certificate Authority; továbbiakban CA), amely aláírta a
+       tanúsítványt, megbízott hatóság-e a böngészõ listáján. Ez a
+       magyarázata annak, miért van szükségünk egy megbízott CA-tól
+       kapott tanúsítványra.
+    5. A kliens ellenõrzi, hogy a webszerver teljes domain neve (Fully
+       Qualified Domain Name) megegyezik-e a tanúsítványon lévõ
+       közönséges névvel (Common Name).
+    6. Ha minden megfelelõ, létrejön az SSL kapcsolat.
+
+   Megjegyzés Megjegyzés:
+
+
+   Bármi, amit titkos kulccsal titkosítottak, kizárólag a nyilvános
+   kulccsal fejthetõ vissza. Ennek megfelelõen, bármilyen nyilvános
+   kulccsal titkosított dolog, kizárólag a titkos kulccsal fejthetõ
+   vissza. Elterjedt az a tévhit, miszerint kizárólag nyilvános kulccsal
+   lehet titkosítani és titkos kulccsal visszafejteni. Ez nem így van.
+   Bármelyik kulcs használható titkosításra és visszafejtésre egyaránt
+   (ha annak párját használják visszafejtésre és titkosításra - dacas).
+   Végül is, ha az egyik kulcsot használták titkosításra, a másikat kell
+   használni a visszafejtésre stb. Egy üzenet nem titkosítható és
+   visszafejthetõ kizárólag a nyilvános kulcs használatával.
+
+   A titkos kulccsal történõ titkosítás és a nyilvános kulccsal történõ
+   visszafejtés biztosíték a címzetteknek arról, hogy a küldeményt a
+   küldõ (a titkos kulcs tulajdonosa) adta fel (mivel a titkos kulcs
+   használatához szükséges jelmondatot csak Õ ismeri - dacas). A
+   nyilvános kulccsal történõ titkosítás és titkos kulccsal visszafejtés
+   biztosítja azt, hogy a küldeményt csak a meghatározott címzett (a
+   titkos kulcs tulajdonosa) képes visszafejteni.
+
+   Szimmetrikus titkosítás - az adatok tulajdonképpeni átvitele: Miután
+   az SSL kapcsolat létrejött, szimmetrikus titkosítást használ az adatok
+   titkosítására, kevesebb CPU ciklust felhasználva (tehát kevésbé
+   erõforrásigényes - a lektor). Szimmetrikus titkosításkor az adat
+   ugyanazzal a kulccsal titkosítható és visszafejthetõ. A szimmetrikus
+   titkosítás kulcsa a kapcsolat indításakor kerül átadásra, a
+   nyilvános-titkos kulcspárral történõ titkosítás alatt.
+
+   Üzenet ellenõrzés A szerver kivonatot készít az üzenetrõl valamilyen
+   algoritmus szerint, mint például [72]HMAC, [73]SHA, [74]MD5, majd ezek
+   alapján ellenõrzi az adatok sértetlenségét.
+     _________________________________________________________________
+
+6.1.2. A hitelesség és sértetlenség ellenõrzése
+
+Titkosítási folyamat
+
+             Feladó                  Címzett
+          titkos kulcsa          nyilvános kulcsa
+          ,-.                     ,-.
+         (   )..........         (   )..........
+          `-' ''''|'|'||          `-' ''''''''||
+                  | |                    |
+                  | |                    |
+   .-----------.  | |    .-----------.   |     .-----------.
+   |           |  V |    |Titkosított|   V     |Titkosított|
+   |Sima szöveg|-------->|  szöveg   |-------->|  szöveg   |
+   |           |1. lépés |    1      |2. lépés |    2      |\
+   `-----------'    |    `-----------'          `----------' \    __
+         |          |                                         \   [_'
+         |          |                                  5. lépés\   |
+         |3. lépés  |                                       __   --|--
+         |          |                                  _.--'       |
+         V          |                            _..-''           / \
+    .----------.    |                      _..-''               Címzett
+    |  SHA 1   |    V    .---------._..-''
+    | Üzenet   |-------->|Digitális|
+    | kivonat  | 4. lépés| aláírás |             _
+    `----------'         `---------'         _  (_)
+        _____ ____   ____  ____ _   _ ____ _| |_ _  ___  ____
+       | ___ |  _ \ / ___)/ ___) | | |  _ (_   _) |/ _ \|  _ \
+       | ____| | | ( (___| |   | |_| | |_| || |_| | |_| | | | |
+       |_____)_| |_|\____)_|    \__  |  __/  \__)_|\___/|_| |_|
+                               (____/|_|
+
+     * 1. lépés: az eredeti "sima szöveg" titkosítása a feladó titkos
+       kulcsának használatával, ennek eredménye a "titkosított szöveg 1".
+       Ez biztosítja a feladó hitelességét.
+     * 2. lépés: a "titkosított szöveg 1" titkosítása a címzett nyilvános
+       kulcsával, ennek eredménye a "titkosított szöveg 2". Ez biztosítja
+       a címzett hitelességét (értsd: csak a címzett tudja visszafejteni
+       a szöveget a saját titkos kulcsával).
+     * 3. lépés: az SHA1 üzenet kivonat (ellenõrzõ összeg - dacas)
+       készítése a "sima szöveg" alapján.
+     * 4. lépés: SHA1 üzenet kivonat titkosítása a feladó titkos
+       kulcsával, ennek eredménye a "sima szöveg" digitális aláírása. Ezt
+       a digitális aláírást a címzett felhasználhatja az üzenet
+       sértetlenségének és a feladó hitelességének ellenõrzésére.
+     * 5. lépés: a "digitális aláírás" és a "titkosított szöveg 2"
+       elküldése a címzettnek.
+
+   Visszafejtési folyamat
+           Címzett                   Feladó
+        titkos kulcsa            nyilvános kulcsa
+         ,-.                     ,-.
+        (   )..........         (   )..........
+         `-' ''''''''||          `-' '''''''|||
+                |                      |    |
+                |                      |    |
+  .-----------. |      .-----------.   |    | .-----------.        .----#1----.
+  |Titkosított| V      |Titkosított|   V    | |           |        |  SHA 1   |
+  |  szöveg   |------->|  szöveg   |--------->|Sima szöveg|------->| Üzenet   |
+  |    2      |1. lépés|     1     |2. lépés| |           |3. lépés|  kivonat |
+  `-----------'        `-----------'        | `-----------'        `----------'
+                                            |                        ||
+                                            |                        ||5. lépés
+                                            |                        ||
+                                            |                        ||
+                               .---------.  |                    .----------.
+                               |Digitális|  V                    |  SHA 1   |
+                               | aláírás |---------------------->| Üzenet   |
+                 _             `---------'  4. lépés  _          | kivonat  |
+                | |                               _  (_)         `----#2----'
+              __| |_____  ____  ____ _   _ ____ _| |_ _  ___  ____
+             / _  | ___ |/ ___)/ ___) | | |  _ (_   _) |/ _ \|  _ \
+            ( (_| | ____( (___| |   | |_| | |_| || |_| | |_| | | | |
+             \____|_____)\____)_|    \__  |  __/  \__)_|\___/|_| |_|
+                                    (____/|_|
+
+     * 1. lépés: a "titkosított szöveg 2" visszafejtése a címzett titkos
+       kulcsának használatával, ennek eredménye a "titkosított szöveg 1".
+     * 2. lépés: a "titkosított szöveg 1" visszafejtése a feladó
+       nyilvános kulcsának használatával, ennek eredménye a "sima
+       szöveg".
+     * 3. lépés: SHA1 üzenet kivonat (ellenõrzõ összeg - dacas)
+       elkészítése, az elõzõ 2 lépés eredményeként kapott "sima szöveg"
+       alapján.
+     * 4. lépés: a "digitális aláírás" visszafejtése a feladó nyilvános
+       kulcsának használatával, ennek eredménye az "SHA1 üzenet kivonat".
+     * 5. lépés: az "SHA üzenet kivonat #1" és "SHA üzenet kivonat #2"
+       összehasonlítása. Amennyiben a kettõ egyezik, úgy az üzenet nem
+       módosult az átvitel alatt, így az eredeti "sima szöveg" sértetlen.
+     _________________________________________________________________
+
+6.2. Teszt tanúsítványok
+
+Az Apache fordítása közben létrehoztunk egy teszt tanúsítványt. A mod-ssl
+csomagban lévõ makefile programot használtuk az egyéni Tanúsítvány
+létrehozásához. Erre a
+
+# make certificate TYPE=custom
+
+parancsot használtuk.
+
+   Ezt a tanúsítványt tesztelési célokra használhatjuk.
+     _________________________________________________________________
+
+6.3. Tanúsítványok "üzemi" használatra
+
+"Üzemi" használathoz szükségünk lesz egy tanúsítványra valamely Certificate
+Authority-tól (tanúsítvány hatóság) (ezentúl CA). A CA-k a tanúsítványt
+áruba bocsátók, akik egy megbízható CA listán vannak a felhasználó böngészõ
+kliensében. Mint azt az algoritmus titkosítás részben említettem, ha a CA
+nincs a megbízott hatóságok listáján, a felhasználó figyelmeztetõ üzenetet
+kap, amikor megpróbál kapcsolódni egy biztosított/biztonságos helyhez.
+
+Hasonlóan a teszt tanúsítványokhoz, ez is küld egy figyelmeztetõ üzenetet a
+felhasználó böngészõjének.
+     _________________________________________________________________
+
+6.4. Hogyan generálhatsz a CSR-t?
+
+A CSR (TAK) vagy Certificate Signing Request-et (tanúsítvány aláírási
+kérelem) el kell küldeni egy megbízott CA-nak aláírásra. Ez a rész
+foglalkozik azzal, hogyan generálhatsz CSR-t és küldheted el egy általad
+kiválasztott CA-nak. Az # openssl req parancs használható erre, az alábbiak
+szerint:
+
+# cd /usr/local/apache/conf/
+# /usr/local/ssl/bin/openssl req -new -nodes -keyout private.key -out public.cs
+r
+Generating a 1024 bit RSA private key
+............++++++
+....++++++
+writing new private key to 'private.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:California
+Locality Name (eg, city) []:San Jose
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Seagate
+Organizational Unit Name (eg, section) []:Global Client Server
+Common Name (eg, YOUR name) []:xml.seagate.com
+Email Address []:saqib@seagate.com
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:badpassword
+An optional company name []:
+
+   Megjegyzés "PRNG not seeded" üzenet
+
+
+   Ha nincs /dev/random könyvtár a rendszerünkön, "PRNG not seeded"
+   hibaüzenetet kapsz. Ebben az esetben add ki a következõ parancsot:
+# /usr/local/ssl/bin/openssl req -rand some_file.ext -new -nodes -keyout privat
+e.key -out public.csr 
+
+   A "some_file.ext" részt cseréljük ki egy rendszerünkön létezõ fájl
+   nevére. Bármilyen fájlt megadhatunk. Az Openssl ezt fogja véletlen
+   szám generáláshoz használni.
+
+   A Solaris 9 rendszer részeként adnak /dev/random fájlt. Amennyiben
+   Solaris rendszert használsz, elképzelhetõ, hogy telepítened kell a
+   [75]112438 foltot a /dev/random fájl használatához.
+
+   Ezen a ponton pár kérdést tesz fel a szerver helyérõl, hogy
+   generálhassa a Certificate Signing Request-et.
+
+   Megjegyzés: A közönséges neved (Common Name) a teljes DNS neve (Fully
+   Qualified DNS) a webszerverednek, például dav.server.com. Ha mást írsz
+   oda, akkor NEM fog mûködni. Jegyezd meg a használt jelszót, a
+   jövõbeli használat érdekében.
+
+   Mihelyst befejezõdött a folyamat, lesz egy private.key és egy
+   public.csr fájlod. Szükséged lesz a public.csr fájlt bemutatnunk a
+   CA-nak. Ekkor a public.key fájl még nem titkosított. A titkosításhoz
+   használd az
+ # mv private.key private.key.unecrpyted
+# /usr/local/ssl/bin/openssl rsa -in private.key.unecrpyted -des3 -out private.
+key
+
+   parancsokat.
+     _________________________________________________________________
+
+6.5. A szerver titkos kulcsának és tanúsítványának telepítése
+
+Miután a CA feldolgozta a kérésed, visszaküldenek egy kódolt tanúsítványt. A
+Digitális Tanúsítvány formátumát az X.509 v3 szabvány határozza meg. A
+következõkben látható egy tipikus, X509 v3 szabvány szerinti Digitális
+Tanúsítvány felépítése:
+
+     * Certificate
+          + Version
+          + Serial Number
+          + Algorithm ID
+          + Issuer
+          + Validity
+          +
+               o Not Before
+               o Not After
+          + Subject
+          + Subject Public Key Info
+          +
+               o Public Key Algorithm
+               o RSA Public Key
+          + Extensions
+     * Certificate Signature Algorithm
+     * Certificate Signature
+     _________________________________________________________________
+
+6.5.1. Egy Digitális Tanúsítvány ellenõrzése
+
+Egy X.509 Tanúsítvány ellenõrzésére használd a következõ parancsot:
+
+# openssl verify server.crt
+ server.crt: OK
+
+   Ahol a server.crt a Digitális Tanúsítványt tartalmazó fájl neve.
+     _________________________________________________________________
+
+6.5.2. Egy Digitális Tanúsítvány tartalmának megtekintése
+
+Egy Digitális Tanúsítvány tartalma megtekinthetõ a # openssl x509 parancs
+használatával, az alábbiak szerint:
+
+# openssl x509 -text -in server.crt
+ Certificate:
+     Data:
+         Version: 3 (0x2)
+         Serial Number: 312312312 (0x0)
+         Signature Algorithm: md5WithRSAEncryption
+        Issuer: C=US, O=GTE Corporation, CN=GTE CyberTrust Root
+         Validity
+             Not Before: Feb  8 03:25:50 2000 GMT
+             Not After : Feb  8 03:25:50 2001 GMT
+            Subject: C=US, ST=New York, L=Pelham, O=xml-dev, OU=web, CN=www.xml
+-dev.com/Email=saqib@xml-dev.com
+         Subject Public Key Info:
+             Public Key Algorithm: rsaEncryption
+             RSA Public Key: (1024 bit)
+                 Modulus (1024 bit):
+                ............
+                ............
+                 Exponent: 65537 (0x10001)
+     Signature Algorithm: md5WithRSAEncryption
+        ............
+        ............
+
+     _________________________________________________________________
+
+6.5.3. A httpd.conf fájl módosítása a tanúsítványok telepítéséhez
+
+Ezt kell elhelyezned a szerveren, és beállítanod az Apache-ban ennek helyét.
+
+Például a titkos kulcsot az /usr/local/apache2/conf/ssl.key/ könyvtárba, a
+tanúsítványt pedig az /usr/local/apache2/conf/ssl.crt/ könyvtárba.
+
+Másold le a tanúsítványt egy server.crt nevû fájlba, az
+/usr/local/apache2/conf/ssl.crt/ könyvtárba.
+
+Az elõzõ lépésben generált private.key fájlt helyezd az
+/usr/local/apache2/conf/ssl.key/ könyvtárba
+
+Ezután módosítsd az /usr/local/apache2/conf/ssl.conf fájlt, hogy a
+megfelelõ titkos kulcsra és tanúsítványra mutasson:
+
+#   Server Certificate:
+#   Point SSLCertificateFile at a PEM encoded certificate.  If
+#   the certificate is encrypted, then you will be prompted for a
+#   pass phrase.  Note that a kill -HUP will prompt again.  Keep
+#   in mind that if you have both an RSA and a DSA certificate you
+#   can configure both in parallel (to also allow the use of DSA
+#   ciphers, etc.)
+SSLCertificateFile /usr/local/apache2/conf/ssl.crt/server.crt
+#SSLCertificateFile /usr/local/apache2/conf/ssl.crt/server-dsa.crt
+
+#   Server Private Key:
+#   If the key is not combined with the certificate, use this
+#   directive to point at the key file.  Keep in mind that if
+#   you've both a RSA and a DSA private key you can configure
+#   both in parallel (to also allow the use of DSA ciphers, etc.)
+SSLCertificateKeyFile /usr/local/apache2/conf/ssl.key/private.key
+#SSLCertificateKeyFile /usr/local/apache2/conf/ssl.key/server-dsa.key
+     _________________________________________________________________
+
+6.6. A jelmondat (passphrase) eltávolítása az RSA titkos kulcsból
+
+A webszerveren tárolt RSA titkos kulcs általában titkosított, ezért
+szükséged van egy jelmondatra a használatához. Ezért kér jelmondatot, mikor
+az Apache-ot modssl-el indítod:
+
+# apachectl startssl
+Apache/1.3.23 mod_ssl/2.8.6 (Pass Phrase Dialog)
+Some of your private key files are encrypted for security reasons.
+In order to read them you have to provide us with the pass phrases.
+Server your.server.dom:443 (RSA)
+Enter pass phrase:
+
+   Az RSA titkos kulcs titkosítása nagyon fontos. Ha valaki megkaparintja
+   a "titkosítatlan RSA titkos kulcsot", akkor könnyen eltulajdoníthatja
+   a webszervert. Ha a kulcs titkosított, az illetõ nem tud semmit tenni
+   a jelmondat nélkül, hacsak "nyers erõvel" (brute force) fel nem töri.
+   Használj erõs (értsd: hosszú és értelmetlen) jelmondatot erre a
+   célra.
+
+   A kulcs titkosítása néha kellemetlenség forrása is lehet, mivel a
+   webszerver minden indításakor kéri a jelmondatot. Különösen ha rc
+   szkripteket használunk, a webszerver rendszerindításkor történõ
+   betöltéséhez. A jelmondat bekérése problémát okozhat, mivel megállítja
+   a folyamatot, bemenetre vár.
+
+   Könnyen megszabadulhatsz a jelmondattól, ha visszafejted (decrypt) a
+   kulcsot. Bizonyosodj meg arról, hogy senki se szerezheti meg a
+   kulcsot. Vedd figyelembe a biztonsági és védelmi ajánlásokat, mielõtt
+   visszafejted a kulcsot a webszerveren.
+
+   A kulcs visszafejtésének módja:
+
+   Elõször készíts másolatot a titkosított kulcsról
+
+   # cp server.key server.key.cryp
+
+   aztán írd újra a kulcsot titkosítással. Kérni fogja tõled az eredeti
+   titkosított kulcs jelmondatát:
+
+# /usr/local/ssl/bin/openssl rsa -in server.key.cryp -out server.key
+read RSA key
+Enter PEM pass phrase:
+writing RSA key
+
+   Íme egy módja annak, miként biztosíthatod a visszafejtett titkos
+   kulcsot. Így csak a root felhasználó olvashatja:
+   # chmod 400 server.key
+     _________________________________________________________________
+
+6.7. SSL teljesítménybeállítás
+
+6.7.1. Munkafolyamatok közötti SSL részfolyamat-gyorstár (Inter Process SSL
+Session Cache)
+
+Az Apache többfolyamatos modellt használ, amelyben NEM ugyanaz a
+munkafolyamat foglalkozik az összes kéréssel. Ennek eredményeként az SSL
+részfolyamat adatai (Session Information) elvesznek, mikor a kliens
+többszörös kéréssel fordul a szerverhez. A többszörös kapcsolódás nagy
+többletterhelést jelent a webszervernek és a kliensnek. Ennek elkerülésére
+az SSL részfolyamatok adatai egy munkafolyamatok közötti részfolyamat-tárban
+tárolódnak, ez lehetõvé teszi a munkafolyamatok számára a kapcsolódási
+adatokhoz való hozzáférést. Az SSLSessionCache kapcsoló az
+/usr/local/apache2/conf/ssl.conf fájlban van, itt határozhatod meg az SSL
+részfolyamat-gyorstár helyét:
+
+SSLSessionCache        shmht:logs/ssl_scache(512000)
+#SSLSessionCache        shmcb:logs/ssl_scache(512000)
+#SSLSessionCache         dbm:logs/ssl_scache
+SSLSessionCacheTimeout  300
+
+   A dbm használata: a logs/ssl_scache DBF hash-fájlt készít gyorstárként
+   a helyi lemezeden.
+
+   A shmht használata: a logs/ssl_scache(512000) a gyorstárat a
+   megosztott memóriában hozza létre.
+
+   Megjegyzés shmht vs shmcb
+
+
+   shmht: egy hash táblát használ az SSL kapcsolódási adatok
+   gyorstárazására a megosztott memóriában.
+
+   shmht: egy ciklikus buffert használ az SSL kapcsolódási adatok
+   gyorstárazására a megosztott memóriában.
+
+   Megjegyzés Megjegyzés:
+
+
+   Nem minden platform/operációs rendszer támogatja hash tábla
+   létrehozását a megosztott memóriában. Ekkor a "dbm:logs/ssl_scache"-t
+   kell használnod helyette.
+     _________________________________________________________________
+
+6.7.2. Az SSLSession gyorstár ellenõrzése
+
+Az SSLSessionCache megfelelõ mûködésének ellenõrzésére az openssl
+segédprogramot használhatod a -reconnect kapcsolóval, mint azt a
+következõkben láthatod:
+
+# openssl s_client -connect your.server.dom:443 -state  -reconnect
+
+CONNECTED(00000003)
+.......
+.......
+Reused, TLSv1/SSLv3, Cipher is EDH-RSA-DES-CBC3-SHA
+SSL-Session:
+.....
+Reused, TLSv1/SSLv3, Cipher is EDH-RSA-DES-CBC3-SHA
+SSL-Session:
+.....
+Reused, TLSv1/SSLv3, Cipher is EDH-RSA-DES-CBC3-SHA
+SSL-Session:
+.....
+Reused, TLSv1/SSLv3, Cipher is EDH-RSA-DES-CBC3-SHA
+SSL-Session:
+.....
+Reused, TLSv1/SSLv3, Cipher is EDH-RSA-DES-CBC3-SHA
+SSL-Session:
+.....
+
+   A -reconnect kapcsoló kényszeríti az "s_client"-et arra, hogy ötször
+   ugyanazzal a SSL munkafolyamat-azonosítóval (SSL session ID)
+   kapcsolódjon a szerverhez. Ötször ugyanannak az SSL
+   munkafolyamat-azonosítónak az újrahasználatát kell látnod, mint a
+   fenti példában.
+     _________________________________________________________________
+
+A. HTTP/HTTPS teljesítménybeállító programok
+
+Íme egy lista, a Web szerverekhez használható, nyílt forrású
+teljesítménybeállító programokról:
+
+    i. [76]SSLswamp - egy SSL-t használó szerverhez csatlakozni képes
+       terhelhetõségi teszt/teljesítménymérõ program
+   ii. [77]HTTPERF - Egy eszköz a Web szerver teljesítményének
+       beméréséhez
+   iii. [78]ab - Apache HTTP szerver teljesítménybeállító program
+     _________________________________________________________________
+
+B. Hardveres SSL titkosítási megoldások
+
+A következõ hardveres SSL titkosítási megoldások érhetõk el:
+
+    i. [79]CHIL (Cryptographic Hardware Interface Library; titkosító
+       hardverek csatolófelületeinek programkönyvtára) az nCipher-tõl
+   ii. [80]ab - Apache HTTP szerver teljesítménybeállító program
+     _________________________________________________________________
+
+C. Megbízott tanúsítvány hatóságok (Trusted Certificate Authorities)
+
+Íme a tanúsítvány hatóságok (Certificate Authorities) listája, amelyeket a
+különbözõ böngészõk megbízhatónak minõsítenek:
+
+    i. [81]Baltimore
+   ii. [82]Entrust
+   iii. [83]GeoTrust
+   iv. [84]Thawte
+    v. [85]TrustCenter
+
+A nyilvános kulcsú titkosítással kapcsolatos szavak gyûjteménye
+
+A
+
+   Asymmetric Cryptography (aszimmetrikus titkosítás)
+          Ez a titkosítás egy kulcspárt - titkos (Private) és nyilvános
+          (Public) kulcsot használ. A titkos kulcsot (Private Key)
+          biztonságos helyen kell tartani, a nyilvános kulcsot (Public
+          Key) pedig széles körben terjeszteni.
+
+C
+
+   Certificate (tanúsítvány)
+          Egy adatjegyzék, amely az [86]X.509 Format-ban szereplõ
+          információkat tartalmazza.
+
+   Certificate Authority (CA) (tanúsítvány hatóság; TH) (CA)
+          A digitális tanúsítvány (Digital Certificate) kibocsátója. Azon
+          végfelhasználó (End-Entity) azonosságát is hitelesíti, amelynek
+          birtokában van a digitális tanúsítvány.
+
+   Certificate Signing Request (CSR) (tanúsítvány aláírási kérelem; TAK)
+          (CSR)
+          A tanúsítvány aláírási kérelem (Certificate Signing Request;
+          CSR) az, ami elküldésre kerül a tanúsítvány hatóságnak
+          (Certifiate Authority; CA) bejegyzésre. Az aláírási kérelem
+          tartalmazza a végfelhasználó (End-Entity) nyílvános kulcsát
+          (Public Key), amelyre a digitális tanúsítványt kérelmezik.
+
+   Common Name (CN) (közönséges név) (CN)
+          A közönséges név (Common Name) a végfelhasználó (End-Entity)
+          neve, például Saqib Ali. Ha a végfelhasználó egy webszerver,
+          akkor ez a webszerver "teljesen képzett domain neve" (Fully
+          Qualified Domain Name; FQDN).
+
+D
+
+   Digital Certificate (digitális tanúsítvány)
+          Egy tanúsítvány kapcsolja a nyilvános kulcsot (Public Key) egy
+          személyhez (Subject; end-entity). Ez a tanúsítvány az [87]X.509
+          Format-ban meghatározott egyéb azonosító információkat is
+          tartalmaz a személyrõl. A kibocsátó CA (tanúsítvány hatóság;
+          TH) aláírásával van ellátva, annak titkos kulcsát használva
+          ehhez a mûvelethez. Íme egy [88]digitális tanúsítvány.
+
+   Digital Signature (digitális aláírás)
+          Egy digitális aláírás (Digital Signature) az üzenetkivonat
+          (Message Digest) titkos kulccsal történõ aláírásával
+          készíthetõ el. Biztosít a küldõ (Sender)
+          (személy)azonosságáról (Identity) és az adat sértetlenségérõl
+          (Integrity of the Data).
+
+E
+
+   End-Entity (végfelhasználó)
+          Egy felhasználó, aki részt vesz a nyilvános kulcsú
+          titkosításban. Általában szerver, szolgáltatás (Service),
+          útválasztó (Router) vagy személy. A tanúsítvány hatóság
+          (Certificate Authority; CA) nem végfelhasználó.
+
+H
+
+   Hash (a titkosítás eredménye)
+          A titkosítás eredménye egy hexadecimális szám, amely egy szöveg
+          karakterláncából lett generálva, ezért két különbözõ
+          karakterlánc nem képes ugyanazt a titkosított eredményt
+          produkálni.
+
+   HMAC: Keyed Hashing for Message Authentication (kulcsos titkosítás
+          üzenethitelesítéshez) (HMAC)
+          A HMAC egy megvalósítása az üzenethitelesítõ-kód algoritmusnak
+          (Message Authentication Code Algorithm).
+
+M
+
+   Message Authentication Code (üzenethitelesítõ-kód) (MAC)
+          Hasonló az üzenetkivonathoz (Message Digest; Hash/Fingerprint),
+          azzal a különbséggel, hogy a titkosított eredmény
+          kiszámításához a megosztott rejtett kulcs (Shared Secret Key)
+          lett felhasználva. Mivel a rejtett kulcs lett felhasználva,
+          ezért egy támadó nem tudja megváltoztatni az üzenetkivonatot.
+          Mindezek mellett a rejtett kulcsok kell elõször közölni a
+          partnerekkel, ellentétben a digitális aláírással, amelynél az
+          üzenetkivonat a titkos kulccsal (Private Key) van aláírva. A
+          HMAC egy példája az üzenethitelesítõ-kód algoritmusnak.
+
+   Message Digest 5 - MD5 (üzenetkivonat 5) (MD5)
+          Az üzenetkivonat 5 (Message Digest 5; MD5) egy 128 bites
+          egyirányú titkosító függvény.
+
+P
+
+   Private Key (titkos kulcs)
+          A titkos kulcsot - az aszimmetrikus titkosítási rendszerben - a
+          tulajdonosa (End-Entity) biztonságos helyen tartja.
+          Titkosításra és visszafejtésre használható.
+
+   Public Key (nyilvános kulcs)
+          Az aszimmetrikus titkosítás nyilvános kulcsát széles körben
+          terjesztik. Titkosításra és visszafejtésre használható.
+
+   Public Key Infrastructure (PKI) (nyilvános kulcsos rendszer; NYKR)
+          (PKI)
+          Nyilvános kulcsos rendszer.
+
+S
+
+   SHA-1: Secure Hash Algorithm (biztonságos titkosító algoritmus) (MD5)
+          A biztonságos titkosító algoritmus (Secure Hash Algorithm;
+          SHA-1) egy 160 bites egyirányú titkosító függvény. Az üzenet
+          maximális hossza 2^64 bit.
+
+   Secure Socket Layer (SSL) (Biztonsági Alréteg) (SSL)
+          Az SSL egy biztonsági protokoll, amely hitelességet (digitális
+          aláírás), megbízhatóságot (titkosítás) és adatsértetlenséget
+          (üzenet ellenõrzés - MD5, SHA, stb.) biztosít
+
+   Symmetric Cryptography (Szimmetrikus Titkosítás)
+          Ebben a rendszerben az üzenet ugyanazzal a kulccsal
+          titkosítható és visszafejthetõ. (((n^2-n))/2) számú kulcsra
+          van szüksége n felhasználónak, ha ezen módszer szerint akarnak
+          titkosítani.
+
+References
+
+   1. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#intro
+   2. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN62
+   3. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN69
+   4. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN73
+   5. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN78
+   6. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN92
+   7. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN97
+   8. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN102
+   9. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN123
+  10. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN133
+  11. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN140
+  12. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN143
+  13. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN146
+  14. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN150
+  15. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN154
+  16. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN158
+  17. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN162
+  18. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN166
+  19. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN170
+  20. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN173
+  21. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN208
+  22. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN245
+  23. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN271
+  24. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN284
+  25. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN290
+  26. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#config-webdav
+  27. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN310
+  28. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN326
+  29. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN340
+  30. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN350
+  31. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN365
+  32. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN377
+  33. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN402
+  34. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN414
+  35. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN434
+  36. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#ssl
+  37. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN448
+  38. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN512
+  39. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN518
+  40. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN522
+  41. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#InstallingServerCert
+  42. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN625
+  43. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN651
+  44. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN676
+  45. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN689
+  46. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#AEN699
+  47. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#glossary
+  48. mailto:saqib@seagate.com
+  49. http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWTO.xml
+  50. http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWTO.html
+  51. http://www.xml-dev.com:8080/cocoon/mount/docbook/Apache-WebDAV-LDAP-HOWTO.xml
+  52. http://httpd.apache.org/
+  53. http://www.php.net/
+  54. http://www.MySQL.com/
+  55. http://www.gnu.org/
+  56. http://www.gnu.org/
+  57. mailto:souly1@freemail.hu_NO_SPAM
+  58. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+  59. mailto:dacas@freemail.hu_NO_SPAM
+  60. http://tldp.fsf.hu/index.html
+  61. http://www.apache.org/dist/httpd/
+  62. http://www.openssl.org/source/
+  63. http://wwws.sun.com/software/download/products/3ec28dbd.html
+  64. http://www.muquit.com/muquit/software/mod_auth_ldap/mod_auth_ldap_apache2.html
+  65. http://www.MySQL.com/downloads/index.html
+  66. http://www.php.net/downloads.php
+  67. http://www.xml-dev.com/xml/key3.db
+  68. http://www.xml-dev.com/xml/cert7.db
+  69. mailto:saqib@seagate.com
+  70. http://www.webdav.org/neon/litmus/
+  71. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#digitsign
+  72. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#hmac
+  73. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#sha1
+  74. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#md5
+  75. http://sunsolve.sun.com/pub-cgi/findPatch.pl?patchId=112438
+  76. http://distcache.sourceforge.net/
+  77. http://www.hpl.hp.com/personal/David_Mosberger/httperf.html
+  78. http://httpd.apache.org/docs-2.1/en/programs/ab.html
+  79. http://www.ncipher.com/
+  80. http://httpd.apache.org/docs-2.1/en/programs/ab.html
+  81. http://www.baltimore.com/
+  82. http://www.entrust.com/
+  83. http://www.globalsign.net/
+  84. http://www.thawte.com/
+  85. http://www.trustcenter.de/
+  86. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#InstallingServerCert
+  87. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#InstallingServerCert
+  88. file://localhost/home/dacas/temp/Apache-WebDAV-LDAP-HOWTO-hu.html#viewingdigitcertcontent

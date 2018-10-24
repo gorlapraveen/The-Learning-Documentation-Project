@@ -1,0 +1,255 @@
+
+                           Helyspórolás mini-HOGYAN
+
+Írta Guido Gonzato, [1]mailto:guido@ibogeo.df.unibo.it
+
+   v1.0.1, 1999. április 7.
+     _________________________________________________________________
+
+   Ez a mini-HOGYAN elmagyarázza, hogyan lehet a lehetõ lehetõ
+   legkisebb helyre beszorítani egy Linux rendszert. Fõleg notebook
+   felhasználóknak hasznos.
+     _________________________________________________________________
+
+1. Bevezetés
+
+   Kaptam egy notebookot elõtelepített Windows 95 operációs rendszerrel,
+   és felraktam rá egy Linuxot is. Összenyomtam a Windows partícióját 500
+   MB-ra, 240 MB maradt a Linux partíció számára. Ez elég kevésnek
+   tûnik, de mégis sikerült egy eléggé teljes Red Hat 4.1 alapú Linux
+   rendszert rátennem, némi trükközés árán, amivel sok helyet spóroltam
+   meg.
+
+   Ha helyre van szükségünk, a következõ fejezetekben leírt tanácsok
+   megfogadásával elég sok lemezhelyet szabadíthatunk fel. Felhívom a
+   figyelmet, hogy senki ne engem okoljon, ha valami tönkremegy. Jópár
+   olyan programot kell majd használni, amelyek nálam klasszul mûködtek,
+   de természetüknél fogva veszélyesek. Én megmondtam...
+
+2. Szoftverkövetelmények
+
+   Szükség lesz:
+
+     * egy mûködõ Linux rendszerre (bármelyik verzió megfelel);
+     * a széles körben elterjedt gzip tömörítõprogramra, vagy a
+       bzip2-re, ami letölthetõ a
+       [2]ftp://sunsite.unc.edu/pub/Linux/utils/compress webhelyrõl, és
+       jobban tömörít, mint a gzip, de lassabb és rengeteg memóriát
+       használ;
+     * az upx végrehajtható állományokat tömörítõ programra, amelynek a
+       honlapja a [3]http://www.nexus.hu/upx/ és a
+       [4]http://wildsau.idv.uni-linz.ac.at/mfx/upx.html webhelyeken
+       található;
+     * és a [5]ftp://sunsite.unc.edu:/pub/Linux/libs/compression
+       webhelyrõl letölthetõ zlibc csomagra, amelyet
+       zlibc-X.X.tar.gz-nek hívnak, ahol X.X a legújabb verzió .
+
+   Vannak más végrehajtható állományokat tömörítõ programok is. Az egyik
+   a gzexe (felejtsük el), egy másik a tcx, ami talán a legjobb volt,
+   mielõtt az upx megjelent, egy harmadik a tzx, ami elvileg jobb, mint
+   a tcx. A helyzet az, hogy mindent tönkretett, amikor kipróbáltam egy
+   tartalék számítógépen, bár nem vagyok biztos benne, hogy mindent jól
+   csináltam. A legjobb, ha az upx-et használjuk, mert megbízható,
+   hatékony és kényelmes.
+
+   Léteznek olyan kernel foltok, amelyek Stacker-szerû röptömörített
+   fájlrendszert hoznak létre, de jelen pillanatban egyik sem a
+   stabilitásáról és a megbízhatóságáról híres. Biztos, ami biztos,
+   tartózkodjunk ezek használatától.
+
+3. Az eljárás
+
+3.1 A kernelforrás eltávolítása
+
+   A kernel forrása több mit 20 MB helyet foglal, megfontolhatjuk a
+   letörlését. Ha így döntenénk, fordítsunk egy kernelt egyszer és
+   mindenkorra, ami a gépünkre kell, és szabaduljunk meg a forráskódtól.
+   Azért legyünk óvatosak.
+
+   A kernelforrás eltávolítása nem ajánlatos, ha nem vagyunk biztosak
+   benne, hogy a gépünk megfelelõen be van konfigurálva. Emellett a
+   kernel # fejlécfájljai szükségesek a C programok fordításához.
+   Gondoljuk meg kétszer!
+
+   Ha a törlés mellett döntünk, akkor se töröljük le az include/linux
+   könyvtárstruktúrát, hacsak nem vagyunk biztosak benne, hogy soha nem
+   fogunk alkalmazásokat fordítani a gépen.
+
+3.2 Az alkalmazások ritkítása
+
+   Döntsük el, hogy melyik programra van igazán szükségünk. Néhány
+   alkalmazás felesleges lehet. Például: biztos, hogy kell az emacs?
+   Használhatjuk helyette a jed szövegszerkesztõt.
+
+   Rajtunk múlik, hogy mit tartunk meg. Néhány általános ötlet:
+
+     * A gcc elég nagy csomag. Ez szükséges a kernel újrafordításához, és
+       minden olyan alkalmazás lefordításához, amelynek nincs elõre
+       lefordított Linux bináris változata. Természetesen akkor is
+       szükségünk lesz rá, ha a saját C vagy Fortran (f2c-vel vagy
+       g77-tel) programjainkat akarjuk lefordítani, törlés elõtt
+       gondoljuk át, hogy fogunk-e valaha programokat fejleszteni.. Más
+       fordítóprogramok, pl. az lcc elég jók, de nem érik el a gcc
+       szintjét. Azt javaslom, tartsuk meg!
+     * Az X11 szörnyen nagy, de jó ha megvan. Ha nem tudunk meglenni
+       nélküle, legalább próbáljuk a méretét a lehetõ legkisebbre
+       leszorítani: csak a megfelelõ X szerver program, csak egy
+       egyszerû ablakkezelõ, csak egy xterm, ne telepítsük a 100 dpi-s
+       betûkészleteket, stb.
+     * A TeX és kiegészítõ csomagjai szintén nagyon nagyok. Ha nem
+       használjuk a LaTeX csomagot, és megelégszünk a plain TeX
+       csomaggal, sok helyet spórolhatunk. Nem kell használnunk az X11
+       alatti nézegetõket (xdvi és ghostview), mert használhatjuk a
+       dvitty, a dvivga és a hasonló programokat. Ha nincs szükségünk az
+       X11 alatti nézegetõkre, akár maga az X11 is feleslegessé válhat.
+     * A játékok sosem létfontosságúak.
+
+3.3 A bináris fájlok méretének csökkentése
+
+   Kezdjük el csökkenteni a bináris fájlok méretét! Lépjünk be az
+   /usr/bin könyvtárba, és adjuk a következõ parancsot:
+
+ machine:/usr/bin# strip *
+
+   Ez eltávolítja a bináris fájlokba beágyazott szimbólumokat. Ismételjük
+   meg ezt a lépést az /usr/X11R6/bin/ könyvtárban is, és az összes olyan
+   könyvtárban, ahol végrehajtható fájlok lehetnek. Ne feledjük
+   megkeresni a TeX és a gcc binárisait. Ha nem akarjuk tönkretenni a
+   rendszerünket, akkor ne futtassuk ezt a parancsot az /sbin, a /bin,
+   vagy az /usr/sbin/ könyvtárakban!
+
+3.4 Tömörítés az upx programmal
+
+   Telepítsük az upx programot, és olvassuk el a dokumentációját. Utána
+   lépjünk be az /usr/bin könyvtárba és adjuk ki az upx * parancsot. Ez
+   minden végrehajtható fájlt tömörít, a suid-osakat is (a tcx ezt nem
+   tenné). Ismételjük meg ezt a lépést a többi fent említett könyvtárra.
+
+   Ne feledjük tömöríteni a végrehajtható fájlokat, amikor új csomagot
+   telepítünk!
+
+3.5 Gzippeljük, amit lehet
+
+   Van egy csomó fájl, amit egyszer és mindenkorra tömöríthetünk. Kezdjük
+   az /usr/doc/ könyvtárral! Lépjünk bele és adjuk ki a következõ
+   parancsot:
+
+ machine:/usr/doc# find . -type f -exec gzip -9 {} \; 2> /dev/null
+
+   Ne feledjük tömöríteni a dokumentációt, amikor új csomagot telepítünk!
+
+   Ismételjük meg ezt a lépést a TeX dokumentációját tartalmazó
+   könyvtárra (az én rendszeremen ez az /usr/lib/texmf/texmf/doc/). Ha
+   teljesen biztosak vagyunk benne, akár le is törölhetjük ezeket a
+   könyvtárakat.
+
+   Telepítsük a zlibc csomagot és fordítsuk le. Az olyan rendszereken,
+   mint az enyém, a fordítás megszakad, mert a fordító nem találja a
+   (statikus) libc könyvtárat. Semmi gond, fogunk találni egy
+   uncompress.o nevû fájlt, és ez az, amire szükségünk van. Másoljuk ezt
+   a fájlt az /usr/local/lib/ könyvtárba, és adjuk hozzá a következõ
+   sort az /etc/profile fájlhoz:
+
+ export LD_ELF_PRELOAD=/usr/local/lib/uncompress.o
+
+   Ezek után nemcsak a dokumentációt tömöríthetjük a gzip programmal,
+   hanem az adatfájlokat is, az õket használó alkalmazások mégis tudják
+   majd használni õket. Elvileg ennek trükknek mûködni kellene a
+   legtöbb alkalmazásra, de gyakorlatilag ez nem feltétlenül van így. Én
+   nem értem el különösebb sikert ezzel a trükkel.
+
+4. Egy valódi példa
+
+   Az alábbiakban olvasható, hogy hogyan alkalmaztam a fent említett
+   eljárásokat a saját gépemre. A kezelés elõtt a df szerint 398.798 db.
+   1024 bájt méretû blokkot használtam.
+
+     * Nem távolítottam el a kernelforrást és a kernel fejlécfájljait.
+     * Eltávolítottam egy csomó alkalmazást és az összes játékot, de
+       meghagytam az X11-et, az X11 fejlesztõkészletet, a C és Fortran
+       fejlesztõkészletet, a Tcl/Tk-et, a hálózati segédprogramokat és
+       még néhány egyéb alkalmazást. A df szerint ekkor 244.668 blokk
+       volt foglalt.
+     * Lefuttattam az upx programot az /usr/bin, az /usr/X11R6/bin, az
+       /usr/lib/texmf/bin/i586-linux és az
+       /usr/lib/gcc-lib/i386-linux/2.7.2.1 könyvtárakban. 226.270 foglalt
+       blokkra csökkent a felhasznált terület.
+     * Tömörítettem a dokumentációt az /usr/doc és az
+       /usr/lib/texmf/texmf/doc könyvtárakban. 198.745 foglalt blokkra
+       csökkent a felhasznált terület.
+
+   Összefoglalva, 398.798 blokkal kezdtem, és 198.745 blokkal fejeztem
+   be. Gondoljunk arra, hogy mennyi mindent tárolhatunk azon a 200.000
+   megspórolt blokkon! Még több helyet felszabadíthattam volna, ha a
+   bzip2 programot használom a gzip helyett.
+
+   Átlagos esetben, ha az elejétõl fogva óvatosak vagyunk, és csak a
+   szükséges alkalmazásokat telepítjük, a végrehajtható állományok és a
+   dokumentáció tömörítése kb. 20 MB helyet szabadít fel. Egy notebook
+   gépen ez ``életet menthet''.
+
+5. Befejezés
+
+5.1 Szerzõi jogok
+
+   A Linux HOGYAN dokumentumok szerzõi joga a megfelelõ szerzõké,
+   hacsak másképp nem rendelkeznek. A Linux HOGYAN dokumentumokat szabad
+   részben vagy egészben másolni és terjeszteni bármilyen fizikai vagy
+   elektronikus adathordozón, de ezt a szerzõi jogokra vonatozó
+   megjegyzést minden másolathoz mellékelni kell. Az üzleti célú
+   terjesztés megengedett és bátorított, de a szerzõ szeretne tudomást
+   szerezni minden ilyen terjesztésrõl.
+
+   Minden Linux HOGYANon alapuló fordítás, származtatott mû vagy
+   összefoglaló munka ezen szerzõi jogi kötelmek alá kell essen. Ez azt
+   jelenti, hogy nem szabad olyan HOGYANon alapuló mûvet létrehozni,
+   amely további megkötéseket tartalmaz a terjesztésre. Bizonyos
+   feltételek esetén ezek a szabályok figyelmen kívül hagyhatóak, errõl
+   a Linux HOGYAN koorditátor ad felvilágosítást a lent olvasható címen.
+
+   Röviden megfogalmazva, szeretnénk, ha az információ elterjedne minél
+   több csatornán, de szeretnénk megtartani a HOGYAN dokumentumok
+   szerzõi jogát, és szeretnénk értesülni bármilyen terjesztési
+   tervrõl.
+
+   Kérdésekkel a Linux HOGYAN koordinátorát, Tim Bynumot lehet megkeresni
+   a linux-howto@metalab.unc.edu drótpostacímen.
+
+5.2 Jogi felelõsség
+
+   A Helyspórolás mini-HOGYANt Guido Gonzato írta (
+   [6]REMOVE_MEguido@ibogeo.df.unibo.it).
+
+   Erre a dokumentumra nem vonatkozik semmilyen garancia. Nagyon
+   igyekeztem, hogy hibátlan legyen, de mindenki csak a saját
+   felelõsségére használhatja az itt közölt információkat. Semmilyen
+   esetben sem lehet engem felelõssé tenni az itt leírtak
+   felhasználásából eredõ károkért.
+
+   A visszajelzéseket örömmel veszem. Bármilyen kérdést, kérést,
+   javaslatot szívesen meghallgatok.
+
+   Élvezzük a Linuxot és az életet!
+
+   Guido =8-)
+
+5.3 Magyar fordítás
+
+   A magyar fordítást [7]Tímár András készítette. A lektorálást [8]Daczi
+   László végezte el (2002.11.11). Bármilyen fordítással kapcsolatos
+   észrevételt a [9]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum
+   legfrissebb változata megtalálható a [10]Magyar Linux Dokumentációs
+   Projekt honlapján.
+
+References
+
+   1. mailto:guido@ibogeo.df.unibo.it
+   2. ftp://sunsite.unc.edu/pub/Linux/utils/compress
+   3. http://www.nexus.hu/upx/
+   4. http://wildsau.idv.uni-linz.ac.at/mfx/upx.html
+   5. ftp://sunsite.unc.edu/pub/Linux/libs/compression
+   6. file://localhost/home/dacas/temp/REMOVE_MEguido@ibogeo.df.unibo.it
+   7. mailto:timar_a@freemail.hu_NO_SPAM
+   8. mailto:dacas@freemail.hu_NO_SPAM
+   9. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  10. http://tldp.fsf.hu/index.html

@@ -1,0 +1,670 @@
+
+Forgalomirányítás tcng és HTB segítségével HOGYAN1.0 változatMartin A. Brown
+
+   [1]SecurePipe, Inc.
+   Network Administration
+
+   mabrown@securepipe.com
+
+   2003 április
+   Verziótörténet
+   Verzió: 1.0 2003.04.16 Átdolgozta: tab
+   Az LDP által jóváhagyott Elsõ kiadás.
+   Verzió: 0.5 2002.04.01 Átdolgozta: MAB
+   A doksit átneveztem HOGYANra, a TLDP-hez elõterjesztve.
+   Verzió: 0.4 2002.03.31 Átdolgozta: MAB
+   Új példa, bucket gyorstalpaló.
+   Verzió: 0.3 2002.03.16 Átdolgozta: MAB
+   Javításokat és jegyzeteket írt: Jacob Teplitsky, raptor és Joshua
+   Heling.
+   Verzió: 0.2 2002.03.15 Átdolgozta: MAB
+   Hivatkozások hozzáadása, fazonigazítás, publikálás.
+   Verzió: 0.1 2002.03.14 Átdolgozta: MAB
+   Elsõ kiadás.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [2]Szerzõi jog és licenc
+
+        1.1. [3]Magyar fordítás
+
+   2. [4]Bevezetés
+
+        2.1. [5]A forgalomirányítás fogalma és mûködése
+        2.2. [6]Mi az a HTB?
+        2.3. [7]Mi is az a tcng?
+
+   3. [8]Követelmények
+
+        3.1. [9]Rendszermag követelmények
+        3.2. [10]tc követelmények
+        3.3. [11]tcng követelmények
+
+   4. [12]Beállítási példák
+
+        4.1. [13]tcng használata csak a letöltések alakításához
+        4.2. [14]A kétsebességû háromszínû mérõóra használata
+
+   5. [15]Egyéb megjegyzések
+   6. [16]További leírások és hivatkozások
+
+1. Szerzõi jog és licenc
+
+© 2003, Martin A. Brown
+
+A dokumentum szabadon másolható, terjeszthetõ és módosítható, az FSF által
+közzétett GNU Szabad Dokumentációs Licenc v1.1, vagy annak késõbbi
+változatában szereplõ feltételek szerint. A licenc egy másolata
+megtalálható a [17]www.gnu.org/copyleft/fdl.html honlapon.
+     _________________________________________________________________
+
+1.1. Magyar fordítás
+
+A magyar fordítást [18]Völgyi Péter készítette (2004.02.29). A lektorálást
+[19]Daczi László végezte el (2004.03.11). A dokumentum legfrissebb változata
+megtalálható a [20]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Bevezetés
+
+Ez a dokumentum rövid áttekintést ad a tcng ([21]Traffic Control - Next
+Generation; következõ generációs forgalomirányítás ) HTB-vel
+([22]Hierarchical Token Bucket) való használatáról, mely eszközök
+segítségével a Linux rendszeren forgalomszabályozást végezhetünk.
+
+Ez a gyakorlatsor elsõsorban olyan rendszergazdáknak készült, akik:
+
+     * LEGALÁBB alapszintû forgalomirányítási ismeretekkel rendelkeznek,
+     * forrásból tudják FORDÍTANI az iproute2 és a tcng csomagokat, vagy
+       Ugyanezen csomagokat SRPM-bõl telepíteni,
+     * Az általuk használt rendszer moduláris szerkezetû rendszermagja
+       támogatja a HTB és DSMARK modulokat,
+       VAGY képesek rendszermagot fordítani ezeknek a támogatására.
+
+   Megjegyzés
+
+   Ez a doksi nem átfogó és nem mértékadó. A szerzõ várja mind a
+   pozitív, mind a negatív véleményeket a <[23]mabrown@securepipe.com>
+   e-mail címen. A helyreigazításokat, kiegészítéseket is szívesen veszi.
+     _________________________________________________________________
+
+2.1. A forgalomirányítás fogalma és mûködése
+
+A forgalomirányítás egy hálózaton, vagy hálózati eszközön történõ teljes
+csomag-várakozósor (packet queuing) alrendszer összefoglaló neve. A
+forgalomirányítás több mûveletbõl tevõdik össze. Az osztályozás
+(classifying) során történik a csomagok azonosítása, majd egyedi
+várakozósorokba, osztályokba rendezése. Az engedélyezés (policing) az
+osztályozásnak megfelelõ adatfolyamban a csomagok vagy bájtok számának
+szabályozását jelenti. A besorolás (scheduling) a döntéshozatali elem, ahol
+is a csomagokat az adattovábbításhoz sorrendbe, majd újra sorrendbe rakjuk.
+Az alakítás (shaping) az a folyamat, amikor a csomagokat késleltetjük majd
+továbbküldjük, ezáltal az átviteli sebesség nagyjából egyenlõ ütemû, és
+elõre kiszámítható lesz.
+
+A forgalomirányítás sokoldalúságát kihasználva komplex rendszereket lehet
+kialakítani, annak érdekében, hogy egy bizonyos folyamat (vagy alkalmazás)
+részére sávszélességet biztosítsunk, vagy a rendelkezésre álló
+sávszélességet korlátozzuk bizonyos folyamatok, vagy alkalmazás elõtt.
+
+A forgalomirányítás egyik kulcs-koncepciója a tokenek (jelek) fogalma. Az
+engedélyezés vagy alakítás folyamata során ki kell számítani az elküldött
+bájtok vagy csomagok számát, vagyis melyik, milyen sebességgel kerül majd
+továbbításra. Minden csomag vagy bájt (az alkalmazástól függ, hogy melyik)
+egy jelnek felel meg, és az engedélyezõ- vagy alakító-alkalmazás csak akkor
+továbbítja a csomagot vagy bájtot, ha az rendelkezik a megfelelõ jellel.
+Egy alkalmazás metaforikus jeltárolója a tároló (bucket). Röviden a tároló
+jelzi, mind az egyszerre használható jelek számát (ez a tároló mérete), mind
+pedig a jelek újratöltõdésének ütemét (milyen gyorsan töltõdik újra a
+tároló).
+
+Bõvebbet a [24]2.2 példában találsz a tároló használatára a Linux
+forgalomirányítási rendszerben.
+
+Linux rendszereken a forgalomirányítás mindig is komoly kihívást jelentett.
+A tc parancssori eszköz kapcsolatot jelent a rendszermag azon részeivel,
+amelyek az alakítás, besorolás, engedélyezés, és osztályozás folyamatait
+végzik. A parancs szintaxisa viszont rendkívül bonyolult. A tcng projekt
+azzal, hogy a tc parancssori eszköz fölé nyelvi réteget fektet, sokkal
+barátságosabb környezetet biztosít a felhasználónak. A tcng-ben írt
+forgalomirányítási beállítások ezáltal könnyebben kezelhetõ, kevésbé
+bonyolult, és - ami talán a legfontosabb - hordozhatóbb lesz.
+     _________________________________________________________________
+
+2.2. Mi az a HTB?
+
+A [25]Hierarchichal Token Bucket a CBQ-nál egyszerûbb konfigurációs
+paraméterekkel rendelkezõ csoportnyi qdisc, melyet Martin Devera alkotott
+meg. A HTB-rõl és használatáról elég sok dokumentum található a szerzõ
+honlapján, valamint [26]Stef Coene weboldalán is. Következzen egy rövid kis
+ismertetõ a HTB rendszerrõl.
+
+Alapvetõen a HTB egy tetszõleges számú, hierarchikusan felépített
+jeltároló (token bucket) (...igen, erre könnyen rájöhettél magadtól is).
+Tételezzük fel a legegyszerûbb esetet: Bármilyen eszközön az elsõdleges
+kilépési sor a root qdisc.
+
+A root qdisc egyetlen osztályt fog tartalmazni (komplex esetekben több
+osztály is csatolódik a root qdisc-hez). Az egyszerû HTB osztályt két
+paraméter jellemzi: a rate (mérték) és a ceil (plafon). A top-level
+(legfelsõbb szintû) osztálynál ezek az értékek meg kell, hogy egyezzenek
+és a kapcsolat teljes sávszélességét mutatják.
+
+A HTB-nél, a rate jelenti egy osztály számára a garantált sávszélességet, a
+ceil pedig a maximális sávszélességet. A rate és a ceil közötti
+sávszélességet mindig a szülõ osztálytól veszi az alkalmazás, vagyis a
+legfelsõ szinten lévõ osztálynál a rate és a ceil ugyanannyi lesz.
+
+Számos gyerek-osztály létesíthetõ ez alatt az osztály alatt, kezdetben
+mindegyikhez némi sávszélességet rendelve a szülõ-osztály meglévõ
+készletébõl. Ezekben a gyerek-osztályokban már nem kell a rate és a ceil
+paramétereknek megegyezniük, mint a szülõ osztálynál. Ez lehetõvé teszi,
+elõre meghatározott sávszélesség tartalékolását bizonyos osztályoknak.
+Lehetõvé válik továbbá a HTB számára, hogy összehasonlítsa a meglévõ
+sávszélesség eloszlását az osztályok sávszélességeivel. A következõ példa
+talán rávilágít a lényegre:
+
+A Hierarchical Token Bucket magában foglal egy osztálynyi besoroló
+mechanizmust a Linuxon való forgalomirányításhoz, és ott van még a
+felhasználónak a rate és a ceil paraméter az egyes osztályok abszolút
+sávszélességének szabályozásához, valamint, hogy jelezze a sávszélesség
+eloszlását, amikor extra sávszélesség adódik (egészen a ceil-ig).
+
+Jegyezzük meg, hogy a top-level osztály sávszélességének a beállításakor a
+forgalom alakításnak (shaping) csak akkor lesz értelme, ha a szûk
+keresztmetszet a hálózat és az Internet között az a gép, amin dolgozunk.
+Tipikusan ilyen eset az otthoni vagy irodai hálózati környezet, ahol az
+egész helyi hálózatot DSL vagy T1 kapcsolatok kötik össze.
+
+Gyakorlatilag ez annyit jelent, hogy a top-level osztály sávszélességét úgy
+kell beállítani, hogy vesszük az egész, rendelkezésre álló sávszélességet és
+kivonunk belõle egy keveset.
+     _________________________________________________________________
+
+2.3. Mi is az a tcng?
+
+A [27]tcng (Traffic Control - Next Generation, következõ generációs
+forgalomirányítás) Werner Almesberger projektje, erõteljes, egységes és
+egyértelmû nyelvezet megteremtésére, amellyel a forgalomirányítási
+szerkezetek pontosan megfogalmazhatók. A tcng csomagban található tcc
+fordító alakítja át a tcng nyelvet többféle kimeneti formára. Alapesetben a
+tcc beolvas egy fájlt (amely argumentumként, vagy STDIN-ként adható meg) és
+a STDOUT kimenetre küld egy sorozat tc parancsot, amelyek az elképzelt
+forgalomirányítási szerkezetet a rendszermagban létrehozzák. (lásd az
+iproute2 fejezetet lentebb)
+
+A támogatott rendezési elveket megtalálod a [28]tcng Queuing discipline
+parameters(Útmutató a tcng paramétereihez) dokumentumban. A tcng projekthez
+a HTB támogatást Jacob Teplitsky írta, aki aktív tag a [29]LARTC levelezési
+listán.
+
+A tcc eszköz sokféle kimenetet tud produkálni, ez a dokumentum azonban csak
+a legáltalánosabb és alapértelmezett kimeneti eredménnyel foglalkozik. A
+[30]TCNG képzikönyv foglalkozik bõvebben a tcng parancs használatával.
+
+A tcsim eszköz képes szimulálni az adott forgalomirányítási szabályokkal
+beállított rendszermag viselkedését, mégpedig úgy, hogy tcng
+beállítófájlokat olvas és értelmez. Habár a tcsim elég jelentõs részét
+képezi a tcng projectnek, itt többet nem foglalkozunk vele.
+     _________________________________________________________________
+
+3. Követelmények
+
+Van néhány dolog, ami szükséges ahhoz, hogy [31]a rendszermag támogassa a
+HTB-t és DSMARK-ot, [32]a tc támogassa a HTB-t és a DSMARK-ot, és, hogy
+[33]a tcng mûködjön.
+
+Ahhoz, hogy ez a dokumentum használható legyen, feltétlenül kell egyrészt
+egy olyan rendszermag, amely támogatja a HTB-t, másrészt a tc alkalmazás
+(elég csak a doksi címére utalni). A DSMARK támogatás, a szó szoros
+értelmében nem feltétel, bár néhány [34]példa (különösen az osztály
+kiválasztási útvonal, de lehet, hogy más példák is) nem biztos, hogy
+mûködik e nélkül.
+     _________________________________________________________________
+
+3.1. Rendszermag követelmények
+
+A rendszermag követelményeknek egyszerû megfelelni. A 2.4.20 és újabb
+rendszermagok beépített HTB és DSMARK támogatást tartalmaznak. Szóval
+egyszerûen csak be kell kapcsolni ezeket az opciókat (QoS/FAIR Queing
+szekció). A rendszermag beállításáról bõvebben olvashatsz a [35]DiffServ
+project honlapján.
+
+2.4.20-nál régebbi rendszermagok esetében [36]ez a link egy folt (patch) a
+2.4.17 vagy újabb kernelekhez.
+     _________________________________________________________________
+
+3.2. tc követelmények
+
+A tc parancs az iproute2 eszközcsomag része. Az iproute2 általános leírása a
+[37]iproute2 kézikönyv oldalakon található. A csomagot közvetlenül az
+[38]Alexey Kuznyecov FTP archívuma webhelyrõl lehet letölteni, de a legtöbb
+disztribúcióban megtalálható csomagként is. Ha RPM csomagkezelõt használsz,
+errõl a [39]SRPM webhelyrõl letöltheted a forrást, majd lefordíthatod a
+rendszernek megfelelõen.
+
+Ha az iproute2 programot forrásból telepíted, használható [40]Martin Devera
+HTB webhelyen található [41]tc programhoz szükséges folt. Erre azért van
+szükség, hogy a tc programban legyen HTB támogatás.
+
+A tc-nek támogatnia kell továbbá a dsmark-ot, a diffserv jelölõ
+mechanizmust. Szerencsére ez egyszerûen megoldható, az iproute2 forrásában
+található Config fájlban az alábbiakat kell megváltoztatni: a
+TC_CONFIG_DIFFSERV=n sort TC_CONFIG_DIFFSERV=y -ra kell cserélni, majd a
+csomagot újra kell fordítani.
+
+Az [42]SRPM dsmark és HTB támogató tc binárist készít, így az alábbi
+példáknál már nem lesz gond.
+     _________________________________________________________________
+
+3.3. tcng követelmények
+
+Talán a telepítés legkönnyebb része a tcng támogatás megoldása. Csak ki kell
+csomagolni a forrást, és futtatni kell a ./configure --no-tcsim parancsot
+fordítás elõtt.
+
+Ha RPM-alapú Linux fut a gépen, használhatod a SPEC fájlt
+tcng/build/tcng.spec a fordításhoz, vagy letöltheted és fordíthatod [43]ezt
+az SRPM-t. Az SRPM két csomagot készít: tcc és tcc-devel. Csak a tcc-re lesz
+szükség a beállításokhoz.
+
+A tcc fordító használatához szükség van még a cpp csomagra is. Ezt a tcc
+használja.
+     _________________________________________________________________
+
+4. Beállítási példák
+
+Az itt bemutatásra kerülõ példák az [44]ebben a könyvtárban található,
+letölthetõ konfigurációs példák módosított változatai.
+
+Ezek a példák használhatók önálló beállító fájlként a tcc fordító
+segítségével, vagy a példaként szereplõ [45]SysV indító szkript
+használatával. Az indítószkript a [46]raptor által a LARTC levelezõlistán
+közzétett szkript egy változata.
+
+Amennyiben a fenti indítószkriptet használod, vess egy pillantást a
+következõ példára: /etc/sysconfig/tcng:
+
+   Példa 1. /etc/sysconfig/tcng
+# - tcng köztes-konfigurációs fájl
+#   (Soha nem használok köztes konfigurációs fájlt, nem szeretem)
+
+#
+# -- 2003-03-15 created; -MAB
+# -- 2003-03-31 modified to allow ENVAR override; -MAB
+#
+# -- ez a könyvtár fogja tartalmazni az összes erre a host-ra
+#    vonatkozó tcng beállítást
+
+TCCONFBASEDIR=${TCCONFBASEDIR:-/etc/sysconfig/tcng-configs}
+#
+# -- ez az aktív tcng beállítófájl, FIGYELEM! mivel a tcng támogatja a
+#    az #include szerkezet használatát, a $TCCONFBASEDIR
+#    változóban tárolt beállítófájlba beépíthetõek a konfigurációs
+#    modulok.
+
+#
+TCCONF=${TCCONF:-$TCCONFBASEDIR/global.tcc}
+
+tcstats=${tcstats:-no}   # -- statisztikai jelentések kikapcsolása
+tcstats=${tcstats:-yes}  # -- a tc-t "-s" kapcsolóval indítja
+
+tcdebug=${tcdebug:-0}    # -- tipikus indítószkript-használat
+tcdebug=${tcdebug:-1}    # -- egy csipetnyi információ az eseményekrõl
+tcdebug=${tcdebug:-2}    # -- hibakövetési információk
+#
+#
+# még egy lehetõség: felülbírálhatók az alapbeállításként használt tc és tcc e
+szközök
+# az elérési út megadásával, például:
+#
+#  tc=/usr/local/bin/tc
+#  tcc=/usr/local/tcng/bin/tcc
+#
+#
+     _________________________________________________________________
+
+4.1. tcng használata csak a letöltések alakításához
+
+Ezzel a példával sok általános koncepciót próbálok meg bemutatni. A példát a
+tc kimenetre a tcc class-selection-path.tcc parancs használatával lehet
+fordítani.
+
+   Példa 2. /etc/sysconfig/tcng/class-selection-path.tcc
+/*
+ * Egyszerû, magyarázattal ellátott tcng forgalomirányítási beállítófájl.
+ *
+ *   Martin A. Brown <[47]mabrown@securepipe.com>
+ *
+ * Példa:  A class selection path használata.
+ *
+ * (Amennyiben HTML formában olvasod a szerkesztett kimenetet, a hívások
+ * linkként jelennek meg a szövegben.)
+ *
+ */
+
+#include "fields.tc"      (1)
+#include "ports.tc"
+
+#define INTERFACE  eth0   (2)
+
+dev INTERFACE {
+    egress {  (3)
+
+        /* A class selection path-ban a szûrõk jönnek elõször! Dsmark */  (4
+)
+
+        class ( <$ssh> )    if tcp_sport ==  22 && ip_tos_delay == 1 ;
+        class ( <$audio> )  if tcp_sport == 554 || tcp_dport == 7070 ;
+        class ( <$bulk> ) \
+            if tcp_sport == PORT_SSH || tcp_dport == PORT_HTTP ;  (5)
+        class ( <$other> )  if 1 ;  (6)
+
+        /* Ebben a részben állítjuk be a qdiskeket és az osztályokat */
+
+        htb () {  (7)
+            class ( rate 600kbps, ceil 600kbps ) {  (8)
+                $ssh   = class ( rate  64kbps, ceil 128kbps ) { sfq; } ;
+               (9)  $audio = class ( rate 128kbps, ceil 128kbps ) { sfq; } ;
+                $bulk  = class ( rate 256kbps, ceil 512kbps ) { sfq; } ;
+                $other = class ( rate 128kbps, ceil 384kbps ) { sfq; } ;  (10)
+            }
+        }
+    }
+}
+
+   [48](1) 
+          A tcng nyelvezete lehetõvé teszi a C-hez hasonló
+          beszerkeszthetõ (include) fájlok használatát, amivel bármilyen
+          fájlt a forráskódba illeszthetünk. A beszerkeszthetõ fájlok
+          elérési útja relatív az aktuális könyvtárhoz, vagy a tcng
+          könyvtárhoz képest (alapesetben /usr/lib/tcng/include).
+          Szigorúan véve nem szükséges a ports.tc és a fields.tc fájlok
+          beszerkesztése (#include), mert a tcc fordító alapból megteszi
+          ezt.
+          Az #include használata rugalmas változó definiálást, és a
+          forgalomirányítás általános elemeinek gyors
+          beszerkeszthetõségét teszi lehetõvé.
+          További részletek találhatók a tcng kézikönyv [49]Include
+          files(Beszerkesztett fájlok) címû fejezetében.
+   [50](2) 
+          Ezek CPP direktívák. A #define makrók és konstansok
+          létrehozására szolgál. A használatáról többet a tcng kézikönyv
+          [51]Variables (A Változók) fejezetében olvashatsz.
+   [52](3) 
+          Az egress kulcsszó a dsmark szinonimája. Az itt szereplõ példa
+          a [53]class selection path módszert használja. Ez az egress
+          kulcsszó használata ebben a konfigurációban, szükséges hozzá a
+          rendszermag dsmark támogatása és a tc.
+   [54](4) 
+          A class selection path egyfajta megközelítési módja a forgalom
+          alalkításnak. A class selection path-ban a csomag a routerbe
+          kerülésekor jelölést kap (DiffServ jel). Ennek a kezdeti
+          osztályozásnak az eredményeként a router bármennyi mûveletet
+          végrehajthat, bármennyi szabályt (engedélyezés, besorolás,
+          alakítás) alkalmazhat a csomagon.
+          További részletek találhatók a tcng kézikönyvben az [55]on
+          class selection path (A class selection path-ról) fejezetben.
+   [56](5) 
+          Ez a példa a kapuk (portok) jelölésénél a nevek használatát
+          mutatja be a számok használata helyett. Ez a tcng egyik
+          kényelmi funkciója (a ports.tc automatikus beszerkesztésén
+          keresztül válik elérhetõvé). A kapuk elnevezésénél az IANA
+          által használt kapu-nevek az irányadók. Lásd az [57]IANA
+          regisztrált portok oldalt a szabványos nevekért, vagy vizsgáld
+          meg a ports.tc fájlt.
+          Mind a nevek, mind a számok használata elfogadott és érvényes.
+   [58](6) 
+          Figyeljük meg ezt a különös konstrukciót, amely az összes eddig
+          nem osztályozott csomagot osztályba sorolja. Minden, eddig nem
+          osztályozott csomag a "$other" osztályba kerül. Az if 1
+          szerkezet a nem osztályozott forgalom maradványának
+          osztályozására szolgál.
+   [59](7) 
+          Itt történik a root qdisc létrehozása, ami jelen esetben az
+          eth0 eszközre van csatlakoztatva. A tcng kézikönyv
+          referenciaanyagai között az [60]appendix on queuing discipline
+          parameters (Függelék: sorba rendezés paraméterezése) fejezetben
+          minden qdisc-hez találhatunk paramétereket. Bármilyen qdisc
+          paraméter beilleszthetõ a zárójelek közé, ugyanúgy, ahogy egy
+          késõbbi példánál látni fogjuk. Paraméter nélküli használat
+          esetén a zárójeleket nem kötelezõ kitenni.
+   [61](8) 
+          Ebben a példában a legfelsõ-szintû osztályhoz a maximális
+          sávszélességet rendeljük, ami ezen osztályon keresztül mehet.
+          Tételezzük fel, hogy az eth0 a belsõ hálózati csatolója a
+          gépnek. Ez a teljes sávszélességet 600 kilobit/s-ra korlátozza
+          a belsõ hálózat felé.
+          Akik használtak már HTB-t, azoknak a rate és a ceil paraméterek
+          ismerõsek lesznek. Ezek HTB specifikus paraméterek, és a tcc
+          eszköz segítségével fordíthatók le pontosan. Nézzük meg a
+          [62]tcng ütem és sebesség specifikáció részben található
+          táblázatot!.
+   [63](9) 
+          Ezen osztály hozzárendelése a változóhoz. Ezt általában a class
+          selection path részeként végezzük el.
+   [64](10) 
+          Ahogyan azt Martin Devera is leírta a HTB honlapján, egy
+          beágyazott SFQ minden osztálynak ad egy sorba rendezõ
+          algoritmust a konkurens folyamatoknak az adott osztályon
+          keresztüli csomagküldés erõforrásainak megfelelõ
+          elosztásához. Figyeljünk a paraméterek hiányára a beágyazott
+          sorba rendezés elvénél.
+          Ha nem határozunk meg sorba rendezési szabályokat a végsõ
+          osztályoknál, akkor az alapbeállítás érvényesül, vagyis a
+          pfifo_fast qdisc. Egy sztochasztikus tiszta sorba rendezõ
+          qdisc beszerkesztése a vég-osztályokban meggátolja azt, hogy
+          egyetlen kapcsolat uralja a sávszélességet az adott osztályban.
+     _________________________________________________________________
+
+4.2. A kétsebességû háromszínû mérõóra használata
+
+   Példa 3. /etc/sysconfig/tcng/two-rate-three-color-meter.tcc
+/*
+ * Egyszerû, magyarázattal ellátott tcng forgalomirányítási beállítófájl.
+ *
+ *   Martin A. Brown <[65]mabrown@securepipe.com>
+ *
+ * Példa: Mérõóra használata
+ *
+ * (Amennyiben HTML formában olvasod a szerkesztett kimenetet, a hívások
+ * hivatkozásként jelennek meg a szövegben.)
+ *
+ */
+
+#define   EXCEPTION      192.168.137.50
+#define   INTERFACE      eth0
+
+$meter = trTCM( cir 128kbps, cbs 10kB, pir 256kbps, pbs 10kB );   (1)
+
+dev eth0 {
+    egress {
+        class ( <$full> )     if ip_src == EXCEPTION      ;  (2)
+        class ( <$fast> )     if trTCM_green( $meter )    ;  (3)
+        class ( <$slow> )     if trTCM_yellow( $meter )   ;  (4)
+        drop                  if trTCM_red( $meter )      ;  (5)
+        htb {
+            class ( rate 600kbps, ceil 600kbps ) {
+                $fast = class ( rate 256kbps, ceil 256kbps ) { sfq; } ;
+                $slow = class ( rate 128kbps, ceil 128kbps ) { sfq; } ;
+                $full = class ( rate 600kbps, ceil 600kbps ) { sfq; } ;
+            }
+        }
+    }
+}
+
+   [66](1) 
+          Ez az osztályozáshoz használt mérõóra deklarációja. A
+          háttértechnológia a mérés kivitelezésére az engedélyezés
+          (policing). További információk a [67]tcng kézikönyv "Meters"
+          (Mérések) fejezetben találhatók.
+          Ez a kétsebességes-háromszínû mérõ a legösszetettebb
+          mérõóratípus a tcng nyelvben. Ez a mérõóra a zöld, sárga és
+          piros színeket ad vissza, a tárolók foglaltságától és
+          csúcsértékeitõl (peak) függõen. Ha a mért sebesség nagyobb,
+          mint a foglaltságot jelzõ érték, akkor sárga színû lesz a
+          jelzés, ha a mért sebesség túllépi a csúcsértéket (a csúcsérték
+          itt nem a maximális, hanem kiemelkedõ értéket jelent - a
+          lektor), akkor piros színû lesz a jelzés.
+          A $meter változó a mérõóra típusának megfelelõ függvényekkel
+          mûködtethetõ. Ebben az esetben három függvény jöhet szóba a
+          $meter állapotának tesztelése céljából, ezek: trTCM_green,
+          trTCM_yellow, és trTCM_red. A hatékonyság növelése érdekében
+          lapozz bele a [68]Accelerating three color meters (gyorsított
+          háromszínû mérõk) fejezetbe.
+   [69](2) 
+          A példában a 192.168.137.50 IP címet kizártuk az eth0
+          eszközrõl induló engedélyezési listából.
+   [70](3) 
+          A "foglalt" információ-sebesség eléréséig (cir) a csomagok
+          áthaladnak ezen az osztályon A tokenek eltávolításra kerülnek a
+          cir/cbs tárolóból.
+          A mérõóra zöld.
+   [71](4) 
+          Itt lesznek osztályozva azok a tárolók, ahol a forgalom
+          sebessége átlépi a cir/cbs értéket. A pir/pbs bucket (pir a
+          "peak information rate"="csúcs információ-sebesség"), pbs a
+          "peak burst size"="csúcs kitörési sebesség"). Ez teszi
+          lehetõvé egy bizonyos adatfolyam számára, hogy garantált
+          sávszélességet kapjon egy osztályon belül, majd újra
+          osztályozásra kerüljön.
+          A mérõóra sárga.
+   [72](5) 
+          Azok a tárolók lesznek osztályozva itt, ahol a forgalom
+          sebessége meghaladja a pir/pbs értéket. Az általános
+          beállítások azt eredményezik, hogy a forgalom a csúcssebesség
+          feletti tartományba kerül, habár a forgalmat újra osztályozva a
+          garantált osztályból a legjobb-teljesítmény osztályba kerülne.
+          A mérõóra piros.
+     _________________________________________________________________
+
+5. Egyéb megjegyzések
+
+Hál Istennek a tcng elkerüli a tc kisebb kényelmetlenségeit. A következõ
+táblázat ábrázolja ezen eszközök szintaxisát és mértékegységeit, angol
+megfelelõikkel együtt.
+
+   Táblázat 1. Sebesség/Ütem szintaxis: tcng vs. tc
+   tcng Angol megfelelõ       tc
+   bps  bit(s) per second      bit
+   Bps  byte(s) per second     bps (argh!)
+   kbps kilobit(s) per second  kbit
+   kBps kilobyte(s) per second kbps
+   Mbps megabit(s) per second  mbit or Mbit
+   MBps megabyte(s) per second mbps or Mbps
+   pps  packet per second      ??
+
+   Ez csak minimális igazítást igényel az õsrégi tc felhasználóktól, de
+   sokkal jobb választás az angolul beszélõknek ha a megérzéseikre
+   szeretnének hagyatkozni.
+
+   Például a tcng konfigurációjában használhatjuk a sebesség jelölésére a
+   konvencionális kifejezéseket: 100Mbps, 128kbps, sõt 2Gpps. Bõvebben
+   a tcng kézikönyv [73]Units (a mértékegységekrõl) fejezetében
+   olvashatunk.
+
+   A forgalomirányítás hatékonysága érdekében meg kell keresni a hálózat
+   szûk keresztmetszeti pontjait. Legtöbb esetben ezeken a helyeken kell
+   elvégezni a mûveleteket.
+     _________________________________________________________________
+
+6. További leírások és hivatkozások
+
+     * [74]the linux DiffServ project
+     * [75]HTB site (Martin "devik" Devera) (HTB honlap)
+     * [76]Traffic Control Next Generation (tcng) (következõ generációs
+       forgalomirányítás)
+       [77]TCNG manual (Werner Almesberger) (TCNG kézikönyv)
+     * [78]iproute2 (Alexey Kuznetsov)
+       [79]iproute2 manual (Alexey Kuznetsov) (iproute2 kézikönyv)
+     * [80]Research and documentation on traffic control under linux
+       (Stef Coene) (Forrásanyagok és dokumentációk a
+       forgalomirányításról Linux alatt)
+     * [81]LARTC HOWTO (bert hubert, et. al.)
+     * [82]guide to IP networking with linux (Martin A. Brown) (Az IP
+       hálózati protokoll használata Linuxszal)
+
+References
+
+   1. http://www.securepipe.com/
+   2. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#copyright
+   3. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#hungarian-translation
+   4. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#intro
+   5. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#intro-tc
+   6. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#intro-htb
+   7. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#intro-tcng
+   8. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements
+   9. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-kernel
+  10. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-tc
+  11. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-tcng
+  12. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#examples
+  13. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#examples-adsl
+  14. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#examples-1
+  15. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#misc
+  16. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#further
+  17. http://www.gnu.org/licenses/fdl.html
+  18. mailto:petvolgyi[kukac]freemail[pont]hu
+  19. mailto:dacas@freemail.hu_NO_SPAM
+  20. http://tldp.fsf.hu/index.html
+  21. http://tcng.sourceforge.net/
+  22. http://luxik.cdi.cz/~devik/qos/htb/
+  23. mailto:mabrown@securepipe.com
+  24. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#intro-htb
+  25. http://luxik.cdi.cz/~devik/qos/htb/
+  26. http://www.docum.org/
+  27. http://tcng.sourceforge.net/
+  28. http://linux-ip.net/gl/tcng/node159.html
+  29. http://lartc.org/#mailinglist
+  30. http://linux-ip.net/gl/tcng/
+  31. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-kernel
+  32. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-tc
+  33. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#requirements-tcng
+  34. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#examples
+  35. http://diffserv.sourceforge.net/#24
+  36. http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
+  37. http://linux-ip.net/>http://linux-ip.net/</ulink> valamint az <ulink url=http://linux-ip.net/gl/ip-cref/
+  38. ftp://ftp.inr.ac.ru/ip-routing/
+  39. http://linux-ip.net/traffic-control/iproute-2.4.7-7.src.rpm
+  40. http://luxik.cdi.cz/~devik/qos/htb/
+  41. http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
+  42. http://linux-ip.net/traffic-control/iproute-2.4.7-7.src.rpm
+  43. http://linux-ip.net/traffic-control/tcng-9d-1.src.rpm
+  44. http://linux-ip.net/code/tcng/
+  45. http://linux-ip.net/code/tcng/tcng.init
+  46. http://mailman.ds9a.nl/pipermail/lartc/2002q4/005411.html
+  47. mailto:mabrown@securepipe.com
+  48. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-includes
+  49. http://linux-ip.net/gl/tcng/node35.html
+  50. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-defines
+  51. http://linux-ip.net/gl/tcng/node111.html
+  52. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-egress
+  53. http://linux-ip.net/gl/tcng/node32.html
+  54. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-csp
+  55. http://linux-ip.net/gl/tcng/node32.html
+  56. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-portusage
+  57. http://www.iana.org/assignments/port-numbers
+  58. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-leftover
+  59. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-root
+  60. http://linux-ip.net/gl/tcng/node159.html
+  61. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-topclass
+  62. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#tb-misc-rates
+  63. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-classvariable
+  64. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-0-embedsfq
+  65. mailto:mabrown@securepipe.com
+  66. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-1-mdefine
+  67. http://linux-ip.net/gl/tcng/node53.html
+  68. http://linux-ip.net/gl/tcng/node58.html
+  69. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-1-notmetered
+  70. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-1-green
+  71. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-1-yellow
+  72. file://localhost/home/dacas/convert/Traffic-Control-tcng-HTB-HOWTO-hu.html#ex-1-red
+  73. http://linux-ip.net/gl/tcng/node21.html
+  74. http://diffserv.sourceforge.net/
+  75. http://luxik.cdi.cz/~devik/qos/htb/
+  76. http://tcng.sourceforge.net/
+  77. http://linux-ip.net/gl/tcng/
+  78. ftp://ftp.inr.ac.ru/ip-routing/
+  79. http://linux-ip.net/gl/ip-cref/
+  80. http://www.docum.org/
+  81. http://lartc.org/howto/
+  82. http://linux-ip.net/

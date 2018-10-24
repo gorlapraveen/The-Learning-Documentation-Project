@@ -1,0 +1,545 @@
+
+Handspring-Visor mini-HOGYANRyan VanderBijl
+
+   rvbijl-howto@vanderbijlfamily.com
+
+   Verziótörténet
+   Verzió: v0.6 2003. január Átdolgozta: rvbijl
+   Elérhetõségem frissítve. Elavult szoftverekre utalások eltávolítva.
+   PPP rész eltávolítva. Hotplug rész frissítve.
+   Verzió: v0.5 2000. december - 2001. február Átdolgozta: rvbijl39
+   A rendszermag és felhasználói részek szétválasztva. Modulok rész
+   frissítve. Bekerült a szövegbe: usbdevfs info, Hotplug info, PPP info.
+   2.4-es rendszermaghoz frissített információk. Hibaelhárítás rész. SGML
+   DocBook változat.
+   Verzió: v0.4 2000 augusztus 7. Átdolgozta: rvbijl39
+   Matt Shook, Steven Coffman és Miles Lott által javasolt
+   szövegmódosítások, frissítések és info-k Greg KH-tól.
+   Verzió: v0.3 2000. április vagy május Átdolgozta: rvbijl39
+   SGML változat. Néhány javítás Miles Lott-tól.
+   Verzió: v0.1, v0.2 2000 április 6. Átdolgozta: rvbijl39
+   Eredeti, HTML változat.
+
+   Ez a dokumentum útmutatást ad arról, hogyan használhatod a Handspring
+   Visor géped (valamely változatát) Linux alatt, USB porton keresztül.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Általános információk
+
+        1.1. [2]A felelõsség teljes kizázása
+        1.2. [3]A szerzõ
+        1.3. [4]Szerzõi jogok
+        1.4. [5]Magyar fordítás
+
+   2. [6]Bevezetés
+
+        2.1. [7]Támogatott eszközök
+        2.2. [8]Követelmények
+        2.3. [9]Linux disztribúciók
+
+   3. [10]A rendszermag beállítása
+
+        3.1. [11]Követelmények
+        3.2. [12]Rendszermag verzió
+        3.3. [13]Az USB vezérlõ típusa
+        3.4. [14]A rendszermag beállítása és fordítása
+        3.5. [15]usbdevfs
+        3.6. [16]/dev bejegyzések készítése
+        3.7. [17]A modulok használata
+
+   4. [18]Szinkronizáló szoftver
+
+        4.1. [19]Általános
+        4.2. [20]coldsync
+        4.3. [21]pilot-link
+        4.4. [22]Itt az idõ a szinkronizálásra
+        4.5. [23]Palm Desktop változatok
+        4.6. [24]Kész!
+
+   5. [25]Hotplug támogatás
+
+        5.1. [26]Hotplug rendszermag-beállítás
+        5.2. [27]Hotplug telepítés
+        5.3. [28]A Visor meghajtó beállítása
+
+   6. [29]Hibaelhárítás
+
+        6.1. [30]Ötletek
+
+   7. [31]Hivatkozások
+
+1. Általános információk
+
+1.1. A felelõsség teljes kizázása
+
+Nem vállalok felelõsséget a dokumentum tartalmáért. Az ötleteket, példákat
+és a dokumentum maradék részét saját felelõsségedre használhatod.
+Pontatlanságok, hibák elõfordulhatnak a szöveg ezen új változatában,
+amelyek persze károsak lehetnek a rendszeredre. Szóval fontold meg minden
+lépésed, és - bár nagyon nem szimpatikus - nem vállaljuk a felelõsséget az
+esetlegesen kialakult hibákért.
+     _________________________________________________________________
+
+1.2. A szerzõ
+
+Ezt a dokumentumot eredetileg Ryan VanderBijl írta és alkalmanként
+karbantartotta. Sok ember tett hozzá építõ javaslatot. Rengeteg köszönettel
+tartozom Miles Lottnak és különösen Greg Kroah-Hartmannak. Szívesen veszem a
+visszajelzéseket, de nem ígérem, hogy minden javaslatot bele is teszek a
+doksiba.
+
+Másfél év után végre frissítettem az elérhetõségeimet, valamint
+alkalmanként a dokumentum újabb verziója megtalálható a
+[32]http://www.vanderbijlfamily.com/~rvbijl/visor/howto/ webhelyen.
+
+Örülnék, ha írnál egy e-mailt, amikor sikerült ez alapján a mini-HOGYAN
+alapján a Visor gépedet mûködésre bírni.
+     _________________________________________________________________
+
+1.3. Szerzõi jogok
+
+Ez a dokumentum Ryan VanderBijl szellemi tulajdona. Copyright (c) 2000-2002.
+Szabadon terjeszthetõ a GPL licencben leírtak szerint
+([33]http://www.gnu.org/copyleft/gpl.html).
+     _________________________________________________________________
+
+1.4. Magyar fordítás
+
+A magyar fordítást [34]Novák Áron készítette (2003.01.06). A lektorálást
+[35]Völgyi Péter végezte el (2003.08.10). A dokumentum legfrissebb változata
+megtalálható a [36]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Bevezetés
+
+2.1. Támogatott eszközök
+
+A Linux USB-Visor modul által támogatott PDA eszközök a következõk:
+
+     * Handspring Visor (összes)
+     * Palm USB eszközök (összes)
+     * Sony Clie (összes)
+     _________________________________________________________________
+
+2.2. Követelmények
+
+A Linux és Visor összehangolásához, meg kell tanítani a Linuxot, hogyan is
+végezze az alacsony szintû kommunikációt az eszközzel, majd be kell
+állítanod egy felhasználói programot, ami a tényleges kommunikációt végzi.
+     _________________________________________________________________
+
+2.3. Linux disztribúciók
+
+Sok disztribúciót már eleve a szükséges támogatásokkal adnak ki. Amennyiben
+ilyen változatod van, és nem akarsz a rendszermag újrafordításával
+veszõdni, ugorhatsz a [37]Szinkronizáló szoftver fejezetre. Íme - egy
+korántsem teljes - lista azokról a disztribúciókról, amelyek tartalmazzák a
+szükséges modulokat:
+
+     * Mandrake 8.2 (vagy újabb)
+     * Redhat 7.2 (vagy újabb)
+     * Suse 8.0 (vagy újabb)
+
+   Ezzel a paranccsal ellenõrizheted disztribúciód alkalmasságát:
+
+   modprobe visor
+
+   Ha bármilyen hibaüzenetet kapsz válaszul, akkor újra kell fordítani a
+   rendszermagot a megfelelõ támogatásért. Ha nincs üzenet, akkor a
+   disztribúciód támogatja a Visor használatát.
+     _________________________________________________________________
+
+3. A rendszermag beállítása
+
+3.1. Követelmények
+
+Pár alapvetõ dolog szükséges csupán, úgymint számítógép, USB kapu, Visor
+kézigép (USB bölcsõvel). Továbbá tudnod kell azt is, hogyan telepíts és
+fordíts programokat, valamint a rendszermagot. Ha ezeket mégsem tudod, van
+még néhány lehetõséged: tanulni, hívni egy szakembert vagy beszerezni egy
+disztribúciót, amelyben van támogatás.
+
+Ha nincs USB vezérlõ a gépeden, úgy a Visor-t soros porton keresztül
+csatolhatod a gépre (ebben az esetben már nem erre a dokumentumra van
+szükséged.), vagy veszel egy USB-t kezelõ eszközt a gépedbe (például USB
+kártyát, vagy új alaplapot).
+     _________________________________________________________________
+
+3.2. Rendszermag verzió
+
+A 2.4-es rendszermag az elsõ, amelyik USB támogatással rendelkezik. A
+legfrissebb 2.4-es verzió letölthetõ a
+[38]ftp://ftp.kernel.org/pub/linux/kernel/v2.4/ webhelyrõl.
+
+Az USB támogatást visszaportolták a 2.2-es rendszermagokhoz is, a 2.2.18-as
+verziótól kezdve. Szükség esetén használhatod az itt felsorolt utasításokat
+a legújabb 2.2-es sorozat esetén is.
+
+Itt az ideje a legfrissebb rendszermag letöltésének, és igény szerinti
+beállításának! A következõkben részekben tanácsokat kapsz az USB
+konfigurálásához.
+
+Ha már kész (fordított és beállított) rendszermagod van, nem kell
+újraindítanod a gépet! Csak a megfelelõ modulokat kell beforgatni,
+beállítani és készen is vagy.
+     _________________________________________________________________
+
+3.3. Az USB vezérlõ típusa
+
+Elõször állapítsd meg milyen USB vezérlõvel rendelkezel. Az USB vezérlõ a
+számítógéped USB be- és kimeneti folyamatait kezelõ hardver.
+
+Intel lapkakészletû alaplapok tipikusan UHCI vezérlõvel rendelkeznek. A
+legtöbb bõvítõkártya OHCI vezérlõt tartalmaz. A következõ parancs
+kiadásával (root felhasználóként) eldöntheted milyen típussal rendelkezel.
+
+lspci -v
+
+   Ha ehhez hasonlót látsz:
+
+USB Controller: ......
+Flags: .....
+I/O ports at ....
+
+   Akkor neked UHCI vezérlõd van. Ha ezt látod:
+
+USB Controller: .....
+Flags: ....
+Memory at .....
+
+   Akkor OHCI vezérlõ van a gépedben. További részleteket a
+   [39]http://www.linux-usb.org webhelyen találsz. Az ide vonatkozó
+   rendszermag dokumentáció az /usr/src/linux/Documentation/usb/usb.txt
+   szintén hasznos lehet a vezérlõ típusának megállapításához.
+     _________________________________________________________________
+
+3.4. A rendszermag beállítása és fordítása
+
+Most be kell állítanod és le kell fordítanod a rendszermagot. Közvetlenül a
+rendszermagba vagy modulként is fordíthatod ezeket. Ajánlott azonban
+modulként fordítani. Amennyiben közvetlenül a rendszermagba fordítasz, újra
+kell majd indítanod a gépet. A beállítás során ügyelj az alábbiak
+engedélyezésére:
+
+     * USB support (USB támogatás; CONFIG_USB)
+     * The preliminary USB Device Filesystem (Az elõzetes USB eszköz
+       fájlrendszer; CONFIG_USB_DEVICEFS)
+     * A megfelelõ vezérlõ - UHCI, vagy OHCI (CONFIG_USB_UHCI, vagy
+       CONFIG_USB_OHCI)
+     * USB Serial Converter support (USB soros átalakító támogatás;
+       CONFIG_USB_SERIAL)
+     * USB Handspring Visor Driver (USB Handspring Visor eszközmeghajtó;
+       CONFIG_USB_SERIAL_VISOR) (serial converter al-opció)
+
+   Kétféle UHCI driver létezik. Nem szeretjük a "UHCI Alternate (JE)"
+   meghajtót. Ez a meghajtó még nem támogatja az Visor által használt
+   összes USB szolgáltatást. Vagyis nem fogod tudni beállítani a Visort.
+   Ha nem látod az eredeti meghajtót, gyõzõdj meg arról, hogy az
+   UHCI-JE meghajtó NINCS kiválasztva, ekkor már látnod kell mindkét
+   opciót.
+
+   Ezen a ponton kell eldöntened, hogy akarsz-e Hotplug támogatást. A
+   Hotplug támogatással egyetlen gombnyomással (Hotsync) be tudod majd
+   állítani Visorodat. Olvasd el a [40]Hotplug támogatás fejezetet, és
+   fõleg a [41]Hotplug rendszermag-beállítás, fejezetet, mielõtt ezt az
+   utat választanád.
+
+   Fordítsd és telepítsd a rendszermagot. Ne feledkezz meg a lilo
+   futtatásáról sem. Amennyiben új rendszermagot telepítesz, még ne
+   indíts újra.
+     _________________________________________________________________
+
+3.5. usbdevfs
+
+Az usbdevfs parancs a /proc könyvtárban helyez el információkat az USB
+vezérlõrõl. Különösen hasznos lesz majd hibakereséskor. Ezt a következõ
+sor /etc/fstab fájlhoz adásával lehet engedélyezni.
+
+none  /proc/bus/usb  usbdevfs  defaults  0  0
+
+   Ha új rendszermagot telepítesz, ettõl a ponttól kezdve már
+   újraindíthatod a géped. Nem kell újraindítanod, ha csak modulként adod
+   az USB támogatást a már létezõ rendszermagodhoz.
+     _________________________________________________________________
+
+3.6. /dev bejegyzések készítése
+
+Ha a Linux disztribúciód nem támogatja az USB portos Visorokat, vagy NEM
+használsz devfs fájlrendszert (nem ugyanaz, mint a usbdevfs), akkor létre
+kell hoznod az USB tty eszközöket.
+
+Ha devfs fájlrendszert használsz, ezek az eszközök automatikusan létrejönnek
+/dev/usb/tts/{0,1,...} néven; vagyis ugorhatsz [42]A modulok használata
+fejezetre.
+
+Ha nem használsz devfs fájlrendszert, a következõ (root felhasználóként
+kiadott) paranccsal létrehozhatod a megfelelõ eszközöket:
+
+mknod /dev/ttyUSB0 c 188 0
+mknod /dev/ttyUSB1 c 188 1
+mknod /dev/ttyUSB2 c 188 2
+mknod /dev/ttyUSB3 c 188 3
+etc...
+chmod 666 /dev/ttyUSB*
+
+   255 kapcsolatot, kaput vagy eszközt tudsz így beállítani, de (hacsak
+   nem egynél több USB-s eszközöd van) talán csak az elsõ néhányra lesz
+   szükséged. A chmod engedélyezi más felhasználók számára a Visor
+   elérését. A szerzõ véleménye szerint ez biztonságos egy személyi
+   számítógépen. Többfelhasználós gépeken bizonyára jobban belemélyednek
+   a biztonsági kérdésekbe (világosítsatok fel).
+
+   A Visor csatlakozásakor két kapu nyílik meg. (Legtöbb ember számára ez
+   a /dev/ttyUSB0, és /dev/ttyUSB1) lesz. Az elsõ kapu (zero), egy
+   általános kapcsolatot hoz létre. A második kapu a hotsync részére
+   kell. Ez a lehetõség a jövõ fejlesztõi számára van fenntartva;
+   például fájlrendszerek exportja a Visorról. Hasznos dolog egy
+   hivatkozást (link) létrehozni a hotsync portjára, hogy a szinkronizáló
+   szoftver alapból a megfelelõ eszközt használja. A következõképpen
+   teheted meg:
+
+cd /dev
+ln -s /dev/ttyUSB1 pilot
+ln -s /dev/ttyUSB1 palm
+
+   A pilot-xfer programcsomag a /dev/pilot könyvtárat használja alapból.
+   A coldsync a /dev/palm könyvtárra áll be alaphelyzetben. Hozd létre az
+   eszközöket és a hivatkozásokat szükség szerint. A szórakozás kedvéért
+   hozz létre hivatkozást a /dev/visor és a /dev/ttyUSB1 között csak,
+   mivel Visor, és nem egy Pilot (vagy Palm(tm)) géped van . Az aktuális
+   eszközszám változhat, attól függõen mennyi (aktív?) soros USB eszköz
+   van a gépedhez csatlakozva. A syslog tartalmaz az aktuálisan használt
+   eszközre vonatkozó megjegyzéseket. Történetesen ez az ötlet egy
+   bejegyzés létrehozására a /proc alatt, ami tartalmazza a szükséges
+   információkat.
+     _________________________________________________________________
+
+3.7. A modulok használata
+
+Azoknak, akik modulként fordították az USB kódot, a rendszermagba is be kell
+illeszteniük ezeket. A következõ parancs kiadásával tehetik ezt meg (root
+felhasználóként):
+
+/sbin/modprobe usb-uhci
+/sbin/modprobe usb-ohci
+/sbin/modprobe visor
+
+   Egy fontos megjegyzés: az aktuális eszközmeghajtó/eszköz kapcsolat a
+   /dev/ttyUSB* könyvtárban, a rendszermag-memóriában a hotsync gomb
+   megnyomásáig nem jön létre. Ezért ha a programot használni akarod,
+   mielõtt megnyomnád a hotsync gombot, az nem fog mûködni.
+     _________________________________________________________________
+
+4. Szinkronizáló szoftver
+
+4.1. Általános
+
+Két szoftvercsomag van amely kommunikálni képes a Visorral. Az egyik a
+coldsync, a másik a pilot-link. Ezek a programok parancssorból futnak és
+"alacsony szintû" szinkronizálást végeznek az aktuális adatbázisokon.
+Többféle felületet biztosítanak a csatornák számára. Feltételezem, hogy
+tudod, hogyan kell programot letölteni és telepíteni. Ha nem tudod, tanuld
+meg. (Biztosan tudsz elõre fordított csomagokat telepíteni, de azt nem
+szeretem. ;-).
+     _________________________________________________________________
+
+4.2. coldsync
+
+A coldsync megtalálható a [43]http://coldsync.org/ webhelyen.
+     _________________________________________________________________
+
+4.3. pilot-link
+
+A pilot-link megtalálható a [44]http://www.pilot-link.org/ webhelyen. Ha
+Palm Desktop stílusú eszközt használsz, erre lesz szükséged.
+     _________________________________________________________________
+
+4.4. Itt az idõ a szinkronizálásra
+
+Ezen a ponton már a tesztelésé a fõszerep, hogy megtudjuk, minden renden
+mûködik-e. Természetesen a Visornak az USB portra csatolt bölcsõben kell
+lennie. A megfelelõ moduloknak be kell [45]töltõdniük.
+
+FIGYELEM! a hotsync gombot a szoftver futtatása ELõTT kell megnyomni! A
+visor vezérlõ bejegyzést készít a syslogba, és alkalmanként a
+/proc/drivers/visor fájlba. Tegyük fel, hogy a meghajtóprogram a
+/dev/ttyUSB0 és /dev/ttyUSB1 könyvtárakhoz csatlakozik, ekkor a Visor
+mentése így néz ki (megfelelõ program kiválasztandó):
+
+cd ~
+mkdir visorbackup
+coldsync   -p /dev/ttyUSB1 -mb visorbackup
+pilot-xfer -p /dev/ttyUSB1 -b  visorbackup
+
+   Hibaüzenet esetén, mint például "unable to bind to the port", olvasd
+   újra az elõzõ fejezetet. Minden más hibával a [46]Hibaelhárítás
+   fejezet foglalkozik.
+     _________________________________________________________________
+
+4.5. Palm Desktop változatok
+
+Van néhány Palm desktop változat. Nem tudtam még mindet tesztelni. Jövõbeni
+tervem, hogy majd írok róluk valamit ide. Ha van valamilyen tapasztalatod ez
+ügyben, küldd el levélben és bekerül ide. Eddigi ismereteim szerint mind a
+pilot-link könyvtárakat használja a Visorral történõ kommunikációban.
+
+Ezeket ismerem:
+
+     * [47]J-Pilot
+     * [48]KPilot (KDE)
+     * [49]Gnome-Pilot (GNOME)
+     _________________________________________________________________
+
+4.6. Kész!
+
+Ha eddig a pontig eljutottál, kész vagy! Tudod telepíteni a Visort, menteni,
+és szinkronizálni az információkat. Gratulálok! Várom a hálaleveleket! A
+következõ rész a PPP kapcsolat létrehozásáról és a Hotplug támogatásról
+szól.
+     _________________________________________________________________
+
+5. Hotplug támogatás
+
+Talán a legcélszerûbb egy friss 2.4-es rendszermag használata. Elõször
+olvasd végig az egész fejezetet, csak utána láss munkához!
+
+A hotplug alkalmassá teszi a rendszert, hogy automatikusan futtassa a
+szinkronizáló szoftvert, amint megnyomod a sync gombot. Csak egy Visorhoz
+lehet konfigurálni. Ha több felhasználót több Visorral szeretnél összehozni,
+az nem lehetséges. (Más kérdés, hogy különbözõ Palm és Clie masinákkal
+lehet-e, de ezekre nem tudok válaszolni).
+     _________________________________________________________________
+
+5.1. Hotplug rendszermag-beállítás
+
+A rendszermag beállítása során engedélyezned kell a "Support for
+hot-pluggable devices" támogatást a "General Options" részben. Ez a
+CONFIG_HOTPLUG opció. A fordításról és újra-telepítésrõl ne feledkezz meg!
+     _________________________________________________________________
+
+5.2. Hotplug telepítés
+
+Kell hozzá egy hotplug szkript a linux-hotplug honlapról, amely a
+[50]http://linux-hotplug.sourceforge.net webhelyen található. Rpm, gz vagy
+tgz csomagok formájában is megtalálható. A csomagok telepítése elõtt
+érdemes elolvasni a telepítést részletesen leíró README fájlt. Ha csak a
+Visor hotplug támogatást akarod beállítani, talán elég lesz a következõket
+tenned:
+
+gzip -dc hotplug-2002_08_26.tar.gz | tar xvf -
+cp hotplug-2002_08_26/sbin/hotplug /sbin/hotplug
+cp -r hotplug-2002_08_26/etc/hotplug  /etc
+     _________________________________________________________________
+
+5.3. A Visor meghajtó beállítása
+
+Amikor minden kész és jó, a hotsync gomb megnyomására egy
+/etc/hotplug/usb/visor nevû (futtatható) szkriptnek kéne elindulni .
+
+#!/bin/sh
+/bin/su rvbijl -c /usr/local/bin/coldsync
+
+   Természetesen a rvbijl paramétert cseréld ki a rendes felhasználói
+   neveddel. És tedd futtathatóvá a szkriptet!
+     _________________________________________________________________
+
+6. Hibaelhárítás
+
+6.1. Ötletek
+
+     * Van egy ismert hiba a Visornál, ami miatt újra kell indítani a
+       Visort szinkronizálás elõtt. Ez a legegyszerûbb megoldás
+       szinkronizálási hibák esetén. Ha a szoftveres reset nem mûködik,
+       és más USB eszköz is van a gépen, egy hardveres újraindítás (hard
+       reset) segíthet. (Elõtte mást próbálj meg inkább.)
+     * Telepítetted az új rendszermagot/modulokat?
+     * Nézd meg, hogy az összes modul fut-e. Az lsmod parancs
+       eredményeképpen legalább a következõknek kell megjelenniük:
+       visor, usbserial, usbcore; és ezek közül az egyik: usb-uhci vagy
+       usb-ohci.
+     * Új rendszermagot telepítettél. Újraindítottad a rendszert?
+     * Engedélyezve van az USB használata? (Ellenõrizd a BIOS-ban. Más
+       operációs rendszereknél mûködik?)
+     * Megjelennek az eszközök (például "usb-serial") a /proc/devices
+       könyvtár alatt? És a /proc/bus/usb/devices könyvtár alatt? Ha nem,
+       akkor a meghajtóprogram nem töltõdött be rendesen.
+     * A hotsync megnyomása után megjelenik valami a syslogban?
+     * BIZTOS, hogy a szinkronizálás (program futtatása) ELõTT nyomtad
+       meg a hotsdync gombot?
+     * E-mail: <[51]usbvisor-unix@lists.sourceforge.net>.
+     _________________________________________________________________
+
+7. Hivatkozások
+
+Hasznos információkat találsz a következõ honlapokon. Néhány információ
+ebben a dokumentumban is megjelent.
+
+     * ColdSync: [52]http://coldsync.org
+     * Pilot-link: [53]http://www.pilot-link.org/
+     * PalmOS HOWTO: [54]http://www.orbits.com/Palm/
+     * Linux Kernel: [55]ftp.kernel.org/pub/linux/kernel/
+     * USB Visor honlap: [56]http://usbvisor.sourceforge.net
+     * Hotplug info: [57]http://linux-hotplug.sourceforge.net/.
+     * A vezérlõ megállapítására vonatkozó dokumentáció a rendszermag
+       dokumentációból lett kiollózva. Documentation/usb/scanner.txt.
+
+References
+
+   1. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#STANRD
+   2. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#DISCLAIMER
+   3. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#AUTHOR
+   4. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#COPYRIGHT
+   5. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#AEN60
+   6. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#INTRODUCTION
+   7. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#DEVICES
+   8. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#NEEDED
+   9. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#DISTROS
+  10. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#KERNEL
+  11. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#REQUIREMENTS
+  12. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#KERNELVERSION
+  13. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#CONTROLLER
+  14. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#MAKEKERNEL
+  15. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#USBDEVFS
+  16. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#DEVENTRIES
+  17. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#USINGMODULES
+  18. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#SYNCSOFTWARE
+  19. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#AEN198
+  20. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#COLDSYNC
+  21. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#PILOTLINK
+  22. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#TESTING
+  23. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#AEN225
+  24. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#AEN239
+  25. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HOTPLUG
+  26. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HPKERNEL
+  27. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HPINSTALLBASE
+  28. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HPINSTALLVISOR
+  29. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#TROUBLESHOOTING
+  30. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#THETIPS
+  31. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#REFERENCES
+  32. http://www.vanderbijlfamily.com/~rvbijl/visor/howto/
+  33. http://www.gnu.org/copyleft/gpl.html
+  34. mailto:aaron_at_szentimre.hu_NO_SPAM
+  35. mailto:petvolgyi_at_freemail.hu_NO_SPAM
+  36. http://tldp.fsf.hu/index.html
+  37. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#SYNCSOFTWARE
+  38. ftp://ftp.kernel.org/pub/linux/kernel/v2.4/
+  39. http://www.linux-usb.org/
+  40. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HOTPLUG
+  41. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#HPKERNEL
+  42. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#USINGMODULES
+  43. http://coldsync.org/
+  44. http://www.pilot-link.org/
+  45. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#USINGMODULES
+  46. file://localhost/home/dacas/temp/Handspring-Visor-hu.html#TROUBLESHOOTING
+  47. http://www.jpilot.org/
+  48. http://www.slac.com/pilone/kpilot_home/
+  49. http://www.gnome.org/gnome-pilot/
+  50. http://linux-hotplug.sourceforge.net/
+  51. mailto:usbvisor-unix@lists.sourceforge.net
+  52. http://coldsync.org/
+  53. http://www.pilot-link.org/
+  54. http://www.orbits.com/Palm/
+  55. file://localhost/home/dacas/temp/ftp.kernel.org/pub/linux/kernel/
+  56. http://usbvisor.sourceforge.net/
+  57. http://linux-hotplug.sourceforge.net/
