@@ -1,0 +1,126 @@
+En el proceso de revisión, he tenido que cambiar de instalación de TeX
+(por cambiar desde Slackware hacia RedHat), y las cosas no han
+funcionado exactamente igual (:-).  La distribución que estoy usando
+ahora está basada en teTeX.
+
+Además tratando de mantener un estilo uniforme ---o lo más posible---
+dentro del libro, me he adherido a ciertas convenciones.  Como mínimo,
+son las convenciones que se manejan en el grupo LuCAS.  Ahí van:
+
+Convenciones de escritura
+-------------------------
+
+1) Se trata de Ud. al lector.
+
+2) Los ``punto y seguido'' se continúan con 2 (dos) espacios en
+   blanco, al mejor estilo de los que escriben en máquina de escribir.
+   Esto es importante si estás usando Emacs, y si no, no te molestará.
+
+3) Los ``punto y aparte'' están seguidos de un renglón en blanco.
+
+4) Los comandos en texto corrido ---como éste--- se ponen ``{\tt
+   comando argumentos}'' para distinguirlos no sólo por el tipo de
+   letra, sino con las comillas dobles que lo distancian de las letras
+   romanas.
+
+5) El usuario de ejemplo que aparece es ``larry'', o sea el del
+   original.
+
+6) El prompt que le aparece al usuario es ``$''.  Esto lo he decidido
+   así ---yendo en contra del original--- pues me parece que es
+   importante hacerle ver al lector desde el principio cual es su
+   prompt adecuado.  El ``#'' me parece que no es didáctico pues se
+   confunde con el prompt que obtiene ``root'' cuando trabaja.
+
+7) Cuando sea necesario aclarar la procedencia inglesa de un término o
+   expresión vertida al castellano por el traductor, se pondrá una
+   nota al pie del estilo: \footnote{N. del T.: {\em castellano} del
+   inglés {\em spanish}}, o bien \footnote{N. del T.: {\em inglés}
+   significa {\em english}}
+
+8) Debe evitarse en lo posible el uso de la voz pasiva, que le deja un
+   ``mal gusto'' a la traducción.  En castellano se usa
+   primordialmente la voz activa.  En los casos en que cuadre según el
+   uso, ¡bienvenida la voz pasiva!, pero que no sea cosa de decir en
+   ``spanglish'' lo que nuestras costumbres de habla permiten con
+   perfección.
+
+9) El fuente de los caracteres es el ISO-8859-1, o bien el
+   correspondiente a TeX.
+
+10) Los separadores de renglón (cambios de línea) son los
+    correspondientes a un archivo en Unix ---sólo el carácter \012,
+    0x0a, ó 10.
+
+11) Los títulos y subtítulos tienen la inicial de cada palabra en
+    mayúscula, excepto artículos y proposiciones.
+
+12) Cuando se hable de X, siempre se la debe atar a la palabra
+    correspondiente, por ejemplo: ``el sistema X~Window'', o ``las
+    ventanas~X tienen...''
+
+13) En los entornos ``tabbing'', se deben utilizar
+    \parbox{ancho}{texto} para colocar el texto en castellano, pues
+    sino el \' se interpreta como retroceder el tabulador y todo queda
+    hecho un galimatías.  Las \parbox vuelven a definir las secuencias
+    \' con el significado que tenían fuera del entorno ``tabbing''.
+
+14) Cuando haya un ``algo~{\tt ls}'' se debe poner como ``algo\tie{\tt
+    ls}''.  Si no se hace así, lo que sucede es que LaTeX hace que
+    desde ese momento TODO se ponga en \tt hasta el final del
+    documento.  Cosa muy desagradable, y todavía no se porque, talvez
+    cuando me llegue el libro ``The LaTeX Companion'' entenderé un
+    poco más :-).
+
+15) Cada traductor debe poner como comentario TeX en los primeros
+    renglones del archivo que traduce, su nombre, su dirección de
+    email, y fecha de traducción.
+
+
+Problemas con Tex
+-----------------
+
+En principio he tenido que poner linuxdoc.sty ---el viejo, el de la
+versión 1.4--- en el directorio
+/usr/lib/texmf/texmf/tex/latex/misc/linuxdoc.sty, luego corrí el
+comando ``texhash'', para avisar de su existencia a TeX.
+
+El programa ``texconfig'' me resultó muy conveniente para poner la
+separación en sílabas correspondiente a nuestro idioma, si bien dejé
+en primer lugar la correspondiente al ``english'' gracias a la
+sugerencia que hace el archivo de configuración a tal efecto.
+
+Además tuve problemas con dos caracteres que Babel[spanish] transforma
+en activos: ``~'' y ``"'', que respectivamente sirven para hacer un
+espacio en el cual no puede haber un cambio de renglón (tie), y para
+hacer la comilla doble en modo teletipo.  El ``~'' se activa para las
+``ñ'' y ``Ñ''.  El ``"'' sirve para hacer las diéresis en ``ü'' y
+``Ü''.
+
+La solución fue crear dos macros: \tie para subsanar el problema de
+``~'', \dq (double quote) para la ``"''.
+
+\uguidespa es el nombre de la traducción al castellano de la Linux
+User's Guide.
+
+\ret tiene ahora el más castizo mensaje: ``Intro''.
+
+\nro da el símbolo ``º'' ---número---.
+\pra da el símbolo ``ª'' ---primera---.
+
+Cuando sea necesario escribir un apóstrofo ('), se lo hará seguido de
+la palabra nula ``{}'', para evitar su acción de acentuar, presente en
+la plantilla de castellano de Babel.  Por ejemplo, si en el original
+dice:
+	'hostname'
+en la traducción debe decir:
+	'{}hostname'{}
+si suponemos que ``hostname'' hace referencia al comando, y por lo
+tanto la palabra no debe ser traducida.
+
+Si hay que poner el símbolo ``~'' ---tan utilizado como abreviatura del
+directorio raíz de usuario--- se debe utilizar ``\texttilde{}''.
+
+
+--
+César Ballardini <cballard@santafe.com.ar>

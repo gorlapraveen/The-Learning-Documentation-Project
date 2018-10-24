@@ -1,0 +1,1634 @@
+WordPerfect on Linux FAQ
+
+Rick Moen
+
+<rick@linuxmafia.com>
+
+Copyright © 2002-2004 Rick Moen
+
+1.4.19, 2004-10-08
+
+
+Abstract
+
+WordPerfect for Linux continues to be popular, and is still conditionally
+available. This FAQ covers its place in the modern Linux world, and answers
+common questions.
+
+
+This information is free; you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, version 2.
+
+This work is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this work; if not, write to the Free Software Foundation, Inc., 675 Mass Ave,
+Cambridge, MA 02139, USA.
+
+Alternatively and at the recipient's option, this work may be used freely
+under the [http://creativecommons.org/licenses/by-sa/1.0/]
+Attribution-ShareAlike 1.0 licence.
+
+-----------------------------------------------------------------------------
+Table of Contents
+1. Introduction
+    1.1. Nature of the FAQ.
+    1.2. The Big Picture.
+   
+   
+2. Taxonomy and History
+    2.1. Corel WordPerfect Product Strategy
+    2.2. Versions and Editions
+   
+   
+3. Technical Problems.
+    3.1. WP 8.0 DPE for Linux installs but won't start on my Linux
+        distribution. How do I fix that?
+    3.2. WP 8.0 DPE for Linux installs perfectly, and runs fine for the root
+        user, but quits with a segmentation fault if any non-root user starts
+        it. What's the cause?
+    3.3. How do I stop the WP 8.x installer from getting diagnostic message
+        "../install.wp: [: 18-10: integer expression expected" followed a
+        short while later by termination with a Segmentation Fault error?
+    3.4. How do I fix the WP 8.x installer's failures resulting from errors
+        copying files onto my NFS network drive?
+    3.5. How do I fix MS-Word import / export filters (the Filtrix module) on
+        WP 8.x for Linux?
+    3.6. Why didn't Corel itself release any fix for the MS-Word / Filtrix
+        problem, especially given its obligations to purchasers of boxed-set
+        versions?
+    3.7. How do I make WP for Linux's integration with KDE Address Book
+        ("kab") work with KDE2 / KDE3?
+    3.8. I get rendering problems with icons and other graphical objects when
+        running WP for Linux at greater than 16 bits per pixel. How do I fix
+        that?
+    3.9. Can I make WP for Linux use TrueType fonts?
+    3.10. How do I get printing to work?
+    3.11. How do I keep the "WordPerfect 8 for Linux" re-release's installer
+        from crashing?
+    3.12. Can my language's absence from the "WordPerfect 8 for Linux"
+        re-release be fixed?
+    3.13. Why aren't the PostScript Type 1 fonts I've installed available in
+        WP?
+    3.14. Why aren't the PostScript Type 1 fonts I've installed available to
+        applications other than WP?
+    3.15. I see the process "wpexc" still running in my system process table,
+        even after quitting WordPerfect. If the WordPerfect program is "xwp",
+        what's "wpexc", and why does it need to remain running?
+    3.16. What is the "xwppmgr" process?
+    3.17. How do I prevent "xwp" from starting the wrong version of
+        WordPerfect?
+    3.18. How do I get WP to support my wheelmouse?
+    3.19. WP9 stopped working / won't install, even with the upgraded support
+        packages and installer. How do I fix that?
+   
+   
+4. Downloadable WP 8
+    4.1. Where can I find a copy of WP 8.0 DPE for Linux? What filenames
+        should I look for?
+    4.2. After I locate WP 8.0 DPE for Linux, how do I install it, and what
+        can I do to improve and fix it?
+    4.3. Given that Corel has ceased publishing it, is redistribution of WP
+        8.0 DPE for Linux still lawful?
+    4.4. What are the licence restrictions on WP 8.0 DPE for Linux?
+    4.5. Suppose I suddenly need to use my copy of WP 8.0 DPE for Linux in a
+        commercial setting. Can I upgrade my licence?
+    4.6. How can I add more fonts to WP 8.0 DPE?
+    4.7. How do I add additional language files (other than US English) to WP
+        8.0 DPE (or the 2003-4 "pilot project" re-release)?
+    4.8. Where will we get new WP 8.0 registration keys, if / when Corel
+        stops offering them at the page linked from [http://venus.corel.com/
+        nasapps/wp8linuxreg/register.html] http://venus.corel.com/nasapps/
+        wp8linuxreg/register.html?
+   
+   
+5. Non-downloadable WP 8
+    5.1. Where can I find a copy of WP 8.1 for Linux?
+    5.2. What does WP 8.1 give me that's not in WP 8.0 DPE?
+    5.3. What are the licence restrictions on WP 8.1 for Linux?
+    5.4. Why was WP missing from CLOS Deluxe / Standard Editions version 1.1?
+    5.5. How do I install WP 8.1 (from a CLOS boxed set) on some other Linux
+        distribution?
+    5.6. How do I add fonts to WP 8.1?
+    5.7. What's the difference between the WP versions bundled with CLOS
+        boxed-set versions 1.0 and 1.2?
+    5.8. Where can I get a boxed-set copy of WP 8.0 PE?
+    5.9. Where can I find a boxed-set copy of WP 8.0 Server Edition for
+        Linux?
+   
+   
+6. WP version 9
+    6.1. Isn't WP 9 For Linux (in the WP Office 2000suite) better than WP
+        8.1?
+    6.2. Why didn't Corel do WP 9 as a native Linux port?
+    6.3. Is there anything I can do to maintain or improve WP9 for Linux?
+    6.4. Where can I find a copy of WP9 / WP Office 2000 for Linux?
+   
+   
+7. Documentation
+    7.1. What books are available concerning WP for Linux?
+    7.2. WP 8.x's access to on-line docs doesn't work any more, saying
+        "document not found (404 error)". Where did they go?
+   
+   
+8. The Future
+    8.1. Why did Corel cease publishing WP for Linux?
+    8.2. Why is Corel still selling WP versions for other Unixes, but not
+        Linux?
+    8.3. Won't WP for Linux re-emerge as part of Xandros Desktop?
+    8.4. If Corel doesn't want to sell WP for Linux, why doesn't it
+        open-source the program?
+    8.5. What alternatives to WP exist on Linux?
+    8.6. What alternatives to WP exist involving Win32 apps on Linux?
+   
+   
+9. Feedback. Location. Copyright and Redistribution Terms.
+
+1. Introduction
+
+1.1. Nature of the FAQ.
+
+This FAQ addresses common questions about Linux i386-binary releases of the
+discontinued but enduringly popular, proprietary WordPerfect word processor.
+
+Some FAQs aim to present only impartial fact. Others summarise diverse
+answers typically given by members of the sponsoring community. This FAQ does
+neither: It's one author's attempt to paint a coherent picture of WordPerfect
+for Linux's place in the 21st Century open-source world, from a Linux-centric
+perspective. Some others' views will undoubtedly differ.
+
+I'd like to gratefully acknowledge the HOWTO documents at [http://
+linux-sxs.org/utilities/wp_index.html] http://linux-sxs.org/utilities/
+wp_index.html, which should be consulted for detailed installation
+instructions for WP on current Linux distributions. Also, the former
+linux.astcomm.net and current [news://cnews.corel.com/
+corel.wpoffice.wordperfect8-linux] news://cnews.corel.com/
+corel.wpoffice.wordperfect8-linux newsgroups' comments have been invaluable.
+
+I would also like to thank Leon A. Goldstein and Valentijn Sessink
+specifically for their valuable feedback, Bob Tennent for information on the
+libsafe problem, and Wade Hampton for maintaining the original but
+now-obsolete WordPerfect Mini-HOWTO.
+-----------------------------------------------------------------------------
+
+1.2. The Big Picture.
+
+1.2.1. What's good about WordPerfect?
+
+Several things. In an era when leading word processors gobble dozens of megs
+of RAM just launching, WP (v. 8.x) is thrifty -- about 6 MB. By comparison,
+OpenOffice.org 1.1 or Star Office 7.0 takes 54 MB to launch. AbiWord 2.01
+uses only 15 MB, and KWord 1.2.94 32 MB. It's a stable, fast, polished,
+full-featured product. It has "reveal codes". It has a nearly unique "shrink
+to fit" printing feature that quickly becomes indispensable once you've
+experienced it. WP's high-performance print module uses the MS-DOS version's
+time-tested, robust printer drivers by default, expanding greatly the range
+of compatible printers. (WP can alternatively hand off to standard Unix
+printing subsystems -- lpr / lprng / gnulpr / cups / pdq / etc. -- in
+"Passthru Postscript" mode, to use the system's own standard print drivers.)
+It has excellent built-in mathematical, financial, logical, and
+string-handling functions. It has excellent table support and a useful
+speed-table-formatting feature. It has a time-tested, easy to use and debug
+macro language. It has a robust built-in database engine for table sorting
+and searching.
+
+It's still the best tool available on Linux for reading WordPerfect .wpd
+files created elsewhere. (AbiWord, Anyware Office, and wp2latex also
+qualify.)
+-----------------------------------------------------------------------------
+
+1.2.2. What's wrong with WordPerfect?
+
+It's a discontinued product (on Linux). The most-long-term-available version,
+WP 8.0 Download Personal Edition (WP 8.0 DPE), has deliberately crippled font
+handling and limited (but fixable) multi-language support, and won't function
+without fairly antique support libraries. The best version, WP 8.1, comes
+only bundled with the Corel Linux OS (CLOS) Deluxe and Standard Edition boxed
+sets, v. 1.0 or 1.2 -- likewise discontinued.
+
+WP used to be the best tool on Linux for reading MS-Word (through Word97)
+files, but always faltered on some, especially those Fast Saved in MS-Word.
+But now, Star Office, OpenOffice.org, and AbiWord reportedly do better (and,
+unlike WP for Linux, can read post-Word97 .doc formats).
+
+All 8.x versions (except the 2003-4 "pilot project" re-release) ship with a
+broken MS-Word import / export module: This third-party code ("Filtrix")
+fails with the message "Filtrix unable to convert this file" if the local
+system clock is set to later than September 9, 2001, because an internal time
+counter overflowed when Linux system time in seconds since January 1, 1970
+passed 10^9 seconds. The problem can be fixed using a wrapper by Valentijn
+Sessink of the Netherlands firm Open Office, [http://www.openoffice.nl/]
+http://www.openoffice.nl/ (not to be confused with Sun Microsystems's
+OpenOffice.org project), available at [http://olivier.pk.wau.nl/~valentyn/
+wp8fix/] http://olivier.pk.wau.nl/~valentyn/wp8fix/.
+
+The integration into standard Linux print subsystems was always poor; ditto
+the typeface support. Screen rendering is a bit below par -- though printed
+output when using the built-in print engine is uniformly excellent, and very
+fast. Also, TrueType fonts were never supported, only PostScript Type 1. Menu
+shortcuts break when Caps Lock or Num Lock are on. And WP's use of the Motif
+graphics toolkit makes its aesthetics a bit klunky.
+
+Last, though the point may be obvious, WP is proprietary (not open source).
+Open-source projects die only when nobody cares to maintain them, can be
+fixed / improved by any motivated party, and can be easily implemented on
+newer CPU architectures (IA64, PPC). By contrast, supplies of all but one WP
+version are vanishing, the sole exception occupies a legal grey area, and the
+difficulty of keeping it running on evolving Linux systems (which can be i386
+only) can only increase over time.
+
+It's a measure of just how good WP for Linux is / was that many people
+consider it still the best word processor for Linux, on balance, despite the
+above.
+-----------------------------------------------------------------------------
+
+1.2.3. Who created WordPerfect for Linux?
+
+Old-timers may recall that WordPerfect originally emerged from Satellite
+Software, Inc. of Orem, Utah, which later renamed itself to WordPerfect
+Corporation, which ported it widely from the original x86 assembler version
+for MS-DOS. (Their initial Unix port occasioned a rewrite to C, which lead to
+WP for NeXT, which lead to WP 6.0 for MS-Windows, which was the basis for all
+subsequent versions.) That firm eventually sold WordPerfect's codebase to
+Novell, Inc., which then sold it to Corel Corporation Limited of Ottawa,
+Canada. Corel then hired a spinoff firm (Software Development Corporation aka
+SD Corp., formed by the Unix port's manager and developers) to port WP
+versions 6, 7, 8.0, and 8.1 to both Linux and several proprietary Unix
+platforms.
+
+Around 1996-7, the initial SD Corp.-written Linux port of Corel WP, v. 6.0,
+was marketed solely through through Caldera, Inc. of Orem, Utah, as part of
+two bundles: the WordPerfect and Motif Bundle, and the Caldera Internet
+Office Suite bundle (companion CD to Caldera Network Desktop v 1.0). In 1997,
+Corel replaced this with a v. 7.0 that it sold directly (after SD Corp.'s
+open beta), offering greater file compatibility with other platforms and
+other improvements.
+
+The zenith of WP for Linux's popularity, however, came with the 1998-2000 v.
+8.x series, the most wildly popular Linux proprietary software of that era.
+(During that time period, Corel, acting without help from SD Corp., attempted
+to port the entire WordPerfect Office (aka Corel Office) suite to Java:
+Program startup was [http://developer.novell.com/research/appnotes/1997/july/
+netnotes/03.htm] slow for its time, and some functions had [http://
+web.pip.com.au/office/readme.html] problems. The project was killed after
+some [http://public.planetmirror.com/pub/hobbes/java/apps/suite/] public
+betas.)
+
+The intended successor to 8.x shipped some time around 1999: WP 9, better
+known as WordPerfect Office 2000 (which was technically WordPerfect joined at
+the hip to several other Corel programs -- Quattro Pro (which Novell bought
+from Borland in June, 1994, and then passed to Corel), Paradox (which Corel
+bought around 1997 from Borland), Corel Presentations, Corel Central),
+produced by Corel Corporation Limited, alone, Corel having closed down the
+WordPerfect Corporation unit in Orem, Utah during 1998-9. (Paradox was
+included only in the Deluxe Edition, and omitted from Standard Edition.)
+-----------------------------------------------------------------------------
+
+2. Taxonomy and History
+
+2.1. Corel WordPerfect Product Strategy
+
+To understand Corel's WP versions for Linux, and what they're like, it helps
+to know the company's product history. As a proprietary software company,
+Corel wants customers to buy its boxed-set products. WordPerfect is one such
+product. CLOS was another. The Corel Netwinder Linux-based computer was a
+third.
+
+Proprietary software companies are motivated to keep development costs down
+and product-development cycles short. So, Corel always attempts to use one
+main codebase, the Win32 version (the MacOS one having been axed in May 2001,
+per [http://www.geocities.com/bulgybear/wp.html] http://www.geocities.com/
+bulgybear/wp.html) as the flagship version, and minimises time and money
+spent on other OSes' versions.
+
+For similar reasons, the WP product line is always fundamentally less diverse
+than it seems: To fill different niches and hit various price points, WP is /
+was offered in different "editions", with more features omitted or disabled
+from the base "Server" edition (about US $500, boxed set) as one descends the
+price scale.
+-----------------------------------------------------------------------------
+
+2.2. Versions and Editions
+
+WP versions 6 and 7 for Linux (native ports coded by SD Corp.) are long gone
+from the market, at this date. The (premium-priced) Server Edition boxed-set
+version included multiuser support and NFS locking, and included both an X11
+version ("xwp") and a text-mode / console one ("wp"). The lower-priced
+Personal Edition boxed set omitted both multiuser / NFS support and the
+console version. (By "boxed set", I mean that the product was not available
+for download, only in a retail box, via stores or mail-order.)
+
+WP 8.0 editions for Linux were mostly similar: The Server Edition and
+Personal Edition boxed-set versions were as detailed for prior versions.
+However, Corel also introduced a WP 8.0 Download Personal Edition, which
+could be downloaded free of charge as a gzipped tar archive, and was also
+redistributed for the cost of media on CD-ROMs, in either tar.gz or RPM
+format. In late 2001, Corel disabled download of WP 8.0 DPE from its ftp
+site, but it remains available elsewhere.
+
+WP 8.0 DPE for Linux differed from the boxed-set versions in lacking the
+other versions' drawing / charting module, their module to create custom
+dictionaries and hyphenation databases, their equation editor, their network
+support, their print-queue manager, their prepaid technical support, their
+sample documents / templates / textures / clip-art / photos, their
+font-installer module, most of their fonts, their multi-language support, and
+their documentation. (The program could call up an HTML manual from http://
+linux.corel.com/wpmanual, now removed, and that entire Internet server was
+finally decommissioned on Feb. 26, 2003.) Also, after 90 days, it refuses to
+run until you enter a registration key, available free of charge (for now) on
+[http://venus.corel.com/nasapps/wp8linuxreg/register.html] http://
+venus.corel.com/nasapps/wp8linuxreg/register.html or [http://nas.corel.com/
+nasapps/wp8linuxreg/register.html] http://nas.corel.com/nasapps/wp8linuxreg/
+register.html (or use one of the ones people have posted in public). Also,
+the licence permitted only personal, non-commercial use. Last, it was
+compiled dynamically linked against some now-obsolete libraries, which must
+thus be furnished for its benefit (prior to installation).
+
+Balanced against these drawbacks is supplies of 8.0 DPE being effectively
+inexhaustible -- despite legal questions.
+
+WP 8.0 Personal Edition for Linux was offered in boxed sets, and was offered
+bundled with the book "WordPerfect for Linux Bible" by Stephen E. Harris and
+Erwin Zijleman. It included 140 fonts, the font-installer module "xwpfi"
+(see: [http://www.rodsbooks.com/wpfonts/wpfonts-fonts.html] http://
+www.rodsbooks.com/wpfonts/wpfonts-fonts.html), 5,000 clip art images, support
+for grammar / spelling checkers and thesaurus lookups in additional
+(non-English) languages, and a now-outdated set of KDE 1.1 RPMs for Red Hat
+5.1 / 5.2. The CD-ROM includes a text file with a registration key. Be aware
+that the electronic-format WP manual included is for character-mode WP, not
+the graphical X11 version.
+
+Next came WP 8.1 Personal Edition for Linux (WP 8.1 PE), arguably the best
+version to date, showing "Release 8.1 11/1/1999" in its About screen. It came
+only in boxed sets of CLOS Deluxe Edition versions 1.0 and 1.2. (CLOS 1.2 was
+better known as "Second Edition", a name Corel evidently pitched at
+MS-Windows users.)
+
+WP 8.1 PE differed from prior versions in several ways. It wasn't licensed
+for multiuser (only Server Editions included multiuser support and
+console-mode WP; I know of no 8.1 Server Editions), but was licensed for
+commercial use. As part of CLOS Deluxe Edition, it was in .deb package
+format. Redistribution was / is strictly prohibited. It came with a full set
+of 300 fonts, the font-installer module, network support, WP Draw, an
+equation editor, and a printed manual. It ships with and installs all
+required libraries.
+
+WP 8.1 Light Edition for Linux was the bundled WP copy included in boxed sets
+of CLOS Standard Edition. According to one report, it differs from WP 8.1 PE
+only in having approximately 1/3 as many included fonts (only one of the
+Deluxe bundle's three .deb-format font archives).
+
+Starting in late 2003, an update to WP 8.1 PE, confusingly called
+"WordPerfect 8 for Linux" (but showing "Release 8.1.0076 11/1/1999" in the
+About screen), was available through the Corel Store e-commerce Web site on
+eBay, then on Corel's own site intermittently from April 15, 2004 until
+around June 2004 as a "pilot project" aka "proof of concept" market-testing
+limited offering, "to determine the feasibility of developing future Linux
+versions of WordPerfect or WordPerfect Office". It uses its own graphical
+installer routine (eschewing the system package database) that prompts you
+for a licence number (included), installs under /usr by default, provides the
+necessary set of libc5 libraries and matching wrapper scripts, provides 130
+PostScript Type 1 fonts, and incorporates the equivalent of Valentijn
+Sessink's Filtrix fix. Supported languages are English (UK, US, CA and OZ)
+and French (CA and National), only -- which can be fixed. Like prior releases
+of WP 8.1 PE, the 2003-4 "WordPerfect 8 for Linux" pilot-project offering was
+licensed for commercial use, but not multiuser.
+
+The intended successor to 8.x was WP 9, promoted by Corel as "WordPerfect
+Office 2000". This FAQ will have little to say about WP 9 for Linux, as it
+was not a true native port, but rather consisted of Win32 code running in a
+Winelib environment -- with predictable RAM bloat and instability, as a
+result. (Boxed sets only were offered.)
+-----------------------------------------------------------------------------
+
+3. Technical Problems.
+
+3.1. WP 8.0 DPE for Linux installs but won't start on my Linux distribution.
+How do I fix that?
+
+WP 8.0 for Linux was distributed as a dynamically linked ELF binary, linked
+against libc5 (C library), libm (the related math library), a set of five X11
+libraries for libc5-based software, and ld-linux.so.1.9.* (aka ld.so 1.9.*),
+the dynamic-linker/loader software current on Linux at that time. Those old
+libraries are often omitted from current Linux distributions. In such cases,
+you need to retrofit those libraries. (You can see the exact library links by
+running "ldd" = list library dependencies against the WordPerfect "xwp" main
+executable file.) Specifically: Prior to running the WP 8.0 installer, you
+must install ld-linux.so.1.9.* (usually in an ld.so package), libc of some
+version from 5.3.12 through 5.4.46, and libm.so.5.* (both usually in the
+libc5 package), and a set of X11 backward-compatibility libraries compiled
+against libc5 (libXt.so.6, libX11.so.6, libXpm.so.4, libSM.so.6, and
+libICE.so.6). Don't forget to ensure the libraries' directories are listed in
+/etc/ld.so.conf, and then re-run /sbin/ldconfig.
+
+What binary packages these libs and dynamic linker/loader will occupy differs
+between distributions. If in doubt, documents linked from [http://
+linux-sxs.org/utilities/wp_index.html] http://linux-sxs.org/utilities/
+wp_index.html may give details for your distribution. (Also, FAQ section
+"After I locate WP 8.0 DPE for Linux, how do I install it, and what can I do
+to improve and fix it?" has more details and remedies for installation
+problems.)
+-----------------------------------------------------------------------------
+
+3.2. WP 8.0 DPE for Linux installs perfectly, and runs fine for the root
+user, but quits with a segmentation fault if any non-root user starts it.
+What's the cause?
+
+You installed Accelerated-X, a proprietary X11 server, and included in your
+installation its version of the X11 libraries, which were compiled with
+glibc. You need the more-traditional XFree86 versions of those libraries
+(libXt.so.6, libX11.so.6, libXpm.so.4, libSM.so.6, and libICE.so.6),
+specifically ones that were compiled for libc5 X11 clients. Remove
+Accelerated-X completely, reinstall the XFree86 shared libraries for libc5
+clients (which may have any of various package names, such as xlib-compat,
+oldlibs/xlib6, etc.), and then reinstall the Accelerated-X server only
+(minimal installation). WordPerfect should then run correctly.
+-----------------------------------------------------------------------------
+
+3.3. How do I stop the WP 8.x installer from getting diagnostic message "../
+install.wp: [: 18-10: integer expression expected" followed a short while
+later by termination with a Segmentation Fault error?
+
+You are running with "libsafe" enabled, a wrapper library that aims to
+protect system security by blocking library calls that are known to be
+vulnerable to buffer overflows. Unfortunately, that technique blocks
+execution of any binary that attempts a dynamic library call to libc5.x. Both
+the WP 8.x installer and WP 8.0's runtime binary were compiled as libc5
+executables.
+
+To confirm that libsafe is the culprit, type "echo $LD_PRELOAD | grep
+libsafe". You can turn off that setting by typing "unset LD_PRELOAD". Then,
+remove the libsafe reference in /etc/ld.so.preload, if this exists. You
+should now be able to successfully run the installer, and can call the main
+"xwp" binary using a shell script that runs "unset LD_PRELOAD" just prior to
+executing xwp.
+-----------------------------------------------------------------------------
+
+3.4. How do I fix the WP 8.x installer's failures resulting from errors
+copying files onto my NFS network drive?
+
+You're probably using one of the personal editions of WP 8.x. Only the server
+editions include code required to enable support of NFS file locking (which
+in server editions you can enable via the WPadmin login facility). Otherwise,
+neither the installer nor the WP program binary will run if any components
+are on (or will be installed to) any NFS mounted drive, including user
+settings in users' home directories and temporary files in /tmp.
+-----------------------------------------------------------------------------
+
+3.5. How do I fix MS-Word import / export filters (the Filtrix module) on WP
+8.x for Linux?
+
+The third-party Filtrix module, because of a programming oversight concerning
+date-handling, doesn't work on systems whose current date is set later than
+September 9, 2001: On attempts to import / export MS-Word files, it fails
+with error message "Filtrix unable to convert this file". The problem can be
+fixed by installing a wrapper by Valentijn Sessink, available at [http://
+olivier.pk.wau.nl/~valentyn/wp8fix/] http://olivier.pk.wau.nl/~valentyn/
+wp8fix/. (This fix isn't necessary for the 2003-4 "pilot project" re-release,
+which includes an equivalent fix.)
+
+Note: Reportedly, the Filtrix module will not process MS-Word .doc files that
+were saved in MS-Word with password-protection applied. This is not a bug:
+Filtrix never handled such files. (Nor can Filtrix handle MS-Word documents
+with embedded non-MS-Word COM objects such as spreadsheet tables from
+MS-Excel.)
+
+Import will also fail on any file saved in a post-Word97 version of
+Microsoft's .doc format. This is not a bug, just an inevitable result of the
+program's age and lack of maintenance.
+-----------------------------------------------------------------------------
+
+3.6. Why didn't Corel itself release any fix for the MS-Word / Filtrix
+problem, especially given its obligations to purchasers of boxed-set
+versions?
+
+Good question. By the time the problem cropped up, Corel had discontinued all
+involvement in Linux. Just before that, Microsoft Corporation made a major
+investment in Corel, preventing the latter firm's collapse. It's possible
+that lack of Linux-competent staffing was an issue, that Corel didn't wish to
+displease its investor, that the firm perceived inexpensive Linux versions to
+be impairing sales of its US $500 versions for other Unixes (especially given
+increasingly common support for Linux-native binaries on those Unixes), or
+that corporate inertia after liquidating the entire Linux division accounted
+for this lapse. (Corel was later passed to Vector Capital, Microsoft
+co-founder Paul Allen's venture-capital firm, which took Corel private.)
+
+Corel's only comment (November 5, 2001) was "The corporation is not prepared
+to make any comment", and to post a comment on http://linux.corel.com/support
+/updates.htm#wp8, unchanged since late 2001, that "Corel is currently working
+with the filter manufacturer to resolve this issue." (That claim was still
+present when Corel took down the linux.corel.com machine on Feb. 26, 2003.)
+-----------------------------------------------------------------------------
+
+3.7. How do I make WP for Linux's integration with KDE Address Book ("kab")
+work with KDE2 / KDE3?
+
+You don't. WP is compatible with the "kab" version in KDE 1.1, only, that
+being the KDE version shipped with CLOS. For unexplained reasons, this
+feature also doesn't work on Linux 2.4.x or later kernels.
+-----------------------------------------------------------------------------
+
+3.8. I get rendering problems with icons and other graphical objects when
+running WP for Linux at greater than 16 bits per pixel. How do I fix that?
+
+This is a frequent symptom of colour palette exhaustion. The only real cure
+is to run X11 at a lower colour depth. 32 bpp will sometimes work where 24
+bpp doesn't, but 16 bpp always works (assuming hardware support).
+-----------------------------------------------------------------------------
+
+3.9. Can I make WP for Linux use TrueType fonts?
+
+No. WP can use PostScript Type 1 fonts, only. The issue is covered
+comprehensively by Rod Smith, here (including describing a utility for
+generating PostScript Type 1 fonts from TrueType ones -- with, no doubt,
+inevitable loss of detail resulting from "hinting"-routine omission and other
+conversion artifacts): [http://www.rodsbooks.com/wpfonts/] http://
+www.rodsbooks.com/wpfonts/
+-----------------------------------------------------------------------------
+
+3.10. How do I get printing to work?
+
+By default, WP for Linux (uniquely) ignores Linux's system printing
+facilities, and uses its own print engine and drivers. (The latter are the
+same as for WP on MS-DOS, giving the program very broad printer support. More
+are available at [http://www.columbia.edu/~em36/wpdos/] http://
+www.columbia.edu/~em36/wpdos/, which should be reachable as [http://
+www.wpdos.org/] http://www.wpdos.org/.) You need to configure the printing
+subsystem. As the root user, start xwp with the -admin (or -adm) command-line
+option, then select and install an appropriate printer driver, using the Add
+Printer Driver widget. (In such cases but not the Passthru Postscript option
+discussed next, specify "-oraw" in the WP8 Printer Setup dialogue's Lpr
+options box on the Select Destination sub-page, or define a "raw" printing
+destination in your system print daemon, e.g., CUPS.) Alternatively, select
+"Passthru Postscript" to hand off jobs to the system printing daemon, and use
+the latter's print drivers, instead.
+
+The 2003-4 "WordPerfect 8 for Linux" pilot-project offering retains this
+print engine, except that it defaults to Passthru Postscript using print
+destination WPSpool, a reasonable default for compatiblity with modern Linux
+systems' existing system print regimes, which mostly use CUPS. (You can still
+alternatively use WP's own print drivers, and either specify "raw" printing
+in your system print spooler or "-oraw" in WP's print options as described
+above.)
+-----------------------------------------------------------------------------
+
+3.11. How do I keep the "WordPerfect 8 for Linux" re-release's installer from
+crashing?
+
+Because of a bug in the install script, the 2003-4 "WordPerfect 8 for Linux"
+pilot-project release's installer must be run setting US English option
+initially as default, or it will fail. You can then choose one of the other
+installed language options after installation.
+-----------------------------------------------------------------------------
+
+3.12. Can my language's absence from the "WordPerfect 8 for Linux" re-release
+be fixed?
+
+Yes. The "pilot project" re-release included language modules for English
+(UK, US, CA and OZ) and French (CA and National), but not Dutch, German,
+Italian, or Spanish. Those modules can be installed from separate downloads
+mentioned elsewhere in this FAQ. After installing them, you'll need to add "/
+usr/i386-compat-gnulibc1/lib" (or as appropriate, if you didn't install WP to
+the /usr/wplinux default) as a new line to /etc/ld.so.conf and re-run
+"ldconfig". (Otherwise, you'll see an error about inability to find
+libm.so.5, when you execute the language module's ./Runme script.)
+-----------------------------------------------------------------------------
+
+3.13. Why aren't the PostScript Type 1 fonts I've installed available in WP?
+
+You haven't yet run the xwpfi font-installer, to inform WP of their presence.
+(A Readme explains how to use it.) Note that xwpfi is intentionally omitted
+from WP 8.0 DPE. Please see FAQ section "How do I add fonts to WP 8.1?" for
+more details.
+-----------------------------------------------------------------------------
+
+3.14. Why aren't the PostScript Type 1 fonts I've installed available to
+applications other than WP?
+
+You haven't yet configured X11 to know about them, though perhaps you've run
+xwpfi to inform WP about their existence. The two are distinct, WP's font
+integration being incomplete relative to that of standard Linux apps. Please
+see FAQ section "How do I add fonts to WP 8.1?" for more details.
+-----------------------------------------------------------------------------
+
+3.15. I see the process "wpexc" still running in my system process table,
+even after quitting WordPerfect. If the WordPerfect program is "xwp", what's
+"wpexc", and why does it need to remain running?
+
+Tests by Valentijn Sessink have confirmed that this process must have
+something to do with printing: If you rename the wpexc binary, then start WP,
+printing will malfunction but no other program features will. The fact that
+it's left running even after you quit WP appears to be a bug. You can safely
+kill it, when not running WP.
+-----------------------------------------------------------------------------
+
+3.16. What is the "xwppmgr" process?
+
+It's the WordPerfect Print Manager. WordPerfect by default manages its own
+printing, and only optionally hands off jobs to the system printing facility,
+if so configured.
+-----------------------------------------------------------------------------
+
+3.17. How do I prevent "xwp" from starting the wrong version of WordPerfect?
+
+(This problem obviously applies only to the minority who keep multiple
+editions of WP for Linux on tap.) "xwp" in some editions, such as 2003-4's
+"pilot project" re-release and WP 8.1 PE, is a symbolic link pointing to a
+launcher script. (Thus, you should rename any existing /usr/bin/xwp, before
+installing, as the installer will overwrite it.) In others, it's a binary:
+Run "file" on it to tell. You may have to do some debugging and creation of
+your own symlinks to untangle multiple editions' startup mechanisms.
+-----------------------------------------------------------------------------
+
+3.18. How do I get WP to support my wheelmouse?
+
+You need to run "imwheel -k" (which utility must, of course, be installed)
+just prior to launching WP. This can be added as a line near the top of WP's
+startup script (which you can create, if none such exists).
+-----------------------------------------------------------------------------
+
+3.19. WP9 stopped working / won't install, even with the upgraded support
+packages and installer. How do I fix that?
+
+Check the version of libc, which should be in /lib. If it's 2.3.2 or above
+(as it is in essentially all current Linux distributions), and you're using
+either the original bundled version of Corelwine or Michael Torrie's
+corelwine-cvs-20010613-1.i386.rpm upgrade (or Andreas von Heydwolff's
+corelwine-cvs_0.1-2_i386.deb [http://web.archive.org/web/20040225112645/http:
+//members.chello.at/hrdisk/corelwine.html] conversion to .deb format of
+Torrie's release), that's why: There's a libc-support problem, which will
+necessitate fixing and re-releasing Corelwine. (A [http://sources.redhat.com/
+ml/bug-glibc/2003-05/msg00047.html] bug in ld.so's dynamic linker/loader
+prevents solving this using a wrapper to use an older libc and the existing
+Corelwine libs.) However, in September 2004, Torrie graciously provided his
+[http://linuxmafia.com/pub/linux/apps/] Corelwine source code. It's hoped
+some volunteer will soon code the patch required.
+-----------------------------------------------------------------------------
+
+4. Downloadable WP 8
+
+4.1. Where can I find a copy of WP 8.0 DPE for Linux? What filenames should I
+look for?
+
+Most locations that formerly offered the download (for example, CNET's
+download.com, ftp.calderasystems.com, and linux.tucows.com) ceased doing so
+about the time Corel itself did. It's possible (but pure speculation) that
+Corel asked or required that the files be pulled.
+
+However, the download is still available at:
+
+  * [ftp://ftp.uni-halle.de/pub/Linux/software/wordperfect8/] ftp://
+    ftp.uni-halle.de/pub/Linux/software/wordperfect8/ Includes all
+    localisation files.
+   
+  * [http://sunsite.ui.ac.id/pub/linux/nonfree/] http://sunsite.ui.ac.id/pub/
+    linux/nonfree/
+   
+  * [http://ftp.urc.ac.ru/pub/OS/Linux/print/] http://ftp.urc.ac.ru/pub/OS/
+    Linux/print/ Also has PhotoPaint9 for Linux.
+   
+  * [ftp://ftp.ufscar.br/pub/linux/editortexto/] ftp://ftp.ufscar.br/pub/
+    linux/editortexto/
+   
+  * [http://ftp.dreamtime.org/pub/linux/wp8/] http://ftp.dreamtime.org/pub/
+    linux/wp8/
+   
+  * [http://alge.anart.no/ftp/pub/Office/WordPerfect/] http://alge.anart.no/
+    ftp/pub/Office/WordPerfect/
+   
+  * [ftp://ftp.planetmirror.com/pub/corel/wordperfect/linux/] ftp://
+    ftp.planetmirror.com/pub/corel/wordperfect/linux/
+   
+  * [http://www.invivo.net/pub/SOFTS/telechargement/Linux/WORDPERF/] http://
+    www.invivo.net/pub/SOFTS/telechargement/Linux/WORDPERF/ Note FR
+    localisation files.
+   
+  * [http://linuxmafia.com/pub/linux/apps/] http://linuxmafia.com/pub/linux/
+    apps/ Site carries WP 8.0 DPE, all localisation files, the Filtrix fix,
+    copies of WP 8.x licences, archived knowledgebase / FAQ / documentation
+    files, and Corelwine / WP9 fixes.
+   
+
+(The ES=Spanish archive at [http://www.invivo.net/pub/SOFTS/telechargement/
+Linux/WORDPERF/Espagnol/] http://www.invivo.net/pub/SOFTS/telechargement/
+Linux/WORDPERF/Espagnol/ is unfortunately corrupted.)
+
+It's packaged either as a single gzipped 23 MB tarball (GUILG00.gz), a single
+17 MB RPM archive (included in Caldera OpenLinux through v. 2.3) that
+installs ready to run, a 22 MB RPM archive (one in SuSE Linux boxed sets
+through 6.1 and a similar one in older boxed sets of Linux-Mandrake) that
+installs tar archives in /usr/lib/wp8/ that must then be separately installed
+by running /usr/lib/wp8/Runme, or as a collection of seven separate tarballs
+(GUILG00.gz through GUILG06.gz). The program also remains available on a US
+$3 CD-ROM at [http://linuxcentral.com/] http://linuxcentral.com/. Ditto on a
+US $1 CD-ROM at [http://www.edmunds-enterprises.com/] http://
+www.edmunds-enterprises.com/.
+
+The filenames listed are for the default US English version: The filenames
+for other localisations are included on [http://web.archive.org/web/
+20030821125611/http://content.443.ch/pub/linfiles/Gnusoft/wordperfect8/
+Readme.html] http://web.archive.org/web/20030821125611/http://content.443.ch/
+pub/linfiles/Gnusoft/wordperfect8/Readme.html, and download sources for all
+nine localisation archives are noted above.
+-----------------------------------------------------------------------------
+
+4.2. After I locate WP 8.0 DPE for Linux, how do I install it, and what can I
+do to improve and fix it?
+
+Your first challenge may be to unpack it. You'll have no problem with the
+(rare) RPM archive, but the gzipped tarballs (either a single-piece archive
+named GUILG00.gz, 23 MB, or seven smaller archives named GUILG00.gz through
+GUILG06.gz) will appear a little puzzling: Despite having a .gz extension
+(only), they are in fact gzipped tarballs. Further, they un-tar right into
+the current directory, rather than creating a container directory. Corel --
+or someone operating on its behalf (CNET's download.com staff?) --
+grotesquely botched the packaging. However, note that some sites will have
+repacked the contents (variously), often out of a desire to correct Corel's
+error. Therefore, when in doubt, use the Linux "file" utility to determine
+what you're working with.
+
+After unpacking (and reading the Readme file), you'll have to furnish the
+dynamic libraries WP 8.0 requires: ld-linux.so.1.9.5, libc5 (any version from
+5.3.12 through 5.4.46) with matching libm.so.5.*, and a set of X11
+backwards-compatibility libraries compiled for libc5 X11 clients (libXt.so.6,
+libX11.so.6, libXpm.so.4, libSM.so.6, and libICE.so.6). These will probably
+be optional packages for your distribution, not installed by default. Only
+then should you run "sh Runme", as directed by the Readme. Caveat: If some of
+the libs are not present, you may think installation has succeeded, but will
+then encounter any of a variety of strange symptoms. Therefore, make certain,
+as follows:
+
+In an X11 terminal, do "su -" to become the root user temporarily. Type
+"ldconfig -v | grep libc.so.5", which must show some libc version from 5.3.12
+through 5.4.46. Type "ldconfig -v | grep libm.so.5". This must show a libm
+version of 5*. Type "ldconfig -v | grep libXt.so.6", which must show some
+libXt version of 6.0*. Type "ldconfig -v | grep libX11.so.6", which must show
+some libX11 version of 6.1*. Type "ldconfig -v | grep libXpm.so.4", which
+must show some libXpm version of 4.11*. Type "ldconfig -v | grep libSM.so.6",
+which must show some libSM.so.6.0*. Type "ldconfig -v | grep libICE.so.6",
+which must show some libICE.so.6.3*. Type "ldconfig -v | grep ld-linux.so.1".
+This must return a ld-linux version of 1.*. Type "ldconfig -v | grep
+libsafe", which ideally will show null results. (If not, see FAQ section "How
+do I stop the WP 8.x installer from getting diagnostic message '../
+install.wp: [: 18-10: integer expression expected' followed a short while
+later by termination with a Segmentation Fault error?") You've now confirmed
+that necessary libraries are installed and known to the dynamic linker/
+loader. (Unfortunately, the five X11 libraries found by the above process
+might be compiled for more-modern glibc2 aka libc6 clients, not libc5 ones --
+and one set cannot substitute for the other. A good sign is if you get two
+lines of return values for each of the five ldconfig lines: That shows that
+you have both glibc and libc5 versions of the X11 libs installed.)
+
+If you've tried to satisfy WP 8.0's libs requirements but still aren't quite
+succeeding (which is becoming common as distributions eliminate legacy libc5
+and ld.so libraries from their default installations and sometimes from the
+distributions entirely), as a last resort you can unpack wp8-libs.tgz from
+[http://www.ibiblio.org/pub/linux/distributions/vectorlinux/veclinux-1.8/
+packages/wordperfect8/] http://www.ibiblio.org/pub/linux/distributions/
+vectorlinux/veclinux-1.8/packages/wordperfect8/, a complete gzipped tar
+archive of all required libraries plus lines to add to /etc/ld.so.conf. (It
+should be unpacked into an empty directory, as it provides no container
+directory.) As the root user, carefully put the libraries in the indicated
+directories, and then adjust /etc/ld.so.conf as indicated and re-run /sbin/
+ldconfig to rebuild the library cache. Be aware that these additions are
+outside your distribution's package regime (if any), and, like any manual
+change to key system internals, should be done with caution.
+
+Now, as your last action with root-user authority, do "mkdir /opt/wp8"
+followed by "chown yourself /opt/wp8", where yourself is your regular
+non-root login. Last, type "exit" (or Ctrl-D) to exit the root-user shell and
+revert to your regular non-root login. (Root authority should never be used
+for software installer routines if there's another way, as there is here.)
+You can now proceed with invoking the WP 8.0 DPE installation script ("sh
+Runme"). You'll almost certainly be warned that your Linux kernel is "not
+certified". (This is OK.) When prompted for an installation directory,
+specify /opt/wp8. On the "Existing Application" screen, you don't need to
+provide "the pathname of an existing application". On the Select WordPerfect
+Printer Drivers screen, you should select all printer types you expect to
+want to print to, but will be able to revisit this selection later. (See FAQ
+section "How do I get printing to work?".)
+
+Afterward, you'll want to apply Valentijn Sessink's wrapper to fix the
+"Filtrix" MS-Word import / export module, available at [http://
+olivier.pk.wau.nl/~valentyn/wp8fix/] http://olivier.pk.wau.nl/~valentyn/
+wp8fix/. You might also want to put a three-line shell script in /usr/local/
+bin to start xwp by cd'ing to /opt/wp8/wpbin and then running ./xwp.
+Otherwise, it'll be necessary to type "/opt/wp8/wpbin/xwp" to start the
+program.
+
+Last, in lieu of the on-line manual Corel has removed from http://
+linux.corel.com/wp8manual (and, in fact, Corel decommissioned that entire
+site on Feb. 26, 2003), you'll want to bookmark some sites as a partial
+substitute:
+
+  * [http://web.archive.org/web/*/http://linux.corel.com/] http://
+    web.archive.org/web/*/http://linux.corel.com/ Archived copies of the old,
+    actually useful, Corel knowledgebase, FAQ, and support pages for WP for
+    Linux.
+   
+  * [http://apps.corel.com/support/] http://apps.corel.com/support/ Current
+    iteration of Corel's support presence: Includes links to Corel's
+    product-related newsgroups, but almost all other Linux-relevant content
+    seems to have been removed.
+   
+  * [http://www.rodsbooks.com/wpfonts/] http://www.rodsbooks.com/wpfonts/ WP
+    expert Rod Smith explains all about WP for Linux's support of fonts and
+    printers.
+   
+  * [http://olivier.pk.wau.nl/~valentyn/wp8fix/] http://olivier.pk.wau.nl/
+    ~valentyn/wp8fix/ Valentijn Sessink's pages about the Filtrix bug and his
+    fix.
+   
+  * [http://control-escape.com/wp8.html] http://control-escape.com/wp8.html
+    Review of WP 8.0 DPE, including setup run-through.
+   
+  * [http://users.erols.com/mdinolfo/wp8linux.htm] http://users.erols.com/
+    mdinolfo/wp8linux.htm Another WP 8.0 DPE setup run-through, but with
+    valuable debugging and security tips.
+   
+  * [http://linuxtoday.com/news_story.php3?ltsn=1998-12-21-012-10-NW-SW]
+    http://linuxtoday.com/news_story.php3?ltsn=1998-12-21-012-10-NW-SW
+    Detailed recipe for downloading and installing WP 8.0 DPE.
+   
+  * [http://linux-sxs.org/utilities/wp_index.html] http://linux-sxs.org/
+    utilities/wp_index.html Linux-SXS's link farm for distribution-specific
+    WP install guides, plus a Filtrix article.
+   
+  * [http://libranet.com/support/2.8/wp8libranet2.8] http://libranet.com/
+    support/2.8/wp8libranet2.8 Installing WP 8.x on Libranet, by Leon A.
+    Goldstein.
+   
+  * [http://www.linux-magazin.de/ausgabe/1999/12/WordPerfect1/
+    wordperfect1.html] http://www.linux-magazin.de/ausgabe/1999/12/
+    WordPerfect1/wordperfect1.html Magazine review (in German language) of WP
+    8.0 DPE.
+   
+  * [http://web.archive.org/web/20030821125611/http://content.443.ch/pub/
+    linfiles/Gnusoft/wordperfect8/Readme.html] http://web.archive.org/web/
+    20030821125611/http://content.443.ch/pub/linfiles/Gnusoft/wordperfect8/
+    Readme.html Information on additional language modules.
+   
+  * [http://web.archive.org/web/20011031155326/http://www.qwkscreen.com/
+    WPLinuxLinks.html] http://web.archive.org/web/20011031155326/http://
+    www.qwkscreen.com/WPLinuxLinks.html Link farm for WP 8.x. (Old.)
+   
+  * [http://web.archive.org/web/20030825091241/http://users.lightbearer.com/
+    set/wp/] http://web.archive.org/web/20030825091241/http://
+    users.lightbearer.com/set/wp/ Tips for WP 6.0 versions offered for
+    Caldera Linux. (Old.)
+   
+  * [http://www.tldp.org/HOWTO/mini/WordPerfect.html] http://www.tldp.org/
+    HOWTO/mini/WordPerfect.html Largely obsolete LDP HOWTO about WP 6.0 / 7.0
+    for Linux, and also about running WP 5.1 / 6.0 for SCO Unix on Linux
+    using the iBCS emulation libraries.
+   
+  * [http://unix.wizard.ca/wplinux/] http://unix.wizard.ca/wplinux/ WP 8.0
+    Server Edition (for various Unixes) product overview.
+   
+  * [http://zinc.ichf.edu.pl/wordperfect/] http://zinc.ichf.edu.pl/
+    wordperfect/ WP 7.0 / 8.0 tips and tricks (in Polish language).
+   
+  * [http://www.geocities.co.jp/SiliconValley-PaloAlto/8336/work-wp8.html]
+    http://www.geocities.co.jp/SiliconValley-PaloAlto/8336/work-wp8.html WP
+    8.0 DPE download and setup run-through (in Japanese language).
+   
+
+-----------------------------------------------------------------------------
+4.3. Given that Corel has ceased publishing it, is redistribution of WP 8.0
+DPE for Linux still lawful?
+
+That question really divides into two cases, distributors who secured a
+specific grant of redistribution rights from Corel and those who didn't. If
+you examine WP 8.0 DPE copies downloaded from http://linux.corel.com/products
+/linuxproducts_wp8_downloadlinks.htm (that site having been decommissioned as
+of Feb. 26, 2003) and elsewhere (including CD-ROM WP 8 copies, boxed-set
+versions of SuSE Linux through 6.1, Caldera Open Linux 2.3, older boxed sets
+of Linux-Mandrake etc.), you'll notice its licence omits the right to
+redistribute, and says the recipient's licence is non-transferable. Copyright
+law reserves distribution rights to a work's copyright owner, by default. So,
+strictly speaking, redistributing WP 8.0 DPE without explicit permission
+violates Corel's copyright.
+
+(I am not a lawyer. This FAQ is not legal advice.)
+
+Fortunately, Corel seems either tolerant or apathetic. (Pick one.) Also,
+companies like Edmund Enterprises and Linux Central may have permission memos
+from Corel Legal on file. Or not.
+
+The point is that redistribution isn't something we can count on: Corel seems
+to have the right to enjoin anyone from redistributing it (absent long-term
+contract entitlements or other licence grants that we don't know about).
+-----------------------------------------------------------------------------
+
+4.4. What are the licence restrictions on WP 8.0 DPE for Linux?
+
+You may install it only on two computers and use it only on one machine at a
+time. Personal, non-commercial use only. You may not reverse-engineer or
+modify it. You must be in compliance with export laws and not associated with
+countries the USA considers naughty, like Cuba. You mustn't be on the USA
+Treasury or Commerce Department's lists of naughty people (drug smugglers,
+terrorists, export-regs violators, etc.). You mustn't allow use of the
+program to violate USA law.
+
+The full licence text may be studied here: [http://linuxmafia.com/pub/linux/
+apps/corel-wordperfect-8-licence] http://linuxmafia.com/pub/linux/apps/
+corel-wordperfect-8-licence
+-----------------------------------------------------------------------------
+
+4.5. Suppose I suddenly need to use my copy of WP 8.0 DPE for Linux in a
+commercial setting. Can I upgrade my licence?
+
+No. Corel made no provision for that, and discontinued all Linux operations
+in May 2001. At this late date, your best bet is probably to seek out a boxed
+set of CLOS Deluxe or Standard Edition for its copy of WP 8.1.
+-----------------------------------------------------------------------------
+
+4.6. How can I add more fonts to WP 8.0 DPE?
+
+You can't. The font-installer utility ("xwpfi") was deliberately omitted from
+WP 8.0 DPE to differentiate it from the boxed sets and motivate you to
+upgrade to the latter. It's possible you might be able to grab that utility
+from another edition of WP 6, 7, or 8.x, but that would almost certainly be
+copyright violation (though maybe not if that older version is a lawful copy
+and used nowhere else).
+-----------------------------------------------------------------------------
+
+4.7. How do I add additional language files (other than US English) to WP 8.0
+DPE (or the 2003-4 "pilot project" re-release)?
+
+At one time, Corel offered free-of-charge localisation add-ons for nine other
+languages and countries, at http://linux.corel.com/products/wp8/
+download_instr.htm, but removed them not long after it closed down its Linux
+division in May 2001, and decommissioned that entire site on Feb. 26, 2003.
+
+However, in FAQ section "Where can I find a copy of WP 8.0 DPE for Linux?",
+you'll find links for all nine additional-language tarballs. Corel used a
+rather cryptic file-naming scheme. The standard large-format (single-piece)
+archives were named GUILGXX0.gz, where "GUI" seems to have indicated that
+this was for an X11 / graphical WP version, "LG" signified large format, and
+XX was one of the nine language / country codes: FR=French, UK=United Kingdom
+English, DE=German, ES=Spanish, CE=Canadian English, CF=Canadian French, OZ=
+Australian English, NL=Dutch, and IT=Italian. Alternatively, you could get a
+set of from four to six archive files for your language / country in split
+format, named GUIXXNN.gz, e.g., GUINL00.gz through GUINL03.gz for Dutch. The
+split-format files have become very rare, but are [ftp://ftp.uni-halle.de/pub
+/Linux/software/wordperfect8/GUI/] sometimes findable on the Internet.
+
+The language tarballs (which, despite the "gz" extension, are actually
+.tar.gz files) have a "Runme" installation script, which takes care of all
+installation details, and localises all aspects of the program. If, on the
+other hand, you find a source for just the .lex dictionary files, copy them
+as the root user to WP8's "shlib10" directory. Start xwp with the -admin (or
+-adm) command-line option. Find the option to add additional languages. Exit
+xwp. In either case, after installing the language files, start xwp with the
+"-lang" option to override the US English default, e.g.. "xwp -lang de".
+
+One source for .lex files is the CD bundled with the book "WordPerfect for
+Linux Bible", discussed in section 7.1. But, of course, if you have the WP
+8.0 PE software from that book, you don't really need WP 8.0 DPE. (I don't
+know if it's lawful to redistribute the book's .lex files. That might depend
+on licensing.)
+
+If you get errors about libm.so.5 being missing when you run the language
+module's Runme script, see FAQ section "Can my language's absence from the
+"WordPerfect 8 for Linux" re-release be fixed?" for the fix (adding the
+relevant library path to your dynamic linker/loader's search list).
+-----------------------------------------------------------------------------
+
+4.8. Where will we get new WP 8.0 registration keys, if / when Corel stops
+offering them at the page linked from [http://venus.corel.com/nasapps/
+wp8linuxreg/register.html] http://venus.corel.com/nasapps/wp8linuxreg/
+register.html?
+
+Fortunately, Corel didn't prohibit recipients from publishing their
+registration keys, and at least four users have done so. As long as Corel
+continues to offer keys (at [http://venus.corel.com/nasapps/wp8linuxreg/
+register.html] http://venus.corel.com/nasapps/wp8linuxreg/register.html or
+[http://nas.corel.com/nasapps/wp8linuxreg/register.html] http://nas.corel.com
+/nasapps/wp8linuxreg/register.html), it seems fair to give them the marketing
+information they gain thereby. If that facility is ever discontinued, use
+"LW8XW-bA8L9bjZf9", "LW8XW-NfDyZN1HfZ", "LW8XW-9K87F9tldF", or
+"LW8XW-nEqIHnZrcH".
+-----------------------------------------------------------------------------
+
+5. Non-downloadable WP 8
+
+5.1. Where can I find a copy of WP 8.1 for Linux?
+
+That version is available only inside boxed sets of CLOS Deluxe Edition and
+CLOS Standard Edition (the latter having fewer bundled fonts), versions 1.0
+and 1.2. Nowhere else (except the 2003-4 "pilot project" re-release). There
+was never a "download edition", and Corel's licence terms strictly forbid
+redistribution.
+
+CLOS Deluxe Edition v. 1.2 aka "Second Edition" can frequently be found on
+[http://www.ebay.com] eBay.
+
+Please note that downloading an ISO9660 (CD-ROM) image of CLOS absolutely
+does not do the trick: That will be CLOS Download Edition, which has no
+version of WP for Linux at all. You need CLOS Deluxe or Standard Edition, the
+two boxed sets -- not CLOS Download Edition.
+-----------------------------------------------------------------------------
+
+5.2. What does WP 8.1 give me that's not in WP 8.0 DPE?
+
+Electronic (PDF) and paper-bound reference manuals and an electronic (PDF)
+user's manual, the font-installer module, WP Draw (the drawing / charting
+module), the module to create custom dictionaries and hyphenation databases,
+an equation editor, network support, a print-queue manager, prepaid technical
+support, sample documents / templates / textures /clip-art / photos, and 300
+fonts (with WP 8.1 PE; about 100 with WP 8.1 Light). Also, much better
+handling of watermarks, multiple language support in the spelling checker /
+grammar checker / thesaurus, more-current printer drivers and better printer
+setup, and no need to get a registration key. The necessary support libraries
+are also included and installed automatically. Corel Draw is also included
+(in a separate package).
+-----------------------------------------------------------------------------
+
+5.3. What are the licence restrictions on WP 8.1 for Linux?
+
+You may install it only on two machines at a time, for use by only a single
+user. You may not reverse-engineer or modify it. You must be in compliance
+with export laws and not associated with countries the USA considers naughty,
+like Cuba. You mustn't be on the USA Treasury or Commerce Department's lists
+of naughty people (drug smugglers, terrorists, export-regs violators, etc.).
+You mustn't allow use of the program to violate USA law.
+
+Please note that, unlike WP 8.0 DPE, WP 8.1 is licensed for commercial usage.
+
+ 
+
+The full licence text may be studied here: [http://linuxmafia.com/pub/linux/
+apps/corel-wordperfect-8.1-licence] http://linuxmafia.com/pub/linux/apps/
+corel-wordperfect-8.1-licence
+-----------------------------------------------------------------------------
+
+5.4. Why was WP missing from CLOS Deluxe / Standard Editions version 1.1?
+
+CLOS Deluxe and Standard Editions v. 1.1 were available only as upgrades to
+apply to corresponding v. 1.0 boxed sets, not as standalone products. So, you
+didn't get a copy of WP because you already had one.
+-----------------------------------------------------------------------------
+
+5.5. How do I install WP 8.1 (from a CLOS boxed set) on some other Linux
+distribution?
+
+The main file you'll need from the CLOS boxed-set CD-ROM is a 40 MB one
+called wp-full_8.1-nn_i386.deb, where "nn" is the package version number,
+which will depend on the vintage of CLOS you have (and doesn't matter much).
+On any .deb-based distribution (such as Debian, Xandros Desktop OS, Libranet,
+Linspire / LindowsOS, Ubuntu Linux, Knoppix, Gnoppix, Morphix, Progeny
+Debian, Progeny Componentized Linux, Impi Linux, Skolelinux, MEPIS Linux,
+Kanotix, CLOS, Stormix, etc.), just do "dpkg -i packagename", as usual. WP
+probably won't be auto-added to your distribution's menus: The startup binary
+is "xwp".
+
+On other distributions, you can use Joey Hess's "alien" utility to create an
+approximately equivalent RPM package, a Slackware .tgz package, a Solaris
+.pkg package, or a Stampede Linux .slp package. Alternatively, you can use
+the standard "ar" archive utility to pull apart the .deb file and install the
+pieces manually. The HOWTO documents linked from [http://linux-sxs.org/
+utilities/wp_index.html] http://linux-sxs.org/utilities/wp_index.html will
+probably help, there.
+
+CLOS Deluxe Edition also includes three .deb packages of PostScript Type 1
+fonts (fonts-16_1.0-5.deb, fonts-69_1.0-4.deb, and fonts-115_1.0-4.deb),
+which are likewise useful on other Linux distributions. CLOS Standard Edition
+differs only in omitting the second two fonts packages mentioned. (You may
+also want the type1inst_0.6.1-6_i386.deb package, if you don't already have
+the Type 1 Font Installer utility.) On CLOS, they install to /usr/X11R6/lib/
+X11/fonts/Type1/ , making them available to the system generally. You can
+either convert the .debs as detailed above for WP itself, or grab the font
+files from /usr/X11R6/lib/X11/fonts/Type1/.
+
+Font-addition procedures within WP 8.1 itself are covered in the next FAQ
+item.
+
+Leon A. Goldstein's HOWTO for installing WP 8.x on Libranet gives more
+detail: [http://libranet.com/support/2.8/wp8libranet2.8] http://libranet.com/
+support/2.8/wp8libranet2.8
+-----------------------------------------------------------------------------
+
+5.6. How do I add fonts to WP 8.1?
+
+First, as the root user, physically place them in /usr/X11R6/lib/X11/fonts/
+Type1/ , or wherever system-wide Type 1 fonts go on your distribution. While
+in that directory, run "type1inst" (usually in /usr/X11R6/lib/X11/fonts/
+Type1), then "mkfontdir". The fonts will now be available to all applications
+using PostScript Type 1 fonts.
+
+Last, run the WP font installer "/usr/lib/wp8/shbin10/wpfi" (creating /usr/
+lib/wp8/shlib10/wp.drs, the WP font map).
+
+Alternatively instead of the last step, start xwp with the -admin (or -adm)
+command-line option. On the Format menu, pick Fonts. You'll find a button to
+select and then install (into WP's internal list of known fonts) fonts from a
+list of those available. Exit xwp. Or, instead of "xwp -admin", run /usr/lib/
+wp8/shbin10/xwpfi . (This works for PostScript Type 1 fonts only, not
+TrueType.)
+
+Leon A. Goldstein's HOWTO for installing WP 8.x on Caldera OpenLinux 2.3 /
+eDesk 2.4 covers this matter in much greater detail: [http://linux-sxs.org/
+utilities/wp8.html] http://linux-sxs.org/utilities/wp8.html
+
+Please note also that ideally you'll be adding any fonts to any WP 8.x
+version twice, once as a screen font and once as a printer font. This matter
+is covered comprehensively by Rod Smith at [http://www.rodsbooks.com/wpfonts
+/] http://www.rodsbooks.com/wpfonts/.
+-----------------------------------------------------------------------------
+
+5.7. What's the difference between the WP versions bundled with CLOS
+boxed-set versions 1.0 and 1.2?
+
+CLOS 1.0 boxed sets' CD-ROM also includes a second .deb package (package name
+"wp-manual") containing an electronic WP manual. However, that manual is for
+the non-Linux Unix version, so its omission from CLOS 1.2 is no big loss.
+(The same manual in PDF format can be retrieved from [http://
+www.cs.helsinki.fi/compfac/WP/wp8gui.pdf] http://www.cs.helsinki.fi/compfac/
+WP/wp8gui.pdf.) The boxed sets' paper-bound WP manual is a lot more useful,
+anyway.
+
+Also among the additions in CLOS 1.2 was a Corelwine / Winelib
+(non-Linux-native) port of Corel PhotoPaint 9 (which is also available for
+download from [http://ftp.urc.ac.ru/pub/OS/Linux/print/] http://ftp.urc.ac.ru
+/pub/OS/Linux/print/). Note that PhotoPaint9 suffers the same Corelwine /
+glibc issues as does WP9: See FAQ section "WP9 stopped working / won't
+install..." for details.
+-----------------------------------------------------------------------------
+
+5.8. Where can I get a boxed-set copy of WP 8.0 PE?
+
+My last known source of this product has vanished, but you could try [http://
+www.ebay.com] eBay.
+-----------------------------------------------------------------------------
+
+5.9. Where can I find a boxed-set copy of WP 8.0 Server Edition for Linux?
+
+Sites where it was formerly available for order seem to have run dry (perhaps
+thanks to this FAQ). However, it's worth checking on [http://www.ebay.com]
+eBay. Expect to pay about US $450, for the real thing.
+-----------------------------------------------------------------------------
+
+6. WP version 9
+
+6.1. Isn't WP 9 For Linux (in the WP Office 2000suite) better than WP 8.1?
+
+Few would agree. Its admirers seem to be, well, MS-Windows users, since WP 9
+is pretty much the Win32 version recompiled in a Winelib environment, with
+RAM bloat, stability problems, and other glitches (including DOS drive
+letters in file dialogues!) that are routine on MS-Windows but not Linux.
+
+Very likely, WP 9 introduced some feature-set attractions, but needing to run
+emulation code with performance and stability problems seems a poor
+trade-off. I consider 8.1 vastly preferable.
+-----------------------------------------------------------------------------
+
+6.2. Why didn't Corel do WP 9 as a native Linux port?
+
+My best guess: Doing a Winelib version allowed Corel to leverage its existing
+Win32 codebase, write a minimum amount of new code, shorten development time,
+reduce costs, and keep the effort in-house rather than having to hire SD
+Corp. again.
+-----------------------------------------------------------------------------
+
+6.3. Is there anything I can do to maintain or improve WP9 for Linux?
+
+You can substitute an improved version of Corel's fork of the WINE emulation
+code ("Corelwine"), which was for a while maintained by Michael Torrie, at
+[http://web.archive.org/web/20040213000457/students.cs.byu.edu/~torriem/
+corelwine/] http://web.archive.org/web/20040213000457/students.cs.byu.edu/
+~torriem/corelwine/, with other possibly useful pages at [http://
+panopticon.csustan.edu/thood/corel-wp9.txt] http://panopticon.csustan.edu/
+thood/corel-wp9.txt and [http://web.archive.org/web/20040225112645/http://
+members.chello.at/hrdisk/corelwine.html] http://web.archive.org/web/
+20040225112645/http://members.chello.at/hrdisk/corelwine.html.
+
+I can't guarantee the truth of this account, but I've heard claims that Corel
+deferred submission of its patches to the WINE Project development team so
+long that they could no longer be merged when they arrived, leading to
+inadvertent creation of a separate development fork, dubbed "Corelwine". This
+seems to be the codebase that Torrie maintained, separately from the WINE
+Project's flagship codebase.
+
+Moreover, Corelwine was built to be dependent on Bitstream, Inc.'s
+proprietary Fontastic font server, a feature unlikely to be included in the
+WINE Project code of the day, and now precluded by WINE licensing. ([http://
+slashdot.org/article.pl?sid=04/04/02/011200] Reportedly -- see post by
+"gavriels" -- Corel decided to use Fontastic to skirt likely font-patent
+problems, which indeed have subsequently [http://linuxmafia.com/faq/Apps/
+OpenOffice.org/fonts.html] plagued authors of open-source font software.)
+
+There are also some remaining updates to WP9 / WP Office 2000 inside [ftp://
+ftp.corel.com/pub/linux/Office2000/updates/] ftp://ftp.corel.com/pub/linux/
+Office2000/updates/ and [ftp://ftp.corel.com/pub/linux/Graphics9/updates/]
+ftp://ftp.corel.com/pub/linux/Graphics9/updates/. Among those updates, the
+revised WP Office 2000 installer available there is essential for most modern
+Linux distributions to make the Fontastic font server install correctly. Note
+that you need at least one printer configured before installation. Note that
+versions of Corelwine available through September 2004 (and thus also WP9)
+break completely on system with glibc 2.3.2 or above, i.e., essentially all
+current Linux distributions. Efforts to fix Corelwine are underway. See FAQ
+section "WP9 stopped working / won't install..." for details.
+
+Because online resources for WP9 for Linux (also PhotoPaint9 and the other WP
+Office 2000 components) have been disappearing, I've been gathering and
+archiving them inside [http://linuxmafia.com/pub/linux/apps/] http://
+linuxmafia.com/pub/linux/apps/. You may find what you need there.
+-----------------------------------------------------------------------------
+
+6.4. Where can I find a copy of WP9 / WP Office 2000 for Linux?
+
+It's sometimes available for US $49 from Surplus Computers of Santa Clara,
+California at [http://www.surpluscomputers.com/] http://
+www.surpluscomputers.com/. EMS Professional Software and Consulting, [http://
+www.emsps.com/oldtools/wp.htm] http://www.emsps.com/oldtools/wp.htm,
+sometimes has the Deluxe Edition. (Inquire for pricing.) Both editions
+(Standard and Deluxe) of WP Office 2000 for Linux are frequently offered on
+[http://www.ebay.com] eBay.
+-----------------------------------------------------------------------------
+
+7. Documentation
+
+7.1. What books are available concerning WP for Linux?
+
+"Special Edition Using Corel WordPerfect 8 for Linux" by Roderick W. Smith
+(Que, ASIN 0789720329, US $4 on [http://www.amazon.com/exec/obidos/ASIN/
+0789720329/qid%3D1028107345/sr%3D11-1/ref%3Dsr%5F11%5F1/102-5929383-6737760]
+Amazon.com) and "WordPerfect for Linux Bible" by Stephen E. Harris and Erwin
+Zijleman (IDG Books, ISBN 0764533746, US $40 on [http://www.amazon.com/exec/
+obidos/ASIN/0764533746/qid%3D1028107552/sr%3D11-1/ref%3Dsr%5F11%5F1/
+102-5929383-6737760] Amazon.com). The latter includes a copy of WP 8.0
+(non-download) Personal Edition. This differs from WP 8.0 DPE in inclusion of
+140 fonts, a font-installer utility, and support for grammar / spelling
+checkers and thesaurus lookups in multiple languages. The CD-ROM includes a
+text file containing a registration key, and the licence doesn't bar
+commercial usage. Be aware that the electronic-format WP manual included is
+for character-mode WP, not the graphical X11 version.
+
+The Smith book is valuable for its highly-comprehensive coverage of Linux
+topics; the Harris and Zijleman one for its bundled software. Both are
+recommended.
+
+Author Rod Smith has a Web page describing both of them, plus reviewing all
+other known books on WP for Linux (and ones for Star Office and The GIMP):
+[http://www.rodsbooks.com/books/books-wp.html] http://www.rodsbooks.com/books
+/books-wp.html
+-----------------------------------------------------------------------------
+
+7.2. WP 8.x's access to on-line docs doesn't work any more, saying "document
+not found (404 error)". Where did they go?
+
+At the same time Corel removed WP 8.0 DPE from http://linux.corel.com/
+products/linuxproducts_wp8_downloadlinks.htm, it also removed the on-line
+HTML-format manual (http://linux.corel.com/wp8manual), knowledgebase (http://
+linux.corel.com/wpkb), and support page (http://linux.corel.com/wpsupport)
+that all WP 8.x for Linux programs referenced via hyperlink. Finally, on Feb.
+26, 2003, Corel decommissioned that entire site, ending access to the
+remaining knowledgebase, FAQ, and support pages. (However, those can be still
+browsed, courtesy of the Internet Archive, at [http://web.archive.org/web/*/
+http://linux.corel.com/] http://web.archive.org/web/*/http://linux.corel.com
+/.)
+-----------------------------------------------------------------------------
+
+8. The Future
+
+8.1. Why did Corel cease publishing WP for Linux?
+
+Corel discontinued all Linux-related operations shortly after Microsoft
+Corporation's major investment that prevented the firm's collapse: Some
+speculate a causal relationship. Corel may have also seen WP for Linux sales
+(and downloads) as being at the expense of its versions for non-Linux Unixes,
+through both the influx of Intel Linux boxes and other Unix platforms'
+increasing ability to run Intel Linux binaries. Also, outgoing CEO Michael
+Cowpland had been the main force behind Corel's Linux program, and new
+management doesn't share his views.
+-----------------------------------------------------------------------------
+
+8.2. Why is Corel still selling WP versions for other Unixes, but not Linux?
+
+Good question. Corel has never addressed the matter.
+-----------------------------------------------------------------------------
+
+8.3. Won't WP for Linux re-emerge as part of Xandros Desktop?
+
+It appears not. When Corel divested itself of CLOS, and transferred all
+rights to Xandros Corporation, WordPerfect was not part of the deal. Corel is
+sitting on all WP rights.
+-----------------------------------------------------------------------------
+
+8.4. If Corel doesn't want to sell WP for Linux, why doesn't it open-source
+the program?
+
+First, that would impair sales of Corel's versions for Win32 and other
+proprietary platforms. Second, Corel doesn't own all the necessary rights. WP
+includes code from at least five other companies, judging by the copyright
+notices (Blueberry Software, Globetrotter Software, Inc., Bristol Technology,
+Inc., INSO Corporation, and Novell, Inc.).
+
+In the latter sense, Corel's situation is similar to that of Sun Microsystems
+in regard to Star Office. Sun bought the publisher of that program, Star
+Division GmbH, and then spent approximately a year and untold employee time
+studying copyright, patent, contract, and other encumbrances. Eventually, it
+was able to open-source the majority of the source code, the part not
+encumbered by third-party rights, as what became the OpenOffice.org project.
+
+The difference is that Sun was strongly motivated to create an open-source
+variant for all possible OS platforms -- in order to feed sales of Solaris
+and its hardware, and to undermine Microsoft Corporation. It had (and has)
+deep resources and patience. Corel had none of those things -- and might have
+had greater third-party interests to contend with.
+-----------------------------------------------------------------------------
+
+8.5. What alternatives to WP exist on Linux?
+
+Proprietary (see also Chris Browne's [http://cbbrowne.com/info/wplcomm.html]
+http://cbbrowne.com/info/wplcomm.html):
+
+  * Sun Microsystems [http://www.sun.com/staroffice/] Star Office very
+    comprehensive office suite's StarWriter word processor. Very full
+    featured, high degree of Microsoft compatibility. Large; slow-loading,
+    but then performs OK. GTK+-based. No .wpd support in the Linux version.
+   
+  * VistaSource Software [http://www.vistasource.com/page.php?id=7] Anyware
+    Office / Anyware Desktop suite's (was Applix's ApplixWare Office) Anyware
+    Words word processor. Moderately good all-round office suite with a long
+    history in the Unix world. OK performance, stable, good MS doc
+    compatibility. Motif-based. Includes .wpd support. Some earlier versions
+    were sold by Red Hat Software, Inc. as ApplixWare for Red Hat Linux. For
+    a while, SuSE Linux AG sold ApplixWare v. 4.4.1, bundled with the ADABAS
+    D relational database, the Arkeia backup program, and SuSE-packaged
+    versions of The GIMP, GNOME, and KDE as Linux Office Suite 99.
+   
+  * SOT Finnish Software Engineering Ltd. [http://www.sot.com/en/linux/soto/]
+    SOT Office suite's SOT Office Writer. Based on the open-source
+    OpenOffice.org suite, adding some software enhancements (added spelling
+    checker and hyphenation dictionaries, templates, commercial support,
+    enhanced on-line help, and PDF manual). Available in a boxed set with
+    printed docs. The proprietary bundle includes updates not yet available
+    for the separate, all-open-source SOT Office bundle. All other remarks
+    about OpenOffice.org also apply here.
+   
+  * Redmond Linux Corporation [http://www.lycoris.com/products/ppak/] Lycoris
+    ProductivityPak office suite. A superset of the open-source
+    OpenOffice.org suite, plus an improved setup program, aesthetics tweaks,
+    typeface installer, templates, some graphics including Lycoris logos /
+    icon sets, and paid technical support. Licence permits use on a single
+    computer in commercial settings, and for multiple computers in
+    non-commercial settings. There's no limitation on multiuser use (rare
+    among proprietary office-productivity packages on Linux). No .wpd
+    support.
+   
+  * HancomLinux, Inc. [http://en.hancom.com/] Hancom Office suite's Hancom
+    Word word processor. Qt-based. Good MS doc compatibility. No .wpd
+    support.
+   
+  * Quadraton Systems, Inc. [http://www.dr-quad.com/cliqword.htm] CliqWord.
+    Character-based (console) office automation software. Listed here only
+    because Chris Browne includes it, as I'm not at all sure it belongs in
+    this category. No import / export facilities whatsoever that I can
+    confirm.
+   
+  * SmartWare Corporation (formerly Angoss Software Corporation) [http://
+    www.smartware4.com/] SmartWare. Existing codebase is a character-based
+    (console) office suite. Currently (January 2003), the character-based v.
+    2.65B of SmartWare Plus is back on the market, while a Linux port of the
+    new, graphical SmartWare4 codebase with improved installer is being
+    prepared. Strengths include vertical-application support, robustness in
+    multiuser situations, and bundled rapid application development tools.
+   
+  * Ability Plus Software, Ltd.'s [http://www.ability.com/linux/] Ability
+    Linux, a Linux port of the Win32 Ability suite (Photopaint, Spreadsheet,
+    Write and Database), running as what is claimed to be native-Linux code
+    with WINE library support. Currently available free of charge as
+    alpha-release code. Unique internal design: interpreted code using a
+    runtime engine / library called MFC. MFC is what has been recoded to run
+    as a Linux application with WINE library calls. Supports .wpd, RTF, HTML,
+    MS doc, AmiPro.
+   
+  * [http://www.freeradicalsoftware.com/] FreeRadicalSoftware, Inc. (formerly
+    Gobe Software) [http://www.gobe.com/] GobeProductive suite (announced but
+    not shipped for Linux, except as a pre-alpha-test "Preview1" version,
+    formerly downloadable from http://www.gobe.com/downloads/
+    gobe_linux_x86_install.tgz and http://www.gobe.com/downloads/
+    gobe_linux_ppc_install.tgz. Produced by the team that did ClarisWorks /
+    AppleWorks. Frame-oriented. Light, fast. Full-featured. Supports MS-Word,
+    RTF. No .wpd support. (FreeRadicalSoftware announced on August 12, 2002
+    plans to open-source the entire suite under the GNU GPL, but then in
+    December 2002 had to [http://www.osnews.com/story.php?news_id=2308]
+    announce that sufficient funds -- about US $100k -- couldn't be raised to
+    license the source code.) Discontinued.
+   
+  * Sophist Solutions, Inc. [http://www.sophists.com/Led/LedIt/] LedIt word
+    processor. Small, fast. GTK+-based. Supports RTF. No .wpd support.
+   
+  * SoftMaker Software GmbH [http://www.softmaker.de/tml_en.htm] TextMaker
+    for Linux is the initial component of the planned SoftMaker Office
+    Anywhere suite. Fast, light. Full-featured. Supports MS-Word, Pocket
+    Word, RTF, HTML, Unicode. No .wpd support.
+   
+  * ThinkFree Corp.'s [http://www.thinkfree.com/] ThinkFree Office is an
+    integrated word processor, spreadsheet, and presentation graphics
+    application available in Java bytecode. Accordingly, it requires the Sun
+    Java Runtime Environment 1.1.8 or later. Supports MS-Word, HTML, RTF
+    formats. No .wpd support.
+   
+
+Note: If this FAQ has a point beyond answering questions, it is to illustrate
+the pitfall of buying into proprietary software that exists at the whim of a
+corporate publisher and may be hostage to its fortunes. On the other hand, it
+also shows that proprietary offerings can be excellent of their types. Choose
+with your eyes open.
+
+Open Source (see also Chris Browne's [http://cbbrowne.com/info/wp.html] http:
+//cbbrowne.com/info/wp.html):
+
+  * [http://www.openoffice.org/] OpenOffice.org very comprehensive office
+    suite's Writer word processor (derived from Star Office). GTK+-based.
+    [http://www.linuxjournal.com/article.php?sid=7120] Frame-oriented. Large;
+    slow-loading, but then performs OK. Supports MS-Word, StarWriter, RTF,
+    and a few other formats. (The v. 1.1 beta adds PDF, DocBook, Macromedia
+    Flash, flat XML, XHTML, and some PDA Office formats.) Excellent MS doc
+    compatibility. No integrated .wpd support, yet, but there's a project to
+    develop a filter at [http://wp.openoffice.org/] http://wp.openoffice.org
+    /, and, more immediately useful, a third-party filter and .wpd-handling
+    library at [http://libwpd.sourceforge.net/] http://libwpd.sourceforge.net
+    /.
+   
+  * SOT Finnish Software Engineering Ltd. [http://www.sot.com/en/linux/soto/]
+    SOT Office suite's SOT Office Writer. Based on OpenOffice.org, adding
+    some software enhancements (added spelling checker and hyphenation
+    dictionaries, templates, optional commercial support, enhanced on-line
+    help and PDF manual). Available in a boxed set with printed docs. As an
+    alternative, there is also a proprietary SOT Office bundle that includes
+    software updates. All other remarks about OpenOffice.org also apply here.
+   
+  * SourceGear Corporation [http://www.abisource.com/] AbiWord. GTK+-based.
+    Table support is only now being added. Fast, light, stable. Supports
+    MS-Word, Anyware Words / Applix Words, AbiWord, RTF, WordPerfect .wpd,
+    Microsoft Write, DocBook, XHTML, and many other formats. Excellent MS doc
+    compatibility. With v. 2.x and up, AbiWord uses the promising [http://
+    libwpd.sourceforge.net/] libwpd .wpd import / export filter, though you
+    may have to install an abiword-plugins package.
+   
+  * KDE KOffice suite's [http://koffice.kde.org/kword/] KWord word processor.
+    Frame-oriented. Qt-based. Supports MS-Word, Anyware Words / Applix Words,
+    AbiWord formats. Medium-good MS doc compatibility. Beta-level text-only
+    .wpd support in recent (1.2.x) versions.
+   
+  * SIAG Office suite's [http://siag.nu/pw/] Pathetic Writer word processor.
+    Supports RTF. Supports MS-Word via WVware. Athena-based. No .wpd support.
+   
+  * [http://sourceforge.net/projects/maxwellwp] Maxwell word processor.
+    Motif-based (not yet LessTif). Supports RTF. No .wpd support. Inactive
+    project since 1998, though one of the three past maintainers speaks of an
+    intention to make one final release merging various fixes and
+    transitioning from Maxwell's native binary data format to RTF.
+   
+  * [http://www.oksid.ch/flwriter/] FLWriter (Fast Light Writer). XHTML file
+    format with UTF-8 encoding, excellent multi-language support, spelling
+    checker. Exports RTF 1.5. No .wpd support.
+   
+  * [http://www.nllgg.nl/Ted/] Ted. Simple word processor similar in spirit
+    to MS-Windows's WordPad. RTF is native format. Motif / LessTif-based, or
+    GTK+ and glib-based. Supports PDF, PostScript. No .wpd support.
+   
+  * [http://www.hungry.com/products/gwp/] GWP (GNOME Word Processor). GTK+ /
+    GNOME-based editor formerly known as XWord, when it was Hungry
+    Programmers' Motif / LessTif-based project. Intended for XML-based
+    structured documents, and uses an XML-based file format. Project appears
+    to be neglected in favour of AbiWord, and may be effectively
+    unmaintained. Light, somewhat feature-shy. No .wpd support.
+   
+  * CMU [http://www.hps.com/~tpg/toolbox/auis.php] Andrew User Interface
+    System (auis) package's EZ editor mode. Uses a well-thought-out system of
+    ASCII + style / template markup. Supports RTF. No .wpd support.
+    Development seems to have ceased as of 1997 (arguably because it meets
+    its design goals).
+   
+  * Axene, Inc. [http://xibios.free.fr/english/] Xclamation (DTP) and
+    XAllWrite (word processor) programs. Motif / Lesstif-based. GPLed C++
+    source code available at [http://xibios2.free.fr/] http://xibios2.free.fr
+    /. Supports its own format, HTML, and ASCII; no .wpd support.
+   
+  * [http://web2.altmuehlnet.de/fschmid/] Scribus. Qt-based destkop
+    publishing program reminiscent of Adobe PageMaker (not a word processor,
+    per se). File format is XML-based. Appears to import unformatted text,
+    only.
+   
+  * [http://www.lyx.org/] LyX (slick graphical front-end to LaTeX).
+    Implements ASCII + TeX markup in a quasi-WYSIWYG graphical environment.
+    You write structured documents (discussed below), but the process is made
+    graphical and fairly easy. Produces reliable, high-quality output.
+    Excellent built-in help. Supports LinuxDoc, DocBook, LaTeX, PostScript,
+    DVI, ASCII. XForms or Qt-based, with GTK+ integration pending. No .wpd
+    support.
+   
+
+The last item listed, LyX, is an intriguing hybrid of GUI word processor
+features and classic Unix-type document processing. The latter is often
+dismissed in the business world as powerful and professional but too arcane
+-- but LyX makes it accessible.
+
+The rationale and work-flow approach behind LyX are best described on that
+project's Web site at [http://www.lyx.org/about/intro.php3] http://
+www.lyx.org/about/intro.php3, but here's an attempt to summarise:
+
+LyX has you work on a document in a graphical, close approximation of how it
+will print, but, unlike in traditional word processors, you don't directly
+manipulate document appearance, but rather apply (and edit / create) style
+rulesets (templates), which consistently apply formatting on your behalf --
+and change consistently wherever used in the document, when you alter a
+style's contents. (Rulesets are applied by the LaTeX front-end macro package
+driving the professional-grade teTeX typesetting engine, for all of which LyX
+is a graphical shell. teTeX is an open-source implementation of Donald
+Knuth's TeX typesetting system.)
+
+As a result, eventual output is always consistent and of true professional
+appearance (famously so), regardless of the document's complexity. LyX
+becomes progressively easier to use than ostensibly simpler word processors
+as you get into more-complex documents (technical documentation, doctoral
+theses, conference proceedings, movie scripts, articles on mathematics or
+physics with formulas to edit and present). Many templates for both simple
+and complex document types are provided, all traditional word-processing
+features are also present, and so is extremely thorough on-line help.
+
+As a bonus, all documents are stored in plain ASCII text with embedded TeX
+style tags, resulting in accessible data that will never auto-corrupt the way
+many word-processor formats do, that lends itself nicely to version control,
+and that outputs to practically any data format desired.
+
+Consider transitioning to LyX or some other form of structured-document
+editing instead of traditional word processing, over the long term. Your
+benefits over the long haul will justify the trouble.
+-----------------------------------------------------------------------------
+
+8.6. What alternatives to WP exist involving Win32 apps on Linux?
+
+Such alternatives are outside the scope of this document, but include (1) the
+numerous ways of running Win32 applications on Linux in some sort of
+emulation environment, such as VMware, Inc.'s [http://www.vmware.com/] VMware
+(simulation in a virtual environment of a particular theoretical x86 box's
+hardware, which then can boot various OSes including Win9x / ME / NT / 2k /
+XP within the emulated environment, necessitating a copy of that OS, as
+well), NeTraverse's [http://www.netraverse.com/] Win4Lin (an MS-Windows 9x /
+ME emulation environment for x86 Linux, requiring a copy of MS-Windows 9x /
+ME to work), [http://www.winehq.com/] WINE (an LGPLed library and program
+loader implementing on x86 Unixes the Win32 and Win16 application
+interfaces), [http://rewind.sourceforge.net/] ReWind (an MIT / X11-licensed
+fork of an earlier WINE release), CodeWeavers's [http://www.codeweavers.com/
+site/products/] CrossOver Office (WINE with some extra support for MS Office
+applications, incorporating the formerly separate CrossOver Plugin product, a
+WINE variant for x86 Linux to support Web browser plugins such as QuickTime),
+TransGaming Technologies, Inc.'s [http://www.transgaming.com/] WineX, later
+renamed [http://www.aclerex.com/] AclereX, later renamed [http://
+www.transgaming.com/news.php?newsid=119] Cedega (another WINE extension for
+x86 Linux, with enhanced DirectX and COM / DCOM / OLE support, primarily for
+3D games), the Bochs Project's [http://bochs.sourceforge.net/] Bochs
+(software environment for any CPU family emulating an entire x86 CPU, common
+I/O devices, and BIOS), and Drew Northup's [http://savannah.nongnu.org/
+projects/plex86/] Plex86 (software environment emulating on x86 a virtual x86
+session).
+
+There are also (2) the numerous ways of remotely running Win32 applications
+from a graphical Linux desktop, such as RealVNC Limited's [http://
+www.realvnc.com/] VNC Server, Constantin Kaplinsky's [http://www.tightvnc.com
+/] TightVNC, Tridia Corporation's [http://www.tridiavnc.com/] TridiaVNC, and
+Matt Chapman's [http://www.rdesktop.org/] rdesktop. I maintain a [http://
+linuxmafia.com/faq/Legacy_Microsoft/vnc-and-similar.html] listing of options
+in the latter category.
+-----------------------------------------------------------------------------
+
+9. Feedback. Location. Copyright and Redistribution Terms.
+
+This FAQ is maintained by Rick Moen ([mailto:rick@linuxmafia.com]
+rick@linuxmafia.com), to whom all corrections and suggestions should be
+addressed. The latest revision can always be found at [http://linuxmafia.com/
+wpfaq/] http://linuxmafia.com/wpfaq/ (multi-page HTML) or [http://
+linuxmafia.com/wpfaq/wpfaq-singlepage.html] http://linuxmafia.com/wpfaq/
+wpfaq-singlepage.html (single-page HTML) and the master DocBook SGML source
+at [http://linuxmafia.com/wpfaq/wordperfect-linux-faq.sgml] http://
+linuxmafia.com/wpfaq/wordperfect-linux-faq.sgml. I use the tool-set described
+in the LDP Author Guide, [http://www.tldp.org/LDP/LDP-Author-Guide/] http://
+www.tldp.org/LDP/LDP-Author-Guide/.
+
+Contents are Copyright (C) 2002-2004, Rick Moen.
+
+This information is free; you can redistribute it and / or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, version 2.
+
+This work is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this work; if not, write to the Free Software Foundation, Inc., 675 Mass Ave,
+Cambridge, MA 02139, USA.
+
+Alternatively and at the recipient's option, this work may be used freely
+under the [http://creativecommons.org/licenses/by-sa/2.0/]
+Attribution-ShareAlike 2.0, or, at the recipient's option, any later version.
+licence.

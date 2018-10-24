@@ -1,0 +1,716 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/Mobile-Guide/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:40:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>Linux on the Road</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Preface"
+HREF="mobile-guide-p0-preface.html"><META
+NAME="KEYWORD"
+CONTENT="laptop"><META
+NAME="KEYWORD"
+CONTENT="notebook"><META
+NAME="KEYWORD"
+CONTENT="pda"><META
+NAME="KEYWORD"
+CONTENT="handheld"><META
+NAME="KEYWORD"
+CONTENT="computer"><META
+NAME="KEYWORD"
+CONTENT="mobile"><META
+NAME="KEYWORD"
+CONTENT="mobile phone"><META
+NAME="KEYWORD"
+CONTENT="cell phone"><META
+NAME="KEYWORD"
+CONTENT="portable player"><META
+NAME="KEYWORD"
+CONTENT="linux"><META
+NAME="KEYWORD"
+CONTENT="unix"></HEAD
+><BODY
+CLASS="book"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+></A
+>Linux on the Road</H1
+><H2
+CLASS="subtitle"
+>Linux with Laptops, Notebooks, PDAs, Mobile Phones and Other Portable Devices</H2
+><H3
+CLASS="author"
+><A
+NAME="AEN5"
+></A
+> Werner Heuser</H3
+><DIV
+CLASS="affiliation"
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><br>
+&nbsp;&nbsp;&nbsp;<TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:wehe[AT]tuxmobil.org"
+>wehe[AT]tuxmobil.org</A
+>&#62;</TT
+><br>
+</P
+></DIV
+></DIV
+><P
+CLASS="edition"
+>&#13;Linux Mobile Edition
+&nbsp;Edition </P
+><SPAN
+CLASS="releaseinfo"
+>Version 3.22<BR></SPAN
+><P
+CLASS="publisher"
+><SPAN
+CLASS="publishername"
+>TuxMobil<BR></SPAN
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+>Berlin</P
+></DIV
+></P
+><P
+CLASS="copyright"
+><A
+HREF="ln21.html"
+>Copyright</A
+> &copy; 2000-2011 Werner Heuser</P
+><P
+CLASS="pubdate"
+>2011-12-12<BR></P
+><DIV
+CLASS="revhistory"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+COLSPAN="3"
+><B
+>Revision History</B
+></TH
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.22</TD
+><TD
+ALIGN="LEFT"
+>2011-12-12</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>The address of the opensuse-mobile mailing list has been added,
+   a section power management for graphics cards has been added,
+   a short description of Intel's LinuxPowerTop project has been added,
+   all references to Suspend2 have been changed to TuxOnIce,
+   links to OpenSync and Funambol syncronization packages have been added,
+   some notes about SSDs have been added,
+   many URLs have been checked and some minor improvements have been made.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.21</TD
+><TD
+ALIGN="LEFT"
+>2005-11-14</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Some more typos have been fixed.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.20</TD
+><TD
+ALIGN="LEFT"
+>2005-11-14</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Some typos have been fixed.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.19</TD
+><TD
+ALIGN="LEFT"
+>2005-11-14</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>A link to keytouch has been added,
+   minor changes have been made.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.18</TD
+><TD
+ALIGN="LEFT"
+>2005-10-10</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Some URLs have been updated,
+   spelling has been corrected,
+   minor changes have been made.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.17.1</TD
+><TD
+ALIGN="LEFT"
+>2005-09-28</TD
+><TD
+ALIGN="LEFT"
+>Revised by: sh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>A technical and a language review have been performed by Sebastian Henschel. Numerous
+   bugs have been fixed and many URLs have been updated.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.17</TD
+><TD
+ALIGN="LEFT"
+>2005-08-28</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Some more tools added to external monitor/projector section,
+   link to Zaurus Development with Damn Small Linux added to cross-compile section,
+   some additions about acoustic management for hard disks added,
+   references to X.org added to X11 sections,
+   link to laptop-mode-tools added,
+   some URLs updated,
+   spelling cleaned,
+   minor changes.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 3.16</TD
+><TD
+ALIGN="LEFT"
+>2005-07-15</TD
+><TD
+ALIGN="LEFT"
+>Revised by: wh</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Added some information about  pcmciautils,
+   link to SoftwareSuspend2 added,
+   localepurge for small HDDs,
+   added chapter about FingerPrint Readers,
+   added chapter about ExpressCards,
+   link to Smart Battery System utils added to Batteries chapter,
+   some additions to External Monitors chapter,
+   links and descriptions added for:
+   IBAM - the Intelligent Battery Monitor,
+   lcdtest,
+   DDCcontrol
+   updated Credits section,
+   minor changes.</TD
+></TR
+></TABLE
+></DIV
+><DIV
+><DIV
+CLASS="abstract"
+><A
+NAME="AEN26"
+></A
+><P
+></P
+><P
+>&#13;   Mobile computer devices (laptops, notebooks, PDAs, mobile cell phones,
+   portable audio and video players, digital cameras,
+   calculators, wearables, ...) are different from desktop/tower computers.
+   They use certain hardware such as PCMCIA cards,
+   infrared and BlueTooth ports, wireless LAN,  LCD displays, batteries,
+   docking stations. Hardware parts cannot be changed as easily as in a
+   desktops, e.g. the graphics card. Often their hardware is more limited
+   (e.g. disk space, CPU speed). Though the performance gap to
+   desktops is becoming smaller, e.g. in many instances, laptops or
+   notebooks can become a desktop replacement.
+</P
+><P
+>&#13;   Hardware support for Linux (and other operating systems) and mobile
+   computer devices is sometimes more limited (e.g. graphics chips, internal modems).
+   They often use specialized hardware, hence finding a driver can be more
+   difficult. Many times they are used in changing environments, so there
+   is a need for multiple configurations and additional security
+   strategies.
+</P
+><P
+>&#13;   Though there are laptop, notebook, PDA and mobile phone 
+   related HOWTOs available already, this guide contains 
+   a concise survey of documents related to mobile computer
+   devices. Also Linux features, such as installation methods 
+   for laptops, notebooks and PDAs as well as configurations for
+   different (network) environments are described.
+</P
+><P
+>&#13;   Although there are some caveats, Linux is a better choice for mobile
+   computer devices than most other operating systems, because it supports
+   numerous installation methods, works in many heterogeneous environments
+   and needs smaller resources.
+</P
+><P
+></P
+></DIV
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="mobile-guide-p0-preface.html"
+>Preface</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="mobile-guide-p0c1s1-about-the-author.html"
+>About the Author</A
+></DT
+><DT
+>2. <A
+HREF="mobile-guide-p0c1s2-sponsoring.html"
+>Sponsoring</A
+></DT
+><DT
+>3. <A
+HREF="mobile-guide-p0c1s3-about-the-document.html"
+>About the Document</A
+></DT
+><DT
+>4. <A
+HREF="mobile-guide-p0c1s4-contact.html"
+>Contact</A
+></DT
+><DT
+>5. <A
+HREF="mobile-guide-p0c1s5-disclaimer-and-trademarks.html"
+>Disclaimer and Trademarks</A
+></DT
+></DL
+></DD
+><DT
+>I. <A
+HREF="mobile-guide-p1-getting-started.html"
+>Laptops and Notebooks</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="mobile-guide-p1c1-which-laptop-to-buy.html"
+>Which Laptop to Buy?</A
+></DT
+><DT
+>2. <A
+HREF="mobile-guide-p1c2-laptop-distribution.html"
+>Laptop Distributions</A
+></DT
+><DT
+>3. <A
+HREF="mobile-guide-p1c3-installation.html"
+>Installation</A
+></DT
+></DL
+></DD
+><DT
+>II. <A
+HREF="mobile-guide-p3-handheld-devices-pdas.html"
+>Handheld Devices - Personal Digital Assistants (PDAs)</A
+></DT
+><DD
+><DL
+><DT
+>4. <A
+HREF="mobile-guide-p3c1-palmtops-pdas-handhelds.html"
+>Palmtops, Personal Digital Assistants - PDAs, Handheld PCs - HPCs</A
+></DT
+><DT
+>5. <A
+HREF="mobile-guide-p3c2-linux-pdas-history.html"
+>History of Linux on PDAs</A
+></DT
+><DT
+>6. <A
+HREF="mobile-guide-p3c2-linux-pdas.html"
+>Linux PDAs</A
+></DT
+><DT
+>7. <A
+HREF="mobile-guide-p3c2-linux-for-pdas-ports-and-tools.html"
+>Non-Linux PDAs - Ports and Tools</A
+></DT
+><DT
+>8. <A
+HREF="mobile-guide-p3c4-connectivity.html"
+>Connectivity</A
+></DT
+></DL
+></DD
+><DT
+>III. <A
+HREF="mobile-guide-p4-tablet-pc.html"
+>Tablet PCs / Pen PCs</A
+></DT
+><DD
+><DL
+><DT
+>9. <A
+HREF="mobile-guide-p4c1-tablet-intro.html"
+>Tablet PCs / Pen PCs</A
+></DT
+></DL
+></DD
+><DT
+>IV. <A
+HREF="mobile-guide-p4-cell-phones.html"
+>Mobile (Cellular) Phones, Pagers, Calculators, Digital Cameras, Wearable Computing</A
+></DT
+><DD
+><DL
+><DT
+>10. <A
+HREF="mobile-guide-p4c1-cell-phones.html"
+>Mobile (Cellular) Phones, Pagers</A
+></DT
+><DT
+>11. <A
+HREF="mobile-guide-p4c1-wearables.html"
+>Calculators, Digital Cameras, Wearable Computing</A
+></DT
+></DL
+></DD
+><DT
+>V. <A
+HREF="mobile-guide-p2-mobile-hardware.html"
+>Mobile Hardware in Detail</A
+></DT
+><DD
+><DL
+><DT
+>12. <A
+HREF="mobile-guide-p2c1-hardware-in-detail.html"
+>Hardware in Detail: CPU, Display, Keyboard, Sound and More</A
+></DT
+><DT
+>13. <A
+HREF="mobile-guide-p2c2-accessories.html"
+>Accessories: PCMCIA, USB and Other External Extensions</A
+></DT
+></DL
+></DD
+><DT
+>VI. <A
+HREF="mobile-guide-p5-kernel.html"
+>Kernel</A
+></DT
+><DD
+><DL
+><DT
+>14. <A
+HREF="mobile-guide-p5c1-kernel-history.html"
+>Kernel History</A
+></DT
+></DL
+></DD
+><DT
+>VII. <A
+HREF="mobile-guide-p5-on-the-road.html"
+>On the Road</A
+></DT
+><DD
+><DL
+><DT
+>15. <A
+HREF="mobile-guide-p5c1-different-environments.html"
+>Different Environments</A
+></DT
+><DT
+>16. <A
+HREF="mobile-guide-p5c2-solutions-with-laptops.html"
+>Solutions with Mobile Computers</A
+></DT
+></DL
+></DD
+><DT
+>VIII. <A
+HREF="mobile-guide-p6-appendix.html"
+>Appendix</A
+></DT
+><DD
+><DL
+><DT
+>A. <A
+HREF="mobile-guide-a1-other-operating-systems.html"
+>Other Operating Systems</A
+></DT
+><DT
+>B. <A
+HREF="mobile-guide-a2-other-resources.html"
+>Other Resources</A
+></DT
+><DT
+>C. <A
+HREF="mobile-guide-a3-repairing-the-hardware.html"
+>Repairing the Hardware</A
+></DT
+><DT
+>D. <A
+HREF="mobile-guide-a4-survey-micro-linuxes.html"
+>Survey about Micro Linuxes</A
+></DT
+><DT
+>E. <A
+HREF="mobile-guide-a5-limited-resources.html"
+>Dealing with Limited Resources or Tuning the System</A
+></DT
+><DT
+>F. <A
+HREF="mobile-guide-a6-ecology.html"
+>Ecology and Laptops</A
+></DT
+><DT
+>G. <A
+HREF="mobile-guide-a6-neomagic-chip.html"
+>NeoMagic Graphics Chipset Series NM20xx</A
+></DT
+><DT
+>H. <A
+HREF="mobile-guide-a7-annotated-bibliography.html"
+>Annotated Bibliography: Books For Linux Nomads</A
+></DT
+><DT
+>I. <A
+HREF="mobile-guide-a8-resources-specific-laptops.html"
+>Resources for Specific Laptop Brands</A
+></DT
+><DT
+>J. <A
+HREF="mobile-guide-a10-credits.html"
+>Credits</A
+></DT
+><DT
+>K. <A
+HREF="mobile-guide-a11-copyrights.html"
+>Copyrights</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>12-1. <A
+HREF="mobile-guide-p2c1s7-pointing-devices.html#AEN2613"
+>Arguments for the <B
+CLASS="command"
+>-t</B
+> and <B
+CLASS="command"
+>-R</B
+> option of <B
+CLASS="command"
+>gpm</B
+>.</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Figures</B
+></DT
+><DT
+>6-1. <A
+HREF="mobile-guide-p3c2s8-yopy.html#AEN1188"
+>Screenshot of the YOPY PDA</A
+></DT
+><DT
+>6-2. <A
+HREF="mobile-guide-p3c2s8-zaurus.html#AEN1201"
+>Screenshot of the SHARP Zaurus SL-5500 PDA.</A
+></DT
+><DT
+>7-1. <A
+HREF="mobile-guide-p3c2s2-helio.html#AEN1404"
+>Screenshot of the HELIO PDA.</A
+></DT
+><DT
+>7-2. <A
+HREF="mobile-guide-p3c2s3-ipaq.html#AEN1426"
+>Screenshot of the iPAQ PDA.</A
+></DT
+><DT
+>7-3. <A
+HREF="mobile-guide-p3c2s6-palm-pilot.html#AEN1480"
+>Screenshot of the PALM-Pilot emulator POSE.</A
+></DT
+><DT
+>12-1. <A
+HREF="mobile-guide-p2c1s2-pcmcia-controller.html#AEN1949"
+>Screenshot of cardinfo</A
+></DT
+><DT
+>E-1. <A
+HREF="mobile-guide-p6a5s9-tiny-applications.html#AEN5435"
+>Screenshot of <B
+CLASS="command"
+>blackbox</B
+>.</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="mobile-guide-p0-preface.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Preface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/Mobile-Guide/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:40:31 GMT -->
+</HTML
+>

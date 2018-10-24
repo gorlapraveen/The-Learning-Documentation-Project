@@ -1,0 +1,170 @@
+AUTHOR:		Jim Gifford <lfs-hints at jg555.com>
+		Originally by Gerard Beekmans < gerard at linuxfromscratch.org >
+		Originally by Thomas -Balu-Walter < tw at itreff.de >
+		Originally by Eric Olinger <eric at supertux.com> optimization2.txt
+
+DATE:		2003-10-30
+
+LICENSE:	GNU Free Documentation License Version 1.2
+
+SYNOPSIS:	Compiler-optimization
+
+DESCRIPTION:	This hint will act as a guide on how-to or not-to use
+		compiler optimization routines.
+
+PREREQUISITES:	None
+
+HINT:
+
+The origin of this text is the 2.4.3-version of the book - Chapter 6. I
+modified it a little to create this hint.
+
+Most programs and libraries by default are compiled with optimizing level 2
+(gcc options -g and -O2) and are compiled for a specific CPU. On Intel
+platforms software is compiled for i386 processors by default. If you don't
+wish to run software on other machines other than your own, you might want to
+change the default compiler options so that they will be compiled with a higher
+optimization level, and generate code for your specific architecture.
+
+There are a few ways to change the default compiler options. One way is to edit
+every Makefile file you can find in a package, look for the CFLAGS and CXXFLAGS
+variables (a well designed package uses the CFLAGS variable to define gcc
+compiler options and CXXFLAGS to define g++ compiler options) and change their
+values. Packages like binutils, gcc, glibc and others have a lot of Makefile
+files in a lot of subdirectories so this would take a lot of time to do.
+Instead there's an easier way to do things: create the CFLAGS and CXXFLAGS
+environment variables. Most configure scripts read the CFLAGS and CXXFLAGS
+variables and use them in the Makefile files. A few packages don't follow this
+convention and those package require manual editing.
+
+To set those variables you can do the following commands in bash (or in your
+.bashrc if you want them to be there all the time):
+
+    export CFLAGS="-O3 -march=<architecture>" &&
+    CXXFLAGS=$CFLAGS
+
+This is a minimal set of optimizations that ensures it works on almost all
+platforms. The option march will compile the binaries with specific
+instructions for that CPU you have specified. This means you can't copy this
+binary to a lower class CPU and execute it. It will either work very unreliable
+or not at all (it will give errors like "Illegal Instruction, core dumped").
+You'll have to read the GCC Info page to find more possible optimization flags.
+In the above environment variable you have to replace <architecture> with the
+appropriate CPU identifiers such as i586, i686, powerpc and others. I suggest
+to have a look at the gcc-manual at http://gcc.gnu.org/onlinedocs/gcc_toc.html
+"Hardware Models and Configurations".
+
+/*
+ * Ed. note
+ * "Reboant" dropped a note about how using -Os (optimize for size) showed
+ * incredibly good results. So if you want is small binary size rather than fast
+ * execution time, you might want to take a look at this.
+ */
+
+Please keep in mind that if you find that a package doesn't compile and gives
+errors like "segmentation fault, core dumped" it's most likely got to do with
+these compiler optimizations. Try lowering the optimizing level by changing -O3
+to -O2. If that doesn't work try -O or leave it out all together.  Also try
+changing the -march variable. Compilers are very sensitive to certain hardware
+too. Bad memory can cause compilation problems when a high level of
+optimization is used, like the -O3 setting. The fact that I don't have any
+problems compiling everything with -O3 doesn't mean you won't have any problems
+either. Another problem can be the Binutils version that's installed on your
+system which often causes compilation problems in Glibc (most noticable in
+RedHat because RedHat often uses beta software which aren't always very stable.
+
+"RedHat likes living on the bleeding edge, but leaves the bleeding up to you"
+(quoted from somebody on the lfs-discuss mailinglist).
+
+DEFINITIONS FOR FLAGS:
+
+For more information on compiler optimization flags see the GCC Command 
+s page in the Online GCC 3.3.1 docs at: 
+
+http://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Optimize-Options.html#Optimize%20Options
+http://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options
+
+-s
+        A linker option that remove all symbol table and relocation 
+        information from the binary.
+
+-O3
+        This flag sets the optimizing level for the binary.
+                3	Highest level, machine specific code is generated.
+   		        Auto-magically adds the -finline-functions and 
+			-frename-registers flags. 
+                2       Most make files have this set up as Default, performs all  
+			supported optimizations that do not involve a space-speed 
+			tradeoff. Adds the -fforce-mem flag auto-magically.
+                1  	Minimal optimizations are performed. Default for the compiler, 
+   			if nothing is given.
+                0       Don't optimize.
+                s       Same as O2 but does additional optimizations for size.
+
+-fomit-frame-pointer 
+        Tells the compiler not to keep the frame pointer in 
+        a register for functions that don't need one.  This 
+        avoids the instructions to save, set up and restore 
+        frame pointers; it also makes an extra register available 
+        in many functions. It also makes debugging impossible 
+        on some machines.
+
+-march=pentium3
+        Defines the instructions set to use when compiling. -mpcu is implied 
+	be the same as -march when only -march is used.
+                i386                    Intel 386 Prcoessor
+                i486                    Intel/AMD 486 Processor
+                pentium                 Intel Pentium Processor
+                pentiumpro      	Intel Pentium Pro Processor
+		pentium2		Intel PentiumII/Celeron Processor
+		pentium3		Intel PentiumIII/Celeron Processor
+                pentium4                Intel Pentium 4/Celeron Processor
+                k6                      AMD K6 Processor
+		k6-2			AMD K6-2 Processor
+		K6-3			AMD K6-3 Processor
+                athlon          	AMD Athlon/Duron Processor
+		athlon-tbird		AMD Athlon Thunderbird Processor
+		athlon-4		AMD Athlon Version 4 Processor
+		athlon-xp		AMD Athlon XP Processor
+		athlon-mp		AMD Athlon MP Processor
+		winchip-c6		Winchip C6 Processor
+		winchip2		Winchip 2 Processor
+		c3			VIA C3 Cyrix Processor
+
+-mmmx
+-msse
+-msse2
+-m3dnow
+	These switches enable or disable the use of built-in functions
+	that allow direct access to the MMX, SSE and 3Dnow extensions
+	of the instruction set.
+	
+OPTIMIZATION LINKS:
+ 
+Safe flags to use for gentoo-1.4  
+http://www.freehackers.org/gentoo/gccflags/flag_gcc3.html
+
+Securing & Optimizing Linux: The Ultimate Solution v2.0
+http://www.openna.com/products/books/sol/solus.php
+
+PERSON EXPERIENCE:
+
+I have tried using all optimization levels, but to my disappointment, results varied
+from package to package. Using -O(any number) using GCC 3.3.1 can give unpredictable
+responses. 
+
+Some of those unpredicatable responses can be seen with the following bugs sent to GCC.
+http://gcc.gnu.org/bugzilla/show_bug.cgi?id=12590
+http://gcc.gnu.org/bugzilla/show_bug.cgi?id=10655
+http://gcc.gnu.org/bugzilla/show_bug.cgi?id=8440
+
+VERSION:	1.2
+
+CHANGELOG:	1.2 Fixed Typos
+		1.1 Fixed Typos and Cut-n-Paste Errors
+		1.0 Adopted by Jim Gifford
+
+ New Version of this document can be viewed from http://cvs.jg555.com/viewcvs.cgi/lfs-hints
+
+
+

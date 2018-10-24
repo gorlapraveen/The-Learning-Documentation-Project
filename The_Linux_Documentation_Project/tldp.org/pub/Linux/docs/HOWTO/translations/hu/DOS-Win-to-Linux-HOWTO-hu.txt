@@ -1,0 +1,2041 @@
+  HOGYAN térjünk át DOS-ról/Windowsról Linuxra
+  Írta Guido Gonzato,  <REMOVE_MEguido@ibogeo.df.unibo.it>
+  (Töröld a ``REMOVE_ME''-t)
+  v1.3.2, 1999. február 22.
+
+  Ez a HOGYAN azoknak a (talán hamarosan csak volt) DOS és Windows fel­
+  használóknak szól, akik elhatározták, hogy áttérnek a Linuxra, az
+  ingyenes UNIX klónra.  A dokumentum célja, hogy a DOS/Windows és Unix
+  közötti hasonlóságokat kihasználva segítse az olvasót abban, hogy a
+  DOS és Windows alatt megszerzett tudását minél könnyebben Linuxos
+  tudássá fordíthassa, valamint hogy tippeket adjon a két operációs
+  rendszer közötti fájl- és erõforráscserére.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+
+  1. Bevezetés
+     1.1 A Linux valóban megfelel neked?
+     1.2 Igen, ez az! Mesélj még!
+        1.2.1 Bevezetõ fogalmak
+        1.2.2 Segítség
+     1.3 Konvenciók
+
+  2. A türelmetleneknek
+  3. Ismerd meg a bash-t
+  4. Fájlok és programok
+     4.1 Fájlok: elõzetes megjegyzések
+     4.2 Szimbolikus linkek
+     4.3 Hozzáférési engedélyek és tulajdonjogok
+     4.4 DOS-os parancsok Linuxos megfelelõi
+        4.4.1 Példák
+     4.5 Programok futtatása: többfeladatúság
+     4.6 Programok futtatása távoli gépeken
+
+  5. Könyvtárak használata
+     5.1 Könyvtárak: elõzetes megjegyzések
+     5.2 Könyvtárak hozzáférési engedélyei
+     5.3 DOS-os parancsok Linuxos megfelelõi
+        5.3.1 Példák
+
+  6. Hajlékony lemezek, merevlemezek és társaik
+     6.1 A DOS-szerû  eszközkezelés
+     6.2 A UNIX-szerû eszközkezelés
+     6.3 Biztonsági mentés
+
+  7. Mi helyzet a Windows-zal?
+  8. A rendszer konfigurálása
+     8.1 Rendszerinicializáló fájlok
+     8.2 Programinicializáló fájlok
+
+  9. Hálózatos fogalmak
+  10. Egy kis programozás
+     10.1 Szkriptek: .BAT fájlok Linuxon
+     10.2 C
+
+  11. A fennmaradó 1%
+     11.1 A tar és gzip programok használata
+     11.2 Programok telepítése
+     11.3 Tippek amik nékül nem boldogulsz
+     11.4 Hol vannak az alkalmazások?
+     11.5 Egy pár dolog, amit eddig nem tudtál megcsinálni
+     11.6 UNIX használata DOSWin alatt
+     11.7 Gyakori kiterjesztések és az ezekkel kapcsolatos programok
+     11.8 Fájlkonverziók
+     11.9 Ingyenes irodai csomagok
+
+  12. Vége, egyelõre
+     12.1 Szerzõi jogok
+     12.2 Jogi felelõsség
+     12.3 Magyar fordítás
+
+
+  ______________________________________________________________________
+
+  1.  Bevezetés
+
+
+
+  1.1.  A Linux valóban megfelel neked?
+
+
+
+  DOS-ról (ez magában foglalja Windowst is) Linuxra akarsz váltani?
+  Remek ötlet, a Linux technológiai értelemben felülmúlja a DOS-t, a
+  Windows 9x-et, sõt a Windows NT-t is. De légy óvatos, ez nem jelenti
+  azt, hogy számodra hasznosabb.  A fõbb különbségek a DOS/Windows és a
+  Linux között a következõek:
+
+
+  ·  A Windows alatt fut a Microsoft Office és rengeteg játék, általában
+     könnyû telepíteni és konfigurálni, szörnyen instabil, gyengén
+     teljesít, gyakran lefagy.
+
+  ·  A Linux alatt fut a StarOffice, egy csomó technikai szoftver, de
+     kevesebb játék, nehezebb telepíteni és konfigurálni, stabilitása
+     legendás, jól teljesít, nagyon ritkán fagy le.
+
+  Csak te tudod eldönteni, hogy mi kell neked. A Linux hatalmat ad a gép
+  erõforrásai felett, de idõbe telik, amíg megtanulsz élni vele.  Ezért
+  ha fõleg kereskedelmi szoftverekre van szükséged, vagy nem szeretnél
+  új parancsokat és fogalmakat megismerni, akkor jobban teszed, ha
+  máshol nézel körül.  Jó ha tudod, hogy sok kezdõ adja fel a kezdeti
+  nehézségek miatt.
+
+  Sokan dolgoznak azon, hogy a Linuxot egyszerûbb legyen használni, de
+  ne hidd azt, hogy profi leszel, ha nem olvasol el egy csomó
+  dokumentációt, és nem használod legalább egy pár hónapig. A Linux nem
+  ad azonnal sikerélményt.  Ezen figyelmeztetések ellenére hadd mondjam,
+  hogy 100%-ig biztos vagyok abban, hogy ha te a megfelelõ
+  felhasználótípusba tartozol, akkor a Linuxban megtalálod a
+  számítógépes Nirvanát.  Mellesleg Linux és a DOS/Windows képes
+  ugyanazon a gépen egyidejûleg létezni.
+
+  Elõfeltételek a dokumentumhoz: feltételezem, hogy
+
+
+  ·  ismered az alapvetõ DOS parancsokat és fogalmakat;
+
+  ·  a Linux és esetleg az X Window System (röviden X11) megfelelõen van
+     telepítve a  számítógépeden;
+
+  ·  bash a parancsértelmezõd (a COMMAND.COM Linuxos megfelelõje).
+
+  Hacsak külön nem mondom, minden információ a jó öreg DOS-ra
+  vonatkozik.  Van itt-ott a Windowsra is utalás, de ne feledd, hogy a
+  Windows és a Linux teljesen különbözõ, ellentétben a DOS-szal, ami
+  halványan emlékeztet egy UNIX-ra.
+
+  Fontos megemlíteni, hogy ez a munka se nem egy teljes bevezetõ, se nem
+  egy konfigurációs kézikönyv.
+
+  A dokumentum legfrissebb (angol) verziója megtalálható sokféle
+  formátumban az  <ftp://sunsite.unc.edu:/pub/Linux/docs/howto> FTP-
+  helyen.
+
+
+
+  1.2.  Igen, ez az! Mesélj még!
+
+
+  Installáltad a Linuxot a számítógépeden. Adtál magadnak egy
+  azonosítót, (ha nem ez a helyzet, akkor gépeld be most, hogy adduser)
+  és a Linux fut a gépeden. Éppen most ütötted be az azonosítódat és a
+  jelszavadat, és most nézed a képernyõt hogy: ``Na és most mi van?''
+
+  Ne ess kétségebe! Már majdnem kész vagy, hogy ugyanazokat a dolgokat
+  megtehesd, amiket annak idején a DOS-szal megtehettél, és még sokkal
+  többet!  Ha DOS/Windows-t futtatnál Linux helyett akkor a következõ
+  dolgokat tehetnéd:
+
+
+
+  ·  programok futtatása, fájlok létrehozása, másolása, nézegetése,
+     törlése, nyomtatása, átnevezése;
+
+  ·  könyvtárak létrehozása, törlése, listázása és váltás közötük: MD,
+     RD, DIR, CD;
+
+  ·  lemezek formázása, fájlok másolása lemezekrõl és lemezekre;
+
+  ·  a rendszer testreszabása;
+
+  ·  barangolás az Interneten;
+
+  ·
+
+  ·  a fennmaradó 1%.
+
+  Örömmel veheted tudomásul, hogy ezek a feladatok megvalósíthatók
+  Linuxban is, méghozzá a DOS-hoz hasonló módon. A DOS alatt az átlagos
+  felhasználó az elérhetõ több, mint 100 parancsból igen keveset
+  használ: ugyanez elmondható -- egy bizonyos pontig -- a Linuxra is.
+
+
+  1.2.1.  Bevezetõ fogalmak
+
+
+  A legjobb módja az új dolgok megtanulásának, hogy ha elkezdünk
+  kísérletezgetni. Bátran kipróbálhatunk akármit, játszogathatunk a
+  Linuxszal, -- ha nem ``root''-ként jelentkeztünk be, -- semmit nem
+  ronthatunk el. Néhány szempont:
+
+
+  ·  Elsõként is, hogyan lépj ki a Linux-ból? Ha karakteres képernyõt
+     látsz, akkor nyomd le a <CTRL-ALT-DEL> billentyûket, majd várj
+     addig, amíg a rendszer rendbeteszi a belsõ dolgait, és végül jelzi
+     neked, hogy minden rendben. Ekkor már nyugodtan kikapcsolhatod. Ha
+     az X Window System alatt dolgozol, akkor elsõként <CTRL-ALT-
+     BACKSPACE>, majd a <CTRL-ALT-DEL> billentyûket nyomd le. Soha ne
+     reseteld vagy kapcsolt ki a PC-t közvetlenül Linux alatt, mivel
+     megsérülhet a fájlrendszer!
+
+  ·  A DOS-tól és a Windowstól eltérõen a Linux beépített védelmi
+     rendszerrel rendelkezik. A fájlokhoz és a könyvtárakhoz hozzáférési
+     engedélyek rendelhetõk (lásd a ``Hozzáférési engedélyek''
+     fejezetet), és ezért néhányuk el sem érhetõ a közönséges
+     felhasználó számára. Ezzel szemben a DOS és a Windows megengedi,
+     hogy a merevlemezed egész tartalmát egy mozdulattal letöröld.
+
+  ·  Van egy különleges felhasználó, a ``root'', azaz a rendszergazda,
+     élet és halál ura a számítógépen. Ha a saját számítógépeden
+     dolgozol, te leszel a root is. Rootként dolgozni veszélyes,
+     bármilyen hiba végzetesen károsíthatja, vagy megsemmisítheti a
+     rendszert, akárcsak a DOS vagy Windows alatt. Ne dolgozz rootként,
+     ha nem nagyon muszáj.
+
+  ·  A Linux bonyolultságát annak köszönheti, hogy nagyon jól
+     konfigurálható.  Gyakorlatilag minden alkalmazás és sajátosság az
+     egyéni igényekhez igazítható egy vagy több konfigurációs fájl
+     segítségével. Ha sok lehetõségnek bonyolultság az ára.
+
+  ·  Az átirányítás és a csövek (pipe) a DOS-ban is meglévõ
+     sajátosságok, de a Linux alatt hatékonyabbak, és a szerepük is
+     sokkal fontosabb.  Több egyszerû parancs összefûzve egészen
+     összetett feladatok megoldására is képes.  Használd majd õket!
+
+
+
+  1.2.2.  Segítség
+
+
+  Sokféleképpen kaphatsz segítséget. A legfontosabbak:
+
+
+  ·  Olvasd el a dokumentációt -- komolyan mondom! Bár ez a HOGYAN, amit
+     most olvasol bevezethet a Linux használatába, de van egy pár könyv,
+     amit muszáj elolvasnod. Pl. Matt Welsh ``Linux Installation and
+     Getting Started'' ( <http://sunsite.unc.edu/mdw/LDP/gs/gs.html>),
+     Larry Greenfield ``Linux User Guide'' (
+     <ftp://sunsite.unc.edu/pub/Linux/docs/linux-doc-project/users-
+     guide>), és a Linux FAQ ( <http://sunsite.unc.edu/mdw/FAQ/Linux-
+     FAQ.html>).  Ne hagyjon nyugodni a lelkiismeret, amíg legalább az
+     egyiket el nem olvastad!
+
+  ·  A telepített csomagok dokumentációja általában az /usr/doc/
+     könyvtár alkönyvtáraiban van.
+
+  ·  A parancsértelmezõ ``belsõ parancsairól'' a help, vagy még inkább a
+     man bash vagy az info bash begépelésével kaphatsz segítséget.
+
+  ·  Egy parancsról a man parancs begépelésével kaphatsz segítséget, ez
+     megmutatja a parancs kézikönyvoldalát. Meg lehet még próbálni az
+     info parancs begépelését is, ez megmutatja a parancs info lapját,
+     amennyiben az létezik. Az info egy hypertext alapú dokumentációs
+     rendszer, kicsit szokatlan lehet elsõre.  Végül megpróbálhatod az
+     apropos parancs és a whatis parancs beírását is. Mindegyik
+     felsorolt programból a `q' gomb lenyomásával lehet kilépni.
+
+  ·  Legvégül ott az Internet, a Usenet megfelelõ hely a segítség
+     megszerzésére, például nézd meg a  <news:comp.os.linux.setup>
+     hírcsoportot. Kérem, ne írj nekem segítségkérõ levelet, mert nagyon
+     elfoglalt vagyok.
+
+
+
+  1.3.  Konvenciók
+
+
+  Ebben a munkában a példák gyakran fognak a következõ formában
+  szerepelni: <...> egy kötelezõ argumentum, a [...] egy választható
+  argumentum.  Például:
+
+
+
+       $ tar -tf <file.tar> [> redir_file]
+
+
+
+  A file.tar-t kötelezõ megadni, de az átirányítás a redir_file-ba
+  opcionális.
+
+  Az ``OEK'' azt jelenti, hogy ``további információkért Olvasd El a
+  Kézikönyvoldalt''.  Nem tudom eléggé hangsúlyozni, milyen fontos a
+  dokumentáció olvasása.  A ``DOSWin'' a ``DOS/Windows''-t rövidíti.
+
+  Amikor egy parancs példájában a prompt #, akkor azt csak a root
+  hajthatja végre.
+
+
+  2.  A türelmetleneknek
+
+
+  Gyorsan bele akarsz vágni a dolgok közepébe? Akkor nézd meg ezt a
+  táblázatot!
+
+
+
+       DOS                     Linux                   Notes
+       ------------------------------------------------------------------------------
+
+       ATTRIB (+-)attr file    chmod <mode> file       teljesen különbözõ
+       BACKUP                  tar -Mcvf device dir/   úgyszintén
+       CD dirname\             cd dirname/             majdnem ugyanaz a szintaxis
+       COPY file1 file2        cp file1 file2          úgyszintén
+       DEL file                rm file                 vigyázat, nincs undelete
+       DELTREE dirname         rm -R dirname/          úgyszintén
+       DIR                     ls                      nem teljesen ugyanaz a szintaxis
+       DIR file /S             find . -name file       teljesen különbözõ
+       EDIT file               vi file                 attól tartok, nem fog tetszeni
+                               jstar file              hasonló, mint a DOS-os edit
+       EDLIN file              ed file                 felejtsd el
+       FORMAT                  fdformat,
+                               mount, umount           eléggé eltérõ szintaxis
+       HELP command            man command,            ugyanaz a filozófia
+                               info command
+       MD dirname              mkdir dirname/          majdnem ugyanaz a szintaxis
+       MORE < file             less file               sokkal jobb
+       MOVE file1 file2        mv file1 file2          úgyszintén
+       NUL                     /dev/null               úgyszintén
+       PRINT file              lpr file                úgyszintén
+       PRN                     /dev/lp0,
+                               /dev/lp1                úgyszintén
+       RD dirname              rmdir dirname/          majdnem ugyanaz a szintaxis
+       REN file1 file2         mv file1 file2          nem megy több fájlra
+       RESTORE                 tar -Mxpvf device       különbözõ szintaxis
+       TYPE file               less file               sokkal jobb
+       WIN                     startx                  ég és föld!
+
+
+
+  Ha többet szeretnél tudni a fenti táblázatnál, akkor olvasd el a
+  következõ fejezeteket.
+
+
+
+  3.  Ismerd meg a bash-t
+
+
+  Van egy jó hírem: a Linuxban sokkal kevesebbet kell gépelned a
+  parancssorban, mert a bash parancsértelmezõ gépel helyetted, ahol csak
+  lehet, és szuper sorszerkesztõ képességekkel rendelkezik. Elõször is a
+  felfele-nyíl gomb felhozza az elõzõ parancssort, de ez csak a kezdet.
+  A <TAB> lenyomása kiegészíti a fájl- és könyvtárneveket, tehát ha
+  beírod, hogy:
+
+
+
+       $ ls /uTABloTABbTAB
+
+
+
+  az megfelel az
+
+
+
+       $ ls /usr/local/bin
+
+
+
+  sor beírásának. Ha nem egyértelmû a helyzet, pl. a
+
+
+
+       $ ls /uTABloTABiTAB
+
+
+
+  sor beírásánál, akkor a bash megáll, mert nem tudja, hogy az
+  /usr/local/info vagy az /usr/local/include könytárra gondoltál-e. Adj
+  meg több betût, és nyomd le ismét a <TAB> billentyût.
+
+  Szintén hasznos billentyûkombinációk az <ESC-BACKSPACE>, ez a kurzor
+  bal oldalán álló szót törli, az <ESC-D> a jobb oldali szót törli, az
+  <ESC-F> a kurzort egy szóval jobbra mozgatja, az <CTRL-E> ugyanez,
+  csak balra, a <CTRL-A> a sor elejére, és a <CTRL-E> a sor végére. Az
+  <ALT> billentyû ugyanúgy viselkedik, mint az <ESC>.
+
+  Egyelõre ennyi elég. Ha megszokod ezeket a gyorsbillentyûket, nagyon
+  fog idegesíteni a DOS parancssora...
+
+
+
+  4.  Fájlok és programok
+
+
+
+  4.1.  Fájlok: elõzetes megjegyzések
+
+
+  A Linuxban a könyvtárak és a benne lévõ fájlok struktúrája nagyon
+  hasonló a DOSWin-ben megismerthez. Minden fájlnak adott szabályokhoz
+  illeszkedõ neve van, a fájlokat könyvtárakban tárolják, néhányuk
+  végrehajtható, néhányuk speciális kapcsolókat is igényel ill.
+  megenged. Sõt használhatsz dzsóker karaktereket, átirányítást,
+  csöveket.  Csak néhány kisebb különbség van.
+
+
+  ·  DOS alatt a fájlneveknek úgynevezett 8.3 alakja van pl.:
+     NOTENOUG.TXT.  Linux alatt ez jobban megoldott. Ha a Linuxot egy
+     olyan fájlrendszerrel (nem szükséges, hogy tudd pontosan, mi is ez
+     most) telepíted, mint az ext2, vagy az umsdos, akkor hosszabb
+     neveket is használhatsz (egészen 255 karakterig), több ponttal a
+     névben. Például, Ez.egy_IGEN.hosszú.Fájlnév. Kérlek, vedd észre,
+     hogy kisbetûket és nagybetûket is használtam. Valójában ...
+
+  ·  A kis- és nagybetûket megkülönböztetjük a fájl- és programnevekben.
+     Így a FÁJLNÉV.tar.gz és a fájlnév.tar.gz nevek két külõnbözõ fájlt
+     jelölnek.  Ugyanez igaz a parancsokkal kapcsolatban is. Ha az ls
+     parancsot kiadod, (ez ugyanaz mint a DOS-ban a DIR), akkor
+     könyvtáradban található fájlok listáját kapod, míg ha az LS
+     parancsot adod ki, akkor egy hibaüzenetet.
+
+  ·  A Windows felhasználók vigyázzanak a linuxos hosszú fájlnevekkel.
+     Ha fájlnév tartalmaz szóközt (nem javasolt, de lehetséges), a
+     fájlnevet dupla idézõjelek közé kell tenni, ha hivatkozunk rá.
+     Például:
+
+
+
+       $ # A következõ parancs létrehozza a  "Régi fájljaim" könyvtárat.
+       $ mkdir "Régi fájljaim"
+       $ ls
+       Régi fájljaim    bin     tmp
+
+
+
+  Továbbá van néhány karakter, ami nem lehet a fájlnév része, pl.
+  !*$&#.
+
+  ·  Nincs olyan kötelezõ kiterjesztése a parancs ill. program
+     fájloknak, mint a .COM és az .EXE , vagy a .BAT a batch-fájloknak.
+     A végrehajtható fájlokat egy `*' különbözteti meg a fájlnév végén
+     ha az ls -F paranccsal listáztattad ki. Például:
+
+
+
+       $ ls -F
+       levél_Józsinak  Cindy.jpg  cjpg*  Ez_egy_könyvtár/  elsõ_scriptem*  régi~
+
+
+
+  A cjpg* és az elsõ_scriptem* fájlok végrehajthatóak -- ``programok''.
+  DOS alatt a .BAK végzõdés a biztonsági másolat (backup) fájlokat
+  jelöli; a Linuxban az ilyen típusú fájlok tilde `~' karakterre
+  végzõdnek. Továbbá, ha egy fájlnevet ponttal kezdesz, akkor ez a fájl
+  rejtett fájlként lesz nyilvántartva. Például: az
+  .én.egy.rejtett.fájl.vagyok fájl nem fog megjelenni az ls parancs
+  után.
+
+  ·  A DOS alatt egy program kapcsolóit /kapcsoló formában kell megadni,
+     míg a Linux alatt a -kapcsoló vagy a --kapcsoló használatos.
+     Például a dir /s-nek az ls -R a megfelelõje.  Megjegyzem sok DOS
+     program -- mint a PKZIP vagy az ARJ -- Unix stílusú kapcsolókat
+     használ.
+
+  Most már akár a ``DOS-os parancsok Linuxos megfelelõi'' fejezetre
+  ugorhatsz, de a helyedben én tovább olvasnék.
+
+
+
+  4.2.  Szimbolikus linkek
+
+
+  A Unix rendelkezik egy fájltípussal, ami nem létezik DOS alatt: ez a
+  szimbolikus link. Tekinthetjük ezt úgy, mint egy fájlra vagy
+  könyvtárra mutató pointert, és használhatjuk õket az eredeti fájl vagy
+  könyvtár helyett.  Ez hasonló a Windows parancsikonjaihoz. Példa
+  szimbolikus linkre az /usr/X11, amely az /usr/X11R6-ra mutat, és a
+  /dev/modem, amely vagy a /dev/ttyS0-ra vagy a /dev/ttyS1-re mutat.
+
+
+  Szimbolikus link létrehozása:
+
+
+
+  $ ln -s <fájl_vagy_könyvtár> <linknév>
+
+
+
+  Example:
+
+
+
+       $ ln -s /usr/doc/g77/DOC g77manual.txt
+
+
+
+  Mostantól g77manual.txt-ként is hivatkozhatsz az /usr/doc/g77/DOC
+  fájlra.  A linkek így jelennek meg a könyvtárlistában:
+
+
+
+       $ ls -F
+       g77manual.txt@
+       $ ls -l
+       (egy csomó dolog...)           g77manual.txt -> /usr/doc/g77/DOC
+
+
+
+  4.3.  Hozzáférési engedélyek és tulajdonjogok
+
+
+  A DOS-os fájlok és könyvtárak a következõ tulajdonságokkal
+  (attribútumokkal) rendelkezhetnek: A (archív), H (rejtett), R (csak
+  olvasható), és S (rendszer fájl). Csupán a H-nak és az R-nek van
+  értelme Linux alatt. A rejtett fájlok egy ponttal kezdõdnek, míg az R
+  megfelelõjét a lentiekben tárgyaljuk.
+
+  Unix alatt egy fájl rendelkezik hozzáférési engedélyekkel és
+  tulajdonossal, aki egy ``csoporthoz'' tartozik. Itt egy példa:
+
+
+
+       $ ls -l /bin/ls
+       -rwxr-xr-x  1  root  bin  27281 Aug 15 1995 /bin/ls*
+
+
+
+  Az elsõ mezõ tartalmazz a /bin/ls fájl hozzáférési engedélyeit.  Ez a
+  fájlt a root felhasználóhoz és a bin csoporthoz tartozik.  A többi
+  információtól eltekintve, jegyezd meg, hogy a -rwxr-xr-x a
+  következõket jelenti (balról jobbra):
+
+  - a fájl típusa (- = közönséges fájl, d = könyvtár, l = link, stb.);
+  rwx a fájl tulajdonosának a hozzáférési engedélyei (olvasható, írható,
+  végrehajtható); r-x a fájltulajdonos csoportjának az engedélyei
+  (olvasható, végrehajtható); (most nem részletezem a csoport fogalmát,
+  kezdõként egyelõre jól megleszel nélküle ;-) végül r-x az összes többi
+  felhasználó engedélyei (olvasható, végrehajtható).
+
+  A /bin könyvtárnak szintén vannak hozzáférési engedélyei, olvasd el a
+  ``Könyvtárak hozzáférési engedélyei'' fejezetet a részletekért. Emiatt
+  nem törölheted az  /bin/ls fájlt, hacsak nem te vagy a root, nincs
+  írási jogot, hogy ezt megtedd. Egy fájl hozzáfárési engedélyeinek
+  megváltoztatása a következõképpen lehetséges:
+       $ chmod <kiXengedély> <fájl>
+
+
+
+  ahol a `ki' helyén u (user, azaz a tulajdonos), g (group, azaz a
+  csoport) vagy o (other, azaz bárki más) állhat, az `X' vagy + vagy -,
+  az `engedély' lehet r (read, azaz olvasható), w (write, azaz írható)
+  vagy x (execute, azaz végrehajtható). Általános példák a  chmod
+  parancsra:
+
+
+
+       $ chmod +x file
+
+
+
+  Ez végrehajthatóvá teszi a file-t. A
+
+
+
+       $ chmod go-rw file
+
+
+
+  eltávolítja a fájlról az írási és a olvasási engedélyeket mindenki
+  számára, kivétel csupán a fájl a tulajdonosa. A
+
+
+
+       $ chmod ugo+rwx file
+
+
+
+  mindenkinek olvasási, írási és végrehajtási jogot ad. Végül, de nem
+  utolsósorban a
+
+
+
+       # chmod +s file
+
+
+
+  paranccsal hozhatóak létre egy úgynevezett ``setuid'' vagy ``suid''
+  fájl, azaz olyan fájl, amelyet mindenki végrehajthat a tulajdonos
+  jogaival.  Általában a root tulajdonában levõ suid fájlokkal fogsz
+  találkozni, ezek többnyire fontos rendszerfájlok, mint például az X
+  szerver.
+
+  Van egy rövidebb mód is az engedélyek megadására, ez számokkal
+  történik.  Az rwxr-xr-x kifejezhetõ úgy, mint 755. Minden betûnek egy
+  bit felel meg, a --- 0, a --x  1, a -w- 2, a -wx 3, és így tovább.
+  Bonyolultnak látszik, de egy kis gyakorlás után át fogod látni a
+  koncepciót.  A root, azaz a rendszergazda, minden fájl hozzáférési
+  engedélyeit megváltoztathatja.  OEK.
+
+
+
+  4.4.  DOS-os parancsok Linuxos megfelelõi
+
+
+
+  Bal oldalon vannak a DOS-os parancsok, jobb oldalon a linuxos
+  megfelelõi.
+
+
+
+       ATTRIB:         chmod
+       COPY:           cp
+       DEL:            rm
+       MOVE:           mv
+       REN:            mv
+       TYPE:           more, less, cat
+
+
+
+  Átirányítás és csõszervezés operátorok:  < > >> |
+
+  Dzsóker karakterek: * ?
+
+  nul:        /dev/null
+
+  prn, lpt1:  /dev/lp0 vagy /dev/lp1; lpr
+
+
+  4.4.1.  Példák
+
+
+
+       DOS                                     Linux
+       ---------------------------------------------------------------------
+
+       C:\GUIDO>ATTRIB +R FILE.TXT             $ chmod 400 file.txt
+       C:\GUIDO>COPY JOE.TXT JOE.DOC           $ cp joe.txt joe.doc
+       C:\GUIDO>COPY *.* TOTAL                 $ cat * > total
+       C:\GUIDO>COPY FRACTALS.DOC PRN          $ lpr fractals.doc
+       C:\GUIDO>DEL TEMP                       $ rm temp
+       C:\GUIDO>DEL *.BAK                      $ rm *~
+       C:\GUIDO>MOVE PAPER.TXT TMP\            $ mv paper.txt tmp/
+       C:\GUIDO>REN PAPER.TXT PAPER.ASC        $ mv paper.txt paper.asc
+       C:\GUIDO>PRINT LETTER.TXT               $ lpr letter.txt
+       C:\GUIDO>TYPE LETTER.TXT                $ more letter.txt
+       C:\GUIDO>TYPE LETTER.TXT                $ less letter.txt
+       C:\GUIDO>TYPE LETTER.TXT > NUL          $ cat letter.txt > /dev/null
+               n/a                             $ more *.txt *.asc
+               n/a                             $ cat section*.txt | less
+
+
+
+  Megjegyzések:
+
+
+  ·  A * karakter alkalmazása a Linux alatt elegánsabb. A * kifejezéshez
+     minden fájl illeszkedik kivéve a rejtett fájlokat. A rejtett fájlok
+     a .* kifejezéshez illeszkednek, de vigyázat, az aktuális könyvtár
+     `.' és a szülõkönyvtár `..' is illeszkedik! A *.* kifejezéshez csak
+     azok a fájlok illeszkednek amelyeknek a közepén '.' található. A
+     p*a kifejezésre mind a papa, mind a pipa, míg a *g* kifejezésre
+     mind a `régi' és mind a `rugók' szavak illeszkednek.
+
+  ·  Ha a more programot használod, akkor a <szóköz> billentyût használd
+     a lapozáshoz, és a 'q' billentyût a kilépéshez. A less program
+     sokkal jobban használható, s itt használhatod nyíl-billentyûket is.
+
+  ·  A Linuxban nincs UNDELETE, tehát jól gondold meg mielõtt bármit is
+     kitörölsz.
+
+  ·  A DOS < > >> jelein túlmenõen, a Linux ismeri a 2> jelet, amivel
+     átirányítható szabványos hibakimenet (stderr), továbbá a 2>&1  a
+     szabványos hibakimenetet (stderr) a szabványos kimenetre (stdout),
+     míg a 1>&2 a szabványos kimenetet a szabványos hibakimenetre
+     irányítja.
+
+  ·  A Linux rendelkezik még egy dzsóker karakterrel, a [] jellel.
+     Használata: az [abc]* kifejezés azokhoz a fájlnevekhez illeszkedik
+     amelyek a, b vagy c betûvel kezdõdnek. A *[I-N,1,2,3] kifejezés
+     azokhoz a fájlnevekhez illeszkedik amelyek I, J, K, L, M, N, 1, 2,
+     3 betûvel végzõdnek.
+
+  ·  Az lpr <fájl> kinyomtatja a fájlt a háttérben.  A nyomtatási sor
+     ellenõrzésére használd a lpq parancsot. Az lprm paranccsal
+     kitörölheted a fájlt a nyomtatási sorból.
+
+  ·  Nincs olyan parancs mint a DOS alatti RENAME, így a mv *.xxx *.yyy
+     nem fog mûködni. Egy REN-hez hasonló parancs letölthetõ az
+     <ftp://sunsite.unc.edu/pub/Linux/utils/file> FTP-helyrõl.
+
+  ·  Használj cp -i-t és mv -i-t, ha azt szeretnéd, hogy a rendszer
+     szóljon, ha valamit felül készül írni.
+
+
+
+  4.5.  Programok futtatása: többfeladatúság
+
+  Ha futtatni akarsz egy programot akkor a DOS-hoz hasonlóan itt is a
+  program nevét kell begépelned. Ha a könyvtár (``Könyvtárak
+  használata'' fejezet), amiben a programot eltároltad megtalálható a
+  PATH (``Rendszerinicializáló fájlok'' fejezet) környezeti változóban,
+  a program el fog indulni.  Kivétel: a DOS-tól eltérõen a Linux alatt
+  az aktuális könyvtárban lévõ program is csak akkor fog elindulni, ha a
+  könyvtár benne van a PATH-ban.  Tipp: ilyen esetben, ha a programod
+  prog akkor azt gépeld, hogy ./prog.
+
+
+  Így néz ki egy tipikus parancssor:
+
+
+
+       $ parancs [-k1 [-k2] ... [-kn]] [par1 [par2] ... [parn]] [< bemenet] [> kimenet]
+
+
+
+  ahol a -k1, ..., -kn a program kapcsolói, és a  par1, ..., parn a
+  program paraméterei. Egy sorban több parancsot is begépelhetsz:
+
+
+
+       $ parancs1 ; parancs2 ; ... ; parancsn
+
+
+
+  Ennyit a programok futtatásáról, bár könnyû a következõ lépés
+  megtétele is.  Az egyik legfontosabb indok, ami a Linux használata
+  mellett szól, hogy a Linux többfeladatú operációs rendszer, azaz képes
+  több program (ezentúl processzek) párhuzamos (egyidejû) futtatására.
+  Elindíthatsz processzeket a háttérben, és amíg ezek futnak, tovább
+  folytathatod a munkádat. Sõt, a Linux lehetõvé teszi, hogy egyidejûleg
+  többször bejelentkezve különbözõ virtuális terminálokon is dolgozz: ez
+  olyan mintha több számítógéped lenne egyszerre, amin dolgozhatsz!
+
+
+  ·  Az 1-tõl 6-ig terjedõ virtuális terminálokra való átlépéshez nyomd
+     le az <ALT-F1> ... <ALT-F6> billentyûket.
+
+  ·  Egy új session indításához az aktuális virtuális terminálon add ki
+     a su - <loginname> parancsot. Például: su - root. Ez akkor hasznos,
+     ha egy olyan feladatot kell elvégezned, amit csak a root tehet meg.
+
+  ·  A sessiont az exit paranccsal lehet befejezni. Ha vannak leállított
+     munkáid (lásd késõbb), akkor a rendszer figyelmeztet.
+
+  ·  Ha a háttérben szeretnél elindítani egy processzt, írj egy `&'
+     jelet a parancssor végére:
+
+
+
+       $ progname [-kapcsolók] [paraméterek] [< bemenet] [> kimenet] &
+       [1] 123
+
+
+
+  A burok (shell) a processzt egy munkaszámmal (például ez fent [1]) és
+  a processz azonosítójával (PID) azonosítja (példánkban ez 123).
+
+  ·  Ha szeretnéd látni, hogy összesen hány processz fut, írd be azt,
+     hogy ps ax. Ez a parancs kilistázza az összes jelenleg futó
+     processzt.
+
+  ·  Ha szeretnél lelõni (leállítani) egy processzt, használd a kill
+     <PID> parancsot. Elképzelhetõ, hogy le kell lõnöd egy processzt, ha
+     nem tudod, hogyan kell leállítani, kilépni belõle... ;-).  Néha a
+     processz csak a kill -SIGKILL <PID> alkalmazásával lõhetõ le:
+
+     A burok megengedi, hogy megállíts egy processzt, idõszakosan
+     szüneteltesd a futását, háttérbe küldjed, vagy a háttérbõl az
+     elõtérbe hozd vissza.  Ebben az összefüggésben a processzeket
+     ``munká''-nak nevezik.
+
+  ·  Ha szeretnéd látni, hogy hány munka fut, írd be: jobs. Itt a
+     munkákat a munkaszámuk azonosítja, nem a PID-jük.
+
+  ·  Egy elõtérben futó processz leállításához nyomd le a <CTRL-C>-t
+     (nem mindig mûködik).
+
+  ·  Egy elõtérben futó processz futása felfüggeszthetõ a <CTRL-Z>
+     lenyomásával (szintén nem mindig mûködik).
+
+  ·  Egy futásában felfüggesztett processzt a bg <%job> paranccsal lehet
+     a háttérbe küldeni (a processz munkává válik).
+
+  ·  A munka elõtérbe hozására használd a fg <%job> parancsot. A
+     legutoljára háttérbe küldött munka elõtérbe hozásához elég kiadni a
+     fg parancsot.
+
+  ·  Egy munka lelövéséhez a kill <%job> parancsot kell használni, ahol
+     a <job> a burok által a processzhez rendelt munkaszám:  1, 2, 3,
+     ...
+
+  Ezeknek az utasításoknak a használatával egyszerre tudsz egy lemezt
+  megformázni, fájlok egy csoportját tömöríteni, kitömöríteni archivált
+  fájlokat, programokat fordítani, és még mindig rendelkezésedre áll egy
+  prompt, tovább dolgozhatsz zavartalanul! Próbáld ugyanezt megtenni DOS
+  alatt! És próbáld ki ugyanezt Windows alatt is, csak hogy lásd a
+  teljesítménybeli különbséget a két megvalósítás között (ha ugyan le
+  nem fagy közben)!
+
+
+
+  4.6.  Programok futtatása távoli gépeken
+
+
+  Egy távoli gépen történõ programfuttatáshoz elsõként be kell
+  jelentkezned oda, s ehhez tudnod kell a gép nevét vagy IP-címét.
+
+
+
+       $ telnet tavoli.gep.hu
+
+
+
+  Bejelentkezés után elindíthatod kedvenc programod. Gondolom
+  szükségtelen megemlítenem, hogy a másik gépen is kell rendelkezned
+  felhasználói azonosítóval.
+
+  Ha van X Window rendszered, akkor akár X-es alkalmazásokat is
+  futtathatsz a távoli gépen oly módon, hogy az a te képernyõdön jelenik
+  meg. Legyen például a távoli gép a tavoli.gep.hu, míg a Te géped az
+  sajat.gep.hu. Egy a távoli gépen levõ X-es program futtatása az
+  sajat.gep.hu-n a következõképpen lehetséges:
+
+
+  ·  indítsd el az X-et, majd azon belül egy xterm-et, vagy egy azzal
+     ekvivalens terminál emulátort (rxvt, color-xterm, nxterm, kvt,
+     ...), majd gépeld be:
+
+
+
+       $ xhost +tavoli.gep.hu
+       $ telnet tavoli.gep.hu
+
+
+
+  ·  bejelentkezés után:
+
+
+
+       tavoli:$ DISPLAY=sajat.gep.hu:0.0
+       tavoli:$ program &
+
+
+
+  (A  DISPLAY... sor helyett, esetleg a setenv DISPLAY
+  local.linux.box:0.0 sor kell beírnod. Ez a távoli gépen futó
+  parancsértelmezõ buroktól függ.)
+
+  És láss csodát! A távoli gépen elindul a program, ami majd a te
+  képernyõdön fog megjelenni. Azonban modemes kapcsolat esetén nem
+  érdemes ezzel próbálkozni, használhatatlanul lassú lesz. Ráadásul ez
+  egy durva és nem biztonságos módszer, az ``Remote X Apps mini-HOWTO''
+  <http://sunsite.unc.edu/LDP/HOWTO/mini/Remote-X-Apps> foglalkozik a
+  témával részletesebben.
+
+  5.  Könyvtárak használata
+
+
+
+  5.1.  Könyvtárak: elõzetes megjegyzések
+
+
+  Láttuk már a különbséget a DOSWin és Linux alatti fájlok között. A
+  könyvtárak esetén a DOSWin alatt a gyökérkönyvtár a \, a Linux alatt a
+  /. Hasonlóképpen az egymásba ágyazott könyvtárak esetén az elválasztó
+  jel DOSWin alatt a \, Linux alatt a /. Példa fájlnévre útvonallal
+  együtt:
+
+
+
+       DOS:    C:\PAPERS\GEOLOGY\MID_EOC.TEX
+       Linux:  /home/guido/papers/geology/middle_eocene.tex
+
+
+
+  Ahogy megszoktad, a .. a szülõkönyvtár, és a . az aktuális könyvtár.
+  Ne feledd, hogy a rendszer nem enged bármelyik könyvtárba belépni
+  (cd), akármelyik könyvtárat törölni (rmdir), vagy akárhol egy új
+  könyvtárat létrehozni (mkdir). Minden felhasználónak van egy saját
+  könyvtára, amit a rendszergazda jelöl ki számára, és ahol a dolgait
+  tarthatja. Például az én gépemen a saját könyvtáram a /home/guido.
+
+
+
+  5.2.  Könyvtárak hozzáférési engedélyei
+
+
+  A könyvtárak szintén rendelkeznek hozzáférési engedélyekkel. Amit a
+  ``Hozzáférési engedélyek és tulajdonjogok'' címû fejezetben láttunk,
+  az itt is érvényes: tulajdonos, csoport, mások (user, group és other).
+  Egy könyvtárnál a rx azt jelenti, hogy cd-vel be tudsz lépni oda, míg
+  ha a w is meg van adva, akkor törölni is tudsz abban a könyvtárban (a
+  törlendõ fálj engedélyeinek megfelelõen természetesen), vagy akár
+  magát a könyvtárat is törölheted.
+
+  Például annak megelõzésére, hogy mások és a csoportod tagjai a
+  /home/guido/text könyvtáradban nézelõdjenek ezt a parancsot kell
+  kiadnod:
+
+
+
+       $ chmod og-rwx /home/guido/text
+
+
+
+  5.3.  DOS-os parancsok Linuxos megfelelõi
+
+
+
+       DIR:            ls, find, du
+       CD:             cd, pwd
+       MD:             mkdir
+       RD:             rmdir
+       DELTREE:        rm -rf
+       MOVE:           mv
+
+  5.3.1.  Példák
+
+
+
+       DOS                                     Linux
+       ---------------------------------------------------------------------
+
+       C:\GUIDO>DIR                            $ ls
+       C:\GUIDO>DIR FILE.TXT                   $ ls file.txt
+       C:\GUIDO>DIR *.H *.C                    $ ls *.h *.c
+       C:\GUIDO>DIR/P                          $ ls | more
+       C:\GUIDO>DIR/A                          $ ls -l
+       C:\GUIDO>DIR *.TMP /S                   $ find / -name "*.tmp"
+       C:\GUIDO>CD                             $ pwd
+               nincs - lásd a megjegyzést      $ cd
+               úgyszintén                      $ cd ~
+               úgyszintén                      $ cd ~/temp
+       C:\GUIDO>CD \OTHER                      $ cd /other
+       C:\GUIDO>CD ..\TEMP\TRASH               $ cd ../temp/trash
+       C:\GUIDO>MD NEWPROGS                    $ mkdir newprogs
+       C:\GUIDO>MOVE PROG ..                   $ mv prog ..
+       C:\GUIDO>MD \PROGS\TURBO                $ mkdir /progs/turbo
+       C:\GUIDO>DELTREE TEMP\TRASH             $ rm -rf temp/trash
+       C:\GUIDO>RD NEWPROGS                    $ rmdir newprogs
+       C:\GUIDO>RD \PROGS\TURBO                $ rmdir /progs/turbo
+
+
+
+  Megjegyzések:
+
+
+  ·  Az rmdir használatakor, a törlendõ könyvtárnak üresnek kell lennie.
+     Egy könyvtár és teljes tartalmának törléséhez használd a rm -rf
+     parancsot, (saját felelõsségedre).
+
+  ·  A `~' karakter a saját könyvtárad rövidítése.  A cd vagy a cd ~
+     parancsok a saját könyvtáradba visznek, bárhol is legyél. Ennek
+     megfelelõen a cd ~/tmp parancs a /home/saját_könyvtárad/tmp
+     könyvtárba juttat.
+
+  ·  A cd - ``visszacsinálja'' az utolsó cd parancsot.
+
+
+
+  6.  Hajlékony lemezek, merevlemezek és társaik
+
+
+  Linux alatt két módja van az eszközkezelésnek, a DOS-szerû és a UNIX-
+  szerû.  Válassz!
+
+
+
+  6.1.  A DOS-szerû  eszközkezelés
+
+
+  A legtöbb Linux disztribúcióban megtalálható az Mtools csomag, egy
+  parancskészlet, amely teljesen megegyezik a DOS-os megfelelõjével,
+  csak mindegyik neve `m' betûvel kezdõdik, pl. mformat, mdir, mdel,
+  mmd, stb. Megõrzik a hosszú fájlneveket is, de a hozzáférési
+  engedélyeket nem. Az Mtools konfigurálása után, amit a
+  /etc/mtools.conf fájl szerkesztésével tehetsz meg (példafájl található
+  a disztribúcióban), elérheted a DOSWin partíciókat, a CD-ROM-ot és a
+  Zip meghajtót. Egy új lemez megformázásához azonban nem elég az
+  mformat parancs. Rootként ki kell adni elõbb az fdformat /dev/fd0H1440
+  parancsot.
+
+  A hajlékony lemezeken levõ fájlokat nem tudod elérni egy ilyen
+  paranccsal: less a:file.txt! Ez a hátránya a DOS-szerû
+  lemezkezelésnek.
+
+
+
+  6.2.  A UNIX-szerû eszközkezelés
+
+
+  A UNIX másképp kezeli az eszközöket, Nincsenek külön meghajtók, mint
+  az A: vagy a C:, minden lemez, legyen az egy hajlékony lemez vagy
+  bármi, a helyi fájlrendszer részévé válik a ``csatolás''-nak nevezett
+  mûvelet segítségével. Miután befejezted a munkát a lemezzel, mielõtt
+  kiveszed a meghajtóból, le kell csatolni a fájlrendszerrõl.
+
+  Egy lemez fizikai formázása egy dolog, egy fájlrendszer létrehozása
+  rajta egy másik.  A DOS FORMAT A: parancsa mindkettõt megcsinálja, de
+  a Linux alatt erre két külön parancsot kell használni. Egy hajlékony
+  lemez formázására pár sorral feljebb volt egy példa, a fájlrendszer
+  létrehozásához írjuk be:
+
+
+
+       # mkfs -t ext2 -c /dev/fd0H1440
+
+
+
+  Használhatjuk a dos, a vfat (ajánlott) vagy más formátumokat is az
+  ext2 helyett. Ha elkészült a lemez, csatoljuk a helyi fájlrendszerhez
+  a
+
+
+
+       # mount -t ext2 /dev/fd0 /mnt
+
+
+
+  paranccsal. Ha nem az ext2 fájlrendszert használjuk, akkor meg kell
+  adnunk a megfelelõ típust. Ezután a hajlékony lemezen levõ fájlokat a
+  /mnt könyvtárra való hivatkozással érheted el az A: vagy B: helyett.
+  Példák:
+
+
+
+       DOS                                     Linux
+       ---------------------------------------------------------------------
+
+       C:\GUIDO>DIR A:                         $ ls /mnt
+       C:\GUIDO>COPY A:*.*                     $ cp /mnt/* .
+       C:\GUIDO>COPY *.ZIP A:                  $ cp *.zip /mnt
+       C:\GUIDO>EDIT A:FILE.TXT                $ jstar /mnt/file.txt
+       C:\GUIDO>A:                             $ cd /mnt
+       A:> _                                   /mnt/$ _
+
+
+
+  Miután végeztél a lemez használatával, mielõtt kiveszed a meghajtóból,
+  feltétlenül csatold le a
+
+
+
+  # umount /mnt
+
+
+
+  paranccsal. Természetesen csak a formázatlan lemezekre kell használni
+  az fdformat és a mkfs parancsokat, a már használatban lévõkre nem.  Ha
+  B: meghajtót szeretnéd használni, írj fd1H1440-t és fd1-t az fd0H1440
+  és az fd0 helyett a fenti példákban.
+
+  Felesleges mondani, hogy minden, ami a hajlékonylemezekre vonatkozik,
+  az a többi eszközre is vonatkozik, például akarhatsz egy másik
+  merevlemezt, vagy egy CD-ROM meghajtót is csatolni. A CD-ROM-ot így
+  kell csatolni:
+
+
+
+       # mount -t iso9660 /dev/cdrom /mnt
+
+
+
+  Ez volt a ``hivatalos'' módja a lemezek csatolásának, de van egy trükk
+  is.  Mivel egy kissé idegesítõ, hogy csak a root csatolhatja a
+  hajlékony lemezt és a CD-ROM-ot, minden felhasználónak megengedhetjük
+  ezt a következõ módon:
+
+
+  ·  Rootként írjuk be:
+
+
+
+       # mkdir /mnt/floppy ; mkdir /mnt/cdrom
+       # chmod 777 /mnt/floppy /mnt/cd*
+       # # Ellenõrizzük, hogy a CD-ROM-nak tényleg ez az eszköz felel-e meg!
+       # chmod 666 /dev/hdb ; chmod 666 /dev/fd*
+
+
+
+  ·  Adjuk hozzá az /etc/fstab fájlhoz a következõ sorokat:
+
+
+
+       /dev/cdrom      /mnt/cdrom  iso9660 ro,user,noauto          0       0
+       /dev/fd0        /mnt/floppy vfat    user,noauto             0       0
+
+
+
+  Ezután egy DOS-os hajlékony lemezt és egy CD-ROM-ot így lehet
+  csatolni:
+
+
+
+       $ mount /mnt/floppy
+       $ mount /mnt/cdrom
+
+
+
+  Az /mnt/floppy és az /mnt/cdrom könyvtárakat most már mindegyik
+  felhasználó elérheti. Ne feledd, hogy ha mindenkinek megengeded, hogy
+  lemezeket csatoljon, azzal egy biztonsági rést ütsz a rendszeren.
+  Két hasznos parancsról szeretnék még szólni. A df információkat ad a
+  csatolt fájlrendszerekrõl, a du konyvtarnev kiírja, hogy mennyi helyet
+  foglal a könyvtár a lemezen.
+
+
+
+  6.3.  Biztonsági mentés
+
+
+  Több szoftver is létezik, amelyek segítik ezt megvalósítani, de a
+  legegyszerûbb módja annak, hogy egy többkötetes mentést végezz, a
+  következõ (persze rootként):
+
+
+
+       # tar -M -cvf /dev/fd0H1440 mentendo_konyvtar/
+
+
+
+  Elõtte bizonyosodj meg róla, hogy beraktál egy formázott lemezt a
+  meghajtóba, és rendelkezel kellõ mennyiségû üressel is. A mentés
+  visszatöltéséhez helyezd be az elsõ lemezt a meghajtóba, és írd a
+  parancssorba a következõket:
+
+
+
+       # tar -M -xpvf /dev/fd0H1440
+
+
+
+  7.  Mi helyzet a Windows-zal?
+
+
+  A Windows ``megfelelõje'' a grafikus X Window System. A Windows és Mac
+  felülettel ellentétben az X11-et nem úgy tervezték, hogy egyszerû
+  legyen használni, vagy hogy jól nézzen ki.  A cél eredetileg csak
+  annyi volt, hogy grafikus lehetõséggel ruházzák fel a UNIX-os
+  munkaállomásokat. A fõ különbségek:
+
+
+  ·  Amíg a Windows ugyanúgy néz ki mindenhol a világon, az X11 nem
+     ilyen, sokkal jobban konfigurálható. Az X11 kinézetét egy fontos
+     komponens, az ``ablakkezelõ'' program határozza meg. Ebbõl nagy a
+     választék: az fvwm, egyszerû, de szép és memóriatakarékos,
+     fvwm2-95, Afterstep, WindowMaker, Enlightenment, és sok más.  Az
+     ablakkezelõt általában az .xinitrc-bõl indítják.
+
+  ·  Az ablakkezelõd beállítható, hogy az ablakok úgy viselkedjenek,
+     mint a Windows alatt: kattintásra elõtérbe kerülnek. Egy másik
+     lehetõség, hogy akkor kerül az elõtérbe, ha az egér átmegy felette.
+     Az ablakok elhelyezése a képernyõn lehet automatikus vagy
+     interaktív: ha egy furcsa keret jelenik meg a programod helyett,
+     kattints a bal egérgombbal oda, ahol szeretnéd, hogy a program
+     ablaka megjelenjen.
+
+  ·  A legtöbb tulajdonság igény szerint alakítható egy vagy több
+     konfigurációs fájl szerkesztésével. Olvasd el az ablakkezelõd
+     dokumentációját.  A konfigurációs fájl neve lehet .fvwmrc,
+     .fvwm2rc95, .steprc, stb.  Egy példa kongigurációs fájl többnyire
+     megtalálható /etc/X11/ablakkezelõ-név/system.ablakkezelõ-név néven.
+
+
+  ·  Az X11 alkalmazások speciális könyvtárakat --
+     ``widgetkészlet''-eket használnak. Ezekbõl sokféle van, így aztán a
+     alkalmazások kinézete különbözõ.  A legegyszerûbbek az Athena
+     widgeteket használják (két dimenziós kinézet; xdvi, xman, xcalc);
+     mások a Motifot használják (netscape); megint mások a Tcl/Tk,
+     XForms, Qt vagy Gtk widgetkészleteket használják.  Majdnem
+     mindegyik említett könyvtár közel hasonló kinézetet és érzést
+     biztosít, mint a Windows.
+
+  ·  Az érzés sajnos nem egységes. Például ha kiválasztasz egy sornyi
+     szöveget az egérrel, és megnyomod a <BACKSPACE> gombot, azt várod,
+     hogy a sor eltûnjön, igaz? Ez nem fog megtörténni az Athena alapú
+     alkalmazásokkal, de a többivel igen.
+
+  ·  A görgetõsávok és a méretezés mûködése függ az ablakkezelõtõl és a
+     widgetkészlettõl. Tipp: ha a görgetõsávok nem úgy mûködnek, ahogy
+     várod, a mozgatáshoz próbáld meg használni a középsõ egérgombot,
+     vagy a két szélsõ gombot egyszerre.
+
+  ·  Az alkalmazásoknak nincs alapértelmezett ikonjuk, de lehet sokat
+     definiálni. A legtöbb ablakkezelõnek van egy menüje, amely elõjön,
+     ha az asztalra (``root ablak'') kattintasz. Mondanom sem kell, ez a
+     menü is változtatható az igényeknek megfelelõen. A root ablak
+     megjelenése az  xsetroot vagy az xloadimage parancsokkal
+     változtatható.
+
+  ·  A vágólap csak szöveget tartalmazhat, és furcsán viselkedik.  Ha
+     kiválasztottál egy szöveget, az már a vágólapon is van, menj
+     máshova, és kattints a középsõ egérgombbal a beillesztéshez. Van
+     egy xclipboard nevû alkalmazás, amely több vágólapot kezel
+     egyszerre.
+
+  ·  A fogd-és-vidd (drag-and-drop) opcionális, csak az olyan
+     ablakkezelõkben és/vagy alkalmazásokban mûködik, amelyek
+     támogatják.
+
+  Ha takarékoskodni szeretnél a memóriával, olyan alkalmazásokat kell
+  használnod, amelyek ugyanazokat a programkönyvtárakat használják, bár
+  ez a gyakorlatban nehéz lehet.
+
+  Vannak projektek, amelyek azt tûzték ki célul, hogy a Windowshoz
+  hasonló egységes felületet hozzanak létre X11 alatt. A Gnome,
+  <http://www.gnome.org>, és a KDE,  <http://www.kde.org>, nagyszerûek.
+  Próbáld ki õket, nem fogod visszasírni a Windowst.
+
+
+
+  8.  A rendszer konfigurálása
+
+
+
+  8.1.  Rendszerinicializáló fájlok
+
+  A DOS alatt két fontos fájl van, az AUTOEXEC.BAT és a CONFIG.SYS,
+  amelyeket az operációs rendszer a bootolás ideje alatt a rendszer
+  inicializálására és olyan rendszerváltozók beállítására használ, mint
+  például a PATH és a FILES, illetve ahonnan további programokat vagy
+  batch fájlokat is indíthat.  Linux alatt számos inicializáló fájl
+  létezik, és ezek között van néhány, amelyeket jobb, ha nem
+  bütykölgetsz, amíg nem tudod, hogy pontosan mit is csinálsz. Egyébként
+  a legfontosabbakat el fogom mondani:
+
+
+
+  FÁJLOK                                  MEGJEGYZÉSEK
+
+  /etc/inittab                            Most még ne piszkáld!
+  /etc/rc.d/*                             Ezt se!
+
+
+
+  Ha csak arra van szükséged, hogy a PATH vagy más környezeti változót
+  beállítsd, vagy meg akarod változtatni a login után megjelenõ
+  üzeneteket, vagy automatikusan el akarsz indítani egy programot a
+  bejelentkezés után, akkor a következõ fájlokat ajánlom a figyelmedbe:
+
+
+
+       FÁJLOK                                  MEGJEGYZÉSEK
+
+       /etc/issue                              beállítja a bejelentkezés elõtti üzeneteket
+       /etc/motd                               beállítja a bejelentkezés utáni üzeneteket
+       /etc/profile                            beállítja a PATH és egyéb változókat, stb.
+       /etc/bashrc                             álneveket és függvényeket állít be (lásd lent)
+       /home/your_home/.bashrc                 a környezeted álneveit és függvényeit állítja
+       /home/your_home/.bash_profile   vagy
+       /home/your_home/.profile                mint fent + indítja a programjaid
+
+
+
+  Ha az utóbbi fájl létezik (megjegyzem, egy rejtett fájl), akkor a
+  bejelentkezés után a benne szereplõ utasításokat végrehajtja a
+  rendszer.
+
+
+  Például nézzük meg a következõ .bash_profile fájlt:
+
+
+  ______________________________________________________________________
+  # Ez itt egy megjegyzés
+  echo Környezet:
+  printenv | less   # DOS alatti SET parancs megfelelõje
+  alias d='ls -l'   # könnyû megérteni, mi az álnév
+  alias up='cd ..'  # az álnév nem más, mint egy rövidítés
+  echo "Figyelmeztetlek, hogy a PATH változó: "$PATH
+  echo "A mai dátum `date`"  # a 'date' parancs kimenetét írja ki
+  echo "Jó munkát, kedves "$LOGNAME
+  # Az alábbi egy "burokfüggvény"
+  ctgz() # .tar.gz archív fájlok tartalmát listázza
+  {
+    for file in $*
+    do
+      gzip -dc ${file} | tar tf -
+    done
+  }
+  # a .bash_profile fájl vége
+  ______________________________________________________________________
+
+
+
+  Jól sejtetted, hogy a $PATH és a $LOGNAME környezeti változók.  Nagyon
+  sok van még ezeken kívül, például OEK less vagy bash.
+
+  Ha a következõ sort berakod az /etc/profile-ba, az  nagyjából hasonló
+  dolgot eredményez, mint  a DOS-os PROMPT $P$G:
+
+
+
+  export PS1="\w\\$ "
+
+
+
+  8.2.  Programinicializáló fájlok
+
+
+  A Linux alatt gyakorlatilag mindent, amire csak szükséged lehet, a
+  kedvedre alakíthatsz. A legtöbb programnak van egy vagy több
+  inicializáló fájlja, amit állítgathatsz, gyakran .programnévrc néven a
+  saját könyvtáradban. Az elsõk, amiket valószínûleg változtatni akarsz
+  majd:
+
+
+  ·   .inputrc: a bash használja billentyûkódok értelmezéséhez.
+
+  ·   .xinitrc: a startx ez alapján inicializálja az X Window-t.
+
+  ·   .fvwmrc: az fvwm ablakkezelõ használja.
+
+  ·   .joerc, .jstarrc: a joe szövegszerkesztõ használja.
+
+  ·   .jedrc: a jed szövegszerkesztõ használja.
+
+  ·   .pinerc: a pine levelezõprogram használja.
+
+  ·   .Xdefault: sok X program használja.
+
+  Ezek mindegyikével és a társaival elõbb-utóbb találkozni fogsz, OEK!
+  Talán még a Configuration HOWTO
+  <http://sunsite.unc.edu/mdw/HOWTO/Config-HOWTO.html> is érdekelni fog
+  ezek után.
+
+
+  9.  Hálózatos fogalmak
+
+
+  A Linux alatt nemcsak hogy létezik a ``Telefonos hálózat'', de sokkal
+  gyorsabb és stabilabb is. A dolog neve itt ``PPP'', ezt a protokollt
+  használja a modemen keresztüli internetkapcsolathoz. Szükséged van egy
+  olyan kernelre, amely támogatja a PPP-t, és egy tárcsázóprogramra.
+
+  Ha le szeretnéd tölteni a leveleidet az internetszolgáltatódtól, akkor
+  egy ``levélkézbesítõ'' segédprogramra van szükséged, ami a POP
+  protokollt használja.  Miután a levél letöltõdött, úgy fog kinézni,
+  mintha közvetlenül a linuxos gépedre küldték volna. Ezután egy
+  levélolvasó program segítségével kezelheted, mint például a pine, a
+  mutt, az elm, vagy más.
+
+  Windows alatt a tárcsázó automatikusan elindul, ha egy internetes
+  alkalmazást elindítasz. A Linux alatt ez nincs így, elõször kell
+  tárcsázni, azután indítani az alkalmazást. A diald nevû program a
+  megszokott viselkedést hozza vissza. A telefonos hálózat telepítése és
+  konfigurálása valaha a legnehezebb dolgok közé tartozott Linux alatt,
+  de ennek vége: olvasd el a Configuration HOWTO-t.
+
+  Végül egy szót a ``Network neighborhood''-ról: megteheted, hogy a
+  linuxos géped úgy jelenjen meg egy windowsos hálózatban, mint egy
+  Windows NT/9x!  A bûvös szó: SaMBa; ez nem a brazil tánc, hanem az SMB
+  protokoll linuxos implementációja. Nézd meg a
+  <http://samba.anu.edu.au/samba> weblapot!
+
+
+  10.  Egy kis programozás
+
+
+
+  10.1.  Szkriptek: .BAT fájlok Linuxon
+
+  Ha a .BAT fájlokat hosszú programsorok rövidítésére használtad (én
+  sokszor), akkor ezt megvalósíthatod a megfelelõ ``alias'' sorok
+  alkalmazásával a .profile, és a .bash_profile fájlokban. De ha a .BAT
+  fájljaid bonyolultabbak voltak, akkor lefogadom, hogy egyszerûen
+  imádni fogod a burok programnyelvét: ez legalább olyan hatékony mint a
+  Qbasic, ha nem hatékonyabb. Változókat definiálhatsz, léteznek a
+  while, for, case, if...  then... else struktúrák, és még számos
+  lehetõséget nyújt. Jó alternatívája lehet egy ``igazi''
+  programnyelvnek.
+
+  Ha egy szkriptet -- a DOS alatti .BAT fájl megfelelõje -- akarsz írni,
+  egyszerûen egy olyan szabványos ASCII fájlt kell írnod, amely a
+  parancsokat tartalmazza, el kell mentened, és a következõ paranccsal
+  végrehajthatóvá kell tenned: chmod +x <szkriptfájl>. A végrehajtáshoz
+  egyszerûen csak a nevét kell begépelned.
+
+  Elõre figyelmeztetlek, hogy a rendszer alapértelmezett
+  szövegszerkesztõjét, a vi-t, tapasztalatom szerint a kezdõk nagyon
+  nehéznek találják. Nem fogom most itt elmagyarázni a mûkõdését, olvasd
+  el  Matt Welsh könyvében a megfelelõ fejezetet, vagy keress egy
+  leírást a hálózaton. A vi-ról álljon itt annyi, hogy:
+
+
+  ·  ha szöveget akarsz bevinni, üss egy i-t aztán vidd be a szöveget;
+
+  ·  egy karakter törléséhez üss egy <ESC>-et, utána egy x-et;
+
+  ·  ha ki akarsz lépni mentés nélkül, üss <ESC>-et, aztán :q!-t;
+
+  ·  ha ki akarsz lépni mentéssel, üss <ESC>-et, aztán :wq-t.
+
+  A joe kezdõknek ideális szövegszerkesztõ, ha a jstar parancs
+  begépelésével indítod, akkor ugyanazok lesznek  a billentyûparancsok,
+  mint egy DOSWin szövegszerkesztõben. A jed WordStar vagy IDE üzemmódja
+  még jobb. Nézd meg a ``Hol vannak az alkalmazások?'' fejezetet, ha nem
+  tudod, honnan szerezheted meg ezeket a szövegszerkesztõket.
+
+  A linuxos szkriptek írásáról egy egész könyvet lehetne írni, így most
+  nem fogok a témában igazán elmélyedni, csak mutatok néhány
+  remélhetõleg hasznos példát, amibõl aztán leszûrheted az alapvetõ
+  szabályok egy részét.
+
+
+
+  ______________________________________________________________________
+  #!/bin/sh
+  # sample.sh
+  # Ez egy megjegyzés
+  # Ne változtasd emg az elsõ sort! Annak ott kell lennie!
+  echo "Ez a rendszer egy: `uname -a`" # a parancs kimenetét írja ki
+  echo "a program neve $0" # beépített változó
+  echo "A következõ $# paramétert kaptam: "$*
+  echo "Az elsõ paraméter: "$1
+  echo -n "Hogy hívnak? " ; read nev
+  echo Vedd észre a különbséget:  "Szia $nev" # az " használata idézõjelként
+  echo Vedd észre a különbséget:  'Szia $nev' # az ' használata idézõjelként
+  DIRS=0 ; FILES=0
+  for file in `ls .` ; do
+    if [ -d ${file} ] ; then # ha a fájl könyvtár
+      DIRS=`expr $DIRS + 1`  # DIRS = DIRS + 1
+    elif [ -f ${file} ] ; then
+      FILES=`expr $FILES + 1`
+    fi
+    case ${file} in
+      *.gif|*.jpg) echo "${file}: grafikus fájl" ;;
+      *.txt|*.tex) echo "${file}: szöveges fájl" ;;
+      *.c|*.f|*.for) echo "${file}: forráskód" ;;
+      *) echo "${file}: generic file" ;;
+    esac
+  done
+  echo "Összesen ${DIRS} könyvtárat és ${FILES} fájlt találtam."
+  ls | grep "ZxY--!!!WKW"
+  if [ $? != 0 ] ; then az utolsó parancs kilépési kódja
+    echo "Nem találtam a következõ fájlt: ZxY--!!!WKW"
+  fi
+  echo "Na ebbõl elég... Írd be, hogy 'man bash', ha több információt szeretnél!"
+  ______________________________________________________________________
+
+
+
+  10.2.  C
+
+
+  A Unixok alatt a rendszer nyelve a C, akár szereted akár nem. Persze
+  egy csomó másik nyelv is elérhetõ (FORTRAN, Pascal, Lisp, Basic, Perl,
+  awk, ...).
+
+  Feltételezve, hogy ismered a C-t, álljon itt néhány segítõ tanács
+  azoknak, akiket eddig a Turbo C++ vagy valamelyik DOS-os testvére
+  kényeztetett. A Linux C fordítóját gcc-nek hívják, és
+  alapértelmezésben híján van minden villogó, fütyülõ kütyünek, ami
+  általában velejárója a DOS-os hasonmásának: nincs Integrált Fejlesztõi
+  Környezet (IDE), on-line help, beépített debugger, stb. A gcc egy
+  parancssorból hívható fordító, nagyon hatékony és erõteljes. Ha le
+  szeretnéd fordítani a szokásos hello.c programodat, akkor a
+
+
+
+       $ gcc hello.c
+
+
+
+  sor a fordítás végeredményeképpen egy végrehajtható a.out nevû fájlt
+  fog készíteni. Ha ettõl az elnevezéstõl el akarsz térni, akkor a
+
+
+
+  $ gcc -o hello hello.c
+
+
+
+  sor a hello névre fogja elkeresztelni a futtatható fájlt. (Világos,
+  hogy nem célszerû az a.out fájlban hagyni a kész mûved, mert a
+  következõ fordítás alkalmával felülíródik). Ha szeretnél egy
+  programkönyvtárat linkelni a programodhoz, akkor egy sor végi
+  -l<libnev> kapcsoló oldja meg ezt a feladatot.  Például, ha a
+  matematikai könyvtárral linkeled össze:
+
+
+
+       $ gcc -o mathprog mathprog.c -lm
+
+
+
+  (A -l<libnev> kapcsoló arra utasítja a gcc-t, hogy az
+  /usr/lib/lib<libnev>.so; könyvtárral linkelje a programot, tehát az
+  -lm az /usr/lib/libm.so-t használja).
+
+  Ezek a parancsok elegendõek egy kis program esetén, de ha a programod
+  számos forrásból áll össze, akkor szükséged lesz a make
+  segédprogramra. Tegyük fel, hogy írtál egy kifejezéselemzõt: a
+  forrásfájl parser.c és két #include fájlja van, parser.h és xy.h.
+  Ezután szeretnéd egy calc.c nevû programban használni a parser.c
+  függvényeit, amely viszont includolja a parser.h fájlt.  Nos, mit kell
+  ekkor tenned, ha a calc.c fájlt akarod fordítani?
+
+  Egy úgynevezett Makefile-t kell írnod, amely leírja a fordító számára
+  a forrásfájlok közötti összefüggéseket. A példánkban ez a
+  következõképpen néz ki:
+
+
+  ______________________________________________________________________
+  # Ez a Makefile a calc.c fordítását végzi
+  # Üss <TAB>-ot a megfelelõ pozíciókban!
+
+  calc: calc.o parser.o
+  <TAB>gcc -o calc calc.o parser.o -lm
+  # calc két object fájltól függ: calc.o és parser.o
+
+  calc.o: calc.c parser.h
+  <TAB>gcc -c calc.c
+  # calc.o két forrásfájltól függ
+
+  parser.o:  parser.c parser.h xy.h
+  <TAB>gcc -c parser.c
+  # parser.o három forrásfájltól függ
+
+  # A Makefile vége
+  ______________________________________________________________________
+
+
+
+  Ezt a fájlt Makefile néven mentsd ki, és futtatsd a make parancsot,
+  esetleg mentsd el calc.mak néven, és írd be azt, hogy make -f
+  calc.mak.  Természetesen OEK. Továbbá ne feledd, hogy bármikor leírást
+  kaphatsz a C függgvényekrõl, a kézikönyvoldalak segítségével. Például:
+
+
+
+       $ man 3 printf
+
+  A programok hibakereséséhez használd a gdb-t. A használati utasításhoz
+  írd be: info gdb.
+
+  Rengeteg programkönyvtár van, amit használhatsz. Valószínûleg az
+  elõször használandók között lesz az ncurses és az svgalib, amik a
+  szöveges illetve a grafikus képernyõ kezelését valósítják meg. Ha elég
+  bátorságot érzel az X alatti programozáshoz (nem olyan nehéz), akkor
+  számos programkönyvtár áll rendelkezésedre, amelyekkel egy
+  szempillantás alatt mûködõ alkalmazásokat lehet létrehozni. Nézd meg a
+  <http://www.xnet.com/~blatura/linapp6.html> weblapot, és tartsd
+  észben, hogy a Gtk kezd a Linux szabvánnyá válni.
+
+  Sok szövegszerkesztõ képes integrált fejlesztõkörnyezetként
+  viselkedni, például az emacs és a jed képes a nyelv szintaktikai
+  elemeinek kiemelésére, automatikus bekezdésekre, stb. Ezen kívül
+  beszerezheted az rhide csomagot az
+  <ftp://sunsite.unc.edu:/pub/Linux/devel/debuggers/> FTP-helyrõl. Ez a
+  Borland integrált fejlesztõkörnyezetét koppintja, valószínûleg elnyeri
+  majd a tetszésedet.
+
+
+
+  11.  A fennmaradó 1%
+
+
+  Valójában sokkal több, mint 1%...
+
+
+
+  11.1.  A tar és gzip programok használata
+
+
+  A Unix alatt van néhány széles körben használt program fájlok
+  tömörítésére és archiválására. A tar program archiválja a fájlokat --
+  hasonlóan a PKZIP-hez vagy a WinZIP-hez, de nem tömöríti, csak
+  becsomagolja (Linux alatt a '-z' opcióval tömöríti is ;-). A
+
+
+
+       $ tar -cvf <archiv_nev.tar> <fajl> [fajl...]
+
+
+
+  sor egy új archív fájlt készít. Ha egy archív fájlt szeretnél
+  kicsomagolni, a
+
+
+
+       $ tar -xpvf <archiv_nev.tar> [fajl...]
+
+
+
+  sorral teheted meg. Ha az archív fájl tartalmára vagy kíváncsi, akkor
+  a
+
+
+
+       $ tar -tf <archive_name.tar> | less
+
+
+
+  sorral nézegetheted. Ha tömöríteni szeretnél akkor a compress és gzip
+  programok állnak rendelkezésedre, bár a compress elavult, és jobb ha
+  nem használod. A megfelelõ parancsok:
+
+
+
+       $ compress <fajl>
+       $ gzip <fajl>
+
+
+
+  Ezek egy .Z (compress) vagy .gz (gzip) kiterjesztésû tömörített fájlt
+  készítenek.  Ezek a programok egyszerre csak egy fájlt képesek
+  tömöríteni. A kitömörítéshez használd a
+
+
+
+       $ compress -d <fajl.Z>
+       $ gzip -d <fajl.gz>
+
+
+
+  sorokat, és OEK.
+
+  Az unarj, zip és unzip (PK??ZIP kompatíbilis) segédprogramok szintén
+  elérhetõek. A .tar.gz vagy .tgz kiterjesztésû fájlok (tar programmal
+  csomagolt, majd gzip-pel tömörített) ugyanolyan gyakoriak a UNIX
+  világában, mint a .ZIP fájlok DOS alatt.  A  .tar.gz tartalmát a
+  következõ módon nézheted meg:
+
+
+
+       $ tar -ztf <fajl.tar.gz> | less
+
+
+
+  11.2.  Programok telepítése
+
+
+  Elõször is: a telepítés a root feladata. A legtöbb linuxos programot
+  .tar.gz archívum formájában terjesztenek, ami általában egy könyvtárat
+  tartalmaz, amit úgy hívnak, mint a programot, és amiben fájlok és/vagy
+  alkönyvtárak vannak.  Ezt a /usr/local könyvtárban kiadott
+
+
+
+       # tar -zxf <archive.tar.gz>
+
+
+
+  paranccsal érdemes kibontani, és utána elolvasni a README és INSTALL
+  fájlokat.  A programokat többnyire forráskód alakjában terjesztik,
+  amit le kell fordítanod, általában a make és utána  make install
+  parancsok kiadásával.  Ha a csomagban van configure szkript, akkor
+  elõbb azt futtasd.  Természetesen kell a gcc vagy a  g++
+  fordítóprogram.
+
+  Más csomagokat a / könyvtárban kell kicsomagolni, ilyenek a Slackware
+  .tgz csomagjai. Megint más csomagok tartalmazzák a fájlokat, de nem
+  egy alkönyvtárban -- vigyázz, ne csinálj rendetleséget!. Mindig
+  listázd ki az archív fájl tartalmát telepítés elõtt.
+
+  A Debian és a Red Hat disztribúciók saját csomagformátummal
+  rendelkeznek, ezek a .deb és az .rpm. Az utóbbi szélesebb körben
+  elfogadott.  Egy rpm csomag telepítéséhez add ki az
+
+
+
+       # rpm -i package.rpm
+
+
+
+  parancsot.
+
+
+  11.3.  Tippek amik nékül nem boldogulsz
+
+
+  Hátralapozás: Nyomd le a <SHIFT + PAGE UP> billentyûkombinációt, és
+  ekkor egy pár oldal visszalapozhatsz a képernyõn, attól függõen, hogy
+  mennyi a videomemóriád.
+
+  Képernyõ alaphelyzetbe állítása: Elõfordulhat hogy egy bináris fájl
+  cat vagy more paranccsal való megjelenítése során tele lesz a képernyõ
+  mindenféle szeméttel. Gépeld be vakon a reset parancsot, ami rendbe
+  teszi a dolgokat, vagy a következõ karaktersorozat is segít: echo
+  CTRL-V ESC c RETURN.
+
+  Szöveg másolása: konzolon lásd alább, X alatt a jobb egérgombbal
+  kijelölheted a szöveget (továbbá pl. általában 2 kattintás a szót,
+  három a teljes sort kijelöli), majd a középsõ (vagy a 2 szélsõ)
+  egérgombbal átmásolhatod oda, ahova akarod. Valamint létezik egy
+  xclipboard nevû program is (sajnos csak szövegekre), de ne tévesszen
+  meg a lassú válaszideje.
+
+  Egérhasználat: telepítsd a gpm programot, ami egy egérmeghajtó a
+  konzolhoz.  Hasonlóan használhatod, mint fent, s akár a virtuális
+  konzolok között is.
+
+  Üzenetek a kerneltõl: nézd meg root-ként a /var/adm/messages vagy a
+  /var/log/messages fájlt, hogy miket üzent a kernel, beleértve a
+  rendszerindulást is. A dmesg parancs is hasznos.
+
+
+
+  11.4.  Hol vannak az alkalmazások?
+
+
+  Ha gondolkozol, hogy lecserélheted-e a régi megbízható DOSWin
+  alkalmazásodat egy linuxosra, javaslom, hogy böngészd végig a
+  legnagyobb linuxos szoftvergyûjteményeket:
+  <ftp://sunsite.unc.edu/pub/Linux>, <ftp://tsx-11.mit.edu/pub/linux> és
+  <ftp://ftp.funet.fi/pub/Linux>.  Egy másik jó kiindulópont a ``Linux
+  Applications and Utilities Page''
+  <http://www.xnet.com/~blatura/linapps.shtml>, és a ``hivatalos'' Linux
+  honlap  <http://www.linux.org>.
+
+
+
+  11.5.  Egy pár dolog, amit eddig nem tudtál megcsinálni
+
+
+  A Linux alatt rengeteg dolgot meg lehet tenni, ami DOSWin alatt
+  bonyolult, nehézkes vagy lehetetlen. Itt egy rövid lista
+  étvágygerjesztõnek:
+
+
+  ·  Az at a megadott idõben hajtja végre a kívánt programot.
+
+  ·  Az awk egy egyszerû és mégis sokat tudó programnyelv szöveges
+     fájlok manipulására. Például legyen a data.dat egy több oszlopos
+     adatfájl, ekkor a
+
+
+
+       $ awk '$2 ~ "abc" {print $1, "\t", $4}' data.dat
+
+
+
+  kilistázza az 1. és a 4. mezõt minden olyan sorból, amelyekben a 2.
+  mezõ tartalmazza az ``abc'' mintát.
+
+  ·  A cron adott idõközönként, megadott idõben végrehajtható feladatok
+     végrahajtására jó.  Írd be: man 5 crontab.
+
+  ·  A file <fajlnev> megmondja, hogy mi a fájl típusa (ASCII szöveg,
+     végrehajtható, archív, stb.);
+
+  ·  A find (lásd még a ``DOS-os parancsok Linuxos megfelelõi''
+     fejezetben) az egyik leghasznosabb és legtöbbet tudó program.
+     Használható különbözõ feltételeknek megfelelõ fájlok megkeresésére
+     és ezeken valamely eljárás végrehajtására. Az általános használata:
+
+
+
+       $ find <könyvtár> <kifejezés>
+
+
+
+  ahol a <kifejezés> magában foglalja a keresési feltételeket és a
+  végrehajtandó mûveleteket. Példák:
+
+
+
+       $ find . -type l -exec ls -l {} \;
+
+
+
+  megkeresi azokat a fájlokat melyek szimbolikus linkeket jelölnek, és
+  kiírja, hogy mire mutatnak.
+
+
+
+       $ find / -name "*.old" -ok rm {} \;
+
+
+
+  megkeresi azokat a fájlokat, amelyek illeszkednek a mintára, és törli
+  õket, de elõbb megerõsítést kér.
+
+
+
+       $ find . -perm +111
+
+  megkeresi azokat a fájlokat, melyek engedélye 111 (futtatható).
+
+
+
+       $ find . -user root
+
+
+
+  megkeresi a root fájljait. És még rengeteg lehetõség van -- OEK.
+
+  ·  A grep szövegmintákat keres a fájlokban. Például a
+
+
+
+       $ grep -l "fizika" *.tex
+
+
+
+  parancs kilistázza az összes *.tex fájlt, amelyben szerepel a
+  ``fizika'' szó. Egy változata, a zgrep, a gzip-pel tömörített fájlokra
+  mûködik. OEK.
+
+  ·  A reguláris kifejezések segítségével bonyolultan de nagyon
+     hatékonyan kereshetünk szövegekben. Például a ^a[^a-m]X{4,}txt$
+     kifejezés ráillik egy olyan sorra, amely `a'-val kezdõdik, a
+     következõ karaktere bármi lehet az a-m intervallumon kívül, 4 vagy
+     több `X' követi, és `txt' a vége. A reguláris kifejezéseket a
+     fejlettebb szövegszerkesztõkben, a less-ben, és még sok más
+     programban használhatod.  Rövid bevezetésként olvasd el a grep
+     kézikönyvoldalát (man grep)!
+
+  ·  A script <szkript_fajl> a szkript_fajl képernyõre kiírt üzeneteit
+     elmenti egy fájlba, addig amíg nem adsz ki egy exit parancsot.
+     Hibakeresésnél hasznos.
+
+  ·  A sudo megengedi a felhasználóknak, hogy megcsinálják, amit csak a
+     root tehet meg (pl. lemezek formázása vagy csatolása a
+     fájlrendszerhez, OEK).
+
+  ·  Az uname -a rendszerinformációkat ír ki.
+
+  ·  A zcat és a  zless segítségével gzip-pel tömörített fájlokat
+     nézegethetsz, anélkül, hogy ki kellene tömöríteni. Például:
+
+
+
+       $ zless szovegfajl.gz
+       $ zcat szovegfajl.gz | lpr
+
+
+
+  ·  A következõ parancsok sokszor jól jönnek: bc, cal, chsh, cmp, cut,
+     fmt, head, hexdump, nl, passwd, printf, sort, split, strings, tac,
+     tail, tee, touch, uniq, w, wall, wc, whereis, write, xargs, znew.
+     OEK.
+
+
+
+  11.6.  UNIX használata DOSWin alatt
+
+
+  Hiszed vagy sem, vannak olyan programok, amelyek UNIX-szerû
+  környezetet hoznak létre DOSWin alatt! Az egyik a Djgpp csomag (
+  <http://www.delorie.com/djgpp>) DOS alá, a másik a Cygnus (
+  <http://www.cygnus.com>), egy sokkal bonyolultabb megvalósítás Win32
+  környzetben. Mindkettõ ugyanazokat a GNU fejlesztõeszközöket és
+  segédprogramokat tartalmazza, mint a Linux, bár nem fogod ugyanazt a
+  teljesítményt és stabilitást megkapni.
+
+  Ha szeretnél belekóstolni a Linux használatába, próbáld ki a Djgpp-t.
+  Töltsd le, és telepítsd a következõ fájlokat (az írás idején a
+  legfrissebb verzió a 2.02): djdev202.zip, bnu281b.zip, bsh1147b.zip,
+  fil316b.zip, find41b.zip, grep22b.zip, gwk303b.zip, lss332b.zip,
+  shl112b.zip. A telepítési útmutató mellékelve van, és a
+  <news:comp.os.msdos.djgpp> hírcsoportban is kaphatsz segítséget.
+
+  DOSWin alatt különösen a bash használata jelent felüdülést. A
+  megfelelõ konfiguráláshoz szerkeszd át a telepítésnek megfelelõen a
+  BOOT.BAT fájlt, azután cseréld le ezeket a fájlokat a (Windows
+  partíción levõ) saját könyvtáradban:
+
+
+
+       # ez a _bashrc
+
+       LS_OPTIONS="-F -s --color=yes"
+       alias cp='cp -i'
+       alias d='ls -l'
+       alias l=less
+       alias ls="ls $LS_OPTIONS"
+       alias mv='mv -i'
+       alias rm='rm -i'
+       alias u='cd ..'
+
+
+
+       # ez a _bprof
+       if [ -f ~/_bashrc ]; then
+         . ~/_bashrc
+       fi
+       PS1='\w\$ '
+       PS2='> '
+       CDPATH="$CDPATH:~"
+       # a less(1) beállításai
+       LESS="-M-Q"                     # hosszú prompt, csendes
+       LESSEDIT="%E ?lt+%lt. %f"       # felsõ sor szerkesztése
+       VISUAL="jed"                    # szövegszerkesztõ
+       LESSCHARSET=latin1              # ékezetes betûk megjelenítése
+       export PS1 PS2 CDPATH LS_OPTIONS LESS LESSEDIT LESSOPEN VISUAL LESSCHARSET
+
+
+
+  11.7.  Gyakori kiterjesztések és az ezekkel kapcsolatos programok
+
+
+  Valószínûleg már egy csomó fájlkiterjesztéssel találkoztál. Az
+  egzotikus fajtákon kívül (pl. font fájlok stb.) íme egy lista, hogy mi
+  micsoda.
+  ·  1 ... 8: kézikönyvoldalak. Így olvasd õket: groff -Tlatin1 -man
+     <file.1>.
+
+  ·  arj: arj-vel tömörített fájl.
+
+  ·  dvi: a TeX (see below) által létrehozott fájl. xdvi-al nézheted
+     meg; dvips-sel PostScript .ps fájllá alakíthatod.
+
+  ·  gz: gzip-pel tömörített fájl.
+
+  ·  info: info fájl (hasonló a kézikönyvoldalhoz). Az info program
+     használja.
+
+  ·  lsm: Linux Software Map fájl. Ez egy egyszerû ASCII fájl, ami a
+     hozzá tartozó programcsomag leírását tartalmazza.
+
+  ·  ps: PostScript fájl. A megjelenítéséhez kelleni fog a gs, és vagy a
+     ghostview vagy a gv.
+
+  ·  rpm: Red Hat csomag. Bármilyen rendszeren telepíthetõ az rpm
+     csomagkezelõvel.
+
+  ·  taz, tar.Z:  tar-ral készült csomag compress-szel tömörítve.
+
+  ·  tgz, tar.gz: tar-ral készült csomag gzip-pel tömörítve.
+
+  ·  tex: szövegfájl, amit a rendkívül sokoldalú TeX tördelõprogram
+     dolgoz fel.  Szerezd be a tex csomagot, sok disztribúció része!
+
+  ·  texi: texinfo fájl, TeX és info fájlokat lehet csinálni belõle
+     (lásd info). A texinfo program használja.
+
+  ·  xbm, xpm, xwd: grafikus fájl.
+
+  ·  Z: compress-szel tömörített fájl.
+
+
+
+  11.8.  Fájlkonverziók
+
+
+  Ha szöveges fájlokat kell cserélned DOSWin és Linux között, figyelj a
+  ``sorvég'' problémájára. DOS alatt a sor végét CR/LF jelöli (ASCII 13
+  + ASCII 10), a Linux alatt csak LF. Ha DOS-os szövegfájlt szerkesztesz
+  Linux alatt, a sorok végén furcsán kinézõ `M' karakterek lesznek
+  olvashatóak, a linuxos szövegfájl DOS alatt pedig egyetlen kilométeres
+  sor lesz, bekezdések nélkül. Egy csomó segédprogram áll rendelkezésre
+  (pl. a dos2unix és a unix2dos) az oda-vissza konvertálásra.
+
+  Ha a szövegfájlod ékezetes betûket is tartalmaz, gyõzõdj meg róla,
+  hogy Windows alatt csináltad és nem sima DOS alatt, máskülönben az
+  összes ékezetes karakter elromlik.
+
+  A Word vagy WordPerfect fájlok egyszerû szöveggé alakítása egy kicsit
+  nehezebb, de lehetséges. Az egyik CTAN FTP-helyrõl (pl.
+  <ftp://ftp.tex.ac.uk>) töltsd le a megfelelõ segédprogramot. Szedd le
+  a word2x programot a /pub/tex/tools/ könyvtárból, vagy próbáld ki a
+  /pub/tex/support/ könyvtárban található programok egyikét.  A word2x a
+  Word 6 fájlokat konvertálja, a  Word 97 fájlok konverziójához az
+  mswordview-ra lesz szükséged (
+  <http://www.csn.ul.ie/~caolan/docs/MSWordView.html>), ami HTML
+  formátumúvá alakítja õket.
+
+
+
+  11.9.  Ingyenes irodai csomagok
+
+
+  Ha a fájlok konvertálása nem elégséges, van rá lehetõség, hogy
+  kipróbálj egy (ingyenes!) Microsoft Office-szerû irodai csomagot.
+
+  A StarOffice csomag magánfelhasználásra ingyenes (újabban üzleti célra
+  is ingyenes -- a ford.). Nagy, elég lassú, de amúgy nagyon jó: egy
+  csomó funkcióval rendelkezik, amivel a Microsoft Office nem. Képes
+  elolvasni a Word és az Excel fájljait, bár a konverzió nem mindig
+  tökéletes. A honlap: <http://www.stardivision.com>.
+
+  Egy másik jó csomag a Corel WordPerfect, ennek is letölthetõ egy
+  ingyenes verziója. Kell többet mondanom? Gyerünk, szedd le!
+  <http://www.corel.com>.
+
+
+
+  12.  Vége, egyelõre
+
+
+  Gratulálok! Megismerkedtél egy kicsit a UNIX-szal, és készen állsz már
+  arra, hogy érdemi munkát is végezz. Ne felejtsd, hogy a rendszerrel
+  kapcsolatos tudásod még elég korlátozott, és számíts arra, hogy csak
+  nagyobb gyakorlat megszerzése után érzed magad igazán otthon. De
+  fogadok, hogy az itt leírtak is elegendõk ahhoz, hogy a kezdeti
+  lépéseket megtedd.
+
+  Biztos vagyok abban, hogy élvezni fogod a Linux használatát, és egyre
+  többet fogsz majd tudni róla -- mindenki így van vele. Szintén fogadni
+  mernék, hogy soha nem térsz vissza a DOSWin-hoz! Remélem sikerült
+  magam megértetni, és az itt leírtak hasznára válnak a 3 vagy 4 olvasóm
+  számára.
+
+
+  12.1.  Szerzõi jogok
+
+
+  A Linux HOGYAN dokumentumok szerzõi joga a megfelelõ szerzõké, hacsak
+  másképp nem rendelkeznek. A Linux HOGYAN dokumentumokat szabad részben
+  vagy egészben másolni és terjeszteni bármilyen fizikai vagy
+  elektronikus adathordozón, de ezt a szerzõi jogokra vonatozó
+  megjegyzést minden másolathoz mellékelni kell. Az üzleti célú
+  terjesztés megengedett és bátorított, de a szerzõ szeretne tudomást
+  szerezni minden ilyen terjesztésrõl.
+
+  Minden Linux HOGYAN-on alapuló fordítás, származtatott mû vagy
+  összefoglaló munka ezen szerzõi jogi kötelmek alá kell essen.  Ez azt
+  jelenti, hogy nem szabad olyan HOGYAN-on alapuló mûvet létrehozni,
+  amely további megkötéseket tartalmaz a terjesztésre.  Bizonyos
+  feltételek esetén ezek a szabályok figyelmen kívül hagyhatóak, errõl a
+  Linux HOGYAN koorditátor ad felvilágosítást a lent olvasható címen.
+
+  Röviden megfogalmazva, szeretnénk, ha az információ elterjedne minél
+  több csatornán, de szeretnénk megtartani a HOGYAN dokumentumok szerzõi
+  jogát, és szeretnénk értesülni bármilyen terjesztési tervrõl.
+
+  Kérdésekkel a Linux HOGYAN koordinátorát, Tim Bynumot lehet megkeresni
+  a <linux-howto@sunsite.unc.edu> drótpostacímen.
+
+
+
+  12.2.  Jogi felelõsség
+
+
+
+  A ``HOGYAN térjünk át DOS-ról/Windowsról Linuxra'' Guido Gonzato mûve,
+  <REMOVE_MEguido@ibogeo.df.unibo.it>. (Töröld ki a ``REMOVE_ME''-t.)
+  Köszönettel tartozom Matt Welshnek, a ``Linux Installation and Getting
+  Started'' szerzõjének, Ian Jacksonnak, a ``Linux frequently asked
+  questions with answers'' szerzõjének, Giuseppe Zanettinek, a ``Linux''
+  szerzõjének, mindenkinek, aki javaslatokat írt nekem, és fõleg Linus
+  Torvaldsnak és a GNU-nak, akik a Linuxot adták az emberiségnek.
+
+  Erre a dokumentumra nem vonatkozik semmilyen garancia. Nagyon
+  igyekeztem, hogy hibátlan legyen, de mindenki csak a saját
+  felelõsségére használhatja az itt közölt információkat. Semmilyen
+  esetben sem lehet engem felelõssé tenni az itt leírtak
+  felhasználásából eredõ károkért.
+
+  A visszajelzéseket örömmel veszem. Bármilyen kérdést, kérést,
+  javaslatot szívesen meghallgatok.
+
+  Élvezd a Linuxot és az életet!
+
+  Guido   =8-)
+
+
+  12.3.  Magyar fordítás
+
+  Az elsõ magyar fordítást Danyi András (danyiand@biocom.bio.u-
+  szeged.hu) készítette az 1.0-ás verzióról, ami angolul 1996-ban jelent
+  meg. A jelenlegi 1.3.2-es verzió fordítását Tímár András
+  (atimar@itp.hu) készítette, természetesen erõsen támaszkodva Danyi
+  András meglévõ fordítására.
+
+
+

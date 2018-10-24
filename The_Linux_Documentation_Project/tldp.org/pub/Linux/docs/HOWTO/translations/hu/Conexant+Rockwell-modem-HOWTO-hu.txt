@@ -1,0 +1,1183 @@
+
+Conexant/Rockwell modem HOGYAN
+
+Imran Ghory
+
+   ImranG@btinternet.com
+
+   2001.08.01
+   Verziótörténet
+   Verzió: 1.3 2002.03.12 Átdolgozta: ig
+   Frissítve az új HCF eszközmeghajtó információival.
+   Verzió: 1.2 2002.02.21 Átdolgozta: ig
+   Frissítve az új HSF és a HCF eszközmeghajtó kibocsátásának
+   idõpontjával.
+   Verzió: 1.0 2001.09.09 Átdolgozta: ig
+   Újsz bejegyzések a GYIK-ban, nyelvtani hibák javítása, egy URL
+   frissítése.
+   Verzió: 0.9 2001.08.01 Átdolgozta: ig
+   Elsõ kiadás.
+
+   Ez egy útmutató a Conexant/Rockwell lapkakészletû szoftveres modemek
+   Linux alatti használatához.
+
+   (Érdemes elolvasni a [1]HUP hozzászólásokat, valamint ellátogatni a
+   [2]http://hsf.szm.sk/ webhelyre - a lektor.)
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [3]Bevezetés
+
+        1.1. [4]A dokumentum célja
+        1.2. [5]Errõl a HOGYANról
+        1.3. [6]Visszajelzés
+        1.4. [7]Licenc
+        1.5. [8]Köszönetnyilvánítás
+        1.6. [9]Segítségkérés
+        1.7. [10]Magyar fordítás
+
+   2. [11]Beüzemelési útmutató
+
+        2.1. [12]A HSF modem beüzemelése
+        2.2. [13]A HCF modem beüzemelése
+
+   3. [14]A modem típusának megállapítása
+   4. [15]HCF lapkakészletû modemek
+
+        4.1. [16]Áttekintés
+        4.2. [17]További információk
+
+   5. [18]HSF lapkakészletû modemek
+
+        5.1. [19]Áttekintés
+        5.2. [20]Rendszermag 2.2.14 - 18
+        5.3. [21]Beállítás 2.4.* rendszermagokhoz
+        5.4. [22]Gyakran Ismételt Kérdések
+
+   6. [23]License
+
+        6.1. [24]GNU Free Documentation License
+
+1. Bevezetés
+
+1.1. A dokumentum célja
+
+Ha Conexant/Rockwell lapkakészletes modemed nem tudod beüzemelni, akkor jó
+helyen jársz. Valószínûleg egy szoftveres modem (más néven winmodem) van a
+birtokodban, ebben az esetben szükséged van egy megfelelõ eszközmeghajtóra,
+hogy a modem Linux alatt is mûködjön.
+
+Ha olyan szoftveres modemed van, amelynek a lapkakészletét nem a
+Conexant/Rockwell gyártotta, akkor inkább a [25]linmodem HOWTO (Linmodem
+HOGYAN) dokumentumot olvasd el. (Vagy a The [26]Winmodems-and-Linux HOWTO;
+[27]Winmodemek és a Linux HOGYAN dokumentumot - a lektor)
+
+Ez a dokumentum nem tartalmaz információt arról, hogyan kell használni a
+Conexant/Rockwell alapú modemeket nem Linux operációs rendszerek alatt.
+Jelenleg nincs ismert eszközmeghajtó FreeBSD és BeOS operációs rendszerre, a
+Windows eszközmeghajtókat a Conexanttól lehet beszerezni.
+     _________________________________________________________________
+
+1.2. Errõl a HOGYANról
+
+Ez a HOGYAN eredetileg egy honlap volt, amely leírta, hogyan kell a Conexant
+HSF modemet telepíteni Linux alatt. Alig néhány hónap alatt a weblap
+látogatottsága nagyon megnõtt (a HOGYAN megírásának idejében 100 lekérés
+naponta), valamint a kérdések is megsokasodtak a Conexant/Rockwell
+modemekrõl a linmodem levelezési listán illetve különbözõ Usenet illetve
+webes fórumokon. Ez késztetett arra az elhatározásra, hogy mindezt az
+információt más formában kellene közzétenni, ami sokkal elérhetõbb az
+érdeklõdõknek. Ennek az eredménye ez a HOGYAN, ami sokkal bõvebb lett
+mint az eredeti weblap azért, hogy minden kérdést megválaszoljon, amely az
+Interneten felmerült.
+
+A Conexant/Rockwell modemek Linux alatti használatával kapcsolatos
+információk iránti igények megnövekedésével egy idõben, számos nem angol
+nyelvû, az eszközmeghajtók beállításáról szóló weblap is megjelent, még
+olyan nyelveken is mint a portugál vagyió ami a japán. Ezekrõl a
+weblapakról viszont gyakran hiányzott a legfrissebb információ, ami
+megnehezítette a nem angol nyelvû felhasználók dolgát. Úgy döntöttem, hogy
+ezt a HOGYANt a GNU FDL licenc alatt bocsátom ki, így más anyanyelvûek
+lefordíthatják ezt a dokumentumot a saját nyelvükre és szabadon
+terjeszthetik. Ily módon mindenkihez eljuthat az információ függetlenül
+attól, milyen nyelvet beszél. Ha szeretnéd lefordítani ezt a HOGYANt, kérlek
+keress meg.
+
+(Természetesen magyarra már nem érdemes lefordítani. Ha van kedved fordítani
+válassz egy másik HOGYANt, hogy minél több meglegyen magyarul. Jó kiindulási
+pont a [28]Magyar Linux Dokumentációs Projekt honlapja - a ford.)
+
+Ez a HOGYAN feltételez némi alapvetõ Linux ismeretet. Feltételezi, hogy
+tisztában vagy a konzol/terminál alapvetõ használatával, ismered a gyakrabb
+parancsokat, mint például a "less", és ismersz valamilyen
+szövegszerkesztõt. Amikor ez HOGYAN azt írja, hogy adj ki valamilyen
+parancsot a konzolon, a konzol készenléti jel (prompt) így fog megjelenni:
+"[user@localhost]$ "
+
+A HOGYAN néhány része a Linux mélyebb ismeretét is feltételezi, de azok a
+szakaszok fõleg azokra vonatkoznak, akik nem a gyakrabban elõforduló Linux
+terjesztéseket használják.
+     _________________________________________________________________
+
+1.3. Visszajelzés
+
+Ha bármilyen észrevételed van, amellyel lehetne javítani ezen a HOGYANon,
+vagy le szeretnéd fordítani ezt a HOGYANt más nyelvre, akkor küldj egy
+e-mail-t a [29]ImranG@btinternet.com e-mail címre (ha nem válaszolnék egy
+héten belül akkor küldd el újra a leveled a [30]imran@bits.bris.ac.uk
+címre).
+
+Ha segítségre van szükséged a modemed beállításához, inkább a
+[31]Segítségkérés fejezetben megjelölt forrásokhoz fordulj, mintsem nekem
+írj egy e-mail-t közvetlenül, mert valószínûleg gyorsabban fogsz válasz
+kapni az ott feltüntetett helyekrõl, mint tõlem.
+     _________________________________________________________________
+
+1.4. Licenc
+
+Copyright (c) 2001,2002 Imran Ghory
+
+Ezen dokumentum másolása, terjesztése és/vagy módosítása engedélyezett a GNU
+Free Documentation License 1.1 változata, vagy bármelyik késõbbi, a Free
+Software Foundation által közzétett változat feltételei szerint; állandó
+fejezetek nélkül, elõlapi és hátoldali szöveg nélkül. A licenc szövege
+megtalálható e dokumentum [32]GNU Free Documentation License" fejezete
+alatt. (A licenc szövege nincs lefordítva ebben a dokumentumban - a ford.)
+     _________________________________________________________________
+
+1.5. Köszönetnyilvánítás
+
+Köszönet:
+
+     * A Conexantnak az eredeti HSF illesztõprogram megírásáért, és az
+       Olitecnek a terjesztésért.
+     * Marc Bouchernek, amiért írt egy illesztõfelületet a 2.4.*
+       rendszermaghoz.
+     * Denis Havliknak, amiért a Linux-közösség többi tagjának figyelmét
+       felhívta az Olitec eszközmeghajtójára.
+     * Thomas Iversennek az eszközmeghajtók tükrözéséért.
+     _________________________________________________________________
+
+1.6. Segítségkérés
+
+Miután elolvastad ezt a HOGYANt és mégsem tudod beüzemelni a modemed, ha még
+nem tetted meg eddig, nézd át ennek a leírásnak a végén a [33]"Gyakran
+Ismételt Kérdések" fejezetet, mivel az foglalkozik a leggyakoribb
+problémákkal. Ha még ezután is elakadsz három különbözõ helyrõl kérhetsz
+segítséget:
+
+   Linmodem levelezõlista
+          A Linmodem levelezõlista a legfontosabb hely az Interneten a
+          szoftveres modemek Linux alatti használatával kapcsolatos
+          megbeszélésekre. Ha valakinek volt már a tiédhez hasonló
+          problémája, valaki a linmodem levelezési listán jó eséllyel
+          ismeri azt. Ha fel akarsz iratkozni a levelezési listára küldj
+          egy üres levelet a [34]discuss-subscribe@linmodems.org e-mail
+          címre. A levelezõlista a [35]www.linmodems.org webhelyen
+          található.
+
+   SoftModems IRC csatorna
+          Ha szeretnél valakivel egyenesben beszélni, akkor legjobb ha
+          belépsz az Openproject IRC hálózatán a #SoftModems csatornára.
+          További részleteket a [36]www.openprojects.org webhelyen
+          olvashatsz, vagy csatlakozz a eu.opirc.nu-hoz a 6667 porton.
+
+   Hírcsoportok
+          A [37]comp.os.linux.hardware és a [38]comp.os.linux.setup
+          hírcsoportokban gyakran lehet találkozni olyan emberekkel, akik
+          járatosak a szoftmodemek témájában. Ha beszélsz olaszul a
+          [39]it.comp.os.linux.iniziare listán találkozhatsz olyan
+          emberekkel, akik ismerhetik a Conexant/Rockwell modemeket
+          (magyar felhasználók a hun.lists.mlf listán találhatók - a
+          ford.).
+
+   Ne feledd, amikor segítséget kérsz, mindig add meg a modem pontos
+   típusát, gyártóját és a hibaüzenetet amit kaptál.
+     _________________________________________________________________
+
+1.7. Magyar fordítás
+
+A magyar fordítást [40]Kispál Zsolt készítette (2003.09.11). A lektorálást
+[41]Daczi László végezte el (2003.12.13). A fordítás javítva (R1)
+2003.12.16.-án. A dokumentum legfrissebb változata megtalálható a [42]Magyar
+Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. Beüzemelési útmutató
+
+Ez a rész megpróbál gyors segítséget adni, hogy minél gyorsabban beüzemeld
+rendszered. Ha az alább leírtak mûködnek, akár el is felejtheted ennek a
+HOGYANnak a hátralévõ részét. Ez a rész gyakrabban frissül mint a HOGYAN
+többi része, tehát ez tartalmazza a legfrissebb információkat.
+
+Legelõször azt kell megállapítanod, hogy HSF vagy HCF modemed van. Ezt a
+következõ módokon teheted meg: megnézed a modemed windowosos
+eszközmeghajtóját, megnézed a címkét a modem lapkakészletén, vagy letöltöd a
+[43]ListModem segédprogramot, futtatod, és így szerzed meg az információt.
+Mind a két típusra elérhetõk eszközmeghajtók, de a HSF meghajtó fejlettebb
+mint a HCF. A HCF meghajtó elsõ bétája 2002 év közepén jelenik meg
+várhatóan. A következõ fejezetekben mind a HSF, mind a HCF modem
+beüzemelésérõl adunk egy rövid leírást.
+     _________________________________________________________________
+
+2.1. A HSF modem beüzemelése
+
+    1. Töltsd le az eszközmeghajtót a [44]http://www.mbsi.ca/hsflinux/
+       webhelyrõl, a következõ útmutatás az RPM csomaghoz készült,
+       javaslom ezt használd.
+    2. Indíts el egy terminálablakot (vagy nyiss egy konzolt), válts root
+       felhasználóra és lépj abba a könyvtárba, ahová letöltötted az
+       eszközmeghajtót, majd gépeld be: rpm -i "eszközmeghajtó_neve".
+       Például, ha az eszközmeghajtó neve
+       hsflinmodem-4.06.06.02mbsibeta02012000-1.i586.rpm akkor a
+       következõt kell begépelni,
+       [user@localhost]$ rpm -i
+       hsflinmodem-4.06.06.02mbsibeta02012000-1.i586.rpm
+    3. Futtasd a hsfconfig programot, és kövesd a képernyõn megjelenõ
+       utasításokat. Automatikusan fel kell ismernie a modemedet, és
+       telepítenie kell az eszközmeghajtót. Ha valamilyen problémád
+       lenne, nézz bele az eszközmeghajtó dokumentációjába.
+
+   Most már be fogod tudni állítani az Internetkapcsolatot, bár meg kell
+   neki adni, hogy a modemed a /dev/modem könyvtár alatt található. Ha az
+   Internetkapcsolatot biztosító szoftvered nem tudja elérni, lehet, meg
+   kell változtatnod a jogosultságokat.
+
+   [Technikai megjegyzés: Ha a modemed eszközazonosítója (device ID)
+   2005, akkor a kézi beállítást kell választanod a beüzemeléshez.]
+
+   Ha a fenti eljárás nálad nem mûködne vagy a fent említett
+   eszközmeghajtó nem mûködik a rendszereden (például, ha
+   többprocesszoros géped van), akkor olvasd tovább ezt a HOGYANt, ezután
+   írjuk le részletesen, hogyan kell használni a régebbi eszközmeghajtót.
+     _________________________________________________________________
+
+2.2. A HCF modem beüzemelése
+
+    1. Töltsd le az eszközmeghajtót a [45]http://www.mbsi.ca/hcflinux/
+       webhelyrõl. Az alábbi útmutató a bináris RPM meghajtóhoz készült,
+       amit a legkönnyebb telepíteni. Ha másként szeretnéd telepíteni,
+       akkor a README fájlban találhatsz hozzá információt.
+    2. Nyiss egy terminálablakot (vagy egy konzolt), válts root
+       felhasználóra, és lépj be abba a könyvtárba, ahová az
+       eszközmeghajtót letöltötted. Itt add ki az "rpm -i" parancsot,
+       megadve az eszközmeghajtó fájlnevét. Ha például az eszközmeghajtó
+       neve: hcflinmodem-0.9mbsibeta02030801-1.i586.rpm akkor a
+       következõt gépeled be:
+       [user@localhost]$ rpm -i
+       hcflinmodem-0.9mbsibeta02030801-1.i586.rpm
+    3. Futtasd a hcfconfig parancsot és kövesd a képernyõn megjelenõ
+       utasításokat, automatikusan fel kell ismernie a modemedet és
+       telepítenie kell az eszközmeghajtót. Ha valamilyen probléma
+       adódna, olvasd át az eszközmeghajtóhoz mellékelt dokumentációt.
+
+   Most már be kell tudnod állítani az Internetkapcsolatot, a beállítás
+   során meg kell adnod, hogy a modem a /dev/modem eszközként található
+   meg. Ha az Internetkapcsolatot biztosító szoftvered nem tudja elérni,
+   lehet, hogy meg kell változtatnod a jogosultságokat.
+
+   [Technikai megjegyzés: Ha régebbi a modemed például amin még Rockwell
+   márkajelzés van és nem Conexant, akkor jelenleg nem fogod tudni
+   használni ezt az eszközmeghajtót. Szintén nem lehet használni azokat a
+   modemeket, amelyek SmartDAA-t használnak. Olvasd el a
+   [46]http://www.mbsi.ca/hcflinux/latest/BUGS.txt leírést.]
+     _________________________________________________________________
+
+3. A modem típusának megállapítása
+
+Elõször állapítsd meg, HCF vagy HSF lapkakészletû modemed van. Sajnos a
+hagyományos módszerek (/proc/pci fájlrendszer használata, lspci parancs vagy
+a KDE Control Center) itt nem mûködik a pci.ids fájlban lévõ hiba miatt,
+ami a modem helytelen felismerését okozza. Háromféle módszert lehet
+használni a lapkakészlet típusának megállapítására:
+
+    1. Ha a modemed Windows alatt is mûködik, töltsd le, és futtasd a
+       [47]Conexant-féle ListModem alkalmazást. A kívánt információt a
+       "MODEM TYPE" alatt jeleníti meg a program.
+    2. Ha felnyitod a géped, jó eséllyel meg fogod találni a modemed
+       lapkakészletén a HSF vagy a HCF jelzést.
+    3. Megállapítható a modem típusa az eszközazonosítóból és
+       gyártóazonosítóból is. Ezt az információt legkönnyebben az lspci
+       -n paranccsal (vagy régebbi Linux terjesztésekben a less /proc/pci
+       paranccsal) szerezheted meg. Ez a parancs listázza a gépben lévõ
+       összes PCI kártya eszköz- és gyártóazonosítóját. A modemed
+       azonosítóját úgy ismerheted fel, hogy 14F1 (Conexant) vagy 127A
+       (Rockwell) lesz a gyártóazonosító (vendorID). Ne vedd figyelembe
+       akár HSF-nek akár HCF-nek ismeri fel az lspci a modemed, mert ez
+       hibás is lehet.
+       Az információ általában a VVVV:DDDD formában jelenik meg, ahol
+       VVVV a gyártóazonosító, a DDDD pedig az eszközazonosító. Például,
+       ha 127a:2005 jelent meg, akkor ez azt jelenti, hogy a
+       gyártóazonosító kódja a 127a, míg az eszközazonosító a 2005.
+       Ha a modemed egy HCF modem, akkor a gyártóazonosítója az alábbiak
+       valamelyike lesz:
+       1033 / 1034 / 1035 / 1036 / 10b3 / 10b4 / 10b5 / 10b6 / 1003 /
+       1004 / 1005 / 1023 / 1024 / 1025 / 1f10 / 1f11 / 1f14 / 1f15
+       Ha a modemed SmartHCF modem, akkor az alábbiak közül fog kikerülni
+       a gyártóazonosító:
+       1052 / 1053 / 1054 / 1055 / 1056 / 1057 / 1058 / 1059 / 1063 /
+       1064 / 1065 / 1066
+       Ha HSF modemed van, akkor a gyártóazonosító az alábbiak lehetnek:
+       2013 / 2014 / 2015 / 2016 / 2003 / 2004 / 2005 / 2006 / 2f10 /
+       2f12 / 2f00
+       Ha pedig SmartHSF modemed van, akkor ezek fordulhatnak elõ
+       gyártóazonosítóként:
+       2043 / 2044 / 2045 / 2046 / 2053 / 2054 / 2055 / 2056
+
+   Ha HCF vagy SmartHCF modemed van, akkor ugorj a [48]"HCF
+   lapkakészletû modemek"fejezetre, ha pedig HSF vagy SmartHSF modemed
+   van, akkor ugorj a [49]"HSF lapkakészletû modemek"fejezetre.
+     _________________________________________________________________
+
+4. HCF lapkakészletû modemek
+
+4.1. Áttekintés
+
+Sajnos jelenleg nincs HCF eszközmeghajtó Linuxhoz. A Conexant GYIK
+([50]http://www.conexant.com:80/cnxt/customer/md_faqs.htm) 11. pontjában
+viszont jelezték, hogy fejlesztés alatt áll.
+
+Többen ugyan jelezték, hogy sikerült a HCF lapkakészletû modemeiket (fõleg
+az 1025-ös gyártóazonosítójú modelleket) beüzemelni a HSF meghajtóval, bár
+minderrõl csak elvétve vannak információink. Ha sikerült beállítanod és
+használnod egy HCF modemet Linux alatt, kérlek keress meg.
+
+Valaki már közreadta, ha a "No Dialtone" hibaüzenetet kapjuk, amikor HSF
+meghajtót használunk egy HCF modemmel, akkor a következõ AT paranccsal
+lehet javítani a hibát: "AT S7=45 S0=0 L1 V1 X4 &c1 E1 Q0".
+     _________________________________________________________________
+
+4.2. További információk
+
+Ha esetleg saját magadnak szeretnél egy meghajtót írni, a következõ
+hivatkozások hasznosak lehetnek:
+
+   Az INF file szerkesztése:
+          [51]http://users.freenet.am/~hcfconf/advdocs/country.zip
+
+   Modem parancsok ismertetõje:
+          [52]http://users.freenet.am/~hcfconf/advdocs/100498C.zip
+
+   Tervezõi megjegyzések és specifikációk:
+          [53]http://www.unitronic.de/Hersteller/conexant/Modem.htm
+     _________________________________________________________________
+
+5. HSF lapkakészletû modemek
+
+5.1. Áttekintés
+
+A HSF meghajtó a semmibõl jelent meg 2000 közepén, amikor az Olitec
+közzétett egy bináris meghajtót az Olitec PCI modemhez, a 2.2.14-es
+rendszermaghoz. Nem sokkal ezután valaki rájött, hogy az Olitec modem a
+Conexant/Rockwell HSF lapkakészletén alapul. Az érdeklõdõk az Olitec-tõl
+megtudhatták, hogy a meghajtó bármilyen HSF lapkakészletû modemmel
+mûködnie kellene, mert nem tartalmaz semmilyen Olitec specifikus elemet.
+Sokan sikertelenül próbálkoztak, hogy beüzemeljék az Olitec eszközmeghajtót
+nem Olitec modemmel, mígnem néhány hónappal késõbb, sok ember még több órás
+próbálkozása után néhánynak sikerült eljutnia a megoldáshoz. Ez egy
+egyszerû változtatás volt egy fájlban. Így a világ hozzájutott egy mûködõ
+HSF meghajtóhoz, ami csak a 2.2.14-es rendszermagokon mûködött. Az Olitec
+megtagadta a forrás közzétételét, hogy a közösség megpróbálja más verziójú
+rendszermag alatt is mûködõképessé tenni.
+
+Néhány hónappal késõbb az Olitec közzétette a meghajtót a 2.2.16 és a
+2.2.17 verziójú rendszermagokhoz is, ami megelégedésére szolgált a HSF
+winmodem közösségnek mindaddig, amíg egy napon meg nem jelent a 2.4-es
+rendszermag. Egyik korábbi meghajtó sem mûködött a 2.4 rendszermag alatt és
+ez problémát jelentett mindazoknak, akik frissíteni akartak az új
+rendszermagra illetve mindazoknak a felhasználóknak, akik valamelyik 2.4.*
+rendszermag-alapú terjesztést használták, mint például a Mandrake 8 és a
+RedHat 7.1. A 2.4-es rendszermag megjelenése óta semmit nem lehet hallani az
+Olitec háza tájáról, de idõközben a Conexant bejelentette, hogy tervezik
+egy Linux eszközmeghajtó fejlesztését. Több hónapi várakozás után végülis
+Marc Boucher elhatározta, hogy tesz valamit és írt egy illesztõfelületet,
+ami lehetõvé teszi a régebbi eszközmeghajtókat használatát 2.4.*
+rendszermagokkal is.
+
+Itt tartunk jelenleg, Marc illesztõfelülete még mindig fejlesztõi
+stádiumban van, de mûködik és sok ember használja, hogy Linux alatt az
+Internetre kapcsolódjon.
+
+Ezután az áttekintés után már érthetõ miért kell a következõ fejezetet két
+részre bontani, egyik a 2.2.14 -2.2.18, míg a másik a 2.4.* rendszermagokról
+szól. Ha nem tudnád milyen rendszermagod van, használd a "uname -r"
+parancsot, mielõtt továbblépsz a HOGYAN megfelelõ részéhez.
+     _________________________________________________________________
+
+5.2. Rendszermag 2.2.14 - 18
+
+5.2.1. Követelmények
+
+A 2.2.14, 2.2.16 vagy a 2.2.17 verziójú rendszermagok valamelyike. A 2.2.17
+rendszermaghoz használatos eszközmeghajtó mûködik a 2.2.18-as
+rendszermaggal is .
+     _________________________________________________________________
+
+5.2.2. Azonosítók
+
+A modem beüzemeléséhez tudnod kell a modem gyártóazonosítóját (Vendor ID) és
+eszközazonosítóját (Device ID). A legkönnyebben ezt a "less /proc/pci"
+parancs kiadásával teheted meg, és addig keress amíg meg nem találod azt a
+PCI kártyát, amelynek a gyártóazonosítója vagy 14F1 (Conexant) vagy 127A
+(Rockwell), majd jegyezd fel az eszközazonosítót.
+
+A késõbbiekben szerkesztened kell egy %HSFModem% sort.
+
+Másold ki a következõ sort valahová:
+
+%HSFModem% = ModemX, PCI\VEN_XXXX&DEV_YYYY&SUBSYS_YYYYXXXX
+
+ahol, az XXXX helyére a gyártóazonosító, az YYYY helyére padig az
+eszközazonosító kerül. Például, ha a gyártóazonosítód 127A az
+eszközazonosítód pedig 2015, akkor a sor a következõképp néz ki:
+
+%HSFModem% = ModemX, PCI\VEN_127A&DEV_2015&SUBSYS_2015127A
+
+A késõbbiekben szükséged lesz erre a sorra, hogy a meghajtó fel tudja
+ismerni a modemet. A következõ lépés kicsit eltérõ az egyes
+rendszermag-verziók esetében, tehát lépj a vonatkozó fejezethez, attól
+függõen, hogy [54]2.2.14, [55]2.2.16 vagy [56]2.2.17 verziójú rendszermagot
+használsz.
+     _________________________________________________________________
+
+5.2.3. Beállítás 2.2.14 rendszermaghoz
+
+A HSF meghajtó telepítése 2.2.14-es rendszermaghoz
+    1. Töltsd le a HSF_V1.01.02_K2.2.14-5.0.tar fájlt, az [57]Olitec
+       webhelyérõl vagy a [58]tükrözésérõl.
+    2. Másold be a saját home könyvtáradba
+    3. Egy konzol ablakban lépj be a home könyvtáradba
+       [user@localhost]$ cd ~
+    4. Csomagold ki a fájlt
+       [user@localhost]$ tar xzvf HSF_V1.01.02_K2.2.14-5.0.tar
+    5. Lépj be az eszközmeghajtó könyvtárába
+       [user@localhost]$ cd pci_56k_v2
+    6. Kedvenc szövegszerkesztõddel nyisd meg a lin_hsf.inf file-t, a
+       [generic] rész alatt ehhez hasonló sorokat találsz: "%HSFModem% =
+       ModemX, PCI\VEN_127A&DEV_1025&SUBSYS_1025127A". Ezek alá a sorok
+       alá illeszd be azt a %HSFModem% sort, amit korábban készítettél.
+    7. Válts root felhasználóra
+       [user@localhost]$ su
+    8. Futtasd az ins_all szkriptet az eszközmeghajtó telepítéséhez.
+       [user@localhost]$ ./ins_all
+
+   A tárcsázóprogramnak be kell állítani, hogy a modem a /dev/modem alatt
+   található, most már el tudod érni az Internetet.
+
+   Az ins_all csak ideiglenesen tölti be a modem-meghajtót, ami
+   eltávolítódik újraindításkor. Tehát újraindításkor újra kell futtatni
+   az ./ins_all programot, hogy újra betöltse a meghajtót vagy be kell
+   állítanod, hogy az ./ins_all parancs automatikusan lefusson minden
+   újraindításkor.
+     _________________________________________________________________
+
+5.2.4. Beállítás 2.2.16 rendszermaghoz
+
+    1. Töltsd le a PCI_56K_V2_K2.2.16.tar.gz fájlt, az [59]Olitec
+       webhelyérõl vagy [60]tükrözésérõl.
+    2. Másold be a home könyvtáradba
+    3. Egy konzol ablakban lépj be a home könyvtáradba
+       [user@localhost]$ cd ~
+    4. Csomagold ki a fájlt
+       [user@localhost]$ tar xzvf PCI_56K_V2_K2.2.16.tar.gz
+    5. Lépj be az eszközmeghajtó könyvtárába
+       [user@localhost]$ cd pci_56k_v2_k2.2.16
+    6. Kedvenc szövegszerkesztõddel nyisd meg a lin_hsf.inf fájlt, a
+       [generic] rész alatt ehhez hasonló sorokat találsz: "%HSFModem% =
+       ModemX, PCI\VEN_127A&DEV_1025&SUBSYS_1025127A". Ezek alá a sorok
+       alá illeszd be azt a %HSFModem% sort, amit korábban készítettél.
+    7. Válts root felhasználóra
+       [user@localhost]$ su
+    8. Futtasd az ins_all szkriptet az eszközmeghajtó telepítéséhez.
+       [user@localhost]$ ./ins_all
+
+   A tárcsázóprogramnak be kell állítanod, hogy a modem a /dev/modem
+   alatt található. Most már el tudod érni az Internetet.
+
+   Az ins_all csak ideiglenesen tölti be a modem-meghajtót, ami
+   eltávolítódik újraindításkor. Tehát újraindításkor újra kell futtatni
+   az ./ins_all programot, hogy újra betöltse a meghajtót, vagy be kell
+   állítanod, hogy az ./ins_all parancs automatikusan lefusson minden
+   újraindításkor.
+     _________________________________________________________________
+
+5.2.5. Beállítás 2.2.17 vagy 2.2.18 rendszermaghoz
+
+A HSF meghajtó telepítése 2.2.17-es és 2.2.18 rendszermagokhoz
+    1. Töltsd le a PCI_56K_V2_K2.2.17.tar.gz fájlt, az [61]Olitec
+       webhelyérõl vagy [62]tükrözésérõl.
+    2. Másold be a home könyvtáradba
+    3. Egy konzol ablakban lépj be a home könyvtáradba
+       [user@localhost]$ cd ~
+    4. Csomagold ki a fájlt
+       [user@localhost]$ tar xzvf PCI_56K_V2_K2.2.17.tar.gz
+    5. Lépj be az eszközmeghajtó könyvtárába
+       [user@localhost]$ cd pci_56k_v2_k2.2.17
+    6. Kedvenc szövegszerkesztõddel nyisd meg a lin_hsf.inf file-t, a
+       [generic] rész alatt ehhez hasonló sorokat találsz: "%HSFModem% =
+       ModemX, PCI\VEN_127A&DEV_1025&SUBSYS_1025127A". Ezek alá a sorok
+       alá illeszd be azt a %HSFModem% sort, amit korábban készítettél.
+    7. Válts root felhasználóra
+       [user@localhost]$ su
+    8. Futtasd az ins_all szkriptet az eszközmeghajtó telepítéséhez.
+       [user@localhost]$ ./ins_all
+
+   A tárcsázóprogramnak be kell állítani, hogy a modem a /dev/modem alatt
+   található. Most már el tudod érni az Internetet.
+
+   Az ins_all csak ideiglenesen tölti be a modem-meghajtót, ami
+   eltávolítódik újraindításkor. Tehát újraindításkor újra kell futtatni
+   az ./ins_all programot, hogy újra betöltse a meghajtót, vagy be kell
+   állítanod, hogy az ./ins_all parancs automatikusan lefusson minden
+   újraindításkor.
+     _________________________________________________________________
+
+5.3. Beállítás 2.4.* rendszermagokhoz
+
+5.3.1. Követelmények
+
+     * Olyan 2.4.* rendszermag-verzióra van szükséged, amiben nincs
+       többprocesszoros támogatás (SMP support).
+     * Továbbá szükséged lesz a rendszermag forrására, ha nincs telepítve
+       valószínûleg meg fogod találni a Linux-terjesztésedd CD-jén.
+     * A ppp legalább 2.4.0-es verziója (a telepített ppp verziója
+       ellenõrizhetõ a pppd --versionparanccsal.)
+
+   A modem 2.4.* rendszermag alatti mûködéséhez szükséged lesz a 2.2.17
+   rendszermaghoz használatos eszközmeghajtóra, valamint Marc Boucher
+   hsfcompat illesztõfelületére, ami lehetõvé teszi, hogy az
+   eszközmeghajtó a 2.4.* rendszermagok alatt is mûködjön. A HOGYAN
+   írásának idejében a hsfcompat 1.0d verziója a legfrissebb. Még teszt
+   állapotban van, tehát elõfordulhatnak problémák a rendszereden.
+   Viszont még nem találkoztam senkivel, akinek bármilyen problémája
+   származott volna abból, hogy használta ezt az illesztõfelületet. A
+   legfrissebb információkért keresd fel a [63]hsfcompat honlapját.
+
+   Szükséges fájlok:
+
+   hsfcompat_24-1.0d.tar.gz
+          Letölthetõ:
+
+          [64]http://www.mbsi.ca/hsfcompat/hsfcompat_24-1.0d.tar.gz
+
+   PCI_56K_V2_K2.2.17.tar.gz
+          letölthetõ:
+
+          [65]http://www.olitec.com/pub/PCI_56K_V2_K2.2.17.tar.gz
+
+          tükrözve:
+
+          [66]ftp://ftp.dina.kvl.dk/pub/Staff/Thomas.S.Iversen/linmodems_
+          drivers/olitec/PCI_56K_V2_K2.2.17.tar.gz
+     _________________________________________________________________
+
+5.3.2. Telepítés
+
+    1. Másold a hsfcompat_24-1.0d.tar.gz fájlt a home könyvtáradba
+    2. Egy konzolablakban lépj be a home könyvtáradba
+       [user@localhost]$ cd ~
+    3. Csomagold ki a hcfcompat programot a
+       [user@localhost]$ tar xzvf hsfcompat_24-1.0d.tar.gzparanccsal
+    4. Másold át a PCI_56K_V2_K2.2.17.tar.gz fájlt a hsfcompat_24-1.0d
+       könyvtárba.
+    5. Csomagold ki az eszközmeghajtót a
+       [user@localhost]$ tar xzvf PCI_56K_V2_K2.2.17.tar.gz paranccsal
+    6. Nyisd meg a Makefile-t (ami a hsfcompat_24-1.0d könyvtárban van)
+       egy szövegszerkesztõvel, keresd meg azt a sort amelyben azt
+       találod: SBINDIR=/usr/sbin és cseréld ki az /usr/sbin bejegyzést
+       arra az elérési útvonalra, ahol a saját gépeden a futtatható
+       fájlok találhatók, majd keresd meg a KERNELSRC=/usr/src/linux
+       sort, itt is cseréld ki a /usr/src/linux sort a
+       rendszermag-forrásod elérési útvonalára.
+    7. Válts root felhasználóra az :
+       [user@localhost]$ su paranccsal
+    8. A hsfcompat_24-1.0d könyvtárban fordítsd le (compile) a hsfcompat
+       programot:
+       [user@localhost]$ make
+    9. Telepítsd az eszközmeghajtót: [user@localhost]$ make install
+   10. Kövesd a képernyõn megjelenõ utasításokat, amelyek leírják az
+       eszközmeghajtó betöltését a memóriába, valamint ennek automatikus
+       végrehajtását.
+     _________________________________________________________________
+
+5.4. Gyakran Ismételt Kérdések
+
+   5.4.1. [67]Az ./ins_all futtatásakor "kernel mismatch" hibaüzenetet
+          kapok.
+
+   5.4.2. [68]Amikor próbálom futtatni az ./ins_all szkriptet, a
+          következõ hibaüzenetet kapom "bash: ./ins_all No such file or
+          directory."
+
+   5.4.3. [69]Telepítés közben, amikor az eszközmeghajtó próbálja
+          betölteni a myserial.o fájlt "segmentation fault" hibát kapok.
+
+   5.4.4. [70]Amikor megpróbálom tárcsázni az Internet-szolgáltatót "No
+          Carrier" hibaüzenetet kapok.
+
+   5.4.5. [71]Az ./ins_all futtatásakor a "No matching INF file is found
+          for SoftK56 PCI device" hibaüzenetet kapok. 
+
+   5.4.6. [72]Úgy látom a laptopomon az eszközmeghajtó rendesen lett
+          telepítve, mégsem érem el a modemet a /dev/modem alatt?
+
+   5.4.1. Az ./ins_all futtatásakor "kernel mismatch" hibaüzenetet kapok.
+
+   Ez azt jelenti, hogy az eszközmeghajtó azt érzékeli, nem a megfelelõ
+   rendszermag-verziód van, ebben az esetben egy módosított rendszermagod
+   van (például olyan, aminek nem szabványos a neve). Ekkor úgy tudod
+   elindítani az eszközmeghajtót, hogy megnyitod az ins_all fájlt egy
+   szövegszerkesztõben, és kicseréled az összes "insmod -m" parancsot
+   "insmod -f -m" parancsra.
+
+   5.4.2. Amikor próbálom futtatni az ./ins_all szkriptet, a következõ
+   hibaüzenetet kapom "bash: ./ins_all No such file or directory."
+
+   Ezt a hibát az okozza, hogy a szkript nem találja a C Shellt az
+   /bin/csh elérési úton. Ha nálad a C Shell eltérõ helyre van
+   telepítve, akkor készíts egy szimbolikus hivatkozást (simlink), ami a
+   megfelelõ helyre mutat. Ha nincs C shelled, akkor telepítened kell.
+
+   5.4.3. Telepítés közben, amikor az eszközmeghajtó próbálja betölteni a
+   myserial.o fájlt "segmentation fault" hibát kapok.
+
+   Ez amiatt van, mert a számítógéped megpróbálja a Plug-and-Play
+   támogatással mûködtetni a modemed. Ez a BIOS-ban kapcsolható ki. A
+   beállítás az egyes BIOS-ok esetében eltérõ, de általában a PnP OS
+   opciót kell kikapcsolni.
+
+   5.4.4. Amikor megpróbálom tárcsázni az Internet-szolgáltatót "No
+   Carrier" hibaüzenetet kapok.
+
+   Többen jelezték, hogy az alábbi beállításbeli változtatások segítenek:
+
+    1. Az ATZ parancs helyett használd az ATZX3
+    2. Az ATDT helyett pedig ATX3DT
+
+   5.4.5. Az ./ins_all futtatásakor a "No matching INF file is found for
+   SoftK56 PCI device" hibaüzenetet kapok.
+
+   Ez akkor történik, amikor az eszközmeghajtó nem találja a helyes
+   %HSFModem% sort a lin_hsf.inf fájlban. Lépj vissza ehhez a részhez és
+   ellenõrizd, hogy mindent a leírás szerint csináltál, és a megfelelõ
+   értékek vannak bejegyezve a %HSFModem% sorba.
+
+   5.4.6. Úgy látom a laptopomon az eszközmeghajtó rendesen lett
+   telepítve, mégsem érem el a modemet a /dev/modem alatt?
+
+   Ennek gyakori oka, hogy a modem eszköz sorszáma ütközik a PCMCIA
+   eszköz sorszámával. Ezt a következõ paranccsal ellenõrizheted:
+
+   [user@localhost]$ ls -l /dev/ | grep 254
+
+   A hsf0 eszköz vezérszáma (major number) 254 lesz, ha más eszköznek is
+   ugyanígy 254 a vezérszáma, akkor ez ütközést jelent. Ezt úgy lehet
+   elkerülni, hogy az ins_all fájlban megváltoztatod a "mknod /dev/cnxt c
+   254 64" sort "mknod /dev/cnxt c 253 64" sorra.
+     _________________________________________________________________
+
+6. License
+
+6.1. GNU Free Documentation License
+
+Copyright 2000 Free Software Foundation, Inc.
+
+Free Software Foundation, Inc.
+59 Temple Place, Suite 330,
+Boston,
+MA 02111-1307
+USA
+. Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+     _________________________________________________________________
+
+6.1.1. 0. PREAMBLE
+
+The purpose of this License is to make a manual, textbook, or other written
+document "free" in the sense of freedom: to assure everyone the effective
+freedom to copy and redistribute it, with or without modifying it, either
+commercially or noncommercially. Secondarily, this License preserves for the
+author and publisher a way to get credit for their work, while not being
+considered responsible for modifications made by others.
+
+This License is a kind of "copyleft", which means that derivative works of
+the document must themselves be free in the same sense. It complements the
+GNU General Public License, which is a copyleft license designed for free
+software.
+
+We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free program
+should come with manuals providing the same freedoms that the software does.
+But this License is not limited to software manuals; it can be used for any
+textual work, regardless of subject matter or whether it is published as a
+printed book. We recommend this License principally for works whose purpose
+is instruction or reference.
+     _________________________________________________________________
+
+6.1.2. 1. APPLICABILITY AND DEFINITIONS
+
+This License applies to any manual or other work that contains a notice
+placed by the copyright holder saying it can be distributed under the terms
+of this License. The "Document", below, refers to any such manual or work.
+Any member of the public is a licensee, and is addressed as "yoû.
+
+A "Modified Version" of the Document means any work containing the Document
+or a portion of it, either copied verbatim, or with modifications and/or
+translated into another language.
+
+A "Secondary Section" is a named appendix or a front-matter section of the
+[73]Document that deals exclusively with the relationship of the publishers
+or authors of the Document to the Document's overall subject (or to related
+matters) and contains nothing that could fall directly within that overall
+subject. (For example, if the Document is in part a textbook of mathematics,
+a Secondary Section may not explain any mathematics.) The relationship could
+be a matter of historical connection with the subject or with related
+matters, or of legal, commercial, philosophical, ethical or political
+position regarding them.
+
+The "Invariant Sections" are certain [74]Secondary Sections whose titles are
+designated, as being those of Invariant Sections, in the notice that says
+that the [75]Document is released under this License.
+
+The "Cover Texts" are certain short passages of text that are listed, as
+Front-Cover Texts or Back-Cover Texts, in the notice that says that the
+[76]Document is released under this License.
+
+A "Transparent" copy of the [77]Document means a machine-readable copy,
+represented in a format whose specification is available to the general
+public, whose contents can be viewed and edited directly and
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or for
+automatic translation to a variety of formats suitable for input to text
+formatters. A copy made in an otherwise Transparent file format whose markup
+has been designed to thwart or discourage subsequent modification by readers
+is not Transparent. A copy that is not "Transparent" is called "Opaque".
+
+Examples of suitable formats for Transparent copies include plain ASCII
+without markup, Texinfo input format, LaTeX input format, SGML or XML using
+a publicly available DTD, and standard-conforming simple HTML designed for
+human modification. Opaque formats include PostScript, PDF, proprietary
+formats that can be read and edited only by proprietary word processors,
+SGML or XML for which the DTD and/or processing tools are not generally
+available, and the machine-generated HTML produced by some word processors
+for output purposes only.
+
+The "Title Page" means, for a printed book, the title page itself, plus such
+following pages as are needed to hold, legibly, the material this License
+requires to appear in the title page. For works in formats which do not have
+any title page as such, "Title Page" means the text near the most prominent
+appearance of the work's title, preceding the beginning of the body of the
+text.
+     _________________________________________________________________
+
+6.1.3. 2. VERBATIM COPYING
+
+You may copy and distribute the [78]Document in any medium, either
+commercially or noncommercially, provided that this License, the copyright
+notices, and the license notice saying this License applies to the Document
+are reproduced in all copies, and that you add no other conditions
+whatsoever to those of this License. You may not use technical measures to
+obstruct or control the reading or further copying of the copies you make or
+distribute. However, you may accept compensation in exchange for copies. If
+you distribute a large enough number of copies you must also follow the
+conditions in [79]section 3.
+
+You may also lend copies, under the same conditions stated above, and you
+may publicly display copies.
+     _________________________________________________________________
+
+6.1.4. 3. COPYING IN QUANTITY
+
+If you publish printed copies of the [80]Document numbering more than 100,
+and the Document's license notice requires [81]Cover Texts, you must enclose
+the copies in covers that carry, clearly and legibly, all these Cover Texts:
+Front-Cover Texts on the front cover, and Back-Cover Texts on the back
+cover. Both covers must also clearly and legibly identify you as the
+publisher of these copies. The front cover must present the full title with
+all words of the title equally prominent and visible. You may add other
+material on the covers in addition. Copying with changes limited to the
+covers, as long as they preserve the title of the [82]Document and satisfy
+these conditions, can be treated as verbatim copying in other respects.
+
+If the required texts for either cover are too voluminous to fit legibly,
+you should put the first ones listed (as many as fit reasonably) on the
+actual cover, and continue the rest onto adjacent pages.
+
+If you publish or distribute [83]Opaque copies of the [84]Document numbering
+more than 100, you must either include a machine-readable [85]Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy a
+publicly-accessible computer-network location containing a complete
+Transparent copy of the Document, free of added material, which the general
+network-using public has access to download anonymously at no charge using
+public-standard network protocols. If you use the latter option, you must
+take reasonably prudent steps, when you begin distribution of Opaque copies
+in quantity, to ensure that this Transparent copy will remain thus
+accessible at the stated location until at least one year after the last
+time you distribute an Opaque copy (directly or through your agents or
+retailers) of that edition to the public.
+
+It is requested, but not required, that you contact the authors of the
+[86]Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+     _________________________________________________________________
+
+6.1.5. 4. MODIFICATIONS
+
+You may copy and distribute a [87]Modified Version of the [88]Document under
+the conditions of sections [89]2 and [90]3 above, provided that you release
+the Modified Version under precisely this License, with the Modified Version
+filling the role of the Document, thus licensing distribution and
+modification of the Modified Version to whoever possesses a copy of it. In
+addition, you must do these things in the Modified Version:
+
+     * A. Use in the [91]Title Page (and on the covers, if any) a title
+       distinct from that of the [92]Document, and from those of previous
+       versions (which should, if there were any, be listed in the
+       History section of the Document). You may use the same title as a
+       previous version if the original publisher of that version gives
+       permission.
+     * B. List on the [93]Title Page, as authors, one or more persons or
+       entities responsible for authorship of the modifications in the
+       [94]Modified Version, together with at least five of the principal
+       authors of the [95]Document (all of its principal authors, if it
+       has less than five).
+     * C. State on the [96]Title Page the name of the publisher of the
+       [97]Modified Version, as the publisher.
+     * D. Preserve all the copyright notices of the [98]Document.
+     * E. Add an appropriate copyright notice for your modifications
+       adjacent to the other copyright notices.
+     * F. Include, immediately after the copyright notices, a license
+       notice giving the public permission to use the [99]Modified
+       Version under the terms of this License, in the form shown in the
+       Addendum below.
+     * G. Preserve in that license notice the full lists of
+       [100]Invariant Sections and required [101]Cover Texts given in the
+       [102]Document's license notice.
+     * H. Include an unaltered copy of this License.
+     * I. Preserve the section entitled "History", and its title, and add
+       to it an item stating at least the title, year, new authors, and
+       publisher of the [103]Modified Version as given on the [104]Title
+       Page. If there is no section entitled "History" in the
+       [105]Document, create one stating the title, year, authors, and
+       publisher of the Document as given on its Title Page, then add an
+       item describing the Modified Version as stated in the previous
+       sentence.
+     * J. Preserve the network location, if any, given in the
+       [106]Document for public access to a [107]Transparent copy of the
+       Document, and likewise the network locations given in the Document
+       for previous versions it was based on. These may be placed in the
+       "History" section. You may omit a network location for a work that
+       was published at least four years before the Document itself, or
+       if the original publisher of the version it refers to gives
+       permission.
+     * K. In any section entitled "Acknowledgements" or "Dedications",
+       preserve the section's title, and preserve in the section all the
+       substance and tone of each of the contributor acknowledgements
+       and/or dedications given therein.
+     * L. Preserve all the [108]Invariant Sections of the [109]Document,
+       unaltered in their text and in their titles. Section numbers or
+       the equivalent are not considered part of the section titles.
+     * M. Delete any section entitled "Endorsements". Such a section may
+       not be included in the [110]Modified Version.
+     * N. Do not retitle any existing section as "Endorsements" or to
+       conflict in title with any [111]Invariant Section.
+
+   If the [112]Modified Version includes new front-matter sections or
+   appendices that qualify as [113]Secondary Sections and contain no
+   material copied from the Document, you may at your option designate
+   some or all of these sections as invariant. To do this, add their
+   titles to the list of [114]Invariant Sections in the Modified
+   Version's license notice. These titles must be distinct from any other
+   section titles.
+
+   You may add a section entitled "Endorsements", provided it contains
+   nothing but endorsements of your [115]Modified Version by various
+   parties--for example, statements of peer review or that the text has
+   been approved by an organization as the authoritative definition of a
+   standard.
+
+   You may add a passage of up to five words as a [116]Front-Cover Text,
+   and a passage of up to 25 words as a [117]Back-Cover Text, to the end
+   of the list of [118]Cover Texts in the [119]Modified Version. Only one
+   passage of Front-Cover Text and one of Back-Cover Text may be added by
+   (or through arrangements made by) any one entity. If the [120]Document
+   already includes a cover text for the same cover, previously added by
+   you or by arrangement made by the same entity you are acting on behalf
+   of, you may not add another; but you may replace the old one, on
+   explicit permission from the previous publisher that added the old
+   one.
+
+   The author(s) and publisher(s) of the [121]Document do not by this
+   License give permission to use their names for publicity for or to
+   assert or imply endorsement of any [122]Modified Version .
+     _________________________________________________________________
+
+6.1.6. 5. COMBINING DOCUMENTS
+
+You may combine the [123]Document with other documents released under this
+License, under the terms defined in [124]section 4 above for modified
+versions, provided that you include in the combination all of the
+[125]Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its license
+notice.
+
+The combined work need only contain one copy of this License, and multiple
+identical [126]Invariant Sections may be replaced with a single copy. If
+there are multiple Invariant Sections with the same name but different
+contents, make the title of each such section unique by adding at the end of
+it, in parentheses, the name of the original author or publisher of that
+section if known, or else a unique number. Make the same adjustment to the
+section titles in the list of Invariant Sections in the license notice of
+the combined work.
+
+In the combination, you must combine any sections entitled "History" in the
+various original documents, forming one section entitled "History"; likewise
+combine any sections entitled "Acknowledgements", and any sections entitled
+"Dedications". You must delete all sections entitled "Endorsements."
+     _________________________________________________________________
+
+6.1.7. 6. COLLECTIONS OF DOCUMENTS
+
+You may make a collection consisting of the [127]Document and other
+documents released under this License, and replace the individual copies of
+this License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+
+You may extract a single document from such a collection, and distribute it
+individually under this License, provided you insert a copy of this License
+into the extracted document, and follow this License in all other respects
+regarding verbatim copying of that document.
+     _________________________________________________________________
+
+6.1.8. 7. AGGREGATION WITH INDEPENDENT WORKS
+
+A compilation of the [128]Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, does not as a whole count as a [129]Modified Version of
+the Document, provided no compilation copyright is claimed for the
+compilation. Such a compilation is called an "aggregate", and this License
+does not apply to the other self-contained works thus compiled with the
+Document , on account of their being thus compiled, if they are not
+themselves derivative works of the Document. If the [130]Cover Text
+requirement of [131]section 3 is applicable to these copies of the Document,
+then if the Document is less than one quarter of the entire aggregate, the
+Document's Cover Texts may be placed on covers that surround only the
+Document within the aggregate. Otherwise they must appear on covers around
+the whole aggregate.
+     _________________________________________________________________
+
+6.1.9. 8. TRANSLATION
+
+Translation is considered a kind of modification, so you may distribute
+translations of the [132]Document under the terms of [133]section 4.
+Replacing [134]Invariant Sections with translations requires special
+permission from their copyright holders, but you may include translations of
+some or all Invariant Sections in addition to the original versions of these
+Invariant Sections. You may include a translation of this License provided
+that you also include the original English version of this License. In case
+of a disagreement between the translation and the original English version
+of this License, the original English version will prevail.
+     _________________________________________________________________
+
+6.1.10. 9. TERMINATION
+
+You may not copy, modify, sublicense, or distribute the [135]Document except
+as expressly provided for under this License. Any other attempt to copy,
+modify, sublicense or distribute the Document is void, and will
+automatically terminate your rights under this License. However, parties who
+have received copies, or rights, from you under this License will not have
+their licenses terminated so long as such parties remain in full compliance.
+     _________________________________________________________________
+
+6.1.11. 10. FUTURE REVISIONS OF THIS LICENSE
+
+The [136]Free Software Foundation may publish new, revised versions of the
+GNU Free Documentation License from time to time. Such new versions will be
+similar in spirit to the present version, but may differ in detail to
+address new problems or concerns. See [137]http://www.gnu.org/copyleft/.
+
+Each version of the License is given a distinguishing version number. If the
+[138]Document specifies that a particular numbered version of this License
+"or any later version" applies to it, you have the option of following the
+terms and conditions either of that specified version or of any later
+version that has been published (not as a draft) by the Free Software
+Foundation. If the Document does not specify a version number of this
+License, you may choose any version ever published (not as a draft) by the
+Free Software Foundation.
+     _________________________________________________________________
+
+6.1.12. Addendum
+
+To use this License in a document you have written, include a copy of the
+License in the document and put the following copyright and license notices
+just after the title page:
+
+     Copyright © YEAR YOUR NAME.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with the [139]Invariant Sections being LIST THEIR
+     TITLES, with the [140]Front-Cover Texts being LIST, and with the
+     [141]Back-Cover Texts being LIST. A copy of the license is included
+     in the section entitled "GNU Free Documentation License".
+
+   If you have no [142]Invariant Sections, write "with no Invariant
+   Sections" instead of saying which ones are invariant. If you have no
+   [143]Front-Cover Texts, write "no Front-Cover Texts" instead of
+   "Front-Cover Texts being LIST"; likewise for [144]Back-Cover Texts.
+
+   If your document contains nontrivial examples of program code, we
+   recommend releasing these examples in parallel under your choice of
+   free software license, such as the [145]GNU General Public License, to
+   permit their use in free software.
+
+References
+
+   1. http://portal.fsn.hu/modules.php?name=News&file=article&sid=4928&mode=nested
+   2. http://hsf.szm.sk/
+   3. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#INTRODUCTION
+   4. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#PURPOSE
+   5. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#ABOUT
+   6. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FEEDBACK
+   7. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#LICENCE
+   8. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#ACKNOWLEDGEMENTS
+   9. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#GETTING-HELP
+  10. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN126
+  11. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#QUICK-START
+  12. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#QUICK-START-HSF
+  13. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#QUICK-START-HCF
+  14. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#GETTING-STARTED
+  15. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HCF
+  16. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HCF-HISTORY
+  17. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#MISC-HCF
+  18. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HSF
+  19. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HSF-HISTORY
+  20. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#KERNEL14-18
+  21. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#KERNEL4-SERIES
+  22. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FAQ
+  23. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-APP
+  24. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL
+  25. http://www.tldp.org/HOWTO/Linmodem-HOWTO.html
+  26. http://tldp.org/HOWTO/Winmodems-and-Linux-HOWTO.html
+  27. http://tldp.fsf.hu/HOWTO/Winmodems-and-Linux-HOWTO-hu.html
+  28. http://tldp.fsf.hu/
+  29. mailto:ImranG@btinternet.com
+  30. mailto:imran@bits.bris.ac.uk
+  31. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#GETTING-HELP
+  32. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#fdl-app
+  33. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#faq
+  34. mailto:discuss-subscribe@linmodems.org
+  35. http://www.linmodems.org/
+  36. http://www.openprojects.org/
+  37. news://comp.os.linux.hardware/
+  38. news://comp.os.linux.setup/
+  39. news://it.comp.os.linux.iniziare/
+  40. mailto:zkispal@freemail.hu_NO_SPAM
+  41. mailto:dacas@freemail.hu_NO_SPAM
+  42. http://tldp.fsf.hu/index.html
+  43. http://www.conexant.com/customer/md_driverassistance.html
+  44. http://www.mbsi.ca/hsflinux/
+  45. http://www.mbsi.ca/hcflinux/
+  46. http://www.mbsi.ca/hcflinux/latest/BUGS.txt
+  47. http://www.conexant.com/customer/md_driverassistance.html
+  48. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HCF
+  49. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#HSF
+  50. http://www.conexant.com/cnxt/customer/md_faqs.htm
+  51. http://users.freenet.am/~hcfconf/advdocs/country.zip
+  52. http://users.freenet.am/~hcfconf/advdocs/100498C.zip
+  53. http://www.unitronic.de/Hersteller/conexant/Modem.htm
+  54. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#KERNEL-14
+  55. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#KERNEL-16
+  56. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#KERNEL-17
+  57. http://www.olitec.com/pub/HSF_V1.01.02_K2.2.14-5.0.tar
+  58. ftp://ftp.dina.kvl.dk/pub/Staff/Thomas.S.Iversen/linmodems_drivers/olitec/HSF_V1.01.02_K2.2.14-5.0.tar
+  59. http://www.olitec.com/pub/PCI_56K_V2_K2.2.16.tar.gz
+  60. ftp://ftp.dina.kvl.dk/pub/Staff/Thomas.S.Iversen/linmodems_drivers/olitec/PCI_56K_V2_K2.2.16.tar.gz
+  61. http://www.olitec.com/pub/PCI_56K_V2_K2.2.16.tar.gz
+  62. ftp://ftp.dina.kvl.dk/pub/Staff/Thomas.S.Iversen/linmodems_drivers/olitec/PCI_56K_V2_K2.2.16.tar.gz
+  63. http://www.mbsi.ca/hsfcompat/
+  64. http://www.mbsi.ca/hsfcompat/hsfcompat_24-1.0d.tar.gz
+  65. http://www.olitec.com/pub/PCI_56K_V2_K2.2.17.tar.gz
+  66. ftp://ftp.dina.kvl.dk/pub/Staff/Thomas.S.Iversen/linmodems_drivers/olitec/PCI_56K_V2_K2.2.17.tar.gz
+  67. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN481
+  68. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN489
+  69. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN495
+  70. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN501
+  71. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN511
+  72. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#AEN516
+  73. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  74. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECONDARY
+  75. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  76. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  77. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  78. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  79. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION3
+  80. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  81. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+  82. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  83. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TRANSPARENT
+  84. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  85. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TRANSPARENT
+  86. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  87. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+  88. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  89. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION2
+  90. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION3
+  91. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TITLE-PAGE
+  92. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  93. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TITLE-PAGE
+  94. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+  95. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  96. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TITLE-PAGE
+  97. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+  98. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+  99. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 100. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 101. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 102. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 103. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 104. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TITLE-PAGE
+ 105. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 106. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 107. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-TRANSPARENT
+ 108. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 109. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 110. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 111. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 112. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 113. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECONDARY
+ 114. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 115. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 116. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 117. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 118. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 119. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 120. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 121. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 122. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 123. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 124. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION4
+ 125. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 126. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 127. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 128. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 129. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-MODIFIED
+ 130. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 131. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION3
+ 132. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 133. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-SECTION4
+ 134. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 135. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 136. http://www.gnu.org/fsf/fsf.html
+ 137. http://www.gnu.org/copyleft
+ 138. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-DOCUMENT
+ 139. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 140. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 141. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 142. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-INVARIANT
+ 143. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 144. file://localhost/home/dacas/temp/Conexant+Rockwell-modem-HOWTO-hu.html#FDL-COVER-TEXTS
+ 145. http://www.gnu.org/copyleft/gpl.html

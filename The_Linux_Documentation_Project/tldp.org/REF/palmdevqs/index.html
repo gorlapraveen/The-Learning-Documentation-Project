@@ -1,0 +1,289 @@
+<html>
+
+<!-- Mirrored from tldp.org/REF/palmdevqs/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:26:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><title>Linux Palm Developer's Quick Start Guide</title></head>
+<body bgcolor="#ffffff">
+<a name="top"></a>
+<h1><img align=left src="pics/hellocropped.gif">Linux Palm Developer's Quick Start Guide</h1>
+Jim Weller<br>
+ <a href="mailto:jim@jimweller.net">jim@jimweller.net</a> </i><br>
+ Wed Feb 21 04:33:07 AKST 2001 <br>
+ The current version is at <a href="http://www.jimweller.net/palmdevqs/">http://www.jimweller.net/palmdevqs/</a>
+ 
+ 
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#intro">Introduction</a> <br> 
+<li><a href="#req">Requirements</a> <br> 
+<li><a href="#install">Setup and install</a> <br> 
+<li><a href="#hello">Hello world program</a> <br> 
+<li><a href="#screenshots">Screen shots</a> <br> 
+<li><a href="#refs">References</a><br>
+<li><a href="#dloads">Downloads</a><br><br>
+</ol>
+
+<a name="intro"></a>
+<h2>1. Introduction</h2>
+
+<p> This guide is intended to help those new to palm programming get started 
+developing using linux, PRC Tools, GNU tools, and the PalmOS&copy; SDK. It 
+assumes a fair knowledge of linux and <a href="http://www.gnu.org/">GNU</a> tools 
+and a user level understanding of the PalmOS. There are development tools for 
+Windows, but whaateverrr.  If you find this at all useful please drop me
+a 5+ word email, for gloating statistics.
+<p>
+These are my notes from the night when I learned these tools. It 
+will take you from clueless to empowered (able to compile a HelloWorld program). 
+I couldn't find a working equivalent. So, I hope this information will be 
+helpful, but it is provided with no warranty or gaurantee. If you break anything 
+you get to keep both pieces.
+<br>
+
+<a href="#top">[top]</a>
+
+<a name="req"></a>
+<h2>2. Requirements</h2>
+
+<p> You'll need to download the PRC tools, the palm emulator, the PalmOS &copy; SDK, and some <a href="http://www.gnu.org/">GNU</a> 
+development tools ( see <a href="#dloads">downloads</a> ). I downloaded to ~/palm/archive (YMMV). </p>
+
+<h4>PalmOS &copy; SDK</h4>
+Get sdk,examples, and docs (hidden behind cgi that makes you read license agreement) <br>
+<a href="http://www.palmos.com/dev/tech/tools/sdk35.cgi">http://www.PalmOS.com/dev/tech/tools/sdk35.cgi</a><br>
+<li>sdk35-docs.tar.gz
+<li>sdk35-examples.tar.gz
+<li>sdk35.tar.gz
+
+<h4>PalmOS &copy; Emulator</h4>
+<p> Building the emulator for linux was a another step I didn't want to deal 
+with <b>yet</b>. Fear not. It's Weller with 2 L's. I will do it soon, and I'll 
+rewrite this doc to reflect that portion. For now I just got the windows prebuilt emulator and skins. 
+Pretty straight forward. You install a palm app that comes with the package to 
+your handheld. This allows you to download the PalmOS &copy; image from the palm's rom.  
+You have to pay money and sign an NDA (double whammy) to get other rom 
+images/versions. Anybody got an archive ;) Do the deed as in the readmes and 
+Blamh your palm on your desktop. Plus you can hotsync over the network with the 
+regular hotsync manager and the emulator. </p>
+
+<a href="http://www.palmos.com/dev/tech/tools/emulator/">http://www.PalmOS.com/dev/tech/tools/emulator/</a><br>
+<li>emulator-win.zip
+<li>emulator_skins_15.zip
+
+<h4>PRC Tools</h4>
+Get the prc tools (patches to <a href="http://www.gnu.org/">GNU</a> tools and some palm tools )<br>
+<a href="http://www.palmos.com/dev/tech/tools/gcc/">http://www.PalmOS.com/dev/tech/tools/gcc/</a><br>
+<li>prc-tools-2.0.tar.gz
+
+<h4>GNU Tools</h4>
+Get gdb,gcc,binutils<br>
+<a href="ftp://ftp.gnu.org/pub/gnu">ftp://ftp.gnu.org/pub/gnu</a><br>
+ <li>gdb-4.18.tar.gz
+ <li>gcc-2.95.2.tar.gz
+ <li>binutils-2.91.tar.gz
+
+<br><br>
+<a href="#top">[top]</a><a name="install"></a>
+<h2>3. Setting up, building and installing the tools</h2>
+Now your ready to unpack, configure, build, and install the tools. You need to do all 
+the commands listed in the box below: including LONG ASS COMPILE&reg;: Complete with Jim-isms and fixes. 
+Here are some things to keep in mind about the commands in the box below.<br><br>
+<li> The SDK is not right for linux. You'll notice a move from the "Palm OS 3.5 Support" to sdkpalmos-3.5 and Incs to includes.
+<li> Since you'll need your new versions of binutils during the build, put /usr/local/palm/bin in your PATH ahead of time
+<li> I use the MYARCHIVEDIR and MYPALMDIR variables to store the location of important files
+<li> The default install goes to /usr/local. I like to comparmentalize things in /usr/local/&lt;app&gt;. That's
+/usr/local/palm in this case. Then I add /usr/local/palm/bin to my PATH.<br><br>
+<table border=0 cellspacing=0 cellpadding=5>
+<tr>
+<td bgcolor="#d9d9d9">
+<pre>
+  export MYPALMDIR=/root/palm
+  export MYARCHIVEDIR=$MYPALMDIR/archive
+  export PATH=/usr/local/palm/bin:$PATH
+  mkdir /usr/local/palmdev
+  mkdir /usr/local/palm
+  cd $MYPALMDIR
+  tar -xzf $MYARCHIVEDIR/sdk35.tar.gz
+  mv Palm\ OS \ 3.5\ Support/ /usr/local/palmdev/sdkpalmos-3.5
+  cd /usr/local/palmdev/sdkpalmos-3.5
+  mv Incs include
+  cd $MYPALMDIR
+  mkdir src
+  cd src
+  tar -xzf $MYARCHIVEDIR/binutils-2.9.1.tar.gz
+  tar -xzf $MYARCHIVEDIR/gcc-2.95.2.tar.gz
+  tar -xzf $MYARCHIVEDIR/gdb-4.18.tar.gz
+  tar -xzf $MYARCHIVEDIR/prc-tools-2.0.tar.gz
+  cat prc-tools-2.0/{binutils-2.9.1,gcc-2.95.2,gdb-4.18}.palmos.diff | patch -p0
+  cd prc-tools-2.0/
+  ln -s ../binutils-2.9.1 binutils
+  ln -s ../gcc-2.95.2 gcc
+  ln -s ../gdb-4.18 gdb
+  cd ..
+  mkdir build
+  cd build
+  mkdir empty
+  ../prc-tools-2.0/configure \
+    --target=m68k-palmos; \
+    --enable-languages=c,c++  \
+    --with-headers=`pwd`/empty  \
+    --sharedstatedir=/usr/local/palmdev \
+    --prefix=/usr/local/palm --with-build-sdk=3.5 \
+    --exec-prefix=/usr/local/palm;
+  make all-install
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+Assuming all goes as expected. You'll have the SDK stuff in /usr/local/palmdev 
+and then platform specific tools (m68k-palmos-gcc,m68k-palmos-c++,m68k-palmos-ranlib, etc.) in /usr/local/palm. Now 
+put /usr/local/palm/bin in your permanent path (edit .bashrc,.cshrc, profile etc.).
+</p>
+
+
+
+<a href="#top">[top]</a><a name="hello"></a>
+<h2>4. A Hello World Program</h2>
+
+<p>
+Now you can compile a hello proggie.
+<p>
+I had to hack up all the demos from the HOWTOs after 
+reading the SDK header files. The header names, primitive types, and compiler 
+tool's names are incorrect for version 3.5 of the PalmOS &copy; SDK in the HOWTO 
+samples. Plus, it appears that the Examples that come with the SDK all have zero length 
+resource files (e.g. SampleCalculator.rsrc). I compiled the packages, but they 
+crashed on the emulator.
+<p>
+Save the below snippet in a text file called hello.c .
+
+</p>
+
+<a href="../../../www.jimweller.net/palmdevqs-files/hello.html">hello.c</a><br>
+<table border=0 cellspacing=0 cellpadding=5>
+<tr>
+<td bgcolor="#d9d9d9">
+
+<pre>
+#include &lt;PalmOS.h&gt;
+
+// ---------------------------------------------------------------------
+// PilotMain is called by the startup code and implements a simple event
+// handling loop.
+// ---------------------------------------------------------------------
+UInt32 PilotMain( UInt16 cmd, void *cmdPBP, UInt16 launchFlags )
+{
+    EventType event;
+
+
+    if (cmd == sysAppLaunchCmdNormalLaunch) {
+
+        //  Display a string.
+        WinDrawChars( "Hello, world!", 13, 55, 60 );
+
+        //  Main event loop:
+        do {
+            //  Doze until an event arrives.
+            EvtGetEvent( &event, evtWaitForever );
+
+            //  System gets first chance to handle the event.
+            SysHandleEvent( &event );
+
+            //  Normally, we would do other event processing here.
+
+        // Return from PilotMain when an appStopEvent is received.
+        } while (event.eType != appStopEvent);
+    }
+    return;
+}
+
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+You can compile it like this. Did you fix your PATH to have /usr/local/palm/bin ?
+</p>
+
+<table border=0 cellspacing=0 cellpadding=5>
+<tr>
+<td bgcolor="#d9d9d9">
+<pre>
+  m68k-palmos-gcc hello.c -o hello
+  m68k-palmos-obj-res hello
+  build-prc hello.prc "Hello, World" WRLD *.hello.grc
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+Blamho! Now you'll have a hello.prc that you can put in the emulator (works!) or in your palm (WORKS!).<br><br>
+</p>
+
+<a name="screenshots"></a>
+<a href="#top">[top]</a><a name="hello"></a>
+<h2>5. Screen Shots</h2>
+<p>Here's some pics and screen shots of the emulator (running under windows) running hello.prc (compiled under linux).
+You'll note the name of the app is what was specified on the build-prc command line. I also tested the hello.prc file
+on my PalmIIIe. It Works!
+</p>
+<img src="pics/emulator.gif" align=top> &nbsp; <img src="pics/launcher.gif"> &nbsp; <img src="pics/hello.gif">
+<br><br>
+
+<a href="#top">[top]</a><a name="refs"></a>
+<h2>6. References</h2>
+I glommed all this together from the following urls.<br><br>
+
+<li>PRC tools<br> 
+<a href="http://www.palmos.com/dev/tech/tools/gcc/">http://www.PalmOS.com/dev/tech/tools/gcc/</a><br>
+<br>
+<li>How to build prc tools (see notes)<br> 
+<a href="http://www.palmos.com/dev/tech/tools/gcc/building.html">http://www.PalmOS.com/dev/tech/tools/gcc/building.html</a><br>
+<br>
+<li>POSE the PalmOS &copy; emulator (gotta' sell soul to NDA demon to get ROMS)<br> 
+<a href="http://www.palmos.com/dev/tech/tools/emulator/">http://www.PalmOS.com/dev/tech/tools/emulator/</a><br>
+<br>
+<li>PalmOS &copy; SDK version 3.5 (broken for linux) (see notes)<br> 
+<a href="http://www.palmos.com/dev/tech/tools/sdk35.cgi">http://www.PalmOS.com/dev/tech/tools/sdk35.cgi</a><br>
+<br>
+<li>GNU (The Ivory Tower)<br> 
+<a href="ftp://ftp.gnu.org/pub/gnu">ftp://ftp.gnu.org/pub/gnu</a><br>
+<br>
+<li>POSE HOWTO<br> 
+<a href="http://www.netmeister.org/palm/POSE/POSE-HOWTO.html">http://www.netmeister.org/palm/POSE/POSE-HOWTO.html</a><br>
+<br>
+<li>Palm Development howto<br> 
+<a href="http://www.orbits.com/Palm/PalmDevelopment-HOWTO.html">http://www.orbits.com/Palm/PalmDevelopment-HOWTO.html</a><br>
+<br>
+<li>Palm development article<br> 
+<a href="http://www.cyberport.com/~tangent/palm/faq/articles/gcc.html">http://www.cyberport.com/~tangent/palm/faq/articles/gcc.html</a>
+<br><br>
+
+
+<a href="#top">[top]</a><a name="dloads"></a>
+<h2>7. Downloads</h2>
+ I have copies of the software mentioned locally here at  <a href="http://www.jimweller.net/">jimweller.net</a>. Some of it is protectected by licenses. So be sure and read those. And be all legal and stuff.
+It is only a 128K connection, but for what it's worth here ya' go:<br><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/binutils-2.9.1.tar.html">binutils-2.9.1.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/emulator-win.html">emulator-win.zip</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/emulator_skins_15.html">emulator_skins_15.zip</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/gcc-2.95.2.tar.html">gcc-2.95.2.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/gdb-4.18.tar.html">gdb-4.18.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/prc-tools-2.0.tar.html">prc-tools-2.0.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/sdk35-docs.tar.html">sdk35-docs.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/sdk35-examples.tar.html">sdk35-examples.tar.gz</a><br>
+<A href="../../../www.jimweller.net/palmdevqs-files/sdk35.tar.html">sdk35.tar.gz</a><br>
+<a href="../../../www.jimweller.net/palmdevqs-files/hello.html">hello.c</a><br><br>
+
+<a href="#top">[top]</a>
+
+
+<br>
+<br>
+<hr>
+<p align=right>
+All trademarks and copyrighted materials on this page are owned by their respective owners. The Rest Copyright &copy; <a href="http://www.jimweller.net/">Jim Weller</a> 2001.

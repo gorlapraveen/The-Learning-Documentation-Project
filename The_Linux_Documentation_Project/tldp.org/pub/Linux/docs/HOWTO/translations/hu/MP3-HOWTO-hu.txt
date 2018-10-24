@@ -1,0 +1,1466 @@
+  Linux MP3 HOGYAN
+  Írta Philip Kerr, phil@plu24.com
+  v1.31, 2000 március
+
+  Ez a dokumentum a Linux alatti MP3 készítés és lejátszás hardver- és
+  szoftverkövetelményeit írja le.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+  1. Bevezetés
+  2. A dokumentumra vonatkozó szerzõi jogok
+  3. A dokumentum lelõhelye
+     3.1 Fordítások
+
+  4. Köszönetnyilvánítás
+  5. Jogi felelõsség
+  6. Hardverkövetelmények és a sebesség kérdése
+  7. Szoftverkövetelmények
+     7.1 WAV-leszedõk és -felvevõk
+     7.2 MP3-kódolók
+     7.3 Lejátszók
+     7.4 MP3-folyamok szolgáltatása
+     7.5 Egyéb
+
+  8. A rendszer beállítása
+     8.1 Beállítások az analóg hangfelvételhez
+     8.2 Hangfelvétel a CD-ROM-ról
+     8.3 További beállítások
+
+  9. MP3 elõállítás hangforrásból
+  10. MP3 készítés a CD-ROM-ról
+     10.1 Kódolás a parancssorból
+     10.2 Grafikus felhasználói felülettel rendelkezõ MP3-kódolók
+     10.3 A kódolók teljesítménye
+
+  11. MP3 folyamok
+     11.1 Icecast
+        11.1.1 Shout
+     11.2 Fluid
+     11.3 A sávszélességgel kapcsolatos megfontolások
+     11.4 A szerzõi jogok problémaköre
+
+  12. Az MP3 lejátszása
+     12.1 Fájl lejátszása
+     12.2 MP3-folyamok lejátszása
+
+  13. Visszajelzés
+
+
+  ______________________________________________________________________
+
+  1.  Bevezetés
+
+  Ez a dokumentum a Linux alatti MP3 készítés és lejátszás hardver- és
+  szoftverkövetelményeit írja le.
+
+  A tartalomból:
+
+  MP3 készítése elõ vagy külsõ forrásból
+
+  MP3 készítése audio CD-rõl
+
+  MP3 folyam átküldése a hálózaton keresztül (streaming)
+
+  MP3 lejátszása
+
+
+
+  2.  A dokumentumra vonatkozó szerzõi jogok
+
+  Az MP3 HOGYAN szerzõi jogait Phil Kerr birtolkolja (2000).
+
+  Hungarian translation © Tímár András, 1999, 2000.
+
+  A Linux HOGYAN dokumentumok szerzõi joga a megfelelõ szerzõké, hacsak
+  másképp nem rendelkeznek. A Linux HOGYAN dokumentumokat szabad részben
+  vagy egészben másolni és terjeszteni bármilyen fizikai vagy
+  elektronikus adathordozón, de ezt a szerzõi jogokra vonatkozó
+  megjegyzést minden másolathoz mellékelni kell. Az üzleti célú
+  terjesztés megengedett és bátorított, de a szerzõ szeretne tudomást
+  szerezni minden ilyen terjesztésrõl.
+
+  Minden Linux HOGYAN-on alapuló fordítás, származtatott mû vagy
+  összefoglaló munka ezen szerzõi jogi kötelmek alá kell essen. Ez azt
+  jelenti, hogy nem szabad olyan HOGYAN-on alapuló mûvet létrehozni,
+  amely további megkötéseket tartalmaz a terjesztésre. Bizonyos
+  feltételek esetén ezek a szabályok figyelmen kívül hagyhatóak, errõl a
+  Linux HOGYAN koordinátor ad felvilágosítást a lent olvasható címen.
+
+  Röviden megfogalmazva, szeretnénk, ha az információ  minél több
+  csatornán elterjedne, de szeretnénk megtartani a HOGYAN dokumentumok
+  szerzõi jogát, és szeretnénk értesülni bármilyen terjesztési tervrõl.
+
+  Kérdésekkel a Linux HOGYAN koordinátorát, Tim Bynumot lehet megkeresni
+  a linux-howto@metalab.unc.edu drótpostacímen.
+
+
+  3.  A dokumentum lelõhelye
+
+  Ezen dokumentum legfrissebb (angol) verziója megszerezhetõ a Linux
+  Documentation Project honlapjáról ( <http://www.linuxdoc.org/>).
+
+  Létrehoztam egy külön honlapot is ennek a HOGYAN-nak:
+  <http://www.mp3-howto.com/>
+
+
+  3.1.  Fordítások
+
+  Ez a HOGYAN a következõ nyelvekre lett lefordítva:
+
+  Megegyzendõ, hogy a fordítások nem feltétlenül felelnek meg a
+  dokumentum legfrissebb verziójának, hiszen a fordítás idõt vesz
+  igénybe.
+
+  Koreai
+
+  <http://kldp.org/HOWTO/MP3-HOWTO>, Lee So-min <animator@nownuri.net>
+
+  Francia
+
+  <http://www.freenix.org/unix/linux/HOWTO/MP3-HOWTO.html>, Arnaud
+  Gomes-do-Vale <arnaud@carrosse.frmug.org>
+
+  Magyar
+
+  <http://free.netlap.hu/howto/MP3-HOGYAN.html>, Tímár András
+  <atimar@itp.hu>
+
+  Olasz
+
+  <ftp://ftp.pluto.linux.it/pub/pluto/ildp/HOWTO/MP3-HOWTO>, Mariani
+  Dario <darkpand@uni.net>
+
+  Spanyol
+
+  <http://www.insflug.org/documentos/MP3-Como>, Arielo
+  <larocka@yahoo.com>
+
+  Nagyon köszönöm a fordítók munkáját. Ha lefordítottad más nyelvre ezt
+  a HOGYAN-t, kérlek, írj egy emailt, és add meg az URL-t, ahol a
+  fordítás elérhetõ.
+
+
+
+  4.  Köszönetnyilvánítás
+
+  Az MP3 HOGYAN írásában nagy segítségemre volt Jeff Tranter Sound-
+  HOWTO-ja és Yoo C. Chung Sound-Playing-HOWTO-ja.
+
+  Köszönettel tartozom továbbá az alábbi HOGYAN szerzõknek, akik
+  munkájára hivatkoztam:
+
+  Lars Wirzenius - Linux System Administrators Guide (SAG),
+
+  Olaf Kirch - Linux Network Administrators Guide (NAG),
+
+  Stein Gjoen - Multi Disk System Tuning HOWTO .
+
+  Nagyon köszönöm mindenkinek, aki javaslataival vagy hibajelentéseivel
+  segítette a munkámat.
+
+  Különösen hálás vagyok a kollégáimnak a WebSentric AG-nél, név szerint
+  Mark S. Fischernek és Peter Conradnak, a megjegyzéseikért,
+  visszajelzéseikért és a támogatásukért.
+
+
+
+  5.  Jogi felelõsség
+
+  A dokumentumban közölt információt mindenki a saját felelõsségére
+  használhatja. A dokumentum tartalmára vonatkozó minden lehetséges
+  felelõsséget elhárítok. Az ötleteket, példákat és/vagy a dokumentum
+  más tartalmát a felhasználó kizárólag a saját felelõsségére használja.
+
+  A szerzõi joggal a jogtulajdonosok rendelkeznek, hacsak kifejezetten
+  másképp nem rendelkeztek másutt.  Bármilyen kifejezés használata ebben
+  a dokumentumban nem tekinthetõ semmilyen bejegyzett védjegy
+  érvényessége megkérdõjelezésének.
+
+  Egyes termékek vagy márkák megnevezése nem feltétlenül jóváhagyott.
+  Javasolt, hogy mindenki mentse le az adatait egy nagyobb telepítés
+  elõtt és megadott idõközönként.
+
+
+  6.  Hardverkövetelmények és a sebesség kérdése
+
+  A digitális hangfeldolgozás sok erõforrást köt le, és erõsen függ a
+  rendszer számítási és I/O képességeitõl.  Minimum Pentium osztályú gép
+  ajánlott.
+
+  Ha analóg hangjelet szeretnénk kódolni a hangkártya mikrofon vagy line
+  bemenetén keresztül, akkor egy PCI buszos hangkártya adja a legjobb
+  eredményt. Az ISA és PCI buszon alapuló hangkártyák között jelentõs
+  I/O sebességkülönbség lehet, a PCI busz sebessége több, mint 132
+  MBit/másodperc (idézet a PCI-HOWTO-ból).  Természetesen minél jobb a
+  hangkártya jel/zaj aránya, annál jobb lesz az MP3 minõsége.  Eddig
+  Soundblaster PCI128-at használtam, és nemrégiben váltottam egy
+  Soundblaster Live Value kártyára. Mindkét kártya hangminõsége jó, de a
+  Live kimutathatóan jobb jel/zaj aránnyal rendelkezik, megfelelõ
+  félprofesszionális munkára.  Emlékezzünk a régi adatfeldolgozási
+  tételre: ha a bemenet szemét, a kimenet is az lesz.
+
+  A Creative elérhetõvé tette a Sounblaster Live! hangkártyához
+  kifejleszett linuxos beta meghajtóprogjamját.
+
+  <http://developer.soundblaster.com/linux/>
+
+
+  Az analóg hanganyag merevlemezre mentésénél a lemez és az
+  illesztõkártya sebessége rendkívül fontos.  IDE alapú rendszereknél a
+  mode 4 vagy az UDMA képesség részesítendõ elõnyben, ezeknek az
+  átviteli sebessége már elég nagy ahhoz, hogy biztosítsa  a
+  problémamentes adatátvitelt.
+
+  Az ideális megoldás a SCSI alapú rendszer használata, ugyanis a
+  meghajtók és az illesztõkártya sokkal gyorsabbak, a SCSI1 5
+  Mbit/másodperces állandó sebességétól kezdve egészen az UltraWide SCSI
+  80 Mbit/másodperces sebességéig. Az IDE csúcssebessége bármi lehet 8,3
+  MB/mp-tõl 33 MB/mp-ig (az Ultra-ATA-nál), de ezek a maximális
+  sebességek, az átlagos átviteli sebesség kisebb.  Aki megengedheti
+  magának, vegyen AV SCSI merevlemezt.  Az AV meghajtók író/olvasó fejét
+  folyamatos adatátvitelre optimalizálták. Más SCSI és IDE meghajtók
+  általában nem képesek fenntartani a folyamatos adatátvitelt, mert az
+  írófej felmelegszik.
+
+  Természetesen a cache-el rendelkezõ lemezegységek jobb teljesítményt
+  fognak mutatni, mint azok, amelyekben nincs cache, mert amíg a fej
+  mozog, vagy a lemezegység nem tud megbirkózni a rázúduló adatokkal,
+  addig a cache befogadja az adatokat.
+
+  Ha a lemezmeghajtó nem felel meg ezeknek a feltételeknek, akkor a
+  felvételben pattogások és ugrások lesznek ott, ahol a lemez nem tudta
+  felvenni a jelet.  Élõ, megismételhetetlen események hangfelvételére
+  ajánlatos egy jó SCSI alapú lemez-alrendszer beszerzése.
+
+  A másik gyakori oka a felvétel közbeni kihagyásoknak a túlzottan
+  leterhelt rendszer.  A háttérben futó programok a rendszer pillanatnyi
+  hibázását okozhatják.  Ajánlott minél kevesebb programot futtatni a
+  háttérben, különösen a hálózatot használó programok kerülendõek. A
+  hálózati programok beállításairól és  a gép indulásakor lefutó
+  scriptekrõl a SAG és a NAG könyvekben található több információ.
+
+  A virtuális memória lapozása szintén okozhat zavarokat, ezért annyi
+  fizikai memóriát használjunk, amennyit csak tudunk, javasolt a 32 MB,
+  de esetleg sokkal többre is szükség lehet.
+
+  Ha a maximumot szeretnénk kihozni egy rendszerbõl, akkor a kernel
+  optimalizálása sem fog ártani.
+
+  Bár a fent megadott jellemzõkkel rendelkezõ rendszer megfelelõ a
+  hangadatok MP3 formátumra kódolásához, ne mondjunk le egy szerényebb
+  teljesítményû gép használatáról, ha csak ilyenhez van hozzáférésünk.
+
+  Érdekes kihívás lehet egy rendszergazda számára egy szerényebb
+  képességû gép beállítása, és a végeredmény esetleg egy jó eredményt
+  felmutató linuxos gép lesz.
+
+  Egy másik fontos kérdéskör  az audiokábeleké.  Az olcsó, gyenge
+  minõségû kábelek és csatlakozók használata rossz minõségû felvételt
+  eredményez.  Ha a hangkártyán van RCA bemenet, akkor azt kell
+  használni.  Az aranybevonatú csatlakozók szintén segítenek fenntartani
+  a jó hangminõséget. Az audiokábeleket tartsuk távol az adatkábelektõl,
+  hogy elkerüljük az interferenciát.
+
+  Ne feledjük ellenben, hogy hiába költünk egy vagyont a legjobb
+  audiokábelekre, ha a rendszer többi része nem optimalizált.
+
+  Ha CD-ROM-ról szerezzük az MP3 fájlok nyersanyagát, a meghajtó
+  sebessége határozza meg a nyers adatok olvasási idejét.   Az egyszeres
+  sebességû meghajtók csak a nagyon türelmes embereknek ajánlhatóak.
+
+  Ha szeretnénk hallani, hogy mit veszünk fel, a CD-ROM-ot  össze kell
+  kötni a hangkártyával a belsõ csatlakozó használatával, vagy
+  egyszerûen egy fejhallhalgatót is csatlakoztathatunk a CD-ROM
+  fejhallgató kimenetére. Ez utóbbi esetben ne feledjük, hogy az MP3
+  számokat nem lehet a CD-ROM fejhallgató kimenetén keresztül
+  meghallgatni.
+
+  A hangkártyák telepítésérõl részletesen olvashatunk a  Sound-HOWTO-
+  ban.
+
+
+  7.  Szoftverkövetelmények
+
+  A hanganyag MP3-ba kódolása általában kétlépcsõs folyamat, elõször a
+  hangot WAV formátumba kell felvenni, és aztán a WAV fájlt konvertáljuk
+  MP3-ba.  Néhány segédprogram egy lépésben megcsinálja ezt a két
+  folyamatot.
+
+  A hanganyag forrásától (CD vagy közvetlen felvétel) függõen más-más
+  programokra van szükségünk a WAV fájlok elõállításához.
+
+  Ha közvetlenül szeretnénk felvételeket készíteni a hangkártyánkkal,
+  akkor egy olyan programra van szükségünk, ami a hangkártya bemenetére
+  érkezõ jelet WAV formátumban tudja elmenteni. A következõkben néhány
+  hasznos segédprogramot ismertetek (a információk nagy része az illetõ
+  alkalmazás honlapjáról származik):
+
+
+  7.1.  WAV-leszedõk és -felvevõk
+
+  Analóg hangforrásból tud WAV fájlokat felvenni a
+
+  Wavrec
+
+  A wavrec a wavplay csomag része, ami letölthetõ innen:
+
+  <ftp://sunsite.unc.edu/pub/Linux/apps/sound/players/>
+
+  A CD hangadatainak WAV formátumra alakításához használható a
+
+  CDDA2WAV
+
+  <http://metalab.unc.edu/pub/Linux/apps/sound/cdrom/>
+
+  és a Cdparanoia
+
+  <http://www.xiph.org/>
+
+  A cdparanioa a hagyományos audio CD (CDDA) lemezekrõl olvassa le az
+  adatokat. Az alkalmazás a Paranoia programkönyvtárra épül, amely a
+  tényleges munkát végzi. A cdparanoia forrásában megtalálható a
+  Paranoia forráskódja is. Akár az eredeti cdda2wav, a cdparanoia is
+  digitális adatként olvassa le a CD-rõl a hangsávokat, nincs közben
+  analóg lépés, és az adatokat fájlba vagy egy csõbe (pipe) írja WAV,
+  AIFC vagy nyers 16 bites lineáris PCM formátumban. A cdda2wav
+  programmal összehasonlítva a cdparanoia sokkal lassabbnak bizonyul, de
+  ezzel a programmal lehet a legjobb eredményeket elérni a karcos, vagy
+  más okból nehezen olvasható CD-knél.
+
+  <http://www.xiph.org/paranoia/index.html>
+
+  RipperX
+
+  A RipperX egy GTK program, amely nemcsak a hangsávok leszedését
+  támogatja, hanem az MP3-ba alakítást is. Különbözõ plugin-ek állnak
+  rendelkezésre a cdparanoia, BladeEnc, Lame Mp3 encoder, XingMp3enc,
+  8hz-mp3, lame és az ISO v2 encoder programokhoz, továbbá lehetséges a
+  CDDB (CD-k adatait tartalmazó internetes adatbázis) és az ID3 (rövid
+  megjegyzés az MP3 fájlokban) használata is.
+
+  <http://www.digitallabyrinth.com/linux/ripperX/>
+
+
+  7.2.  MP3-kódolók
+
+  A WAV fájl MP3-ba alakításához egy MP3-kódoló programra van szükség.
+
+  Blade's MP3 Encoder
+
+  A BladeEnc egy ingyenes MP3-kódoló program. Ugyanazokon az ISO
+  tömörítõrutinokon alapul, mint az mpegEnc, úgyhogy körülbelül ugyanaz
+  a minõség várható tõle, esetleg egy kicsit jobb. A fõ különbség a
+  megjelenés és a sebesség. A BladeEnc nem rendelkezik olyan
+  felhasználóbarát felülettel, mint az mpegEnc, de több mint háromszor
+  gyorsabb, és egy csomó népszerû grafikus felhasználói felülettel
+  rendelkezõ keretprogrammal együttmûködik.
+
+  <http://bladeenc.cjb.net>
+
+  Lame
+
+  A híres GNU nevezéktanban a LAME a ``LAME Ain't an MP3 Encoder'' (a
+  LAME nem egy MP3-kódoló) kifejezés rövidítése. A LAME tényleg nem egy
+  MP3-kódoló, hanem csak egy GPL alá helyezett folt az ISO demo
+  forráskódjában. A LAME teljesen alkalmatlan MP3 folyam létrehozására.
+  Le sem lehet fordítani egymagában, szükség van hozzá az ISO
+  forráskódra is. Az ISO demo forráskód szintén ingyen rendelkezésre
+  áll, de minden üzleti jellegû felhasználáshoz, beleértve az ingyenes
+  illetve szabad MP3-kódolókkal való terjesztést is, licencszerzõdést
+  kell kötni a németországi Fraunhofer Gesellschaft-tal.
+
+  <http://www.sulaco.org/mp3/>
+
+  Gogo
+
+  Ez egy nagyon gyors MP3-kódoló az x86 processzorcsaládra, amely a LAME
+  3.29beta verzióján alapul, de PEN@MarineCat, Keiichi SAKAI, URURI, kei
+  és shigeo optimalizálták a kódot. (A forráskód lefordításáshoz
+  szükséges a NASM program is, amely letölthetõ a  <http://www.web-
+  sites.co.uk/nasm/> címrõl.)
+
+  <http://homepage1.nifty.com/herumi/gogo_e.html>
+
+
+  7.3.  Lejátszók
+
+
+
+  Az MP3 fájlok lejátszásához külön lejátszóprogram szükséges:
+
+
+  Xmms (Régebben  X11Amp-nak hívták)
+
+  Ez a  lejátszó nagyon hasonlít a Windows platformon népszerû Winamp
+  programra, a legtöbb funkció megegyezik, természetesen van néhány
+  linux-specifikus sajátossága is.
+
+  <http://www.xmms.org>
+
+
+  Xaudio
+
+  Az Xaudio nagyon gyors és robusztus több platformon is használható
+  program, amely digitális hanglejátszásra alkalmas, különösen az MPEG
+  Audio (MP1, MP2 és MP3) dekódolásában jeleskedik.
+
+  <http://www.xaudio.com>
+
+  AlsaPlayer
+
+  Az AlsaPlayer egy új típusú PCM-lejátszó. Több szálon fut, és a
+  támaszkodik az ALSA programkönyvtárakra és meghajtókra. Van néhány
+  nagyon érdekes sajátossága, amely egyedülálló a Unix/Linux lejátszók
+  világában. A cél egy olyan keretrendszer létrehozása, amely minden
+  fajta médiát képes lejátszani, de a fõ hangsúly a PCM formátumú
+  hangadat lejátszásán van. A sebesség (hangmagasság) teljes körûen
+  szabályozható, pozitív *és* negatív irányba is! Ez az elsõ linuxos és
+  az egyetlen GPL-es lejátszó, ami erre képes!! MP3 és CD lejátszása
+  változtatható sebességen :)
+
+  <http://www.alsa-project.org/~andy/>
+
+  mpg123
+
+  Mi az mpg123? Egy gyors, szabad és hordozható MPEG audio lejátszó
+  Unixra.  Támogatja az MPEG 1.0/2.0 layer 1, 2 és 3 szabványokat, és
+  egy csomó platformon tesztelték már, többek között Linux, FreeBSD,
+  NetBSD, SunOS, Solaris, IRIX, HP-UX és egyebek.  A CD minõségû
+  lejátszáshoz (44 KHz, 16 bit, sztereó) Pentium (vagy gyors 486),
+  SPARCstation10, DEC Alpha vagy hasonló processzor szükséges. A monó
+  és/vagy csökkentett minõségû hanglejátszás (22 kHz vagy 11 kHz)
+  lassabb 486 processzorokon is lehetséges.
+
+  <http://dorifer.heim3.tu-clausthal.de/~olli/mpg123/>
+
+  Freeamp
+
+  A FreeAmp egy bõvíthetõ, több platformon is elérhetõ hanglejátszó. A
+  dekódoláshoz a GPL alá helyezett Xing MPEG dekóder optimalizált
+  verzióját használja, emiatt az egyik leggyorsabb és legszebb hangzású
+  lejátszó a piacon. A FreeAmp rendelkezik mindazokkal a
+  szolgáltatásokkal, amelyeket felhasználók elvárnak a könnyen kezelhetõ
+  és letisztult felhasználói felülettel kapcsolatban.
+
+  <http://www.freeamp.org/>
+
+
+  7.4.  MP3-folyamok szolgáltatása
+
+
+  Az MP3-folyamok adására képes programok segítségével MP3 formátumú
+  adást ``sugározhatunk'' a hálózaton keresztül, legyen az egy intranet
+  vagy akár maga az Internet.
+
+  Icecast
+
+
+  Az icecast egy Mpeg Layer III formátumban sugárzó rendszer, amelyet a
+  linuxpower.org csapata készített. Az icecast programmal egy csomagban
+  megtalálható az iceplay és az icedir program is.  Az iceplay
+  segítségével kódolt fájlokat küldhetünk az icecast kiszolgálónkra.
+
+  <http://www.icecast.org/>
+
+  Fluid
+
+  A Fluid Streaming Server program segítségével médiafolyamokat
+  küldhetünk át a hálózaton.  Jelenleg a program az MP3 formátumot
+  használja.
+
+  <http://www.subside.com/fluid/> (régi honlap)
+  <http://fluid.sourceforge.net/> (új honlap)
+
+
+  7.5.  Egyéb
+
+  Hangerõkiegyenlítés
+
+  Wavnorm
+
+  Élõ forrás felvétele esetén, vagy régebbi CD-kbõl készített MP3
+  fájloknál tapasztalható a hangerõ váltakozása.
+
+  A hangerõsségek kiegyenlítéséhez használhatjuk a wavnorm programot.
+
+  <http://www.zog.net.au/computers/wavnorm/>
+
+
+  A sox egy nagyon hasznos hangkonvertáló segédprogram, javaslom a
+  beszerzését, azon kívül szükség is lesz rá a  wavnorm használatához.
+
+  <ftp://sunsite.unc.edu/pub/Linux/apps/sound/convert/>
+
+
+
+  Esetleg szükség lehet egy keverõprogramra, az Xmixer jól használható,
+  és a legtöbb disztribúciónak része.
+
+
+  8.  A rendszer beállítása
+
+  Ez a fejezet bemutatja az alapvetõ beállításokat, amelyekkel a Linux
+  alapú rendszer képessé válik hangfelvételek készítésére, akár analóg
+  forrásból, akár CD-ROM-ról.
+
+  A fejezet alapjául egy Intel platformon futó RedHat rendszer szolgált,
+  de a leírtak eléggé diszribúciófüggetlenek. Hamarosan elkészítem a
+  Sparc platformra vonatkozó verziót. (Ha bárkinek sikerül ezt a HOGYAN-
+  t más hardveren használni, kérem, lépjen velem kapcsolatba.)
+
+  Egy mûködõ hangkártyára természetesen szükség lesz.  Ezen a ponton
+  szeretném felhívni a figyelmet a remek Linux Sound HOWTO-ra, amit Jeff
+  Tranter írt.  Ezután következhet a Yoo C. Chung által írt Linux Sound
+  Playing HOWTO.  Mindkét említett írás sokkal részletesebben és jobban
+  tartalmazza a hangkártyák telepítésének és mûködtetésének fortélyait,
+  mint ahogy én meg tudnám fogalmazni.
+
+
+  8.1.  Beállítások az analóg hangfelvételhez
+
+  Elõször állítsuk be a hangforrást.  Rengeteg lehetõség van a
+  hangforrás és a linuxos gép összekötésére, a leggyakoribbak a
+  következõk.
+  A 'Line out'-ot csatlakoztassuk a hangkártya 'Line in' bemenetére. A
+  legtöbb audio berendezésnek van 'Line out' kimenete.  A Line szint
+  szabványban rögzített, ami megadja, hogy milyen feszültséget ad ki az
+  audio eszköz. Ha jól emlékszem, ez 500 mV a háztartási és
+  félprofesszionális eszközökre és 750 mV a professzionális eszközökre.
+  Tippem szerint a szabvány 500 mV-t ír elõ a legtöbb hagkártyára, de
+  néhány újabb professzionális eszköz esetleg a fejlettebb szabványt
+  támogatja.  Ez nem okozhat nagy különbséget, hacsak nem akarunk nagyon
+  magas szinten felvenni.
+
+  A Line szintû kimenetet szokták az erõsítõhöz kötni  a hifi
+  berendezésekben, tehát a kazettás magnók, rádiók, CD-lejátszók, DAT
+  magnók és a Mini-Disc lejátszók gond nélkül csatlakoztathatóak.  A
+  lemezjátszó már gondot okozhat, lásd lejjebb.
+
+  Videomagnóról is felvehetünk hangot.  A legtöbb videomagnónak van
+  'Line out' kimenete a hang számára, de a SCART csatlakozóról is
+  leszedhetõ jel, ha van a videonkon.
+
+  Az erõsítõ 'Tape out' kimenetét a hangkártya 'Line in' bemenetébe és a
+  hangkártya 'Line out' kimenetét az erõsítõ 'Tape in' bemenetére. Ez az
+  elrendezés tulajdonképpen lecseréli a hagyományos kazettás magnót a
+  linuxos rendszerre.   A 'Line out' -> 'Tape in' csatlakozás lehetõvé
+  teszi a felvételi szint figyelését.
+
+  Mikrofon a hangkártya 'Mike in' bemenetére. A mikrofon által generált
+  feszültség sokkal kisebb, mint a Line feszültségszintje.   Ha a
+  hangkártya 'Line in' bemenetébe dugjuk a mikrofont, nagy
+  valószínûséggel nem veszünk fel semmit.
+
+  FIGYELEM! ha fordítva csináljuk, azaz a mikrofonbemenetre
+  csatlakoztatjuk a 'Line out'-ot, tönkretehetjük a hangkártyát.
+
+  Lemezjátszó a mikrofonbemenetre.
+
+  Köszönöm Mark Tranchant-nek a következõ információt:
+
+  A lemezjátszóból kijövõ jel nagyon alacsony szintû. Ennek ellenére nem
+  lehet a mikrofonbemenetre csatlakoztatni, ha jó minõségû felvételt
+  szeretnél. A kimenetet ki kell egyenlíteni, mert a hanglemezeket
+  kevesebb mély és több magas hanggal veszik fel, hogy kompenzálják a
+  hangszedõtû mozgásának a hatását. Ez a kiegyenlítés pontosan
+  definiálva van, és RIAA-korrekcióként szoktak rá hivatkozni. Éppen
+  ezért a lemezjátszó kimenetét elõször egy lemezjátszó-erõsítõbe kell
+  vezetni, és az erõsítõbõl kijövõ jelet a a hangkártya 'Line in'
+  bemenetére.
+
+
+  A szintetizátort a 'Line in'-be kell csatlakoztatni. A gitárt egy ún.
+  DI (Direct Injection, felerõsíti a jelet Line szintre) dobozon
+  keresztül lehet a 'Line in'-be dugni.
+
+  Mielõtt bármit csatlakoztatnánk a hangkártyánkhoz, a hangerõt
+  csökkentsük minimálisra, a mikrofont kapcsoljuk ki, vagy távolítsuk el
+  a hangszórók közelébõl.
+
+
+  8.2.  Hangfelvétel a CD-ROM-ról
+
+  Elég könnyû úgy beállítani a linuxos rendszert, hogy a CD-ROM-ról
+  hangot tudjon felvenni.
+
+  Ha halljuk a CD-ROM-ról lejátszott zenét a hangfalakon, amiket a
+  hangkártyánkhoz csatlakoztattunk, akkor jó eséllyel fel is tudjuk
+  venni. (A fordító megjegyzése: a szerzõ által említett cdda2wav és
+  cdparanoia programok nem ezen az elven mûködnek, hanem a lemezrõl
+  közvetlenül szedik le a sávokat digitális formában. Ehhez nincs
+  szükség hangkártyára.)
+
+
+  8.3.  További beállítások
+
+  Lépjünk be a rendszerbe, ahogy szoktunk, és állítsuk be a
+  keverõprogrammal a felvételi jelszintet olyan hangosra, hogy a
+  felvétel jó legyen, de még ne torzítson.   Általában ez megítélhetõ
+  hallás alapján, egy idõ után már tudni fogjuk, hogy milyen jelszint a
+  megfelelõ a berendezésünkhöz.
+
+  Javasolt, hogy állítsunk le minden olyan háttérben futó programot,
+  amelyre nincs szükségünk, vagy kapcsoljunk egyfelhasználós módba,
+  különösen, ha hangforrást kódolunk. Ez biztosítja, hogy csak a
+  legszükségesebb programok fussanak a háttérben, ezáltal a felvétel
+  közbeni zavarok minimálisra csökkennek.
+
+  A példáinkban egy külön SCSI meghajtót használunk hangfelvételre,
+  amire /mnt/mp3 néven hivatkozunk.   A SCSI meghajtó használatát a
+  nagyobb teljesítménye indokolja.  Egyébként is, ha egy külön meghajtót
+  szentelünk a hangfelvételre, akkor csaknem biztosak lehetünk benne,
+  hogy az írófej nem fog hirtelen máshova ugrani felvétel közben, és ez
+  jó dolog :)
+
+  Olvassuk el Stein Gjoen Multi-Disk-HOWTO-ját,  ha tudni szeretnénk,
+  hogy hogyan kell Linux alatt több lemezmeghajtót telepíteni.
+
+
+  9.  MP3 elõállítás hangforrásból
+
+  Elõször is gyõzõdjünk meg arról, hogy elég hely van a merevlemezen. A
+  CD minõség esetén (44.1 kHz, 16 bit sztereó) 1 perc kb. 10 MB-ot (5
+  MB-ot csatornánként) foglal.
+
+  A DAT minõségû felvétel (48 kKz, 16 bit sztereó) még több helyet
+  foglal.
+
+  DAT minõségû felvételhez így paraméterezzük a wavrec programot:
+
+  /usr/local/bin/wavrec -t 60 -s 48000 -S /mnt/mp3/temp.wav
+
+  Az elsõ rész a wavrec program elérési útja.  A '-t 60' paraméter a
+  felvétel idejét adja meg másodpercben.
+
+  A harmadik paraméter, a '-s 48000' a mintavételi frekvencia
+  minta/másodpercben (48000 a DAT mintavételi frekvenciája, 44100 a
+  CD-é).
+
+  Az utolsó paraméter a célfájl elérési útja.
+
+  A wavrec összes lehetséges paraméterének megtekintéséhez futtassuk a
+  'wavrec -help' parancsot, vagy nézzük meg a kézikönyvoldalát.
+
+  Létrejött a WAV fájl, a következõ lépés az MP3-ba kódolás.
+
+  Használjuk a bladeenc programot a következõ parancssorral.
+
+  /usr/local/bin/bladeenc [forrásfájl] [célfájl] -br 256000
+
+  A -br paraméter állítja be a bitrátát, ami esetünkben a maximális 256
+  kbit/másodperc. A bladeenc elérési útja egyes rendszerekben eltérhet a
+  példában megadottól.
+
+  Az összes paraméter megtekintéséhez adjuk ki a 'bladeenc -help'
+  parancsot. A -help ugyan érvénytelen paraméter, de a paraméterek
+  listája megjelenik.
+
+  Ugyanez a kódolás a Lame segítségével (vagy a Gogo-val, hiszen az is a
+  Lame-en alapul) a következõ parancssorral lehetséges:
+
+  /usr/local/bin/lame [forrásfájl] [célfájl] -b 256
+
+
+
+  10.  MP3 készítés a CD-ROM-ról
+
+
+  Hasonlóan a hangforrásból való kódoláshoz, a CD-rõl történõ kódolás is
+  kétlépcsõs. Elõször a hangsávokat le kell szedni a CD-rõl és WAV
+  formátumban kell elmenteni. Aztán a WAV fájlt konvertáljuk tovább
+  MP3-ba.
+
+  A MP3-kódoló programokat két nagy csoportra oszthatjuk, a konzolon
+  futó és az X alatt futó programok csoporjára. Mindkét csoport ugyanazt
+  a feladatot látja el, de az X alapúakat egyszerûbb használni (és
+  jobban is néznek ki).
+
+  Ismét ellenõrizzük, hogy elegendõ hely van-e a merevlemezen.
+
+
+  10.1.  Kódolás a parancssorból
+
+
+  Írtam egy nagyon egyszerû Perl scriptet, ami leszedi és MP3-ba kódolja
+  a CD sávjait.
+
+
+
+       ______________________________________________________________________
+       #!/usr/bin/perl
+
+       if ($ARGV[0] ne "") {
+
+       $count = 1;
+
+       do {
+
+       $cdcap = system("cdparanoia", $count, "/mnt/mp3/cdda.wav");
+       $track = "$ARGV[1]/track".$count.".mp3";
+       $enc = system("bladeenc  /mnt/mp3/cdda.wav $track -br 256000");
+       $count++;
+
+       }
+       until $count > $ARGV[0];
+       exit;
+       }
+
+       else {
+       print "Használat: cdriper [sávok száma] [célkönyvtár]\n\n";
+       }
+       ______________________________________________________________________
+
+
+
+  Jegyezzük meg, hogy ez a script nagyon primitív, semmi sallangot (pl.
+  hibaellenõrzés) nem tartalmaz.  Akinek kedve van rá,
+  továbbfejlesztheti :)
+
+  A legfontosabb sorok:
+
+
+  ______________________________________________________________________
+  $cdcap = system("cdparanoia", $count, "/mnt/mp3/cdda.wav");
+  ______________________________________________________________________
+
+
+
+  Ez a sor hívja meg a cdparanoia programot, ami a sávokat leszedi.  A
+  cdparanoia a nyers CD hangadatokat WAV formátumúvá alakítja.
+
+  Én Cdparanoia-t használtam, de ha a CDDA2WAV programot szeretnénk
+  használni akkor a parancssor ez lenne:
+
+
+  ______________________________________________________________________
+  $cdcap = system("cdda2wav", $count, "/mnt/mp3/cdda.wav");
+  ______________________________________________________________________
+
+
+
+  A legfontosabb paraméterek a $count, amely a leszedendõ sávok számát
+  tartalmazza, és a keletkezõ WAV fájlok elérési útja. A példában ez a
+  gyökérkönyvtár lesz az MP3 SCSI meghajtón.
+
+  Ezután a WAV fájlt MP3-ba kódoljuk a Bladeenc segítségével.
+
+  Ez a kis Perl script szükségtelenné teszi, hogy egyenként szedjük le
+  és kódoljuk a sávokat, és szükségtelenné teszi a cdparanoia köteg
+  üzemmódjának a használatát is.  Ez lecsökkenti a szükséges üres
+  lemezterületet, ugyanis a cdparanoia köteg üzemmódja az egész lemezt
+  egyben leszedné, ami akár 600 MB is lehet.
+
+  Ha a Lame vagy Gogo programokat szeretnénk használni, cseréljük ki a
+  kódolót megadó sort:
+
+  ______________________________________________________________________
+  $enc = system("lame  /mnt/mp3/cdda.wav $track -b 256");
+  ______________________________________________________________________
+
+
+  vagy
+
+  ______________________________________________________________________
+  $enc = system("gogo  /mnt/mp3/cdda.wav $track -b 256");
+  ______________________________________________________________________
+
+
+
+  A következõkben megadjuk minden MP3-kódoló lehetséges kapcsolóit.
+
+  Bladeenc
+
+
+
+  ______________________________________________________________________
+  BladeEnc 0.91    (c) Tord Jansson          Homepage: http://bladeenc.mp3.no
+  ===============================================================================
+  BladeEnc is free software, distributed under the Lesser General Public License.
+  See the file COPYING, BladeEnc's homepage or www.fsf.org for more details.
+
+  Usage: bladeenc [global switches] input1 [output1 [switches]] input2 ...
+
+  General switches:
+    -[kbit], -br [kbit]  Set MP3 bitrate. Default is 128 (64 for mono output).
+    -crc                 Include checksum data in MP3 file.
+    -delete, -del        Delete sample after successful encoding.
+    -private, -p         Set the private-flag in the output file.
+    -copyright, -c       Set the copyright-flag in the output file.
+    -copy                Clears the original-flag in the output file.
+    -mono, -dm           Produce mono MP3 files by combining stereo channels.
+    -leftmono, -lm       Produce mono MP3 files from left stereo channel only.
+    -rightmono, -rm      Produce mono MP3 files from right stereo channel only.
+    -swap                Swap left and right stereo channels.
+    -rawfreq=[freq]      Specify frequency for RAW samples. Default is 44100.
+    -rawbits=[bits]      Specify bits per channel for RAW samples. Default is 16.
+    -rawmono             Specifies that RAW samples are in mono, not stereo.
+    -rawstereo           Specifies that RAW samples are in stereo (default).
+    -rawsigned           Specifies that RAW samples are signed (default).
+    -rawunsigned         Specifies that RAW samples are unsigned.
+    -rawbyteorder=[order]Specifies byteorder for RAW samples, LITTLE or BIG.
+    -rawchannels=[1/2]   Specifies number of channels for RAW samples. Does
+                         the same as -rawmono and -rawstereo respectively.
+
+  Global only switches:
+    -quit, -q            Quit without waiting for keypress when finished.
+    -outdir=[dir]        Save MP3 files in specified directory.
+    -quiet               Disable screen output.
+    -nocfg               Don't take settings from the config-file.
+    -prio=[prio]         Sets the task priority for BladeEnc. Valid settings are
+                         HIGHEST, HIGHER, NORMAL, LOWER, LOWEST(default) and IDLE
+    -refresh=[rate]      Refresh rate for progress indicator. 1=fastest, 2=def.
+    -progress=[0-8]      Which progress indicator to use. 0=Off, 1=Default.
+
+  Input/output files can be replaced with STDIN and STDOUT respectively.
+  ______________________________________________________________________
+
+
+
+  Lame
+
+
+
+  ______________________________________________________________________
+  LAME version 3.50 (www.sulaco.org/mp3)
+  GPSYCHO: GPL psycho-acoustic model version 0.74.
+
+  USAGE   :  lame [options] <infile> [outfile]
+
+  <infile> and/or <outfile> can be "-", which means stdin/stdout.
+
+  OPTIONS :
+      -m mode         (s)tereo, (j)oint, (f)orce or (m)ono  (default j)
+                      force = force ms_stereo on all frames. Faster and
+                      uses special Mid & Side masking thresholds
+      -b <bitrate>    set the bitrate, default 128kbps
+                      (for VBR, this sets the allowed minimum bitrate)
+      -s sfreq        sampling frequency of input file(kHz) - default 44.1
+    --resample sfreq  sampling frequency of output file(kHz)- default=input sfreq
+    --mp3input        input file is a MP3 file
+    --voice           experimental voice mode
+
+      -v              use variable bitrate (VBR)
+      -V n            quality setting for VBR.  default n=4
+                      0=high quality,bigger files. 9=smaller files
+      -t              disable Xing VBR informational tag
+      --nohist        disable VBR histogram display
+
+      -h              use (maybe) quality improvements
+      -f              fast mode (low quality)
+      -k              disable sfb=21 cutoff
+      -d              allow channels to have different blocktypes
+      --athonly       only use the ATH for masking
+
+      -r              input is raw pcm
+      -x              force byte-swapping of input
+      -a              downmix from stereo to mono file for mono encoding
+      -e emp          de-emphasis n/5/c  (obsolete)
+      -p              error protection.  adds 16bit checksum to every frame
+                      (the checksum is computed correctly)
+      -c              mark as copyright
+      -o              mark as non-original
+      -S              don't print progress report, VBR histograms
+
+    Specifying any of the following options will add an ID3 tag
+       --tt <title>     title of song (max 30 chars)
+       --ta <artist>    artist who did the song (max 30 chars)
+       --tl <album>     album where it came from (max 30 chars)
+       --ty <year>      year in which the song/album was made (max 4 chars)
+       --tc <comment>   additional info (max 30 chars)
+
+
+  MPEG1 samplerates(kHz): 32 44.1 48
+  bitrates(kbs): 32 48 56 64 80 96 112 128 160 192 224 256 320
+
+  MPEG2 samplerates(kHz): 16 22.05 24
+  bitrates(kbs): 8 16 24 32 40 48 56 64 80 96 112 128 144 160
+  ______________________________________________________________________
+
+
+
+  Gogo
+
+
+
+  ______________________________________________________________________
+  GOGO-no-coda ver. 2.24 (Feb 12 2000)
+  Copyright (C) 1999 PEN@MarineCat and shigeo
+            Special thanks to Keiichi SAKAI, URURI, Noisyu and Kei
+  This is based on LAME3.29beta and distributed under the LGPL
+  usage
+  gogo inputPCM [outputPCM] [options]
+
+   inputPCM is input  wav file
+  if input.wav is `stdin' then stdin-mode
+  outputPCM is output mp3 file (omissible)
+
+  options
+  -b  kbps     bitrate [kpbs]
+  -br bps      bitrate [ bps]
+  -silent      dont' print progress report
+  -off         {3dn,mmx,kni(sse),e3dn}
+  -v {0,..,9}  VBR [0:high quality 9:high compression]
+               You should combine this with -b option
+  for only RAW-PCM input
+  -offset bytes skip header size
+    -8bit       8bit-PCM [dflt 16bit-PCM]
+    -mono       mono-PCM [dflt stereo-PCM]
+    -bswap      low, high byte swapping for 16bitPCM
+    -s kHz      freq of PCM [dflt 44.1kHz]
+  -nopsy       disable psycho-acoustics
+  -m  {s,m,j}  output format s:stereo, m:mono, j:j-stereo
+  -d  kHz      change sampling-rate of output MP3
+  -emh {n,c,5} de-emphasis
+  -lpf {on,off} 16kHz filter [dflt use if <= 128kbps; not use if >= 160kbps]
+  -test        benchmark mode
+  -delete      delete input file, after encoding
+  ______________________________________________________________________
+
+
+
+  10.2.  Grafikus felhasználói felülettel rendelkezõ MP3-kódolók
+
+
+  A grafikus felhasználói felülettel rendelkezõ MP3-kódolók rendelkeznek
+  a konzol alapú programok minden funkciójával, de egy szép és könnyen
+  kezelhetõ felületet is nyújtanak. A Grip és a RipperX hasonlóan
+  mûködnek, mindkettõben kijelölhetünk konvertálásra egy, több vagy akár
+  az összes hangsávot egy CD-rõl. Mindkettõ támogatja a CDDB adatbázist,
+  amely letölti egy szerverrõl az album nevét és a számcímeket,
+  megkímélve ezzel minket a begépeléstõl.
+
+
+  10.3.  A kódolók teljesítménye
+
+  A kódolókról szóló fejezetben három különbözõ programot említettem:
+  bladeenc, lame és gogo. A fõ különbség a kódolási teljesítményben van
+  (bár vannak különbségek a választható kapcsolók között is, ahogy ezt
+  korábban láthattuk).
+
+  Lássunk egy rövid példát. Leszedtem egy hangsávot egy CD-rõl, és
+  különbözõ kódolókkal MP3 formátumra alakítottam. A kódolók azonos
+  paraméterekkel futottak azonos rendszeren.
+
+
+
+  ______________________________________________________________________
+  [dj@megajukebox]$ ls -l cdda.wav
+  -rw-rw-r--   1 dj       dj       59823164 Feb 10 00:56 cdda.wav
+
+  [dj@megajukebox]$ bladeenc cdda.wav -br 256
+
+  BladeEnc 0.91    (c) Tord Jansson          Homepage: http://bladeenc.mp3.no
+  ===============================================================================
+  BladeEnc is free software, distributed under the Lesser General Public License.
+  See the file COPYING, BladeEnc's homepage or www.fsf.org for more details.
+
+  Files to encode: 1
+
+  Encoding:  ../test.wav
+  Input:     44.1 kHz, 16 bit, stereo.
+  Output:    128 kBit, stereo.
+
+  Completed. Encoding time: 00:05:58 (0.78X)
+
+  All operations completed. Total encoding time: 00:05:58
+
+  --------------------------------------------------------------------------------
+
+  [dj@megajukebox]$ lame cdda.wav -b 256
+  LAME version 3.50 (www.sulaco.org/mp3)
+  GPSYCHO: GPL psycho-acoustic model version 0.74.
+  Encoding ../test.wav to ../test.wav.mp3
+  Encoding as 44.1 kHz 128 kbps j-stereo MPEG1 LayerIII file
+      Frame          |  CPU/estimated  |  time/estimated | play/CPU |   ETA
+   10756/ 10756(100%)| 0:02:28/ 0:02:28| 0:02:29/ 0:02:29|    1.9074| 0:00:00
+
+  --------------------------------------------------------------------------------
+
+  [dj@megajukebox]$ gogo cdda.wav -m s -b 256
+  GOGO-no-coda ver. 2.24 (Feb 12 2000)
+  Copyright (C) 1999 PEN@MarineCat and shigeo
+            Special thanks to Keiichi SAKAI, URURI, Noisyu and Kei
+  MPEG 1, layer 3 stereo
+  inp sampling-freq=44.1kHz out sampling-freq=44.1kHz bitrate=256kbps
+  inp sampling-freq=44.1kHz out sampling-freq=44.1kHz bitrate=128kbps
+  input  file `../test.wav'
+  output file `../test.mp3'
+  {  10751/  10755} 100.0% (  2.94x)  re:[00:00:00.03] to:[00:01:35.42]
+  End of encoding
+  time=  95.430sec
+  ______________________________________________________________________
+
+
+
+  Úgy tûnik, hogy a Gogo által használt algoritmus jobban optimalizált,
+  mint a Bladeenc és a Lame által használt.
+
+
+  11.  MP3 folyamok
+
+  Egy MP3 folyamot szolgáltatni képes kiszolgáló segítségével MP3
+  fájlokat küldhetünk át egy TCP alapú hálózaton. Ez a hálózat lehet
+  maga az Internet, vagy egy helyi hálózat.
+
+  A kapcsolódás elve nagyon hasonló a webszerverhez, a fájlok küldése
+  megindul, amikor a kliensprogram (MP3-lejátszó) a kiszolgálóhoz
+  kapcsolódik.
+
+  Egy ilyen kiszolgáló telepítése és konfigurálása viszonylag egyszerû.
+  Elõször az Icecast-ról írok, aztán rátérek a Fluid bemutatására.
+
+  11.1.  Icecast
+
+
+  Letöltés és kicsomagolás után nem árt, ha vetünk egy pillantást a doc/
+  könyvtárra. A HTML kézikönyv nagyon jól használható, és mindenre
+  kitér.
+
+  A forrás letöltése után le kell fordítani a programot, a
+  rendszerspecifikus fordítási utasítások alapján.
+
+  Az Icecast nem fog jól mûködni, ha nem az a gépnév van beállítva az
+  etc/icecast.conf fájlban, ami a saját gépnevünk.
+
+  Ha az Icecast indításakor ezt a hibaüzenetet látjuk, akkor baj van:
+
+  ______________________________________________________________________
+  -> [05/Jan/2000:17:21:04] WARNING: Resolving the server name [your.server.name] does not work!
+  ______________________________________________________________________
+
+
+
+  Nyissuk meg az etc/icecast.conf fájlt, és keressük meg a
+  ``server_name'' bejegyzést. Írjuk be a gépünk nevét. Ha nem vagyunk
+  biztosak a gépnévben, a hostname parancs segít, vagy nézzük meg at
+  /etc/hosts fájl tartalmát.
+
+  Ha kész vagyunk a változatatásokkal, akkor vagy másoljuk a bin
+  könyvtárba a konfigurációs fájlt, vagy indítsuk el az icecast-ot a -c
+  kapcsolóval, és adjuk meg az elérési utat:
+
+  ______________________________________________________________________
+  ./icecast -c ../etc/icecast.conf
+  ______________________________________________________________________
+
+
+
+  Ha mindent sikerült jól beállítani, akkor valami ilyesmit láthatunk:
+
+  ______________________________________________________________________
+  [dj@megajukebox bin]$ ./icecast -c ../etc/icecast.conf -d /home/dj/mp3/icecast/
+  Icecast Version 1.3.0 Starting...
+  Icecast comes with NO WARRANTY, to the extent permitted by law.
+  You may redistribute copies of Icecast under the terms of the
+  GNU General Public License.
+  For more information about these matters, see the file named COPYING.
+
+  [05/Jan/2000:18:36:30] Icecast Version 1.3.0 Starting..
+  [05/Jan/2000:18:36:30] Using stdin as icecast operator console
+  [05/Jan/2000:18:36:30] Tailing file to icecast operator console
+  [05/Jan/2000:18:36:30] Server started...
+  [05/Jan/2000:18:36:30] Listening on port 8000...
+  [05/Jan/2000:18:36:30] Using [megajukebox] as servername...
+  [05/Jan/2000:18:36:30] Max values: 1000 clients, 1000 clients per source, 10 sources, 5 admins
+  -> [05/Jan/2000:18:36:30] [Bandwidth: 0.000000MB/s] [Sources: 0] [Clients: 0] [Admins: 1] [Uptime: 0 seconds]
+  ______________________________________________________________________
+
+
+
+  A -d kapcsoló után lehet megadni azt a könyvtárat, ahol a
+  naplófájlokat és a sablonokat tartja a program.
+
+  A parancssori kapcsolók listája:
+
+
+
+  ______________________________________________________________________
+          -c [fájlnév]
+
+  A fájlt konfigurációs fájlként fogja értelmezni. Jegyezzük meg, hogy
+  minden ezután megadott paraméter felülbírálja a fájl tartalmát. Ne feledjük
+  továbbá, hogy az aktuális könyvtárban levõ icecast.conf fájlt már beolvasta
+  a program, mire ehhez a paraméterhez ért, tehát ha valamelyik beállítást nem
+  bíráljuk itt felül, akkor az eredeti beállítás érvényesül.
+
+          -P [port]
+
+  Ezt a protot használja minden kapcsolatra (kliens, forrás, adminisztrátor).
+  Az alapértelmezett érték 8000.
+
+          -m [max kliens]
+
+  Maximum ennyi klienst enged csatlakozni a kiszolgálóhoz. A maximális szám
+  elérése után a klienst visszautasítja 'HTTP/1.0 504 Server Full' üzenettel.
+
+          -p [jelszó]
+
+  Ezzel állíthatjuk be azt a jelszót, amelyet a kódolóprogramnak használnia
+  kell, ha egy folyamot akar a kiszolgálóra küldeni. Ha a kiszolgálót
+  crypt() támogatással fordították, akkor ez az argumentum egy kódolt
+  karakterlánc kell legyen.
+
+          -b
+
+  Ennek a kapcsolónak a használatával a háttérbe tehetjük az icecast kiszolgálót
+  (démon processz lesz). Az adminisztrátor a szervert egy telnet kliensen
+  keresztül érheti el.
+
+          -d [könyvtár]
+
+  Ebbe a könyvtárba teszi az icecast a naplófájlokat, és minden sablont itt keres.
+  ______________________________________________________________________
+
+
+
+  Eljutottunk odáig, hogy elindult a kiszolgáló, most meg kell adni neki
+  az MP3 forrását.
+
+
+  11.1.1.  Shout
+
+  A Shout biztosítja az Icecastnak a lejátszandó MP3 fájlok listáját.
+
+  A listát könnyen elõállíthajtjuk a következõ paranccsal:
+
+  ______________________________________________________________________
+  find [MP3 könyvtár] -name *.mp3 -print > playlist
+  ______________________________________________________________________
+
+
+
+  A legegyszerûbben úgy indíthatjuk el a shout folyamatot, hogy kiadjuk
+  a következõ parancsot:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox bin]# ./shout megajukebox -P hackme -p playlist
+  ______________________________________________________________________
+
+
+
+  A -P kapcsoló után kell megadni azt a jelszót, amely az Icecasthoz
+  való hozzáféréshez szükséges. Ennek az alapbeállítása a hackme. Ezt
+  ajánlatos sürgõsen megváltoztatni, mielõtt más teszi meg helyettünk :)
+  A -p kapcsoló után kell megadni a lejátszandó fájlok listáját.
+
+
+  Az összes parancssori kapcsoló listája:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox bin]# ./shout
+  Usage: shout <host> [options] [[-b <bitrate] file.mp3]...
+  Options:
+          -B <directory>  - Use directory for all shout's files.
+          -C <file>       - Use file as configuration file
+          -D <dj_file>    - Run this before every song (system())
+          -P <password>   - Use specified password
+          -S              - Display all settings and exit
+          -V              - Use verbose output
+          -X <desc>       - Use specified description.
+          -a              - Turn on automatic bitrate (transfer) correction
+          -b <bitrate>    - Start using specified bitrate
+          -d              - Activate the dj.
+          -e <port>       - Connect to port on server.
+          -f              - Skip files that don't match the specified bitrate
+          -g <genre>      - Use specified genre
+          -h              - Show this text
+          -i              - Use old icy headers
+          -k              - Don't truncate the internal playlist (continue)
+          -l              - Go on forever (loop)
+          -m <mount>      - Use specified mount point
+          -n <name>       - Use specified name
+          -o              - Turn of the bitrate autodetection.
+          -p <playlist>   - Use specified file as a playlist
+          -r              - Shuffle playlist (random play)
+          -s              - (Secret) Don't send meta data to the directory server
+          -u <url>        - Use specified url
+          -v              - Show version
+          -x              - Don't update the cue file (saves cpu)
+          -z              - Go into the background (Daemon mode)
+          -t              - Enable title streaming
+  ______________________________________________________________________
+
+
+
+  11.2.  Fluid
+
+  A tar fájl kicsomagolása után olvassuk el a README-t.
+
+  A Fluidnak háromalapvetõ üzemmódja van, az átvitel, a közvetítés és a
+  továbbítás. Az átvitelt fogom bõvebben kifejteni.
+
+  Az átvitellel kapcsolatos beállítások a config/MP3TX.cfg konfigurációs
+  fájlban vannak. A kiszolgáló teszteléséhez az alapbeállítások
+  megfelelnek, adjuk ki tehát a következõ parancsot:
+
+  java Fluid TX
+
+  Természetesen a Java-nak valamilyen formában telepítve kell lennie a
+  rendszerünkön. Használhatjuk a JDK Blackdown portját, amely letölthetõ
+  a  <http://www.blackdown.org> webhelyrõl, vagy ha Redhat disztribúciót
+  használunk, akkor ott a Kaffe.
+
+
+  A Fluid csomag néhány MP3 fájlt is tartalmaz, tehát ha minden jól
+  megy, valami hasonlót kell látnod. (Ebben a példában én a Kaffe-t
+  használtam, más rendszereken esetleg a java-t kell használni):
+
+
+  ______________________________________________________________________
+  [dj@megajukebox Fluid-Beta2J]$ kaffe Fluid tx
+  ------- Fluid Streaming Server Beta 2 -------
+  This program is ShareWare(tm) and it will not
+  be crippled in any way because of it. However
+  if you do like the program and will use it
+  commercial purposes, we ask of you to contact
+  us at the address below for pricing info:
+
+   Eldean AB                  E-mail:
+   Sjoangsvagen 7             fluid@subside.com
+   S-192 72 Sollentuna
+   SWEDEN
+
+     Fluid is Copyright Subside (C) 1998
+         written by Lars Samuelsson
+           http://www.subside.com
+  ---------------------------------------------
+
+  * Transmission mode *
+  Reading config from: config/MP3TX.cfg
+  Reading playlist: playlist.m3u
+  Server started on port: 2711
+  Accepting administrator login on port: 2710
+  P| Dr. Nick - Hello Everybody
+  ______________________________________________________________________
+
+
+
+  Ha már idáig eljutottunk, akkor a lényeg már megvan, de biztosan mást
+  is szeretnénk sugározni a demofájlokon kívül.
+
+  Össze kell állítanunk egy listát a lejátszandó MP3 fájlokról. Ezt a
+  listát a felhasználók nem képesek megváltoztatni. A lista neve
+  playlist.m3u, és alapértelmezésben a program gyökérkönyvtárában van a
+  helye.
+
+  A lista összeállításához használhatjuk a következõ parancsot, ez az
+  összes MP3 fájlt berakja a listára, amely egy adott könyvtárban
+  (lemezen) megtalálható:
+
+  ______________________________________________________________________
+  find [MP3 könyvtár] -name *.mp3 -print > playlist.m3u
+  ______________________________________________________________________
+
+
+
+  Alapértelmezés szerint a kiszolgáló a 2711-es portot használja, a
+  hallgatóknak erre kell csatlakozniuk. Ha ezt meg kell változtatni,
+  akkor a konfigurációs fájlt kell módosítani.
+
+  A kiszolgáló távolról adminisztrálható az adminisztrációs porton
+  keresztül, amelyre telnettel kapcsolódhatunk. Az alapértelmezett
+  portszám 2710.
+
+
+
+  ______________________________________________________________________
+  [dj@megajukebox Fluid-Beta2J]$ telnet localhost 2710
+  Trying 127.0.0.1..megajukebox
+  Connected to localhost.localdomain.
+  Escape character is '^]'.
+  jaguar
+  You are connected to the -Fluid- Streaming Server
+  Type "help" for a command reference
+  help
+  The following commands are available:
+   help conn curr exit
+  curr
+  Information about the currently broadcasted song:
+  Title:   Beer Talk
+  Artist:  Homer Simpson
+  Album:   The Simpsons
+  Year:    1996
+  Comment: Borrowed this as an example
+  Genre:   Comedy
+  ______________________________________________________________________
+
+
+
+  A "jaguar" az alapértelmezett adminisztrátori jelszó. Nem jelenik meg
+  prompt a jelszó beírására, tehát ne várjunk feleslegesen erre!
+  Javasolt az alapértelmezett jelszót megváltoztatni, mert különben egy
+  biztonsági lyukat hagyunk a rendszerünkön. Ezt is konfigurációs fájl
+  módosításával tehetjük meg, amely így néz ki:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox config]$ cat MP3TX.cfg
+  2711
+  2710
+  5
+  4096
+  32
+  1000
+  jaguar
+  playlist.m3u
+  current.txt
+
+  # --- Az egyes sorok jelentése ---
+  # 1. portszám (amit a kiszolgáló használ)
+  # 2. portszám (a kiszolgáló távoli karbantartásához)
+  # 3. a maximális csatlakozások száma (amit a kiszolgáló elfogad)
+  # 4  csomagméret küldés/fogadás esetén (bájtban)
+  # 5. az mp3-ak bitrátája kbit/s-ban (csak azonos bitrátájú mp3-ak lehetnek)
+  # 6. szünet a számok között (ezredmásodpercben)
+  # 7. a távoli adminisztráció jelszava
+  # 8. lista neve (a lista .m3u formátumban kell)
+  # 9. ebbe fájlba írja az aktuális dal ID3 info-ját
+  ______________________________________________________________________
+
+
+
+  Az .m3u formátum megegyezik azzal, amit a fent megadott find
+  paranccsal létrehozhatunk.
+
+
+  11.3.  A sávszélességgel kapcsolatos megfontolások
+
+  A hangfolyamok rengeteg sávszélességet foglalhatnak el, ha az MP3
+  kiszolgálók bitrátájat túl magasra állítjuk.
+
+
+  Gondoljuk meg a következõ esetet. A T1 kapcsolat kapacitása kb. 1,55
+  Mb/Sec. Ha az MP3 folyamokat sztereóban 128kbps-al sugáruzzuk, akkor
+  minden csatlakozó lejátszó 256kbps sávszélességet használ, tehát hat
+  felhasználó kapcsolódhat egyidõben problémamentesen a kiszolgálónkhoz.
+  Mellesleg nem sok modemes felhasználóra számíthatunk 256kbps
+  sebességen.
+
+  Döntést kell hozni tehát, nemcsak abból a szempontból, hogy mit bír el
+  az internetes vonalunk, hanem gondolni kell a potenciális
+  felhasználókra is. Például a 24kbps sztereó jel már elég jó minõségû,
+  és az 56K modemek felhasználói már képesek csatlakozni, azonkívül
+  ugyanaz a T1 vonal ebben az esetben 32 egyidejû kapcsolatot képes
+  kiszolgálni.
+
+
+  Akkor is meg kell vizsgálni a sávszélesség kérdését, ha a kiszolgáló
+  intraneten fut, különösen ha 10 Mb/Sec hálózatról van szó.
+
+  Mindenképp értesítsük internetszolgáltatónkat vagy rendszergazdánkat
+  arról, hogy médiafolyamokat fogunk sugározni, különben kínos
+  meglepetések érhetnek. Néhány internetszolgáltatónál fizetni kell
+  azért, ha túllépünk egy bizonyos határt a sávszélesség
+  kihasználásában, a rendszergazdákat pedig mindig érdekli, hogy mitõl
+  lassult le a hálózat :)
+
+
+  11.4.  A szerzõi jogok problémaköre
+
+
+  Nem tévedünk nagyot, ha feltételezzük, hogy a lemezkiadóknak nem fog
+  tetszeni, ha MP3 zenét sugározunk, és nem kérünk erre engedélyt, vagy
+  valamiképpen nem fizetünk ezért. Mit sugározhatunk tehát?
+
+  Ez az a terület, ahol nagyon tisztában kell lenni a jogi
+  finomságokkal, mert a mûsort sugárzó személy felelõsségre vonható.
+
+  Két webhelyet érdemes meglátogani a témában. Az egyik az Electronic
+  Frontier Foundation honlapja, amely azért küzd, hogy enyhítsenek a
+  technológiát fojtogató szigorú szabályozásokon. A masik link a
+  Recording Industry Association of America honlapjára vezet el, õk a
+  mûvészek érdekeit szeretnék megvédeni a médiakalózoktól.
+
+  Melegen ajánlom ezeknek a honlapoknak a meglátogatását, valamint
+  azoknak a honlapoknak és egyéb irományoknak a tanulmányozását, amelyek
+  magyarországi szabályozással foglalkoznak.
+
+  <http://www.eff.org/cafe/>
+
+  <http://www.riaa.com/weblic/weblic.htm>
+
+
+  12.  Az MP3 lejátszása
+
+  Remélhetõleg most már rendelkezünk néhány MP3 fájllal, amit
+  lejátszhatunk. Választhatunk a fájlból vagy folyamból való lejátszás
+  között.
+
+
+  12.1.  Fájl lejátszása
+
+
+  A fájlból lejátszás meglehetõsen egyszerû az összes
+  lejátszóprogrammal. Az egyetlen nagy különbség, hogy egyes programok
+  konzolosak, mások az X-et használják.
+
+
+  Az MP3 fájl lejátszásához a fájl nevét paraméterként kell megadni,
+  valahogy így:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox]$ mpg123 /mp3_files/SampleFile.mp3
+
+  vagy
+
+  [dj@megajukebox]$ xaudio /mp3_files/SampleFile.mp3
+  ______________________________________________________________________
+
+
+
+  Ha több fájlt is le szeretnénk játszani, megadhatunk egy listát:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox]$ alsaplayer /mp3_files/SampleFile1.mp3 /mp3_files/SampleFile2.mp3
+  ______________________________________________________________________
+
+
+
+  Használhatunk dzsóker karaktereket, például ha egy könyvtárban az
+  összes számot le szeretnénk játszani:
+
+
+  ______________________________________________________________________
+  [dj@megajukebox]$ xmms /mp3_files/*.mp3
+  ______________________________________________________________________
+
+
+
+  12.2.  MP3-folyamok lejátszása
+
+
+  Az MP3-folyan lejátszása szintén elég egyszerû, a fájlnév helyére a
+  folyam URL-jét és portszámát kell írni:
+
+
+  ______________________________________________________________________
+  mpg123 http://localhost:8000
+
+  vagy
+
+  freeamp http://megajukebox:2711
+  ______________________________________________________________________
+
+
+
+  13.  Visszajelzés
+
+  Az idõ múlásával új szoftverek és hardverek jelennek meg.   Ha a
+  dokumentumban szereplõ hardverek és/vagy szoftverek újabb verziójával
+  rendelkezünk, vagy bármi hozzáfûznivalónk van a témához,
+  kiegészítéseinket elküldhetjük a szerzõnek a  phil@plu24.com
+  drótpostacímre, és õ belerakja a következõ verzióba.
+
+  Ne lepõdjünk meg, ha a szerzõ nem válaszol azonnal a kérdésünkre, bár
+  szeretné, de nem mindig jut rá ideje.
+
+  Jó empéhármazást!!
+
+

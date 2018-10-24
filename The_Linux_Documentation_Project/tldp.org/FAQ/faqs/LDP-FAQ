@@ -1,0 +1,226 @@
+Linux Documentation Project (LDP) FAQ
+
+Rahul Sundaram
+
+
+<rahulsundaram AT yahoo DOT co DOT in>
+        
+
+2004-05-31
+Revision History                                                             
+Revision 1.4            2004-05-31             Revised by: RS                
+Added a few more FAQ's and minor modifications from Emma Jane Hogbin and     
+updated to Creative Commons Attribution-Sharealike 2.0 License per TM.       
+Revision 1.3            2003-11-15             Revised by: EM                
+Minor editorial update                                                       
+Revision 1.2            2003-11-09             Revised by: TM                
+Small corrections                                                            
+Revision 1.1            2003-11-07             Revised by: RS                
+Minor update                                                                 
+Revision 1.0            2003-02-24             Revised by: TM                
+Initial Release, reviewed by LDP                                             
+
+
+An introductory FAQ for users who come across the LDP and want a short
+introduction to it.
+
+2003, Rahul Sundaram
+
+   
+    Copyright (c) 2003 by Rahul Sundaram. This material is licensed under the
+    Creative Commons Attribution-Sharealike 2.0 License. Terms and conditions
+    for distribution can be found at [http://creativecommons.org/licenses/
+    by-sa/2.0/] Creative Commons).
+   
+-----------------------------------------------------------------------------
+Q: What is LDP?
+Q: What is a Guide?
+Q: What is a HOWTO?
+Q: What is a man page?
+Q: What is an FAQ?
+Q: Where can I get all of these documents?
+Q: How are the documents licensed?
+Q: Are all of the topics that are in the LDP related to Linux?
+Q: Who contributes to LDP?
+Q: Why should I contribute?
+Q: How can I contribute?
+Q: In which format should I write the documentation?
+Q: DocBook is too hard to learn for a LyX user like me. Why do you use it?
+Q: How should I submit documentation?
+Q: Will my document be reviewed before it is accepted to the collection?
+Q: What if I have question that hasn't been answered here?
+
+Q: What is LDP?
+
+A: LDP is a loosely knit team of volunteers who provide documentation for
+many aspects of Linux. There are several forms of documentation: Guides,
+HOWTOs, man pages, and FAQs.
+
+Q: What is a Guide?
+
+A: A guide is typically a longer book with broader coverage of a subject; for
+instance, the Network Administration or User Guide. The intent is to
+understand the whole subject, as opposed to performing only one task. If you
+want to have a broader look at some aspect of Linux, then the guides should
+be very handy.
+
+Q: What is a HOWTO?
+
+A: A HOWTO is usually a step-by-step guide that describe, in detail, how to
+perform a specific task. For example, you can use the Linux Installation
+HOWTO to help you install Linux on a system, but it does not cover how to set
+up a Web server so that you can focus on a particular task.
+
+Q: What is a man page?
+
+A: A man (Manual) page is a standard form of help that is available for many
+Linux applications and utilities. You can view man pages by using the man
+command. Many of the GNU utilities have a more detailed form of help, called
+info pages. You can view info pages by using the info command.
+
+Q: What is an FAQ?
+
+A: An FAQ (Frequently Asked Questions) is a list of questions that are
+usually available in mailing lists. An FAQ is used to avoid answering
+repetitive questions that are asked by new users. For example, the Linux FAQ
+answers questions like, "What is Linux?" and "How is Linux pronounced?"
+
+Q: Where can I get all of these documents?
+
+A: Most Linux distributions include LDP documents, so there is a high chance
+that they are already available for you if you've installed Linux. The latest
+versions that are available at the LDP Web site, [http://www.tldp.org] http:/
+/www.tldp.org.
+
+Q: How are the documents licensed?
+
+A: LDP has documents that are available only under a free license, like the
+GNU Free Documentation License. This means that you are allowed to
+distribute, modify, and do what ever you want to do to the documents, as long
+as you do not change the copyright and licensing terms.
+
+Q: Are all of the topics that are in the LDP related to Linux?
+
+A: Yes. There are several other applications, languages, and operating
+systems that are covered at the LDP. LDP accepts the document if it is of any
+interest to general Linux users. For example, the Linux+Windows HOWTO
+explains, in detail, how your Linux system can coexist with Windows.
+Documents that do not relate directly to Linux won't be accepted.
+
+Q: Who contributes to LDP?
+
+A: Application developers, who usually provide help files with their
+programs, often submit their documentation to LDP. Increasingly, new users
+solve their Linux issues and document their work to help others in the
+community.
+
+Q: Why should I contribute?
+
+A: Authors who want to help others by providing some documentation can do so
+through LDP. The documents should be under a free license, such as the GNU
+free documentation license, which ensures that everyone is benefited through
+your documents. Here are some of the major benefits when you contribute
+through LDP:
+
+  * LDP hosts the document and ensures that it is available in many formats,
+    including text, html, and pdf, so that Linux users can view it in a
+    platform-independent manner.
+   
+  * LDP documents are available as part of many distributions and, hence,
+    your documents reach a large community of Linux users.
+   
+  * Many of the Linux users who read your document may give you comments,
+    suggestions, or even provide additional content that ensures the document
+    is reliable and updated whenever necessary.
+   
+  * You may be providing some crucial help to users who come across the same
+    issues that you have solved on your own.
+   
+  * It is a form of contribution to the Linux and open source community which
+    depends on volunteers for its growth.
+   
+  * You may also publish any of LDP documents, including your own, and get
+    monetary benefits from the whole process.
+   
+
+Q: How can I contribute?
+
+A: If you know a particular topic well, first search the LDP Web site, [http:
+//www.tldp.org] http://www.tldp.org, for related documentation. If something
+is already available, you can contact the author through e-mail, which will
+probably be available within the document, and coordinate your work together.
+You can take care of the documents that are not maintained. If the topic is
+an entirely new one, subscribe to the Discussion mailing list at <
+discuss@en.tldp.org>, propose the topic to your peers first, and then gather
+feedback. After you receive feedback and complete the draft, you can submit
+the document by using the instructions that are in the LDP Author Guide,
+[http://www.tldp.org/LDP/LDP-Author-Guide] http://www.tldp.org/LDP/
+LDP-Author-Guide. Be sure to advise LDP that you followed the steps that are
+listed in the LDP Author Guide. This avoids having someone come back later
+and tell you that this subject was not acceptable (which is rarely the case).
+Contact the HOWTO coordinator who is listed at the LDP Web site if you
+require any expert help. When you follow the above steps, you are ensured the
+following benefits:
+
+  * If any other person is interested in contributing, you can team up.
+   
+  * The topic that you wish to cover may already be available as part of some
+    other documentation that you are not aware of; you may want to e-mail the
+    list so that you can avoid repetitive work.
+   
+  * You can receive guidance in the form of help, tools, and other resources
+    that can speed up your writing.
+   
+
+Because LDP is an informal organisation of volunteers, you do not need any
+kind of membership to contribute. Everyone is encouraged to help in whatever
+way they can.
+
+Q: In which format should I write the documentation?
+
+A: In any format you would like! Documents will be maintained in DocBook XML
+or LinuxDoc and will be converted for you by a volunteer. You may choose to
+use an editing suite (like OpenOffice.org) to write the DocBook for you.
+There are also scripts available to convert LyX and ASCII documents to
+DocBook.
+
+Q: DocBook is too hard to learn for a LyX user like me. Why do you use it?
+
+A: It's not just LyX users that say this, but here's the answer... There are
+hundreds of documents in our collection. We have one set of scripts to
+convert each of these documents into human-readable formats (HTML, PostScript
+and PDF). We use these scripts not only to save time, but also to keep our
+collection visually similar, as requested by many of our readers (read [http:
+//ask.slashdot.org/article.pl?sid=04/03/30/0041253] http://ask.slashdot.org/
+article.pl?sid=04/03/30/0041253 for more information. DocBook is a very
+descriptive markup language specifically desgined to describe technical
+documentation. Always under active development, DocBook is be used to output
+a variety of formats, including HTML pages, slide shows, PDF and PostScript
+for printed materials. We are always interested in hearing about scripts or
+tools for converting text to DocBook. Please read the [http://tldp.org/LDP/
+LDP-Author-Guide/html/x2docbook.html] Author Guide and contribute your ideas
+to the "Discuss" mailing list. LyX users should also read [http://
+www.teledyn.com/help/XML/lyx2db/t1.html] http://www.teledyn.com/help/XML/
+lyx2db/t1.html for more information.
+
+Q: How should I submit documentation?
+
+A: For your convenience, this process is summarized in our [http://
+www.tldp.org/LDP/LDP-Author-Guide/html/process.html] Author Guide.
+
+Q: Will my document be reviewed before it is accepted to the collection?
+
+A: All new documents are reviewed according to the [http://tldp.org/HOWTO/
+LDP-Reviewer-HOWTO/] LDP Reviewer HOWTO. Each document will go through three
+reviews: technical, language and meta-data. You can read about these reviews
+in the LDP Reviewer HOWTO.
+
+Q: What if I have question that hasn't been answered here?
+
+A: If your question hasn't been answered in this FAQ, please send e-mail to
+the Discussion list (<discuss@en.tldp.org>) after subscribing to it. More
+information is also available at [http://www.tldp.org/mailinfo.html] http://
+www.tldp.org/mailinfo.html. If someone on the Discussion list answers the
+question and you feel that it should be included here, send a copy of both
+the question that you asked and the answer that you received to the author of
+this document. The author's e-mail address is listed at the top of this page.

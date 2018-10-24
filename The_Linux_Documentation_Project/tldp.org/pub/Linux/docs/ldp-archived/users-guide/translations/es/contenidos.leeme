@@ -1,0 +1,42 @@
+Hola, 
+
+Los distintos ficheros que ves tienen la siguiente codificación:
+
+	glup_II-CC.FF.[t]gz
+	gCCCdos.zip
+
+donde:
+	II: es la versión inglesa del documento
+	CC: es la versión de la traducción al castellano.
+	FF: es el formato.
+
+La extensión .tgz indica que están empaquetados con tar y
+comprimidos con gzip. La extensión .gz indica que sólo se ha
+comprimido con gzip.  La extensión .zip corresponde al programa
+zip (o pkzip en MS-DOS)
+
+FF puede ser uno de los siguientes:
+
+	src:		 fuente LaTeX
+
+	dvi: 		 formato dvi (si no lo conoces, no lo quieres tener
+			 de seguro)
+
+	ps-con-duplexor: postscript para impresoras que poseen dispositivo
+			 duplexor (saca hojas doble faz)
+
+	ps-sin-duplexor: para aquellos que imprimirán primero las páginas
+			 pares, luego acomodarán las hojas (que salieron en
+			 orden inverso), agregarán una hoja en blanco si la
+			 cantidad de páginas total es impar, y a continuación
+			 las alimentarán a la impresora de manera que ahora
+			 al imprimir las páginas impares, quede un precioso
+			 trabajo doble faz.
+
+	txt:		 formato texto ISO-8859-1 plano.
+
+	pdf:             formato Adobe PDF.
+
+
+---
+César Ballardini <cballard@santafe.com.ar>

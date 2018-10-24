@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/system-administrator/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:25:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Debian GNU/Linux System Administrator's Manual (Obsolete Documentation)</title>
+
+<link href="index-2.html" rel="start">
+<link href="ch-sysadmin-index.html" rel="prev">
+<link href="ch-sysadmin-intro.html" rel="next">
+<link href="index-2.html#contents" rel="contents">
+<link href="index-2.html#copyright" rel="copyright">
+<link href="ch-sysadmin-intro.html" rel="chapter" title="1 Introduction">
+<link href="ch-sysadmin-overview.html" rel="chapter" title="2 Overview of a Debian GNU/Linux System">
+<link href="ch-sysadmin-files.html" rel="chapter" title="3 Files and Devices">
+<link href="ch4.html" rel="chapter" title="4 Programs and processes">
+<link href="ch-sysadmin-directories.html" rel="chapter" title="5 Directory Structure">
+<link href="ch-sysadmin-filesystems.html" rel="chapter" title="6 Filesystems and Storage Media">
+<link href="ch-sysadmin-booting.html" rel="chapter" title="7 Boot and Shutdown">
+<link href="ch-sysadmin-users.html" rel="chapter" title="8 Managing User Accounts">
+<link href="ch-sysadmin-sessions.html" rel="chapter" title="9 Logging In and Out">
+<link href="ch-sysadmin-printing.html" rel="chapter" title="10 Printing">
+<link href="ch-sysadmin-accounting.html" rel="chapter" title="11 Accounting">
+<link href="ch-sysadmin-backup.html" rel="chapter" title="12 Backup and Restore">
+<link href="ch-sysadmin-X.html" rel="chapter" title="13 X Windows">
+<link href="ch-sysadmin-security.html" rel="chapter" title="14 Security">
+<link href="ch-sysadmin-config.html" rel="chapter" title="15 System Configuration">
+<link href="ch-sysadmin-time.html" rel="chapter" title="16 Time">
+<link href="ch-sysadmin-localisation.html" rel="chapter" title="17 Localisation">
+<link href="ch-sysadmin-index.html" rel="chapter" title="18 Index">
+<link href="ch-sysadmin-intro.html#s1.1" rel="section" title="1.1 About this manual">
+<link href="ch-sysadmin-intro.html#s1.2" rel="section" title="1.2 Where to find newer versions">
+<link href="ch-sysadmin-intro.html#s1.3" rel="section" title="1.3 Comments">
+<link href="ch-sysadmin-overview.html#s2.1" rel="section" title="2.1 The main components of a system">
+<link href="ch-sysadmin-files.html#s3.1" rel="section" title="3.1 Files">
+<link href="ch-sysadmin-files.html#s3.2" rel="section" title="3.2 Devices">
+<link href="ch4.html#s4.1" rel="section" title="4.1 Programs">
+<link href="ch4.html#s4.2" rel="section" title="4.2 Processes">
+<link href="ch4.html#s4.3" rel="section" title="4.3 The /proc filesystem">
+<link href="ch4.html#s4.4" rel="section" title="4.4 Tools for handling programs and processes">
+<link href="ch-sysadmin-directories.html#s5.1" rel="section" title="5.1 Directories">
+<link href="ch-sysadmin-directories.html#s5.2" rel="section" title="5.2 Permissions">
+<link href="ch-sysadmin-directories.html#s5.3" rel="section" title="5.3 Links">
+<link href="ch-sysadmin-directories.html#s5.4" rel="section" title="5.4 ACL - Access Control Lists">
+<link href="ch-sysadmin-directories.html#s5.5" rel="section" title="5.5 Tools for managing directories">
+<link href="ch-sysadmin-filesystems.html#s6.1" rel="section" title="6.1 Storage devices and media">
+<link href="ch-sysadmin-filesystems.html#s6.2" rel="section" title="6.2 Types of filesystem">
+<link href="ch-sysadmin-filesystems.html#s6.3" rel="section" title="6.3 Quotas">
+<link href="ch-sysadmin-filesystems.html#s6.4" rel="section" title="6.4 Tools for managing filesystems">
+<link href="ch-sysadmin-booting.html#s7.1" rel="section" title="7.1 Boot loaders">
+<link href="ch-sysadmin-users.html#s8.1" rel="section" title="8.1 Concepts">
+<link href="ch-sysadmin-users.html#s8.2" rel="section" title="8.2 Common tasks">
+<link href="ch-sysadmin-users.html#s8.3" rel="section" title="8.3 Tools reference">
+<link href="ch-sysadmin-users.html#s8.4" rel="section" title="8.4 Files reference">
+<link href="ch-sysadmin-sessions.html#s9.1" rel="section" title="9.1 Starting a session - logging in">
+<link href="ch-sysadmin-printing.html#s10.1" rel="section" title="10.1 Print devices">
+<link href="ch-sysadmin-printing.html#s10.2" rel="section" title="10.2 Spooler">
+<link href="ch-sysadmin-accounting.html#s11.1" rel="section" title="11.1 Concepts">
+<link href="ch-sysadmin-backup.html#s12.1" rel="section" title="12.1 Why backup?">
+<link href="ch-sysadmin-backup.html#s12.2" rel="section" title="12.2 What to backup?">
+<link href="ch-sysadmin-backup.html#s12.3" rel="section" title="12.3 Backup devices and media">
+<link href="ch-sysadmin-backup.html#s12.4" rel="section" title="12.4 Backup methods and software">
+<link href="ch-sysadmin-backup.html#s12.5" rel="section" title="12.5 Types of backup">
+<link href="ch-sysadmin-X.html#s13.1" rel="section" title="13.1 Overview of X">
+<link href="ch-sysadmin-security.html#s14.1" rel="section" title="14.1 Threats">
+<link href="ch-sysadmin-config.html#s15.1" rel="section" title="15.1 ???">
+<link href="ch-sysadmin-time.html#s16.1" rel="section" title="16.1 Setting time, time zones and Daylight Saving">
+<link href="ch-sysadmin-time.html#s16.2" rel="section" title="16.2 Setting and showing hardware clock">
+<link href="ch-sysadmin-time.html#s-multiboot-with" rel="section" title="16.3 Multiboot with operating systems not understanding timezone">
+<link href="ch-sysadmin-time.html#s-syncing-time" rel="section" title="16.4 Syncing time, rdate and NTP">
+<link href="ch-sysadmin-time.html#s16.5" rel="section" title="16.5 Setting up an NTP server">
+<link href="ch-sysadmin-time.html#s-radio-clocks" rel="section" title="16.6 Radio clocks">
+<link href="ch-sysadmin-time.html#s16.7" rel="section" title="16.7 Timestamps">
+<link href="ch-sysadmin-time.html#s16.8" rel="section" title="16.8 Time in cron">
+<link href="ch-sysadmin-localisation.html#s17.1" rel="section" title="17.1 Environment variables">
+<link href="ch-sysadmin-overview.html#s2.1.1" rel="subsection" title="2.1.1 The hardware">
+<link href="ch-sysadmin-overview.html#s2.1.2" rel="subsection" title="2.1.2 The Linux kernel">
+<link href="ch-sysadmin-overview.html#s2.1.3" rel="subsection" title="2.1.3 Devices">
+<link href="ch-sysadmin-overview.html#s2.1.4" rel="subsection" title="2.1.4 Filesystems">
+<link href="ch-sysadmin-files.html#s3.1.1" rel="subsection" title="3.1.1 Concepts">
+<link href="ch-sysadmin-files.html#s3.1.2" rel="subsection" title="3.1.2 Inodes">
+<link href="ch-sysadmin-files.html#s3.1.3" rel="subsection" title="3.1.3 Links">
+<link href="ch-sysadmin-files.html#s3.1.4" rel="subsection" title="3.1.4 Permissions">
+<link href="ch-sysadmin-files.html#s3.2.1" rel="subsection" title="3.2.1 Device drivers">
+<link href="ch-sysadmin-files.html#s3.2.2" rel="subsection" title="3.2.2 Device nodes">
+<link href="ch-sysadmin-files.html#s3.2.3" rel="subsection" title="3.2.3 Kernel modules">
+<link href="ch-sysadmin-directories.html#s5.3.1" rel="subsection" title="5.3.1 Hard links">
+<link href="ch-sysadmin-directories.html#s5.3.2" rel="subsection" title="5.3.2 Symbolic links">
+<link href="ch-sysadmin-users.html#s8.1.1" rel="subsection" title="8.1.1 Usernames and User IDs">
+<link href="ch-sysadmin-users.html#s8.1.2" rel="subsection" title="8.1.2 Groups and Group IDs">
+<link href="ch-sysadmin-users.html#s8.1.3" rel="subsection" title="8.1.3 Passwords">
+<link href="ch-sysadmin-users.html#s8.1.4" rel="subsection" title="8.1.4 Quotas">
+<link href="ch-sysadmin-users.html#s8.2.1" rel="subsection" title="8.2.1 Adding new users">
+<link href="ch-sysadmin-users.html#s8.2.2" rel="subsection" title="8.2.2 Changing or editing user information and settings">
+<link href="ch-sysadmin-users.html#s8.2.3" rel="subsection" title="8.2.3 Removing user accounts">
+<link href="ch-sysadmin-users.html#s8.2.4" rel="subsection" title="8.2.4 Changing user passwords">
+<link href="ch-sysadmin-users.html#s8.2.5" rel="subsection" title="8.2.5 Setting and changing password expiry times">
+<link href="ch-sysadmin-users.html#s8.2.6" rel="subsection" title="8.2.6 Creating groups">
+<link href="ch-sysadmin-users.html#s8.2.7" rel="subsection" title="8.2.7 Editing groups">
+<link href="ch-sysadmin-users.html#s8.2.8" rel="subsection" title="8.2.8 Deleting groups">
+<link href="ch-sysadmin-users.html#s8.2.9" rel="subsection" title="8.2.9 Setting up quotas">
+<link href="ch-sysadmin-users.html#s8.2.10" rel="subsection" title="8.2.10 Using shadow passwords">
+<link href="ch-sysadmin-users.html#s8.3.1" rel="subsection" title="8.3.1 Command-line tools">
+<link href="ch-sysadmin-users.html#s8.3.1.1" rel="subsection" title="8.3.1.1 adduser, addgroup">
+<link href="ch-sysadmin-users.html#s8.3.1.2" rel="subsection" title="8.3.1.2 chage">
+<link href="ch-sysadmin-users.html#s8.3.1.3" rel="subsection" title="8.3.1.3 chfn">
+<link href="ch-sysadmin-users.html#s8.3.1.4" rel="subsection" title="8.3.1.4 chsh">
+<link href="ch-sysadmin-users.html#s8.3.1.5" rel="subsection" title="8.3.1.5 passwd">
+<link href="ch-sysadmin-users.html#s8.3.1.6" rel="subsection" title="8.3.1.6 userdel">
+<link href="ch-sysadmin-users.html#s8.3.1.7" rel="subsection" title="8.3.1.7 vipw, vigr">
+<link href="ch-sysadmin-users.html#s8.3.2" rel="subsection" title="8.3.2 Graphical tools">
+<link href="ch-sysadmin-users.html#s8.4.1" rel="subsection" title="8.4.1 /etc/passwd">
+<link href="ch-sysadmin-users.html#s8.4.2" rel="subsection" title="8.4.2 /etc/group">
+<link href="ch-sysadmin-users.html#s8.4.3" rel="subsection" title="8.4.3 /etc/shadow">
+<link href="ch-sysadmin-printing.html#s10.2.1" rel="subsection" title="10.2.1 Lp">
+<link href="ch-sysadmin-printing.html#s10.2.2" rel="subsection" title="10.2.2 LPrng">
+<link href="ch-sysadmin-backup.html#s-sect-floppy" rel="subsection" title="12.3.1 Floppy">
+<link href="ch-sysadmin-backup.html#s12.3.1.1" rel="subsection" title="12.3.1.1 Backup example 1, suitable for disk media">
+<link href="ch-sysadmin-backup.html#s12.3.1.2" rel="subsection" title="12.3.1.2 Backup example 2, suitable for tape media">
+<link href="ch-sysadmin-backup.html#s12.3.1.3" rel="subsection" title="12.3.1.3 Backup example 3, suitable for disk media with DOS file system">
+<link href="ch-sysadmin-backup.html#s12.3.2" rel="subsection" title="12.3.2 High Capacity Floppies">
+<link href="ch-sysadmin-backup.html#s12.3.3" rel="subsection" title="12.3.3 CD-R and CD-RW">
+<link href="ch-sysadmin-backup.html#s12.3.4" rel="subsection" title="12.3.4 Tapes">
+<link href="ch-sysadmin-backup.html#s12.4.1" rel="subsection" title="12.4.1 Network backups">
+<link href="ch-sysadmin-backup.html#s12.4.1.1" rel="subsection" title="12.4.1.1 Installing EMC NetWorker Client">
+<link href="ch-sysadmin-backup.html#s12.4.1.2" rel="subsection" title="12.4.1.2 Setting up and Configuring">
+<link href="ch-sysadmin-backup.html#s12.4.2" rel="subsection" title="12.4.2 Tar et al">
+<link href="ch-sysadmin-backup.html#s12.4.3" rel="subsection" title="12.4.3 Backup software">
+<link href="ch-sysadmin-time.html#s-tzconfig" rel="subsection" title="16.1.1 Changing the timezone after installation">
+<link href="ch-sysadmin-time.html#s16.1.2" rel="subsection" title="16.1.2 Setting the TZ environment variable.">
+<link href="ch-sysadmin-time.html#s16.4.1" rel="subsection" title="16.4.1 Setting time at system boot">
+<link href="ch-sysadmin-time.html#s16.4.2" rel="subsection" title="16.4.2 Setting time using NTP">
+<link href="ch-sysadmin-time.html#s16.4.3" rel="subsection" title="16.4.3 Other methods">
+
+</head>
+
+<body>
+
+<p><a name="index"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-sysadmin-index.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-sysadmin-intro.html">1</a> ]
+[ <a href="ch-sysadmin-overview.html">2</a> ]
+[ <a href="ch-sysadmin-files.html">3</a> ]
+[ <a href="ch4.html">4</a> ]
+[ <a href="ch-sysadmin-directories.html">5</a> ]
+[ <a href="ch-sysadmin-filesystems.html">6</a> ]
+[ <a href="ch-sysadmin-booting.html">7</a> ]
+[ <a href="ch-sysadmin-users.html">8</a> ]
+[ <a href="ch-sysadmin-sessions.html">9</a> ]
+[ <a href="ch-sysadmin-printing.html">10</a> ]
+[ <a href="ch-sysadmin-accounting.html">11</a> ]
+[ <a href="ch-sysadmin-backup.html">12</a> ]
+[ <a href="ch-sysadmin-X.html">13</a> ]
+[ <a href="ch-sysadmin-security.html">14</a> ]
+[ <a href="ch-sysadmin-config.html">15</a> ]
+[ <a href="ch-sysadmin-time.html">16</a> ]
+[ <a href="ch-sysadmin-localisation.html">17</a> ]
+[ <a href="ch-sysadmin-index.html">18</a> ]
+[ <a href="ch-sysadmin-intro.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Debian GNU/Linux System Administrator's Manual (Obsolete Documentation)
+<br></h1>
+
+<hr>
+
+<h2><a name="abstract"></a>Abstract</h2>
+
+<p>
+The Debian GNU/Linux System Administrator's Manual covers all system
+administration aspects of a Debian GNU/Linux system.
+</p>
+
+<hr>
+
+<h2><a name="copyright"></a>Copyright Notice</h2>
+
+<p>
+
+</p>
+<ul>
+<li>
+<p>
+Copyright &copy; 1997 Ardo van Rangelrooij
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Copyright &copy; 1998 Oliver Elphick
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Copyright &copy; 1998 Tapio Lehtonen
+</p>
+</li>
+</ul>
+
+<p>
+This manual is free software; you may redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version.
+</p>
+
+<p>
+This is distributed in the hope that it will be useful, but <em>without any
+warranty</em>; without even the implied warranty of merchantability or fitness
+for a particular purpose.  See the GNU General Public License for more details.
+</p>
+
+<p>
+You should have received a copy of the GNU General Public License with your
+Debian GNU/Linux system, in <samp>/usr/doc/copyright/GPL</samp>, or with the
+<code>debiandoc-sgml</code> source package as the file <samp>COPYING</samp>.
+If not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge,
+MA 02139, USA.
+</p>
+
+<hr>
+
+<h2><a name="contents"></a>Contents</h2>
+
+<ul>
+<li><a href="ch-sysadmin-intro.html">1 Introduction</a>
+  <ul>
+  <li><a href="ch-sysadmin-intro.html#s1.1">1.1 About this manual</a></li>
+  <li><a href="ch-sysadmin-intro.html#s1.2">1.2 Where to find newer versions</a></li>
+  <li><a href="ch-sysadmin-intro.html#s1.3">1.3 Comments</a>
+  </ul></li>
+<li><a href="ch-sysadmin-overview.html">2 Overview of a Debian GNU/Linux System</a>
+  <ul>
+  <li><a href="ch-sysadmin-overview.html#s2.1">2.1 The main components of a system</a>
+  </ul></li>
+<li><a href="ch-sysadmin-files.html">3 Files and Devices</a>
+  <ul>
+  <li><a href="ch-sysadmin-files.html#s3.1">3.1 Files</a></li>
+  <li><a href="ch-sysadmin-files.html#s3.2">3.2 Devices</a>
+  </ul></li>
+<li><a href="ch4.html">4 Programs and processes</a>
+  <ul>
+  <li><a href="ch4.html#s4.1">4.1 Programs</a></li>
+  <li><a href="ch4.html#s4.2">4.2 Processes</a></li>
+  <li><a href="ch4.html#s4.3">4.3 The /proc filesystem</a></li>
+  <li><a href="ch4.html#s4.4">4.4 Tools for handling programs and processes</a>
+  </ul></li>
+<li><a href="ch-sysadmin-directories.html">5 Directory Structure</a>
+  <ul>
+  <li><a href="ch-sysadmin-directories.html#s5.1">5.1 Directories</a></li>
+  <li><a href="ch-sysadmin-directories.html#s5.2">5.2 Permissions</a></li>
+  <li><a href="ch-sysadmin-directories.html#s5.3">5.3 Links</a></li>
+  <li><a href="ch-sysadmin-directories.html#s5.4">5.4 ACL - Access Control Lists</a></li>
+  <li><a href="ch-sysadmin-directories.html#s5.5">5.5 Tools for managing directories</a>
+  </ul></li>
+<li><a href="ch-sysadmin-filesystems.html">6 Filesystems and Storage Media</a>
+  <ul>
+  <li><a href="ch-sysadmin-filesystems.html#s6.1">6.1 Storage devices and media</a></li>
+  <li><a href="ch-sysadmin-filesystems.html#s6.2">6.2 Types of filesystem</a></li>
+  <li><a href="ch-sysadmin-filesystems.html#s6.3">6.3 Quotas</a></li>
+  <li><a href="ch-sysadmin-filesystems.html#s6.4">6.4 Tools for managing filesystems</a>
+  </ul></li>
+<li><a href="ch-sysadmin-booting.html">7 Boot and Shutdown</a>
+  <ul>
+  <li><a href="ch-sysadmin-booting.html#s7.1">7.1 Boot loaders</a>
+  </ul></li>
+<li><a href="ch-sysadmin-users.html">8 Managing User Accounts</a>
+  <ul>
+  <li><a href="ch-sysadmin-users.html#s8.1">8.1 Concepts</a></li>
+  <li><a href="ch-sysadmin-users.html#s8.2">8.2 Common tasks</a></li>
+  <li><a href="ch-sysadmin-users.html#s8.3">8.3 Tools reference</a></li>
+  <li><a href="ch-sysadmin-users.html#s8.4">8.4 Files reference</a>
+  </ul></li>
+<li><a href="ch-sysadmin-sessions.html">9 Logging In and Out</a>
+  <ul>
+  <li><a href="ch-sysadmin-sessions.html#s9.1">9.1 Starting a session - logging in</a>
+  </ul></li>
+<li><a href="ch-sysadmin-printing.html">10 Printing</a>
+  <ul>
+  <li><a href="ch-sysadmin-printing.html#s10.1">10.1 Print devices</a></li>
+  <li><a href="ch-sysadmin-printing.html#s10.2">10.2 Spooler</a>
+  </ul></li>
+<li><a href="ch-sysadmin-accounting.html">11 Accounting</a>
+  <ul>
+  <li><a href="ch-sysadmin-accounting.html#s11.1">11.1 Concepts</a>
+  </ul></li>
+<li><a href="ch-sysadmin-backup.html">12 Backup and Restore</a>
+  <ul>
+  <li><a href="ch-sysadmin-backup.html#s12.1">12.1 Why backup?</a></li>
+  <li><a href="ch-sysadmin-backup.html#s12.2">12.2 What to backup?</a></li>
+  <li><a href="ch-sysadmin-backup.html#s12.3">12.3 Backup devices and media</a></li>
+  <li><a href="ch-sysadmin-backup.html#s12.4">12.4 Backup methods and software</a></li>
+  <li><a href="ch-sysadmin-backup.html#s12.5">12.5 Types of backup</a>
+  </ul></li>
+<li><a href="ch-sysadmin-X.html">13 X Windows</a>
+  <ul>
+  <li><a href="ch-sysadmin-X.html#s13.1">13.1 Overview of X</a>
+  </ul></li>
+<li><a href="ch-sysadmin-security.html">14 Security</a>
+  <ul>
+  <li><a href="ch-sysadmin-security.html#s14.1">14.1 Threats</a>
+  </ul></li>
+<li><a href="ch-sysadmin-config.html">15 System Configuration</a>
+  <ul>
+  <li><a href="ch-sysadmin-config.html#s15.1">15.1 ???</a>
+  </ul></li>
+<li><a href="ch-sysadmin-time.html">16 Time</a>
+  <ul>
+  <li><a href="ch-sysadmin-time.html#s16.1">16.1 Setting time, time zones and Daylight Saving</a></li>
+  <li><a href="ch-sysadmin-time.html#s16.2">16.2 Setting and showing hardware clock</a></li>
+  <li><a href="ch-sysadmin-time.html#s-multiboot-with">16.3 Multiboot with operating systems not understanding timezone</a></li>
+  <li><a href="ch-sysadmin-time.html#s-syncing-time">16.4 Syncing time, rdate and NTP</a></li>
+  <li><a href="ch-sysadmin-time.html#s16.5">16.5 Setting up an NTP server</a></li>
+  <li><a href="ch-sysadmin-time.html#s-radio-clocks">16.6 Radio clocks</a></li>
+  <li><a href="ch-sysadmin-time.html#s16.7">16.7 Timestamps</a></li>
+  <li><a href="ch-sysadmin-time.html#s16.8">16.8 Time in cron</a>
+  </ul></li>
+<li><a href="ch-sysadmin-localisation.html">17 Localisation</a>
+  <ul>
+  <li><a href="ch-sysadmin-localisation.html#s17.1">17.1 Environment variables</a>
+  </ul></li>
+<li><a href="ch-sysadmin-index.html">18 Index</a></li>
+</ul>
+
+<hr>
+
+<p>
+[ <a href="ch-sysadmin-index.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-sysadmin-intro.html">1</a> ]
+[ <a href="ch-sysadmin-overview.html">2</a> ]
+[ <a href="ch-sysadmin-files.html">3</a> ]
+[ <a href="ch4.html">4</a> ]
+[ <a href="ch-sysadmin-directories.html">5</a> ]
+[ <a href="ch-sysadmin-filesystems.html">6</a> ]
+[ <a href="ch-sysadmin-booting.html">7</a> ]
+[ <a href="ch-sysadmin-users.html">8</a> ]
+[ <a href="ch-sysadmin-sessions.html">9</a> ]
+[ <a href="ch-sysadmin-printing.html">10</a> ]
+[ <a href="ch-sysadmin-accounting.html">11</a> ]
+[ <a href="ch-sysadmin-backup.html">12</a> ]
+[ <a href="ch-sysadmin-X.html">13</a> ]
+[ <a href="ch-sysadmin-security.html">14</a> ]
+[ <a href="ch-sysadmin-config.html">15</a> ]
+[ <a href="ch-sysadmin-time.html">16</a> ]
+[ <a href="ch-sysadmin-localisation.html">17</a> ]
+[ <a href="ch-sysadmin-index.html">18</a> ]
+[ <a href="ch-sysadmin-intro.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Debian GNU/Linux System Administrator's Manual (Obsolete Documentation)
+</p>
+
+<address>
+This manual is OBSOLETE and DEPRECATED since 2006, 29 Dezember 2009. Instead see http://www.de.debian.org/doc/user-manuals#quick-reference.<br>
+<br>
+Ardo van Rangelrooij <code><a href="mailto:ardo.van.rangelrooij@tip.nl">ardo.van.rangelrooij@tip.nl</a></code><br>
+Tapio Lehtonen <code><a href="mailto:Tapio.Lehtonen@IKI.FI">Tapio.Lehtonen@IKI.FI</a></code><br>
+Oliver Elphick - Previous maintainer<br>
+<br>
+</address>
+<hr>
+
+</body>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/system-administrator/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:25:56 GMT -->
+</html>
+

@@ -1,0 +1,924 @@
+  The Linux XFree86 HOWTO
+  By Eric S. Raymond diterjemahkan oleh Yaya Heryadi
+  <yheryadi@necnusa.co.id>
+  V 5.9, 27 October 1998, terj. 18 Des 1998
+
+  Dokumen ini menjelaskan cara untuk mendapatkan, menginstal, dan
+  mengkonfigur Sistem X Window (X11R6) versi  XFree86, versi 3.3, pada
+  sistem Linux. Dokumen ini merupakan sebuah petunjuk langkah-demi-
+  langkah dalam mengkonfigur XFree86 didalam sistem anda.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Pendahuluan
+
+     1.1 Sumber-sumber Informasi lainnya
+     1.2 Versi-versi baru Dokumen ini
+     1.3 Umpan-balik dan Koreksi
+
+  2. Persyaratan Hardware
+
+  3. Menginstal XFree86
+
+  4. Mengkonfigur XFree86
+
+     4.1 Konfigurasi Normal
+     4.2 Troubleshooting
+     4.3 Konfigurasi untuk Kebutuhan Khusus
+     4.4 Penggunaan Warna 16-bit
+
+  5. Menjalankan XFree86
+
+     5.1 Kondisi Penggunaan
+     5.2 Penghargaan
+
+  6. Terjemahan
+
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  Sistem X Window merupakan sebuah environment grafik yang besar dan
+  powerful (beberapa orang menyebut sistem ini sebagai luar biasa besar
+  dan sangat kompleks) dalam sistem-sistem UNIX.  Program Sistem X
+  Window awalnya dikembangkan di MIT; vendor-vendor komersial kemudian
+  menjadikan X sebagai standar industri bagi platform UNIX. Secara
+  virtual setiap workstation UNIX di dunia menggunakan beberapa varian
+  dari sistem X Window.
+
+  Sebuah hasil pemindahan yang didistribusikan secara bebas dari Sistem
+  X Window MIT versi 11 release 6 (X11R6) kedalam sistem-sistem UNIX
+  80386/80486/Pentium telah dikembangkan oleh sebuah tim programmer yang
+  awalnya dipimpin oleh David Wexelblat,  <mailto:dwex@XFree86.org>.
+  Release ini, yang dikenal sebagai XFree86, tersedia untuk System
+  V/386, 386 BSD, dan implementasi-implementasi UNIX x86 lainnya,
+  termasuk Linux. Release XFree86 ini sudah meliputi semua binary, file-
+  file pendukung, library, dan tool yang diperlukan.
+
+  Informasi selengkapnya mengenai XFree86 tersedia di website XFree86, .
+
+  Didalam dokumen ini, kami akan menjelaskan secara langkah-demi-langkah
+  cara menginstall dan mengkonfigur XFree86 untuk Linux, tetapi Anda
+  harus melengkapi sendiri beberapa hal terperinci dengan membaca
+  dokumentasi-dokumentasi yang menyertai XFree86 (Dokumentasi tsb akan
+  didiskusikan dibawah ini). Namun demikian, penggunaan dan penyesuaian
+  Sistem X Window berada diluar ruang lingkup dokumen ini - untuk
+  keperluan itu Anda harus membaca salah satu dari buku-buku yang bagus
+  mengenai penggunaan Sistem X Window.
+
+
+
+  1.1.  Sumber-sumber Informasi lainnya
+
+  Apabila Anda belum pernah mengenal Linux sebelumnya, beberapa sumber
+  informasi dasar mengenai sistem tersedia untuk anda. Tempat terbaik
+  untuk mendapatkan informasi tersebut adalah home-page Projek
+  Dokumentasi Linux yaitu . Di tempat tsb Anda dapat pula mendapatkan
+  versi terakhir dan terkini dari dokumentasi ini yaitu di dalam .
+
+
+  1.2.  Versi-versi baru Dokumen ini
+
+  Versi-versi baru dari Linux XFree HOWTO akan dimuat secara berkala ke
+  dalam comp.os.linux.help, news.comp.os.linux.announce, dan
+  news.answers. Dokumen tsb juga dimasukkan kedalam berbagai site WWW
+  dan FTP untuk Linux, termasuk home-page LDP.
+
+  Anda selalu akan dapat melihat versi terakhir dari dokumentasi ini
+  didalam World Wide Web dengan URL .
+
+
+
+  1.3.  Umpan-balik dan Koreksi
+
+  Jika Anda memiliki beberapa pertanyaan atau komentar mengenai dokumen
+  ini, jangan segan-segan untuk mengirim mail kepada Eric S. Raymond
+  dengan alamat . Semua saran dan kritikan akan diterima dengan baik.
+  Jika Anda menemukan suatu kesalahan pada dokumen ini, Anda
+  dipersilahkan untuk memberitahukannya agar kesalahan tsb dapat
+  diperbaiki pada versi mendatang. Terima-kasih.
+
+  Dimohon agar Anda tidak mengirim mail berisi pertanyaan-pertanyaan
+  mengenai cara agar video card dan monitor Anda dapat berfungsi dengan
+  X. HOWTO ini dibuat untuk menjadi petunjuk singkat dan tidak
+  menyulitkan dalam melakukan instalasi normal menggunakan konfigurator
+  baru yang interaktif. Jika Anda menemui masalah, bacalah dokumen
+  XFree86 Video Timing HOWTO, (dokumen ini merupakan versi HTML terkini
+  dari file "Videomodes.doc" untuk XFree86).
+
+  Dokumen ini menjelaskan semua yang penulis ketahui mengenai
+  troubleshooting terhadap konfigurasi. Jika dokumen tadi tidak membantu
+  Anda maka penulis pun tidak dapat melakukannya.
+
+
+
+  2.  Persyaratan Hardware
+
+  Sampai dengan versi 3.3, video chipset yang diuraikan dibawah ini
+  didukung oleh XFree86.  Dokumentasi dari video adapter Anda seharusnya
+  menyebutkan chipset yang digunakannya. Jika Anda sedang berada
+  ditempat penjual video card dengan maksud membeli sebuah video card
+  baru, atau sedang membeli sebuah komputer baru yang dilengkapi dengan
+  sebuah video card, mintalah vendor untuk memberikan informasi yang
+  jelas mengenai pembuat, model, dan chipset dari video card tadi. Untuk
+  mendapatkan informasi itu mungkin vendor tsb harus memanggil technical
+  support bagi anda; secara umum vendor-vendor akan dengan senang hati
+  melakukannya.  Banyak vendor hardware PC akan menyatakan bahwa video
+  card-nya merupakan suatu "card SVGA standar" yang "akan bekerja" pada
+  sistem anda. Jelaskanlah bahwa software yang Anda gunakan (sebutkan
+  Linux dan XFree86) tidak mendukung semua video chipset sehingga Anda
+  memerlukan informasi yang terperinci.
+
+  Anda dapat pula mengetahui chipset dari video card Anda dengan
+  menjalankan program SuperProbe yang sudah termasuk kedalam distribusi
+  XFree86. Hal ini akan diuraikan secara terperinci dibawah ini.
+
+  Chipset SVGA standar berikut mendapat dukungan XFree86:
+
+  o  Tseng ET3000, ET4000AX, ET4000/W32, ET6000
+
+  o  Western Digital/Paradise  PVGA1
+
+  o  Western Digital WD90C00, WD90C10, WD90C11, WD90C24, WD90C30,
+     WD90C31, WD90C33 Genoa GVGA
+
+  o  Trident  TVGA8800CS, TVGA8900B, TVGA8900C, TVGA8900CL, TVGA9000,
+     TVGA9000i, TVGA9100B, TVGA9200CX, TVGA9320, TVGA9400CX, TVGA9420,
+     TVGUI9420DGi, TVGUI9430DGi, TVGUI9440AGi, TVGUI9660XGi, TVGUI948
+
+  o  ATI  18800, 18800-1, 28800-2, 28800-4, 28800-5, 28800-6, 68800-3,
+     68800-6, 68800AX, 68800LX, 88800GX-C, 88800GX-D, 88800GX-E,
+     88800GX-F, 88800CX, 264CT, 264ET, 264VT, 264VT2, 264GT
+
+  o  NCR 77C22, 77C22E, 77C22E+
+
+  o  Cirrus Logic CLGD5420, CLGD5422, CLGD5424, CLGD5426, CLGD5428,
+     CLGD5429, CLGD5430, CLGD5434, CLGD5436, CLGD5440, CLGD5446,
+     CLGD5462, CLGD5464, CLGD6205, CLGD6215, CLGD6225, CLGD6235,
+     CLGD6410, CLGD6412, CLGD6420, CLGD6440
+
+  o  OAK OTI067, OTI077, OTI087
+
+  o  Advance Logic ALG2101, ALG2228, ALG2301, ALG2302, ALG2308, ALG2401
+
+  o  Chips & Technologies 65520, 65530, 65540, 65545, 65546
+
+  o  MX MX68000, MX680010
+
+  o  Video 7/Headland Technologies HT216-32
+
+  o  SiS 86C201, 86C202, 86C205
+
+  o  ARK Logic ARK1000PV, ARK1000VL, ARK2000PV, ARK2000MT
+
+  o  RealTek RTG3106
+
+  o  Alliance AP6422
+
+  o  Matrox MGA2064W, dan Mystique cards
+
+  o  Nvidia/SGS Thomson NV1, STG2000
+
+  Chipset SVGA dengan kemampuan percepatan (accelerated feature) berikut
+  mendapat dukungan XFree86:
+
+
+  o  8514/A (berikut true-clones-nya)
+
+  o  ATI Mach8, Mach32, Mach64
+
+  o  Cirrus CLGD5420, CLGD5422, CLGD5424, CLGD5426, CLGD5428, CLGD5429,
+     CLGD5430, CLGD5434, CLGD5436, CLGD5440, CLGD5446, CLGD5462,
+     CLGD5464
+
+
+  o  S3 86C911, 86C924, 86C801, 86C805, 86C805i, 86C928, 86C864, 86C964,
+     86C732, 86C764, 86C765, 86C868, 86C968, 86C325, 86C988
+
+  o  Western Digital WD90C31, WD90C33, WD90C24A
+
+  o  Weitek P9000
+
+  o  IIT AGX-014, AGX-015, AGX-016
+
+  o  IBM XGA-2
+
+  o  Tseng ET4000/W32, ET4000/W32i, ET4000/W32p, ET6000
+
+  o  Ark Logic ARK1000PV, ARK1000VL, ARK2000PV, ARK2000MT
+
+  o  MGA 2064w
+
+     Video card yang menggunakan chipset yang terdapat pada daftar
+     diatas didukung untuk semua tipe bus, termasuk VLB dan PCI.
+
+  Semua chipset diatas didukung baik pada mode 256-warna maupun mode
+  monochrome, kecuali chipset: Advance Logic, MX, dan Video 7 yang hanya
+  didukung pada mode 256-warna. Jika video card Anda memiliki jumlah
+  DRAM yang cukup, banyak chipset dari daftar diatas didukung
+  penggunaannya pada mode 16 dan 32 bit-per-pixel. (lebih spesifik:
+  beberapa board Mach32, P9000, dan S3). Konfigurasi umum adalah 8 bit
+  per pixel (yaitu: 256-warna).
+
+  Server monochrome juga mendukung card VGA generik, card monochrome
+  Hercules, Hyundai HGC 1280, Sigma LaserView, dan card monochrome
+  Apollo.  Pada Compaq, AVGA hanya mendukung video memory sebesar 64 K
+  bagi server monochrome; sedangkan, GVGA belum pernah diuji dengan
+  memory yang lebih besar dari 64 K.
+
+  Daftar diatas tanpa diragukan lagi akan terus berkembang dengan
+  berjalannya waktu. Release Note dari suatu versi XFree86 seharusnya
+  berisi daftar lengkap semua video chipset yang didukung oleh XFree86
+  pada versi tsb.
+
+  Satu masalah yang dihadapi oleh pengembang XFree86 adalah beberapa
+  pembuat video card menggunakan mekanisma-mekanisma yang tidak standar
+  dalam menentukan frekwensi clock pengendali card. Pembuat-pembuat card
+  tadi tidak mengeluarkan spesifikasi cara memprogram card, atau meminta
+  pengembang untuk menanda-tangani sebuah perjanjian agar tidak
+  membukakan rahasia sebagai syarat untuk mendapatkan informasi yang
+  diperlukan. Kendala ini jelas akan menghambat pendistribusian software
+  XFree86 secara bebas, sesuatu yang tidak ingin dilakukan oleh tim
+  pengembang XFree86.  Untuk waktu yang lama, kendala diatas menyebabkan
+  XFree86 menghadapi masalah dengan beberapa video card tertentu yang
+  dibuat oleh Diamond, tetapi mulai XFree86 release 3.1, Diamond sudah
+  bersedia untuk bekerja-sama dengan tim pengembang untuk memberikan
+  informasi mengenai driver bagi card-card yang dibuatnya.
+
+  Setup yang disarankan bagi XFree86 dengan Linux adalah sebuah komputer
+  486 atau lebih baik dari itu, dilengkapi dengan RAM minimal 8 MB, dan
+  sebuah video card dengan sebuah chipset yang terdapat pada daftar
+  diatas. Untuk mendapatkan kinerja yang optimal, kami menyarankan agar
+  Anda menggunakan sebuah accelerated card seperti card dengan chipset
+  S3. Anda harus terlebih dahulu memeriksa apakah card yang Anda miliki
+  didukung oleh XFree86 sebelum Anda membeli hardware yang mahal
+  harganya.
+
+  Sebagai catatan tambahan, Sistem Linux pribadi yang digunakan oleh
+  Matt Welsh (pelopor penulisan FAQ ini) adalah sebuah komputer
+  486DX2-66, RAM 20 MB, dilengkapi sebuah card yang memiliki chipset VLB
+  S3-864 dengan DRAM sebesar 2 MB.  Dia menjalankan X benchmark di dalam
+  komputer tadi dan Sun Sparc IPX secara bersamaan. Sistem Linux
+  ternyata memiliki kecepatan sekitar 7 kali lebih tinggi dari kecepatan
+  Sparc IPX (bagi yang penasaran, XFree86-3.1 dengan Linux yang
+  dilengkapi video card tadi berjalan dengan sekitar 171000 xstones;
+  sedangkan Sparc IPX hanya sekitar 24000). Secara umum, XFree86 didalam
+  sebuah sistem Linux yang dilengkapi sebuah accelerated card SVGA
+  memberikan kinerja lebih tinggi dari kinerja yang diberikan oleh
+  workstation UNIX komersial (yang umumnya menggunakan framebuffers
+  sederhana untuk grafik).
+
+  Komputer Anda memerlukan minimal RAM fisik sebesar 4 MB dan RAM
+  virtual sebesar 16 MB (misalnya RAM fisik sebesar 8 MB ditambah swap
+  sebesar 8 MB). Perlu diingat bahwa semakin besar ukuran RAM fisik yang
+  Anda miliki maka swap yang dilakukan ke/dari disk pada saat jumlah
+  memory rendah akan semakin kecil. Karena swapping bersifat lambat
+  (disk sangat lambat dibandingkan dengan memory), memiliki RAM 8 MB
+  atau lebih merupakan syarat perlu agar dapat menjalankan XFree86
+  dengan baik.  Ukuran RAM 16 MB akan lebih baik lagi. Sebuah sistem
+  dengan RAM fisik 4 MB akan berjalan jauh lebih lambat (sampai 10 kali
+  lebih lambat) dari sistem dengan RAM 8 MB atau lebih.
+
+
+
+  3.  Menginstal XFree86
+
+  Anda sangat mungkin telah mendapatkan XFree86 sebagai bagian dari
+  distribusi Linux, sehingga men-download software secara terpisah tidak
+  lagi diperlukan.  Dalam kasus ini, Anda boleh melewati bagian ini.
+
+  Distribusi binary dari XFree86 untuk Linux dapat Anda temukan pada
+  sejumlah site FTP. Pada setiap site XFree86 distribusi tadi berada di
+  dalam:   (Pada saat penulisan dokumen ini, versi yang ada adalah 3.2A;
+  versi-versi terbarunya akan dikeluarkan secara berkala).
+
+  Sebelum Anda melakukan hal-hal lain, silahkan men-download file shell
+  script `preinst.sh' dilanjutkan dengan menjalankan script tsb. Script
+  tadi akan menampilkan persyaratan-persyaratan yang harus Anda penuhi
+  sebelum Anda melakukan instalasi.
+
+  Apabila Anda men-download XFree86 secara langsung, tabel berikut
+  berisi file-file yang terdapat didalam distribusi XFree88-3.3.
+
+  Salah satu dari server berikut Anda perlukan:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  X338514.tgz
+          Server untuk board berbasis 8514
+
+  X33AGX.tgz
+          Server untuk board berbasis AGX
+
+  X33I128.tgz
+          Server untuk Number Nine Imagine 128
+
+  X33Mach32.tgz
+          Server untuk board berbasis Mach32
+
+  X33Mach64.tgz
+          Server untuk board berbasis Mach64
+
+  X33Mach8.tgz
+          Server untuk board berbasis Mach8
+
+  X33Mono.tgz
+          Server untuk mode video monochrome
+
+  X33P9K.tgz
+          Server untuk board berbasis P9000
+
+  X33S3.tgz
+          Server untuk board berbasis S3
+
+  X33S3V.tgz
+          Server untuk S3 ViRGE dan ViRGE/VX (merupakan beta)
+
+  X33SVGA.tgz
+          Server untuk board berbasis Super VGA
+
+  X33W32.tgz
+          Server untuk board berbasis ET4000/W32
+
+
+
+  Jika Anda tidak mengetahui server mana yang akan Anda gunakan,
+  ambillah server VGA 16, X33VGA16.tgz.  Bagaimanapun Anda harus
+  mendownload server tadi, karena Anda memerlukannya untuk menjalankan
+  utilitas auto-configuration pada langkah berikutnya.
+
+  Semua file-file beriktu Anda perlukan:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Preinst.sh
+          Script pre-instalasi
+
+  Postinst.sh
+          Script post-instalasi
+
+  X33bin.tgz
+          Binary dari X11R6
+
+  X33cfg.tgz
+          File config untuk xdm, xinit, dan fs
+
+  X33doc.tgz
+          Dokumentasi
+
+  X33man.tgz
+          Halaman-halaman manual
+
+  X33fnts.tgz
+          Font-font 75dpi, misc, dan PEX
+
+  X33lib.tgz
+          Shared X libraries, dan file-file pendukung
+
+  X33set.tgz
+          Utilitas XF86Setup
+
+  X33VG16.tgz
+          Server untuk board berbasis VGA/EGA
+
+
+
+  File-file berikut merupakan boleh diinstall boleh tidak:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  X33f100.tgz
+          Font-font 100dpi
+
+  X33fcyr.tgz
+          Font-font Cyrillic
+
+  X33fnon.tgz
+          Font-font lainnya (China, Jepang, Korea, Yahudi)
+
+  X33fscl.tgz
+          Font-font berskala (speedo, dan Type1)
+
+  X33fsrv.tgz
+          Font server dan file-file config
+
+  X33prog.tgz
+          File-file X header, config, dan compile-time libs
+
+  X33lkit.tgz
+          X server Link Kit
+
+  X33lk98.tgz
+          PC98 X server Link Kit
+
+  X33nest.tgz
+          Nested X server
+
+  X33prt.tgz
+          X print server
+
+  X33vfb.tgz
+          Virtual framebuffer X server
+
+  X33ps.tgz
+          Dokumentasi dalam versi PostScript
+
+  X33html.tgz
+          Dokumentasi dalam versi HTML
+
+
+
+  Direktori XFree86 seharusnya memiliki sebuah file RELNOTES yang berisi
+  release notes bagi versi saat ini. Gunakan informasi-informasi
+  didalamnya bagi keperluan yang lebih terperinci mengenai instalasi.
+
+  Semua yang harus dilakukan dalam menginstal XFree86 meliputi:
+  mendapatkan file-file yang telah disebutkan diatas, membuat direktori
+  /usr/X11R6 (sebagai root), dan melakukan unpack terhadap file-file
+  didalam direktori /usr/X11R6 menggunakan perintah seperti berikut:
+
+
+          gzip -dc X33bin.tgz | tar xfB -
+
+
+
+  Ingatlah bahwa file-file tar tadi dikemas secara relatif terhadap
+  direktori /usr/X11R6, sehingga penting untuk melakukan unpack dari
+  file-file tadi didalam direktori tsb.
+
+  Anda harus memastikan bahwa /usr/X11R6/bin berada didalam path anda.
+  Ini dapat dilakukan dengan mengedit default sistem Anda yaitu
+  /etc/profile atau /etc/csh.login (tergantung kepada shell yang
+  digunakan baik oleh Anda maupun user-user lainnya dari sistem Anda
+  tsb). Atau, dapat pula dilakukan dengan menambahkan direktori tadi
+  kedalam path pribadi Anda dengan memodifikasi file .bashrc atau .cshrc
+  tergantung shell yang Anda gunakan.
+  Anda juga harus memastikan bahwa  /usr/X11R6/lib dapat ditemukan oleh
+  ld.so, sang runtime linker. Untuk melakukan ini, tambahkanlah baris
+  berikut:
+
+
+          /usr/X11R6/lib
+
+
+
+  ke dalam file /etc/ld.so.conf, lalu sebagai root Anda jalankan
+  /sbin/ldconfig.
+
+
+
+  4.  Mengkonfigur XFree86
+
+
+  4.1.  Konfigurasi Normal
+
+  Mengkonfigurasi XFree86 untuk dapat menggunakan mouse, keyboard,
+  monitor, dan video card secara benar semula merupakan suatu black-art,
+  memerlukan pekerjaan hand-hack terhadap file suatu file konfigurasi
+  yang rumit.  Tidak akan terjadi lagi; Release 3.2/3.3 telah membuat
+  proses konfigurasi menjadi hampir tanpa kesulitan. Yang Anda lakukan
+  hanyalah menjalankan program XF86Setup.
+
+  Program ini didasarkan kepada fakta bahwa semua hardware PC baru saat
+  ini dilengkapi dengan monitor berkemampuan EGA/VGA. Program XF86 Setup
+  memanggil dan menggunakan server VGA 16 untuk mengaktifkan X dengan
+  mode terrendah yang paling umum digunakan (lowest-common-denominator)
+  yaitu mode 640x480. Selanjutnya, XF86Setup menjalankan sebuah program
+  interaktif yang membawa Anda melalui sebuah deretan 5 panel
+  konfigurasi - mouse, keyboard, (video) card, monitor, dan 'lain-lain'
+  (berbagai pilihan untuk server). Keseluruhan proses sangat mudah
+  dilakukan.
+
+  (Jika Anda menjalankan Linux Red Hat, Anda mungkin melihat sebuah
+  program bernama xf86config. Kerja dari program itu mirip dengan
+  XF86Setup, hanya saja xf86config tidak menggunakan interface X maupun
+  server VGA 16).
+
+  Sebuah hal kecil yang perlu diingat adalah, jika Anda menggunakan
+  suatu jenis PC yang ada sekarang ini seperti juga dilkakukan oleh
+  kebanyakan orang, keyboard Anda dikenal oleh XF86Setup sebagai
+  'Generic 102-key PC (intl)' dan bukan sebagai 'Generic 101-key PC'.
+  Jika Anda memilih default (101) maka sejumlah tombol diujung paling
+  kanan keyboard Anda (keypad nomor dan beberapa tombol lainnya) akan
+  berhenti berfungsi.
+
+  Apabila Anda merasa kurang yakin dengan tipe monitor yang Anda miliki,
+  Anda dapat mencoba satu persatu tipe monitor dari daftar yang ada.
+  Cobalah semua tipe monitor dari daftar secara berurutan dari atas ke
+  bawah (pilihan dibagian atas memiliki kecepatan dot-clock yang rendah
+  serta kurang membutuhkan persyaratan hardware). Kembalilah untuk
+  menggunakan tipe monitor sebelumnya jika sesudah memilih suatru tipe
+  monitor Anda mendapatkan gambar yang bertumpuk atau sangat
+  terdistorsi. Distorsi-distorsi kecil (gambar agak terlalu besar,
+  terlalu kecil, atau off-center) bukan merupakan masalah; Anda akan
+  berkesempatan untuk mengkoreksi hal tsb secepatnya dengan melakukan
+  fine-tuning terhadap mode.
+
+  Dan, pada saat program tadi mengaktifkan xvidtune yang memungkinkan
+  Anda memilih video mode, janganlah peringatan awal yang ditampilkan
+  dalam box membuat Anda takut. Monitor-monitor modern yang dilengkapi
+  dengan multisync (berbeda dengan pendahulunya yang memiliki frekwensi
+  tetap) tidak akan mudah rusak oleh cara tsb.
+  XF86Setup mengasumsikan bahwa mouse device Anda adalah /dev/mouse.
+  Jika pilihan ini menyebabkan mouse Anda tidak berfungsi, Anda harus
+  membuat link /dev/mouse kepada  salah satu dari  /dev/cua[01]  yang
+  mouse Anda gunakan.  Jika XFree86 memberikan pesan "mouse busy" ketika
+  gpm sedang berjalan, maka Anda harus membuat link /dev/mouse ke
+  /dev/ttyS[01].
+
+  Proses konfigurasi dimulai dengan memilih sebuah server yang sesuai
+  dengan tipe umum dari video card yang Anda miliki (seperti XF86-VGA16,
+  XF86-Mach64, XF86-S3), selanjutnya mengkonfigur file XF86Config, yang
+  akan dibaca server pada saat startup untuk mendapatkan parameter-
+  parameter tertentu bagi instalasi anda. Lokasi file XF86Config
+  berbeda-beda tergantung OS anda, namun salah satu tempat yang Anda
+  dapat cari adalah direktori /etc/X11.
+
+  Pada versi-versi lama XFree86, XF86Setup membuat link langsung dari
+  perintah X ke server yang dipilih. Pada versi-versi sekarang, X di-
+  link kesuatu program set-user-id wrapper yang disebut Xwrapper.
+  Maksudnya adalah membuat semua yang dikenai setuid root terlokalisir
+  didalam Xwrapper sehingga server tsb tidak perlu menjalankan setuid
+  root.
+
+
+  4.2.  Troubleshooting
+
+  Kadang-kadang sesuatu tidak langsung berjalan baik pada saat X server
+  pertama kali dijalankan. Hal ini hampir selalu disebabkan oleh masalah
+  pada file konfigurasi anda. Biasanya karena nilai timing monitor
+  adalah off, atau setting dot clock dari video card tidak benar.
+  Problem-problem kecil dapat diatasi dengan xvidtune; Sebuah tampilan
+  layar yang kacau (garbled) biasanya menunjukkan Anda harus kembali
+  melakukan XF86Setup dan memilih tipe monitor dengan kemampuan lebih
+  rendah.
+
+  Apabila tampilan layar Anda seperti bergulung (roll) atau tepi-tepi
+  layar terlihat kabur, ini merupakan petunjuk yang jelas bahwa nilai-
+  nilai timing monitor atau dot clock tidak tepat.  Anda juga harus
+  memastikan bahwa chipset video card Anda sudah dinyatakan dengan
+  benar, demikian pula pilihan-pilihan lain yang terdapat pada seksi
+  Device dari XF86Config.  Anda harus merasa pasti bahwa Anda
+  menggunakan X server yang benar, serta /usr/X11R6/bin/X merupakan
+  sebuah symbolic link ke X server tadi.
+
+  Jika semua yang Anda lakukan diatas belum berhasil, cobalah
+  menjalankan X secara bare yaitu menggunakan perintah sbb:
+
+
+          X > /tmp/x.out          2>&1
+
+
+
+  Kemudian, berhentikan X server (menggunakan kombinasi tombol ctrl-alt-
+  backspace) dan periksalah isi file  /tmp/x.out. X server akan
+  melaporkan setiap peringatan maupun error yang terjadi --misalnya,
+  jika video card Anda tidak memiliki dot-clock yang sesuai dengan mode
+  yang didukung monitor anda.
+
+  Ingatlah bahwa Anda dapat menggunakan ctrl-alt-numeric +, dan ctrl-
+  alt-numeric  - untuk berpindah-pindah dari satu video mode ke video
+  mode lain yang terdaftar didalam line Modes dari seksi Screen didalam
+  XF86Config. Jika mode resolusi tertinggi tidak nampak merupakan
+  pilihan tepat, cobalah ganti dengan resolusi yang lebih rendah. Anda
+  nanti akan mengetahuinya, paling tidak bagian-bagian dari konfigurasi
+  X tadi bekerja dengan benar.
+
+
+  Juga, periksalah tombol pengatur ukuran/piosis vertikal maupun
+  horisontal dari monitor anda. Di dalam banyak kasus yang terjadi,
+  pengaturan diatas diperlukan pada saat menjalankan X. Misalnya, jika
+  tampilan layar nampak sedikit bergeser kesatu sisi, biasanya dapat
+  Anda koreksi dengan menggunakan pengontrol monitor tadi.
+
+  Newsgroup USENET comp.windows.x.i386unix, seperti juga
+  comp.os.linux.x, diperuntukkan bagi keperluan diskusi mengenai
+  XFree86. Mungkin memperhatikan posting-posting yang berkaitan dengan
+  konfigurasi video Anda pada newsgroup tadi merupakan suatu hal yang
+  baik - Anda mungkin akan menemukan seseorang yang memiliki masalah
+  yang sama dengan masalah yang Anda hadapi.
+
+
+
+  4.3.  Konfigurasi untuk Kebutuhan Khusus
+
+  Jika monitor yang Anda miliki dapat mendukung 1600x1200 maka untuk
+  mendapatkan kinerja yang optimal Anda harus melakukan hand-hack
+  terhadap konfigurasi X Anda - resolusi tertinggi yang didukung
+  XF86Setup adalah 1280x1024.
+
+  Apabila Anda ingin melakukan hand-hack terhadap konfigurasi video Anda
+  baik untuk tujuan diatas ataupun untuk tujuan-tujuan lain, bacalah
+  "XFree86 Video Timing HOWTO" dari LDP,  (ini merupakan versi HTML
+  terkini dari file "Videmodes.doc" untuk XFree86).
+
+
+
+  4.4.  Penggunaan Warna 16-bit
+
+  Secara default, X menggunakan kedalaman warna 8-bit sehingga
+  memberikan 256 jenis warna. Untuk menghindari pembatasan ini, banyak
+  aplikasi menyediakan peta warnanya (color map) sendiri, mengakibatkan
+  adanya loncatan warna yang terjadi tiba-tiba ketika kursor berpindah
+  tempat dari suatu window ke window lain yang masing-masing memiliki
+  peta warna sendiri. Browser WWW bernama Arena melakukan cara yang
+  diuraikan tadi.
+
+  Apabila Anda ingin menggunakan aplikasi-aplikasi grafik yang canggih
+  maka warna-warna sejumlah 256 mungkin tidak mencukupi. Anda mungkin
+  perlu menggunakan kedalaman warna 16-bit (65536 warna). Tetapi harap
+  berhati-hati karena tidak semua aplikasi akan bekerja dengan warna
+  16-bit.
+
+  Anda dapat menggunakan kedalaman warna 16-bit dengan warna sejumlah 65
+  K hanya dengan menjalankan X sbb:
+
+
+          startx --  -bpp 16
+
+
+
+  atau memasukkan perintah sbb:
+
+
+          exec    X  :0   -bpp 16
+
+
+
+  ke dalam file .xserverrc anda.  Namun agar  perintah diatas dapat
+  berfungsi, Anda memerlukan seksi:
+
+
+          screen
+
+  didalam XF86Config dengan:
+
+
+          DefaultColorDepth       16
+
+
+
+  Jika Anda menggunakan xdm, Anda perlu merubah file Xservers yang
+  mungkin terletak didalam direktori /etc/X11/xdm/.  Didalam suatu
+  konfigurasi yang umum, file tadi hanya berisi satu baris yang bukan
+  merupakan suatu comment yaitu:
+
+
+          :0      local  /usr/X11R6/bin/X -bpp   16
+
+
+
+  Demikian pula, Anda harus menambahkan kedalam seksi Screen dari
+  konfigurasi X sebuah bagian Display yang berisi pemberian nilai 16
+  kepada field Depth. Secara umum Anda dapat melakukannya dengan
+  menduplikasi seksi Display bagi 8-bit kemudian merubah nilai field
+  Depth-nya.
+
+  Lebih banyak warna membuat video card Anda mampu mentransfer lebih
+  banyak data dalam waktu yang sama. Jika video card Anda tidak mampu
+  melakukannya maka Anda harus mengurangi resolusi atau kecepatan
+  refreshnya.  Secara default, XFree86 akan mengurangi resolusi. Jika
+  ingin menjaga resolusi dan mengurangi kecepatan refresh, Anda harus
+  menyisipkan sebuag Modeline baru yang sesuai kedalam file XF86Config
+  yang mendefinisikan resolusi dengan kecepatan refresh lebih rendah.
+  Misalnya dengan mengganti nilai lama berikut:
+
+
+          Modeline  "1024x768"      75  1024  1048  1184  1328  768  771  777  806  -hsync  -vsync
+  dengan
+          Modeline  "1024x768"      65  1024  1032  1176  1344  768  771  777  806  -hsync  -vsync
+
+
+
+  Angka-angka istimewa 75 dan 65 diatas menunjukkan kecepatan clock yang
+  dilaporkan oleh X kedalam file .X.err anda.  Bacalah file-file
+  monitor dari dokumentasi XFree86 untuk mendapatkan Modeline yang
+  sesuai dengan kecepatan maksimum clock yang dapat diberikan oleh video
+  card Anda menggunakan kedalaman warna 16-bit.
+
+
+
+  5.  Menjalankan XFree86
+
+  Sesudah file XF86Config selesai dikonfigur maka Anda sudah siap untuk
+  menjalankan X server. Namun sebelum itu dilakukan, periksalah bahwa
+  /usr/X11R6/bin  sudah termasuk kedalam path anda.
+
+  Perintah untuk menjalankan XFree86 adalah:
+
+
+          startx
+
+
+
+  Perintah ini merupakan sebuah front-end bagi xinit (bagi Anda yang
+  telah terbiasa menggunakan xinit didalam sistem-sistem UNIX yang
+  lain).
+
+  Perintah tadi akan mengaktifkan X server dan menjalankan perintah-
+  perintah yang terdapat di dalam file .xinitrc pada direktori home
+  anda.  File .xinitrc hanyalah suatu shell script yang berisi klien-
+  klien X yang harus dijalankan. Jika file tsb tidak ada maka sebagai
+  penggantinya akan digunakan default sistem yaitu file:
+  /usr/X11R6/lib/X11/xinit/xinitrc.
+
+  Sebuah file .xinitrc standar berisi sbb:
+
+  # !/bin/sh
+
+  xterm   -fn     7x13bold        -geometry       80x32+10+50 &
+  xterm   -fn     9x15bold        -geometry       80x34+30-10 &
+  oclock  -geometry       70x70-7+7 &
+  xsetroot                -solid midnightblue &
+  exec  fvwm2
+
+
+
+
+  Script diatas akan mengaktifkan dua klien xterm, satu oclock, dan
+  merubah warna background dari root window menjadi midnightblue.
+  Script ini selanjutnya mengaktifkan fvwm2, yaitu window manager.
+  Perlu dicatat bahwa fvwm2 dieksekusi menggunakan perintah shell exec;
+  perintah ini menyebabkan proses xinit digantikan oleh fvwm2. Sesudah
+  proses fvwm2 selesai, X server akan di-shutdown.  Anda dapat pula
+  membuat fvwm2 melakukan exit dengan menggunakan root menu; tekan
+  tombol 1 pada mouse Anda diatas desktop background - sebuah popup menu
+  akan ditampilkan yang memberikan Anda pilihan Exit Fvwm2.
+
+  Anda harus memastikan bahwa perintah terakhir pada file .xinitrc
+  diawali dengan exec, dan perintah itu tidak ditempatkan pada
+  background (tidak ada tanda '&' pada akhir baris). Kalau tidak
+  demikian, X Server akan melakukan shut-down seketika sesudah X server
+  menjalankan klien-klien yang ada didalam file .xinitrc.
+
+  Sebagai alternatif, Anda dapat melakukan  exit dari X dengan menekan
+  kombinasi tombol: ctrl-alt-backspace. Kombinasi tombol tadi akan
+  langsung menghentikan X, keluar dari sistem window.
+
+  Semua uraian diatas merupakan konfigurasi desktop yang sangat, sangat
+  sederhana. Banyak program maupun konfigurasi yang bagus tersedia dan
+  membutuhkan sedikit pekerjaan terhadap file .xinitrc yang Anda miliki.
+
+  Jika Anda merupakan orang baru terhadap environment Sistem X Window,
+  kami sangat menyarankan agar Anda membaca sebuah buku seperti "The X
+  Window System: A User's Guide" yang ditulis oleh Niall Manfield
+  (Addison-Wesley, 1990). Menggunakan dan mengkonfigur X merupakan hal
+  yang terlalu luas untuk dapat dicakup dalam tulisan ini. Silahkan
+  membaca halaman-halaman manual dari xterm, oclock, dan fvwm2 untuk
+  mendapatkan petunjuk untuk memulai.
+
+
+
+  5.1.  Kondisi Penggunaan
+
+  Dokumen ini memiliki hak cipta, copyright 1966, yang dimiliki oleh
+  Eric S. Raymond. Anda diperbolehkan untuk menggunakan, menyebar-
+  luaskan, dan memperbanyak tulisan ini dengan syarat:
+
+  o  Tidak menghilangkan atau melakukan perubahan terhadap pernyataan
+     tentang hak cipta
+
+  o  Tidak menghilangkan atau melakukan perubahan terhadap nomor dan
+     tanggal versi
+
+  o  Tidak menghilangkan atau melakukan perubahan terhadap penunjuk
+     dokumen kearah versi WWW  saat ini
+  o  Memberi tanda yang jelas pada setiap versi yang mengalami
+     penyingkatan atau perubahan
+
+  Pembatasan-pembatasan diatas dimaksudkan untuk melindungi para pembaca
+  potensial dari versi-versi yang sudah tidak berlaku lagi ataupun
+  versi-versi yang mengandung kesalahan. Jika Anda merasa punya alasan
+  untuk mendapatkan pengecualian dari pembatasan diatas, ajukanlah
+  permintaan kepada prnulid.
+
+
+
+  5.2.  Penghargaan
+
+  Penulisan dokumen ini dimulai oleh Matt Welsh pada masa-masa lalu yang
+  sulit. Terima-kasih Matt!
+
+
+
+  6.  Terjemahan
+
+
+  o  Ke dalam bahasa Italia
+
+  o  Ke dalam bahasa Slovenia
+
+  o  Ke dalam bahasa Croasia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

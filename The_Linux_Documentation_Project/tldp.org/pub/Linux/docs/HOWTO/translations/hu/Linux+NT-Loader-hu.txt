@@ -1,0 +1,216 @@
+
+                       NT OS Loader + Linux mini-HOGYAN
+
+Bernd Reichert, <reichert@dial.eunet.ch>
+
+   v1.11, 1997 szeptember 2.
+
+1. A dokumentum célja
+
+   Ez a dokumentum leírja, hogyan használjuk fel a Windows NT betöltõjét
+   (boot loader) a Linux indításához. Ezeket az eljárásokat Windows NT
+   4.0-val és Linux 2.0-val tesztelték.
+
+2. Hogyan mûködik az NT rendszerbetöltõje ?
+
+   Az NT betöltõ szereti a többi operáció rendszer rendszerindító
+   szektorát egyetlen állományként megkapni. Beolvassa ezt az állományt
+   és elindítja a kiválasztott operációs rendszert, mint pl. akár a
+   Windows NT-t különbözõ módokkal, vagy más operációs rendszert.
+
+3. Tippek arra nézve, hogyan telepítsünk Windows NT-t és Linuxot ugyanarra a
+rendszerre
+
+3.1 Windows NT telepítés
+
+   Próbáljuk elõször a Windows NT-t telepíteni. Ha NTFS fájlrendszert
+   akarsz használni az NT telepítéséhez, tartsd észben, hogy a jelenlegi
+   Linux verziók nem férnek hozzá az NTFS partíciókhoz. Egy alfa állapotú
+   meghajtó elérhetõ a címen (a jelenlegi verziók már kezelik az NTFS-t,
+   de az írás az ilyen partícióra még mindig nem ajánlott - a ford.)
+   Készíthetsz egy különálló FAT-partíciót az adatcseréhez, vagy DOS-ra
+   formázott hajlékonylemezeket kell használnod.
+
+3.2 Particionálás
+
+   Egy másik mini-HOGYAN azt ajánlja, hogy ne használjuk az NT "Disk
+   Administrator" programját a Linux swap- és root partícióinak
+   létrehozásához. Elég, ha csak az üres helyet látjuk. Én szintén a
+   Linux fdisk programját ajánlom.
+
+3.3 A Linux telepítése
+
+   Most indítsd a Linuxot hajlékonylemezrõl (vagy CD-rõl - a ford.), és
+   készítsd el a swap- és a root partíciót. Az fdisk az NTFS-partíciót
+   HPFS típusúnak feltételezi. Ez normális. Indítsd újra a gépet, és
+   telepítsd a Linuxot, ahogy szeretnéd.
+
+   A telepítõ esetleg felajánlja, hogy felcsatlakoztathatod a HPFS
+   partíciót, amit talált: ezt hagyd figyelmen kívül.
+
+3.4 Lilo
+
+   Amikor a LILO-részhez érsz, add meg a Linux root partícióját mint
+   indítási eszközt (boot device), mivel a merevlemez Master Boot
+   Record-ja (MBR) már a Windows NT-é. Ez azt jelenti, hogy a root-
+   illetve a boot bejegyzés a /etc/lilo.conf állományban ugyanaz az
+   érték. Ha IDE merevlemezed van, és a Linux a második partíción van, a
+   boot-bejegyzés a /etc/lilo.conf-ban a következõ módon néz ki:
+
+boot=/dev/hda2
+
+   Ha két merevlemezed van, és a Linux a második lemez elsõ partícióján
+   van, akkor pedig:
+
+boot=/dev/hdb1
+
+   Futtasd a lilo-t azzal a rendszermaggal, ami megfelel a rendszerednek.
+   Hajlékonylemezrõl indítva ellenõrizd, ha nem vagy benne biztos.
+
+   Ha nem tudod indítani a Windows NT-t, akkor baj van. Remélem, nemrég
+   készítettél javítólemezt.
+
+4. Bootpart
+
+   Létezik egy NT-program, a neve bootpart (G. Vollant készítette). Ez
+   képes a következõ két pontban leírt mûvelet végrehajtására. A
+   program elérhetõ a címen.
+
+   Ha tudni szeretnéd, hogyan mûködnek együtt a dolgok, kövesd a 4. és
+   5. pontban leírtakat.
+
+5. A munka Linux-os része
+
+   Addig, míg az NT-rész rendben nem lesz, hajlékonylemezrõl kell
+   indítanod a gépet.
+
+   Most le kell lopnod a boot-szektort a Linux root partíciójáról. Ha ez
+   a /dev/hda2 partíció, akkor a dd parancs a következõ:
+
+# dd if=/dev/hda2 of=/bootsect.lnx bs=512 count=1
+
+   Ha a bootsect.lnx nagyobb mint 512 bájt, akkor valami gond van.
+
+   Most másold ezt a állományt egy DOS-os formázott hajlékonylemezre, ha
+   ezzel a módszerrel viszed át az adatokat az NTFS partícióra.
+
+   Másolhatsz akár a
+
+# mcopy /bootsect.lnx a:
+
+   vagy akár a
+
+# mount -t msdos /dev/fd0 /mnt
+# copy /bootsect.lnx /mnt
+# umount /mnt
+
+   paranccsal is.
+
+6. A munka Windows NT-s része
+
+   Másold az elõbbi fájlt a hajlékonylemezrõl a C:\\bootsect.lnx
+   állományba. Nem mondom el, hogyan kell ezt csinálni.
+
+   Ami a Linuxnak a /etc/lilo.conf, az az NT-nél a c:\\boot.ini. Vedd le
+   a rendszer (system) és a csak olvasható (read-only) attribútumokat
+   róla a következõ paranccsal:
+
+C:\attrib -s -r c:\boot.ini
+
+   Most szerkeszd a boot.ini állományt egy szövegszerkesztõvel, például
+   a Notepad programmal a következõképpen:
+
+[boot loader]
+timeout=30
+default=multi(0)disk(0)rdisk(0)partition(1)\WINNT
+[operating systems]
+multi(0)disk(0)rdisk(0)partition(1)\WINNT="Windows NT Workstation ...
+multi(0)disk(0)rdisk(0)partition(1)\WINNT="Windows NT Workstation ...
+C:\BOOTSECT.LNX="Linux"
+
+   Csak az utolsó sort adtuk hozzá ebben a példában. Miután elmentetted,
+   állítsd vissza a boot.ini állományra vonatkozó attribútumokat:
+
+C:\attrib +s +r c:\boot.ini
+
+   A Windows NT újraindítása után a következõt kell látnod:
+
+  OS Loader V4.00
+
+  Please select the operating system to start:
+
+  Windows NT Workstation Version 4.0
+  Windows NT Workstation Version 4.0 [VGA mode]
+  Linux
+
+Ha a Linux-ot választod a következõt látod:
+
+  LILO loading zImage ....
+
+7. Játszd újra, Sam...
+
+   A bootsect.lnx új példányát kell bemásolnod a C:\BOOTSECT.LNX
+   állományba minden olyan alkalommal, amikor változik a Linux partíció
+   boot-szektora. Ez akkor történhet, ha pl. új rendszermagot telepítesz
+   a LILO-val. Amint látod, ez a rendszer nem valami ideális az új
+   rendszermagok teszteléséhez.
+
+8. Hibaelhárítás
+
+   Ha a dolgok nem az elvárásoknak megfelelõen mennek, ellenõrizd a gép
+   indíthatóságát egy hajlékonylemezzel. Ha a /dev/hdb1 a Linux
+   partíciód, a /etc/lilo.conf a következõ bejegyzéseket tartalmazza:
+
+root=/dev/hdb1
+boot=/dev/fd0
+
+   Futtasd a lilo-t úgy, hogy a meghajtóban van egy hajlékonylemez. Most
+   próbálj rendszert indítani róla. Ha a Linux a /dev/hdb1-en nem indul
+   el, akkor az NT betöltõje sem tudja azt elindítani. Ha egy csomó
+   01010101-et látsz, akkor a root partíciód nem érhetõ el. Ellenõrizd,
+   hogy minden lemezedet látja-e a BIOS.
+
+   Ha a hajlékonylemez indítja a Linux partíciót, akkor le tudod szedni a
+   boot-szektort az NT betöltõje számára:
+
+# dd if=/dev/fd0 of=/bootsect.lnx bs=512 count=1
+
+   Ezt a lemezt biztonsági lemezként megtarthatod, ha a Windows NT
+   telepítés megsérülne.
+
+9. Referenciák
+
+     * The Linux+WindowsNT mini-HOWTO (Linux+Windows NT mini-HOGYAN)
+     * The FAQ for FreeBSD 2.X (FreeBSD 2.X Gyakran Ismételt Kérdések
+       (FAQ))
+
+10. Köszönetnyilvánítások
+
+     * Köszönet Xiaoming Yi-nek <z3c20@ttacs.ttu.edu> a tippért, így a
+       dolgok akkor is mûködnek, ha nem az elsõ merevlemezrõl van szó.
+     * Köszönet Frank Dennler-nek <Frank.Dennler@zkb.ch> a
+       hajlékonylemezes trükkért.
+
+11. Visszajelzés
+
+   Minden megjegyzést szívesen veszek.
+
+12. Magyar fordítás
+
+   A magyar fordítást [1]Szijjártó László készítette (2002.08.07).
+   Bármilyen fordítással kapcsolatos észrevételt a
+   [2]linuxhowto@sch.bme.hu címre küldjetek. A lektorálást [3]Abrudán
+   Attila végezte el (2002.09.09). A dokumentum legfrissebb változata
+   megtalálható a [4]Magyar Linux Dokumentációs Projekt honlapján.
+
+References
+
+   Visible links
+   1. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+   2. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+   3. mailto:abrudana@freemail.hu_NO_SPAM
+   4. http://tldp.fsf.hu/index.html
+
+   Hidden links:
+   5. http://www.informatik.hu-berlin.de/~loewis/ntfs
+   6. http://ourworld.compuserve.com/homepages/gvollant/bootpart.htm

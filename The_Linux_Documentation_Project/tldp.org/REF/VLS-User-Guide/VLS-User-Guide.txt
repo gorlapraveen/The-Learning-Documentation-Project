@@ -1,0 +1,1570 @@
+VLS user guide
+
+Cyril Deguet
+
+Alexis de Lattre
+
+Copyright © 2002, 2003 the VideoLAN project
+
+
+ This document is the complete user guide of VLS .
+
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.2 or any later
+version published by the Free Software Foundation ; with no Invariant
+Sections, with no Front-Cover Texts, and with no Back-Cover Texts. The text
+of the license can be found in the appendix GNU Free Documentation License.
+
+-----------------------------------------------------------------------------
+Table of Contents
+1. Introduction
+    1.1. What is the VideoLAN project ?
+    1.2. What is a codec ?
+    1.3. How can I use VideoLAN ?
+    1.4. Command line usage
+   
+   
+2. Installing VLS
+    2.1. Installing VLS
+    2.2. Uninstalling VLS
+   
+   
+3. Overview and basic concepts
+    3.1. VLS structure
+    3.2. Administration interface
+   
+   
+4. Configuration
+    4.1. General structure
+    4.2. Writing a vls.cfg
+   
+   
+5. Running VLS
+    5.1. Launching VLS
+    5.2. Using the telnet interface
+    5.3. Interface commands
+   
+   
+A. GNU Free Documentation License
+    A.1. PREAMBLE
+    A.2. APPLICABILITY AND DEFINITIONS
+    A.3. VERBATIM COPYING
+    A.4. COPYING IN QUANTITY
+    A.5. MODIFICATIONS
+    A.6. COMBINING DOCUMENTS
+    A.7. COLLECTIONS OF DOCUMENTS
+    A.8. AGGREGATION WITH INDEPENDENT WORKS
+    A.9. TRANSLATION
+    A.10. TERMINATION
+    A.11. FUTURE REVISIONS OF THIS LICENSE
+    A.12. ADDENDUM: How to use this License for your documents
+   
+   
+
+List of Figures
+1-1. Global VideoLAN solution La solution VideoLAN globale
+1-2. Windows terminal
+1-3. Linux X terminal
+1-4. Mac OS X terminal
+1-5. BeOS terminal
+3-1. VLS structure
+
+-----------------------------------------------------------------------------
+Chapter 1. Introduction
+
+1.1. What is the VideoLAN project ?
+
+1.1.1. Overview
+
+VideoLAN is a complete software solution for video streaming, developed by
+students of the Ecole Centrale Paris and developers from all over the world,
+under the GNU General Public License (GPL). VideoLAN is designed to stream
+MPEG videos on high bandwidth networks.
+
+The VideoLAN solution includes :
+
+  * VLS (VideoLAN Server), which can stream MPEG-1, MPEG-2 and MPEG-4 files,
+    DVDs, digital satellite channels, digital terrestial television channels
+    and live videos on the network in unicast or multicast,
+   
+  * VLC (initially VideoLAN Client), which can be used as a server to stream
+    MPEG-1, MPEG-2 and MPEG-4 files, DVDs and live videos on the network in
+    unicast or multicast ; or used as a client to receive, decode and display
+    MPEG streams under multiple operating systems.
+   
+
+Here is an illustration of the complete VideoLAN solution :
+
+
+Figure 1-1. Global VideoLAN solution La solution VideoLAN globale
+
+[global-diagram]
+
+More details about the project can be found on the [http://www.videolan.org/]
+VideoLAN Web site.
+-----------------------------------------------------------------------------
+
+1.1.2. VideoLAN software
+
+1.1.2.1. VLC
+
+VLC works on many platforms : Linux, Windows, Mac OS X, BeOS, *BSD, Solaris,
+Familiar Linux, Yopy/Linupy and QNX. It can read :
+
+  * MPEG-1, MPEG-2 and MPEG-4 / DivX files from a hard disk, a CD-ROM drive,
+    ...
+   
+  * DVDs and VCDs,
+   
+  * from a satellite card (DVB-S),
+   
+  * MPEG-1, MPEG-2 and MPEG-4 streams from the network sent by VLS or VLC's
+    stream output.
+   
+
+ VLC can also be used as a server to stream :
+
+  * MPEG-1, MPEG-2 and MPEG-4 / DivX files,
+   
+  * DVDs,
+   
+  * from an MPEG encoding card,
+   
+
+  to :
+
+  * one machine (i.e. to one IP address) : this is called unicast,
+   
+  * a dynamic group of machines that the clients can join or leave (i.e. to a
+    multicast IP address) : this is called multicast,
+   
+
+in IPv4 or IPv6 .
+
+To get the complete list of VLC's possibilities on each plateform supported,
+see the VLC features page.
+
+Note VLC doesn't work on Mac OS 9, and will probably never do.               
+-----------------------------------------------------------------------------
+
+1.1.2.2. VLS
+
+  VLS can stream :
+
+  *  an MPEG-1, MPEG-2 or MPEG-4 files stored on a hard drive or on a CD,
+   
+  *  a DVD located in a local DVD drive or copied on a hard disk,
+   
+  *  a satellite card (DVB-S) or a digital terrestial television card (DVB-T)
+    ,
+   
+  *  an MPEG encoding card ;
+   
+
+to:
+
+  * one machine (i.e. to one IP address) : this is called unicast,
+   
+  * a dynamic group of machines that the clients can join or leave (i.e. to a
+    multicast IP address) : this is called multicast,
+   
+
+in IPv4 or IPv6 .
+
+A Pentium 100 MHz with 32 MB of memory should be enough to send one stream on
+the network. When streaming a lot of videos stored on a hard drive, the
+actual limitation is not the processor but the hard drive and the network
+connection.
+
+VLS works under Linux and Windows. To get the complete list of VLS's
+possibilities on each plateform supported, see the streaming features page.
+-----------------------------------------------------------------------------
+
+1.1.2.3. Mini-SAP-server
+
+ You can add a channel information service based on the SAP/SDP standard to
+the VideoLAN solution. The mini-SAP-server sends announces about the
+multicast programs on the network in IPv4 or IPv6, and VLCs receive these
+annouces and automatically add the programs announced to their playlist.
+
+ The mini-SAP-server works under Linux and Mac OS X.
+-----------------------------------------------------------------------------
+
+1.2. What is a codec ?
+
+ To fully understand the VideoLAN solution, you must understand the
+difference between a codec and a container format
+
+  *  A codec is a compression algorithm, used to reduce the size of a stream.
+    There are audio codecs and video codecs. MPEG-1, MPEG-2, MPEG-4, Vorbis,
+    DivX, ... are codecs
+   
+  *  A container format contains one or several streams already encoded by
+    codecs. Very often, there is an audio stream and a video one. AVI, Ogg,
+    MOV, ASF, ... are container formats. The streams contained can be encoded
+    using different codecs. In a perfect world, you could put any codec in
+    any container format. Unfortunately, there are some incompatibilities.
+    You can find a matrix of possible codecs and container formats on the 
+    features page
+   
+
+ To decode a stream, VLC first demuxes it. This means that it reads the
+container format and separates audio, video, and subtitles, if any. Then,
+each of these are passed decoders that do the mathematical processing to
+decompress the streams .
+
+ There is a particular thing about MPEG:
+
+  *  MPEG is a codec. There are several versions of it, called MPEG-1,
+    MPEG-2, MPEG-4, ...
+   
+  * MPEG is also a container format, sometimes refered to as MPEG System.
+    There are several types of MPEG: ES, PS, and TS
+   
+    When you play an MPEG video from a DVD, for instance, the MPEG stream is
+    actually composed of several streams (called Elementary Streams, ES):
+    there is one stream for video, one for audio, another for subtitles, and
+    so on. These different streams are mixed together into a single Program
+    Stream (PS). So, the .VOB files you can find in a DVD are actually
+    MPEG-PS files. But this PS format is not adapted for streaming video
+    through a network or by satellite, for instance. So, another format
+    called Transport Stream (TS) was designed for streaming MPEG videos
+    through such channels.
+   
+
+-----------------------------------------------------------------------------
+1.3. How can I use VideoLAN ?
+
+1.3.1. Documentation
+
+ The user documentation of VideoLAN is made up of 4 documents :
+
+  *  the VideoLAN Quickstart. This document will give you a quick overview of
+    of VLC, VLC's stream output, the Video On Demand solution and the channel
+    information service system.
+   
+  *  the VideoLAN HOWTO. This document is the complete guide of the VideoLAN
+    streaming solution.
+   
+  *  the VLC user guide. This document is the complete guide for VLC.
+   
+  *  the VLS user guide. This document is the complete guide for VLS.
+   
+  *  the VideoLAN FAQ. This document contains Frequently Asked Questions
+    about VideoLAN.
+   
+
+  The latest version of these documents can be found on the [http://
+www.videolan.org/doc/] documentation page .
+
+  You can also have a look at the [http://wiki.videolan.org] VideoLAN Wiki.
+This is a website that everyone can change. We use it to document everything
+that is not in the "official" documentation: the tips and tricks for each
+O.S., the graphical interfaces, etc...
+-----------------------------------------------------------------------------
+
+1.3.2. User support
+
+  If you have problems using VideoLAN, and if you don't find the answer to
+your problems in the documentation, please look at the online archive of the
+mailing-lists. There are two English-speaking mailing-lists for the users :
+
+  * vlc@videolan.org for the questions on VLC ,
+   
+  * streaming@videolan.org for the questions on VLS, mini-SAP-server and the
+    network .
+   
+
+  If you want to subscribe or unsubscribe to the mailing-lists, please go to
+the [http://www.videolan.org/support/lists.html]  mailing-list page.
+
+ You can also talk with VideoLAN users and developers on IRC : server 
+irc.freenode.net, channel #videolan .
+
+ If you find a bug, please follow the instructions on the [http://
+www.videolan.org/support/bug-reporting.html]  bug reporting page .
+-----------------------------------------------------------------------------
+
+1.4. Command line usage
+
+  *   VLC has many different graphical interfaces, that are organized quite
+    differently in order to be in harmony with the guidelines of each
+    operating system supported. Documenting the use of each graphical
+    interface is too long, and some features are only available via the
+    command line interface. Therefore we decided to document only the command
+    line interface, but in many cases it shoud be easy to guess how to use
+    the graphical interface for the same use !
+   
+  *  VLS has a command line and a telnet interface, but no graphical
+    interface !
+   
+
+  All the commands that show up in this document should be typed inside a
+terminal. .
+-----------------------------------------------------------------------------
+
+1.4.1. Open a terminal
+
+1.4.1.1. Windows
+
+ Click on Start, Run and type :
+
+  * cmd Enter (Windows 2000 / XP),
+   
+  * command Enter (Windows 95 / 98 / ME).
+   
+
+ The terminal appears Le terminal apparait
+
+
+Figure 1-2. Windows terminal
+
+[terminal-windows]
+
+Note Under Windows, you need to be in the directory where the program is     
+     installed to run it.                                                    
+-----------------------------------------------------------------------------
+
+1.4.1.2. Linux / Unix
+
+ Open a terminal :
+
+
+Figure 1-3. Linux X terminal
+
+[terminal-linux]
+
+ In the documentation, we adopt the following conventions for the Unix
+commands :
+
+  *  commands that should be typed as root have a # prompt :
+    # command_to_be_typed_as_root                                            
+   
+  *  commands that should be typed as a regular user have a % prompt :
+    % command_to_be_typed_as_regular_user                                    
+   
+
+-----------------------------------------------------------------------------
+1.4.1.3. Mac OS X
+
+  Go to Applications, open the folder Utilities and double-click on Terminal
+:
+
+
+Figure 1-4. Mac OS X terminal
+
+[terminal-macosx]
+
+Note Under Mac OS X, you need to be in the directory where the program is    
+     installed to run it, and start the command with ./ .                    
+-----------------------------------------------------------------------------
+
+1.4.1.4. BeOS
+
+ In the deskbar, go to Application and then Terminal :
+
+
+Figure 1-5. BeOS terminal
+
+[terminal-beos]
+
+Note Under BeOS, you need to be in the directory where the program is        
+     installed to run it, and start the command with ./ .                    
+-----------------------------------------------------------------------------
+
+Chapter 2. Installing VLS
+
+2.1. Installing VLS
+
+2.1.1. Windows
+
+ Download the ZIP file from the VLS Windows download page, unzip-it and run
+setup.exe .
+-----------------------------------------------------------------------------
+
+2.1.2. GNULinux & Mac OS X
+
+2.1.2.1. Install the libraries
+
+ Many libraries are needed for particular uses
+
+  * libdvbpsi (always needed)
+   
+  * libdvdcss if you want to be able to access encrypted DVDs ,
+   
+  * libdvdread if you want to be able to stream DVDs ,
+   
+  * libdvb if you want to be able to stream from a DVB card (a satellite card
+    or a digital terrestial TV card) .
+   
+
+ Download the libraries from the VLS sources download page .
+
+ For each library, uncompress, configure (unless for libdvb which doesn't
+have a ./configure), compile and install :
+% tar xvzf library.tar.gz                                                    
+% cd library                                                                 
+% ./configure                                                                
+% make                                                                       
+# make install                                                               
+
+ Check that the configuration file /etc/ld.so.conf contains the following
+line :
+/usr/local/lib                                                               
+
+ If the line is not present, add-it and then run :
+# ldconfig                                                                   
+-----------------------------------------------------------------------------
+
+2.1.2.2. Install VLS
+
+ Download the sources of the latest release : get the file vls-version.tar.gz
+from the VLS sources download page. Uncompress-it and generate ./configure :
+% tar xvzf vls-version.tar.gz                                                
+% cd vls-version                                                             
+
+ To get the list of configuration options, do
+% ./configure --help                                                         
+
+ Then configure vls :
+
+  *  if you want a basic VLS without DVD support, do :
+    % ./configure --disable-dvd                                              
+   
+  *  if you want a VLS with DVD support, do :
+    % ./configure                                                            
+   
+  *  if you want a VLS with DVB support, do :
+    % ./configure --enable-dvb --with-dvb=PATH_TO_DVB_DRIVERS --with-libdvb=PATH_TO_LIBDVB 
+   
+
+ Then, compile and install :
+% make                                                                       
+# make install                                                               
+
+ You can also do a make uninstall, make clean or make distclean as needed .
+-----------------------------------------------------------------------------
+
+2.2. Uninstalling VLS
+
+2.2.1. Windows
+
+ Go to the Control Panel, click on Add and remove programs, select VLS and
+click on Modify/Remove and follow the steps to uninstall the program .
+-----------------------------------------------------------------------------
+
+2.2.2. If you compiled VLS from sources
+
+ Go to the directory containing VLS sources and run :
+# make uninstall                                                             
+
+ Then you can remove the VLS sources .
+-----------------------------------------------------------------------------
+
+Chapter 3. Overview and basic concepts
+
+3.1. VLS structure
+
+ From a user's point of view, VLS can be divided into four kinds of
+components :
+
+  *  a manager ,
+   
+  *  inputs ,
+   
+  *  converters ,
+   
+  *   et des sorties .
+   
+
+Figure 3-1. VLS structure
+
+[archi-vls]
+-----------------------------------------------------------------------------
+
+3.1.1. Input
+
+ The role of an input is to read MPEG streams from a given source (file, DVD,
+DVB card, device, ...), and feed the right converters with these streams. An
+input may be able to read several streams, which are called programs. There
+are several kinds of inputs :
+
+  *  the local input, which can read videos from files or DVDs ,
+   
+  *   the video input, which can read videos from MPEG encoding cards devices
+    ,
+   
+  *  the dvb input, which can read videos from DVB cards, l'entrée dvb, qui
+    peut lire depuis des cartes DVB,
+   
+  *  the v4l input, which can read from acquisition cards supported by the
+    Video4Linux drivers .
+   
+
+ You can use several inputs and play several programs at the same time .
+-----------------------------------------------------------------------------
+
+3.1.2. Converter
+
+ The role of a converter is to receive a stream from an input, and convert it
+into the MPEG-TS format. VLS is able to convert PS streams (from DVDs, for
+instance) into TS streams (ps2ts converter). Of course, it can also read TS
+streams, and fix them by handling stream discontinuities (ts2ts converter) .
+-----------------------------------------------------------------------------
+
+3.1.3. Channel
+
+  A channel receives a stream from a converter, and send it to a given
+destination (network, file, ...). If you want, you can call a "channel" an
+"output": it is the same thing !). Currently, two kinds of channels are
+supported: network and file. Note that, at the moment, VLS can support only
+one output per stream, so you cannot play a stream on the network and write
+it into a file at the same time. The network output is highly configurable:
+you can choose which network interface you want to use, and specify source
+and destination IP addresses .
+-----------------------------------------------------------------------------
+
+3.1.4. Manager
+
+ The manager controls the way streams are sent. Through an administration
+interface, you can tell the manager to start, stop, suspend, resume, forward
+or rewind the different programs. You can also get a list of all programs
+available in the Program Table. The manager gets this table from the VLS
+configuration file (vls.cfg), so it cannot be changed once VLS has been
+started. At the moment, you cannot ask the manager whether a given stream is
+being broadcasted, but you will get an error message if you try to stop a
+stream that was not broadcasted .
+-----------------------------------------------------------------------------
+
+3.2. Administration interface
+
+ There are currently two ways to launch the streaming :
+
+  *  you can use the command line to give arguments at startup;
+   
+  *  or you can use the telnet interface to start/stop/pause the streaming
+    whenever you want .
+   
+
+ When using the telnet interface, you must authenticate before typing any
+command, because any user may not be allowed to execute any command (this can
+be configured in the vls.cfg configuration file) .
+-----------------------------------------------------------------------------
+
+Chapter 4. Configuration
+
+ VLS reads its configuration from the vls.cfg configuration file, which is
+supposed to be located in the current directory or in SYSCONF_DIR/videolan/
+vls (where SYSCONF_DIR is /usr/local/etc if you built and installed VLS by
+hand, or is /etc if you installed the debian binary package) .
+
+ To write a vls.cfg file, use the one supplied with VLS as a start-point .
+-----------------------------------------------------------------------------
+
+4.1. General structure
+
+ VLS configuration file vls.cfg is divided into sections, and each section
+may contain several variables :
+BEGIN "FirstSection"                                                         
+  Variable1 = "value1"                                                       
+  Variable2 = "value2"                                                       
+  [...]                                                                      
+END                                                                          
+                                                                             
+BEGIN "SecondSection"                                                        
+  Variable1 = "value1"                                                       
+  Variable3 = "value3"                                                       
+  [...]                                                                      
+END                                                                          
+                                                                             
+                                                                             
+[...]                                                                        
+
+ All section names, variable names and values are not case-sensitive. There
+can be empty sections and subsections. Comments must follow a # character.
+Some variables have a default value; it means that you can ommit to declare
+these variables, and then they will be given their default value .
+-----------------------------------------------------------------------------
+
+4.2. Writing a vls.cfg
+
+ Here is an explanation of all the sections you can find in a vls.cfg :
+-----------------------------------------------------------------------------
+
+4.2.1. Section "Vls"
+
+ This section contains application wide settings .
+LogFile = "name"                                                             
+
+ Name of VLS log file. If left empty "", then no logging to files is done.
+Default is "vls.log" .
+SystemLog = "[disable|enable]"                                               
+
+ Logging to the SystemLog. Today, only the SystemLog using syslogd is
+implemented: compile with ./configure --enable-syslog .
+
+Caution If VLS is started as vlsd, then the following configuration is       
+        mandatory :                                                          
+        BEGIN "Vls"                                                          
+          LogFile   = ""                                                     
+          SystemLog = "enabled"                                              
+          ScreenLog = "disabled"                                             
+        END                                                                  
+ScreenLog = "[disable|enable]"                                               
+
+ Logging to the console .
+
+ Example :
+BEGIN "Vls"                                                                  
+  LogFile   = "vls.log"                                                      
+  SystemLog = "disable"                                                      
+  ScreenLog = "enable"                                                       
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.2. Section "Groups"
+
+ In this section, you can define some groups of users, and which commands
+these users are allowed to execute. For each group you want to define, you
+must add a line in the following format :
+groupname = "command1|command2|..."                                          
+
+ This adds a group "groupname", the users of which are allowed to execute
+command1, command2, and so on. At the moment, the available commands are:
+help, browse, start, suspend, resume, forward, rewind, stop, shutdown, logout
+.
+
+ Example :
+BEGIN "Groups"                                                                     
+  monitor = "help|browse|logout"                                                   
+  master  = "help|browse|start|resume|suspend|forward|rewind|stop|shutdown|logout" 
+END                                                                                
+-----------------------------------------------------------------------------
+
+4.2.3. Section "Users"
+
+ This section contains a list of users allowed to control VLS through an
+administration interface. For each user, add a line in the following format :
+username = "password:groupname"                                              
+
+ This adds a user "username", who belongs to the group "groupname" (defined
+in the "Groups" section) and can log in with the password "password" .
+
+  *  Under Unix/Linux, the password must be encrypted, with a tool such as 
+    mkpasswd, or with the UNIX function "crypt" .
+   
+  *  Under Windows, the password must be in clear text .
+   
+
+ Example for Unix/Linux :
+BEGIN "Users"                                                                
+  monitor = "3BcKWoiQn0vi6:monitor"       # password is 'monitor'            
+  admin   = "42BKiCguFAL/c:master"        # password is 'Vir4Gv5S'           
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.4. Section "Telnet"
+
+ In this section, you can configure the telnet administration interface .
+LocalPort = "port"                                                           
+
+ Defines which port will be used for the telnet server. Default port is
+"9999" .
+Domain = "domain"                                                            
+
+ Either "inet4" or "inet6" (default is "inet4"). If you want to use IPv4
+addresses, put "inet4", and if you want to use IPv6, put "inet6" .
+LocalAddress = "IP address"                                                  
+
+ Defines on which IP address the telnet server will listen for requests.
+Default address is "0.0.0.0" (or "0::0" with IPv6) .
+
+ Example :
+BEGIN "Telnet"                                                               
+  LocalPort = "9999"                                                         
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.5. Section "NativeAdmin"
+
+ Same syntax as "Telnet". Not used yet .
+-----------------------------------------------------------------------------
+
+4.2.6. Section "Inputs"
+
+ In this section, you can define which inputs you want to use. For each input
+you need, add a line in the following format :
+InputName = "Type"                                                           
+
+ This adds a input named "InputName", the type of which is "Type". As
+explained before, there are several types of input :
+
+  *   "local" to play a stream from a file or a DVD ,
+   
+  *  "video" to play a stream from an MPEG encoding card ,
+   
+  *  "dvb" to play a stream from a DVB card ,
+   
+  *  "v4l" to play a stream from a Video4Linux device .
+   
+
+ Each input must be configured in its own section (see next paragraph) .
+
+ Example :
+BEGIN "Inputs"                                                               
+  local1 = "local"                                                           
+  pvr    = "video"                                                           
+  dvb1   = "dvb"                                                             
+  tuner  = "v4l"                                                             
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.7. Inputs configuration
+
+ For each input declared in the "Inputs" section, excepted "local" inputs,
+you must add a section with the same name as the corresponding input. For
+instance, if you declared an input "pvr", there should be one section named
+"pvr" too. The syntax of such sections depends on the type of the
+corresponding input .
+
+ To configure a local input, you don't have to do anything. Except when
+another trickplay strategy must be used :
+BEGIN "Local1"                                                               
+  ProgramCount = "1"                                                         
+  TrickPlay    = "normal"                                                    
+END                                                                          
+
+ "Local1" is the name of the local input you want to configure.
+"ProgramCount" is the number of programs assigned to this input. "TrickPlay"
+is the trickplay strategy that is used by this input (default is "normal") .
+
+ To configure a video input, add a section in the following format :
+BEGIN "VideoInputName"                                                       
+  Device = "device"                                                          
+  Type   = "type"                                                            
+END                                                                          
+
+ "VideoInputName" is the name of the video input you want to configure.
+"Device" is the path of the MPEG encoding card you want to read from (default
+is "/dev/video"). "Type" is either "Mpeg2-PS" or "Mpeg2-TS", depending on
+your device configuration (default is "Mpeg2-PS") .
+
+ Example for a Hauppauge WinTV-PVR-250 card :
+BEGIN "pvr"                                                                  
+  Device = "/dev/video0"                                                     
+  Type   = "Mpeg2-PS"                                                        
+END                                                                          
+
+ To configure a dvb input, add a section in the following format :
+BEGIN "DvbInputName"                                                         
+  DeviceNumber = "devicenumber"                                              
+  SendMethod   = "0"                                                         
+END                                                                          
+
+ "DvbInputName" is the name of the dvb input you want to configure. Set
+"SendMethod" to "0" if you to stream the complete DVB stream and set it to
+"1" if you only want to stream the MPEG audio and video streams (default is
+"0"). "DeviceNumber" is the number of the DVB device you want to read from
+(read from /dev/ost/dvr<devicenumber>, default is ""). The dvb configuration
+file is defined by the driver. You can find it in $HOME/.dvbrc for /dev/dvb/
+adapter0 or in $HOME/.dvbrc.X for /dev/dvb/adapterX .
+
+ Example :
+BEGIN "dvb1"                                                                 
+  DeviceNumber = "0"                                                         
+  TrickPlay = "normal"                                                       
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.8. Section "Channels"
+
+ In this section, you can define the channels (outputs) you want to use. For
+each channel, write a line in the following format :
+ChannelName = "Type"                                                         
+
+ This adds a channel named "ChannelName", the type of which is "Type". "Type"
+must be either "network" or "file". Like inputs, channels must be configured
+in their own section .
+
+ Example :
+BEGIN "Channels"                                                             
+  localhost  = "network"                                                     
+  client1    = "network"                                                     
+  client2    = "network"                                                     
+  multicast1 = "network"                                                     
+  multicast2 = "network"                                                     
+  localfile  = "file"                                                        
+END                                                                          
+-----------------------------------------------------------------------------
+
+4.2.9. Channels configuration
+
+ For each channel declared in the "Channels" section, you must add a section
+with the same name as the corresponding channel. The syntax of such a section
+depends on the type of the corresponding channel .
+
+ To configure a network channel, add a section in the following format :
+BEGIN "NetChannelName"                                                       
+  Domain    = "Domain"                                                       
+  Type      = "Type"                                                         
+  SrcHost   = "SourceHost"                                                   
+  SrcPort   = "SourcePort"                                                   
+  DstHost   = "DestHost"                                                     
+  DstPort   = "DestPort"                                                     
+  TTL       = "ttl"                                                          
+  Interface = "Interface"                                                    
+END                                                                          
+
+  *  "NetChannelName" is the name of the network channel you want to
+    configure .
+   
+  *  "Domain" is either "inet4" if you use IPv4 addresses, or "inet6" if you
+    use IPv6 (default is "inet4") .
+   
+  *  "Type" is either "unicast", "broadcast" or "multicast" (default is
+    "unicast"), depending on what you want to do (and on your "DstHost"
+    address) .
+   
+  *  "SourceHost" is the IP address (or DNS name) from which VLS will send
+    the stream .
+   
+  *  "SourcePort" is the UDP port from which the stream will be sent .
+   
+  *  "DestHost" is the IP address (or DNS name) to which the stream will be
+    sent .
+   
+  *  "DestPort" is the UDP port to which the stream will be sent (default is
+    "1234") .
+   
+  *  "TTL" is an option useful only if "Type" is "multicast" (default value
+    is "0"). You can use it to increase the TTL of your multicast packets if
+    they have to cross several routers .
+   
+  *  "Interface" is an option only supported under GNU/Linux, to force the
+    stream to be sent through a given network interface, "eth1" for instance"
+    (to use this option, you must have super-user permissions) .
+   
+
+Note "SrcHost" and "SrcPort" are optional (if you don't set them, VLS will   
+     not 'bind' the socket) .                                                
+
+ To configure a file channel, add a section in the following format :
+BEGIN "FileChannelName"                                                      
+  FileName = "file"                                                          
+  Append   = "append"                                                        
+END                                                                          
+
+ "FileChannelName" is the name of the file channel you want to configure.
+"file" is the name of the file where the stream will be stored (default is
+"fileout.ts"). "append" is either "yes" or "no", and indicates whether VLS
+will append the stream at the end of the file, or rewrite it .
+
+ Example :
+BEGIN "localhost"         # The client is on the same host as the server     
+  DstHost = "localhost"                                                      
+  DstPort = "1234"                                                           
+END                                                                          
+                                                                             
+BEGIN "client1"           # unicast towards client1                          
+  DstHost = "192.168.1.2"                                                    
+  DstPort = "1234"                                                           
+END                                                                          
+                                                                             
+BEGIN "client2"           # unicast towards client2 in IPv6                  
+  Domain  = "inet6"                                                          
+  DstHost = "3ffe:ffff::2:12:42"                                             
+  DstPort = "1234"                                                           
+END                                                                          
+                                                                             
+BEGIN "multicast1"         # multicast streaming                             
+  Type    = "multicast"                                                      
+  DstHost = "239.2.12.42"                                                    
+  DstPort = "1234"                                                           
+  TTL     = "2"                                                              
+END                                                                          
+                                                                             
+BEGIN "multicast2"         # multicast streaming in IPv6                     
+  Domain  = "inet6"                                                          
+  Type    = "multicast"                                                      
+  DstHost = "ff08::1"                                                        
+  DstPort = "1234"                                                           
+  TTL     = "12"                                                             
+END                                                                          
+                                                                             
+BEGIN "localfile"         # file output                                      
+  FileName = "stream.ts"                                                     
+  Append   = "no"                                                            
+END                                                                          
+
+Caution If you use Windows, you should specify the "SrcHost" and "SrcPort"      
+        fields. For example :                                                   
+        BEGIN "client1"         # The client is on the same host as the server  
+          SrcHost = "192.168.1.1"  # IP of VLS                                  
+          SrcPort = "1242"         # Source port : the value is not important   
+          DstHost = "192.168.1.2"  # IP of the client                           
+          DstPort = "1234"                                                      
+        END                                                                     
+-----------------------------------------------------------------------------
+
+4.2.10. Programs Configuration
+
+ As explained before, you must define the programs. Each one is a MPEG stream
+(a file, for example). To do this, you must add an "Input" section in your
+vls.cfg file. Each "Input" section must have the following syntax :
+BEGIN "Input"                                                                
+  FilesPath    = "path"                                                      
+  ProgramCount = "count"                                                     
+END                                                                          
+
+ "path" is the path where your MPEG files are located (by default it is the
+current directory). "count" is the number of programs defined ("0" by
+default) .
+
+ For each program you want to define, you must add a section with the
+following format :
+BEGIN "number"                                                               
+  Name     = "name"                                                          
+  Type     = "type"                                                          
+  FileName = "file"                                                          
+  Device   = "device"                                                        
+END                                                                          
+
+  *  "number" is the program number: the first program has number 1, the
+    second number 2, and so on .
+   
+  *  "name" is the program name, by which you will tell VLS to start this
+    program (see next chapter "Running VLS") .
+   
+  *  "type" can be "Mpeg1-PS", "Mpeg2-PS", "Mpeg2-TS", or "DVD". If your
+    stream is stored in a MPEG file (*.mpeg, *.mpg, *.vob, and so on...), it
+    is probably in Mpeg1-PS or Mpeg2-PS format .
+   
+  *  if "type" is set to "Mpeg1-PS", "Mpeg2-PS", or "Mpeg2-TS", VLS will
+    assume your stream is stored in the file "file", in the directory "path"
+    ("path" being the variable defined in the "Input" section) .
+   
+  *  if "type" is "DVD", the variable "Device" will be used instead of
+    "FileName" (the variable "FilesPath" is not prepended to the device name
+    !). The variable "Device" is the device of your DVD drive ("/dev/hdc" or
+    "/dev/cdrom" for instance). You can also play a DVD copied on a hard
+    disk: then "device" is the directory where the .vob files are stored ("/
+    mnt/data/VIDEO_TS" for instance) .
+   
+
+Note VLS can stream MPEG files that meet two critera :                               
+                                                                                     
+       * the file must be MPEG PS (Program Stream) or MPEG TS (Transport Stream),    
+         that contain video and audio multiplexed. VLS cannot stream MPEG ES         
+         (Elementary Stream), i.e. a file with only audio or video .                 
+                                                                                     
+         In order to know if an MPEG file is MPEG PS, MPEG TS or MPEG ES, read the   
+         file with VLC and look at the messages (select in the menu View / Messages, 
+         or use the command line vlc -vvv) .                                         
+                                                                                     
+           + If you see a line :                                                     
+                                                                                     
+             [00000107] main module debug: using demux module "ts_dvbpsi"            
+                                                                                     
+             it means the file is MPEG TS .                                          
+                                                                                     
+           + If you see a line :                                                     
+                                                                                     
+             [00000109] main module debug: using demux module "ps"                   
+                                                                                     
+             it means the file is MPEG PS .                                          
+                                                                                     
+           + If you see a line :                                                     
+                                                                                     
+             [00000109] main module debug: using demux module "es"                   
+                                                                                     
+             it means the file is MPEG ES, VLS can't stream it. .                    
+                                                                                     
+                                                                                     
+       * the sequence header of the video must repeat itself regularly, which is     
+         often the case with MPEG-2, but very rare with MPEG-1. There is no easy way 
+         to know if the sequence header is repeated regularly. Files with a .vob     
+         extension are normally MPEG-2 files and files with .mpg or .mpeg extension  
+         or usually MPEG-1 files .                                                   
+                                                                                     
+                                                                                     
+     You can download this streamable MPEG-2 PS file for your tests : [ftp://        
+     ftp.videolan.org/pub/videolan/streams/presentation/presentation_short.vob]      
+     presentation_short.vob .                                                        
+
+Note In order to play DVDs, you need to compile VLS with DVD support, which  
+     uses libdvdread and libdvdcss. You will need read and write access      
+     rights to the DVD device .                                              
+
+ Full example :
+BEGIN "Input"                                                                
+  FilesPath = "/home/videolan/streams"                                       
+  ProgramCount = "4"                                                         
+END                                                                          
+                                                                             
+BEGIN "1"     # MPEG2 stream stored in /home/videolan/streams/Dolby.vob      
+  Name     = "dolby"                                                         
+  FileName = "Dolby.vob"                                                     
+  Type     = "Mpeg2-PS"                                                      
+END                                                                          
+                                                                             
+BEGIN "2"     # another file                                                 
+  Name     = "canyon"                                                        
+  FileName = "Dolby_Canyon.vob"                                              
+  Type     = "Mpeg2-PS"                                                      
+END                                                                          
+                                                                             
+BEGIN "3"     # DVD                                                          
+  Name     = "dvd"                                                           
+  Device   = "/dev/cdrom"                                                    
+  Type     = "Dvd"                                                           
+END                                                                          
+                                                                             
+BEGIN "4"     # DVD stored on a hard disk                                    
+  Name     = "matrix"                                                        
+  Device   = "/mnt/data/matrix/VIDEO_TS"                                     
+  Type     = "Dvd"                                                           
+END                                                                          
+-----------------------------------------------------------------------------
+
+Chapter 5. Running VLS
+
+5.1. Launching VLS
+
+ If you want to use the telnet interface, running VLS is very easy: just type
+vls in a shell console, and that's all. Running vlsd will start VLS as a
+daemon and will detach itself from the launching shell. Remember that VLS
+will try to load its configuration file (vls.cfg) from the current directory,
+and if there is no vls.cfg there, it will try to load it from SYSCONF_DIR/etc
+/videolan (see section Configuration) .
+
+Caution If your log file is vls.log as in the example, VLS will need write access in 
+        the current directory, or you will see something like :                      
+        *** Exception *** in copy constructor (0xbffffc98, copy of 0x80e30a8)        
+        Unable to open the log file "vls.log": Error: Could not open file 'vls.log': 
+        Permission denied                                                            
+                                                                                     
+        Remember also that you must be root when using the "Interface" option in     
+        vls.cfg .                                                                    
+
+  If everything is right, you will see something like :
+VideoLAN Server v 0.5.3 (Jun  6 2003) - (c)1999-2003 VideoLAN                
+2002-03-09 17:24:51 [INFO/Vls]  Module "channel:file" registered             
+2002-03-09 17:24:51 [INFO/Vls]  Module "channel:network" registered          
+2002-03-09 17:24:51 [INFO/Vls]  Module "mpegreader:file" registered          
+2002-03-09 17:24:51 [INFO/Vls]  Module "mpegconverter:ts2ts" registered      
+[...]                                                                        
+
+ What you can see on the screen (stderr) is exactly what goes in the log file
+vls.log .
+
+ When VLS has been successfully started, it doesn't take any command from its
+standard input, so you can put it into background (you can use the screen
+utility to do that) .
+
+ On the other hand, if you want to use the command line interface, please see
+the [http://www.videolan.org/doc/] VideoLAN HOWTO .
+-----------------------------------------------------------------------------
+
+5.2. Using the telnet interface
+
+ After VLS has been launched, it opens a telnet server (on the port 9999 by
+default). You can connect to this server with the following command :
+% telnet localhost 9999                                                      
+
+ You should see something like :
+Trying 127.0.0.1...                                                          
+Connected to vls.                                                            
+Escape character is '^]'.                                                    
+                                                                             
+Videolan Server Administration System                                        
+                                                                             
+Login:                                                                       
+
+ Then you must authenticate with a login/password pair defined in vls.cfg.
+When you have been successfully authenticated, you should see a prompt like :
+admin@vls>                                                                   
+>                                                                            
+
+ Then you can type some commands, which are explained in the next paragraph.
+To log out, type logout after the telnet prompt .
+-----------------------------------------------------------------------------
+
+5.3. Interface commands
+
+5.3.1. help
+
+ Usage: help [command] .
+
+ Called with no argument, "help" gives the list of all the commands
+(available or not). Called with one argument it gives details about how to
+use the specified command .
+-----------------------------------------------------------------------------
+
+5.3.2. browse
+
+ Usage: browse [input] .
+
+ Called without argument, "browse" gives all programs of inputs. Called with
+one argument it only gives the programs of the specified input. Each program
+is given with its status .
+-----------------------------------------------------------------------------
+
+5.3.3. start
+
+  Usage: start <program> <channel> <input> [--loop] [--rtp]
+
+ "start" launches the specified program of the specified input and broadcasts
+it through the specified channel. The option "--loop" makes the program being
+repeated indefinitely. The option "--rtp" makes the TS packet to be send
+through the RTP protocol, as defined in RFC 1889 and RFC 2250 .
+-----------------------------------------------------------------------------
+
+5.3.4. stop
+
+ Usage: stop <channel>
+
+ "stop" ends the broadcast of the specified channel .
+-----------------------------------------------------------------------------
+
+5.3.5. forward
+
+ Usage: forward <channel> <speed>
+
+ "forward" forwards the channel with the given speed. This does not work when
+reading directly from a device such as an MPEG encoding card, a DVB card or
+an acquisition card .
+-----------------------------------------------------------------------------
+
+5.3.6. rewind
+
+ Usage: rewind <channel> <speed>
+
+"rewind" rewinds the channel with the given speed. This does not work when
+reading directly from a device such as an MPEG encoding card, a DVB card or
+an acquisition card .
+-----------------------------------------------------------------------------
+
+5.3.7. suspend
+
+ Usage: suspend <channel>
+
+ "suspend" suspends the streaming of the specified channel .
+-----------------------------------------------------------------------------
+
+5.3.8. resume
+
+ Usage: resume <channel>
+
+ "resume" resumes the streaming of the specified channel .
+-----------------------------------------------------------------------------
+
+5.3.9. logout
+
+ Usage: logout
+
+ "logout" closes the current administration session and the remote connection
+.
+-----------------------------------------------------------------------------
+
+5.3.10. shutdown
+
+ Usage: shutdown
+
+ "shutdown" stops all the programs and shutdowns VLS .
+-----------------------------------------------------------------------------
+
+Appendix A. GNU Free Documentation License
+
+Version 1.2, November 2002
+
+   
+    Copyright (C) 2000,2001,2002 Free Software Foundation, Inc. 59 Temple
+    Place, Suite 330, Boston, MA 02111-1307 USA Everyone is permitted to copy
+    and distribute verbatim copies of this license document, but changing it
+    is not allowed.
+   
+-----------------------------------------------------------------------------
+A.1. PREAMBLE
+
+The purpose of this License is to make a manual, textbook, or other
+functional and useful document "free" in the sense of freedom: to assure
+everyone the effective freedom to copy and redistribute it, with or without
+modifying it, either commercially or noncommercially. Secondarily, this
+License preserves for the author and publisher a way to get credit for their
+work, while not being considered responsible for modifications made by
+others.
+
+This License is a kind of "copyleft", which means that derivative works of
+the document must themselves be free in the same sense. It complements the
+GNU General Public License, which is a copyleft license designed for free
+software.
+
+We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free program
+should come with manuals providing the same freedoms that the software does.
+But this License is not limited to software manuals; it can be used for any
+textual work, regardless of subject matter or whether it is published as a
+printed book. We recommend this License principally for works whose purpose
+is instruction or reference.
+-----------------------------------------------------------------------------
+
+A.2. APPLICABILITY AND DEFINITIONS
+
+This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be distributed
+under the terms of this License. Such a notice grants a world-wide,
+royalty-free license, unlimited in duration, to use that work under the
+conditions stated herein. The "Document", below, refers to any such manual or
+work. Any member of the public is a licensee, and is addressed as "you". You
+accept the license if you copy, modify or distribute the work in a way
+requiring permission under copyright law.
+
+A "Modified Version" of the Document means any work containing the Document
+or a portion of it, either copied verbatim, or with modifications and/or
+translated into another language.
+
+A "Secondary Section" is a named appendix or a front-matter section of the
+Document that deals exclusively with the relationship of the publishers or
+authors of the Document to the Document's overall subject (or to related
+matters) and contains nothing that could fall directly within that overall
+subject. (Thus, if the Document is in part a textbook of mathematics, a
+Secondary Section may not explain any mathematics.) The relationship could be
+a matter of historical connection with the subject or with related matters,
+or of legal, commercial, philosophical, ethical or political position
+regarding them.
+
+The "Invariant Sections" are certain Secondary Sections whose titles are
+designated, as being those of Invariant Sections, in the notice that says
+that the Document is released under this License. If a section does not fit
+the above definition of Secondary then it is not allowed to be designated as
+Invariant. The Document may contain zero Invariant Sections. If the Document
+does not identify any Invariant Sections then there are none.
+
+The "Cover Texts" are certain short passages of text that are listed, as
+Front-Cover Texts or Back-Cover Texts, in the notice that says that the
+Document is released under this License. A Front-Cover Text may be at most 5
+words, and a Back-Cover Text may be at most 25 words.
+
+A "Transparent" copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the general
+public, that is suitable for revising the document straightforwardly with
+generic text editors or (for images composed of pixels) generic paint
+programs or (for drawings) some widely available drawing editor, and that is
+suitable for input to text formatters or for automatic translation to a
+variety of formats suitable for input to text formatters. A copy made in an
+otherwise Transparent file format whose markup, or absence of markup, has
+been arranged to thwart or discourage subsequent modification by readers is
+not Transparent. An image format is not Transparent if used for any
+substantial amount of text. A copy that is not "Transparent" is called
+"Opaque".
+
+Examples of suitable formats for Transparent copies include plain ASCII
+without markup, Texinfo input format, LaTeX input format, SGML or XML using a
+publicly available DTD, and standard-conforming simple HTML, PostScript or
+PDF designed for human modification. Examples of transparent image formats
+include PNG, XCF and JPG. Opaque formats include proprietary formats that can
+be read and edited only by proprietary word processors, SGML or XML for which
+the DTD and/or processing tools are not generally available, and the
+machine-generated HTML, PostScript or PDF produced by some word processors
+for output purposes only.
+
+The "Title Page" means, for a printed book, the title page itself, plus such
+following pages as are needed to hold, legibly, the material this License
+requires to appear in the title page. For works in formats which do not have
+any title page as such, "Title Page" means the text near the most prominent
+appearance of the work's title, preceding the beginning of the body of the
+text.
+
+A section "Entitled XYZ" means a named subunit of the Document whose title
+either is precisely XYZ or contains XYZ in parentheses following text that
+translates XYZ in another language. (Here XYZ stands for a specific section
+name mentioned below, such as "Acknowledgements", "Dedications",
+"Endorsements", or "History".) To "Preserve the Title" of such a section when
+you modify the Document means that it remains a section "Entitled XYZ"
+according to this definition.
+
+The Document may include Warranty Disclaimers next to the notice which states
+that this License applies to the Document. These Warranty Disclaimers are
+considered to be included by reference in this License, but only as regards
+disclaiming warranties: any other implication that these Warranty Disclaimers
+may have is void and has no effect on the meaning of this License.
+-----------------------------------------------------------------------------
+
+A.3. VERBATIM COPYING
+
+You may copy and distribute the Document in any medium, either commercially
+or noncommercially, provided that this License, the copyright notices, and
+the license notice saying this License applies to the Document are reproduced
+in all copies, and that you add no other conditions whatsoever to those of
+this License. You may not use technical measures to obstruct or control the
+reading or further copying of the copies you make or distribute. However, you
+may accept compensation in exchange for copies. If you distribute a large
+enough number of copies you must also follow the conditions in section 3.
+
+You may also lend copies, under the same conditions stated above, and you may
+publicly display copies.
+-----------------------------------------------------------------------------
+
+A.4. COPYING IN QUANTITY
+
+If you publish printed copies (or copies in media that commonly have printed
+covers) of the Document, numbering more than 100, and the Document's license
+notice requires Cover Texts, you must enclose the copies in covers that
+carry, clearly and legibly, all these Cover Texts: Front-Cover Texts on the
+front cover, and Back-Cover Texts on the back cover. Both covers must also
+clearly and legibly identify you as the publisher of these copies. The front
+cover must present the full title with all words of the title equally
+prominent and visible. You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve the
+title of the Document and satisfy these conditions, can be treated as
+verbatim copying in other respects.
+
+If the required texts for either cover are too voluminous to fit legibly, you
+should put the first ones listed (as many as fit reasonably) on the actual
+cover, and continue the rest onto adjacent pages.
+
+If you publish or distribute Opaque copies of the Document numbering more
+than 100, you must either include a machine-readable Transparent copy along
+with each Opaque copy, or state in or with each Opaque copy a
+computer-network location from which the general network-using public has
+access to download using public-standard network protocols a complete
+Transparent copy of the Document, free of added material. If you use the
+latter option, you must take reasonably prudent steps, when you begin
+distribution of Opaque copies in quantity, to ensure that this Transparent
+copy will remain thus accessible at the stated location until at least one
+year after the last time you distribute an Opaque copy (directly or through
+your agents or retailers) of that edition to the public.
+
+It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give them
+a chance to provide you with an updated version of the Document.
+-----------------------------------------------------------------------------
+
+A.5. MODIFICATIONS
+
+You may copy and distribute a Modified Version of the Document under the
+conditions of sections 2 and 3 above, provided that you release the Modified
+Version under precisely this License, with the Modified Version filling the
+role of the Document, thus licensing distribution and modification of the
+Modified Version to whoever possesses a copy of it. In addition, you must do
+these things in the Modified Version:
+
+ A. Use in the Title Page (and on the covers, if any) a title distinct from
+    that of the Document, and from those of previous versions (which should,
+    if there were any, be listed in the History section of the Document). You
+    may use the same title as a previous version if the original publisher of
+    that version gives permission.
+   
+ B. List on the Title Page, as authors, one or more persons or entities
+    responsible for authorship of the modifications in the Modified Version,
+    together with at least five of the principal authors of the Document (all
+    of its principal authors, if it has fewer than five), unless they release
+    you from this requirement.
+   
+ C. State on the Title page the name of the publisher of the Modified
+    Version, as the publisher.
+   
+ D. Preserve all the copyright notices of the Document.
+   
+ E. Add an appropriate copyright notice for your modifications adjacent to
+    the other copyright notices.
+   
+ F. Include, immediately after the copyright notices, a license notice giving
+    the public permission to use the Modified Version under the terms of this
+    License, in the form shown in the Addendum below.
+   
+ G. Preserve in that license notice the full lists of Invariant Sections and
+    required Cover Texts given in the Document's license notice.
+   
+ H. Include an unaltered copy of this License.
+   
+ I. Preserve the section Entitled "History", Preserve its Title, and add to
+    it an item stating at least the title, year, new authors, and publisher
+    of the Modified Version as given on the Title Page. If there is no
+    section Entitled "History" in the Document, create one stating the title,
+    year, authors, and publisher of the Document as given on its Title Page,
+    then add an item describing the Modified Version as stated in the
+    previous sentence.
+   
+ J. Preserve the network location, if any, given in the Document for public
+    access to a Transparent copy of the Document, and likewise the network
+    locations given in the Document for previous versions it was based on.
+    These may be placed in the "History" section. You may omit a network
+    location for a work that was published at least four years before the
+    Document itself, or if the original publisher of the version it refers to
+    gives permission.
+   
+ K. For any section Entitled "Acknowledgements" or "Dedications", Preserve
+    the Title of the section, and preserve in the section all the substance
+    and tone of each of the contributor acknowledgements and/or dedications
+    given therein.
+   
+ L. Preserve all the Invariant Sections of the Document, unaltered in their
+    text and in their titles. Section numbers or the equivalent are not
+    considered part of the section titles.
+   
+ M. Delete any section Entitled "Endorsements". Such a section may not be
+    included in the Modified Version.
+   
+ N. Do not retitle any existing section to be Entitled "Endorsements" or to
+    conflict in title with any Invariant Section.
+   
+ O. Preserve any Warranty Disclaimers.
+   
+
+If the Modified Version includes new front-matter sections or appendices that
+qualify as Secondary Sections and contain no material copied from the
+Document, you may at your option designate some or all of these sections as
+invariant. To do this, add their titles to the list of Invariant Sections in
+the Modified Version's license notice. These titles must be distinct from any
+other section titles.
+
+You may add a section Entitled "Endorsements", provided it contains nothing
+but endorsements of your Modified Version by various parties--for example,
+statements of peer review or that the text has been approved by an
+organization as the authoritative definition of a standard.
+
+You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list of
+Cover Texts in the Modified Version. Only one passage of Front-Cover Text and
+one of Back-Cover Text may be added by (or through arrangements made by) any
+one entity. If the Document already includes a cover text for the same cover,
+previously added by you or by arrangement made by the same entity you are
+acting on behalf of, you may not add another; but you may replace the old
+one, on explicit permission from the previous publisher that added the old
+one.
+
+The author(s) and publisher(s) of the Document do not by this License give
+permission to use their names for publicity for or to assert or imply
+endorsement of any Modified Version.
+-----------------------------------------------------------------------------
+
+A.6. COMBINING DOCUMENTS
+
+You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified versions,
+provided that you include in the combination all of the Invariant Sections of
+all of the original documents, unmodified, and list them all as Invariant
+Sections of your combined work in its license notice, and that you preserve
+all their Warranty Disclaimers.
+
+The combined work need only contain one copy of this License, and multiple
+identical Invariant Sections may be replaced with a single copy. If there are
+multiple Invariant Sections with the same name but different contents, make
+the title of each such section unique by adding at the end of it, in
+parentheses, the name of the original author or publisher of that section if
+known, or else a unique number. Make the same adjustment to the section
+titles in the list of Invariant Sections in the license notice of the
+combined work.
+
+In the combination, you must combine any sections Entitled "History" in the
+various original documents, forming one section Entitled "History"; likewise
+combine any sections Entitled "Acknowledgements", and any sections Entitled
+"Dedications". You must delete all sections Entitled "Endorsements".
+-----------------------------------------------------------------------------
+
+A.7. COLLECTIONS OF DOCUMENTS
+
+You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in the
+collection, provided that you follow the rules of this License for verbatim
+copying of each of the documents in all other respects.
+
+You may extract a single document from such a collection, and distribute it
+individually under this License, provided you insert a copy of this License
+into the extracted document, and follow this License in all other respects
+regarding verbatim copying of that document.
+-----------------------------------------------------------------------------
+
+A.8. AGGREGATION WITH INDEPENDENT WORKS
+
+A compilation of the Document or its derivatives with other separate and
+independent documents or works, in or on a volume of a storage or
+distribution medium, is called an "aggregate" if the copyright resulting from
+the compilation is not used to limit the legal rights of the compilation's
+users beyond what the individual works permit. When the Document is included
+an aggregate, this License does not apply to the other works in the aggregate
+which are not themselves derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to these copies of
+the Document, then if the Document is less than one half of the entire
+aggregate, the Document's Cover Texts may be placed on covers that bracket
+the Document within the aggregate, or the electronic equivalent of covers if
+the Document is in electronic form. Otherwise they must appear on printed
+covers that bracket the whole aggregate.
+-----------------------------------------------------------------------------
+
+A.9. TRANSLATION
+
+Translation is considered a kind of modification, so you may distribute
+translations of the Document under the terms of section 4. Replacing
+Invariant Sections with translations requires special permission from their
+copyright holders, but you may include translations of some or all Invariant
+Sections in addition to the original versions of these Invariant Sections.
+You may include a translation of this License, and all the license notices in
+the Document, and any Warrany Disclaimers, provided that you also include the
+original English version of this License and the original versions of those
+notices and disclaimers. In case of a disagreement between the translation
+and the original version of this License or a notice or disclaimer, the
+original version will prevail.
+
+If a section in the Document is Entitled "Acknowledgements", "Dedications",
+or "History", the requirement (section 4) to Preserve its Title (section 1)
+will typically require changing the actual title.
+-----------------------------------------------------------------------------
+
+A.10. TERMINATION
+
+You may not copy, modify, sublicense, or distribute the Document except as
+expressly provided for under this License. Any other attempt to copy, modify,
+sublicense or distribute the Document is void, and will automatically
+terminate your rights under this License. However, parties who have received
+copies, or rights, from you under this License will not have their licenses
+terminated so long as such parties remain in full compliance.
+-----------------------------------------------------------------------------
+
+A.11. FUTURE REVISIONS OF THIS LICENSE
+
+The Free Software Foundation may publish new, revised versions of the GNU
+Free Documentation License from time to time. Such new versions will be
+similar in spirit to the present version, but may differ in detail to address
+new problems or concerns. See http://www.gnu.org/copyleft/.
+
+Each version of the License is given a distinguishing version number. If the
+Document specifies that a particular numbered version of this License "or any
+later version" applies to it, you have the option of following the terms and
+conditions either of that specified version or of any later version that has
+been published (not as a draft) by the Free Software Foundation. If the
+Document does not specify a version number of this License, you may choose
+any version ever published (not as a draft) by the Free Software Foundation.
+-----------------------------------------------------------------------------
+
+A.12. ADDENDUM: How to use this License for your documents
+
+To use this License in a document you have written, include a copy of the
+License in the document and put the following copyright and license notices
+just after the title page:
+
+   
+      Copyright (c) YEAR YOUR NAME. Permission is granted to copy, distribute
+    and/or modify this document under the terms of the GNU Free Documentation
+    License, Version 1.2 or any later version published by the Free Software
+    Foundation; with no Invariant Sections, no Front-Cover Texts, and no
+    Back-Cover Texts. A copy of the license is included in the section
+    entitled "GNU Free Documentation License".
+   
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the "with...Texts." line with this:
+
+   
+      with the Invariant Sections being LIST THEIR TITLES, with the
+    Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
+   
+If you have Invariant Sections without Cover Texts, or some other combination
+of the three, merge those two alternatives to suit the situation.
+
+If your document contains nontrivial examples of program code, we recommend
+releasing these examples in parallel under your choice of free software
+license, such as the GNU General Public License, to permit their use in free
+software.

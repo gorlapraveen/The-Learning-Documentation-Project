@@ -1,0 +1,538 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/lkmpg/2.4/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:48:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>The Linux Kernel Module Programming Guide</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Foreword"
+HREF="f23.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+></A
+>The Linux Kernel Module Programming Guide</H1
+><SPAN
+CLASS="COLLAB"
+><SPAN
+CLASS="COLLABNAME"
+>Peter Jay Salzman</SPAN
+><BR></SPAN
+><SPAN
+CLASS="COLLAB"
+><SPAN
+CLASS="COLLABNAME"
+>Ori Pomerantz</SPAN
+><BR></SPAN
+><P
+CLASS="COPYRIGHT"
+><A
+HREF="ln14.html"
+>Copyright</A
+> &copy; 2001 Peter Jay Salzman</P
+><P
+CLASS="PUBDATE"
+>2003-04-04 ver 2.4.0<BR></P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="f23.html"
+>Foreword</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="x25.html"
+>Acknowledgements</A
+></DT
+><DT
+>2. <A
+HREF="x34.html"
+>Authorship And Copyright</A
+></DT
+><DT
+>3. <A
+HREF="x37.html"
+>Nota Bene</A
+></DT
+></DL
+></DD
+><DT
+>1. <A
+HREF="c43.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="x45.html"
+>What Is A Kernel Module?</A
+></DT
+><DT
+>1.2. <A
+HREF="x49.html"
+>How Do Modules Get Into The Kernel?</A
+></DT
+></DL
+></DD
+><DT
+>2. <A
+HREF="c147.html"
+>Hello World</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="x149.html"
+>Hello, World (part 1): The Simplest Module</A
+></DT
+><DT
+>2.2. <A
+HREF="x208.html"
+>Compiling Kernel Modules</A
+></DT
+><DT
+>2.3. <A
+HREF="hello2.html"
+>Hello World (part 2)</A
+></DT
+><DT
+>2.4. <A
+HREF="x281.html"
+>Hello World (part 3): The <TT
+CLASS="LITERAL"
+>__init</TT
+> and <TT
+CLASS="LITERAL"
+>__exit</TT
+> Macros</A
+></DT
+><DT
+>2.5. <A
+HREF="x321.html"
+>Hello World (part 4): Licensing and Module Documentation</A
+></DT
+><DT
+>2.6. <A
+HREF="x354.html"
+>Passing Command Line Arguments to a Module</A
+></DT
+><DT
+>2.7. <A
+HREF="x385.html"
+>Modules Spanning Multiple Files</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="c435.html"
+>Preliminaries</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="x437.html"
+>Modules vs Programs</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="c577.html"
+>Character Device Files</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="x579.html"
+>Character Device Drivers</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="c722.html"
+>The /proc File System</A
+></DT
+><DD
+><DL
+><DT
+>5.1. <A
+HREF="x724.html"
+>The /proc File System</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="c768.html"
+>Using /proc For Input</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="x770.html"
+>Using /proc For Input</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="c854.html"
+>Talking To Device Files</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="x856.html"
+>Talking to Device Files (writes and IOCTLs)}</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="c937.html"
+>System Calls</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="x939.html"
+>System Calls</A
+></DT
+></DL
+></DD
+><DT
+>9. <A
+HREF="c1012.html"
+>Blocking Processes</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="x1014.html"
+>Blocking Processes</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="c1115.html"
+>Replacing Printks</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="x1117.html"
+>Replacing <TT
+CLASS="FUNCTION"
+>printk</TT
+></A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="c1149.html"
+>Scheduling Tasks</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="x1151.html"
+>Scheduling Tasks</A
+></DT
+></DL
+></DD
+><DT
+>12. <A
+HREF="interrupthandlers.html"
+>Interrupt Handlers</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="x1210.html"
+>Interrupt Handlers</A
+></DT
+></DL
+></DD
+><DT
+>13. <A
+HREF="c1294.html"
+>Symmetric Multi Processing</A
+></DT
+><DD
+><DL
+><DT
+>13.1. <A
+HREF="x1296.html"
+>Symmetrical Multi-Processing</A
+></DT
+></DL
+></DD
+><DT
+>14. <A
+HREF="c1320.html"
+>Common Pitfalls</A
+></DT
+><DD
+><DL
+><DT
+>14.1. <A
+HREF="x1322.html"
+>Common Pitfalls</A
+></DT
+></DL
+></DD
+><DT
+>A. <A
+HREF="a1357.html"
+>Changes: 2.0 To 2.2</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="x1359.html"
+>Changes between 2.0 and 2.2</A
+></DT
+></DL
+></DD
+><DT
+>B. <A
+HREF="a1486.html"
+>Where To Go From Here</A
+></DT
+><DD
+><DL
+><DT
+>B.1. <A
+HREF="x1488.html"
+>Where From Here?</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="doc-index.html"
+>Index</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Examples</B
+></DT
+><DT
+>2-1. <A
+HREF="x149.html#AEN156"
+>hello-1.c</A
+></DT
+><DT
+>2-2. <A
+HREF="x208.html#AEN246"
+>Makefile for a basic kernel module</A
+></DT
+><DT
+>2-3. <A
+HREF="hello2.html#AEN272"
+>hello-2.c</A
+></DT
+><DT
+>2-4. <A
+HREF="hello2.html#AEN276"
+>Makefile for both our modules</A
+></DT
+><DT
+>2-5. <A
+HREF="x281.html#AEN311"
+>hello-3.c</A
+></DT
+><DT
+>2-6. <A
+HREF="x321.html#AEN351"
+>hello-4.c</A
+></DT
+><DT
+>2-7. <A
+HREF="x354.html#AEN380"
+>hello-5.c</A
+></DT
+><DT
+>2-8. <A
+HREF="x385.html#AEN421"
+>start.c</A
+></DT
+><DT
+>2-9. <A
+HREF="x385.html#AEN428"
+>stop.c</A
+></DT
+><DT
+>2-10. <A
+HREF="x385.html#AEN432"
+>Makefile for a multi-filed module</A
+></DT
+><DT
+>4-1. <A
+HREF="x579.html#AEN700"
+>chardev.c</A
+></DT
+><DT
+>4-2. <A
+HREF="x579.html#AEN717"
+>some title</A
+></DT
+><DT
+>5-1. <A
+HREF="x724.html#AEN765"
+>procfs.c</A
+></DT
+><DT
+>6-1. <A
+HREF="x770.html#AEN851"
+>procfs.c</A
+></DT
+><DT
+>7-1. <A
+HREF="x856.html#AEN915"
+>chardev.c</A
+></DT
+><DT
+>7-2. <A
+HREF="x856.html#AEN922"
+>chardev.h</A
+></DT
+><DT
+>7-3. <A
+HREF="x856.html#AEN934"
+>ioctl.c</A
+></DT
+><DT
+>8-1. <A
+HREF="x939.html#AEN1009"
+>syscall.c</A
+></DT
+><DT
+>9-1. <A
+HREF="x1014.html#AEN1112"
+>sleep.c</A
+></DT
+><DT
+>10-1. <A
+HREF="x1117.html#AEN1146"
+>print_string.c</A
+></DT
+><DT
+>11-1. <A
+HREF="x1151.html#AEN1205"
+>sched.c</A
+></DT
+><DT
+>12-1. <A
+HREF="x1210.html#AEN1291"
+>intrpt.c</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="f23.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foreword</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/lkmpg/2.4/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:49:15 GMT -->
+</HTML
+>

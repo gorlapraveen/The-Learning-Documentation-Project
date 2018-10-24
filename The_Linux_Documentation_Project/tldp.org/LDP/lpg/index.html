@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1-c (Feb 29, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+
+<!-- Mirrored from tldp.org/LDP/lpg/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:03:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD>
+<TITLE>e</TITLE>
+<META NAME="description" CONTENT="e">
+<META NAME="keywords" CONTENT="lpg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="lpg.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html11" HREF="node1.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html9" HREF="lpg.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif_gr.gif"> <A NAME="tex2html13" HREF="node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html12" HREF="node1.html">Contents</A>
+<BR> <P>
+<P>
+<H1 ALIGN=CENTER>The Linux Programmer's Guide</H1>
+<P ALIGN=CENTER><STRONG> Sven Goldt<BR> Sven van der Meer<BR> Scott Burkett<BR> Matt Welsh </STRONG></P><P>
+<P ALIGN=CENTER><STRONG>Version&nbsp;0.4 <BR> 
+March 1995<BR>
+<P>
+</STRONG></P><P>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html14" HREF="node1.html#SECTION00100000000000000000">Contents</A>
+<LI> <A NAME="tex2html15" HREF="node2.html#SECTION00200000000000000000">1 The Linux operating system</A>
+<LI> <A NAME="tex2html16" HREF="node3.html#SECTION00300000000000000000">2 The Linux kernel</A>
+<LI> <A NAME="tex2html17" HREF="node4.html#SECTION00400000000000000000">3 The Linux libc package</A>
+<LI> <A NAME="tex2html18" HREF="node5.html#SECTION00500000000000000000">4 System calls</A>
+<LI> <A NAME="tex2html19" HREF="node6.html#SECTION00600000000000000000">5 The ``swiss army knife'' ioctl</A>
+<LI> <A NAME="tex2html20" HREF="node7.html#SECTION00700000000000000000">6 Linux Interprocess Communications</A>
+<UL> 
+<LI> <A NAME="tex2html21" HREF="node8.html#SECTION00710000000000000000">6.1 Introduction</A>
+<LI> <A NAME="tex2html22" HREF="node9.html#SECTION00720000000000000000">6.2 Half-duplex UNIX Pipes</A>
+<UL> 
+<LI> <A NAME="tex2html23" HREF="node10.html#SECTION00721000000000000000">6.2.1 Basic Concepts</A>
+<LI> <A NAME="tex2html24" HREF="node11.html#SECTION00722000000000000000">6.2.2 Creating Pipes in C</A>
+<LI> <A NAME="tex2html25" HREF="node12.html#SECTION00723000000000000000">6.2.3 Pipes the Easy Way!</A>
+<LI> <A NAME="tex2html26" HREF="node13.html#SECTION00724000000000000000">6.2.4 Atomic Operations with Pipes</A>
+<LI> <A NAME="tex2html27" HREF="node14.html#SECTION00725000000000000000">6.2.5 Notes on half-duplex pipes:</A>
+</UL> 
+<LI> <A NAME="tex2html28" HREF="node15.html#SECTION00730000000000000000">6.3 Named Pipes (FIFOs - First In First Out)</A>
+<UL> 
+<LI> <A NAME="tex2html29" HREF="node16.html#SECTION00731000000000000000">6.3.1 Basic Concepts</A>
+<LI> <A NAME="tex2html30" HREF="node17.html#SECTION00732000000000000000">6.3.2 Creating a FIFO</A>
+<LI> <A NAME="tex2html31" HREF="node18.html#SECTION00733000000000000000">6.3.3 FIFO Operations</A>
+<LI> <A NAME="tex2html32" HREF="node19.html#SECTION00734000000000000000">6.3.4 Blocking Actions on a FIFO</A>
+<LI> <A NAME="tex2html33" HREF="node20.html#SECTION00735000000000000000">6.3.5 The Infamous SIGPIPE Signal</A>
+</UL> 
+<LI> <A NAME="tex2html34" HREF="node21.html#SECTION00740000000000000000">6.4 System V IPC</A>
+<UL> 
+<LI> <A NAME="tex2html35" HREF="node22.html#SECTION00741000000000000000">6.4.1 Fundamental Concepts</A>
+<UL> 
+<LI> <A NAME="tex2html36" HREF="node23.html#SECTION00741100000000000000">IPC Identifiers</A>
+<LI> <A NAME="tex2html37" HREF="node24.html#SECTION00741200000000000000">IPC Keys</A>
+<LI> <A NAME="tex2html38" HREF="node25.html#SECTION00741300000000000000">The <TT>ipcs</TT> Command</A>
+<LI> <A NAME="tex2html39" HREF="node26.html#SECTION00741400000000000000">The <TT>ipcrm</TT> Command</A>
+</UL> 
+<LI> <A NAME="tex2html40" HREF="node27.html#SECTION00742000000000000000">6.4.2 Message Queues</A>
+<UL> 
+<LI> <A NAME="tex2html41" HREF="node28.html#SECTION00742100000000000000">Basic Concepts</A>
+<LI> <A NAME="tex2html42" HREF="node29.html#SECTION00742200000000000000">Internal and User Data Structures</A>
+<LI> <A NAME="tex2html43" HREF="node34.html#SECTION00742300000000000000">SYSTEM CALL: msgget()</A>
+<LI> <A NAME="tex2html44" HREF="node35.html#SECTION00742400000000000000">SYSTEM CALL: msgsnd()</A>
+<LI> <A NAME="tex2html45" HREF="node36.html#SECTION00742500000000000000">SYSTEM CALL: msgctl()</A>
+<LI> <A NAME="tex2html46" HREF="node37.html#SECTION00742600000000000000">msgtool: An interactive message queue manipulator</A>
+</UL> 
+<LI> <A NAME="tex2html47" HREF="node46.html#SECTION00743000000000000000">6.4.3 Semaphores</A>
+<UL> 
+<LI> <A NAME="tex2html48" HREF="node47.html#SECTION00743100000000000000">Basic Concepts</A>
+<LI> <A NAME="tex2html49" HREF="node48.html#SECTION00743200000000000000">Internal Data Structures</A>
+<LI> <A NAME="tex2html50" HREF="node51.html#SECTION00743300000000000000">SYSTEM CALL: semget()</A>
+<LI> <A NAME="tex2html51" HREF="node52.html#SECTION00743400000000000000">SYSTEM CALL: semop()</A>
+<LI> <A NAME="tex2html52" HREF="node53.html#SECTION00743500000000000000">SYSTEM CALL: semctl()</A>
+<LI> <A NAME="tex2html53" HREF="node54.html#SECTION00743600000000000000">semtool: An interactive semaphore manipulator</A>
+<LI> <A NAME="tex2html54" HREF="node64.html#SECTION00743700000000000000">semstat: A semtool companion program</A>
+</UL> 
+<LI> <A NAME="tex2html55" HREF="node65.html#SECTION00744000000000000000">6.4.4 Shared Memory</A>
+<UL> 
+<LI> <A NAME="tex2html56" HREF="node66.html#SECTION00744100000000000000">Basic Concepts</A>
+<LI> <A NAME="tex2html57" HREF="node67.html#SECTION00744200000000000000">Internal and User Data Structures</A>
+<LI> <A NAME="tex2html58" HREF="node69.html#SECTION00744300000000000000">SYSTEM CALL: shmget()</A>
+<LI> <A NAME="tex2html59" HREF="node70.html#SECTION00744400000000000000">SYSTEM CALL: shmat()</A>
+<LI> <A NAME="tex2html60" HREF="node71.html#SECTION00744500000000000000">SYSTEM CALL: shmctl()</A>
+<LI> <A NAME="tex2html61" HREF="node72.html#SECTION00744600000000000000">SYSTEM CALL: shmdt()</A>
+<LI> <A NAME="tex2html62" HREF="node73.html#SECTION00744700000000000000">shmtool: An interactive shared memory manipulator</A>
+</UL> 
+</UL> 
+</UL> 
+<LI> <A NAME="tex2html63" HREF="node82.html#SECTION00800000000000000000">7 Sound Programming</A>
+<UL> 
+<LI> <A NAME="tex2html64" HREF="node83.html#SECTION00810000000000000000">7.1 Programming the internal speaker</A>
+<LI> <A NAME="tex2html65" HREF="node84.html#SECTION00820000000000000000">7.2 Programming a sound card</A>
+</UL> 
+<LI> <A NAME="tex2html66" HREF="node85.html#SECTION00900000000000000000">8 Character Cell Graphics</A>
+<UL> 
+<LI> <A NAME="tex2html67" HREF="node86.html#SECTION00910000000000000000">8.1 I/O Function in libc</A>
+<UL> 
+<LI> <A NAME="tex2html68" HREF="node87.html#SECTION00911000000000000000">8.1.1 Formatted Output</A>
+<LI> <A NAME="tex2html69" HREF="node88.html#SECTION00912000000000000000">8.1.2 Formatted Input</A>
+</UL> 
+<LI> <A NAME="tex2html70" HREF="node89.html#SECTION00920000000000000000">8.2 The Termcap Library</A>
+<UL> 
+<LI> <A NAME="tex2html71" HREF="node90.html#SECTION00921000000000000000">8.2.1 Introduction</A>
+<LI> <A NAME="tex2html72" HREF="node91.html#SECTION00922000000000000000">8.2.2 Find a Terminal Description</A>
+<LI> <A NAME="tex2html73" HREF="node92.html#SECTION00923000000000000000">8.2.3 Look at a Terminal Description</A>
+<LI> <A NAME="tex2html74" HREF="node93.html#SECTION00924000000000000000">8.2.4 Termcap Capabilities</A>
+<UL> 
+<LI> <A NAME="tex2html75" HREF="node94.html#SECTION00924100000000000000">Boolean Capabilities</A>
+<LI> <A NAME="tex2html76" HREF="node95.html#SECTION00924200000000000000">Numeric Capabilities</A>
+<LI> <A NAME="tex2html77" HREF="node96.html#SECTION00924300000000000000">String Capabilities</A>
+</UL> 
+</UL> 
+<LI> <A NAME="tex2html78" HREF="node97.html#SECTION00930000000000000000">8.3 Ncurses - Introduction</A>
+<LI> <A NAME="tex2html79" HREF="node98.html#SECTION00940000000000000000">8.4 Initializing</A>
+<LI> <A NAME="tex2html80" HREF="node99.html#SECTION00950000000000000000">8.5 Windows</A>
+<LI> <A NAME="tex2html81" HREF="node100.html#SECTION00960000000000000000">8.6 Output</A>
+<UL> 
+<LI> <A NAME="tex2html82" HREF="node101.html#SECTION00961000000000000000">8.6.1 Formatted Output</A>
+<LI> <A NAME="tex2html83" HREF="node102.html#SECTION00962000000000000000">8.6.2 Insert Characters/Lines</A>
+<LI> <A NAME="tex2html84" HREF="node103.html#SECTION00963000000000000000">8.6.3 Delete Characters/Lines</A>
+<LI> <A NAME="tex2html85" HREF="node104.html#SECTION00964000000000000000">8.6.4 Boxes and Lines</A>
+<LI> <A NAME="tex2html86" HREF="node105.html#SECTION00965000000000000000">8.6.5 Background Character</A>
+</UL> 
+<LI> <A NAME="tex2html87" HREF="node106.html#SECTION00970000000000000000">8.7 Input</A>
+<UL> 
+<LI> <A NAME="tex2html88" HREF="node107.html#SECTION00971000000000000000">8.7.1 Formated Input</A>
+</UL> 
+<LI> <A NAME="tex2html89" HREF="node108.html#SECTION00980000000000000000">8.8 Options</A>
+<UL> 
+<LI> <A NAME="tex2html90" HREF="node109.html#SECTION00980100000000000000">Output Options</A>
+<LI> <A NAME="tex2html91" HREF="node110.html#SECTION00981000000000000000">8.8.1 Input Options</A>
+<LI> <A NAME="tex2html92" HREF="node111.html#SECTION00982000000000000000">8.8.2 Terminal Attributes</A>
+<LI> <A NAME="tex2html93" HREF="node112.html#SECTION00983000000000000000">8.8.3 Use Options</A>
+</UL> 
+<LI> <A NAME="tex2html94" HREF="node113.html#SECTION00990000000000000000">8.9 Clear Window and Lines</A>
+<LI> <A NAME="tex2html95" HREF="node114.html#SECTION009100000000000000000">8.10 Updating the Terminal</A>
+<LI> <A NAME="tex2html96" HREF="node115.html#SECTION009110000000000000000">8.11 Video Attributes and Color</A>
+<LI> <A NAME="tex2html97" HREF="node116.html#SECTION009120000000000000000">8.12 Cursor and Window Coordinates</A>
+<LI> <A NAME="tex2html98" HREF="node117.html#SECTION009130000000000000000">8.13 Scrolling</A>
+<LI> <A NAME="tex2html99" HREF="node118.html#SECTION009140000000000000000">8.14 Pads</A>
+<LI> <A NAME="tex2html100" HREF="node119.html#SECTION009150000000000000000">8.15 Soft-labels</A>
+<LI> <A NAME="tex2html101" HREF="node120.html#SECTION009160000000000000000">8.16 Miscellaneous</A>
+<LI> <A NAME="tex2html102" HREF="node121.html#SECTION009170000000000000000">8.17 Low-level Access</A>
+<LI> <A NAME="tex2html103" HREF="node122.html#SECTION009180000000000000000">8.18 Screen Dump</A>
+<LI> <A NAME="tex2html104" HREF="node123.html#SECTION009190000000000000000">8.19 Termcap Emulation</A>
+<LI> <A NAME="tex2html105" HREF="node124.html#SECTION009200000000000000000">8.20 Terminfo Functions</A>
+<LI> <A NAME="tex2html106" HREF="node125.html#SECTION009210000000000000000">8.21 Debug Function</A>
+<LI> <A NAME="tex2html107" HREF="node126.html#SECTION009220000000000000000">8.22 Terminfo Capabilities</A>
+<UL> 
+<LI> <A NAME="tex2html108" HREF="node127.html#SECTION009221000000000000000">8.22.1 Boolean Capabilities</A>
+<LI> <A NAME="tex2html109" HREF="node128.html#SECTION009222000000000000000">8.22.2 Numbers</A>
+<LI> <A NAME="tex2html110" HREF="node129.html#SECTION009223000000000000000">8.22.3 Strings</A>
+</UL> 
+<LI> <A NAME="tex2html111" HREF="node130.html#SECTION009230000000000000000">8.23 [N]Curses Function Overview</A>
+</UL> 
+<LI> <A NAME="tex2html112" HREF="node131.html#SECTION001000000000000000000">9 Programming I/O ports</A>
+<UL> 
+<LI> <A NAME="tex2html113" HREF="node132.html#SECTION001010000000000000000">9.1 Mouse Programming</A>
+<LI> <A NAME="tex2html114" HREF="node133.html#SECTION001020000000000000000">9.2 Modem Programming</A>
+<LI> <A NAME="tex2html115" HREF="node134.html#SECTION001030000000000000000">9.3 Printer Programming</A>
+<LI> <A NAME="tex2html116" HREF="node135.html#SECTION001040000000000000000">9.4 Joystick Programming</A>
+</UL> 
+<LI> <A NAME="tex2html117" HREF="node136.html#SECTION001100000000000000000">10 Porting Applications to Linux</A>
+<UL> 
+<LI> <A NAME="tex2html118" HREF="node137.html#SECTION001110000000000000000">10.1 Introduction</A>
+<LI> <A NAME="tex2html119" HREF="node138.html#SECTION001120000000000000000">10.2 Signal handling</A>
+<UL> 
+<LI> <A NAME="tex2html120" HREF="node139.html#SECTION001121000000000000000">10.2.1 Signals under SVR4, BSD, and POSIX.1</A>
+<LI> <A NAME="tex2html121" HREF="node140.html#SECTION001122000000000000000">10.2.2 Linux signal options</A>
+<LI> <A NAME="tex2html122" HREF="node141.html#SECTION001123000000000000000">10.2.3 <EM>signal</EM> under Linux</A>
+<LI> <A NAME="tex2html123" HREF="node142.html#SECTION001124000000000000000">10.2.4 Signals supported by Linux</A>
+</UL> 
+<LI> <A NAME="tex2html124" HREF="node143.html#SECTION001130000000000000000">10.3 Terminal I/O</A>
+<LI> <A NAME="tex2html125" HREF="node144.html#SECTION001140000000000000000">10.4 Process information and control</A>
+<UL> 
+<LI> <A NAME="tex2html126" HREF="node145.html#SECTION001141000000000000000">10.4.1 <EM>kvm</EM> routines</A>
+<LI> <A NAME="tex2html127" HREF="node146.html#SECTION001142000000000000000">10.4.2 <EM>ptrace</EM> and the <EM>/proc</EM> filesystem</A>
+<LI> <A NAME="tex2html128" HREF="node147.html#SECTION001143000000000000000">10.4.3 Process control under Linux</A>
+</UL> 
+<LI> <A NAME="tex2html129" HREF="node148.html#SECTION001150000000000000000">10.5 Portable conditional compilation</A>
+<LI> <A NAME="tex2html130" HREF="node149.html#SECTION001160000000000000000">10.6 Additional Comments</A>
+</UL> 
+<LI> <A NAME="tex2html131" HREF="node150.html#SECTION001200000000000000000">11 Systemcalls in alphabetical order</A>
+<LI> <A NAME="tex2html132" HREF="node151.html#SECTION001300000000000000000">12 Abbreviations</A>
+<LI> <A NAME="tex2html133" HREF="node152.html#SECTION001400000000000000000">  About this document ... </A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Converted on: <BR>
+Fri Mar 29 14:43:04 EST 1996</I>
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from tldp.org/LDP/lpg/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:05:13 GMT -->
+</HTML>

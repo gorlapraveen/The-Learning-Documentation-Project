@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/Linux-Dictionary/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:53:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>Linux Dictionary</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Source and pre-formatted versions available"
+HREF="f41.html"></HEAD
+><BODY
+CLASS="book"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+></A
+>Linux Dictionary</H1
+><H2
+CLASS="subtitle"
+>Version 0.16</H2
+><H3
+CLASS="author"
+><A
+NAME="AEN6"
+></A
+>Author: Binh Nguyen</H3
+><DIV
+CLASS="affiliation"
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><br>
+<TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:linuxfilesystem(at)yahoo(dot)com(dot)au"
+>linuxfilesystem(at)yahoo(dot)com(dot)au</A
+>&#62;</TT
+><br>
+</P
+></DIV
+></DIV
+><P
+CLASS="pubdate"
+>2004-08-16<BR></P
+><DIV
+><DIV
+CLASS="abstract"
+><A
+NAME="AEN12"
+></A
+><P
+></P
+><P
+>&#13;This document is designed to be a resource for those Linux users wishing
+to seek clarification on Linux/UNIX/POSIX related terms and jargon. At
+approximately 24000 definitions and two thousand pages it is one of the largest
+Linux related dictionaries currently available. Due to the rapid rate at which 
+new terms are being created it has been decided that this will be an active 
+project. We welcome input into the content of this document. At this moment
+in time half yearly updates are being envisaged.
+</P
+><P
+>&#13;Please note that if you wish to find a 'Computer Dictionary' then
+see the 'Computer Dictionary Project' at 
+<A
+HREF="http://computerdictionary.tsf.org.za/"
+TARGET="_top"
+>&#13;http://computerdictionary.tsf.org.za/</A
+>
+</P
+><P
+>Searchable databases exist at locations such as:</P
+><P
+><A
+HREF="http://www.swpearl.com/eng/scripts/dictionary/"
+TARGET="_top"
+>&#13;http://www.swpearl.com/eng/scripts/dictionary/</A
+></P
+><P
+>(SWP) Sun Wah-PearL Linux Training and Development Centre
+is a centre of the Hong Kong Polytechnic University, established
+in 2000. Presently SWP is delivering professional grade Linux
+and related Open Source Software (OSS) technology training and
+consultant service in Hong Kong. SWP has an ambitious aim to promote
+the use of Linux and related Open Source Software (OSS) and Standards. 
+The vendor independent positioning of SWP has been very well perceived
+by the market. Throughout the last couple of years, SWP becomes the Top
+Leading OSS training and service provider in Hong Kong.</P
+><P
+><A
+HREF="http://www.geona.com/dictionary?b="
+TARGET="_top"
+>&#13;http://www.geona.com/dictionary?b=</A
+></P
+><P
+>Geona, operated by Gold Vision Communications, is a new 
+powerful search engine and internet directory, delivering quick
+and relevant results on almost any topic or subject you can imagine.
+The term "Geona" is an Italian and Hebrew name, meaning wisdom,
+exaltation, pride or majesty. We use our own database of spidered 
+web sites and the Open Directory database, the same database which
+powers the core directory services for the Web's largest and most
+popular search engines and portals. Geona is spidering all domains
+listed in the non-adult part of the Open Directory and millions of
+additional sites of general interest to maintain a fulltext index
+of highly relevant web sites.</P
+><P
+><A
+HREF="http://www.linuxdig.com/documents/dictionary.php"
+TARGET="_top"
+>&#13;http://www.linuxdig.com/documents/dictionary.php</A
+></P
+><P
+>LINUXDIG.COM, "Yours News and Resource Site",
+LinuxDig.com was started in May 2001 as a hobby site with the
+original intention of getting the RFC's online and becoming an
+Open Source software link/download site. But since that time the site
+has evolved to become a RFC distribution site, linux news site 
+and a locally written technology news site (with bad grammer :))
+with focus on Linux while also containing articles about anything 
+and everything we find interesting in the computer world. LinuxDig.Com 
+contains about 20,000 documents and this number is growing everyday!
+</P
+><P
+><A
+HREF="http://linux.about.com/library/glossary/blglossary.htm"
+TARGET="_top"
+>&#13;http://linux.about.com/library/glossary/blglossary.htm</A
+></P
+><P
+>Each month more than 20 million people visit About.com.
+Whether it be home repair and decorating ideas, recipes, movie
+trailers, or car buying tips, our Guides offer practical advice
+and solutions for every day life. Wherever you land on the new
+About.com, you'll find other content that is relevant to your
+interests. If you're looking for "How To" advice on planning
+to re-finish your deck, we'll also show you the tools you need
+to get the job done. If you've been to About before, we'll show
+you the latest updates, so you don't see the same thing twice.
+No matter where you are on About.com, or how you got here,
+you'll always find content that is relevant to your needs.
+</P
+><P
+>Should you wish to possess your own localised searcheable
+version please make use of the available "dict",
+<A
+HREF="http://www.dict.org/"
+TARGET="_top"
+>http://www.dict.org/</A
+>
+version at the Linux Documentation Project home page, <A
+HREF="../../../index.html"
+TARGET="_top"
+>http://www.tldp.org/</A
+>
+The author has decided to leave it up to readers to determine
+how to install and run it on their specific systems.
+</P
+><P
+>An alternative form of the dictionary is available at:</P
+><P
+><A
+HREF="http://elibrary.fultus.com/covers/technical/linux/guides/Linux-Dictionary/cover.html"
+TARGET="_top"
+>&#13;http://elibrary.fultus.com/covers/technical/linux/guides/Linux-Dictionary/cover.html</A
+></P
+><P
+>Fultus Corporation helps writers and companies to publish, promote,
+market, and sell books and eBooks. Fultus combines traditional self-publishing
+practices with modern technology to produce paperback and hardcover
+print-on-demand (POD) books and electronic books (eBooks).
+Fultus publishes works (fiction, non-fiction, science fiction, mystery,
+...) by both published and unpublished authors. We enable you to
+self-publish easily and cost-effectively, creating your book as
+a print-ready paperback or hardcover POD book or as an electronic
+book (eBook) in multiple eBook's formats. You retain all rights
+to your work. We provide distribution to bookstores worldwide. And all
+at a fraction of the cost of traditional publishing.
+We also offer corporate publishing solutions that enable businesses to
+produce and deliver manuals and documentation more efficiently and
+economically. Our use of electronic delivery and print-on-demand technologies
+reduces printed inventory and saves time.</P
+><P
+>Please inform the author as to whether you would like to create a
+database or an alternative form of the dictionary so that he can include 
+you in this list. Also note that the author considers breaches 
+of copyright to be extremely serious. He will pursue all claims 
+to the fullest extent of the law.</P
+><P
+></P
+></DIV
+></DIV
+><A
+HREF="ln37.html"
+>Legal Notice</A
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="f41.html"
+>Source and pre-formatted versions available</A
+></DT
+><DT
+>1. <A
+HREF="c46.html"
+>Linux Dictionary</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="punctuation.html"
+>Punctuation</A
+></DT
+><DT
+><A
+HREF="a.html"
+>A</A
+></DT
+><DT
+><A
+HREF="b.html"
+>B</A
+></DT
+><DT
+><A
+HREF="c.html"
+>C</A
+></DT
+><DT
+><A
+HREF="d.html"
+>D</A
+></DT
+><DT
+><A
+HREF="e.html"
+>E</A
+></DT
+><DT
+><A
+HREF="f.html"
+>F</A
+></DT
+><DT
+><A
+HREF="g.html"
+>G</A
+></DT
+><DT
+><A
+HREF="h.html"
+>H</A
+></DT
+><DT
+><A
+HREF="i.html"
+>I</A
+></DT
+><DT
+><A
+HREF="j.html"
+>J</A
+></DT
+><DT
+><A
+HREF="k.html"
+>K</A
+></DT
+><DT
+><A
+HREF="l.html"
+>L</A
+></DT
+><DT
+><A
+HREF="m.html"
+>M</A
+></DT
+><DT
+><A
+HREF="n.html"
+>N</A
+></DT
+><DT
+><A
+HREF="o.html"
+>O</A
+></DT
+><DT
+><A
+HREF="p.html"
+>P</A
+></DT
+><DT
+><A
+HREF="q.html"
+>Q</A
+></DT
+><DT
+><A
+HREF="r.html"
+>R</A
+></DT
+><DT
+><A
+HREF="s.html"
+>S</A
+></DT
+><DT
+><A
+HREF="t.html"
+>T</A
+></DT
+><DT
+><A
+HREF="u.html"
+>U</A
+></DT
+><DT
+><A
+HREF="v.html"
+>V</A
+></DT
+><DT
+><A
+HREF="w.html"
+>W</A
+></DT
+><DT
+><A
+HREF="x.html"
+>X</A
+></DT
+><DT
+><A
+HREF="y.html"
+>Y</A
+></DT
+><DT
+><A
+HREF="z.html"
+>Z</A
+></DT
+></DL
+></DD
+><DT
+>A. <A
+HREF="about-the-author.html"
+>About the Author</A
+></DT
+><DT
+>B. <A
+HREF="contributors.html"
+>Contributors</A
+></DT
+><DT
+>C. <A
+HREF="disclaimer.html"
+>Disclaimer</A
+></DT
+><DT
+>D. <A
+HREF="donations.html"
+>Donations</A
+></DT
+><DT
+>E. <A
+HREF="feedback.html"
+>Feedback</A
+></DT
+><DT
+><A
+HREF="b105901.html"
+>Bibliography</A
+></DT
+><DT
+>F. <A
+HREF="gfdl.html"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+>F.1. <A
+HREF="gfdl-0.html"
+>PREAMBLE</A
+></DT
+><DT
+>F.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>F.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>F.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>F.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>F.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>F.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>F.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>F.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>F.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>F.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>F.12. <A
+HREF="gfdl-addendum.html"
+>ADDENDUM: How to use this License for
+  your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="f41.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Source and pre-formatted versions available</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/Linux-Dictionary/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:54:28 GMT -->
+</HTML
+>

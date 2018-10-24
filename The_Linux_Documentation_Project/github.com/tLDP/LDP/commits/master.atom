@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/tLDP/LDP/commits/master</id>
+  <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commits/master"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/tLDP/LDP/commits/master.atom"/>
+  <title>Recent Commits to LDP:master</title>
+  <updated>2017-07-15T16:22:54Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/671057fabbc76a8688cd9d4ba4c0ac2797769377</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/671057fabbc76a8688cd9d4ba4c0ac2797769377"/>
+    <title>
+        Merge pull request #75 from pbiering/master
+    </title>
+    <updated>2017-07-15T16:22:54Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/231537?s=30&amp;v=4"/>
+    <author>
+      <name>ser</name>
+      <uri>https://github.com/ser</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #75 from pbiering/master
+
+Remove broken URL in Linux+IPv6-HOWTO.xml&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f061711eea265321ec140f3a0deab4063e065ceb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/f061711eea265321ec140f3a0deab4063e065ceb"/>
+    <title>
+        remove broken URL
+    </title>
+    <updated>2017-07-15T15:44:54Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/8064668?s=30&amp;v=4"/>
+    <author>
+      <name>pbiering</name>
+      <uri>https://github.com/pbiering</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;remove broken URL&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/df92f39fa02fea8d93381db56066ad2205c8052e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/df92f39fa02fea8d93381db56066ad2205c8052e"/>
+    <title>
+        Merge branch &#39;master&#39; of github.com:tLDP/LDP
+    </title>
+    <updated>2017-07-15T15:41:37Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/8064668?s=30&amp;v=4"/>
+    <author>
+      <name>pbiering</name>
+      <uri>https://github.com/pbiering</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;master&amp;#39; of github.com:tLDP/LDP&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e1d052feb06e3fefecb5e82ac2fe0f4803ee5a76</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/e1d052feb06e3fefecb5e82ac2fe0f4803ee5a76"/>
+    <title>
+        Merge pull request #74 from jdemaris/fix/emacs-cc-mode-link
+    </title>
+    <updated>2017-06-11T01:41:24Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #74 from jdemaris/fix/emacs-cc-mode-link
+
+fix(howto/linuxdoc): fix broken link in Emacs-Beginner-HOWTO&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/698af5efaf4c8405881025d321fd630840c3082f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/698af5efaf4c8405881025d321fd630840c3082f"/>
+    <title>
+        fix(howto/linuxdoc): fix broken link in Emacs-Beginner-HOWTO
+    </title>
+    <updated>2017-06-08T14:50:23Z</updated>
+    <media:thumbnail height="30" width="30" url="https://0.gravatar.com/avatar/4635d84c4064bc567003c27c1e515458?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>justin@urbint.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(howto/linuxdoc): fix broken link in Emacs-Beginner-HOWTO&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/cd34a434f6851957054306957997598faf2ca653</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/cd34a434f6851957054306957997598faf2ca653"/>
+    <title>
+        Merge pull request #73 from charlaaay/charlaaay/fragmentation-typo-fix
+    </title>
+    <updated>2017-05-03T02:33:05Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #73 from charlaaay/charlaaay/fragmentation-typo-fix
+
+minor text changes&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7303769226a2da9519a14b078acfe1cf22746594</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/7303769226a2da9519a14b078acfe1cf22746594"/>
+    <title>
+        fix typo
+    </title>
+    <updated>2017-05-01T04:51:37Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/12975156?s=30&amp;v=4"/>
+    <author>
+      <name>charlie-curtis</name>
+      <uri>https://github.com/charlie-curtis</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix typo&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ddf93a0a7c71b9f0d8821490d5d6dc1a9f9038b2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/ddf93a0a7c71b9f0d8821490d5d6dc1a9f9038b2"/>
+    <title>
+        minor text change
+    </title>
+    <updated>2017-05-01T03:54:39Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/12975156?s=30&amp;v=4"/>
+    <author>
+      <name>charlie-curtis</name>
+      <uri>https://github.com/charlie-curtis</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;minor text change&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f03acdb38ee82c3ac27137a84e0bee2e0b42533e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/f03acdb38ee82c3ac27137a84e0bee2e0b42533e"/>
+    <title>
+        minor text change
+    </title>
+    <updated>2017-05-01T03:20:01Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/12975156?s=30&amp;v=4"/>
+    <author>
+      <name>charlie-curtis</name>
+      <uri>https://github.com/charlie-curtis</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;minor text change&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6c4f76e7c94f840029696823a27dbaf873e313ce</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/6c4f76e7c94f840029696823a27dbaf873e313ce"/>
+    <title>
+        IPv6 howto moved to https://github.com/tLDP/Linux-IPv6
+    </title>
+    <updated>2017-01-08T03:16:21Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/d89d4f89e9456bb518b9b7be2f6dcb4d?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>bitbucket@random.re</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;IPv6 howto moved to https://github.com/tLDP/Linux-IPv6&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/681bcd27a65b968a0cea9731a9400651fd8094a1</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/681bcd27a65b968a0cea9731a9400651fd8094a1"/>
+    <title>
+        Merge pull request #71 from martin-a-brown/master
+    </title>
+    <updated>2017-01-07T17:46:51Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #71 from martin-a-brown/master
+
+switch to DocBook XML 4.2 for Linux+IPv6-HOWTO&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f99525ff68c752276aeb49cb72b720261742073c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/f99525ff68c752276aeb49cb72b720261742073c"/>
+    <title>
+        Merge branch &#39;master&#39; of https://github.com/martin-a-brown/LDP into u…
+    </title>
+    <updated>2017-01-07T17:25:39Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;master&amp;#39; of https://github.com/martin-a-brown/LDP into upstream-master
+
+Conflicts:
+	LDP/howto/docbook/Linux+IPv6-HOWTO.xml&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/94bff0d1abaecb4bf3e182d13886949e0bd8e9f3</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/94bff0d1abaecb4bf3e182d13886949e0bd8e9f3"/>
+    <title>
+        switch to DocBook XML 4.2 for Linux+IPv6-HOWTO
+    </title>
+    <updated>2017-01-07T17:09:31Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;switch to DocBook XML 4.2 for Linux+IPv6-HOWTO
+
+Source of document is LDP/users/Peter-Bieringer/Linux+IPv6-HOWTO.lyx
+Per discussion via email with the author, it is OK to switch to using
+the DocBook XML 4.2 output from LyX (which needs a bit of manual attention to
+correct the public identifier and properly escape several literal &amp;#39;&amp;amp;&amp;#39; into
+their &amp;amp;amp; entities).&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/43b04a34e3fa8b7c5673730ad0f473170d357291</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/43b04a34e3fa8b7c5673730ad0f473170d357291"/>
+    <title>
+        minor test
+    </title>
+    <updated>2017-01-06T16:35:58Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/8064668?s=30&amp;v=4"/>
+    <author>
+      <name>pbiering</name>
+      <uri>https://github.com/pbiering</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;minor test&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/81379d37f4819c7bd3387500e65ac07a4a97cd84</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/81379d37f4819c7bd3387500e65ac07a4a97cd84"/>
+    <title>
+        restructring old directories for www
+    </title>
+    <updated>2017-01-05T15:21:47Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/d89d4f89e9456bb518b9b7be2f6dcb4d?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>bitbucket@random.re</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;restructring old directories for www&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7e8b0f9e88957cbada86dc2dc8579e162ab673c2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/7e8b0f9e88957cbada86dc2dc8579e162ab673c2"/>
+    <title>
+        replace with latest work-in-progress version
+    </title>
+    <updated>2016-12-15T06:47:44Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/8064668?s=30&amp;v=4"/>
+    <author>
+      <name>pbiering</name>
+      <uri>https://github.com/pbiering</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;replace with latest work-in-progress version&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d8b2c3f9a345ba6399416237285fdbfb3f48a604</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/d8b2c3f9a345ba6399416237285fdbfb3f48a604"/>
+    <title>
+        update some URLs
+    </title>
+    <updated>2016-12-15T06:43:04Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/8064668?s=30&amp;v=4"/>
+    <author>
+      <name>pbiering</name>
+      <uri>https://github.com/pbiering</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;update some URLs&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4ad206e0ab2ae53a92b25d8819cbaea5767b4a31</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/4ad206e0ab2ae53a92b25d8819cbaea5767b4a31"/>
+    <title>
+        Merge pull request #67 from carolynfischer/master
+    </title>
+    <updated>2016-12-07T21:42:44Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #67 from carolynfischer/master
+
+Fixed a minor typo&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/98bd0b92de9f76d347055cad856b0faddf7a6bcf</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/98bd0b92de9f76d347055cad856b0faddf7a6bcf"/>
+    <title>
+        fixed a minor typo
+    </title>
+    <updated>2016-12-03T04:20:08Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/3993233?s=30&amp;v=4"/>
+    <author>
+      <name>carolynfischer</name>
+      <uri>https://github.com/carolynfischer</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fixed a minor typo&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d8e3f44db9c5993bdf44b9b22d6a6c9d31bfd092</id>
+    <link type="text/html" rel="alternate" href="https://github.com/tLDP/LDP/commit/d8e3f44db9c5993bdf44b9b22d6a6c9d31bfd092"/>
+    <title>
+        Merge pull request #64 from jasonleschnik/master
+    </title>
+    <updated>2016-11-07T00:47:32Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/11641015?s=30&amp;v=4"/>
+    <author>
+      <name>martin-a-brown</name>
+      <uri>https://github.com/martin-a-brown</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #64 from jasonleschnik/master
+
+Fixed up repeated words and Typos&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

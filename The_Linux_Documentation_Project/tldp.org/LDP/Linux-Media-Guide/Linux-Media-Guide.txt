@@ -1,0 +1,2283 @@
+Guide to Managing Media and Public Relations in the Linux Community
+
+[LPI]
+
+Sheldon Rose
+
+2004-01-08
+Revision History                                                             
+Revision 1.1            2005-04-21             Revised by: TM                
+Update to correct links, update copyright notice                             
+Revision 1.0            2003-12-02             Revised by: SR                
+Initial Release, reviewed by TM at LDP.                                      
+
+
+This guide provides useful information on how to generate positive public
+relations and news media coverage for Linux.
+
+Copyright © 2005 by Linux Professional Institute. This material may be
+distributed only subject to the terms and conditions set forth in the Open
+Publication License, v1.0 or later (the latest version is presently available
+at [http://www.opencontent.org/openpub/] http://www.opencontent.org/openpub
+/). Distribution of the work or derivative of the work in any standard
+(paper) book form is prohibited unless prior permission is obtained from the
+copyright holder.
+
+-----------------------------------------------------------------------------
+Table of Contents
+1. Introduction
+    1.1. Who Should Be Reading This Guide?
+    1.2. What is Public Relations?
+    1.3. How Public Relations Differs from Advertising
+    1.4. What Public Relations Can Do
+    1.5. The Benefits of a Public and Media Relations Program
+   
+   
+2. Public and Media Relations Planning
+    2.1. What Do You Want to Accomplish?
+    2.2. Who Needs to Know About Your Organization?
+    2.3. What Do You Want to Say?
+    2.4. What Kind of Information is Newsworthy?
+   
+   
+3. Contacting the News Media
+    3.1. Creating a Media Contact Database
+    3.2. Maintaining Your Database
+    3.3. Contacting the Editors
+    3.4. Making the Pitch
+    3.5. Pitching for Different Media
+   
+   
+4. Working with the Media
+    4.1. Duties of an Editor
+    4.2. Targeting Other Medias
+    4.3. "Selling" Your Story to the Media
+    4.4. Do's and Don'ts When Dealing with the News Media
+    4.5. Monitoring Media Coverage
+   
+   
+5. News Releases??the Major Communications Tool
+    5.1. Writing News Releases
+    5.2. What Makes a News Release Good (or Bad)
+    5.3. Top Ten Tips for Writing Releases
+    5.4. Distributing the News Release
+   
+   
+6. Other Public Relations Tools
+    6.1. Feature Articles
+    6.2. Bylined Articles
+    6.3. Email Writing
+    6.4. Miscellaneous Communications Tools
+    6.5. Don't Forget Emphasizing Core Messages
+   
+   
+7. Working the Trade Show
+    7.1. Arranging Speaking Opportunities
+    7.2. Getting Media Attention at Trade Shows
+    7.3. Planning for a Trade Show
+   
+   
+8. Quick Tips for Maximizing Coverage
+    8.1. How to Maximize Media Coverage
+   
+   
+A. Monitoring Media Coverage
+    A.1. Media Monitor Services and Clipping Services
+   
+   
+
+List of Tables
+3-1. News Media Organizations
+
+-----------------------------------------------------------------------------
+Chapter 1. Introduction
+
+1.1. Who Should Be Reading This Guide?
+
+This document is intended for people who want to learn practical and
+cost-effective ways to raise the profile of an organization or promote new
+programs.
+
+This guide provides useful information on how to generate positive public
+relations and news media coverage for Linux. By no means does the guide
+intend to teach all there is to know about public and media relations, but it
+does support you in building and maintaining a healthy public image.
+-----------------------------------------------------------------------------
+
+1.2. What is Public Relations?
+
+You have news to share??information that would benefit the Linux community.
+You have some idea of the people you want to reach with your news and views.
+Now the problem becomes: How to reach them in the most effective way? The
+better the communications between you and your audience, the higher the
+profile of your organization.
+
+Generating publicity is not as complex as you might think. Most of the
+success of public relations centers on knowing what to do and when.
+Implementing these initiatives can dramatically increase awareness of your
+business.
+
+Public relations (PR) is often confused with advertising, merchandising,
+promotion, or any of a dozen other buzz words in the marketing communications
+vocabulary. (By the way, marketing communications is a broad term that
+encompasses all of these disciplines.)
+
+Public relations is about doing something newsworthy that you want to
+communicate, and then telling your audience (or very likely, several
+audiences) what you have done.
+
+One of the most common public relations vehicles is the brief "New Product"
+announcement you see in magazines and trade publications. Often only a few
+lines or a paragraph in length, these announcements herald the launch of
+future products or services. These short announcements are typically
+triggered by a new product release, which may be accompanied by various forms
+of communications such as internal announcements to the organization's
+employees and external news releases to the media, stockholders, user
+community, and other groups. News releases trigger a chain of events that
+result in visibility.
+
+There are some important terms that may help you understand public relations.
+News media refers to all the places where people read or hear about news,
+including newspapers, magazines, television, radio, and the Internet.
+
+A news release, sometimes referred to as a press release, is a printed or
+electronic document issued by organizations who want to communicate news to
+editors, journalists, industry writers, or other media groups. Journalists
+write about the story for publication (if it is considered newsworthy), while
+editors control whether the story actually appears in a newspaper, magazine,
+website, or broadcast.
+
+A news release contains important facts, quotes from key people, dates that
+the news happened (or will happen), and contacts for additional information.
+The news release is concise and usually runs no longer than two pages.
+
+Public relations, then, can be thought of as the process that delivers your
+news to the people you want to reach through a broad, influential, and
+far-reaching news media community.
+-----------------------------------------------------------------------------
+
+1.3. How Public Relations Differs from Advertising
+
+International humorist Stephen Leacock defined advertising as: "the science
+of arresting the human intelligence long enough to get money from it." But
+the textbook definition of advertising is: "a form of persuasion that informs
+people about the goods and services they can purchase."
+
+Advertising is very different from public relations. One key difference is
+that you always pay for the space and time of an advertisement (or
+commercial, which is an insert appearing on radio, television, or the
+Internet). By contrast, editorial coverage generated through public relations
+is not paid for by the organization issuing the news release. The media will
+pick up and publish the story because they consider it newsworthy, not as a
+paid advertisement.
+
+Another crucial difference is that, in advertising, you have virtually full
+control over the message. Because you are paying for advertising, the ad or
+commercial runs your exact text (called copy), provided the copy complies
+with generally acceptable standards for advertising. In the case of public
+relations, the media outlet you are targeting is under no obligation to run
+the story in any form. If a media outlet does decide to run the story, an
+editor will generally rewrite the news release, or use pertinent information
+from the news release to create the news. (For instance, your news release
+might be used as part of a larger story on players in your industry or
+profession.) In addition, you have no control over when the release or news
+will run. All decisions are made by the editor.
+
+As you can see, public relations is a cost-effective way of getting your
+story out. Taking the trouble to write effective news releases and to build a
+relationship with the relevant media will, in time, pay dividends in the form
+of exposure and prestige. Best of all, public relations probably costs less
+than a single advertisement.
+-----------------------------------------------------------------------------
+
+1.4. What Public Relations Can Do
+
+Since public relations communicates your messages through the news media, all
+the power of the media is brought to bear when the public??those viewers,
+listeners, or readers you want to reach??learns about your news.
+
+Think of what this means: high interest level, credibility, implied
+objectivity, and possibly implied endorsement by the journalist or
+publication reporting the information. There is also an urgency conveyed when
+news is reported in the media??and that news has the potential to reach a
+tremendously large audience.
+
+With exposure comes awareness. An important goal of public relations??in any
+medium??is to make people aware of what your organization is, what it offers,
+and what it does. Never underestimate the value of such awareness. In
+flashier terms, it's called buzz.
+
+Creating awareness for your organization is important for the development and
+utilization of its programs and initiatives. You must inform the public and
+educational and training institutions about what you offer and how you can
+meet their needs. Public relations is probably the most valuable tool in
+accomplishing this. A well-implemented public relations initiative will help
+present your organization's offerings to their best advantage.
+
+Public and news media relations also positions you to enter new marketplaces
+and exposes new Linux programs to new audiences??all without the expense
+associated with an advertising program. A sustained public relations program
+allows you to ensure your programs are in front of appropriate
+decision-makers. This continuous flow of information creates a constant
+awareness and a constant influx of inquiries??especially when integrated with
+other powerful marketing communications tools such as brochures, trade shows,
+and so on.
+-----------------------------------------------------------------------------
+
+1.5. The Benefits of a Public and Media Relations Program
+
+Public relations is vitally necessary, perhaps even critical, in today's
+competitive marketplace. There are many ways a sustained public relations
+program can benefit your organization:
+
+††*†Public relations should not be a "we will do it if we have the time and
+    resources" kind of effort. A sustained initiative can build your
+    organization's profile in the news media and the local community.
+   
+††*†Editorial coverage gives your organization better stakeholder attention
+    compared to paid advertisements.
+   
+††*†Editorial copy generated through effective public relations is far more
+    believable and credible than paid advertising, due to media objectivity.
+    Recent studies in North America suggest that positive editorial coverage
+    generates up to nine times more visibility than paid advertising.
+   
+††*†Public relations is an economical means of promoting your organization.
+   
+††*†Regular and effective news releases can make your organization a "news
+    media source" on the state of Linux. It is critical to develop
+    relationships with the news media in the same way it is a good idea to
+    develop other kinds of friendships in the community. Writers and
+    reporters are always looking for reliable and respected sources to quote.
+   
+††*†Regular media exposure legitimizes your organization's work and enhances
+    its reputation. There is a subtle but nonetheless real perception that
+    mention in a newspaper or on television must be important. Media coverage
+    communicates to the business community that your organization's
+    qualifications and programs are worthy of "a serious look."
+   
+
+You must also be cautious when dealing with media outlets. Being
+overconfident or overly aggressive in trying to place stories with the news
+media can have damaging results. It is a lot easier to lose goodwill than to
+gain it back. The safest position is to understand what you are doing, work
+hard to accomplish predetermined and realistic goals, be courteous and
+respectful when dealing with your media contacts, and expect some
+disappointments along the way. After all, hard as you may try, the results of
+your public and news media relations initiatives are never predictable. But
+if planned and implemented correctly, the benefits are enormous. Chapter 2
+explains how to determine what you really want to accomplish.
+-----------------------------------------------------------------------------
+
+Chapter 2. Public and Media Relations Planning
+
+When you want to promote your organization, you are provided with a variety
+of options. The first step is to develop a plan. You must determine the
+following:
+
+††*†  What do you want to accomplish?
+   
+††*†  Who do you want to reachneeds to know about your organization?
+   
+††*†  What do you want to say??
+   
+††*†  What kind of information is newsworthy?
+   
+
+-----------------------------------------------------------------------------
+2.1. What Do You Want to Accomplish?
+
+The first and most important step in public relations planning is to
+understand and define what you want to accomplish through public relations.
+What are your objectives? Just as importantly, how will you determine
+(measure) your success in accomplishing these objectives? Creating a list of
+concrete goals can help you maintain direction in your efforts.
+-----------------------------------------------------------------------------
+
+2.2. Who Needs to Know About Your Organization?
+
+Now that you know what you want to do, the second step is to determine who
+you need to talk to.
+
+The best way to gain insight into this question is to look from the other
+side of the communications channel: Of all the people that your organization
+deals with, who do you need to tell about new programs and products? Often
+your most important contacts will be your current and future partners, IT
+professionals in your local area, human resource managers, training and
+development personnel, and organizations offering competing products.
+
+To reach your organization's public relations goals, there are many key
+audiences and stakeholders that your organization should regularly
+communicate with to gain higher visibility. The following list details a few
+of the most important audiences:
+
+††*†  News media. Includes print, radio, television, and Internet outlets for
+    business news, information technology news especially related to Linux
+    and open source, vertical media (directed at a people with similar
+    interests such as a hobby or business), human resources, colleges and
+    universities, and organizations and enterprises dealing with Linux or
+    Linux information management solutions.
+   
+††*†  IT professionals. Includes practicing IT professionals, students, and
+    prospects such as people considering a career change.
+   
+††*†  Influencers.
+   
+††*†  Other LPI affiliates.
+   
+††*†  Business partners and suppliers. Includes communicating to strategic
+    partners such as independent software vendors, training providers, and
+    suppliers, which helps your organization become a valued business partner
+    to these groups, each of which bring specific value to your business.
+   
+
+-----------------------------------------------------------------------------
+2.3. What Do You Want to Say?
+
+The third step in public relations planning is to understand what you want to
+say. To attain your objectives, it is critically important to maintain
+message consistency when delivering you organization's messages, vision,
+mission, and core values to your target audiences. Consistency creates a
+stronger impression and helps people remember your core messages.
+
+Although a given message may be "tweaked" or "massaged" for different
+audiences, the core messages should not vary.
+-----------------------------------------------------------------------------
+
+2.4. What Kind of Information is Newsworthy?
+
+These are examples of great happenings that generate interest.
+
+††*†  Locations and launches. This kind of news is obvious. For instance, a
+    new branch of your organization may have just opened, and you want to
+    make people aware of the new location and offerings. Also, if you are
+    launching a new product or have hired a local figure well-known to the
+    Linux community, these things are of great interest to the public.
+   
+††*†  Industry developments and human interest. Sometimes newsworthy
+    information is a little less obvious. Every day happenings can be in the
+    news. Whenever there are changes or new developments in the industry,
+    this clearly presents an opportunity for positive exposure and media
+    coverage in appropriate publications. For instance, how and why the
+    change is being undertaken may become a story in itself. Perhaps the
+    change is being driven by a dynamic Linux guru, worthy of a magazine
+    profile. Sometimes these stories are called "case studies" and typically
+    are given favourable consideration by editors because of their
+    considerable human interest appeal.
+   
+††*†  Numerical data and trends. Society is fascinated with numbers. The more
+    impressive or interesting the figures (relative to competitors and the
+    rest of the industry), the more likely media outlets are to use those
+    numbers in their reporting.
+   
+††*†  Organizational announcements. Notable changes in staff or volunteers
+    are another way of getting media exposure. The more important the
+    position, the more newsworthy organizational announcements become.
+   
+††*†  Partnerships. Especially partnerships with far-reaching effects across
+    the industry create a major news story.
+   
+††*†  Industry recognition. When your organization wins an award or is
+    recognized by peers, let the world know!
+   
+
+The bottom line is that you can find news in almost any event. Your
+responsibility is to ensure that your organization becomes known and
+respected by editors, journalists, educators, and other stakeholders with
+whom you are communicating. Remember, the more respected your organization
+is, the more (and better) coverage you are likely to receive. The determining
+factor in that judgment will be the audience??the readers, viewers, and
+listeners who you reach.
+
+Effective and well-organized public relations efforts require news releases
+and correspondences to reach an appropriate editor. Chapter 3 details what
+you need to do to get news media contacts and, ultimately, positive
+visibility.
+-----------------------------------------------------------------------------
+
+Chapter 3. Contacting the News Media
+
+All contacts with the news media create an impression of you and your
+organization that carries into the public perception. Creating and updating a
+media contact database is the first step towards developing good
+relationships with editors and writers. When you are contacting editors,
+remember that editors are busy professionals, so being polite and
+to-the-point are vitally important. Customizing your pitch for different
+editors and types of media will also give your information a better chance of
+being published. Effective media contacts will make your public relations
+campaign a success for your organization and the publications that you are
+featured in.
+-----------------------------------------------------------------------------
+
+3.1. Creating a Media Contact Database
+
+You cannot underestimate the importance of maintaining and continually
+updating a database of editorial contacts who have an explicit or implied
+interest in Linux and your organization. Directories available in your local
+reference library list publications of every description, giving the full
+particulars of their readership, editorial staff (often with contact
+information), circulation, publication frequency, areas of coverage, and
+other relevant information. Consulting these directories is the first step
+towards building your media database.
+
+Time must be spent in researching names and contact information for your
+database. You will need to know the audiences of each publication, names of
+key editors, these editors' responsibilities, the dates of special-focus
+issues concerning Linux, and more. This information will allow you to do a
+better job of targeting your news to the right media contacts. For instance,
+there may be occasions when you want your news to reach certain editors but
+not others. Your news may only concern a portion of your database, such as
+the educational community. Your research (and later, direct experience) will
+tell you that only certain editors will be interested. In short, there is a
+lot of homework to be done identifying the news media related to your area
+and learning the specifics about them. The more information your database
+contains, the more valuable the information will be to you.
+
+Before you contact any editor, you need to know where to call, email, or
+write. Fortunately, there are dozens of published directories of editorial
+contacts. While you could easily spend thousands of dollars buying or
+subscribing to them, you do not need to. As mentioned above, your library
+probably has several subscriptions on hand.
+
+Some of the more popular directories for North American and international
+contacts include the following news media organizations. There is likely a
+membership fee (depending on the service level requested) to access the
+databases of these groups.
+
+
+Table 3-1. News Media Organizations
++-------------------------------------+-------------------------------------+
+|Media Group                          |Web Address                          |
++-------------------------------------+-------------------------------------+
+|Bacon's Directories                  |[www.bacons.com] www.bacons.com      |
++-------------------------------------+-------------------------------------+
+|Bowden's                             |[www.bowdens.com] www.bowdens.com    |
++-------------------------------------+-------------------------------------+
+|Burrelle's/Luce                      |[www.burrellesluce.com]              |
+|                                     |www.burrellesluce.com                |
++-------------------------------------+-------------------------------------+
+|BusinessWire                         |[www.businesswire.com]               |
+|                                     |www.businesswire.com                 |
++-------------------------------------+-------------------------------------+
+|Canada Newswire                      |[www.newswire.ca] www.newswire.ca    |
++-------------------------------------+-------------------------------------+
+|CCN Matthews                         |[www.ccnmatthews.com]                |
+|                                     |www.ccnmatthews.com                  |
++-------------------------------------+-------------------------------------+
+|Media Map                            |[www.mediamap.com] www.mediamap.com  |
++-------------------------------------+-------------------------------------+
+|PR Newswire                          |[www.prnewswire.com]                 |
+|                                     |www.prnewswire.com                   |
++-------------------------------------+-------------------------------------+
+
+Another way to find local media contacts and organizations is to look in your
+local telephone directories. Here are some categories to start you on your
+way (your local Yellow Pages may list these under different headings):
+
+††*†Broadcasting companies
+   
+††*†News publications
+   
+††*†News services
+   
+††*†Newspaper feature syndicates
+   
+††*†Newspapers
+   
+††*†Publishers - periodicals and magazines
+   
+††*†Radio stations
+   
+††*†Television stations
+   
+
+Once you have created a list of potential editors to contact, find out as
+much as you can about their publication, coverage areas, and special
+interests. Become familiar with their publication, their website, or their
+broadcast. Get to know the beats (coverage areas) of specific reporters.
+-----------------------------------------------------------------------------
+
+3.2. Maintaining Your Database
+
+Whether you keep your editorial contact information in an electronic database
+(such as an ACT or DBF file) or in a traditional Rolodex, your contact
+information must be kept up-to-date. Editors come and go, reporters are
+reassigned to new beats, and publications merge or create spin-offs. You need
+to stay on top of these changes. Review your media contact list at least
+every three to four months. Contact appropriate people in each organization
+to get updates of names, email addresses, and phone numbers. Through this
+exercise you may discover new targets to whom you can pitch your story.
+-----------------------------------------------------------------------------
+
+3.3. Contacting the Editors
+
+3.3.1. Letter of Introduction
+
+When contacting an editor for the first time, you should take pains to get
+your relationship off to a good start. This is best accomplished by sending a
+well-crafted letter (or email) of introduction prior to issuing your first
+news release.
+
+Even if you have been involved in media relations in another capacity, a
+letter of introduction can help establish a "new era" of cooperation between
+you (in your new public relations role) and the editor. After all, a
+successful public and media relations program is all about relationships??
+successful ones.
+
+What must your letter accomplish? Consider your goals carefully, because this
+letter can do a great deal for your organization.
+
+First, reaching the right editor or reporter is extremely important. Then,
+you will want to get that editor's help in identifying other professionals
+who may be interested in receiving and conveying Linux news. These
+professionals include freelance writers (who write speculatively or on
+assignment, then sell specific stories to publications), editors in related
+areas (business and feature editors), industry spokespeople, and so on. Your
+letter also needs to articulate why this editor will likely be interested in
+your organization's story and why his or her audience will be interested.
+
+The primary purpose for the letter of introduction is to open the lines of
+communication and to make yourself or your designated spokesperson available.
+Be sure to give your full name and contact information. Most importantly, do
+not forget to include your email and website addresses. Email is the
+preferred method of communication in the journalistic community. Make
+corresponding and dealing with you easy for your media contacts. This is
+critical to the success of any media and public relations program.
+
+If you include broadcast in your public relations program, you will need to
+adjust the terminology accordingly. Instead of editors, you will be
+corresponding with news directors and producers; instead of readers, you will
+be referring to listeners, viewers, or an audience. No matter what their job
+description is, remember that you are dealing with actual people. The more
+personable you are in your correspondence, the more likely you are to see
+results.
+-----------------------------------------------------------------------------
+
+3.3.2. Using the Phone
+
+Regardless of the size and scope of your media relations program, look for an
+opportunity to directly contact at least some of the editors and journalists
+important to your organization. The telephone is a tremendous ally in any
+public relations program. A phone call establishes person-to-person contact,
+lends credibility to your public relations effort, and helps your contact to
+associate a name to the news releases you subsequently send to them. A few
+moments on the phone, either as a prelude or a follow-up to a news release,
+not only draws attention to your organization but can also impart a sense of
+immediacy and urgency that may provide the edge you need to acquire editorial
+coverage of your story.
+
+When calling an editor, always immediately identify yourself and your
+organization. Next, ask if the editor is on deadline. If their answer is 
+"Yes," don't tie up their time but offer to call back in a day or two and
+then do so. Editors are known for their extraordinary memory??they never
+forget a nuisance or a courtesy.
+
+If the editor is not on deadline, then state immediately why you are calling,
+saying something like this:
+
+   
+    "Hello, I'm (name) with (my organization), and I'm calling to alert you
+    to our announcement of (news topic). I want you to know that I'm
+    available to you for any additional information or an interview, now or
+    any time in the future. Give me a call at (phone number) or email me at
+    (email address)."
+   
+Look what the dialogue above accomplishes. You have identified yourself and
+your organization, stated your business succinctly, and offered your services
+as a liaison. Now let the editor decide what to do. If they seem to want to
+get off the phone quickly, don't worry. They may have something urgent
+demanding their attention or a story that needs to be filed immediately. You
+can always call back or have the editor return your call later. Listen
+carefully to the editor's recommendations for calling them at another time.
+
+While most editors and reporters are busy, they are seldom rude (in fact, the
+contrary) and usually cooperative. If the editor asks why you are calling, or
+has other questions, be prepared to answer. As in any business situation,
+always do your homework. If necessary, write down potential questions and
+answers and rehearse beforehand. Nothing irritates a busy editor or reporter
+more than dealing with a public relations representative who is unprepared to
+answer basic questions.
+
+If you cannot answer all the questions, promise to find the answers and send
+the information by email. Be sure to do this in a timely fashion. Editors
+appreciate quick responses and will give more attention to people who can
+give them the information they are seeking in a timely manner. This is a very
+important consideration.
+
+If the editor gives you a "No thanks, not interested" response??which may
+happen quite frequently at the beginning??you should ask if there is someone
+else on staff who would be interested in your information. If there is time,
+and the editor seems receptive to sharing information (listen carefully to
+their tone of voice and phone manner), you might also ask if there is
+anything special about Linux they are looking for, now or in the future.
+After all, the less you waste of each other's time, the more productive your
+relationship will be.
+
+Once editors know of you and your organization, there may be times when they
+contact you directly. For example, the publications you have targeted may
+occasionally feature an editorial focus on Linux. Check the editorial
+calendars of these publications on a regular basis. Periodicals plan their
+issues two to three months in advance of the publication date, so you need to
+be proactive in pitching (telling) your organization's story ahead of time.
+Editorial calendars are often made available on the publication's website.
+They are also usually available free of charge from the publication's
+advertising department. If all else fails, contacting the publication's
+editorial assistant and making a polite request should yield positive
+results.
+
+Another important way to use the phone is to find out who you should be
+contacting at a specific publication. The receptionist is usually cooperative
+and very knowledgeable about this. You may end up talking to a lot of
+different people before you get the answers you need, but public relations is
+far more effective when you deliver your news to the right people.
+-----------------------------------------------------------------------------
+
+3.4. Making the Pitch
+
+"The Pitch" (that is, "selling" your story) has changed over the years.
+Pitching is often not done just by regular mail, telephone, or even fax
+anymore. These days, most contacts are made through email.
+
+Before sending anything, you should try to find out how a particular editor
+or journalist likes to receive pitches and in what format the pitch should be
+presented. In-depth database research on numerous publications and reporters
+is available from companies like LexisNexis and Dow Jones and can be a real
+asset to public relations professionals looking for contact preferences.
+
+Every editor or journalist has their own preferences for receiving news
+releases and pitches. Knowing whether to call, fax, or email makes a world of
+difference??and may even be the difference between getting your news read and
+covered, and not. While sending the same email to 20 editors is quick, easy,
+and painless, your pitch may not get the attention your organization
+deserves.
+
+Though e-mail has simplified and certainly quickened the transfer of
+information between public relations professionals and their media contacts,
+email has some drawbacks. Email is not as personal as a phone call, as quick
+as glancing over a fax, or as formal as a letter sent by post. The ease and
+ubiquity of email can sometimes make building a working relationship with
+certain editors or journalists more difficult.
+
+For example, a particular Bloomberg reporter (who shall remain anonymous)
+does not like receiving pitches by email. In her words: "Email tells a
+one-sided story in its pitch. It makes it impossible to ask questions
+regarding some uncertain aspects." Because of this, this reporter prefers to
+be contacted by phone. She will only read and accept email if the email
+relates to her beat and covers all the points she wants covered.
+
+David Andelman of the New York Daily News prefers receiving pitches and news
+releases by fax, which he can read instantly without having to print them
+out. "I am [always] getting an abundance of press news," he says. "But at
+least with faxes, I can filter through them easier and quicker than I can
+with emails, deciding what is trash and what I can use. Don't waste my time.
+We are a daily paper."
+
+Samuel Brittan, an economic commentator with the Financial Times in London,
+likes old-fashioned snail mail. "There are problems which occur with email,
+be it privacy issues, bounce-backs, or just an over-abundance," he says. "I
+simply prefer to be mailed directly through the postal service."
+
+Carrie Donovan, an editorial assistant for The Washington Post, states: 
+"Initially, I prefer postal mail pitches, since I receive artwork and photos
+for stories. Images sent via email tends to be problematic, either too small
+for us to run or it may look bit-mapped (jagged-looking)." She also observes
+that emailed releases are more likely to have missing information, something
+as seemingly obvious as an address to an event. Like most media
+professionals, Ms. Donovan wants all the facts delivered coherently and
+comprehensively. Failure of a public relations representative to do this is
+enough to turn her off completely.
+
+Whatever method you use to correspond with an editor or reporter, always
+remember that media people are extremely busy. After all, they live and die
+by deadlines. Although you may want to know if your contact has received your
+pitch or news release, phoning them is generally not recommended. Most
+editors don't have the time to answer follow-up calls or engage in lengthy
+conversation. This again underscores the importance of giving them all the
+information in one "neat and clean" delivery. As Mr. Andelman bluntly states,
+"We aren't idiots. If you faxed it to us and you didn't get an error message
+back, you know we received it just fine. And if we decide to use it, chances
+are we will contact you for more information."
+
+First impressions count. The best advice we can give when you are dealing
+with a news editor for the first time is to tailor the pitch specifically to
+that editor's beat. Then sit back and hope for the best. Although this
+approach sounds unpredictable, this is the nature of public relations.
+
+By corresponding with editors in the way they prefer (which may not be the
+easiest or most convenient way for you), you will set a good impression for
+your organization. With persistence and good manners, you may eventually
+become an authority to whom journalists and editors willingly turn for
+commentary.
+-----------------------------------------------------------------------------
+
+3.4.1. Getting the Editor's Attention
+
+Editors pride themselves on keeping current with the latest developments in
+their field. Indeed, being current is a central aspect of their jobs and
+practically inescapable, considering the mountains of information delivered
+to their desktops. Since they take this responsibility very seriously, most
+editors read??or at least scan??every single release that comes in.
+
+The big read usually begins as an accompaniment to the morning cup of coffee.
+Editors will read the release's headline, perhaps scan a paragraph or two,
+and decide whether the piece works for their publications. Since so much
+depends on passing this preliminary test, we will discuss in Chapter 4 how to
+give your release the best chance of being "picked up."
+
+Not every news release will contain earth-shattering news. In fact, many will
+be written mainly to keep the organization's name in front of the editors.
+Nonetheless there will be times when an item will be particularly newsworthy,
+timely, or significant to at least one editor. That is the time to pick up
+the phone and bring the item to their attention. Editors are sensitive to
+significant announcements and do not want to miss them any more than you want
+them missed, so calling is appropriate on these occasions. However, there are
+a few caveats.
+
+First, remember never to call during the editor's "deadline time" of the day,
+week, or month. Note these periods in your contact database. Secondly, use
+the phone strategically. Do not phone too often or for trivial news??that is
+equivalent to "crying wolf." If you will be making several important
+announcements within a short period, let the editor know you will be doing
+this instead of calling separately about each item. Only pick up the phone
+when all of your ducks are in a row; that is, when the information is ready
+to be released, and you are prepped and primed to answer questions. Finally,
+remember that any phone call should be brief and to the point, with
+additional information sent by email (or whatever format the editor has
+stipulated).
+
+Using the telephone intelligently and to maximum effect will demonstrate your
+public relations savvy and professionalism. This, in turn, will increase your
+organization's credibility, increasing the likelihood that your news will be
+picked up.
+-----------------------------------------------------------------------------
+
+3.5. Pitching for Different Media
+
+The news release, the most common way in which you will communicate news,
+mostly serves print-based media such as newspapers, magazines, and the
+Internet. Pitching stories for television and radio will be somewhat
+different.
+-----------------------------------------------------------------------------
+
+3.5.1. Print-based Media
+
+Every publication has a lead time for accepting releases and pitches.
+Generally, daily and weekly newspapers have quite short lead times, while
+monthly or quarterly magazines may have a lead time of several months. Each
+publication will also have requirements regarding text and graphic formats.
+For instance, they may accept only plain-text documents with no formatting or
+require graphical files (such as photos) to be submitted in a particular file
+type and resolution.
+
+Although you do not need to become an expert in desktop publishing and print
+production, having a general knowledge of these areas will be extremely
+beneficial. Familiarize yourself with commonly used text formats (such as
+Microsoft Word for print and HTML for the Internet) and graphical formats
+(such as eps, jpeg, and gif). For important communications, you may wish to
+engage the services of a copy editor, graphic designer, or other publishing
+professional.
+
+The Internet today works similarly to the print media. Speed is paramount for
+this medium. News can be posted immediately, without waiting for the printing
+presses to roll. Space limitations are not as much of a concern as they are
+for print, and the online edition will often publish stories that do not fit
+in the printed edition.
+
+Naturally, online editors prefer to receive your news electronically.
+Targeting the right online editors can result in almost immediate posting of
+your news. Be sure to build relationships with online editors as you would
+for print editors. The online world is a growing segment that you simply
+cannot afford to ignore.
+-----------------------------------------------------------------------------
+
+3.5.2. Television and Radio
+
+Studies show that television has replaced newspapers as the primary medium
+from which people get their news. These studies also found that TV news had a
+much higher credibility rating than newspaper coverage. Thus, specialty TV
+programs may offer an excellent opportunity for communicating your story.
+Such shows may include: local TV news shows, programs produced by community
+TV stations, business or information technology shows, and educational shows.
+
+Because television emphasizes visuals, you should look for stories and angles
+that permit interesting or engaging video footage. (There is nothing duller
+than √¢$=talking heads.√¢$) TV news producers and editors like action,
+especially fast-paced action. They also favor stories with a local twist. Try
+and localize your story, which means making the news relevant and appealing
+geographically to the television station concerned.
+
+Radio interviews are another excellent vehicle for publicizing your
+organization and activities. Contact your local radio station and pitch
+yourself as an interview candidate to the news director or assignment editor.
+Know that you must have a compelling and convincing answer to the question, 
+"Why should our listeners be interested?"
+
+In Chapter 4, we further explore the characteristics of different media, so
+that you can customize your pitches to each one.
+-----------------------------------------------------------------------------
+
+Chapter 4. Working with the Media
+
+In this part, we look at how to motivate the news media to use your stories.
+We will review the duties of editors and producers, the characteristics of
+different news media, and the ways in which your organization can increase
+the chances of gaining visibility. We will see how to create news media
+interest in your story, not only through the information contained in your
+release, but also through contact with the editors. We will try to create a
+better understanding of the editors' side of the public relations channel
+with some insight into the little things??and the big things??that editors
+look for.
+-----------------------------------------------------------------------------
+
+4.1. Duties of an Editor
+
+The eventual success of your organization's public and media relations
+efforts depends mainly on how often your news releases are issued and, more
+importantly, how often the news they contain is selected to run. The latter
+decision is in the hands of a person whose title is usually editor.
+Understanding an editor's job will help you do your job better.
+
+Can you name the editor of your local computer magazine or local newspaper?
+The editor is a very important ally in public relations. The editor (whose
+title might also be managing editor or editor in chief) has overall
+responsibility for the publication's content. Below him or her, depending on
+the periodical's size, are subject editors who are assigned to specific beats
+(often called "departments"). These editors oversee the content for their
+departments. Sometimes each editor has additional staff, such as reporters,
+freelancer writers, photographers, copy writers, copy editors, etc.
+
+The information contained in news releases is the primary source of
+information for most editors. Newsworthy releases are selected and edited or
+worked into an article. The selected releases are the lucky ones; most never
+see the light of day. When you consider that the editor at a daily
+publication receives upwards of 500 news releases on any given day, gauging
+the statistical possibility of an individual release being picked up for
+coverage is easy.
+-----------------------------------------------------------------------------
+
+4.1.1. Newspaper Editors
+
+Newspapers don't mean just the regular daily newspapers targeted at the
+general public. There are special-interest newspapers for business,
+computers, information technology, telecommunications, and other fields. The
+specialty papers may run weekly instead of daily, but, like their daily
+counterparts, they are primarily news-driven rather than feature-driven
+(which is more the case with magazines).
+
+Newspaper editors reject many more releases than they use. The larger the
+paper's circulation or the more active the area being covered, the more
+releases the editor has to sort through.
+
+Most newspapers have a space budget, which is not to be confused with a
+financial budget. The space budget consists of the total number of pages
+printed, divided between advertising and news articles. Advertisements are
+the lifeblood of a newspaper; ads consistently provide the largest portion of
+income. The ads must be accommodated first, after which the issue's remaining
+space is allocated to specific stories and departments by the key editors.
+
+The selection of news releases to cover is based on the editor's personal and
+professional judgment. The main factor in that judgment can be summed up in a
+single word: "newsworthiness". Unfortunately, newsworthiness is defined by
+individual editor's opinions. Newsworthy stories are generally those that
+offer the most information with the most urgency to the most people.
+
+If a news release issued on particular day is not covered in the following
+day's paper, this does not mean the news will not appear at all. Releases not
+considered newsworthy enough to appear in a weekday edition may be suitable
+for the weekend paper, where there is more room and less emphasis on breaking
+news. Even if a news item is selected for use, the article may still get
+pulled at the last minute. Perhaps an advertiser cancelled a large insert
+just prior to deadline, necessitating a layout change, or a big story emerged
+late in the day. When this happens, more expendable news is sacrificed.
+
+What happens to releases that aren't selected for immediate coverage? Some
+are kept for future use, but more likely they are sent into the editor's
+trash can.
+-----------------------------------------------------------------------------
+
+4.1.2. Magazine Editors
+
+Magazines operate very much like newspapers, with departments, editors, space
+budgets, and advertising, but magazines differ in a few important ways.
+
+The potential lifespan of a news release is much longer for a magazine. A
+monthly publication might not use your news for several months. Depending on
+the printing and preparation schedule, your release could appear as soon as a
+week or two after you send the release or as late as six-months later. The
+nice thing is that whenever your news appears, the information remains in
+front of the reader for a full month instead of just one day.
+
+The editorial focus and format of a magazine are usually more specialized
+than those of newspapers. "Focus" refers to the subjects a magazine covers;
+for instance, Linux Journal focuses on Linux in general while ComputerWorld
+might focus on Linux in the enterprise. "Format" refers to the way in which a
+magazine's news and information is presented, usually as a particular mix of
+regular columns, articles, features (main stories), shorter pieces, and
+editorials (opinion pieces). Magazine stories don't have to be as "newsy" as
+newspaper stories. To a greater degree, a magazine researches and creates
+news rather than relying on current events.
+
+General-interest magazines try to appeal to a large segment of the
+population. (Examples are Macleans, Readers' Digest, and People.)
+Special-interest magazines target a limited, well-defined community of
+readers who share a particular interest along with associated activities and
+concerns. Special-interest magazines are good targets for the Linux
+community, especially those focusing on Linux, operating systems, storage,
+security, computers, and information technology.
+
+Whether special interest or general interest, the closer your news release
+relates to the audience of a publication and the greater the impact on that
+audience, the more likely an editor will choose your news to publish. The key
+factors are editorial relevance and appeal to the publication's target
+audience.
+-----------------------------------------------------------------------------
+
+4.2. Targeting Other Medias
+
+In television and radio news shows, news editors, some reporters, and even
+anchors have input on the news to be aired. In other types of shows, often
+the producer decides which stories to cover in future broadcasts. Segment
+producers will produce the individual stories for a broadcast, while
+assistant producers may perform specialized functions, such as finding
+interview subjects.
+-----------------------------------------------------------------------------
+
+4.2.1. Television
+
+The same considerations of "newsworthiness" discussed for newspapers apply to
+television broadcast news, with the added element of visuals. There are
+several types of TV programming you will want to consider. These include
+educational and informational programs, local and community news programs,
+and perhaps a business program. Understand the types of shows being produced
+and aired in your regional area, and then pitch your story for an in-studio
+interview or a feature.
+
+Ensuring that you are pitching the right story to the right TV program
+staffer will be discussed later in this guide.
+-----------------------------------------------------------------------------
+
+4.2.2. Radio
+
+Radio time for news stories is very limited. Usually there is only enough
+time for headlines and summaries of the day's top stories, but radio still
+has great opportunities for your organization.
+
+Some radio stations offer expanded news coverage and features (this is
+sometimes called "foreground programming"). Most Linux news has a better
+chance of getting coverage or an interview in news programming than in
+regular programming. The best chance of all lies in targeting an all-news
+station. Approximately 45 minutes of each hour are devoted to news, sports,
+weather, special reports, and features. (The remaining 15 minutes are for
+commercials.) All-news radio stations operate more like a magazine or
+newspaper, with specific departments and editors, more producers, more
+reporters, and therefore, more available resources. Stories that interest a
+significant portion of their listening community or that appeal to
+deep-pocketed sponsors will be given the most attention. You could pitch a 
+"Linux for business" type of story. Even if your underlying goal is to
+promote your organization, the story or interview must avoid advertising or
+commercial overtones of any kind. Nothing kills the news media's credibility
+faster or turns off listeners more than inappropriate jingoism.
+-----------------------------------------------------------------------------
+
+4.2.3. Talk Shows
+
+Talk shows, whether on television or radio, are excellent vehicles for
+covering a wide variety of topics. Talk shows often invite industry experts
+to be commentators or participants in a panel discussion. In addition, these
+shows often have phone-in segments, inviting listeners to ask questions or
+make comments. These characteristics make the talk show an ideal forum for
+raising your organization's visibility.
+
+For these programs, there is usually an assistant producer responsible for
+lining up interesting guests, as well as a producer who coordinates the
+overall process. Both email and telephone contact with the assistant producer
+can prove rewarding. The host, interviewer, or moderator of the show does not
+usually choose the guests or have final say in who appears. Unless instructed
+otherwise, contacting the assistant producer or producer is best.
+-----------------------------------------------------------------------------
+
+4.3. "Selling" Your Story to the Media
+
+Clearly, editors and producers have to know the interests of their audiences.
+Often this knowledge comes from the editors' strong identification with their
+readers, which can develop into an almost paternal attitude. Editors are
+constantly making decisions about what their readers will and won't see??any
+editor would correctly say that is their job. Part of this judgment is based
+on what the editor feels the readers are currently interested in, and part is
+based on what the editor feels the readers should or will be interested in.
+An astute editor keeps their sights as much on the future as on the present.
+
+Keep in mind that the role of the news media has never been confined to just
+reporting the news, but also includes analysis and interpretation. Analysis
+and interpretation are considered the domain of "experts," which presents a
+perfect opportunity for specialists in your organization to share their
+knowledge and bring visibility to your organization.
+
+Editors, being journalists, abide by the five Ws tradition of reporting: who,
+what, where, when, and why (with an unofficial "how"tagging along). Always
+include clear, engaging answers to the five Ws in all news releases. Also,
+you can use the five Ws as a guideline for how to most effectively catch the
+attention of editors.
+
+The way in which you present this information is crucial to being accepted by
+an editor as newsworthy for their audience. You have to "tell a story," make
+the news interesting and relevant, and choose an appropriate time and place
+to present the story.
+-----------------------------------------------------------------------------
+
+4.3.1. Who
+
+"Who" usually consists of your organization, spokespersons, and authorities
+quoted in your news releases. Your organization and those speaking as
+representatives must be presented as professional, authoritative,
+influential, and with strong credentials for speaking on matters related to
+your industry. By positioning your organization in this way, you have a much
+better chance of generating visibility and prestige.
+
+The goal is to make your organization a recognized authority in your field.
+With this distinction, any time you issue a statement, your news will draw
+the attention of editors whose readers are interested in the specific work
+you do. All things being equal, the more influential your spokesperson, the
+better the chance your news has of being selected.
+-----------------------------------------------------------------------------
+
+4.3.2. What
+
+The "what" is the subject of your release??a new application, a new
+appointment, or any interesting event you choose to announce. Naturally,
+unusual or exciting announcements have a better chance of being covered.
+Anything you can do to make your story stand out from the ordinary will be
+viewed as a refreshing change and will increase the chance of your story
+being published.
+
+If the "what" in your story is a personnel appointment (either paid or
+volunteer), look for some human interest in either the person or the job at
+hand. If this person is a well-known Linux expert or a pillar of their local
+community, all the better. The more noteworthy the individual, the more
+newsworthy the story.
+
+If the "what" is an event such as a Linux trade show, that is a plus. Editors
+regard events as more urgent and newsworthy than other announcements.
+-----------------------------------------------------------------------------
+
+4.3.3. Where
+
+The "where" of your release plays a key role. As you begin to understand
+public relations, you will appreciate the role of staging events to generate
+news. Since the media appreciates visuals, try to produce events with images
+as well as a pertinent story.
+
+In planning a pitch or a release, ensure that you clearly indicate the
+address of every event you hope to have reporters attend. Reporters' time is
+wasted if they have to call for directions to every event. A special media
+contact person is a good idea to have at all events. This person can prevent
+reporters from missing important or visual parts of events. Be aware of
+upcoming events or activities that you might be able to capitalize on or
+borrow interest from. Again, the goal is promote the unusual, the unique, the
+unexpected that will pique the editor's curiosity or sense of humor??and get
+your story into print.
+-----------------------------------------------------------------------------
+
+4.3.4. When
+
+Remember that for most organizations, "when" can be just about any time.
+There is no need to wait for once-a-year events (like trade shows) to provide
+news. With creative thinking, you can come up with news stories that
+capitalize on current events. For example, news about the economy and what
+proprietary operating systems cost organizations to run can provide a
+background for Linux news. New computer applications running on Linux also
+present rich opportunities.
+
+"When" is extremely important in terms of releasing the news. For instance,
+if you are publicizing special events or trade show appearances, you want to
+allow ample time for an editor to assign a reporter to cover the story (if
+the news is deemed of interest). If the editor doesn't have enough time to
+assign a reporter to cover your event, you can count on no reporters being
+available.
+
+Fortunately, though, while timing is critically important, avoiding bad
+timing is easy. The first rule is always to provide a reasonable amount of
+advance notice. For news-breaking media such as radio, television, and some
+newspapers, two days is an absolute minimum, and a week is more prudent. For
+magazines and trade journals, one to two weeks is the minimum in most cases,
+and three to four weeks is even better.
+
+The second rule is to use your common sense and avoid scheduling pitches when
+you know the editor is on deadline or is involved with other events. Also
+avoid periods when the editor is working with little or no support staff
+(such as when reporters are away at an important trade show). Generally,
+business hours between 9:30 a.m. and 2:00 p.m. is best, since this gives
+reporters time to write and file their stories. Mondays and Fridays are
+always more difficult than midweek, but don't be afraid to ask if the editor
+prefers specific days.
+
+If you are requesting reporters attend and cover an event, never ask the
+editor to confirm their attendance. The editor will not appreciate the
+pressure, and besides they cannot guarantee they will have the resources
+(reporters and camera operators) at the appointed time. News changes by the
+second. A reporter may be ready to go to your event and, at the last minute,
+be reassigned to something else. This happens all the time, so don't take the
+rejection personally.
+
+If you show respect for the editor's time, they will appreciate your
+consideration and may be more likely to cover at least some of your stories.
+-----------------------------------------------------------------------------
+
+4.3.5. Why
+
+So far, we have discussed who the news media is interested in, what news is
+most likely to be covered, and where and when you are going to make your
+pitch. Now, in looking at the "why" of your organization's story, we will
+address two questions. First, why did your news item come to pass, and
+second, why should an editor (and their readers, listeners, or viewers) find
+your event newsworthy?
+
+Unless there is something terribly interesting about the who, what, where, or
+when, "why" is the single most compelling factor available to an editor in
+determining newsworthiness. Why is the news important to the audience? Why do
+they need to know about this? Why is your particular event unusual or out of
+the ordinary?
+
+Most organization's activities can be analyzed in terms of their cause and/or
+their effect. The more you can identify causes or effects in your story, the
+better chance your organization has of receiving coverage. As an example, if
+there is a trend of Linux being increasingly used in the enterprise, there
+must be a reason why. Giving the editor just a few of these reasons can make
+your story more newsworthy than just a simple, bland announcement. Even
+including some statistics to support your why will likely have a tremendous
+effect.
+
+The same principle holds true for something as seemingly mundane as a new
+personnel selection. Why was there a vacancy? Why was this person selected to
+fill the spot? Adding either or both pieces of information to the release
+greatly increases the news interest.
+
+One of the cardinal rules of media and public relations is: "Never promote
+features, always promote benefits." A feature is any specific aspect that
+makes a product or service unique; features belong to products or services. A
+benefit is an advantage gained by the user in selecting a specific product or
+service; benefits belong to users. What a product or service does is nowhere
+near as meaningful as why there is some advantage or benefit to the user.
+
+You don't need to completely ignore describing features, but you do need to
+present them in the context of their benefits to the end user. The reason for
+doing this is simple. Readers are potential users, and the better job you do
+of relating to the user, the more you will attract readers. Readers, as we
+already know, are the editor's Holy Grail.
+
+If your release is about an event, there are numerous "whys" you need to
+address. Why now? Why is your organization involved or being a sponsor? Why
+would anyone want to come to the event?
+
+Be proactive and open in sharing the causes and anticipated effects of these
+accomplishments. Don't leave the editor wondering: "So what?" Failing to
+provide answers to why your activity is news is a sure-fire way of getting
+your release "filed" in the recycle bin.
+-----------------------------------------------------------------------------
+
+4.3.6. How
+
+Cause and effect, and explaining why your news is happening, will very
+naturally lead to the "how" of your story. How did this come to pass? How are
+you accomplishing this? How did your organization decide to embark on this
+new and exciting initiative? How will this change affect people and the
+marketplace? Describing the hows gives color and interest to your story.
+-----------------------------------------------------------------------------
+
+4.4. Do's and Don'ts When Dealing with the News Media
+
+When pitching your organization's story to news editors, there are
+fundamental do's and don'ts that you as a public relations professional
+should follow.
+-----------------------------------------------------------------------------
+
+4.4.1. Do's
+
+Do introduce yourself to different media editors, journalists, and
+freelancers by sending them an email note or by inviting them out for coffee
+or lunch. Bring along some background information or a few pages from your
+website to explain what your organization is all about.
+
+Do follow up after the meeting with thank-you note, mentioning that you will
+be in touch as appropriate. This is important to set the stage for future
+dialogue.
+
+Do let them know what your goals are and what special events, news, or
+programs you have coming up.
+
+Do send out news releases by email about two weeks in advance, when you have
+a special event planned. Send a follow-up email a few days later. Phone again
+at a convenient time before the event to suggest a possible meeting or
+interview at the event. The bigger the event, the more advance notice should
+be given.
+
+Do tailor your pitch for the needs of each medium. For example, set up plenty
+of photo opportunities for television media, human-interest stories for
+print, and interviews for radio.
+
+Do give them the name of someone who has a personal experience to tell.
+Remember that the media loves a good story. Real life stories engage readers
+and makes for better copy than just statistics relating to Linux and open
+source.
+
+Do ensure that you or your designated spokesperson is available for
+interviews at a moment's notice; otherwise much of your efforts will be in
+vain. Both of you, of course, should do your homework and rehearse questions
+and answers in advance. You should have facts, statistics, and anecdotes in
+your head, ready to use.
+-----------------------------------------------------------------------------
+
+4.4.2. Don'ts
+
+Don't send out a pitch or news release with vague, general statements. Your
+story has to show not tell, and you must convince the editor to cover the
+news that promotes your organization rather someone else's. Getting editorial
+coverage is fiercely competitive.
+
+Don't ever tell the media what you want from them. Instead, ask them about
+the kinds of stories they're looking for, or if there are any other reporters
+in their newsroom who would be interested in Linux and open source. By
+learning what they want, you can tailor your communications to get what you
+want.
+
+Don't underestimate the importance of less prominent media like community
+newspapers, cable TV, trade journals, and special-interest newsletters. Look
+at the entire spectrum of news media for different angles.
+-----------------------------------------------------------------------------
+
+4.5. Monitoring Media Coverage
+
+It is essential to keep abreast of the news being printed or broadcast about
+your organization, your competition, and the industry as a whole. A
+comprehensive public and media relations program must track public perception
+of Linux, stay informed of industry trends, and understand the impact of
+evolving legislation on your community.
+
+If you have time to spare, you can monitor news coverage yourself by typing
+key words (such as the name of your organization) into popular web search
+engines such as Google and AltaVista. However, this will track only online
+citations. A more reliable tracking method is to use a media monitor service
+or a clipping service. The website   [http://dmoz.org/News/Services/
+Media_Monitoring/]   http://dmoz.org/News/Services/Media_Monitoring/ provides
+a long list of media monitoring services, some of which are provided in the
+Appendix.
+
+In Chapter 5 we will examine the parts of a news release and discuss what can
+make your releases stand out from the crowd.
+-----------------------------------------------------------------------------
+
+Chapter 5. News Releases??the Major Communications Tool
+
+5.1. Writing News Releases
+
+Who, what, where, when, why, and how??these are the six critical ingredients
+of all news releases. But don't forget, a little spice can make your news
+release stand out from the crowd. In this part, you will learn how to write a
+professional-looking news release, the most important tool in any public
+relations program.
+-----------------------------------------------------------------------------
+
+5.1.1. The Headline
+
+The headline is the first thing??and sometimes the only thing??an editor will
+read. Releases are often rejected as a result of a weak headline.
+
+Create headlines with impact. The most effective words in a news release
+headline are eye-catching words like "announces" and "new." Comparative words
+like "better" or "more" can also draw attention to your article. The headline
+is the "hook" that lures editors and reporters into reading more. Headlines
+must be compelling.
+
+Many public relations novices make the mistake of embellishing their
+headlines. Your organization has to earn the respect of editors. Nobody owes
+you a reading. Too much information, or confusing information, is a turnoff.
+Most importantly, you should never sacrifice accuracy for the sake of a
+flashy headline.
+
+Here are some guidelines for writing headlines:
+
+††*†Determine the most significant benefit your most important reader will
+    derive from the news.
+   
+††*†Try and state those benefits in seven words or less.
+   
+††*†Ask yourself if your statement is meaningful to someone not closely
+    involved with your business.
+   
+
+When actually writing the headline, try to achieve the greatest impact using
+the fewest words. Your headline doesn't need to be quite as dramatic as a
+newspaper headline. Editors are looking for information in the headline, so
+try to at least include who, what, and why. Whatever the headline, you must
+accurately reflect the content that follows.
+-----------------------------------------------------------------------------
+
+5.1.2. The First Paragraph
+
+Many news releases are accepted or rejected on the basis of the headline and
+first paragraph or two. These introductory paragraphs are often all an editor
+will have time to read. Many releases are rejected due a simple downfall:
+failure to include any news in the first paragraph.
+
+An important news-writing concept is collapsible copy. Collapsible copy reads
+well from the beginning to the end of any given paragraph. The information is
+"chunked" to stand on its own, if need be. Each sentence could be pulled from
+the news release and used as a quotation. This type of copy should be used as
+extensively as possible in all paragraphs.
+
+Editors expect to see the five Ws covered in the first few sentences. Here's
+an example:
+
+   
+    NEW YORK ?? January 22, 2003 ??The Linux Professional Institute (LPI)
+    ([http://www.lpi.org/] www.lpi.org), the premier professional
+    certification program for the Linux community, and UnitedLinux LLC
+    ([http://www.unitedlinux.com/] www.unitedlinux.com ), an industry
+    initiative to streamline Linux development and certification around a
+    global, uniform distribution, have signed a cooperative agreement to
+    market a UnitedLinux professional certification program.
+   
+    Under the memorandum of understanding, LPI and UnitedLinux will work
+    jointly to create new UnitedLinux specific exams which, when passed
+    together with the current LPI Levels 1 and 2 exams, will lead to two new
+    UnitedLinux certifications. The new exams are expected to be available
+    during the first quarter of 2003.
+   
+Let's look more closely at this example. The where and when of this and most
+releases are specified in the slug ("New York ?? January 22, 2003"). The who
+is LPI and UnitedLinux. The what is signing a cooperative agreement. The why
+is marketing a UnitedLinux professional certification program. And the how is
+LPI and UnitedLinux working jointly to create new UnitedLinux-specific exams.
+
+These two paragraphs alone communicate the essential points of this
+announcement,. In print, there may not be enough space for more than this.
+Some special-interest journals devote a column or a page to announcements,
+which are printed verbatim from the news release. Unless the announcement is
+deemed more newsworthy, this may be all the coverage you get.
+-----------------------------------------------------------------------------
+
+5.1.3. The Middle Paragraphs
+
+Limited space in publications and time in broadcasting means the first
+paragraph may get covered. Paragraphs should always be ordered by importance
+for two important reasons.
+
+First, editors read through releases quickly and often will not finish entire
+releases. You must consider what things are most important, and place them
+next in the release. Often, a statement from your spokesperson explaining the
+expected impacts on the marketplace or something related can be catchy enough
+to be quoted. Follow this with the next most important thing, and so on to
+the end of the release.
+
+Second, sequence frequently indicates importance (unless the story is an
+in-depth feature that can establish pacing and shape). Stacking your news, in
+what some editors call the "inverted pyramid," can show editors the relative
+importance of your details. By following the inverted pyramid, you will make
+the editor's job easier and also accomplish your goal of getting the most
+critical information covered.
+-----------------------------------------------------------------------------
+
+5.1.4. Final Details
+
+You need to mark the end of your news release, so that editors know there is
+no further news. In journalism, this is traditionally done by putting "-30-"
+or "-end-" on a new, centered line, after the last line of copy, as follows:
+
+ 
+                              -30-                                           
+
+After ending the release, it is important to include the boilerplate??
+standard, reusable background information about the organization issuing the
+news and contact information for editorial follow-up. The boilerplate
+includes the organization's web address where the editor can go for further
+details. Boilerplates can be reviewed and revised periodically, but they
+should maintain consistency. Wildly different boilerplates are unprofessional
+from one release to the next.
+
+Below is an example of boilerplate and contact information.
+
+   
+    About Linux Professional Institute
+   
+    The Linux Professional Institute (LPI) develops professional
+    certification for the Linux operating system independent of software
+    vendors or training providers. Established as an international non-profit
+    organization in 1999 by the Linux community, LPI develops accessible,
+    internationally-recognized certification programs which have earned the
+    respect of vendors, employers and administrators. LPI's activities
+    involve hundreds of volunteers and professionals throughout the world in
+    many different capacities, and the group encourages active public
+    involvement through mailing lists and its website at   [http://
+    www.lpi.org/] www.lpi.org. LPI's multi-level program of exams is
+    administered globally through Virtual University Enterprises (VUE) and
+    Prometric testing centers. LPI's major financial sponsors are Platinum
+    Sponsors Caldera International (NASDAQ:CALD), IBM (NYSE:IBM), Linuxcare,
+    Maxspeed, SGI (NYSE:SGI), SuSE Linux AG and TurboLinux as well as Gold
+    Sponsors Hewlett-Packard (NYSE:HWP) and Wave Technologies.
+   
+    Contact:
+   
+    Sheldon Rose
+   
+    Sacke & Associates Inc.
+   
+    416-218-1102, ext 2191
+   
+    sheldonr@sackepr.com
+   
+-----------------------------------------------------------------------------
+5.2. What Makes a News Release Good (or Bad)
+
+Print editors and journalists are notoriously overworked and underpaid. A
+well-written news release will often be used word for word, with maybe a few
+changes for "objectivity" or to accommodate the publication's format.
+
+The editorial staff at the Los Angeles Times says this about news releases:
+
+A good news release is a concise, complete description of an upcoming event;
+a timely report of an event has just occurred; notification of important
+personnel or procedural changes in an organization; or other news or feature
+tips.
+
+Bad releases??the ones that don't get used?? often have these common
+mistakes:
+
+††*†Lack of a local angle.
+   
+††*†Insufficient or inaccurate information (who, what, when, where, why,
+    how).
+   
+††*†Failure to include contact information for the organization.
+   
+††*†Verbosity. (Try to keep the release to one or two pages, but balance
+    brevity against failure to include necessary information.)
+   
+††*†Lack of timeliness??the editor's deadline has passed or the news is
+    released too long after the event.
+   
+
+Writing a news release does not have to be painful. What you need is a little
+time to gather all the facts: the who, what, when, where, why and how (and
+any additional information necessary to support).
+
+Sometimes your news won't be used right away or in the form you provided. A
+writer may need time to rewrite your outline into a news story. Or, if a
+feature is being developed on Linux, the writer may use many sources for
+depth and objectivity. They may use quotable quotes, first-person anecdotes,
+statistics, and causes and effects from your releases as well as those of
+your competitors.
+
+Deadlines are hugely important because the news media cannot delay
+publication or broadcasting. Don't bother editors with untimely information.
+If you can't pitch your story in time, wait for another opportune moment to
+come around.
+-----------------------------------------------------------------------------
+
+5.3. Top Ten Tips for Writing Releases
+
+To summarize what we have said so far, here are ten tips for writing an
+excellent news release.
+
+ 1. Use an active headline to grab the editor's attention.
+   
+    The headline makes your release stand out. Keep the headline short,
+    active, and descriptive, with the most positive spin. Write "Jane Doe
+    Named Person of the Year" instead of "Jane Doe Gets Award."
+   
+ 2. Put the most important information at the beginning.
+   
+    This is a tried and true rule of journalism. Remember that the first two
+    paragraphs should contain the salient facts of who, what, when, where,
+    why, and how. Don't bury good information at the end.
+   
+ 3. Avoid exaggeration and unsubstantiated claims.
+   
+    A news editor can smell a sales pitch a mile away. Instead of making
+    over-inflated statements, provide real, usable information. Find
+    legitimate ways to set your organization apart, and stress those points.
+   
+ 4. Write in an active, engaging, and concise style.
+   
+    Use language that conveys your excitement about the news. If your release
+    is boring or passively written, the editor may conclude the news itself
+    is not very meaningful or you are not a good candidate for an interview.
+    Interesting equals newsworthy.
+   
+ 5. Keep your release to two pages or less.
+   
+    Generally, if you can't state your message in two pages, you are not
+    getting to the point fast enough. Editors are always looking for concise,
+    easy-to-read releases that can be thrown onto a website or squeezed into
+    a leftover space in a page layout. For highly important news with many
+    details, you can include a third page, but this should be done sparingly.
+   
+ 6. Include a contact.
+   
+    Every news release should include a contact person who the media can
+    reach for more information. This contact is your spokesperson and must be
+    familiar with all the news in the release. They should be prepared to
+    answer questions.
+   
+ 7. Keep jargon to the minimum.
+   
+    Avoid using highly technical terms and buzzwords familiar only to Linux
+    insiders. Jargon can date quickly, and complicated language irritates
+    people who don't know what you mean. Your goal is to tell your story to
+    as wide an audience as possible, not to unduly limit the audience. Even
+    special-interest publications mostly write in plain language and only use
+    jargon and acronyms generally familiar to their readers.
+   
+ 8. Stress "benefits, benefits, benefits."
+   
+    This falls under the category of "show, don't tell." Avoid claiming
+    something is "unique" or "the best" when you can't substantiate this.
+    Instead, provide specific examples of benefits, supported by evidence and
+    anecdotes.
+   
+ 9. Be specific and detailed.
+   
+    Marcia Yudkin, author of Six Steps to Free Publicity, talks about the 
+    "Yes, but what is it?" syndrome. Nothing is more irritating than seeing
+    constant references to a product name or service name, but no information
+    on what that product or service is. The reader needs to be able to
+    visualize a new product or understand what a service offers. This is
+    particularly critical for launches (announcements of new offerings). You
+    should ask someone unfamiliar with your product or service to read your
+    release and then describe the product or service in their own words.
+   
+10. Proofread!
+   
+    This is easily forgotten, but extremely important. Always proofread your
+    work before issuing the final release. Better yet, give the document to
+    someone else (perhaps a copy editor) who can readily spot spelling and
+    grammatical errors. Nothing signals unprofessionalism more than a
+    typo-filled communication.
+   
+
+-----------------------------------------------------------------------------
+5.4. Distributing the News Release
+
+Your media contact database is your best source for editors, journalists, and
+freelancers who should receive your news, but if you want to include a
+broader range of news media targets, you may consider using one of the many
+news release distribution services available. Asking one or two of your news
+media contacts will likely reveal a creditable service. These services can be
+expensive, so base your decision on how broad an appeal your news has.
+
+In North America, the more popular distribution services include:
+
+††*†PR Newswire (   [http://www.prnewswire.com/]   www.prnewswire.com )
+   
+††*†Canada Newswire (   [http://www.newswire.ca/]   www.newswire.ca )
+   
+††*†BusinessWire (   [http://www.businesswire.com/]   www.businesswire.com )
+   
+
+These firms will customize your distribution based on the subject matter, and
+can target specific media such as technology editors, medical editors, daily
+news editors, and so on. A customer service representative will explain your
+options and the cost involved.
+
+News releases are very important in a public relations campaign. News
+releases give editors and the public a glimpse into your company. When these
+documents are done professionally, your organization will receive the
+recognition you deserve. Remember, though, that news releases are not the
+only tool of public relations professionals. In our next chapter, we will
+examine the variety of other tools that can be used.
+-----------------------------------------------------------------------------
+
+Chapter 6. Other Public Relations Tools
+
+The news release is the most important form of written communications used by
+a public relations professional, but not the only one. There are many other
+public relations tools that should be used when appropriate.
+
+News releases may suffice for most news stories, but other, lengthier forms
+of communication can give in-depth coverage of an interesting news item.
+Feature articles, bylined articles, and emails may be written to provide
+human interest appeal, to explore topics and issues in more depth, to raise
+your organization's profile in the local community, or for other reasons.
+-----------------------------------------------------------------------------
+
+6.1. Feature Articles
+
+Feature articles, which explore a subject at length, are not constrained by
+the tight deadlines of regular news articles. Features may be submitted at
+any time, depending on the editor's needs. Features often stem from a regular
+news item.
+
+Imagine that the Linux operating system has been successfully implemented at
+a large organization in your community. This story is newsworthy, but begin
+to look for "the rest of the story." What difficulties did they experience in
+the transition, or what part did your organization play in their
+implementation? This could be the start of a feature article.
+
+More research and creativity will go into a feature story, but the must still
+be accurate. You will provide more facts, more statistics, more examples and
+anecdotes, and more analysis than in a news release. You can humanize and
+dramatize what may appear unexciting at first glance (a Linux
+implementation). You can openly focus on a particular angle or viewpoint, so
+long as you avoid outright advertising. Readers dislike advertorials
+masquerading as "articles," and no editor will accept an article that
+blatantly sells.
+
+Another bonus is that editors are quite open to features, because they
+provide much needed content for filling an issue. When the feature is written
+by a reliable source and does not require payment (unlike a commissioned
+article), the article becomes a real asset.
+
+All writing needs to engage the reader. The first sentence or two must be
+compelling enough for the editor to read on. Features require a strong lead??
+something to hook your target audience. A headline or a photograph may help.
+
+For a feature, you have a wide repertoire of leads to choose from. Some leads
+are designed to startle and shock, some will excite readers' curiosity, some
+will vividly describe a real or imagined scenario, and some will succinctly
+state the nature of the story.
+
+The body of the feature then unfolds in a logical sequence, and ends with a
+strong and memorable close. Every feature will be different, depending on the
+subject, the anticipated audience, and the skill of the writer. Reading
+features written by others in the Linux community is a good way to learn and
+pick up possible story ideas.
+
+You can direct a feature to the "feature editor" at a daily newspaper or your
+targeted trade magazines. Before going to the trouble of writing the article,
+you should pitch the idea to see if the publication has any interest at all.
+The pitch should include an outline, an estimated length (number of words),
+and a description of illustrations or photos you can supply. You could also
+include a selected portfolio of previously published articles about your
+organization.
+
+The upfront consultation is invaluable. Since the editor knows their
+readership better than you do, they might suggest an angle of specific
+interest to their readers and indicate where this piece might fit in their
+publishing schedule. The more complete your package, the more seriously your
+work will be considered.
+
+Another possibility is to plant the story idea with the editor, and let the
+publication take care of writing the feature. In this case, you can supply
+expertise and interview subjects.
+
+Whatever your approach, keep in mind that the ultimate goal is to generate
+favorable coverage and visibility for your organization.
+-----------------------------------------------------------------------------
+
+6.2. Bylined Articles
+
+A byline is the line showing the author's name at the beginning of an
+article. Basically, a bylined article is attributed to a source rather than
+being anonymous.
+
+Bylined articles can be any length, and they tend to based on opinion. They
+articulate views and opinions that are clearly the writer's own, without
+requiring objectivity.
+
+Issues, trends, and predictions regarding Linux and open source are ideal
+subjects for bylined articles. Moreover, forward-looking pieces are of high
+interest. Editors are always looking for "the next thing" to tell their
+readers about.
+
+Opinion articles are important to position your organization as the leader
+and trendsetter in your field. To be a guru is to be watched, quoted,
+respected, and followed. Editors like highlighting celebrated members of the
+community because they sell more issues.
+
+Gauging the interest of the news media is very important. What's hot? What
+are they writing about? Check the topics listed in their editorial calendars.
+Try to match their interests to the activities of your organization in the
+community. Then start writing your opinion piece.
+
+Typically, the author of a bylined article should be your organization's
+designated spokesperson and acknowledged authority for the media. That might
+be you or a senior official. Sometimes a public relations professional will
+ghost-write the piece for the spokesperson, whose name will appear on the
+article. When this occurs, the article must closely reflect the
+spokesperson's views and ideas. In other words, he or she "owns" the ideas
+expressed in the article, not the writer.
+
+An added bonus of by-lined articles is that they can be adapted into speeches
+for possible speaking opportunities. Conversely, any speech can be written as
+a by-lined article.
+-----------------------------------------------------------------------------
+
+6.3. Email Writing
+
+Another effective way to communicate to a targeted audience is through an
+email campaign. The effectiveness of a good email should not be
+underestimated. Some fundraising experts, for example, can raise thousand of
+dollars with an effective email campaign. Exceptional letters have obtained
+contracts, sold properties, and landed jobs.
+
+Emails can be targeted to a specific audience for much less than you would
+spend on a regular mail campaign. Every email is an opportunity to
+effectively communicate to your target audience. For example, your
+organization might want to target recent graduates of local computer training
+courses with opportunities in their area. You will need to obtain the names
+and email addresses of recent graduates from the institutions offering those
+programs. Cooperation with their institution can often be established if you
+provide something in return, such as a reciprocal link on your website, a
+mention in your newsletter, or even free advertising.
+
+Hopefully, your email campaign will generate interest in your organization
+and your programs. Be mindful of potentially spamming your intended audience
+??this could have a negative impact.
+-----------------------------------------------------------------------------
+
+6.4. Miscellaneous Communications Tools
+
+There are numerous other communication tools you can use in a public
+relations effort. Here are just a few suggestions:
+
+††*†A speech at a Linux trade show.
+   
+††*†A presentation at a local training institution or career development
+    conference.
+   
+††*†A brochure or flyer describing the work your company does.
+   
+††*†A white paper describing the benefits of your company's work, posted on
+    your website.
+   
+††*†A newsletter or email newsletter describing your organization's
+    activities and achievements, aimed at current and prospective users.
+   
+††*†An advertisement placed in targeted magazines.
+   
+††*†Special events such as open houses and "media information" days.
+   
+††*†Regular tours of your facility.
+   
+
+The possibilities are limited only by your time, resources, and budget.
+-----------------------------------------------------------------------------
+
+6.5. Don't Forget Emphasizing Core Messages
+
+In all your public relations initiatives, don't lose sight of your core
+messages (described in Chapter 2). These messages are the "essence" of your
+organization, defining your identity for users, the media, and the general
+public. Remember that the core messages should be woven into everything you
+do as a public relations representative. Consistency creates a bigger impact
+for your audience.
+
+In the next chapter, we will look at how to use a trade show as a valuable
+tool for promoting your organization.
+-----------------------------------------------------------------------------
+
+Chapter 7. Working the Trade Show
+
+Speaking engagements at appropriate industry functions will garner increased
+visibility and media coverage. One of the easiest ways to gain credibility is
+to participate as actively as possible in trade shows, industry gatherings,
+and seminars. You must choose these events carefully, distinguishing between
+those that are worthwhile and those too small to matter. Keep in mind, the
+larger the gathering, the more competitive the speaking application process.
+-----------------------------------------------------------------------------
+
+7.1. Arranging Speaking Opportunities
+
+Arranging possible speaking opportunities takes considerable effort and
+involves a long lead time. In most instances, you must be in contact with the
+conference organizers at least nine to ten months in advance of the show. You
+may even find that a sponsorship is required to be considered as a possible
+presenter.
+
+First, do your research regarding relevant conferences that are being planned
+in your area in the months ahead. The website of the event organizer or of
+the conference itself is often a good place to start looking for information.
+Contact the organizers to find out their needs and application requirements
+for possible speakers.
+
+Also, consider other venues in addition to trade shows focusing on Linux and
+open source. For example, you could offer your services as a speaker to human
+resources or computer training communities.
+
+The key to successful participation is similar to pitching to the news media.
+You must understand your audience, you must have a compelling topic, and you
+must be ready and willing to impart your knowledge and experience of the
+industry. Most importantly, your presentation has to teach something to
+someone, and not just be a commercial for your organization or Linux. Give
+the audience the satisfaction of having really learned something from your
+presentation, and show organizers will want to have you as a presenter at
+their next show.
+-----------------------------------------------------------------------------
+
+7.2. Getting Media Attention at Trade Shows
+
+If you want publicity while exhibiting at a trade show, don't do what too
+many other organizations do. During the show, they wait patiently at their
+booth until they spot a reporter coming down the aisle. Then, if the reporter
+stops at its booth, the exhibitor moves in with the same tired pitch used on
+everybody else who walks by.
+
+If this has been your approach in the past, now is the time to change.
+Waiting until the show begins is already too late to capture the news media's
+attention. You should now understand that establishing strong news media
+relationships weeks or even months in advance can pay off when the show
+begins.
+
+Begin by finding out which news media will be covering the show. The best way
+to get that information is from the show's public relations department. Ask
+them if they can give you the names of print, broadcast, and online media
+they are targeting. This information is important to know, so that you don't
+pitch the same story ideas as the show organizers.
+
+If you discover the organizers are pitching an idea that fits well with your
+organization's objectives, ask if they could include your business as an
+example in their pitch.
+
+Check the editorial calendars of both the publications that will be covering
+the show and other publications that might have an interest. (A computer
+magazine, for example, is a prime target for a large Linux conference.) Many
+publications will issue a special report before or after the show takes
+place. The report may be a section within an issue or even an entire special
+edition. If you cannot glean this information from the calendar, you should
+call the publication and ask.
+
+The special reports present ripe opportunities for media coverage. Pitch
+story ideas that may become part of the special report to your media
+contacts.
+
+Prepare a compelling news release describing the most interesting thing that
+your organization will be doing at the show. Mention awards, impressive
+results, or endorsements by Linux experts??anything that will snag the
+media's attention. Include the line "For more information or to arrange an
+interview, contact:" as part of your contact information at the end.
+
+In devising your strategy to get media coverage at the show, always position
+your organization as "part of the solution," not as a mere attendee.
+-----------------------------------------------------------------------------
+
+7.3. Planning for a Trade Show
+
+Planning for trade shows needs to start at least a few months in advance. If
+you wish to have a significant presence at strategic or influential show, you
+should plan to set up a booth, either on your own or with a key partner.
+Booth space is limited and must be reserved in advance. Usually a fee is
+involved, which varies according to square footage and location on the
+exhibition floor. Designing the portable booth can take a few months, so plan
+ahead.
+
+Here are some tips for getting maximum benefit from your trade show
+appearances.
+-----------------------------------------------------------------------------
+
+7.3.1. Before the Show
+
+A major trade show requires considerable advance preparation and, if you
+aren't ready, can present a logistical nightmare. You must develop a solid
+plan and monitor your progress vigilantly.
+
+ 1. Evaluate and select trade shows carefully.
+   
+    Participating in a show can require a major investment of time, money,
+    and resources. Be tough in your evaluation of a show's worthiness. Are
+    the attendees likely customers for your organization? Exposure to a few
+    hundred very qualified targets is better than exposure to thousands of
+    generalists who are very unlikely to be interested in your business.
+   
+ 2. Read the show manual.
+   
+    Before you do anything, contact the organizers of the show to find the
+    show's manual. Everything you need to know about the show should be
+    there, including a proposed or final schedule, registration information
+    and forms, floor plans, exhibit specifications, invitations for potential
+    speakers, and other important details.
+   
+ 3. Identify your goals.
+   
+    Be specific about the things you want to accomplish as a result of your
+    participation in the show. Do you want to increase visibility, gain
+    exposure to a large number of customers who might be interested in your
+    products, or check out the competition? Concrete goals are important to
+    determine the value of the trade show to your organization.
+   
+ 4. Define measurements of success.
+   
+    For each goal, determine a way to measure its success. Make these
+    measurements as specific as possible. You could plan to hand out 1000
+    brochures, obtain contact information for at least 200 prospects, and
+    take a key editor out to lunch. These benchmarks will help you decide
+    whether the show was worth the expense.
+   
+ 5. Put your show plan in writing.
+   
+    The plan should include a workable schedule, a comprehensive list of
+    preparation activities, and an individual assigned for each task. You
+    cannot leave things to chance, or else Murphy's Law (Whatever can go
+    wrong, will go wrong.) will surely prevail!
+   
+ 6. Develop a key message for your booth exhibit.
+   
+    Like good advertising, a good exhibit clearly communicates one major
+    message. This draws in more prospects to your booth than an unfocused
+    cacophony of messages.
+   
+ 7. Design an open, inviting booth.
+   
+    An open booth design, with no tables obstructing access, invites
+    attendees to come in. Your logo should be big enough to be seen from a
+    good distance. Maximize "walking around" space by mounting brochure
+    displays on walls. Use interesting graphics to draw people's attention.
+    For demos, laptops and flat-screen monitors are space-efficient. If space
+    permits, provide comfortable chairs to encourage prospects to linger. A
+    portable booth should be reasonably easy to set up and take down.
+   
+ 8. Advertise your show participation.
+   
+    Use tag lines such as: "see us at Booth 1525 at the Linux World
+    Conference" in news releases and other communications leading up to the
+    show (even if those releases are about something unrelated). Write a news
+    release announcing show-related news. Invite editors to stop by the
+    booth, or set up appointments between them and your spokespeople.
+   
+ 9. Order all necessary supplies, including brochures and giveaways.
+   
+    If your marketing collateral needs to be updated or redesigned, take care
+    of this early. You don't want to run the risk of having no brochures to
+    hand out. Design forms for filling out prospect information??clear forms
+    eliminate guesswork. Consider giveaways to generate attention and a sense
+    of fun. These don't have to be expensive. Pens with your web address and
+    a catchy slogan can be very effective.
+   
+10. Design PowerPoint presentations and demos for the booth.
+   
+    These will draw attendees to your booth and help them learn more about
+    your business. Presentations will allow you to communicate information to
+    many prospects at once.
+   
+11. Create a unique identity for your booth staff.
+   
+    Decide on the dress code for your staff. Matching blazers, T-shirts, or
+    even boutonnieres will make your representatives easily identifiable.
+   
+12. Train your exhibit staff before each show.
+   
+    This is very important! Your staff needs to know what is expected of
+    them. They need to be briefed on all new programs and initiatives that
+    should be emphasized. They must know how to run the demos and
+    presentations, and they should know some basic trouble shooting. Nothing
+    looks more unprofessional then demos that don't work.
+   
+
+-----------------------------------------------------------------------------
+7.3.2. During the Show
+
+ 1. Set up a rotating booth schedule for your staff.
+   
+    Your staff needs breaks for lunch and relaxing. They will be more
+    cheerful if they don't have stay at the booth all day long.
+   
+ 2. Remind staff to record all prospect information.
+   
+    Encourage your staff to record everything they can learn about a
+    prospect's needs and experience with Linux. Stress the importance of
+    getting phone numbers and email addresses. (Creating an information form
+    as suggested above will make this easier.)
+   
+ 3. Encourage staff to greet people warmly and smile!
+   
+    Amazingly, this is often forgotten. An inviting attitude can give a
+    valuable first impression. The staff should avoid having their backs to
+    the entrance, or taking phone calls while on duty. A friendly greeting to
+    passersby may encourage them to stop rather than simply walk by. Staff
+    who are uniformly courteous and helpful, knowledgeable about all aspects
+    of the industry, and responsive to requests will make a very good
+    impression.
+   
+
+-----------------------------------------------------------------------------
+7.3.3. After the Show
+
+ 1. Send requested literature immediately.
+   
+    Send requested material within 24 hours. A quick response is your second
+    opportunity to make a favorable impression. (Your performance in the
+    booth is the first.)
+   
+ 2. Include a teaser on the envelope or in the email subject line.
+   
+    Be sure to mention your organization's name and the name of the
+    conference on the outside of the envelope or in the email subject line,
+    so they know your letter is not junk mail.
+   
+ 3. Help your prospects take the next step.
+   
+    Make sure your literature packages make responding easy for prospects by
+    including your web address and information on the opportunities available
+    to them.
+   
+ 4. Keep track of your prospects.
+   
+    Nothing signals the success of your trade-show effort better than having
+    prospects purchase your products or having the media spotlight your
+    efforts. Keep a record of the customers who found out about your products
+    through the trade show. Use these results to demonstrate the show's
+    return on investment.
+   
+ 5. Analyze "lessons learned."
+   
+    After each show, evaluate what went well and what didn't. Critique each
+    aspect of the show and ask others for comments. Pay special attention to
+    feedback regarding communication to prospective customers. The "lessons
+    learned" will help improve your efforts in future shows.
+   
+
+Next, we will review the major topics we have covered in this guide to public
+relations. This final chapter will serve as a quick reference guide to the
+major elements of public relations. Use this guide to develop a successful
+public relations campaign.
+-----------------------------------------------------------------------------
+
+Chapter 8. Quick Tips for Maximizing Coverage
+
+To conclude this public relations guide, we give you quick tips for
+maximizing your opportunities for media overage. This chapter provides a
+quick reference guide to many of the major points we've covered. If you've
+appreciated the importance of the previous chapters, these pointers will be a
+valuable summary.
+-----------------------------------------------------------------------------
+
+8.1. How to Maximize Media Coverage
+
+ 1. Have a strategy.
+   
+    Tailor your strategy for each public relations opportunity. Think about
+    the audience you want to reach and how to create excitement. An effective
+    part of your strategy should be to enforce your organization's core
+    messages in all news releases.
+   
+ 2. Have a good story.
+   
+    A news story must have a compelling beginning, middle, and end.
+    Journalists recognize a strong story within seconds, so tell your story
+    quickly and succinctly.
+   
+ 3. Know your audience.
+   
+    You wouldn't follow up on a potential business opportunity without
+    knowing something about their business, so don't call the news media
+    blindly. Before you pitch to any media outlet, study their work. Read the
+    publication, watch the show, and listen to the radio broadcast. Get
+    familiar with the characteristics of the media outlet you are targeting.
+    Find out about their main audience and their likes and dislikes.
+    (Internet message boards are good for this.)
+   
+ 4. Invest in relationships.
+   
+    The more you know about the media organization and your target editor,
+    the better and more confidently you can pitch to them. Building
+    relationships now means editors will be more likely to take your call
+    when you've got an important story to tell. Best of all, even if they
+    can't offer you coverage on this particular story, they may refer you to
+    another reporter who can. As with any relationship, building trust is
+    critical. Keep your promises, and be on time. Be upfront about what you
+    can and can't do. You might not be able to do everything, but reporters
+    will appreciate your honesty.
+   
+ 5. Think before you speak.
+   
+    A word of caution: everything you say to a reporter is on the record,
+    regardless of disclaimers. You are representing your organization at all
+    times. The impression that you give has a definite impact on how the
+    media views your organization.
+   
+ 6. Monitor your media coverage.
+   
+    Media coverage shows your success. As a media relations expert, the end
+    goal is always positive media coverage for your organization. When your
+    organization is spotlighted in major media outlets, you bring attention
+    and respect to your business.
+   
+ 7. Look for a unique angle.
+   
+    Look for personal stories that can spur news media interest. For
+    instance, if a local school board is considering Linux to save money,
+    focus your story on the human interest angle. Unusual stories and angles
+    that affect a media's audience are more likely to get media coverage than
+    mundane ones.
+   
+ 8. Know your story inside and out.
+   
+    Research your story carefully. This allows you to revise your pitch if
+    the editor has specific needs. You also must be able to answer any
+    questions that the editor may have.
+   
+ 9. Be persistent.
+   
+    There is a fine line between being persistent and annoying, but if you
+    have a good story and know your audience, it is fine to make contact
+    attempts until you get feedback from a reporter.
+   
+10. Follow up.
+   
+    Many potential leads are lost because public relations people fail to
+    follow through. If a reporter tells you to call back another time, make
+    sure you do! Also, if a reporter doesn't answer your email immediately,
+    do not assume they are not interested. They might not have had time to
+    respond to the large volume of emails they receive.
+   
+11. Be creative.
+   
+    Infusing your media relations plans with innovative thinking produces
+    stronger, more effective results, so avoid recycling the same old news
+    releases and fact sheets.
+   
+12. Find information.
+   
+    Do you sometimes feel like you just can't write the news release? This
+    blockage often indicates you don't have enough information. Do outside
+    research. Interview an industry analyst. Get another perspective. This
+    investigation can lead to the information for a great story.
+   
+13. Study and adopt good writing skills.
+   
+    Use a journalistic approach. Look carefully at how reputable publications
+    like The New York Times or The Wall Street Journal structure a story.
+    What is the lead? What kind of quotes do they use? Study different types
+    of stories. Features, appointment announcements, news articles, and
+    opinion pieces can all be useful in your public relations campaign.
+    Often, you will see the most important information is in the lead and
+    that the rest of the story follows. This inverted pyramid style is
+    usually the best way to organize an article.
+   
+14. Eliminate jargon and techno-speak.
+   
+    Buzzwords are like bees??they can be highly irritating. Write with clear
+    language, and avoid clich√©s, which are another sign of weak writing.
+   
+15. Expect results.
+   
+    Media coverage means increased visibility, which exposes your
+    organization to more prospective customers. The more people you can
+    reach, the better the impact will be on your organization.
+   
+
+Finally, the success of your media relations efforts means success for you in
+the dynamic, engaging, challenging, and creative business of public
+relations.
+-----------------------------------------------------------------------------
+
+Appendix A. Monitoring Media Coverage
+
+Monitoring the media coverage of your organization is a vital part of
+tracking your success, but can be extremely time consuming. A more efficient
+and reliable tracking method is to use a media monitor service or a clipping
+service. The website   [http://dmoz.org/News/Services/Media_Monitoring/]  
+http://dmoz.org/News/Services/Media_Monitoring/ provides a long list of media
+monitoring services, some of which are provided here.
+-----------------------------------------------------------------------------
+
+A.1. Media Monitor Services and Clipping Services
+
+  AirCheck News Taping (   [http://www.airchecknews.com/]  
+www.airchecknews.com ) is a full-service broadcast monitor providing national
+and local news segments and reports.
+
+  Advance Media Information (   [http://www.amiplan.com/] www.amiplan.com )
+is database of events for the next 18 months, continually updated by a team
+of journalists and broadly divided into news and entertainment. Each item is
+integrated with a press directory, listing essential information, including
+telephone numbers and email addresses.
+
+  Bacon's (   [http://www.bacons.com/] www.bacons.com ) is a public relations
+supplier of media directories, media software, press clippings, Internet
+clipping, media lists and news release distribution.
+
+  Medialink Worldwide (   [http://www.medialink.com/]   www.medialink.com )
+is a television and radio news monitoring and clipping service.
+
+  Burrelle's/Luce Information Services (   [http://burrellesluce.com/] http:/
+/burrellesluce.com ) is a premier monitoring service for quick and
+comprehensive print, broadcast, and Internet information.
+
+  ClipGenius (   [http://www.clipgenius.com/]   www.clipgenius.com ) is a
+clipping service specializing in public relations news and newspaper clips as
+well as web and press clipping.
+
+  ConfirMedia (   [http://www.confirmedia.com/]   www.confirmedia.com )
+monitors content broadcast on radio and television.
+
+  CustomScoop (   [http://www.customscoop.com/]   www.customscoop.com ) is an
+online agency delivering a daily customized clipping service that draws from
+online editions of major wires and daily papers, TV and radio stations,
+smaller daily and weekly newspapers, magazines, trade journals, and new media
+publications. Free trial available.
+
+  Cutters (   [http://www.cutters.com/]   www.cutters.com ) is a
+Singapore-based press clipping service with particular emphasis on business
+and information technology news. Also provides tracking on electronic media.
+
+  CyberAlert (   [http://www.cyberalert.com/]   www.cyberalert.com ) offers
+fully-automated Internet monitoring and clipping of content in web
+publications, sites, message boards, and news groups.
+
+  E-mmediate Clipping Service (   [http://www.e-mmediateclippings.com/]  
+www.e-mmediateclippings.com ) offers web delivery of articles from Montana
+newspapers.
+
+  JA Media Services (   [http://www.jamedia.com/] www.jamedia.com ) offers
+broadcast television and radio monitoring, and news clipping and
+transcription services
+
+  Media Source (   [http://www.memphismediasource.com/]  
+www.memphismediasource.com ) is a full-service TV news monitoring and digital
+video production company, offering local broadcast monitoring for 120 U.S.
+cities and all major national networks.
+
+  Mediatrack (   [http://www.mediatrack.co.uk/]   www.mediatrack.co.uk/ )
+provides international media evaluation, analysis, and measurement, campaign
+evaluation, competitor analysis, and media research nationally or globally.
+
+  Metro Monitor (   [http://www.metromonitor.com/]   www.metromonitor.com )
+is a professional broadcast news monitoring and news clipping service
+monitoring over 300 U.S. stations.
+
+  Multivision, Inc. (   [http://www.multivisioninc.com/]  
+www.multivisioninc.com ) is a media monitor specializing in hard-to-find
+coverage and markets along with digital delivery of broadcast clips.
+
+  News Index Delivered (   [http://www.newsindex.com/delivered.html]  
+www.newsindex.com/delivered.html ) monitors hundreds of daily news sources,
+and provides keyword search-based email clippings daily.
+
+  News Power Online (   [http://www.enewspower.com/]   www.enewspower.com )
+provides comprehensive solutions to your information needs.
+
+  NewsNow Digital Intelligence (   [http://www.newsnow.co.uk/di]  
+www.newsnow.co.uk/di ) tracks news about your company, searching over 3500
+sites every few minutes for relevant stories.
+
+  New Media Intelligence (   [http://www.newmediaintelligence.com/]  
+www.parallel54.com ) (previously known as Parallel54) provides research
+services including monitoring of newsgroups, media sites and other publicly
+accessible online content.
+
+  PLCom News Services (   [http://www.plcom.net/news/index.php3]  
+www.plcom.net/news/index.php3 ) offers customized media monitoring and
+analysis, automated news feeds, and newspaper and TV news abstracts delivered
+on the web with encryption security.
+
+  Postech (   [http://www.postech.com/] www.postech.com ) is a design
+engineering and manufacturing firm specializing in broadcasting, data
+acquisition, and telecommunications industries.
+
+  Quickscan (   [http://www.quickscan.net/]   www.quickscan.net ) is a
+software company that provides database software and technical support to
+professional news monitoring companies.
+
+  SDS Media (   [http://www.sds-web.co.uk/]   www.sds-web.co.uk ) scans all
+U.K. newspapers and trade magazines to daily extract and deliver relevant
+articles to hundreds of clients.
+
+  Smart Brief (   [http://www.smartbrief.com/] www.smartbrief.com ) provides
+free, email based news summaries and other content for industry associations,
+professional organizations, advocacy groups, and their constituents.
+
+  Video Monitoring Services (   [http://www.vidmon.com/] www.vidmon.com ) is
+a broadcast information retrieval service
+
+  Videowatch (   [http://www.videowatch.org/]   www.videowatch.org ) monitors
+news and news magazine broadcasts, maintains a 60-day archive, and sends
+broadcasts to you on videotape.

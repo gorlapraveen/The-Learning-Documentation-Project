@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/apt-howto/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:22:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>APT HOWTO (Obsolete Documentation)</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-novas.en.html" rel="prev">
+<link href="ch1.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch1.en.html" rel="chapter" title="1 Introduction">
+<link href="ch-basico.en.html" rel="chapter" title="2 Basic Configuration">
+<link href="ch-apt-get.en.html" rel="chapter" title="3 Managing packages">
+<link href="ch-helpers.en.html" rel="chapter" title="4 Very useful helpers">
+<link href="ch-search.en.html" rel="chapter" title="5 Getting information about packages.">
+<link href="ch-sourcehandling.en.html" rel="chapter" title="6 Working with source packages">
+<link href="ch-erros.en.html" rel="chapter" title="7 How to deal with errors">
+<link href="ch-distros.en.html" rel="chapter" title="8 What distributions support APT?">
+<link href="ch-agradecimentos.en.html" rel="chapter" title="9 Credits">
+<link href="ch-novas.en.html" rel="chapter" title="10 New versions of this tutorial">
+<link href="ch-basico.en.html#s-sources.list" rel="section" title="2.1 The /etc/apt/sources.list file">
+<link href="ch-basico.en.html#s-dpkg-scanpackages" rel="section" title="2.2 How to use APT locally">
+<link href="ch-basico.en.html#s-netselect" rel="section" title="2.3 Deciding which mirror is the best to include in the sources.list file: netselect, netselect-apt">
+<link href="ch-basico.en.html#s-cdrom" rel="section" title="2.4 Adding a CD-ROM to the sources.list file">
+<link href="ch-apt-get.en.html#s-update" rel="section" title="3.1 Updating the list of available packages">
+<link href="ch-apt-get.en.html#s-install" rel="section" title="3.2 Installing packages">
+<link href="ch-apt-get.en.html#s-remove" rel="section" title="3.3 Removing packages">
+<link href="ch-apt-get.en.html#s-upgrade" rel="section" title="3.4 Upgrading packages">
+<link href="ch-apt-get.en.html#s-dist-upgrade" rel="section" title="3.5 Upgrading to a new release">
+<link href="ch-apt-get.en.html#s-clean" rel="section" title="3.6 Removing unused package files: apt-get clean and autoclean">
+<link href="ch-apt-get.en.html#s-dselect-upgrade" rel="section" title="3.7 Using APT with dselect">
+<link href="ch-apt-get.en.html#s-default-version" rel="section" title="3.8 How to keep a mixed system">
+<link href="ch-apt-get.en.html#s-apt-show-versions" rel="section" title="3.9 How to upgrade packages from specific versions of Debian">
+<link href="ch-apt-get.en.html#s-pin" rel="section" title="3.10 How to keep specific versions of packages installed (complex)">
+<link href="ch-helpers.en.html#s-equivs" rel="section" title="4.1 How to install locally compiled packages: equivs">
+<link href="ch-helpers.en.html#s-localepurge" rel="section" title="4.2 Removing unused locale files: localepurge">
+<link href="ch-helpers.en.html#s-helper-show-versions" rel="section" title="4.3 How to know what packages may be upgraded">
+<link href="ch-search.en.html#s-cache" rel="section" title="5.1 Discovering package names">
+<link href="ch-search.en.html#s-dpkg-search" rel="section" title="5.2 Using dpkg to find package names">
+<link href="ch-search.en.html#s-auto-apt" rel="section" title="5.3 How to install packages &quot;on demand&quot;">
+<link href="ch-search.en.html#s-apt-file" rel="section" title="5.4 How to discover to which package a file belongs">
+<link href="ch-search.en.html#s-apt-listchanges" rel="section" title="5.5 How to keep informed about the changes in the packages.">
+<link href="ch-sourcehandling.en.html#s-source" rel="section" title="6.1 Downloading source packages">
+<link href="ch-sourcehandling.en.html#s-build-dep" rel="section" title="6.2 Packages needed for compiling a source package">
+<link href="ch-erros.en.html#s-erros-comuns" rel="section" title="7.1 Common errors">
+<link href="ch-erros.en.html#s-help" rel="section" title="7.2 Where can I find help?">
+
+</head>
+
+<body>
+
+<p><a name="index"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-novas.en.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch1.en.html">1</a> ]
+[ <a href="ch-basico.en.html">2</a> ]
+[ <a href="ch-apt-get.en.html">3</a> ]
+[ <a href="ch-helpers.en.html">4</a> ]
+[ <a href="ch-search.en.html">5</a> ]
+[ <a href="ch-sourcehandling.en.html">6</a> ]
+[ <a href="ch-erros.en.html">7</a> ]
+[ <a href="ch-distros.en.html">8</a> ]
+[ <a href="ch-agradecimentos.en.html">9</a> ]
+[ <a href="ch-novas.en.html">10</a> ]
+[ <a href="ch1.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+APT HOWTO (Obsolete Documentation)
+<br></h1>
+
+<hr>
+
+<h2><a name="abstract"></a>Abstract</h2>
+
+<p>
+This document intends to provide the user with a good understanding of the
+workings of the Debian package management utility, APT.  Its goal is to make
+life easier for new Debian users and to help those who wish to deepen their
+understanding of the administration of this system.  It was created for the
+Debian project in order to help improve the support available for users of this
+distribution.
+</p>
+
+<hr>
+
+<h2><a name="copyright"></a>Copyright Notice</h2>
+
+<p>
+Copyright &copy; 2001, 2002, 2003, 2004 Gustavo Noronha Silva
+</p>
+
+<p>
+This manual is free software; you may redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version.
+</p>
+
+<p>
+This is distributed in the hope that it will be useful, but without any
+warranty; without even the implied warranty of merchantability or fitness for a
+particular purpose.  See the GNU General Public License for more details.
+</p>
+
+<p>
+A copy of the GNU General Public License is available as
+/usr/share/common-licenses/GPL in the Debian GNU/Linux distribution or on the
+World Wide Web at the GNU General Public Licence.  You can also obtain it by
+writing to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+</p>
+
+<hr>
+
+<h2><a name="contents"></a>Contents</h2>
+
+<ul>
+<li><a href="ch1.en.html">1 Introduction</a><li><a href="ch-basico.en.html">2 Basic Configuration</a>
+  <ul>
+  <li><a href="ch-basico.en.html#s-sources.list">2.1 The /etc/apt/sources.list file</a></li>
+  <li><a href="ch-basico.en.html#s-dpkg-scanpackages">2.2 How to use APT locally</a></li>
+  <li><a href="ch-basico.en.html#s-netselect">2.3 Deciding which mirror is the best to include in the sources.list file: netselect, netselect-apt</a></li>
+  <li><a href="ch-basico.en.html#s-cdrom">2.4 Adding a CD-ROM to the sources.list file</a>
+  </ul></li>
+<li><a href="ch-apt-get.en.html">3 Managing packages</a>
+  <ul>
+  <li><a href="ch-apt-get.en.html#s-update">3.1 Updating the list of available packages</a></li>
+  <li><a href="ch-apt-get.en.html#s-install">3.2 Installing packages</a></li>
+  <li><a href="ch-apt-get.en.html#s-remove">3.3 Removing packages</a></li>
+  <li><a href="ch-apt-get.en.html#s-upgrade">3.4 Upgrading packages</a></li>
+  <li><a href="ch-apt-get.en.html#s-dist-upgrade">3.5 Upgrading to a new release</a></li>
+  <li><a href="ch-apt-get.en.html#s-clean">3.6 Removing unused package files: apt-get clean and autoclean</a></li>
+  <li><a href="ch-apt-get.en.html#s-dselect-upgrade">3.7 Using APT with dselect</a></li>
+  <li><a href="ch-apt-get.en.html#s-default-version">3.8 How to keep a mixed system</a></li>
+  <li><a href="ch-apt-get.en.html#s-apt-show-versions">3.9 How to upgrade packages from specific versions of Debian</a></li>
+  <li><a href="ch-apt-get.en.html#s-pin">3.10 How to keep specific versions of packages installed (complex)</a>
+  </ul></li>
+<li><a href="ch-helpers.en.html">4 Very useful helpers</a>
+  <ul>
+  <li><a href="ch-helpers.en.html#s-equivs">4.1 How to install locally compiled packages: equivs</a></li>
+  <li><a href="ch-helpers.en.html#s-localepurge">4.2 Removing unused locale files: localepurge</a></li>
+  <li><a href="ch-helpers.en.html#s-helper-show-versions">4.3 How to know what packages may be upgraded</a>
+  </ul></li>
+<li><a href="ch-search.en.html">5 Getting information about packages.</a>
+  <ul>
+  <li><a href="ch-search.en.html#s-cache">5.1 Discovering package names</a></li>
+  <li><a href="ch-search.en.html#s-dpkg-search">5.2 Using dpkg to find package names</a></li>
+  <li><a href="ch-search.en.html#s-auto-apt">5.3 How to install packages &quot;on demand&quot;</a></li>
+  <li><a href="ch-search.en.html#s-apt-file">5.4 How to discover to which package a file belongs</a></li>
+  <li><a href="ch-search.en.html#s-apt-listchanges">5.5 How to keep informed about the changes in the packages.</a>
+  </ul></li>
+<li><a href="ch-sourcehandling.en.html">6 Working with source packages</a>
+  <ul>
+  <li><a href="ch-sourcehandling.en.html#s-source">6.1 Downloading source packages</a></li>
+  <li><a href="ch-sourcehandling.en.html#s-build-dep">6.2 Packages needed for compiling a source package</a>
+  </ul></li>
+<li><a href="ch-erros.en.html">7 How to deal with errors</a>
+  <ul>
+  <li><a href="ch-erros.en.html#s-erros-comuns">7.1 Common errors</a></li>
+  <li><a href="ch-erros.en.html#s-help">7.2 Where can I find help?</a>
+  </ul></li>
+<li><a href="ch-distros.en.html">8 What distributions support APT?</a><li><a href="ch-agradecimentos.en.html">9 Credits</a><li><a href="ch-novas.en.html">10 New versions of this tutorial</a></li>
+</ul>
+
+<hr>
+
+<p>
+[ <a href="ch-novas.en.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch1.en.html">1</a> ]
+[ <a href="ch-basico.en.html">2</a> ]
+[ <a href="ch-apt-get.en.html">3</a> ]
+[ <a href="ch-helpers.en.html">4</a> ]
+[ <a href="ch-search.en.html">5</a> ]
+[ <a href="ch-sourcehandling.en.html">6</a> ]
+[ <a href="ch-erros.en.html">7</a> ]
+[ <a href="ch-distros.en.html">8</a> ]
+[ <a href="ch-agradecimentos.en.html">9</a> ]
+[ <a href="ch-novas.en.html">10</a> ]
+[ <a href="ch1.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+APT HOWTO (Obsolete Documentation)
+</p>
+
+<address>
+1.8.11 - August 2005<br>
+<br>
+Gustavo Noronha Silva <code><a href="mailto:kov@debian.org">kov@debian.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/apt-howto/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:22:56 GMT -->
+</html>
+

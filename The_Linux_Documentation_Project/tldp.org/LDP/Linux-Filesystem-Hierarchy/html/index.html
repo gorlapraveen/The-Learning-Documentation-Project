@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/Linux-Filesystem-Hierarchy/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:54:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>Linux Filesystem Hierarchy</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Source and pre-formatted versions available"
+HREF="f18.html"></HEAD
+><BODY
+CLASS="book"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+></A
+>Linux Filesystem Hierarchy</H1
+><H2
+CLASS="subtitle"
+>Version 0.65</H2
+><H3
+CLASS="author"
+><A
+NAME="AEN6"
+></A
+>Binh Nguyen</H3
+><DIV
+CLASS="affiliation"
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><br>
+<TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:linuxfilesystem(at)yahoo(dot)com(dot)au"
+>linuxfilesystem(at)yahoo(dot)com(dot)au</A
+>&#62;</TT
+><br>
+</P
+></DIV
+></DIV
+><P
+CLASS="pubdate"
+>2004-07-30<BR></P
+><DIV
+><DIV
+CLASS="abstract"
+><A
+NAME="AEN12"
+></A
+><P
+></P
+><P
+>&#13;This document outlines the set of requirements and guidelines for file and directory placement under the Linux operating system according to those of the FSSTND v2.3 final (January 29, 2004) and also its actual implementation on an arbitrary system. It is meant to be accessible to all members of the Linux community, be distribution independent and is intended to discuss the impact of the FSSTND and how it has managed to increase the efficiency of support interoperability of applications, system administration tools, development tools, and scripts as well as greater uniformity of documentation for these systems.
+</P
+><P
+></P
+></DIV
+></DIV
+><A
+HREF="ln14.html"
+>Legal Notice</A
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="f18.html"
+>Source and pre-formatted versions available</A
+></DT
+><DT
+>1. <A
+HREF="c23.html"
+>Linux Filesystem Hierarchy</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="foreward.html"
+>Foreward</A
+></DT
+><DT
+>1.2. <A
+HREF="the-root-directory.html"
+>The Root Directory</A
+></DT
+><DT
+>1.3. <A
+HREF="bin.html"
+>/bin</A
+></DT
+><DT
+>1.4. <A
+HREF="boot.html"
+>/boot</A
+></DT
+><DT
+>1.5. <A
+HREF="dev.html"
+>/dev</A
+></DT
+><DT
+>1.6. <A
+HREF="etc.html"
+>/etc</A
+></DT
+><DT
+>1.7. <A
+HREF="home.html"
+>/home</A
+></DT
+><DT
+>1.8. <A
+HREF="initrd.html"
+>/initrd</A
+></DT
+><DT
+>1.9. <A
+HREF="lib.html"
+>/lib</A
+></DT
+><DT
+>1.10. <A
+HREF="lostfound.html"
+>/lost+found</A
+></DT
+><DT
+>1.11. <A
+HREF="media.html"
+>/media</A
+></DT
+><DT
+>1.12. <A
+HREF="mnt.html"
+>/mnt</A
+></DT
+><DT
+>1.13. <A
+HREF="opt.html"
+>/opt</A
+></DT
+><DT
+>1.14. <A
+HREF="proc.html"
+>/proc</A
+></DT
+><DT
+>1.15. <A
+HREF="root.html"
+>/root</A
+></DT
+><DT
+>1.16. <A
+HREF="sbin.html"
+>/sbin</A
+></DT
+><DT
+>1.17. <A
+HREF="usr.html"
+>/usr</A
+></DT
+><DT
+>1.18. <A
+HREF="var.html"
+>/var</A
+></DT
+><DT
+>1.19. <A
+HREF="srv.html"
+>/srv</A
+></DT
+><DT
+>1.20. <A
+HREF="tmp.html"
+>/tmp</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="glossary.html"
+>Glossary</A
+></DT
+><DT
+>A. <A
+HREF="signals.html"
+>UNIX System V Signals</A
+></DT
+><DT
+>B. <A
+HREF="sources.html"
+>Sources</A
+></DT
+><DT
+>C. <A
+HREF="about-the-author.html"
+>About the Author</A
+></DT
+><DT
+>D. <A
+HREF="contributors.html"
+>Contributors</A
+></DT
+><DT
+>E. <A
+HREF="disclaimer.html"
+>Disclaimer</A
+></DT
+><DT
+>F. <A
+HREF="donations.html"
+>Donations</A
+></DT
+><DT
+>G. <A
+HREF="feedback.html"
+>Feedback</A
+></DT
+><DT
+>H. <A
+HREF="gfdl.html"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+>H.1. <A
+HREF="gfdl-0.html"
+>PREAMBLE</A
+></DT
+><DT
+>H.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>H.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>H.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>H.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>H.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>H.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>H.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>H.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>H.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>H.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>H.12. <A
+HREF="gfdl-addendum.html"
+>ADDENDUM: How to use this License for
+  your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="f18.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Source and pre-formatted versions available</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/Linux-Filesystem-Hierarchy/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:55:16 GMT -->
+</HTML
+>

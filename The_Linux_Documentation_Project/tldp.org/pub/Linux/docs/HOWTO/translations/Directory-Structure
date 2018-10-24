@@ -1,0 +1,23 @@
+
+===============================================
+Translated Documentation (HOWTOs, FAQs, Guides)
+Directory Structure Specification
+===============================================
+
+1. Documents need to be able to be mirrored from a remote machine,
+   using rsync or the ftp-based 'mirror' (for example).
+
+2. Main directory is the language or encoding. 
+
+3. Below that are stored the text HOWTOs, with sub-directories
+   for the different available variants (not all are required):
+
+      html
+      html_single
+      pdf
+      ps
+      sgml
+      xml
+
+Issues/questions? Contact feedback@en.tldp.org
+

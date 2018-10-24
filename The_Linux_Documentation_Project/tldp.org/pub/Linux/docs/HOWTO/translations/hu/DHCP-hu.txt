@@ -1,0 +1,911 @@
+
+DHCP mini-HOGYANVladimir Vuksan
+
+               vuksan@veus.hr
+
+   Verziótörténet
+   Verzió: v4.12 2000 október 22. Átdolgozta: vv
+
+   A dokumentum azokra az alapvetõ kérdésekre próbál választ adni,
+   amelyek egy Linuxot futtató gép DHCP szerverként illetve kliensként
+   való alkalmazásakor felmerülnek.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]Általános jogi nyilatkozat
+        1.2. [3]A dokumentum új változatai
+        1.3. [4]Visszajelzés
+        1.4. [5]Közremûködõk
+        1.5. [6]Szerzõi jog
+        1.6. [7]Magyar fordítás
+
+   2. [8]A DHCP protokoll
+   3. [9]A kliens beállítása
+
+        3.1. [10]A kliens démon letöltése (dhcpcd)
+        3.2. [11]Slackware
+        3.3. [12]RedHat 6.x és Mandrake 6.x
+        3.4. [13]RedHat 5.x
+        3.5. [14]RedHat 4.x és Caldera OpenLinux 1.1/1.2
+        3.6. [15]Debian
+        3.7. [16]LinuxPPC és MkLinux
+        3.8. [17]Utolsó lépés
+        3.9. [18]Különféle megjegyzések
+        3.10. [19]Hibaelhárítás
+        3.11. [20]Alternatív DHCP kliens (ISC dhclient)
+
+   4. [21]DHCP szerver beállítás
+
+        4.1. [22]DHCP szerver UNIX rendszerekhez
+        4.2. [23]DHCP szerver beállítás
+        4.3. [24]DHCPd beállítások
+        4.4. [25]A szerver indítása
+        4.5. [26]Egyéb érdekes olvasnivalók
+
+1. Bevezetés
+
+1.1. Általános jogi nyilatkozat
+
+A szerzõ nem feltétlenül ért egyet a dokumentum teljes tartalmával.
+Használd a saját felelõsségedre az összes elképzelést, példát és a
+dokumentum egyéb tartalmát. Mivel ez a dokumentum egy újabb kiadása,
+elõfordulhatnak benne hibák és pontatlanságok, amelyek esetleg kárt
+tehetnek a rendszeredben. Ezen figyelmeztetés után olvasd tovább, és bár
+nagyon sajnálatos, mindezekért semmilyen felelõsséget nem vállalok.
+
+Azt is tartsd észben, hogy ez NEM hivatalos információ. A dokumentum
+legnagyobb része feltételezés, amelyre az emberek munkájuk során jutottak.
+Az információkat saját felelõsségedre használd.
+     _________________________________________________________________
+
+1.2. A dokumentum új változatai
+
+A dokumentum új változata megtalálható a következõ helyen:
+
+[27]http://www.oswg.org/oswg-nightly/DHCP.html
+
+A DHCP mini-HOGYAN következõ fordításai érhetõk el:
+
+     * kínai - [28]http://www.linux.org.tw/CLDP/mini/DHCP.html
+     * japán - [29]http://www.linux.or.jp/JF/JFdocs/DHCP.html
+     * spanyol -
+       [30]ftp://cuates.pue.upaep.mx/pub/linux/LuCAS/DHCP-mini-Como/
+
+   Az engedélyt ezennel minden olyan személynek megadom, aki szeretné
+   lefordítani ezt a dokumentumot a saját nyelvére. Mindössze azt kérem,
+   hogy készíts egy hivatkozást erre a dokumentumra, valamint tudasd
+   velem a fordításod URL címét, hogy itt közölhessem azt.
+     _________________________________________________________________
+
+1.3. Visszajelzés
+
+Szívesen fogadok visszajelzést ezzel a dokumentummal kapcsolatban. A
+beadványaitok és észrevételeitek nélkül ez a dokumentum nem létezne. Szóval
+kiegészítéseiteket, megjegyzéseiteket és kritikátokat küldjétek a
+<[31]vuksan-feedback@veus.hr> címre.
+     _________________________________________________________________
+
+1.4. Közremûködõk
+
+Ez a dokumentum a Paul Makeev által készített eredeti változat módosítása.
+
+A következõ emberek mûködtek közre ezen mini-HOGYAN elkészítésében:
+
+     * Heiko Schlittermann
+     * Jonathan Smith
+     * Dan Khabaza
+     * Hal Sadofsky
+     * Henrik Stoerner
+     * Paul Rossington
+     * és még sokan mások
+     _________________________________________________________________
+
+1.5. Szerzõi jog
+
+Eme dokumentum szerzõi jogait (c) 1998 Vladimir Vuksan birtokolja, a
+dokumentum az OpenContent License (OPL) feltételei szerint terjeszthetõ. A
+licenc teljes szövegét megtalálod a következõ honlapon:
+
+[32]http://www.opencontent.org/opl.shtml
+     _________________________________________________________________
+
+1.6. Magyar fordítás
+
+A magyar fordítást [33]Szíjjártó László készítette (2002.07.17). A
+lektorálást [34]Kilián Magdolna végezte el (2003.01.22). Bármilyen
+fordítással kapcsolatos észrevételt a [35]linuxhowto@sch.bme.hu címre
+küldjetek. A dokumentum legfrissebb változata megtalálható a [36]Magyar
+Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. A DHCP protokoll
+
+Egy dinamikus, számítógépek beállítására szolgáló (Dinamic Host
+Configuration) protokoll. A kliensek legfontosabb hálózati beállításainak
+vezérlésére szolgál, a szerver segítségével. A DHCP visszafelé kompatibilis
+a BOOTP protokollal. További információért olvasd el az RFC 2131 (a régi RFC
+1541) és más dokumentumokat. (Például a doksi végén található Internetes
+Források fejezetet). Ezen kívül ajánlatos elolvasni a
+[37]http://web.syr.edu/~jmwobus/comfaqs/dhcp.faq.html honlapot.
+
+Ez a mini-HOGYAN mind a DHCP _SERVER_ démonnal, mind a DHCP _KLIENS_
+démonnal foglalkozik. A legtöbb felhasználónak a kliens démonra van
+szüksége, amit a munkaállomások használnak arra, hogy a szervertõl lekérjék
+a hálózati információkat. A szerver démont a rendszergazdák használják, hogy
+ezeket az információkat közzétegyék a hálózaton belül, ezért ha hétköznapi
+felhasználó vagy, akkor csak a _KLIENS_ démonra van szükséged.
+     _________________________________________________________________
+
+3. A kliens beállítása
+
+Jelenleg három különbözõ DHCP kliens létezik Linuxra: a dhcpcd, a pump és a
+dhclient. Ez a mini-HOGYAN elsõsorban a dhcpcd démonnal foglalkozik.
+     _________________________________________________________________
+
+3.1. A kliens démon letöltése (dhcpcd)
+
+A Linux összeállításodtól függõen lehet, hogy le kell töltened a DHCP
+kliens-démont. Ha a forrásból le is akarod fordítani, akkor a csomag neve
+dhcpcd lesz , és az aktuális verzió az 1.3.18 XXX. A csomag karbantartója
+Sergei Viznyuk <[38]sergei@phystech.com> , és manapság a legtöbb Linux
+összeállításban bináris - lefordított - változatban is hozzáférhetõ.
+
+A dhcpcd forráskódját a következõ helyekrõl töltheted le:
+
+     * [39]ftp://ftp.phystech.com/pub/ (elsõdleges lelõhely)
+     * [40]http://www.cps.msu.edu/~dunham/out/
+
+   Majd kövesd az alábbi útmutatást.
+     _________________________________________________________________
+
+3.2. Slackware
+
+A DHCPcd program legutolsó változatát letöltheted egy Metalab
+tükörszerverrõl vagy a következõ helyekrõl:
+
+     * [41]ftp://metalab.unc.edu/pub/Linux/system/network/daemons
+     * [42]ftp://ftp.phystech.com/pub/ (elsõdleges hely)
+
+   Töltsd le a dhcpcd.tar.gz legutolsó változatát.
+
+     * Csomagold ki
+       tar -zxvf dhcpcd-1.3.18pl1.tar.gz
+     * Lépj be a létrejött könyvtárba és fordítsd le
+       cd dhcpcd-1.3.18pl1
+       make
+     * Ezek után telepítsd (a következõ parancsot rendszergazdaként
+       futtasd)
+       make install
+
+   Ez a parancs létrehozza a /etc/dhcpc könyvtárat, ahol a démon az
+   információit tárolja, a dhcpcd bináris fájl pedig a /usr/sbin
+   könyvtárba kerül.
+
+   Ahhoz, hogy a rendszer a induláskor a DHCP szolgáltatást elindítsa,
+   gépeld be:
+
+   cd /etc/rc.d
+
+   mv rc.inet1 rc.inet1.OLD
+
+   Ez a régi beállítószkriptet átnevezi rc.inet1.OLD-ra. Ezek után el
+   kell készítened az új rc.inet1 szkriptet. A következõ kódrészletre
+   van szükség:
+#!/bin/sh
+#
+# rc.inet1      Ez a shell szkript indítja az alapértelmezett INET rendszert.
+
+HOSTNAME=`cat /etc/HOSTNAME` #Ez talán nem szükséges, de én mindig
+                             #benne hagyom.
+
+# A loopback eszköz beállítása.
+/sbin/ifconfig lo 127.0.0.1
+/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 lo
+
+# HA ETHERNET KAPCSOLATOD VAN, használd a következõ sorokat az eth0
+# eszköz beállítására. Ha csak a loopback-et vagy SLIP-et használsz,
+# ne hagyd meg a fájl további sorait.
+
+/usr/sbin/dhcpcd
+
+   Mentsd el és indítsd újra a gépet.
+
+   Amikor kész vagy, ugorj az [43]utolsó lépésre.
+     _________________________________________________________________
+
+3.3. RedHat 6.x és Mandrake 6.x
+
+A RedHat 6+ alatt a DHCPcd beállítása nagyon egyszerû. A grafikus felületen
+indítsd el a Control Panelt (ha nincs menüben, akkor X terminálról a
+control-panel paranccsal, majd:.
+
+     * Válaszd ki a "Network Configuration" menüpontot
+     * Kattints az "Interfaces"-re
+     * Kattints az "Add"-ra
+     * Válaszd ki az "Ethernet"-et
+     * Az "Edit Ethernet/Bus Interface" alatt válaszd ki az "Activate
+       interface at boot time" lehetõséget, valamint a "DHCP"-t, mint
+       "Interface configuration protocol"-t
+
+   Figyelem: a RedHat 6.x verziók az alapértelmezettként nem a dhcpcd
+   démont, hanem a pump kliens programot tartalmazzák. A telepítõ CD
+   tartalmazza a dhcpcd csomagot, ezért ha nincs szerencséd a pump
+   programmal, próbáld a dhcpcd programot. Miután telepítetted (pl. rpm
+   -i dhcpcd-1.3.17pl2-1.i386.rpm), néhány [44]változtatást kell
+   eszközölnöd.
+
+   Alexander Stevenson további megjegyzései
+   <[45]alexander.stevenson@home.com>:
+
+   Nem volt szerencsém a DHCPcd démonnal. Ami végül bejött, az a RedHat
+   6.0 pump programja volt, ami gondolom a többi RedHat verzióban is
+   benne van. A következõ parancsot használtam:
+
+   pump -i eth0 -h hostname
+
+   Mindegy, hogy a "hostname" mi volt, de e nélkül a szerver nem fog
+   válaszolni.
+
+   Ezek után megváltoztattam a /sbin/ifup szkriptemet, hogy tükrözze a
+   változást; az alapértelmezett verzió nem tartalmazta a -h kapcsolót,
+   ezért nem is mûködött nálam.
+
+   Alapvetõen, ha a linuxconf-ot használod, és a csatoló "DHCP"-re való
+   átállítása után az nem mûködik, próbáld ki, hogy a "-h hostname"
+   kapcsolót hozzáadod a pump sorához a /sbin/ifup szkriptben. Az enyém
+   így néz ki:
+...
+if [ -n "$PUMP" ]; then
+    echo -n "Determining IP information for $DEVICE..."
+    if /sbin/pump -i $DEVICE -h hostname; then
+        echo " done."
+    else
+        echo " failed."
+        exit 1
+    fi
+else ...
+
+   Egy másik, még elegánsabb módszert a hostname mezõ hozzáadásához Aad
+   van der Klaauw ajánlott:
+
+   Most állítok be egy átjárót otthon, be kell állítanom a MAC address-t
+   a '-h hostname' használata nélkül. Ezért elhatároztam, hogy *nem*
+   változtatom meg a szkriptet, hanem a konfigurációs fájlt használom. Az
+   /etc/sysconfig/network-scripts/ifcfg-eth0 fájlhoz hozzáadtam a
+   következõ sorokat:
+DEVICE="eth0"
+MACADDR="00:11:22:33:44:55"
+DHCP_HOSTNAME="trigger_for_terayon"
+
+   Ez túl fogja élni a frissítéseket, és szerintem ez egy "tiszta"
+   módszer.
+
+   Ennyi az egész. Indítsd újra a gépet vagy add ki a /sbin/ifup eth0
+   parancsot.
+     _________________________________________________________________
+
+3.4. RedHat 5.x
+
+A DHCPcd beállítása Redhat 5.0+ alatt nagyon könnyû. A grafikus felületen
+indítsd el a Control Panelt (ha nincs menüben, akkor X terminálról a
+control-panel paranccsal), majd:.
+
+     * Válaszd ki a "Network Configuration" menüpontot
+     * Kattints az "Interfaces" gombra
+     * Válaszd ki az "Ethernet"-et
+     * Az "Edit Ethernet/Bus Interface" alatt válaszd ki az "Activate
+       interface at boot time" lehetõséget, valamint a "DHCP" -t, mint
+       "Interface configuration protocol"-t.
+
+   Amikor kész vagy, ugorj az [46]utolsó lépésre.
+     _________________________________________________________________
+
+3.5. RedHat 4.x és Caldera OpenLinux 1.1/1.2
+
+A DHCPcd csomagot tartalmazza a RedHat standard disztribúció mint RPM és
+megtalálhatód a disztribúciós cd-n az RPMS könyvtárban vagy letöltheted a
+következõ csomagot:
+
+[47]ftp://ftp.redhat.com/pub/redhat/redhat-4.2/i386/RedHat/RPMS/dhcpcd-0.6-2
+.i386.rpm
+
+Telepítsd a következõ paranccsal: rpm -i dhcpcd-0.6-2.i386.rpm.
+
+De a saját verziódat a következõ lépésekkel is fordíthatod a
+[48]Slackwarenél kiemelt sorokat követve...
+
+A következõ információt nothing szolgáltatta <[49]nothing@cc.gatech.edu>.
+
+     Eltávolítottam az állandó IP-címemet és nevemet a /etc/resolv.conf
+     könyvtárból. De ott hagytam a keresõ sorban és a két névszerverem
+     sorát is (valamiért a dhcpcd csomagom sose hozza létre az
+     /etc/dhcpc/resolv.conf fájlt, így az állandó /etc/resolv.conf)
+     fájlt kell használnom.
+
+     Az /etc/sysconfig/network fájlból eltávolítottam a HOSTNAME és
+     GATEWAY bejegyzéseket. A többit hagytam ahogy volt (NETWORKING,
+     DOMAINNAME, GATEWAYDEV).
+
+     Az /etc/sysconfig/network-scripts/ifcfg-eth0 fájlból eltávolítottam
+     az IPADDR, NETMASK, NETWORK, és BROADCAST bejegyzéseket. A DEVICE
+     és ONBOOT bejegyzéseket változatlanul hagytam. Megváltoztattam a
+     BOOTPROTO sort BOOTPROTO=dhcp sorra.
+
+     Mentsd el a fájlt és indítsd újra a gépet.
+
+   Amikor kész vagy, ugorj az [50]utolsó lépésre.
+     _________________________________________________________________
+
+3.6. Debian
+
+DHCPcd csomagot a Debianhoz a következõ helyen találsz:
+
+[51]http://ftp.debian.org/debian/dists/slink/main/binary-i386/net/
+
+Vagy kövesd a [52]Slackware telepítésénél megadott utasításokat.
+
+A deb csomag telepítéséhez használd a dpkg -i
+/where/ever/your/debian/packages/are/dhcpcd*deb parancsot.
+
+Úgy néz ki, hogy semmilyen konfigurációra nem lesz szükség:
+
+
+
+   A dhcpcd csomag az indítószkriptjeit a Debian csomagjainál megszokott
+   módon az /etc/init.d/csomag_neve könyvtárba telepíti, jelen esetben ez
+   az /etc/init.d/dhcpcd, és ezt linkeli a különbözõ /etc/rc?.d/
+   könyvtárakhoz.
+
+--Írta: Heiko Schlittermann <[53]heiko@os.inf.tu-dresden.de>
+
+   Az /etc/rc?.d/ könyvtárak tartalma minden induláskor végrehajtódik.
+
+   Ha nem akarod újraindítani a gépet, akkor kézzel kell elindítanod a
+   démont az /etc/init.d/dhcpcd start paranccsal.
+
+   Amikor végeztél, menj az [54]utolsó lépésre.
+     _________________________________________________________________
+
+3.7. LinuxPPC és MkLinux
+
+A következõ részt R. Shapiro írta:
+
+Az "1999" (R5) kiadású LinuxPPC majdnem teljesen kompatibilis a RedHat
+6-tal, egy kivétellel (lásd alább). Általánosságban a beállítás ugyanaz,
+mint a [55]RedHat 6.x és Mandrake 6.x esetében.
+
+A probléma az, hogy a RedHat 6 a pump klienst használja a DHCP-hez
+alapértelmezettként, ami viszont nem mûködik megbízhatóan a LinuxPPC alatt.
+A megoldáshoz telepítsd a legfrissebb Sergei Viznyuk-féle dhcpcd démont, és
+szerkeszd át az /sbin/ifup szkriptet, hogy a dhcpcd klienst használja a pump
+helyett.
+
+Változtasd meg ezt:
+
+if [ "$BOOTPROTÕ = bootp -o "$BOOTPROTÕ = dhcp ]; then
+     PUMP=true
+ fi
+
+ if [ -n "$PUMP" ]; then
+
+   erre:
+ if [  "$BOOTPROTÕ = bootp ]; then
+       echo " done."
+     else
+       echo " failed."
+       exit 1
+     fi
+ elif [ "$BOOTPROTÕ = dhcp ]; then
+     echo -n "Determining IP information for $DEVICE..."
+     if /sbin/dhcpcd -d $DEVICE ; then
+       if [ -f /etc/dhcpc/dhcpcd-${DEVICE}.exe ]; then
+           /etc/dhcpc/dhcpcd-${DEVICE}.exe
+       fi
+
+   valamint ennek megfelelõen a ifdown szkriptben, ezt:
+if [ "$BOOTPROTÕ = bootp -o "$BOOTPROTÕ = dhcp ]; then
+....
+fi
+
+   erre:
+if [ "$BOOTPROTÕ = bootp ]; then
+fi
+
+if [ "$BOOTPROTÕ = dhcp ]; then
+      if [ -f /var/run/dhcpcd-${DEVICE}.pid ]; then
+              kill `cat /var/run/dhcpcd-${DEVICE}.pid`
+              rm -f /var/run/dhcpcd-${DEVICE}.pid
+      fi
+fi
+
+   Egy mûködõ PPC rpm a dhcpcd-hez megtalálható a LinuxPPC 1999 CD-n;
+   egy kissé késõbbi rpm pedig a "contrib" könyvtárban a
+   [56]ftp://ftp.linuxppc.org/ címen. A forráskódot - amelybõl ez a
+   csomag készült - megtalálod a
+   [57]ftp://ftp.phystech.com/pub/dhcpcd-1.3.17-pl9.tar.gz helyen.
+     _________________________________________________________________
+
+3.8. Utolsó lépés
+
+Miután a géped újraindult, a hálózati eszközödnek már mûködõképesnek kell
+lennie. Gépeld be: ifconfig.
+
+Valami hasonlónak kell megjelennie a képernyõn:
+
+          lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Bcast:127.255.255.255  Mask:255.0.0.0
+          UP BROADCAST LOOPBACK RUNNING  MTU:3584  Metric:1
+          RX packets:302 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:302 errors:0 dropped:0 overruns:0 carrier:0 coll:0
+
+eth0      Link encap:Ethernet  HWaddr 00:20:AF:EE:05:45
+          inet addr:24.128.53.102  Bcast:24.128.53.255  Mask:255.255.254.0
+          ^^^^^^^^^^^^^^^^^^^^^^^
+          UP BROADCAST NOTRAILERS RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:24783 errors:1 dropped:1 overruns:0 frame:1
+          TX packets:11598 errors:0 dropped:0 overruns:0 carrier:0 coll:96
+          Interrupt:10 Base address:0x300
+
+   Ha valamilyen normális számot látsz az inet addr mellett, akkor készen
+   vagy. Ha azt látod: 0.0.0.0 , ne ess kétségbe, ez egy átmeneti
+   beállítás, mielõtt a dhcpcd lekérné az IP címet. Ha néhány perc múlva
+   is ezt látod, kérlek nézd meg a [58]Hibaelhárítás fejezetet. A DHCPcd
+   egy démon, és addig fut, míg a géped mûködik. Három óránként
+   kapcsolatba lép a DHCP szerverrel, és próbálja megújítani az IP
+   cím-kérést. Minden üzenetét a rendszernaplóban tárolja ( a
+   Slakware-nél /var/adm/syslog, RedHat/OpenLinux esetén
+   /var/log/syslog).
+
+   Még egy dolog. Meg kell adnod a névszervereidet is. Ezt kétféleképpen
+   teheted meg; vagy megkérdezed a szolgáltatódat, hogy adja meg, és
+   beírod az /etc/resolv.conf fájlba (pl. egy ilyen sort kell beírni:
+   nameserver 1.2.3.4 - a ford.), vagy a DHCPcd fogja lekérni a
+   szervertõl a listát, és készít egy resolv.conf fájlt az /etc/dhcpc
+   könyvtárban.
+
+   Én úgy döntöttem, hogy a DHCPcd resolv.conf fájlját használom:
+
+   Készíts biztonsági másolatot az /etc/resolv.conf fájlról: mv
+   /etc/resolv.conf /etc/resolv.conf.OLD
+
+   Ha még nincs /etc/dhcpc könyvtárad, készíts egyet: mkdir /etc/dhcpc
+
+   Készíts egy hivatkozást (link) az /etc/dhcpc/resolv.conf fájlról az
+   /etc/resolv.conf fájlra: ln -s /etc/dhcpc/resolv.conf /etc/resolv.conf
+
+   Ha ez nem mûködne, próbáld ki a következõket (a megoldást
+   <[59]nothing@cc.gatech.edu> ajánlotta Henrik Stoerner
+   közremûködésével):
+
+   "Ezt az utolsó lépést csak azért csináltam , mert az én dhcpcd
+   csomagom nem készítette el az /etc/dhcpc/resolv.conf fájlt. Az
+   /etc/sysconfig/network-scripts/ifup fájlban a következõket
+   módosítottam (nem szépségdíjas, de nekem mûködött):
+elif [ "$BOOTPROTÕ = dhcp -a "$ISALIAS" = no ]; then
+    echo -n "Using DHCP for ${DEVICE}... "
+    /sbin/dhcpcd -c /etc/sysconfig/network-scripts/ifdhcpc-done ${DEVICE}
+    echo "echo \$$ > /var/run/dhcp-wait-${DEVICE}.pid; exec sleep 30" | sh
+
+    if [ -f /var/run/dhcp-wait-${DEVICE}.pid ]; then
+        ^^^^
+        echo "failed."
+        exit 1
+
+   Ezt megváltoztattam erre:
+elif [ "$BOOTPROTÕ = dhcp -a "$ISALIAS" = no ]; then
+    echo -n "Using DHCP for ${DEVICE}... "
+    /sbin/dhcpcd
+    echo "echo \$$ > /var/run/dhcp-wait-${DEVICE}.pid; exec sleep 30" | sh
+
+    if [ ! -f /var/run/dhcp-wait-${DEVICE}.pid ]; then
+        ^^^^^^
+       echo "failed."
+       exit 1
+
+   Megjegyzés
+
+   Jegyezd meg, hogy ott a ! (felkiáltójel) a következõ sorban: if [ !
+   -f /var/run/dhcp-wait-${DEVICE}.pid ];
+
+   Most dõlj hátra és örülj :-).
+     _________________________________________________________________
+
+3.9. Különféle megjegyzések
+
+A következõ lépés(ek) nem szükségesek, de hasznosak lehetnek néhány
+felhasználó számára:
+
+    a. Ha csak néha van szükséged a dhcpcd démonra, indíthatod kézzel is
+       a parancssorból (ehhez root jogokkal kell rendelkezned):
+       /usr/sbin/dhcpcd.
+       Ha le kell állítanod a hálózatot, akkor pedig add ki a
+       /usr/sbin/dhcpcd -k parancsot.
+     _________________________________________________________________
+
+3.10. Hibaelhárítás
+
+Ha követted a fenti lépéseket, és mégsem tudsz a hálózaton dolgozni, akkor
+íme néhány lehetséges megoldás:
+     _________________________________________________________________
+
+3.10.1. A hálózati kártyád nincs jól beállítva
+
+Az induláskor a Linuxod teszteli a hálózati kártyát és valami hasonlót írhat
+ki:
+
+eth0: 3c509 at 0x300 tag 1, 10baseT port, address  00 20 af ee 11 11, IRQ 10.
+3c509.c:1.07 6/15/95 becker@cesdis.gsfc.nasa.gov
+
+   Ha ilyen sor nincs az üzenetek között (késõbb a dmesg parancs
+   kiadásával is meg lehet nézni - a ford.), akkor a hálózati kártyádat
+   nem ismerte fel az operációs rendszer. Ha hagyományos NE2000
+   kompatibilis kártyád van, akkor kapnod kell vele egy lemezt DOS
+   programokkal, amelyekkel be tudod állítani a kártyát. Próbálkozz az
+   IRQ-kal és a memóriacímekkel, amíg a Linux fel nem ismeri (általában
+   az IRQ 9, 10, 12 jók).
+     _________________________________________________________________
+
+3.10.2. A DHCP szerver az RFC 1541-et támogatja/a szerver Windows NT
+rendszeren fut
+
+Próbáld meg a dhcpcd démont a dhcpcd -r paranccsal futtatni.
+
+Használd az ifconfig programot, hogy ellenõrizd a beállítások helyességét
+(adj néhány percet a beállítási folyamatnak, elõször azt fogja mondani,
+hogy Inet.addr=0.0.0.0)
+
+Ha ez megoldja a problémát, akkor add hozzá az "-r" kapcsolót az
+indítófájlokhoz, a például /sbin/dhcpcd helyett legyen /sbin/dhcpcd -r.
+
+RedHat alatt szerkeszd át az /etc/sysconfig/network-scripts/ifup szkriptet a
+következõ módon:
+
+        IFNAME=$[ {DEVICE} \
+        "/sbin/dhcpcd -r -c /etc/"- etc etc.
+     _________________________________________________________________
+
+3.10.3. A rendszer indulásakor a következõ hibaüzenetet kapom: "Using DHCP
+for eth0...failed", viszont a rendszer jól mûködik
+
+Valószínûleg RedHat-ot használsz, és nem követted rendesen a fenti
+instrukciókat :) A felkiáltójel hiányzik valamelyik utasításból. Nézd meg
+[60]itt, hogyan kell jól beállítani.
+     _________________________________________________________________
+
+3.10.4. A hálózat néhány percig jól mûködik, de aztán nem válaszol
+
+Néhány visszajelzés szerint a gated (a gateway démon) összegubancolja az
+útválasztást a fenti problémával küzdõ gépeken. Ellenõrizd, hogy fut-e a
+gated a ps -auxww | grep gate parancs futtatásával.
+
+Ha fut, próbáld meg eltávolítani a RedHat csomagkezelõjével, vagy a
+megfelelõ bejegyzés eltávolításával az /etc/rc.d/ könyvtárból.
+     _________________________________________________________________
+
+3.10.5. A hálózati kártyámat felismerte a rendszer, de "NO DHCPOFFER"
+üzeneteket látok a naplófájlokban. Ja, és PCMCIA kártyám van.
+
+Biztosnak kell lenned abban, hogy a 10BaseT aljzat (a "telefon" aljzat) a
+kártyádon aktiválva van. A legjobb módszer annak ellenõrzésére, hogy melyik
+csatlakozó lett beállítva induláskor például:
+
+eth0: 3c509 at 0x300 tag 1, 10baseT port, address  00 20 af ee 11 11, IRQ 10.
+                            ^^^^^^^^^^^^
+3c509.c:1.07 6/15/95 becker@cesdis.gsfc.nasa.gov
+
+   Kaptam visszajelzést laptopos felhasználóktól, akiknek ilyen
+   problémájuk volt, és a PCMCIA segédprogramokkal lehetett összefüggésbe
+   hozni (különösen az ifport-tal), amelyek a csatoló típusát 10Base2-re
+   (thinnet) állítják. Neked biztosnak kell lenni abban, hogy 10BaseT-t
+   használsz. Ha nem, állítsd át a kártyát, és indítsd újra a gépet.
+     _________________________________________________________________
+
+3.10.6. A DHCP kliensem kiadja a broadcast üzenetet, de nincs rá válasz
+(Peter Amstutz közremûködésével)
+
+Néhány rendszeren valamilyen gépnevet kell megadnod, mint a kérés részét. A
+dhcpcd démonnal ezt a dhcpcd -h foohost paranccsal tudod megtenni. Ez a
+gépnév valószínûleg megegyezik a hálózati belépéshez használt neveddel.
+     _________________________________________________________________
+
+3.10.7. Minden lépést követtem, de még mindig nem tudok kapcsolatot
+létesíteni
+
+A kábelmodemek általában megjegyzik a kártya ethernet címét, így amikor új
+gépet csatlakoztatsz vagy kicseréled a hálókártyát, valahogy meg kell
+"tanítani" a kábelmodemet, hogy felismerje az új gépet/kártyát. Általában
+csak ki kell kapcsolni, majd vissza a modemet, míg a gép mûködik, vagy fel
+kell hívnod a szolgáltatót, és bejelenteni a hálókártya változását.
+
+Lehetnek olyan tûzfal-szabályaid (ipfwadm, ipchains vagy iptables
+szabályok) amelyek letiltják a 67/68-as portokat, amelyeken a DHCP
+forgalmazza a beállítási információkat. Ellenõrizd alaposan a szabályokat.
+     _________________________________________________________________
+
+3.10.8. MediOne Express szolgáltatásom van és nem tudok kapcsolódni
+
+Úgy néz ki, hogy a MediOne olyan dolgokat ad hozzá a DHCP-hez, amiknek nem
+kéne ott lenniük. Feltehetõen ez már nem probléma, de ha gondokkal
+találkozol, ellenõrizd ezeket. Ha egy Windows NT szerencsés (?)
+felhasználója vagy, az Eseménynaplóban (Event Viewer) a következõt
+láthatod:
+
+DHCP received an unknown option 067 of length 005. The raw option data is
+given  below.
+
+0000: 62 61 73 69 63            basic
+
+   Ha ez probléma, látogass el az [61]ftp://vanbuer.ddns.org/pub/ címre
+   és töltsd le a bináris programot, vagy a forrást a változtatáshoz.
+     _________________________________________________________________
+
+3.11. Alternatív DHCP kliens (ISC dhclient)
+
+Ha sehogy sem sikerült a dhcpcd démonnal kapcsolatot létesítened,
+kipróbálhatod az ISC dhclient programot. A dhclient hozzáférhetõ az ISC
+által kiadott DHCP disztribúcióban, és mind kliens, mind szerverprogramot
+tartalmaz. Arról, hogy hogyan szerezheted meg és fordíthatod le a szervert,
+[62]itt olvashatsz. Amikor kész vagy, kérlek térj vissza ide a kliens
+beállítását illetõen.
+
+   Megjegyzés
+
+   a következõ információkat Ted Lemon <[63]mellon@isc.org> a dhclient
+   szerzõinek egyike adta közre.
+
+   A DHCP kliens jelenlegi verziójához igazándiból nem kell dhclient.conf
+   fájl. Csak meg kell hívni a programot, például: /sbin/dhclient.
+
+   Ez minden broadcast eszközt beállít. Ha ez nem mûködik, vagy csak
+   egyetlen eszközt akarsz megadni, készíts egy /etc/dhclient.conf fájlt
+   ezzel a tartalommal:
+interface "eth0" {
+  send dhcp-client-identifier 1:xx:xx:xx:xx:xx:xx;
+  send dhcp-lease-time 86400;
+}
+
+   Feltételeztük, hogy az ethernet eszköz neve eth0. Ha nem, változtasd
+   meg. Ezen kívül írd át a xx:xx.xx.xx.xx.xx jeleket az eszköz ethernet
+   címére. Ez a dhclient.conf nagyon hasonlóvá teszi a klienst egy Win95
+   klienshez.
+     _________________________________________________________________
+
+4. DHCP szerver beállítás
+
+4.1. DHCP szerver UNIX rendszerekhez
+
+Többféle DHCP szerver létezik a UN*X-szerû operációs rendszerekhez, mind
+pénzes, mind szabad felhasználású. Az egyik legnépszerûbb szabad szoftver a
+Paul Vixie/ISC- féle DHCPd. Jelenleg a legutolsó verzió a 2.0 (a legtöbb
+felhasználó számára javasolt), de a 3.0 is bétatesztelés alatt áll.
+Letöltheted a [64]ftp://ftp.isc.org/isc/dhcp/ webhelyrõl.
+
+Néhány Linux összeállítás tartalmazza a bináris dhcpd csomagot, ezért
+átugorhatod a következõ részt, ha ezen a módon telepítetted.
+
+Miután letöltötted, csomagold ki, majd lépj be a forráskönyvtárba. Itt add
+ki a ./configure parancsot.
+
+Eltart egy kis ideig, amíg beállítja a dolgokat. Amikor kész, add ki a make,
+majd a make install parancsokat.
+     _________________________________________________________________
+
+4.2. DHCP szerver beállítás
+
+Miután kész a telepítés, add ki az ifconfig -a parancsot. Valami hasonlót
+kell látnod:
+
+eth0      Link encap:10Mbps Ethernet  HWaddr 00:C0:4F:D3:C4:62
+          inet addr:183.217.19.43  Bcast:183.217.19.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2875542 errors:0 dropped:0 overruns:0
+          TX packets:218647 errors:0 dropped:0 overruns:0
+          Interrupt:11 Base address:0x210
+
+   Ha nem látható a MULTICAST szó a kiírásban, újra kell fordítanod a
+   kerneled, hogy benne legyen a támogatás. A legtöbb rendszeren azonban
+   erre nincs szükség.
+
+   A következõ lépés az útválasztás beállítása a 255.255.255.255 címre.
+   Részlet a DHCPd README fájlból:
+
+     A válogatós DHCP kliensekkel (pl. Win95) való korrekt
+     együttmûködés érdekében a 255.255.255.255 címre is képesnek kell
+     lennie csomagokat küldeni. Sajnos, a Linux ragaszkodik ahhoz, hogy
+     a 255.255.255.255-öt a helyi broadcast címként állítsa be (itt ez
+     192.5.5.223). Ez a DHCP protokoll megsértése, és amíg a legtöbb
+     DHCP kliens nem veszi észre a problémát, néhány (pl. az összes
+     Microsoft kliens) igen. Az ilyen problémával küzdõ kliensek nem
+     "látják" a szervertõl érkezõ "DHCPOFFER" üzeneteket.
+
+   Gépeld be: route add -host 255.255.255.255 dev eth0
+
+   Ha a "255.255.255.255: Unknown host" választ kapod, akkor próbáld meg
+   a következõ bejegyzést hozzáadni az /etc/hosts fájlhoz:
+   255.255.255.255 all-ones
+
+   Aztán pedig:
+   route add -host all-ones dev eth0
+
+   vagy
+   route add 255.255.255.0 dev eth0
+
+   Itt természetesen az eth0 a hálózati eszköz neve, ha nálad más,
+   változtasd meg.
+     _________________________________________________________________
+
+4.3. DHCPd beállítások
+
+Most konfigurálni kell a DHCPd démont. Ennek érdekében meg kell csinálnod,
+vagy módosítanod kell az /etc/dhcpd.conf fájlt. Van ehhez grafikus program
+is a KDE alatt ( [65]http://www.kde.org/ ), amit kcmdhcpd-nek hívnak és
+nagyon hasonlít a Windows NT beállítóprogramjára. A KDE 2.0 kiadásakor benne
+lesz a csomagban vagy letölthetõ az
+[66]ftp://ftp.us.kde.org/pub/kde/unstable/apps/network/ webhelyrõl.
+
+Ha kézzel akarod konfigurálni a démont, akkor kövesd az alábbi utasításokat.
+
+A legáltalánosabb esetben a címeket véletlenszerûen akarod kiosztani. Ez a
+következõ beállításokkal elérhetõ:
+
+# Sample /etc/dhcpd.conf
+# (add your comments here)
+default-lease-time 600;
+max-lease-time 7200;
+option subnet-mask 255.255.255.0;
+option broadcast-address 192.168.1.255;
+option routers 192.168.1.254;
+option domain-name-servers 192.168.1.1, 192.168.1.2;
+option domain-name "mydomain.org";
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+   range 192.168.1.10 192.168.1.100;
+   range 192.168.1.150 192.168.1.200;
+}
+
+   Ez azt eredményezi, hogy a szerver a 192.168.1.10-192.168.1.100 vagy
+   192.168.1.150-192.168.1.200 tartományból fog IP címeket kiadni. 600
+   másodpercig biztosítja az IP címet, ha a kliens nem kér más
+   idõkeretet. Egyébként, a maximális (megengedett) "bérleti idõ" 7200
+   mp. A szerver ezen kívül ajánlja, hogy a kliens a 255.255.255.0
+   alhálózati maszkot, a 192.168.1.255-ös broadcast címet, a
+   192.168.1.254-et, mint a router címét és a 192.168.1.1 és 192.168.1.2
+   címû névszervereket használja.
+
+   Ha WINS szervert kell a Windows kliensek számára megadni, akkor
+   beszúrhatod még a netbios-name-servers beállítást is, például:
+   option netbios-name-servers 192.168.1.1;
+
+   Ezen kívül specifikus IP címeket adhatsz meg, amik a kliens
+   hálókártyájának ethernet címén alapulnak, például:
+host haagen {
+   hardware ethernet 08:00:2b:4c:59:23;
+   fixed-address 192.168.1.222;
+}
+
+   Ez a példa a 192.168.1.122 címet osztja ki a 08:00:2b:4c:59:23
+   ethernet azonosítójú kártyával rendelkezõ kliensnek.
+
+   Ezeket keverheted is, például ha van néhány kliens aminek fix IP cím
+   kell, másoknak pedig (pl. laptopos felhasználók) dinamikus
+   címkiosztás. Egy csomó más lehetõség is van, például NIS szerver
+   címek, idõszerverek címei stb. Ha bármelyikre szükséged van, olvasd
+   el a dhcpd.conf kézikönyv oldalt.
+     _________________________________________________________________
+
+4.4. A szerver indítása
+
+Egy dolgot kell tenned, mielõtt a szervert indítanád. A legtöbb esetben a
+DHCP telepítés nem készíti el a dhcpd.leases . Ezt a szerver használja abból
+a célból, hogy tárolja az aktuális kiosztási információkat. Ez sima szöveges
+formátumú, tehát a démon mûködése közben is megnézheted a tartalmát. A
+dhcpd.leases elkészítéséhez gépeld be:
+
+touch /var/state/dhcp/dhcpd.leases
+
+   Ez egy üres fájlt készít (méret = 0). Néhány régebbi 2.0-ás
+   szerververzió /etc/dhcpd.leases fájlt igényel. Neked nem kell semmit
+   sem tenned a fájllal, ezt a dhcpd kezeli. Ha olyan hibaüzenetet kapsz,
+   hogy a fájl már létezik, simán figyelmen kívül hagyhatod és menj a
+   következõ lépésre.
+
+   Most már indíthatod a DHCP szervert. Gépeld be (vagy rakd be az
+   indítószkriptekbe):
+   /usr/sbin/dhcpd
+
+   Ez az eth0 eszközön elindítja a szervert. Ha más eszközre akarod
+   felhúzni, akkor add meg a parancssorban, például:
+   /usr/sbin/dhcpd eth1
+
+   Ellenõrzési és hibakeresési célból elõször "debug" módban és
+   elõtérben futtatva indítsd el, ezt így teheted meg:
+   /usr/sbin/dhcpd -d -f
+
+   Ezek után indítsd el az egyik kliensedet, és figyeld a szerver
+   konzolját. Számos hibaellenõrzõ üzenetet fogsz látni. Ha minden
+   mûködik, akkor kész vagy :) Állítsd le a dhcpd-t és indítsd újra -d
+   és -f paraméter nélkül. Ha rendszerinduláskor is el akarod indítani,
+   akkor tedd be például az
+   /etc/rc.d/rc.local
+
+   fájlba (vagy inkább a szabványos indítási folyamatba - a ford.)
+     _________________________________________________________________
+
+4.5. Egyéb érdekes olvasnivalók
+
+A Linux Magazine egy nagyon jó cikket közöl egyik számában [67]Network
+Nirvana: How to make Network Configuration as easy as DHCP (Hálózati
+Mennyország: Hogyan végezzük el hálózati beállításainkat könnyedén) címmel.
+ami a DHCP beállítását taglalja.
+
+References
+
+   1. file://localhost/home/dacas/temp/DHCP-hu.html#AEN17
+   2. file://localhost/home/dacas/temp/DHCP-hu.html#AEN19
+   3. file://localhost/home/dacas/temp/DHCP-hu.html#AEN24
+   4. file://localhost/home/dacas/temp/DHCP-hu.html#AEN41
+   5. file://localhost/home/dacas/temp/DHCP-hu.html#AEN45
+   6. file://localhost/home/dacas/temp/DHCP-hu.html#AEN64
+   7. file://localhost/home/dacas/temp/DHCP-hu.html#AEN69
+   8. file://localhost/home/dacas/temp/DHCP-hu.html#AEN76
+   9. file://localhost/home/dacas/temp/DHCP-hu.html#AEN81
+  10. file://localhost/home/dacas/temp/DHCP-hu.html#AEN84
+  11. file://localhost/home/dacas/temp/DHCP-hu.html#SLACKWARE
+  12. file://localhost/home/dacas/temp/DHCP-hu.html#REDHAT6
+  13. file://localhost/home/dacas/temp/DHCP-hu.html#AEN173
+  14. file://localhost/home/dacas/temp/DHCP-hu.html#AEN188
+  15. file://localhost/home/dacas/temp/DHCP-hu.html#DEBIAN
+  16. file://localhost/home/dacas/temp/DHCP-hu.html#AEN235
+  17. file://localhost/home/dacas/temp/DHCP-hu.html#NAMESERVER
+  18. file://localhost/home/dacas/temp/DHCP-hu.html#AEN298
+  19. file://localhost/home/dacas/temp/DHCP-hu.html#TROUBLESHOOTING
+  20. file://localhost/home/dacas/temp/DHCP-hu.html#AEN360
+  21. file://localhost/home/dacas/temp/DHCP-hu.html#AEN374
+  22. file://localhost/home/dacas/temp/DHCP-hu.html#DHCPSERVER
+  23. file://localhost/home/dacas/temp/DHCP-hu.html#AEN386
+  24. file://localhost/home/dacas/temp/DHCP-hu.html#AEN407
+  25. file://localhost/home/dacas/temp/DHCP-hu.html#AEN425
+  26. file://localhost/home/dacas/temp/DHCP-hu.html#AEN443
+  27. http://www.oswg.org/oswg-nightly/DHCP.html
+  28. http://www.linux.org.tw/CLDP/mini/DHCP.html
+  29. http://www.linux.or.jp/JF/JFdocs/DHCP.html
+  30. ftp://cuates.pue.upaep.mx/pub/linux/LuCAS/DHCP-mini-Como/
+  31. mailto:vuksan-feedback@veus.hr
+  32. http://www.opencontent.org/opl.shtml
+  33. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+  34. mailto:souly1@freemail.hu_NO_SPAM
+  35. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  36. http://tldp.fsf.hu/index.html
+  37. http://web.syr.edu/~jmwobus/comfaqs/dhcp.faq.html
+  38. mailto:sergei@phystech.com
+  39. ftp://ftp.phystech.com/pub/
+  40. http://www.cps.msu.edu/~dunham/out/
+  41. ftp://metalab.unc.edu/pub/Linux/system/network/daemons
+  42. ftp://ftp.phystech.com/pub/
+  43. file://localhost/home/dacas/temp/DHCP-hu.html#NAMESERVER
+  44. file://localhost/home/dacas/temp/DHCP-hu.html#LINUXPPC-RH6
+  45. mailto:alexander.stevenson@home.com
+  46. file://localhost/home/dacas/temp/DHCP-hu.html#NAMESERVER
+  47. ftp://ftp.redhat.com/pub/redhat/redhat-4.2/i386/RedHat/RPMS/dhcpcd-0.6-2.i386.rpm
+  48. file://localhost/home/dacas/temp/DHCP-hu.html#SLACKWARE
+  49. mailto:nothing@cc.gatech.edu
+  50. file://localhost/home/dacas/temp/DHCP-hu.html#NAMESERVER
+  51. http://ftp.debian.org/debian/dists/slink/main/binary-i386/net/
+  52. file://localhost/home/dacas/temp/DHCP-hu.html#SLACKWARE
+  53. mailto:heiko@os.inf.tu-dresden.de
+  54. file://localhost/home/dacas/temp/DHCP-hu.html#NAMESERVER
+  55. file://localhost/home/dacas/temp/DHCP-hu.html#REDHAT6
+  56. ftp://ftp.linuxppc.org/
+  57. ftp://ftp.phystech.com/pub/dhcpcd-1.3.17-pl9.tar.gz
+  58. file://localhost/home/dacas/temp/DHCP-hu.html#TROUBLESHOOTING
+  59. mailto:nothing@cc.gatech.edu
+  60. file://localhost/home/dacas/temp/DHCP-hu.html#ERROR3
+  61. ftp://vanbuer.ddns.org/pub/
+  62. file://localhost/home/dacas/temp/DHCP-hu.html#DHCPSERVER
+  63. mailto:mellon@isc.org
+  64. ftp://ftp.isc.org/isc/dhcp/
+  65. http://www.kde.org/
+  66. ftp://ftp.us.kde.org/pub/kde/unstable/apps/network/
+  67. http://www.linux-mag.com/2000-04/networknirvana_01.html

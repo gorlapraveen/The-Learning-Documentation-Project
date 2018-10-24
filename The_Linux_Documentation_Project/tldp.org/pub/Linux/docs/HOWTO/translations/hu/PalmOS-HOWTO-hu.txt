@@ -1,0 +1,985 @@
+
+Palm OS Desktop HOGYANSean Buckley
+
+   sean@redbug.uklinux.net
+
+   David H. Silber palm@orbits.com - Eredeti változat
+
+   v2.0.1, 2002. március 3.
+
+   Ez a HOGYAN a Palm OS alapú eszközök Linux alatti használatát írja le.
+   A legtöbb ötlet a Palm PDA bármely változatán alkalmazható, valamint
+   más Palm OS rendszert használó eszközre is érvényes. Ilyen például a
+   Handspring Visor és a Sony Clie. Az ismertetett megoldások többsége
+   más Unix változatok alatt is mûködik, például a FreeBSD alatt.
+
+   MEGJEGYZÉS: Ez egy folyamatban lévõ munka. Rengeteg dolog van,
+   amirõl még írni szeretnék. Megjelöltem azokat a részeket, melyeket ki
+   kell még dolgozni (lásd TEENDÕK). Ez a változat sokkal inkább egy
+   korai vázlathoz hasonlít. Azt a célt szolgálja, hogy elinduljon a
+   munka. Elsõsorban azoktól várok visszajelzést, akik más PDA és Linux
+   disztribúció kombinációját használják (Én jelenleg egy m505-öt
+   használok Mandrake 8.1-el).
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]A FELELÕSSÉG TELJES KIZÁRÁSA
+        1.2. [3]A leírás új változatai
+        1.3. [4]Jelentõsebb változások
+        1.4. [5]Szerzõi jog és licenc
+        1.5. [6]Magyar fordítás
+
+   2. [7]PC-hez kapcsolódás
+
+        2.1. [8]Soros kapcsolat
+        2.2. [9]Devfs eszköznevek
+        2.3. [10]USB csatlakozás
+        2.4. [11]Infravörös kapcsolat
+        2.5. [12]Hálózatos csatlakozás
+
+   3. [13]A pilot-link alkalmazáscsomag
+
+        3.1. [14]A pilot-link szoftver telepítése
+        3.2. [15]A pilot-link használata
+
+   4. [16]Coldsync
+
+        4.1. [17]A coldsync telepítése
+        4.2. [18]A coldsync használata
+
+   5. [19]Munkaasztali alkalmazások
+
+        5.1. [20]JPilot
+        5.2. [21]Gnome-pilot
+        5.3. [22]Evolution
+        5.4. [23]KPilot
+        5.5. [24]XNotesPlus
+        5.6. [25]WMSync
+
+   6. [26]Egyéb szoftverek
+
+        6.1. [27]A Pyrite Projekt
+        6.2. [28]MalSync
+        6.3. [29]A PalmPix dekóder
+
+   A. [30]Melléklet
+
+        A.1. [31]Források
+        A.2. [32]a Palm OS rendszert használó eszközök
+        A.3. [33]A Palm OS eszközök története.
+
+1. Bevezetés
+
+Ez a leírás a PalmOS alapú PDA gépek Linuxot futtató számítógépekhez való
+kapcsolódását, valamint a helyi alkalmazásokkal való szinkronizációját
+mutatja be.
+     _________________________________________________________________
+
+1.1. A FELELÕSSÉG TELJES KIZÁRÁSA
+
+Az interneten olvasható információkat, mint minden esetben körültekintõen
+kell alkalmazni. A HOGYANban található információ nagy részét az általam
+hozzáférhetõ eszközökkel teszteltem; EGY EREDETI Palm Pilot Pro és egy új
+Palm m505 géppel. Az általam ki nem próbált eseteket megkíséreltem a
+leírásban jelezni.
+
+Ha hozzáférsz Windows-hoz vagy Mac-hez, javasolom, hogy a PDA-ról készíts
+egy biztonsági mentést a hozzá adott szoftverrel, mielõtt Linuxszal kezded
+el tesztelni. Ellenkezõ esetben a linuxos szoftverrel készíts egy mentést,
+mielõtt szinkronizálsz.
+     _________________________________________________________________
+
+1.2. A leírás új változatai
+
+A leírás utolsó "folyamatban lévõ" változata megtalálható a
+[34]http://www.redbug.uklinux.net/palm/index.html honlapon.
+     _________________________________________________________________
+
+1.3. Jelentõsebb változások
+
+A leírást eredetileg Palm HOGYANnak hívták. A jelentõsebb változásokat az
+alábbiakban részletezem.
+
+   Verziótörténet
+   Verzió: 2.0.1 2002.03.03
+   Különbözõ, általam még nem is hallott szoftverekkel kapcsolatos
+   információk hozzáadása miután visszajelzéseket kaptam a 2.0.0
+   verzióról.
+   Verzió: 2.0.0 2002.01.06
+   Jelentõsebb újraírása az USB csatlakozás, valamint a legújabb PalmOS
+   eszközök fejezeteknek.
+   Verzió: 1.1.1 1999.02.28
+   David Silber által karbantartott legutolsó változat.
+     _________________________________________________________________
+
+1.4. Szerzõi jog és licenc
+
+Ez a leírás © 2001 Sean Buckley és copyright © 1997, 1998 & 1999 David H.
+Silber szellemi tulajdona.
+
+Ezen dokumentum másolása, terjesztése és/vagy módosítása engedélyezett a GNU
+Free Documentation License 1.1 változata, vagy bármely késõbbi a Free
+Software Foundation által közzétett változatfeltételei szerint, állandó
+fejezetek nélkül, elõlapi és hátoldali szöveg nélkül. A licenc szövegû
+változata megtalálható a [35]http://www.gnu.org/copyleft/fdl.html honlapon.
+     _________________________________________________________________
+
+1.5. Magyar fordítás
+
+A magyar fordítást [36]Horváth Albert készítette (2002.07.07). A lektorálást
+[37]Daczi László végezte el (2003.07.19). A fordítás javítva (R1)
+2003.09.25.-én. Bármilyen fordítással kapcsolatos észrevételt a
+[38]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum legfrissebb
+változata megtalálható a [39]Magyar Linux Dokumentációs Projekt honlapján.
+     _________________________________________________________________
+
+2. PC-hez kapcsolódás
+
+A PDA Linux alatti futtatásához az elsõ lépés az, hogy a PC-hez
+csatlakoztasd azt. Egészen mostanáig az összes PalmOS alapú eszköz soros
+kábelen keresztül csatlakozott. A legújabb eszközök USB portot használnak,
+és néhány infravörös csatlakozót is használhat.
+
+Egy másik fejlesztés lehetõvé teszi, hogy a PDA fizikailag a hálózat egy
+gépéhez csatlakozzon, de egy másik géppel szinkronizáljuk távolról.
+     _________________________________________________________________
+
+2.1. Soros kapcsolat
+
+Pillanatnyilag a soros csatlakozás a legegyszerûbb módja annak, hogy a PDA
+géped a PC-hez csatlakoztasd. Egyszerûen csatlakoztasd a bölcsõt (a
+bölcsõ a PDA összetett dokkolóegysége - a lektor) a soros portba, majd
+hivatkozz arra a portra a coldsync vagy a pilot-link alkalmazás
+használatakor. A soros kapcsolat lassú, de megvan az az elõnye, hogy
+kipróbált és letesztelt. Bármely Palm OS eszközzel mûködik, melyhez kapható
+soros kábel. A soros bölcsõk és kábelek tartozékként kaphatóak a Palm PDA
+gépekhez, azokat is beleértve, melyek eleve USB bölcsõvel kerülnek
+forgalomba.
+
+Az egyszerûség kedvéért hozz létre egy eszközt, melyet /dev/pilot nevezel
+el és a soros kapura mutat. A pilot-link alkalmazás alapértelmezetten ezt az
+eszközt használja. Szóval, ha létezik ez a hivatkozás, akkor megspórolhatod,
+hogy a program futtatásakor minden egyes alkalommal beírd ezt a sort.
+
+A hivatkozás létrehozásához lépj be root felhasználóként és írd be a
+következõ parancsot:
+
+ln -s /dev/ttyS0 /dev/pilot
+
+   Helyettesítsd a /dev/ttyS0 azzal a soros kapuval, melyre
+   csatlakoztattad a PDA gépet. Az eszköz neve /dev/ttyS0 a COM1-re utal
+   a DOS/Windows terminológia szerint, a /dev/ttyS1 a COM2, és így
+   tovább.
+
+   Meg kell arról is gyõzõdnöd, hogy van írási jogod a soros kapura.
+   Egy önálló munkaállomáson úgy is beállíthatod a jogosultságokat, hogy
+   a kapuhoz globális hozzáférést rendelsz. Root felhasználóként írd be a
+   következõ parancsot:
+
+   chmod a+rw /dev/ttyS0
+
+   Nagyobb biztonságot lehet elérni a csoportjogok használatával. Állítsd
+   be a csoport jogait írás/olvasásra és add hozzá a megfelelõ
+   személyeket a csoport felhasználólistájához (lásd man group).
+   (TEENDÕ: Részletesebben elmagyarázni).
+     _________________________________________________________________
+
+2.2. Devfs eszköznevek
+
+A legújabb Linux disztribúciók a devfs használják az eszközök elnevezésére.
+Ebben az esetben a /dev/ttyS0 nem létezik, vagy csak egy szimbolikus
+hivatkozás a /dev/tts/0 könyvtárra. Ez egy új elnevezési rendszer, mely a
+2.4-es kernelben jelent meg. Egyszerûen cseréld ki az összes /dev/ttyS0
+hivatkozást /dev/tts/0-ra.
+
+Ha a devfs-el szimbolikus hivatkozást használsz azt láthatod, hogy
+újraindítás után az eszközök nem látszódnak jól. Az /etc/devfsd.conf fájl
+határozza meg a szimbolikus hivatkozások létrehozását a dinamikusan
+csatlakoztatott/létrehozott eszközökre.
+
+Mint mindig, ennek beállítása is disztribúciónként különbözik.
+
+     * Amikor a bölcsõn megnyomjuk a HotSync gombot, a Mandrake 8.1 egy
+       hivatkozást készít a /dev/usb/tts/1-ról a /dev/pilot-ra.
+     * A RedHat 7.2-ben kézzel kell létrehoznia hivatkozást. Ezek után a
+       hivatkozás megmarad az újraindítások után is (az információért
+       köszönettel tartozok Jim Mueller-nek).
+     _________________________________________________________________
+
+2.3. USB csatlakozás
+
+A Palm eszközök USB porton keresztül történõ elérése meglehetõsen új. A
+Handspring Visort úgy tûnik jól támogatják, és jól együttmûködik a
+pilot-link alkalmazással. Jelenleg a Palm m500 sorozat kizárólag a
+coldsync-kel mûködik, bár a pilot-link alatti támogatás aktív fejlesztés
+alatt áll. Frissítés: A pilot-link jelenlegi fejlesztõi változata 0.10.x,
+már támogatja az USB eszközöket Részletesebben lásd a pilot-link fejezetben.
+
+Bármilyen USB eszköz Linux alatti használatához, a kernelnek támogatnia kell
+az USB-t. Szükséged lesz még az ehhez tartozó modulokra is. A legújabb Linux
+disztribúciók már alapértelmezetten támogatják az USB-t (TEENDÕ:
+Ellenõrizni a disztribúciókat az alapbeállításokkal). A rendszered
+ellenõrzéséhez, root felhasználóként írd be a következõ sort:
+
+modprobe visor
+
+   Ha a parancs hatására nem kapsz választ, akkor a modul mûködik és
+   nincs szükség a kernel újrafordítására. Ha ez nem mûködik próbáld meg
+   a másik, az usbserial modult:
+   modprobe usbserial
+
+   Ezt használja néhány disztribúció többek között a Redhat 7.0 is.
+
+   Ha a kernelben be szeretnéd állítani az USB támogatást, a
+   [40]Handspring Visor with Linux mini-HOWTO (A Handspring Visor
+   használata Linuxszal mini-HOGYAN) több információval szolgál.
+   (TEENDÕ: Beolvasztani ebbe a HOGYANba?)
+
+   Miután beállítottad az USB-t, a /dev/ttyUSB1 eszközt kell használnod a
+   PDA géppel való kommunikációhoz. Figyelem: ez az eszköznév csak azután
+   létezikmiután a bölcsõn megnyomtad a hotsync gombot. A kapcsolatot
+   létrehozó szoftver indítása elõtt kell ezt a gombot megnyomni.
+
+   Ha gondjaid vannak az USB-n keresztül történõ kommunikációval,
+   próbálj ki egy frissített kernelt. Lehet, hogy idõzítési problémák
+   lépnek fel az USB eszközmeghajtónál. Például, egyszer azt
+   tapasztaltam, hogy a szabványos Mandrake 8.1 nem mûködött egy PC-n,
+   miközben egy gyorsabb PC-n ugyanez mûködött. A kernel frissítése egy
+   szabványos 2.4.17 verzióra megoldotta a problémát, és mindkét PC-n
+   szépen mûködött a program.
+     _________________________________________________________________
+
+2.4. Infravörös kapcsolat
+
+A legújabb Palm eszközök infravörös (IrDA) kapuval is rendelkeznek. Ha
+ilyennel rendelkezel és PC-den is van infravörös kapu az IrDA kapun
+keresztül is szinkronizálhatsz és eltüntetheted a kábeleket.
+
+David A. Desrosiers írt egy átfogó [41]HOGYANt az infravörös csatlakozásról.
+(TEENDÕ: egy az egyben átvenni?)
+     _________________________________________________________________
+
+2.5. Hálózatos csatlakozás
+
+Lehetõséged van a PDA géped fizikailag egy PC-hez csatlakoztatni, és egy
+másik a hálózaton lévõ PC-vel szinkronizálni. Ez akkor lehet hasznos, ha
+egy olyan PC-vel szeretnél szinkronizálni, melyhez nem tudod fizikailag
+csatlakoztatni a PDA gépet.
+
+David A. Desrosiers írt a témáról egy (kevésbé részletes) [42]HOGYANt .
+(TEENDÕ: egy az egyben átvenni? Nem vagyok meggyõzõdve a módszer
+értékességérõl. - van hozzászólásotok ehhez?)
+     _________________________________________________________________
+
+3. A pilot-link alkalmazáscsomag
+
+A pilot-link alkalmazás biztosítja az eszközöket a PDA géppel való
+kommunikációhoz. A pilot-link programok szolgáltatják a háttérszolgáltatást
+számos magasabb szintû programhoz, de önmagukban is használhatóak
+parancssori üzemmódban.
+
+A legtöbb disztribúció opcionális csomagként már tartalmazza a pilot-link
+alkalmazásokat. A csomag a telepítõlemezrõl, vagy a disztribúció ftp
+oldaláról elérhetõ. A csomagot a szokásos, disztribúciódnak megfelelõ
+módon telepítsd. Szükséged lehet a csomag fejlesztõi verziójára, ha olyan
+szoftvert szeretnél lefordítani, ami használja a pilot-linket.
+
+Megjegyzés: Az alábbiak a pilot-link 0.9.x kiadására vonatkoznak, hacsak nem
+állítják az ellenkezõjét, A fejlesztõi verzió most a 0.10.x. Ez már
+tartalmazza az USB eszközök támogatását, és annak érdekében aktualizálták,
+hogy a különbözõ alkalmazások között nagyobb átjárhatóságot biztosítson.
+Miután majd hivatalosan kiadják a 0.10.x verziót, ezt a dokumentumot az új
+verzió alapján frissíteni fogom.
+
+Ha a 0.10.x verzióra fejlesztesz, a pilot-linket használó alkalmazásokat is
+frissítened kell. Különösen a J-Pilot és a gnome-pilot-nál van szükség
+módosításra, hogy együttmûködjön a 0.10.x verzióval. A J-Pilot 0.99.2
+verziója a pilot-link legutóbbi kiadásával mûködik együtt.
+     _________________________________________________________________
+
+3.1. A pilot-link szoftver telepítése
+
+A pilot-link alkalmazáscsomagot a legtöbb nagyobb disztribúció tartalmazza
+mint például a RedHat, Mandrake, SUSE és Debian. Ha olyan alkalmazásokat
+kívánsz fordítani, melyek a pilot-linken alapszanak, szükséged lehet a
+fejlesztõi csomagok telepítésére is.
+
+Ha olyan disztribúciót használsz, mely nem tartalmazza a pilot-linket, vagy
+egy újabb verzióra lenne szükséged, a legfrissebb kiadást a
+[43]www.pilot-link.org webhelyen találod meg. A legfrissebb változathoz
+hasonlóan a legújabb CVS jelenlegi állapotát is ott találod.
+
+Miután letöltötted a forráskódot, csomagold ki, majd fordítsd le a
+következõk szerint:
+
+tar -zxvf pilot-link.0.9.5.tar.gz cd pilot-link.0.9.5
+./configure
+make
+make install
+
+   A program egyenesen abból a könyvtárból futtatható, melyben
+   lefordítottad azt. Ha a program futtatása elõtt tesztelni szeretnéd:
+   make install. További részletekért lásd a a pilot-link csomagban
+   található README fájlt.
+     _________________________________________________________________
+
+3.2. A pilot-link használata
+
+A pilot-link csomagban lévõ programok legnagyobb része csatornaként
+mûködik. Ez azt jelenti, hogy ezek szállítják az az adatokat a Palm OS
+eszközbõl ki vagy be.
+
+Minden egyes programhasználatkor, nyomd meg a PDA bölcsõjén lévõ HotSync
+gombot. Ez indítja el a PDA oldalán az adatáramlást. Vigyázz, mert nem
+figyelmeztet minden program a "HotSync" gomb megnyomására, azaz emlékezned
+kell a gomb megnyomására.
+
+További részletekért lásd a kézikönyv megfelelõ oldalát. Létezik egy átfogó
+kézikönyvoldal a pilot-link csomagban.
+
+Az összes pilot-link program ugyanazt a módszert használja a PDA helyének
+megállapítására:
+
+     * Ha a parancssorban megadsz egy eszköznevet azt fogja használni a
+       rendszer, függetlenül más beállításoktól.
+     * Ha a $PILOTPORT környezeti változó be van állítva, akkor azt
+       használja a rendszer, hacsak nem adsz meg egy portot a
+       parancssorban.
+     * Ha nincs megadva port a parancssorban, és a $PILOTPORT változó
+       nincs beállítva, akkor a /dev/pilot kerül alkalmazásra.
+     _________________________________________________________________
+
+3.2.1. pilot-xfer
+
+Valószínûleg ez a pilot-link alkalmazáscsomag leghasznosabb része. A
+pilot-xfer programmal alkalmazásokat telepíthetsz a Palm OS eszközre,
+biztonsági mentést készíthetsz, és vissza is állíthatod azt.
+
+A program telepítése:
+
+pilot-xfer /dev/pilot -i program.prc
+
+   A Palm OS eszköz biztonsági mentése:
+
+   pilot-xfer /dev/pilot -b backup-könyvtár
+
+   A program bemásolja az összes, a Palm OS eszközödön található
+   adatbázist (programokat is?) a "backup-könyvtár" elnevezésû
+   könyvtárba, létrehozza azokat, ha ez még nem történt meg.
+
+   A Palm OS eszköz adatainak visszaállítása:
+
+   pilot-xfer /dev/pilot -r backup-könyvtár
+
+   Általában csak akkor van szükség erre, ha a Palm OS eszközödbõl
+   elmegy az áram, vagy ha egy hard reset-et csinálsz.
+
+   A Palm OS eszközödön található programok kilistázása:
+
+   pilot-xfer /dev/pilot -l
+     _________________________________________________________________
+
+3.2.2. Jegyzet telepítése
+
+Jegyzet telepítése (a már létezõ) projekt kategória alá:
+
+install-memo /dev/pilot -c projekt project.memo
+
+   A jegyzet elsõ sorába a fájl neve lesz beillesztve, valamint meg fog
+   jelenni a Palm OS eszköz "memõ könyvtárában is.
+     _________________________________________________________________
+
+3.2.3. Jegyzetek
+
+A program a Palm OS eszközben található összes jegyzetet szabványos mailbox
+formátumban kinyomtatja.
+
+Jegyzetek megtekintése:
+
+memos /dev/pilot
+     _________________________________________________________________
+
+3.2.4. A Pilot címjegyzék
+
+A címek adatbázis áttöltése a PDA géprõl vagy gépre
+
+A címadatok átmásolása a PDA géprõl egy Linux fájlba:
+
+pilot-addresses /dev/pilot -w storage.file
+
+   A címadatok áttöltése egy Linux fájlból a PDA gépre:
+
+   pilot-addresses /dev/pilot -r file
+     _________________________________________________________________
+
+4. Coldsync
+
+Coldsync a pilot-link alkalmazáscsomag egyik alternatívája az adatok PalmOS
+eszközre/eszközrõl való adatátvitelére. A pilot-linkhez hasonlóan a Palm
+adatbázisok szinkronizálásra, mentésére és visszaállítására is képes.
+
+Kevesebb alkalmazás használja hátteréül a coldsync programot. Ez a
+közeljövõben változhat, de különbség tükrözõdik coldsync és a pilot-link
+programok filozófiájában is. Azok az alkalmazások, melyek a pilot-linkkel
+szinkronizálnak úgy tûnik egyre inkább beépülnek a szinkronizáció
+szolgáltatásaiba. Ezért a program készítõjén múlik, hogy beleveszi-e
+programjába a pilot-link támogatását vagy sem.
+
+A Coldsync másik megközelítést követ. Szinte bármely alkalmazáshoz lehet a
+coldsync-et használó csatornákat készíteni. A szinkronizációs eljárás
+teljesen átlátszó marad az alkalmazás számára. Ha az alkalmazás íróját nem
+érdekli a PDA támogatás beépítése nem számít. Mindaddig, amíg az alkalmazás
+adatformátuma elérhetõ, valaki más is megírhatja a csatornát.
+     _________________________________________________________________
+
+4.1. A coldsync telepítése
+
+Néhány disztribúció tartalmazza a coldsync-et, de még nincs annyira
+elterjedve mint a pilot-link. Ez egy fiatalabb alkalmazás, így sokkal
+valószínûbb, hogy forrásból kell majd újrafordítanod.
+
+A coldsync legfrissebb kiadását a [44]www.ooblick.com/software/coldsync
+webhelyen találhatod. A jelenlegi változat mellett egy hivatkozást is
+találsz, ami a CVS jelenlegi állapotát mutató oldalra vezet.
+
+Ha letöltötted a forráskódot a következõképpen fordítsd le:
+
+tar -xvzf
+colsync-2.2.5.tar.gz
+cd coldsync-2.2.5
+./configure
+make
+make install
+
+   A coldsync programot az src könyvtárból indíthatod. További
+   információért lásd a coldsync README fájlját.
+     _________________________________________________________________
+
+4.2. A coldsync használata
+
+4.2.1. A .coldsyncrc fájl
+
+A coldsync alapesetben a home könyvtáradban található és a .coldsyncrc
+fájlból olvassa be a beállításokat. Ha egy másik konfigurációs fájlt
+szeretnél használni a -f kapcsoló felülbírálja az alapbeállítást. Továbbá a
+beállítófájlban található néhány paraméter, amely parancssorban megadott
+paraméterrel felülírható.
+
+A következõkben egy példát láthatsz a a .coldsyncrc fájlra:
+
+listen serial {
+        device: "/dev/palm";
+        protocol: default;
+        transient;
+}
+
+pda "My Palm" {
+        snum: "L0PK17C13832-M";
+        username: "Sean";
+        userid: 1234;
+        directory:
+        "/home/sean/m505";
+        default;
+}
+
+   A példában megadjuk a coldsync-nek, hogy egy soros kapcsolatot
+   keressen a /dev/palm eszközön. A transient kulcsszó arra utasítja a
+   coldsync-et, hogy az eszköz lehet hogy nem létezik mindaddig, amíg a
+   felhasználó meg nem nyomja a Hotsync gombot. A pda rész jelzi a
+   coldsync-nek az eszköz sorozatszámát, felhasználónevét, felhasználói
+   azonosítóját, valamint a biztonsági mentés könyvtárának a nevét.
+
+   A coldsync configurációs állományt a (man coldsync) kézikönyvoldal
+   nagyon részletesen elmagyarázza, de érdemes átvennünk néhány pontot
+   belõle:
+
+     * A PDA részben ne használd a 0-s (nullás - a lektor) felhasználói
+       azonosítót. Ez adatvesztéshez vezethet, ha egyszer hard reset-et
+       kell csinálnod a Palmodon.
+     * Ha USB bölcsõvel rendelkezõ Palm m505 géped van, Linux alatt ne
+       használd a listen usb parancsot. Helyette a listen serial
+       parancsot kell használni a protocol: simple; kiegészítéssel
+     _________________________________________________________________
+
+4.2.2. A p5-Palm Perl modul
+
+A P5-Palm, Perl modulok összesége, melyek a coldsync-en keresztül
+kommunikálnak a Palm eszközökkel. A csomagot a coldsync oldaláról lehet
+letölteni. A p5-Palm modulok célja, hogy egyszerûsítsék és felgyorsítsák a
+csatornák létrehozását.
+
+Akkor lesz szükséged a p5-Palm telepítésére, ha a coldsync csatornákat
+szeretnéd használni. Nem lesz szükséged a p5-Palm -ra ha a coldsync-et csak
+egyszerû mentésekre használod.
+
+A modulok telepítése:
+
+tar -zxvf p5-Palm-1.2.4.tar.gz
+cd p5-Palm-1.2.4
+perl Makefile.PL
+make
+make install
+     _________________________________________________________________
+
+4.2.3. Coldsync csatornák
+
+Számos csatorna érhetõ el a coldsync alá. Ezek a coldsync-et használják a
+PDA más alkalmazásokkal való szinkronizációjához. A csatornáknak általában
+szükségük van a fent részletezett p5-Palm Perl modulokra.
+
+A csatornák listája megtalálható a
+[45]http://www.ooblick.com/software/coldsync/conduits/ webhelyen.
+
+A csatornáknak szükségük van egy bejegyzésre a .coldsyncrc konfigurációs
+állományban. Ahhoz, hogy kiderítsd, mit is kell oda beírni, futtasd a
+/path/conduit -config parancsot, ahol a path a csatorna helyét adja meg.
+     _________________________________________________________________
+
+5. Munkaasztali alkalmazások
+
+Ez a rész azokat az alkalmazásokat írja le, melyek a PDA-val szinkronizálják
+az adatokat. Az alkalmazások általában a pilot-linket használják a PDA-val
+való kommunikációhoz. A coldsync csatornákat biztosíthat az olyan
+alkalmazások számára, melyeket nem kifejezetten a PDA-val való
+kommunikációhoz fejlesztettek ki.
+     _________________________________________________________________
+
+5.1. JPilot
+
+A JPilot egy személyi információ kezelõ alkalmazás (PIM), mely a Windows és
+Mac alá készült Palm munkaasztali szoftver kiváltására készült. A JPilot
+rendelkezik egy Palm címlistával,teeendõk listájával, naptárral és
+jegyzetszerkesztõvel. A JPilottal alkalmazásokat is lehet telepíteni a PDA
+gépre.
+
+A JPilot a legtöbb Linux disztribúcióban megtalálható, de letölthetõ a
+[46]http://www.jpilot.org webhelyrõl is. A JPilot használatához telepített
+pilot-link-kel kell rendelkeznünk. Mivel a JPilot egy gtk+ alkalmazás,
+szükség van a gtk+-ra.
+     _________________________________________________________________
+
+5.2. Gnome-pilot
+
+A Gnome-pilot célja a Gnome munkaasztal alatti PDA kapcsolat megteremtése. A
+Gnome-pilot egy csatornát biztosít a Gnome PIM alkalmazások számára, egy
+vezérlõpult kisalkalmazást a kapcsolat beállításához, valamint egy panel
+kisalkalmazást a hotsync állapotjelzõhöz.
+
+A Gnome-pilot egy démon folyamatot használ a PDA géppel való kommunikációhoz
+a pilot-link-en keresztül. A kliens alkalmazások elsõsorban a démont
+használják a pilot-link közvetlen meghívása helyett. Az alkalmazások
+használatához - ilyenek például a csatornák is - a démonnak futnia kell.
+
+A Gnome-pilot a Gnome része. A projekt honlapja a
+[47]http://www.gnome.org/projects/gnome-pilot/ címen található.
+
+A Gnome-pilot-ot a Gnome vezérlõpulton keresztül lehet beállítani. Ha a
+gnome-pilot telepítve van, kell lenni egy "Pilot Link" résznek a
+vezérlõpult eszközök menüpontja alatt.
+     _________________________________________________________________
+
+5.2.1. A Pilot Link kisalkalmazás
+
+A Gnome vezérlõpultjában található Pilot Link kisalkalmazás a PDA
+beállítását teszi lehetõvé Gnome alatt. Mielõtt a Gnome csatornáját
+használnád be kell állítanod a PDA gépet.
+
+Elsõ lépés az eszköz hozzáadása. Indítsd el a Gnome vezérlõpultot, és
+kattints a bal oldali panelon található "Pilot Link"-re. A jobb oldali panel
+a pilot link kisalkalmazást mutatja.
+
+     * Kattints az eszközök fülre, majd a "Add" ("Hozzáadás") gombra.
+       Ezek után az "Device Settings" ("Eszközbeállítások")
+       párbeszédablakot kell látnod.
+     * A "Name" ("Név") mezõ bármit tartalmazhat, mely a létrehozott
+       port azonosításában lesz segítségedre.
+     * A "Port" mezõnek azt a portot kell tartalmaznia, melyhez a PDA
+       gépet csatlakoztattad. A portnak ugyanannak kell lennie amit
+       pilot-link is használ.
+     * A sebesség és az idõtúllépési értékek az eszköz típusától
+       függnek. Próbáld elõször az alapértelmezett értékeket és csak
+       akkor változtasd meg, ha a szinkronizálással problémáid vannak.
+     * A "Type" ("Típus") az eszközöd típusa.
+
+   Miután beállítottad az eszközt, a tényleges PDA beállításán van a sor:
+
+     * Kattints a "Pilot" fülre, majd az "Add..." ("Hozzáadás...")
+       gombra. Ezután megjelenik a "Pilot Settings" ("Pilot Beállítások")
+       párbeszédablak.
+     * Ha a PDA gépen felhasználói név van beállítva, kattints a "Get
+       from pilot" gombra a felhasználói név és azonosító átvételéhez.
+       Különben kattints a "Send to pilot"-ra a PDA felhasználói nevének
+       beállításához.
+     * A "Pilot Attributes" lehetõvé teszi, hogy elnevezd a PDA gépet és
+       helyi könyvtárat biztosíts a csatornák számára.
+     * A "Sync action"-ben megadható, hogy mi történjen mikor megnyomod a
+       hotsync gombot a PDA gépen. Az alapbeállítás a "Use conduit
+       settings" ("csatorna beállítások használata"). Ezzel lehetõséged
+       nyílik, hogy a különbözõ csatornákhoz egyéni beállítási
+       lehetõségeket rendelj.
+
+   A PDA gép után a csatornákat kell beállítanod.
+     _________________________________________________________________
+
+5.2.2. A Pilot csatorna kisalkalmazások
+
+Indítsd el a Gnome vezérlõpultot, majd kattints a "Pilot Conduits" ("Pilot
+Csatornák") a bal oldali panelen. Ha a pilot link kisalkalmazásban már
+beállítottál egy PDA gépet, látni fogod az elérhetõ csatornák listáját. Ha
+egynél több PDA géped van, egy legördülõ listából kiválaszthatod melyiket
+szeretnéd beállítani.
+
+Alapbeállításban mindegyik elérhetõ csatorna ki van kapcsolva. Egy csatorna
+engedélyezéséhez válaszd ki a listából, majd kattints az "Enable"
+("Engedélyez") gombra. Ezek után kiválaszthatod, hogy milyen módszerrel
+szeretnél szinkronizálni.
+     _________________________________________________________________
+
+5.3. Evolution
+
+Evolution egy Microsoft Outlook utánzat a Gnome számára az Ximian cégtõl.
+Az Evolution-nak van egy csatornája a gnome-pilot-hoz. A csatornát a fent
+leírt a gnome-pilot csatorna beállító kisalkalmazásával lehet beállítani.
+
+Figyelem: A Mandrake 8.1 az Evolution béta verziójával került forgalomba.
+Úgy tûnik ez a változat hibás, mivel szinkronizálás közben nem azonosítja
+jól a rekordokat. Ez a PDA gépen rekord többszörözõdéshez vezethet.
+
+Az Evolution legfrissebb változata a [48]http://www.ximian.com webhelyrõl
+tölthetõ le. Az Evolutiont elsõsorban a Ximian Gnome alatti használatra
+tervezték. Az ettõl független telepítés számos függõséget bonthat fel.
+     _________________________________________________________________
+
+5.4. KPilot
+
+A KPilot a KDE megfelelõje a Gnome-pilot-nak. KPilot alap PIM
+szolgáltatásokat tartalmaz, valamint egy csatornát a KDE alkalmazásokhoz,
+mint például a KOrganizer.
+
+Ugyanúgy mint a gnome-pilot, a kpilot is egy démon eljáráson keresztül
+használja a pilot-link-et.
+
+A KPilot elérhetõ a [49]http://www.slac.com/pilone/kpilot_home honlapon.
+
+TEENDÕ: ISMÉTLEM, nem igazán használom a KDE-t, de majd megpróbálkozom
+vele.
+     _________________________________________________________________
+
+5.5. XNotesPlus
+
+Az XA NotesPlus lehetõséget biztosít arra, hogy kis megjegyzéseket tegyél
+az X-Windows képernyõdre. Ezeket a megjegyzéseket jegyzetként lehet
+megosztani a PalmOS eszközöddel.
+
+A megjegyzéseken túlmenõen az XNotesPlus PIM szolgáltatásokat is biztosít,
+és integrálja a megjegyzéseket a teendõk listájával valamint a címlistával
+is. Figyelem: az XNotesPlus nem hajt végre igazi szinkronizálást, hanem
+egyszerûen felülírja a megváltozott adatbázisokat.
+
+Az XNotesPlus honlapja a [50]http://www.graphics-muse.org/xnotes/xnotes.html
+címen található, ahol részletes telepítési és használati utasítást találsz.
+
+Az XNotes shareware program, nem terjeszthetõ szabadon.
+     _________________________________________________________________
+
+5.6. WMSync
+
+Ha használod a WindowMaker-t, hasznos lehet számodra. A honlapról származó
+információk:
+
+Wmsync egy WindowMaker alkalmazás, mely elindítja a kedvenc Palm(TM) PDA
+szinkronizáló alkalmazásodat Egy kis animációt mutat a szinkronizálás alatt.
+Egy kis perl script vezérli a SIGUSR1 és SIGUSR2-emn keresztül, ezért
+könnyen testre szabható. Ennyi az egész.
+
+A Wmsync megtalálható a [51]http://home.t-online.de/home/db7ne/wmsync.html
+honlapon.
+     _________________________________________________________________
+
+6. Egyéb szoftverek
+
+6.1. A Pyrite Projekt
+
+Pyrite Publisher egy olyan eszköz, mely képes a elektronikus könyvek által
+használt Doc formátumot átalakítani a Palm PDA gépek számára. A tömörített
+zTXT fájlokat szintén támogatja. A Pyrite Publishert Pythonban írták, egy
+opcionális C modul felhasználásával, a megnövelt adattömörítési teljesítmény
+érdekében.
+
+A Palm-al kommunikáló python-libpisock függvénykönyvtár külön szerezhetõ
+be. Ez egy python kötés a pilot-unix libpisock függvénykönyvtár számára.
+
+A Pyrite megtalálható a [52]http://www.pyrite.org webhelyen.
+     _________________________________________________________________
+
+6.2. MalSync
+
+A Malsync egy parancssori eszköz a Palm PDA gépek szinkronizálására az
+AvantGo kiszolgálóval. Nos, hogy mi is az AvantGo, arra majd rájössz ha
+használod. Sajnos a honlapja a marketingszöveg mintapéldája.
+
+A Malsync megtalálható a [53]http://www.tomw.org/malsync honlapon.
+     _________________________________________________________________
+
+6.3. A PalmPix dekóder
+
+A PalmPix dekóder a PalmPix adatbázisból állítja elõ a képeket. A PalmPix
+egy digitális fényképezõ csatolás a Palm PDA számára.
+
+A PalmPix dekóder a [54]http://www.geocities.com/aa_soft/PalmPix.html
+honlapon található.
+     _________________________________________________________________
+
+A. Melléklet
+
+A.1. Források
+
+A Linux/Palm alkalmazások információs forrásai.
+     _________________________________________________________________
+
+A.1.1. Pilot-link
+
+     * Weblapok: [55]http://www.pilot-link.org
+     * Általános levelezési lista:
+       [56]http://www.pilot-link.org/mailman/listinfo/pilot-link-general/
+       . Általános lista a pilot-linkrõl, a csatolási lehetõségekrõl,
+       kívánságlista és minden más.
+     * Általános levelezési lista archívum:
+       [57]http://www.pilot-link.org/pipermail/pilot-link-general/
+     * Bejelentések levelezési listája:
+       [58]http://www.pilot-link.org/mailman/listinfo/pilot-link-announce
+       / . Bejelentések az újabb pilot-link kiadásokról, csatornákról,
+       harmadik fél által gyártott eszközökrõl és alkalmazásokról.
+     * Bejelentések levelezési listájának archívuma:
+       [59]http://www.pilot-link.org/pipermail/pilot-link-announce/
+     * Fejlesztõi levelezõlista:
+       [60]http://www.pilot-link.org/mailman/listinfo/pilot-link-devel/ .
+       Fejlesztõi lista a pilot-link forráskód, kiadások, javítások,
+       csatornák, hibák, és tesztelések számára.
+     * Fejlesztõi levelezõlista archívum:
+       [61]http://www.pilot-link.org/pipermail/pilot-link-devel/
+     * "Next Generation" pilot-unix levelezõ lista:
+       [62]http://www.pilot-link.org/mailman/listinfo/pilot-unix-ng/ .
+       Fejlesztõi lista a pilot-link forráskód, kiadások, javítások,
+       csatornák, hibák, és tesztelések számára.
+     * "Next Generation" pilot-unix levelezõ lista archívum:
+       [63]http://www.pilot-link.org/pipermail/pilot-unix-ng/ . A régi
+       jelenleg nem üzemelõ pilot-unix lista helyett van.
+     _________________________________________________________________
+
+A.1.2. Coldsync
+
+     * Weblap: [64]http://www.ooblick.com/software/coldsync
+     * Mailing list: küldj egy e-mailt a következõ címre
+       [65]coldsync-hackers-request@lusars.net "subscribe" tartalommal.
+     * Levelezõlista archívum:
+       [66]http://www.thedotin.net/maillists/coldsync-hackers
+     _________________________________________________________________
+
+A.1.3. JPilot
+
+     * Weblap: [67]http://www.jpilot.org
+     * Levelezõ lista: küldj egy e-mailt a következõ címre
+       [68]listar@moongroup.com a levél témájaként add meg a "subscribe"
+       szót.
+     * Levelezõlista archívum:
+       [69]http://www.moongroup.com/archives/jpilot
+     _________________________________________________________________
+
+A.1.4. Gnome-pilot
+
+     * Honlap: [70]http://www.gnome.org/projects/gnome-pilot
+     * Levelezõlista:
+       [71]http://mail.gnome.org/mailman/listinfo/gnome-pilot-list
+     * Levelezõlista archívum:
+       [72]http://mail.gnome.org/archives/gnome-pilot-list/
+     _________________________________________________________________
+
+A.1.5. KPilot
+
+     * Honlap: [73]http://www.slac.com/pilone/kpilot_home
+     * Levelezõlista: Nincs kifejezetten KPilot levelezõlista, de
+       használható a kde-pim lista helyette. A feliratkozáshoz küldj egy
+       levelet a [74]kde-pim-request@kde.org címre subscribe + az e-mail
+       címmel a téma mezõben.
+     * Levelezõlista archívum:
+       [75]http://lists.kde.org/?l=kde-pim&r=1&w=2
+     _________________________________________________________________
+
+A.1.6. Egyéb források
+
+     * XNotesPlus honlap:
+       [76]http://www.graphics-muse.org/xnotes/xnotes.html
+     * WMSync honlap: [77]http://home.t-online.de/home/db7ne/wmsync.html
+     * Pyrite Projekt honlap: [78]http://www.pyrite.org/
+     * Malsync honlap: [79]http://www.tomw.org/malsync/
+     * PalmPix dekóder honlap:
+       [80]http://www.geocities.com/aa_soft/PalmPix.html
+     _________________________________________________________________
+
+A.2. a Palm OS rendszert használó eszközök
+
+Ez egy áttekintés azon eszközökrõl, melyek a HOGYANban szereplõ
+szoftverekkel képesek az együttmûködésre.
+     _________________________________________________________________
+
+A.2.1. Palm
+
+     * Pilot 1000, 5000, PalmPilot Personal, PalmPilot Pro. Eredeti Palm
+       PDA gépek, már nem gyártják õket. Ezek az eszközök soros
+       kapcsolaton keresztül mûködnek.
+     * Palm IIIe, IIIx, IIIxe, IIIc. A III sorozatot már szintén nem
+       gyártják. Ezek az eszközök soros kapcsolaton keresztül mûködnek.
+       Az elsõ színes Palmnak, a IIIc-nek van egy opcionális USB
+       csatolója, de a soros interfész szükséges a Linuxszal való
+       használathoz.
+     * Palm V, Vx. Az V sorozatot szintén nem gyártják. Itt mutatták be
+       elõször az infravörös csatlakozót, és lehetséges ezen keresztül
+       szinkronizálni egy erre alkalmas PC-vel Soros csatlakozón
+       keresztül is mûködnek.
+     * Palm VII, VIIx. A VII sorozatot sem gyártják. Itt mutatták be
+       elõször a vezetékmentes kapcsolatot. Rendelkeznek egy opcionális
+       USB kapcsolattal is, de a soros interfész szükséges a Linuxszal
+       való használathoz.
+     * Palm m100, m105. A jelenlegi belépõ szintû Palm PDA gépek. Soros
+       kapcsolaton keresztül mûködnek.
+     * Palm m500, m505. Az infravörös kapcsolattal ellátott Palmok
+       legújabb változatai. Szériatartozékként rendelkeznek USB
+       bölcsõvel, és USB porton keresztül kell szinkronizálni õket.
+       Opcionálisan rendelkezésre áll egy soros kábel is, ha az USB
+       szinkronizáció nem oldható meg.
+     * Palm i705. A legújabb Palm, amely rendelkezik vezeték nélküli
+       hálózati kapcsolattal. A szinkronizáció USB alapú. Még nincsen
+       semmi hír arról, vajon mûködik-e Linuxszal USB porton keresztül.
+     _________________________________________________________________
+
+A.2.2. Handspring
+
+     * Visor. A Handspring Visor PDA sorozat USB csatlakozóval együtt
+       kapható. Soros kábelek is beszerezhetõek. Az USB jobban
+       támogatott Linux alatt a Visornál, mint a Palm PDA gépeknél,
+       szóval az USB kisebb hibákkal, de mûködik.
+     _________________________________________________________________
+
+A.2.3. Sony
+
+     * Clie. A Palm PDA egy nagyobb felbontású változata a Sonytól.
+     _________________________________________________________________
+
+A.3. A Palm OS eszközök története.
+
+Ez a rész az eredeti leírásnak egy változatlan formája. Nyilvánvalóan
+elavult, és nem vagyok biztos benne, hogy érdemes megtartani. Ez egy picit
+távol áll a Linux HOGYANok témájától, és naprakészen tartása egy picit
+értelmetlennek tûnik számomra. Ehelyett készítettem egy részt, mely a Palm
+operációs rendszert használó készülékekrõl szól, és melyek együttmûködnek
+azokkal az eljárásokkal, melyet ez a HOGYAN tartalmaz.
+
+A Pilotnak két típusa van. Az egyik a 1000 a másik a 5000 az elsõ 128k
+RAM-al a másiknak 512k RAM-al rendelkezik. A ROM verziója Palm OS 1.0.
+
+Késõbb két eszköz került forgalomba PalmPilot néven. Az egyik a PalmPilot
+Personal a másik pedig a PalmPilot Professional. Az elõbbinek 512k utóbbi 1
+Mega RAM-al rendelkezik. Az LCD kijelzõjû háttérvilágítással bír, az
+operációs rendszerük 2.0 verziójú. A Professional rendelkezik TCP/IP
+veremmel és néhány extra beépített alkalmazással.
+
+Az IBM saját márkaneve alatt kiadta a PalmPilot Professional egy másik
+változatát, mely WorkPad névre hallgat.
+
+A Palm III-nak újratervezett borítása és infravörös kapuja van, nem beszélve
+a 2 Megás RAM-ról és a Palm OS 3.0 verzióról.
+
+A Qualcomm is bejelentett egy terméket, melynek neve: pdQ smartphone. Ez
+alapvetõn egy okos mobiltelefon, melyet kereszteztek egy Palm OS PDA
+géppel. Még senki se legyen nagyon izgatott ettõl, mivel nem adják ki 1999
+elõtt.
+
+A memóriakártya cseréjével bármely Pilotot tovább lehet fejleszteni. Ez
+tartalmazza mind a RAM-ot mind pedig a ROM-ot. Természetesen ez nem fogja
+háttérvilágítással ellátni az eredeti Pilot sorozat gépeit.
+
+References
+
+   1. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#INTRODUCTION
+   2. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#DISCLAIMER
+   3. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#NEWVERSIONS
+   4. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#CHANGES
+   5. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#COPYRIGHT
+   6. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#AEN52
+   7. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PC-CONNECT
+   8. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PC-CONNECT-SERIAL
+   9. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#DEVFS
+  10. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PC-CONNECT-USB
+  11. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PC-CONNECT-INFRARED
+  12. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PC-CONNECT-NETWORK
+  13. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PILOTLINK
+  14. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PILOTLINK-INSTALLING
+  15. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PILOTLINK-USING
+  16. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#COLDSYNC
+  17. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#COLDSYNC-INSTALLING
+  18. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#COLDSYNC-USING
+  19. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#APPS
+  20. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#JPILOT
+  21. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#GNOME-PILOT
+  22. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#EVOLUTION
+  23. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#KPILOT
+  24. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#XNOTESPLUS
+  25. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#WMSYNC
+  26. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#OTHERSOFTWARE
+  27. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#PYRITE
+  28. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#OTHER-MALSYNC
+  29. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#OTHER-PALMPIX
+  30. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#APPENDIX
+  31. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#RESOURCES
+  32. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#DEVICES
+  33. file://localhost/home/dacas/temp/PalmOS-HOWTO-hu.html#HISTORY
+  34. http://www.redbug.uklinux.net/palm/index.html
+  35. http://www.gnu.org/copyleft/fdl.html
+  36. mailto:horvalb@freemail.hu_NO_SPAM
+  37. mailto:dacas@freemail.hu_NO_SPAM
+  38. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  39. http://tldp.fsf.hu/index.html
+  40. http://www.linuxpda.com/visor/howto/current/
+  41. http://www.pilot-link.org/howto/irhsync/
+  42. http://www.pilot-link.org/howto/nhsync
+  43. http://www.pilot-link.org/
+  44. http://www.ooblick.com/software/coldsync/
+  45. http://www.ooblick.com/software/coldsync/conduits/
+  46. http://www.jpilot.org/
+  47. http://www.gnome.org/projects/gnome-pilot/
+  48. http://www.ximian.com/
+  49. http://www.slac.com/pilone/kpilot_home/
+  50. http://www.graphics-muse.org/xnotes/xnotes.html
+  51. http://home.t-online.de/home/db7ne/wmsync.html
+  52. http://www.pyrite.org/
+  53. http://www.tomw.org/malsync/
+  54. http://www.geocities.com/aa_soft/PalmPix.html
+  55. http://www.pilot-link.org/
+  56. http://www.pilot-link.org/mailman/listinfo/pilot-link-general/
+  57. http://www.pilot-link.org/pipermail/pilot-link-general/
+  58. http://www.pilot-link.org/mailman/listinfo/pilot-link-announce/
+  59. http://www.pilot-link.org/pipermail/pilot-link-announce/
+  60. http://www.pilot-link.org/mailman/listinfo/pilot-link-devel/
+  61. http://www.pilot-link.org/pipermail/pilot-link-devel/
+  62. http://www.pilot-link.org/mailman/listinfo/pilot-unix-ng/
+  63. http://www.pilot-link.org/pipermail/pilot-unix-ng/
+  64. http://www.ooblick.com/software/coldsync/
+  65. mailto:coldsync-hackers-request@lusars.net?body=subscribe
+  66. http://www.thedotin.net/maillists/coldsync-hackers/
+  67. http://www.jpilot.org/
+  68. mailto:listar@moongroup.com?subject=subscribe
+  69. http://www.moongroup.com/archives/jpilot/
+  70. http://www.gnome.org/projects/gnome-pilot/
+  71. http://mail.gnome.org/mailman/listinfo/gnome-pilot-list
+  72. http://mail.gnome.org/archives/gnome-pilot-list/
+  73. http://www.slac.com/pilone/kpilot_home/
+  74. mailto:kde-pim-request@kde.org
+  75. http://lists.kde.org/?l=kde-pim&r=1&w=2
+  76. http://www.graphics-muse.org/xnotes/xnotes.html
+  77. http://home.t-online.de/home/db7ne/wmsync.html
+  78. http://www.pyrite.org/
+  79. http://www.tomw.org/malsync/
+  80. http://www.geocities.com/aa_soft/PalmPix.html

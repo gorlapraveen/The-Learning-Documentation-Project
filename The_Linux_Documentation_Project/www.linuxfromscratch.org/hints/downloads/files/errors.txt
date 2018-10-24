@@ -1,0 +1,418 @@
+AUTHOR:	Alex Kloss <alex@22-music.com>
+
+DATE: 2003-11-10
+
+LICENSE: GNU Free Documentation License Version 1.2
+
+SYNOPSIS: What to do on errors
+
+DESCRIPTION:
+The LFS Book has a short, but nice chapter about errors. A longer essay about 
+how to spot where the error is, how to describe it (on IRC or the mailing 
+list), and possibly get around it is the goal of this hint.
+
+PREREQUISITES:
+Common sense, LFS, patience. Programming skills (optional).
+
+HINT:
+Almost every LFS adept has seen lines like:
+
+- make[1]: Error
+- Segmentation Fault
+- ld returned signal 2: ...
+
+The first urge is to write to the mailing list or on IRC something like:
+
+I have an error in program <fill in whatever is appropriate>!
+
+First of all, is it really an error? If you find the option "-Werror" in the 
+lines that call gcc, the "error" you're facing could as well be a warning
+(-Werror makes gcc handle all warnings as errors). You will often find warning 
+and error messages mixed before the classical "make[1]: Error". A warning is 
+something gcc complains about, but continues without error, while an error is 
+something that stops you from compiling the package you are about to build.
+To disable distracting warning messages, use "export CFLAGS="-w".
+
+Mostly, further information about the errors are missing, which is a nuisance
+for both the one who asks and the one who tries to answer, because of the
+annoying dialogue that is often following. I have to admit that the LFS mailing
+list and IRC never failed to solve my problems (and that in a rather cheerful
+way), but I reached a point at where I wanted to solve as many of my problems
+as possible. So I had to learn a lot, which was undoubtedly fun.
+
+WHAT KIND OF ERROR?
+
+You have to distinguish between the different kinds of errors. The more you 
+can tell about the error, the easier it is to solve.
+
+This should be a normal hint, but I guess it is easier to draw a chart:
+
+Question: When did it happen?   What happened?      Where did it happen?
+
+                                                  , Compiling (gcc) ...
+                              , ... not found ---<- Dependencies (depmod)
+          Compile-time Error < -,                   ` Linking (ld)
+        /                     `. `- gcc-3.4.x*
+       /                        \
+Error <                          Segfault
+       `.                     ,'
+          Run-time Error ----<          , full
+                              ` Hangup <
+                                        ` Prog 
+        				  only
+____
+* gcc-3.4 and later don't accept labels at the end of compound statements 
+  nor the usage of protected functions from within other files.
+
+That looks pretty simple, eh? But that is only the beginning. We will have a 
+look at each of these error types closely!
+
+1. Compile-time Errors
+
+First of all, check the package you are about to compile for files like README
+and/or INSTALL. You can work around most errors by strictly following those 
+instructions. 
+
+When you are about to build your package, you sometimes get the error that 
+something is missing or malformed or simply uncompileable.
+
+1.1 ... not found
+
+1.1.1 Compiling (gcc)
+
+There is a lot gcc may be unable to find. If there is something to include, it 
+may be the file that should be included, that is missing. The questions here 
+are: 1. what is missing? and 2. what to do against?
+
+1.1.1.1 Missing header file
+
+If only a header file is missing, you will experience an error message like:
+
+foo.c:3:31: /usr/include/bar.h: No such file or directory
+
+If there's a file missing, you may want to search your system for it:
+
+find / -name <filename> or
+locate <filename> (run updatedb, if locate demands it)
+
+If you don't find the file, the next question would be: where should this file
+come from? Is there a prerequisite you forgot? Are all tools available in the 
+required versions?
+
+If the file is anywhere else than in the common include path (/usr/include,
+/usr/local/include), you may add -I<uncommon include path> to the CFLAGS,
+e.g. "export CFLAGS=-I/usr/X11R6/include". If the #include statement
+contains a subdirectory, while the file to be included is in the common
+directory, you'll have to edit the #include statement.
+
+In most cases the file will be in a directory the developer did not expect.
+The easiest way around that would be a symlink, but that is not a clean way. 
+So we search the sources for occurrences of the "missing" file first:
+
+grep -R "<missing file's path and name>" *.*
+
+Now edit every file that uses the wrong path in it's #include statements. The
+lazy user can utilize sed:
+
+for i in *.*; do 
+ mv $i $i.bak
+ sed s|'<"missing" file>'|'<found file'>|g $i.bak > $i
+done
+
+This should solve the problem; you can continue building the package.
+
+1.1.1.2 Missing declaration
+
+Another fine error message goes about a missing declaration:
+
+foo:124:4: bla undefined
+
+if "bla" is a function from generic libraries (like glibc), it will probably be
+documented with a manpage which holds information about which header file(s)
+it needs to be included:
+
+man bla
+
+Look at /usr/share/man/man3 for documented function calls: The manpage will
+look something like that:
+
+--snip
+FUNC(3)				Linux Programmer's Manual		FUNC(3)
+
+NAME
+	func, ffunc, vfunc - Example function without any use
+
+SYNOPSIS
+	#include <stdfunc.h>
+	int func(char *format, ...);
+	int ffunc(FILE *stream, const char *format, ...);
+
+	#include <vstdfunc.h>
+	int vfunc(const char *format, va list ap);
+
+DESCRIPTION
+...
+--snap
+
+In most of the cases the header file is not included where it's needed, so you
+just write it into the file where it is missing: "#include <stdfunc.h>".
+
+If the definition is not in any standard library, you will have to search the
+codebase of the program you are about to compile for the function it's missing:
+
+grep "<function name>" *.* | less
+
+Now search for something like "#define bla ( const char * ...". If you don't
+find anything, the function is likely to be included in other sources, so you
+better check the requirements of the package you are about to compile, in case
+something is missing.
+
+If the file where the definition is included is a header file (*.h), simply
+include it, otherwise copy and paste the definition into the file gcc is
+complaining about.
+
+Sometimes it's not the definition, but a missing argument to a function. The 
+last living example of this gizmo was an error due to some API change in the
+alsa-1.0-pre driver when compiling any alsa-enabled package that used at least 
+one of the snd_pcm_hw_param-functions (e.g. mplayer or wine). The related error
+was displayed as:
+
+audio.c: In function `Alsa_TraceParameters':
+audio.c:292: error: too few arguments to function `snd_pcm_hw_params_get_format'
+(...)
+
+In this case you need to know what arguments the function is expecting.
+Therefore, we seek the header file that defines the function (like explained 
+for missing functions). For our alsa example, the line in the header file was
+in /usr/include/alsa/pcm.h and looked like:
+
+int snd_pcm_hw_params_get_format(const snd_pcm_hw_params_t *params,
+snd_pcm_format_t *val);
+
+While the code from which that function was invoked only used:
+
+(...) format = snd_pcm_hw_params_get_format(hw_params);
+
+One must notice that only the first argument is given, the other argument
+"snd_pcm_format_t" of the type "*val" is missing. Now we need to know what
+type *val is, then we could insert it into audio.c.
+
+1.1.1.3 function bla... redefined
+
+Another almost similar error occurs if something is defined twice. The compiler
+is unable to tell if both definitions are equal, so it will give the error even
+in that case. You have to search for the definitions, check out which one is 
+valid for your case and embrace the "invalid" function with "#ifndef <Name>"
+and "#endif". One could easily remove the "invalid" definition, but if another
+package would need it, it would be missing then, so the #ifndef/#endif-way is
+clearly the better one.
+
+1.1.2 Linking (ld)
+
+Linking mostly fails because of missing libraries. Make sure your
+/etc/ld.so.conf contains all directories with libraries in it. In case, another
+directory is needed, use LDFLAGS: "export LDFLAGS=-L/usr/X11R6/lib" to include
+XFree86's libraries for sure. "/lib" and "/usr/lib" are always included by
+default and need not to be in there.
+
+Another (occasional) error can occur if libs are not linked right. I only
+saw it happen once when some program linked to libpng, but forgot about libz,
+which is used by libpng, but needs to be linked to, too. So in the Makefile,
+where I found "LIBS=-lpng", I completed it to "LIBS=-lpng -lz". Mostly the
+function that is missing is given; you can try to grep it in the library
+(binary matches).
+
+1.1.3 Module Dependency checking (depmod)
+
+Another error that only happens if the running kernel differs from the one the 
+sources are compiled against (which could be the case when compiling in chrooted
+mode) is the "unresolved dependency in module"-error. To get around that bug, 
+run depmod with the "-F /usr/src/linux/System.map"-option. And be sure that you
+are compiling the modules with the same compiler as you used when compiling the
+kernel.
+
+1.2 gcc-3.4.x
+
+The version 3.4.x introduces some new errors, which compiled fine using earlier 
+version of the same compiler. Instead of resorting to an older version, it 
+should be easier to fix them.
+
+1.2.1 gcc-3.4.x: label at the end of compound statement
+
+Since gcc-3.4.x, labels at the end of a compound statement are treated as 
+errors, though they are widely used in spite of their scruffyness. Certainly 
+this problem is easily solved: just replace the ocurrences of
+
+  goto [label];
+
+with
+
+  return;
+
+and remove the label from the source or comment it out. As a rule, avoid goto 
+statements in your C code.
+
+1.2.2 gcc-3.4.x: protected functions
+
+The message
+
+  Error: `foo::bar function(pointer*)' is protected
+
+shows that somewhere in the code there is a function prefixed with
+
+  protected:
+
+Though this has a meaning, it stops our application from compiling, so we can
+easily comment this out:
+
+  // protected:
+
+and continue the compilation.
+
+1.3 Segmentation Fault
+
+This is most annoying. It means an application tries to get something from a 
+file/pipe/device/environment variable that is not set and has no fallback if 
+there is nil but rather dumps core and stop immediately. If the following in-
+formation is not sufficing for you, you may want to have a look at the SIG11 
+FAQ which can be found at http://www.bitwizard.nl/sig11 - but look at this 
+section first.
+
+1.3.1 Segfault during compilation
+
+Segmentation faults during compilation are rarely seen. You only get SIG11 if
+the memory is full while building a package and it will happen only on systems
+with little memory. You can add a loop device to swap to expand your memory; 
+this will make compilation much slower, but at least it will work on such 
+devices that have insufficient memory:
+
+dd if=/dev/zero of=/tmp/swapspace bs=1M count=128
+losetup /dev/loop0 /tmp/swapspace
+mkswap /dev/loop0
+swapon /dev/loop0
+
+will set up 128MB of swap space (or virtual memory). If it still fails,
+increase the amount of disk space used (count=256; count=512; count=XXX). If 
+you are done compiling or want to increase the size, remove the added swapspace
+with:
+
+swapoff /dev/loop0
+losetup -d /dev/loop0
+rm /tmp/swapspace
+
+1.3.2 Segfault during execution
+
+If a program segfaults, there is not much you can easily do to hunt the error
+down unless you have some programming skills. Contact the developer and give
+him a detailed view of your system; maybe in /var/log is something about the
+error? If you want to hunt the bug down yourself anyway, read the SIG11 FAQ and
+use strace which you will find at http://www.liacs.nl/~wichert/strace/ and is 
+easily installed on the program; it may help you to find out what file/pipe/
+environment string/etc the program is expecting to be available. Then try to 
+grep the sources of the program which is segfaulting after the file/pipe/etc 
+which failed. Add a fallback routine. A nice example is the gsview-4.4-patch.
+gsview 4.4 tried to get the environment variable LANG, but had no fallback for
+the case it was not set. The malignant part of the source looked like:
+
+   strncpy(lang, getenv("LANG"), sizeof(lang)-1);
+
+Which would have copied a part of the LANG(uage) environment variable without
+the last character - if LANG was empty, it would have tried to copy -1 char-
+acters, which resulted in a segfault. The easy solution would have been to set
+LANG to something, but the better solution is to provide a fallback and change
+the code to:
+
+   strncpy(lang, (getenv("LANG") == 0) ? "C" : getenv("LANG"),sizeof(lang)-1);
+
+That is a bit obfuscated for the C-illiterate, but it means "if LANG is 0, then
+use 'C' instead of the LANG environment variable (which stands for standard), 
+else use the LANG environment variable minus one char". Now it is your turn,
+if you still want to get that bug by yourself!
+
+1.4 Hangup
+
+Hangups are the most annoying errors there are. Fortunately, they are as seldom
+as annoying with Linux (unless you use bleeding edge sources only). Hangups are
+mostly caused by endless loops, driver problems that leads to bus lockups, and
+hardware issues (like defective capacitors in the CPU power supply, check for 
+bursted ones). Infinite loops are easily spotted by the warnings of most 
+compilers, the latter is harder to find. Try to downgrade the driver you think 
+is responsible for the hangup and send a report to the relative mailing list.
+
+1.4.1 Full Hangup
+
+You recognize a full hangup by pressing the [CAPS LOCK] key. If the led is
+flashing, the keyboard is still hooked to the console, so that's no full
+hangup. Try pressing different keys then. If nothing else works, use a hard 
+reboot (that is always the last means of getting back to work). If the
+keyboard is still available, but the screen is blank, try to reboot with
+[ALT][CTRL][DEL]. If even that doesn't work, you may be lucky enough to have 
+the sysrq key feature compiled into your kernel. For further information, read
+[/usr/src/linux/Documentation/sysrq.txt].
+
+1.4.2 Program-only Hangup
+
+If the program hangs up leaving the rest system intact, you can use the
+appropriate of the kill/killall/xkill command to get rid of it. Program-only
+Hangups occurs on infinite loops, e.g. trying to read from a blocked pipe, in
+most cases the load will go up visibly.
+
+1.5 Other errors
+
+If you get an error message not covered by this hint, check the relevant 
+mailinglists, enter the error message into google and look 1. if there is a 
+newer version or 2. if a cvs version, if available, has the same error. If 
+nothing else helps, ask in IRC or mail to the developers mailinglist or submit
+a bug report. Remember to describe the error precisely and give enough 
+information about the system you are trying to build the package on (logs,
+versions, strace output, dmesg output, debug messages and so on).
+
+1.6 Some Useful Links
+
+About the SIG11 (Segfault) Error: 	http://www.bitwizard.nl/sig11
+This page has some general information about the SIG11 error
+
+Aquiring Programming Skills: 		http://ibiblio.org/obp/thinkCS
+This page features a book called "How to think like a computer scientist",
+which can be downloaded freely in the flavours Java, C++ and Python. The
+C++ variant will be most helpful for the LFS adept, since most GNU projects
+uses either C or C++.
+
+
+May the source be with you!
+
+CHANGELOG:
+  [2002-01-04]
+    * Started to write this hint.
+
+  [2003-10-07]
+    * Initial Version, small additions.
+
+  [2003-10-08]
+    * Almost forgot to give Tushar some credits, little changes and additions.
+    * Small changes and corrections suggested by Bill Maltby
+
+  [2003-10-26]
+    * Adding a link to the SIG11 FAQ, some more stuff about segfaults and have 
+      a few words about the depmod problem with different kernels.
+
+  [2003-11-10]
+    * Adding a Links section with a link to a book that helps in aquiring C++ 
+      Skills.
+
+  [2004-01-20]
+    * Added a short section about redefined functions.
+
+  [2004-09-07]
+    * Minor corrections, added gcc-3.4 inability to accept labels at the end of
+      a compound statement and it's solution.
+
+  [2004-09-08]
+    * Another minor corrections plus gcc-3.4 stuff about protected functions.
+
+CREDITS:
+Thanks to teemu for reminding me on "-I" and "-l" as much as Tushar for the 
+warning about warnings and ringing the bell of the "-w" option, not to
+forget Bill for his corrections. Thanks to Gerard for inspiring me with his
+LFS section about errors! Thanks to Allen B. Downey for his brilliant book 
+that's distributed freely under License GPL! :-)

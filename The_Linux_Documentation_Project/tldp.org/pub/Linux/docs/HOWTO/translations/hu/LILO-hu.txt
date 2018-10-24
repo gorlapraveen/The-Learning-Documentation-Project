@@ -1,0 +1,1461 @@
+
+                               LILO mini-HOGYAN
+
+Miroslav "Miskõ Skoric, skoric at eunet dot yu
+
+   v3.19, 2004.03.30
+     _________________________________________________________________
+
+   A LILO a leggyakrabban alkalmazott linuxos betöltõprogram - Linux
+   Loader az x86-os Linuxoknál; Én inkább Lilo-nak fogom nevezni a LILO
+   helyett, mivel nem kedvelem a nagybetûs írásmódot. A dokumentum a
+   Lilo néhány jellegzetes telepítési módját mutatja be és a Lilo
+   felhasználói kézikönyvének kiegészítéseként szolgál. Úgy gondolom a
+   példák nagyon szemléletesek még akkor is, ha a környezet nem teljesen
+   hasonlít az enyémhez. Remélem néhány bosszúságtól meg fog óvni írásom.
+   Mivel a Lilo saját dokumentációja nagyon jó, akit a részletek
+   érdekelnek forduljon az /usr/doc/lilo* leírásokhoz. (A fentieket két
+   úriember Cameron Spitzer és Alessandro Rubini mondta. Õk készítették
+   a leírás elõzõ változatait.)
+     _________________________________________________________________
+
+   A Lilo mini-HOGYAN ezen változata Cameron Spitzer
+   (cls@truffula.sj.ca.us) és Alessandro Rubini (rubini@linux.it)
+   munkáján alapul. Tony Harris (tony@nmr.mgh.harvard.edu) és Marc Tanguy
+   (tanguy@ens.uvsq.fr) is hozzájárultak a munkához. A fent említett
+   szerzõk anyagait - változtatások nélkül - használtam fel, ehhez adtam
+   hozzá néhány a Windows NT és a Windows 2000 Lilo-val történõ
+   együttmûködéséhez kapcsolódó témát. Sokkal részletesebb információt
+   találsz a LILO menüjébõl történõ Windows NT/2000 aktiválásához a
+   csodálatos [1]Linux+WindowsNT mini-HOWTO dokumentumban.
+
+1. Bevezetés
+
+   Annak ellenére, hogy a Lilo forrásaiban található dokumentáció nagyon
+   alapos (/usr/doc/lilo), a legtöbb Linux felhasználónak gondot okoz a
+   saját /etc/lilo.conf állományának elkészítése. Ez a leírás minimális
+   információkkal és 5 mintatelepítés bemutatásával kíván támogatást adni
+   nekik:
+
+     * Az elsõ példa a klasszikus "Linux és valami más" telepítés.
+     * A következõ azt mutatja br, hogyan kell a Lilo-t telepíteni egy
+       merevlemezre, mely /dev/hdc-ként kapcsolódik, de /dev/hda-ként
+       töltõdik be. Erre általában akkor van szükség, ha futó
+       rendszeredrõl szeretnél egy új Linux meghajtót telepíteni. Itt
+       írom le, hogyan lehet SCSI lemezrõl indítani, ha a BIOS elég
+       modern hozzá.
+     * A harmadik példa azt mutatja be, hogyan lehet egy Linux rendszert
+       elindítani olyan lemezrészrõl, melyet nem ér el a BIOS.
+     * A következõ példa megmutatja, hogyan lehet elérni a nagyméretû
+       lemezeket, melyet sem a BIOS, sem pedig a DOS nem tud egyszerûen
+       elérni (ez a rész egy picit elavult).
+     * Az utolsó példa azt mutatja meg, hogyan kell helyreállítani egy
+       sérült lemezt, ha a meghibásodást egy másik operációs rendszer
+       telepítése okozta.
+
+   Az utolsó három példát, az eredeti leírás szerzõje, Cameron,
+   cls@truffula.sj.ca.us írta. Alessandro rubini@linux.it a Linuxon kívül
+   nem futtat mást, ezért nem tudja ellenõrizni, sem pedig frissíteni a
+   leírást. Szükségtelen mondanom, hogy a visszajelzéseket szívesen
+   várom.
+
+2. Háttérinformáció és szabványos telepítés
+
+   Amikor a Lilo betölti a rendszert, BIOS hívásokat használ a Linux
+   rendszermag betöltéséhez a merevlemezrõl (IDE lemez, hajlékonylemez
+   vagy bármi más). Emiatt a rendszermagnak olyan helyen kell
+   elhelyezkednie, melyhez a BIOS hozzá tud férni.
+
+   A betöltés során a Lilo nem képes a fájlrendszer adatainak olvasására,
+   az /etc/lilo.conf fájlban beállított bármilyen útvonal a telepítés
+   során kerül feloldásra (mikor kiadjuk az /sbin/lilo parancsot). A
+   program a telepítés során építi fel azokat a táblázatokat, melyek
+   felsorolják, hogy mely szektorokat használják az operációs rendszer
+   betöltéséhez szükséges fájlok. Ennek következményeként, ezen fájlok
+   mindegyikének olyan lemezrészen kell elhelyezkednie, melyhez a BIOS is
+   hozzáfér (a fájlok általában a /boot könyvtárban helyezkednek el, ez
+   azt jelenti, hogy a Linux rendszernek csak a root lemezrészét kell
+   elérnie a BIOS-on keresztül).
+
+   A Bios-alapúságnak a másik következménye, hogy a betöltõt újra kell
+   telepíteni (azaz ki kell adni újra az /sbin/lilo parancsot) a Lilo
+   setup bármilyen módosításakor. Ha újrafordítod a rendszermagot és
+   felülírod a régi lemezképet újra kell telepíteni a Lilo-t.
+
+2.1 Hova kell a Lilo-t telepítenem?
+
+   Az /etc/lilo.conf -ban található boot= utasítás jelzi a Lilo-nak hova
+   kell tennie az elsõdleges betöltõt. Ez általában a a master boot
+   record (/dev/hda), Linux telepítésednek a root partíciója (általában
+   /dev/hda1, vagy /dev/hda2).
+
+   Ha merevlemezen egy másik operációs rendszer is telepítve van, jobban
+   teszed ha a Lilo-t a root partícióra telepíted az MBR helyett. Ebben
+   az esetben a parítciót "bootolhatóként" kell megjelölni az fdisk "a"
+   parancsával vagy az fdisk "b" parancsával. Ha nem írod felül a master
+   boot szektort, szükség esetén könnyebb lesz a Linux vagy a Lilo
+   eltávolítása.
+
+   Természetesen van lehetõség a fentihez hasonló "szabályok"
+   megkerülésére. Nos, a Lilo-t akkor is telepítheted az MBR-be, ha oda
+   már telepítettél egy másik operációs rendszert. Például, ha gépedre
+   elõször egy Windows NT 4.0-t telepítettél az NT betöltõje került az
+   MBR-be, így probléma nélkül indíthatod az NT-t. Miután telepítetted a
+   Linuxot és azt választottad, hogy a Lilo az MBR -be kerüljön, a Lilo
+   átírta az NT betöltõjét. Mikor következõ alkalommal indítod a
+   gépedet, nem tudod betölteni az NT-t. Ez azonban nem gond.
+   Szerkeszteni kell az /etc/lilo.conf fájlt és az NT-nek új bejegyzést
+   kell készíteni. Következõ újraindításkor, a Lilo menüben ott lesz az
+   új NT bejegyzés. Ugyanez történik, ha a Windows NT helyett Windows
+   2000-t telepítesz.
+
+2.2 IDE merevlemez beállítása
+
+   Személy szerint én nem használom sem az LBA sem a LARGE beállításokat
+   a BIOS-ban (bár én kizárólag Linuxot futtatok); ezek a PC-s világ
+   tervezésbeli hiányosságaiból adódó szörnyû tákolmányok. Ennek
+   következményeként a rendszermagnak az elsõ 1024 cilinderben kell
+   elhelyezkednie. Ez mindaddig nem gond, amíg a merevlemez
+   particionálásakor a root partíció kis méretû (amit ettõl függetlenül
+   is így kell csinálni).
+
+   Ha merevlemezen már van egy másik operációs rendszer nem módosíthatod
+   a BIOS beállításokat, különben a régi rendszered nem fog többé
+   mûködni. Az összes újabb Lilo terjesztés képes kezelni az LBA és
+   LARGE lemezbeállításokat.
+
+   Ne feledd, hogy az /etc/lilo.conf fájlban található "linear" kulcsszó
+   segíthet a geometriai problémák megoldásában. Ez a kulcsszó arra
+   utasítja a Lilo-t, hogy lineáris szektorcímzést használjon a
+   szektor/fej/cilinder hármas helyett. A 3D címzésre való átalakítás a
+   futási idõre lesz halasztva, ezáltal téve a beállításokat sokkal
+   inkább immunissá a geometriából adódó problémák irányába.
+
+   Ha több mint egy merevlemezed van, és néhányukat csak a Linux
+   használja, valamint ha nincsenek benne a betöltési folyamatban, azt
+   beállíthatod a BIOS számára, hogy nincsenek is telepítve. Rendszered
+   sokkal gyorsabban fog betöltõdni a Linux pedig pillanatok alatt
+   automatikusan felismeri a meghajtókat. Én gyakran cserélgetem a
+   meghajtókat a számítógépemben, de soha nem bántom a BIOS beállításait.
+
+2.3 Hogyan avatkozhatok be a betöltési folyamat közben?
+
+   A Lilo készenléti jelénél a <Tab> billentyû lenyomása megmutatja a
+   választási lehetõségeket. Ha a Lilo-t nem interaktív módba állították
+   be tartsd lenyomva az <Alt> vagy <Shift> billentyûket mielõtt
+   megjelenik a "LILÕ üzenet.
+
+   Ha Linux rendszermagot töltesz be, a kiválasztott rendszer neve után
+   parancssori kapcsolót is megadhatsz. A rendszermag nagyon sok
+   parancssori kapcsolót fogad el. Az összes parancssori kapcsoló Paul
+   Gortmaker által írt "BootPrompt-HOWTÕ-ban található meg. Ezeket nem
+   kívánom itt megismételni. Néhány parancssori kapcsoló azonban
+   különösen fontos, és érdemes õket itt megemlíteni:
+
+     * root=: a Linux rendszermagnak jelezni lehet, hogy egy másik
+       partíciót csatoljon fel root partíciónak, mint ami a /lilo.conf
+       fájlban meg van adva. Például, rendszeremben van egy apró
+       lemezrész, melyen egy minimális Linux telepítés foglal helyet.
+       Errõl képes voltam betölteni a rendszert, miután tévedésbõl
+       tönkretettem a root partíciót.
+     * init=: az 1.3.43 valamint újabb változatú Linux rendszermagok
+       képesek arra, hogy az /sbin/init helyett más parancsot hajtsanak
+       végre, mint ahogy az a parancssorban van. Ha súlyos hibákat
+       tapasztalsz a betöltési folyamat közben, az init=/bin/sh
+       meghatározásával elérheted az alaprendszert (mikor a parancssorban
+       vagy, nagy valószínûséggel fel kell csatolni a partíciókat:
+       próbáld meg a "mount -w -n -o remount /; mount -a" parancsokat, és
+       ne felejtsd lecsatolni õket ("umount -a"), mielõtt kikapcsolod a
+       géped).
+     * Egy szám: ha egy számot adunk meg a rendszermag parancssorában ,
+       arra utasítod az init-et, hogy egy meghatározott futási szintre
+       lépjen (az alapértelmezett általában a 3 vagy a 2, a választott
+       terjesztésnek megfelelõen). Ezt megnézheted a init leírásában, az
+       /etc/inittab és /etc/rc*.d helyeken.
+
+2.4 A Lilo eltávolítása
+
+   Mikor a Lilo felülírja a betöltõ szektort, lement egy biztonsági
+   másolatot a /boot/boot.xxyy alá, ahol az xxyy az eszköz felsõ és alsó
+   számai hexadecimálisan kifejezve. A merevlemez, vagy lemezrész felsõ
+   és alsó számait a "ls -l /dev//device" parancs futtatásával veheted
+   szemügyre. Például a /dev/hda elsõ szektora (felsõ 3, alsó 0) a
+   /boot/boot.0300 könyvtárba lesz lementve, ha a Lilo-t a /dev/fd0
+   eszközre telepítjük az egy /boot/boot.0200 könyvtárat fog létrehozni,
+   ha pedig /dev/sdb3 (felsõ 8, alsó 19) akkor /boot/boot.0813-ba lesz
+   lementve. Figyeld meg, hogy a Lilo nem fog még egy fájlt létrehozni,
+   ha már létezik egy, így nem kell törõdnöd a a biztonsági másolattal,
+   ha újratelepíted a Lilo-t (például a rendszermagod újrafordítása
+   után). A /boot/ alatt található biztonsági másolatok mindig
+   pillanatfelvételei annak a helyzetnek, mielõtt bármilyen Lilo-t
+   telepítettél volna.
+
+   Ha valaha is el kell távolítanod a Lilo-t (például, abban a
+   szerencsétlen esetben, hogy eltávolítsd a Linuxot), egyszerûen csak
+   vissza kell állítanod az eredeti betöltõ szektort. Ha a Lilo a
+   /dev/hda-ra települt, egyszerûen írd be a "dd if=/boot/boot.0300
+   of=/dev/hda bs=446 count=1" parancsot (Személy szerint én a "cat
+   /boot/boot.0300 > /dev/hda" parancsot használom, de ez nem
+   biztonságos, mivel ez helyre fogja állítani az eredeti partíciós
+   táblát is, melyet közben módosíthattál is). Ezt a parancsot sokkal
+   egyszerûbb futtatni, mint megpróbálkozni DOS parancssorból a "fdisk
+   /mbr" paranccsal, ez lehetõvé teszi, hogy tisztán eltávolítsd a
+   lemezrõl a Linuxot, még akkor is, ha eddig csak mindig Linuxot
+   töltöttél is be. A Lilo eltávolítása után ne feledd el futtani a Linux
+   "fdisk" parancsát a Linux lemezrészek eltávolítsa céljából (A DOS
+   "fdisk" nem képes nem-DOS lemezrészek eltávolítására).
+
+   Ha a Lilo-t a root partícióra telepítetted(pl.: /dev/hda2), semmi
+   különöset nem kell tenned a Lilo eltávolításához. Egyszerûen csak
+   futtasd a Linux "fdisk" parancsát a Linux lemezrészek partíciós
+   táblából való eltüntetéséhez. Ne feledd el megjelölni a DOS lemezrészt
+   betölthetõként.
+
+2.5 Ram lemez készítése
+
+   Figyelem: Ha ezt a bekezdést nehéznek találod, nézz körül a [2]How to
+   make a ram disk honlapon, itt megtalálhatod ennek a kiegészítésnek az
+   "eredetijét"...
+
+   Írta: Tony Harris
+
+   2000. október 16.
+
+   ram lemez ici-pici HOGYAN
+
+   Ha a root partíció olyan eszközön van, melynek nincs a rendszermagba
+   befordított eszközmeghajtója a lilo -t kell használnod ennek az
+   eszközmeghajtónak modulként való betöltéséhez a betöltési folyamat
+   korai szakaszában. Két egyszerû lépésbõl áll:
+
+     * készíts egy ram lemezképet az /mkinitrd paranccsal
+     * módosítsd a lilo.conf fájlt, hogy az a lemezképre mutasson
+
+   Elõször is, a cd-vel átváltok a /boot könyvtárba:
+
+System.map                  chain.b                module-info-2.2.16-3ext3
+System.map-2.2.16-3         initrd-2.2.16-3.img    vmlinux-2.2.16-3
+System.map-2.2.16-3ext3     vmlinux-2.2.16-3ext3
+vmlinuz                     kernel.h
+boot.b                      map                    vmlinuz-2.2.16-3
+bz.2.2.15.juke.Image        module-info            vmlinuz-2.2.16-3ext3
+bzImage-2.2.14              module-info-2.2.16-3
+
+   Itt láthatod, hogy van egy 2.2.16-3 rendszermagom és hozzáadtam egy
+   második rendszermagot, mely támogatja az ext3-at
+   (vmlinuz-2.2.16-3ext3). Az elsõ rendszermagom számára már létezik egy
+   lemezkép (initrd-2.2.16-3.img).
+
+   A második rendszermag számára létrehozandó lemezképhez, a
+   következõket kell beírnom (a begépelendõ kiemelve van szedve):
+
+   boot# mkinitrd initrd-2.2-16-3ext3.img 2.2.16-3ext3
+
+   Az mkinitrd egy shell szkript, mely megvizsgálja a rendszermagom
+   számára szükséges modulokat, majd létrehoz egy ext2 fájlrendszert,
+   mely tartalmazza azokat a modulokat. Ha belepillantunk a lemezképbe
+   látjuk, hogy ez igaz:
+
+   boot# cat initrd-2.2.16-3ext3.img | gunzip > /tmp/myimage
+
+   boot# file /tmp/myimage
+
+   /tmp/myimage: Linux/i386 ext2 filesystem/
+
+   Nem szükséges belenézned a lemezképbe. A lemezkép létrehozása és a
+   lilo.conf módosítása a két kötelezõ lépés. A ram lemezkép leírása
+   kizárólag pedagógiai célokat szolgál.
+
+   A lemezkép megtekintéséhez azt fájlrendszerként kell felcsatolni:
+
+   boot# mount /tmp/myimage /mnt/tmp -t ext2 -o loop=/dev/loop3
+
+   boot# ls /mnt/tmp
+
+   bin dev etc lib linuxrc
+
+   boot# find /mnt/tmp
+
+   mnt/tmp/
+
+   mnt/tmp/lib/
+
+   mnt/tmp/lib/aic7xxx.o/
+
+   mnt/tmp/bin/
+
+   mnt/tmp/bin/sh/
+
+   mnt/tmp/bin/insmod/
+
+   mnt/tmp/etc/
+
+   mnt/tmp/dev/
+
+   mnt/tmp/dev/console/
+
+   mnt/tmp/dev/null/
+
+   mnt/tmp/dev/ram/
+
+   mnt/tmp/dev/systty/
+
+   mnt/tmp/dev/tty1/
+
+   mnt/tmp/dev/tty2/
+
+   mnt/tmp/dev/tty3/
+
+   mnt/tmp/dev/tty4/
+
+   mnt/tmp/linuxrc/
+
+   Ennek a ram lemezképnek a legfontosabb része az aic7xxx.o, mely az én
+   scsi modulom.
+
+   Végül elérkeztünk az utolsó lépéshez, az /etc/lilo.conf módosításához:
+
+   Itt láthatod az én bejegyzésemet a lilo.conf fájlban, mely összhangban
+   van az imént létrehozott rendszermaggal és a lemezképpel:
+
+   image=boot/vmlinuz-2.2.16-3ext3/
+
+   label=linux.ext3
+
+   initrd=boot/initrd-2.2.16-3ext3.img/
+
+   read-only
+
+   root=dev/hdb3/
+
+   Ennyi az egész. Root felhasználóként futtasd a /lilo-t, majd indítsd
+   újra a géped.
+
+   Ha gondjaid vannak, nézd meg [3]Linux kernel HOWTO ( [4]Linux
+   rendszermag HOGYAN) dokumentumot. Van néhány dolog benne amikkel
+   találkoznod kellett: az /etc/conf.modules fájlban található
+   rendszermag-modulokat le kell fordítani.
+
+3. Az egyszerû beállító állomány
+
+   A legtöbb Lilo telepítés olyan beállító állományokat használ, mint az
+   alábbi:
+
+boot = /dev/hda   # vagy a gyökér lemezrész
+delay = 10        # késleltetés, tizedmásodpercben (ekkor avatkozhatsz be)
+vga = 0           # nem kötelezõ. 80x50-hez használd a "vga=1" parancsot
+#linear           # geometriai problémák esetén próbálkozz a "linear" paranccsa
+l.
+
+image = /boot/vmlinux  # a zImage fájlod
+  root = /dev/hda1     # a gyökér lemezrész
+  label = Linux        # vagy bármilyen tetszetõs név
+  read-only            # a root partíció kizárólag olvashatóként történõ felcs
+atolása
+
+other = /dev/hda4   # dos lemezrész, ha van
+  table = /dev/hda  # a jelenleghi partíciós táblázat
+  label = dos       # vagy bármilyen nem tetszetõs név
+
+   Ha szeretnéd, lehet több "image" és "other" bekezdésed. Nem szokatlan,
+   hogy több rendszermag-lemezképed van beállítva a lilo.conf-ban,
+   legalábbis, ha naprakész vagy a rendszermag fejlesztésekben.
+
+3.1 Nagy rendszermagok kezelése
+
+   Ha fordítasz egy "zImage" rendszermagot és az túl nagy ahhoz, hogy fél
+   megabájtban elférjen (ez általános az új 2.1 rendszermagoknál), akkor
+   egy "nagy zImage"-et kell helyette készítened: "make bzImage". Egy
+   nagy rendszermag-lemezkép betöltéséhez semmi különleges nem kell, csak
+   a Lilo 18 vagy újabb változata. Ha a telepítésed régebbi, a Lilo
+   csomagodat frissíteni kell.
+
+3.2 Windows NT betöltése a "LILO boot:" menübõl
+
+   A következõkben leírom annak menetét, hogyan tudod hozzáadni a Lilo
+   menüjéhez mind a Linux, mind pedig az NT bejegyzéseit:
+
+     * Elõször is javaslom, hogy telepíts egy friss Windows NT 4.0-t a
+       merevlemezre. Azt gondolom, hogy már elkészítetted a fontos
+       adataid biztonsági mentését, így az NT telepítése nem okozhat
+       problémát. Az NT telepítése közben, a telepítõ nem fogja
+       megkérdezni hova telepítse a NT betöltõjét, így az merevlemez
+       MBR-jébe (Master Boot Record) kerül. Azonban lehetõség van arra,
+       hogy az MBR elõzõ tartalma megmaradjon az MBR-en belül
+       (különösen egy elõzõ Lilo). Emiatt azt javaslom, hogy (az NT
+       telepítése elõtt) egy DOS-os Fdisket tartalmazó DOS
+       rendszerlemezrõl töltsd be a rendszert. A parancssorban a:\
+       egyszerûen írd be a következõ parancsot: fdisk /mbr és indíts
+       újra a gépet (immár a rendszerlemez nélkül).
+     * Miután sikeresen telepítetted az NT-t, láthatod, hogy az egész
+       merevlemezt elfoglalja, vagy a merevlemezed egy meghatározott
+       részét (attól függõen, hogyan döntöttél a telepítési folyamat
+       során). Tanácsos "lezsugorítani" az NT-t elfoglaló lemezrészt,
+       annak érdekében, hogy legyen egy kis szabad helyünk a lemezen.
+       Erre a szabad területre fogod telepíteni a Linuxot. Miután
+       beállítottad az NT-t és az mûködik, egy Partition Magic
+       segédprogramot (gyártója a Power Quest) tartalmazó
+       hajlékonylemezrõl kell indítanod a rendszert. Ez egy grafikus
+       eszköz, mely látja az összes lemezen lévõ összes lemezrészt. A
+       legjobb dolog, hogy a lemezrészekkel anélkül tudsz változtatásokat
+       végrehajtani, hogy tönkretennéd a már meglévõ adataidat. Az egyik
+       lehetõség a meglévõ lemezrészek csökkentése, annak érdekében,
+       hogy egy kis szabad helyet szerezzünk egyéb célokra. Bár tanácsos
+       egy biztonsági másolatot készíteni bármilyen módosítás elõtt, én
+       általában az NT lemezrész "zsugorítását" az elõtt teszem,
+       mielõtt még bármit is telepítettem volna az NT-n kívül (így, ha
+       szükséges egy újratelepítés ne okozhat gondot). Nos, a Partition
+       Magic (vagy bármely általad ismert hasonló segédprogram)
+       lezsugorítja az NT lemezrészt (legyen az NTFS vagy FAT) egy kisebb
+       méretûre, majd ezt az elõzõ rész elejére vagy a végére teszi.
+       Ez azt jelenti, hogy választhatsz, hogy a lezsugorított NT
+       lemezrész a merevlemez elején vagy végén helyezkedjen el (én
+       általában azt választom, hogy az NT a lemez elejére kerüljön, így
+       a lemez hátsó része "szabad területté" válik). A "zsugorítás"
+       befejezése után, újraindíthatod az NT-t, és ellenõrizheted az új
+       helyzetet: a Windows intézõt és a Lemezkezelõt használhatod erre
+       a feladatra.
+     * Eddig megvolnánk. A következõ lépés a Linux telepítése. Ha
+       ismered a RedHat terjesztést (remélem más terjesztésekkel ugyanez
+       vagy hasonló a helyzet), rakd a telepítõ CD-t a meghajtóba és
+       indítsd újra a géped. Amikor a telepítés típusának kiválasztásához
+       érsz (Gnome vagy KDE munkaállomás, Egyéni stb.) bármelyik általad
+       kívánt típust kijelölheted, én azonban a munkaállomás
+       (workstation) telepítését javasolnám elõször. Ez azért jó, mert a
+       Linux telepítõ automatikusan megtalálja a szabad partíciót az
+       (elsõ) merevlemezen, elkészíti az összes, Linuxhoz szükséges
+       partíciót, megfelelõen megformázza õket, alapértelmezettként
+       beállítja a legtöbb opciót, így nincsen sok gondod a telepítés
+       alatt (késõbb ha szeretnéd hozzáadhatod a hiányzó összetevõket,
+       vagy újratelepítheted a Linuxot egyéni módban a már létezõ
+       partíciókra). A Lilonak az MBR-be kell kerülnie.
+     * Miután úgy látod, hogy a Linux telepítse befejezõdött, újra kell
+       indítani a gépet és látni fogod a Lilo-t egyetlen betölthetõ
+       Linux bejegyzéssel (vagy több mint egy Linux bejegyzéssel abban az
+       esetben, ha a hardvered többprocesszoros). Ne ess pánikba! A
+       Windows NT még mindig ott van, ahova telepítetted a Linux elõtt.
+       Minél elõbb meg kell ismerkedned a Linuxszal, abból a célból,
+       hogy megtaláld és megszerkeszd az új /etc/lilo.conf fájlodat.
+       Mikor elõször nyitod meg ezt a fájlt, azt fogod látni, hogy csak
+       egy (vagy több) Linux bejegyzés szerepel. Nos, ismerned kell a
+       pontos helyzetét (azaz partícióját) a Windows NT telepítésednek,
+       így hozzáadhatod a megfelelõ bejegyzést az /etc/lilo.conf fájlba.
+       Miután megcsináltad, indítsd újra a Lilo-t és a következõ
+       újraindítás után ott lesz mind a "linux" mind pedig a "nt"
+       bejegyzés a Lilo menüjében.
+
+3.3 Windows 2000 betöltése a "LILO boot:" menübõl
+
+   Nos, használhatod ugyanazt az eljárást, amit fent ismertettem.
+   Javaslom, hogy olvasd el a [5]Linux+WindowsNT mini-HOWTO dokumentumot,
+   mely ír a Windows 2000 betöltésérõl is. Ez a lemez ugyanazon
+   területére volt telepítve, mint Windows NT azelõtt. Itt nagyon sok
+   hasznos részletet találsz majd meg a különbözõ Linux+WinNT/2000/98
+   kombinációkat illetõen.
+
+4. A hdc telepítése hda-ként, a bios= kapcsoló használatával
+
+   A Lilo lehetõséget ad arra, hogy egy merevlemezrõl csatlakoztassuk a
+   rendszermag lemezképét, és a BIOS-t arra utasítsuk, hogy egy másik
+   lemezrõl töltse azt be. Például, én gyakran telepítem a Linuxot
+   hdc-re (secondary mester), majd önálló rendszerként töltöm azt be, egy
+   másik gép primary IDE vezérlõjén lévõ rendszerben. A telepítõ
+   hajlékonylemezt egy pici partícióra másoltam, így futtathatom a chroot
+   parancsot egy virtuális konzolon a hdc telepítéséhez, miközben a
+   rendszert valami másra használom.
+
+   A Lilo telepítéséhez használt lilo.conf fájl a következõképpen néz
+   ki:
+
+# Ezt a fájlt egy /dev/hdc-n futó rendszernél kell alkalmazni
+boot = /dev/hdc   # felülírja a hdc MBR-jét
+disk = /dev/hdc   # jelzi milyen lesz a hdc:
+   bios = 0x80    # a bios elsõ meghajtóként fogja látni
+delay = 0
+vga = 0
+
+image = /boot/vmlinux  # ez a /dev/hdc1- en van
+  root = /dev/hda1     # de a betöltõdés során hda1 lesz
+  label = Linux
+  read-only
+
+   Ezt a konfigurációs állományt egy off /dev/hdc1-en futó Lilo-nak kell
+   beolvasnia. A Lilo felcsatolja és beírja a betöltõ szektorba. A
+   (/dev/hdc)-nek hivatkoznia kell a /boot-ban elhelyezkedõ fájlokra
+   (jelenleg hdc-ként telepítettük); az ilyen állományok hda alatt
+   lesznek elérhetõek, ha a lemezt egy önálló rendszerrõl töltjük be.
+
+   Ezt a konfigurációs fájlt én /mnt/etc/lilo.conf.hdc-nek hívom (az /mnt
+   az ahova a hdc kerül felcsatolásra a telepítés során. A Lilo
+   telepítéáséhez a "cd /mnt; chroot . sbin/lilo -C /etc/lilo.conf.hdc
+   parancsot használom. Ha ez esetleg varázslatnak tûnne nézd meg a
+   chroot kézikönyv oldalait.
+
+   A "bios=" utasítás a lilo.conf fájlban azt jelzi a Lilo-nak, hogy a
+   BIOS hogyan jelöli az eszközt. A BIOS hívás azonosítja a hajlékony- és
+   merevlemezes meghajtókat: 0x00 és a 0x01 választja ki a
+   hajlékonylemez-meghajtót, a 0x80 és az ezt követõ számok pedig a
+   merevlemezt (a régi BIOS-ok csak két eszköz elérésére képesek). A
+   "bios = 0x80" az elõzõ mintafájlban azt jelenti, hogy használd a
+   0x80 a BIOS hívásokban a "/dev/hdc" eszközhöz.
+
+   Ez a Lilo utasítás más helyzetekben is hasznos lehet, például mikor a
+   BIOS az IDE lemezek helyett SCSI lemezekrõl is tud rendszert
+   betölteni. Ha mind IDE, mind pedig SCSI eszközök is jelen vannak, a
+   Lilo nem tudja eldönteni, hogy a 0x80 mely lemezre fog vonatkozni,
+   mivel a felhasználó tudja ezt kiválasztani a BIOS konfigurációs
+   menüben, és a BIOS-t nem lehet elérni, miközben a Linux mûködik.
+
+   Alapesetben a Lilo azt feltételezi, hogy az IDE lemezeket
+   csatlakoztatja elõször BIOS, de ezt felül lehet bírálni a következõk
+   használatával a /etc/lilo.conf fájlban:
+
+disk = /dev/sda
+  bios = 0x80
+
+5. A Lilo használata, ha a BIOS nem látja a root partíciót
+
+   Két IDE és egy SCSI lemezem van. A SCSI lemezt nem lehet a BIOS-ból
+   látni. A Linux betöltõje a Lilo, BIOS hívásokat használ, és csak
+   azokat a meghajtókat látja, amelyet a BIOS is lát. Az én buta AMI
+   BIOS-om csak "A:"-ról vagy "C:" -rõl hajlandó rendszert betölteni. A
+   root partícióm a SCSI lemezem egy lemezrészén helyezkedik el.
+
+   A megoldás az, hogy a rendszermagot, a map fájlt, és a lánc betöltõt
+   (chain loader) az elsõ IDE lemezen egy Linux partíción tárolom.
+   Figyeld meg, hogy nem kötelezõ a a rendszermagot a root partíción
+   tartani.
+
+   Az elsõ IDE meghajtóm második lemezrésze (/dev/hda2, a Linux
+   lemezrész melyrõl régebben a rendszert szoktam betölteni) a /u2 alá
+   van felcsatolva. Íme az általam használt /etc/lilo.conf fájl.
+
+#  Lilo telepítése a Master Boot Recordba
+#  az elsõ IDE lemezen.
+#
+boot = /dev/hda
+#  /sbin/lilo (a telepítõ) bemásolja a Lilo boot recordot
+#  a következõ fájlból az MBR-be.
+install = /u2/etc/lilo/boot.b
+#
+#  Írtam egy bõbeszédû boot menüt. A Lilo itt fogja azt megtalálni.
+message = /u2/etc/lilo/message
+#  A telepítõ elkészíti a következõ fájlt. Jelzi a
+#  rendszer-betöltõnek, hol vannak a rendszermag blokkjai.
+map = /u2/etc/lilo/map
+compact
+prompt
+#  várj 10 másodpercet, majd töltsd be alapértelmezettként az  1.2.1 rendszerma
+got.
+timeout = 100
+#  A rendszermag ott helyezkedik el, ahol a BIOS láthatja:
+#      cp -p /usr/src/linux/arch/i386/boot/zImage /u2/z1.2.1
+image = /u2/z1.2.1
+        label = 1.2.1
+#  A Lilo megmondja a rendszermagnak, hogy csatolja fel a elsõ SCSI partíciót
+# root fájlrendszerként. A BIOS-nak nem szükséges látnia.
+        root = /dev/sda1
+#  A lemezrész ellenõrzésre kerül és a /etc/rc.d/rc.S csak-olvashatóként újra
+felcsatolja
+
+#  Telepítettem egy régi Slackware rendszermagot is, arra az esetre, ha netalán
+
+#  nem mûködik a másik rendszermag. Ténylegesen csak egyszer volt szükségem rá
+.
+image = /u2/z1.0.9
+        label = 1.0.9
+        root = /dev/sda1
+        read-only
+#  A DR-DOS 6 lemezrészem.
+other = /dev/hda1
+        loader=/u2/etc/lilo/chain.b
+        label = dos
+        alias = m
+
+6. SCSI meghajtó BIOS számának kiderítése
+
+   Marc Tanguy hozzájárulása (mtanguy@ens.uvsq.fr), 2001.09.27
+
+6.1 Az elmélet
+
+   Alapvetõen két módot érdemes tudni:
+
+   Ha van egy adaptec scsi kártyád (2940u2, 29160, 39160), egyszerûen a
+   "diagnózis" módszert kell használni (a BIOS v3.10.0 használat a
+   ajánlott). Ezt az scsi kártya BIOS menüjében kell aktiválni. Majd
+   valami ilyesmire kell várnod, és valami hasonlót kell látnod:
+
+            ... ID LUN Gyártó  Termék    Rev  Méret Sync Bus HD#
+            ... 0  0   QUANTUM ATLAS10K2 DDD6 17GB  160  16  80h
+            ... 1  0   QUANTUM ATLAS10K2 DDD6 17GB  160  16  81h
+            ... 2  0   IBM     DDRS      DC1B 4GB   80   16  82h
+            ... 3  0   IBM     DNES      SAH0 9GB   80   16  83h
+
+   Ha nincsen adaptec kártyád, tudnod kell mi a "betöltõ" lemez
+   (általában ID 0, de ez nem kötelezõ, ezt az scsi kártya BIOS-ban
+   lehet meghatározni) a LILO hol fogja megtalálni és hol fog kezdõdni:
+   ez az elsõ lemez, ezért a 0x80 számmal rendelkezik. Ezután már nagyon
+   egyszerû, a BIOS követi az ID-ket.
+
+   Például :
+
+ID 0 -> boot  -> 0x80
+ID 1 -> empty
+ID 2 -> disk  -> 0x81
+ID 3 -> disk  -> 0x82
+
+   or
+
+ID 0 -> disk  -> 0x81
+ID 1 -> empty
+ID 2 -> disk  -> 0x82
+ID 3 -> boot  -> 0x80
+ID 4 -> disk  -> 0x83
+
+   Ez a rész egyáltalán nem törõdik azzal, hogy mi van az scsi lemezekre
+   telepítve. Azonban figyelembe kell venni, hogy ha a SCSI csatolónál
+   nagyobb ID azonosítót használsz akkor gondjaid lehetnek. Ezért mindig
+   meg kell próbálni hogy az scsi csatoló ID-je közvetlenül az scsi
+   eszköz azonosítója mögött legyen.
+
+6.2 A Linux és az NT indításának megcserélése
+
+   Renben, de az NT kell, hogy legyen az elsõ betöltendõ lemez, ezért
+   az 0x80 kell neki adni, azonban már van egy LILO-m és egy teljes ext2
+   lemezrészem a 0x80 lemezen és a NT pedig a 0x83 lemezen van. Hogyan
+   "cserélhetem ki" a Linuxot az NT-vel? Ez nagyon egyszerû: csak
+   jelezni kell a BIOS-nak, hogy az NT lemez most a 0x80 a Linux lemez
+   pedig a 0x83.
+
+other=/dev/sdd1
+      label=nt
+      map-drive = 0x83
+      to = 0x80
+      map-drive = 0x80
+      to = 0x83
+
+   Ez a változtatás egy figyelmeztetéssel fog járni:
+    Warning: BIOS drive 0x8? may not be accessible
+    (Figyelem: a 0x8? BIOS meghajtó lehetséges, hogy nem lesz elérhetõ)
+
+   Ha tudod mit csinálsz, gond nélkül mûködni fog.
+
+   A következõ konfiguráción használtam, amelyen egy Red Hat Linux 7.1
+   és egy Windows 2000 Pro volt:
+
+Név        mutató partíció.típus Fájlrendszer típus [cimke]        méret (MB)
+
+lemez: /dev/sda - 0x80
+sda1        Boot        Primary   Linux ext2       [/boot]            24.68
+sda2                    Primary   Linux Swap                         139.83
+sda3                    Primary   Linux ext2       [/usr]           3150.29
+sda4                    Primary   Linux ext2       [/home]         15044.04
+
+lemez: /dev/sdb - 0x81
+sdb1                    Primary   Linux Swap                         139.83
+sdb2                    Primary   Linux ext2       [/]              3150.29
+sdb3                    Primary   Linux ext2       [/opt]           1052.84
+sdb4                    Primary   Linux ext2       [/public]       14015.88
+
+lemez: /dev/sdc - 0x82
+sdc1                    Primary   Linux ext2       [/var]           1052.84
+sdc2                    Primary   Linux ext2       [/tmp]            106.93
+sdc3                    Primary   Linux ext2       [/cache]         1052.84
+sdc4                    Primary   Linux ext2       [/chroot]        2352.44
+
+lemez: /dev/sdd - 0x83
+sdd1        Boot        Primary   NTFS             [WINDOWS_2000]   9162.97
+
+   A teljes /etc/lilo.conf állományom:
+boot=/dev/sda
+map=/boot/map
+install=/boot/boot.b
+prompt
+default=Linux
+read-only
+compact
+image=/boot/vmlinuz
+  label=Linux
+  root=/dev/sdb2
+other=/dev/sdd1
+  label=Windows
+  map-drive = 0x83
+  to = 0x80
+  map-drive = 0x80
+  to = 0x83
+
+6.3 Egyéb
+
+   Éppen most építettem be egy új scsi lemezt, és a LILO most nem
+   hajlandó betöltõdni, mi történik?
+
+   Mikor egy új meghajtót építesz be a rendszerbe, nagyon figyelned kell
+   az ID-kre. Ha már két meglévõ meghajtó közé csatlakoztatsz egy újat,
+   a BIOS számok megváltoznak:
+
+         elõtte            ---->             utána
+scsi id -       - BIOS id        scsi id -          - BIOS id
+ID 0    - disk  - 0x80           ID 0    - disk     - 0x80
+ID 1    - empty                  ID 1    - new disk - 0x81
+ID 2    - disk  - 0x81           ID 2    - disk     - 0x82 !!
+
+   Ha megváltoztatod a BIOS ID-ket, újra kell értékelned õket.
+
+7. Nagy kapacitású lemezek elérése, ha a BIOS nem látja azt
+
+   Megjegyzés: "Nagy" az 1GB? Nos, egyszer volt hol nem volt ...
+
+   Irodámban lévõ rendszeremben 1GB-os IDE lemez van. A BIOS csak az
+   elsõ 504 MB-ot látja az IDE estében. (Ahol is az MB 2**10 byte-ot
+   jelent, nem pedig 10**6 byte-ot.) Szóval MS-DOS-om van egy 350 MB-os
+   partíción /dev/hda1, valamint a Linux root egy 120 MB-os
+   lemezrészen/dev/hda2.
+
+   Hauke Laging (hauke@laging.de) és Bob Hall (bhall@hallfire.org)
+   észrevettek egy apróbb hibát a fentieknél, õk javasolták hogy a MB
+   2**20 byte legyen a 2**10 byte helyett. Köszönöm a kiigazítást. Ezen
+   felül, Hauke többet szeretett volna tudni, ahogy õ nevezte a, "LILO
+   indulás karakter kódjairól, amikor a LILO leáll a LI, LI-, LIL- vagy
+   más hibaüzenetekkel". Szívesen venném a hozzászólásokat ebben a
+   témakörben vagy mûködõ hivatkozást a magyarázatra.
+
+   Íme tessék (Zohar Stolar hozzájárulása, zohar@numericable.fr):
+
+   B. LILO betöltési hibakódok
+
+   [6]http://www.tldp.org/HOWTO/Bootdisk-HOWTO/a1483.html
+
+   Köszönöm a hivatkozást.
+
+   Az MS-DOS nem volt képes telepíteni magát, mikor a lemez új. A Novell
+   DOS 7-nek ugyanez a problémája volt. Szerencsémre, az "IBM opciók"
+   elfelejtette berakni a dobozba a "OnTrack" lemezt a meghajtó mellé. A
+   merevlemez mellé kellett volna rakni a "OnTrack Disk Manager" nevû
+   programot. Ha csak MSDOS-od van, azt hiszem ezt használnod kell.
+
+   Így készítettem egy lemezrészt a linuxos fdisk-kel. MSDOS-6.2 nem
+   települt a /dev/hda1-re. Valami ilyesmit írt ki: "Az MS-DOS ezen
+   verziója csak új telepítésekhez használható. A számítógépeden már van
+   MS-DOS, ezért egy frissítõ kiadásra van szükséged, melyet
+   beszerezhetsz a kereskedõnél." Valójában a merevlemez teljesen új
+   volt.
+
+   Micsoda tragacs! Így újra futtattam a linuxos fdisk-et és letöröltem
+   az 1. partíciót a partíciós táblából. Ez kielégítette az MS-DOS
+   6.2-õt, mely létrehozta ugyanazt a 1. partíciót, melyet éppen most
+   töröltem le. Az MS-DOS 6.2 beírta a saját Master Boot Record-ját a
+   merevlemezre, de nem tudta betölteni magát.
+
+   Szerencsére volt egy Slackware rendszermagom egy hajlékonylemezen (ezt
+   a Slackware telepítõ programja a "setup" készítette), így betöltöttem
+   a Linuxot és felülírtam a a Lilo-val a MS-DOS hibás MBR-jét. Ez
+   mûködött. Íme az általam használt /etc/lilo.conf fájl:
+
+boot = /dev/hda
+map = /lilo-map
+delay = 100
+ramdisk = 0             # kikapcsolja a ramdisk-et a Slackware magban
+timeout = 100
+prompt
+disk = /dev/hda         # A BIOS csak az elsõ 500 MB-ot látja.
+   bios = 0x80          # Az elsõ IDE lemezt adja meg.
+   sectors = 63         # a meghajtó dokumentácijából kivett számok
+   heads = 16
+   cylinders = 2100
+image = /vmlinuz
+  append = "hd=2100,16,63"
+  root = /dev/hda2
+  label = linux
+  read-only
+  vga = extended
+other = /dev/hda1
+  label = msdos
+  table = /dev/hda
+  loader = /boot/chain.b
+
+   Miután telepítettem ezeket a rendszereket, ellenõriztem a lemezrészt,
+   mely tartalmazza a zImage, boot.b, map, chain.b, és üzenet fájlokat és
+   képesek az msdos fájlrendszer használatára, mivel nincsen
+   "stacker"-rel, vagy "doublespace"-el tömörítve. Így tudtam DOS
+   lemezrészt készíteni a /dev/hda1 500 MB-os lemezen.
+
+   Azt is megtanultam, hogy az "OnTrack" egy partíciós táblát írt volna
+   néhány tucat bájttal a merevlemezre, az eleje helyett és valószínûleg
+   meg kellett volna bütykölni a Linux IDE meghatót, hogy megoldja a
+   problémát. Az elõre lefordított Slackware rendszermaggal azonban
+   lehetetlen lett volna telepíteni. Végül az IBM küldött nekem egy
+   "OnTrack" lemezt. Felhívtam az OnTrack's technikai támogatását. Azt
+   mondták a Linux rossz, mert nem használja a BIOS-t. Lemezüket odaadtam
+   valaki másnak.
+
+8. Biztonsági lemezrõl történõ betöltés
+
+   Következõ. Telepítettem a Windows-95-öt az irodai rendszeremen. Ez
+   tönkretette a szép Lilo MBR-met, de a Linux partícióimat békén hagyta.
+   A rendszermag betöltése hajlékonylemezrõl nagyon sokáig tart, ezért
+   egy olyan hajlékonylemezt készítettem, mely tartalmaz egy mûködõ
+   Lilo-t. Ez betölti a rendszermagomat az IDE merevlemezemrõl.
+
+   A lilo lemezt a következõképp készítettem el:
+  fdformat /dev/fd0H1440      #  létrehozza a sávokat egy szûz lemezen
+  mkfs -t minix /dev/fd0 1440 #  a fájlrendszer minix típusú
+  mount /dev/fd0 /mnt         #  az alapértelmezett tmp felcsatolása
+  cp -p /boot/chain.b /mnt    #  másold át a lánc betöltõt
+  lilo -C /etc/lilo.flop      #  telepítsd a Lilo-t és a térképet a lemezre.
+  umount /mnt
+
+   Figyeld meg, hogy a lemezt fel kell csatolni, miközben a telepítõt
+   futtatod , hogy a Lilo tudja írni helyesen a csatoló fájljait.
+
+   Ez a fájl az /etc/lilo.flop. Majdnem ugyanaz mint a legutóbbi:
+
+#  Egy hajlékonylemezt készít, mely a rendszermagot a merevlemezrõl tölti be.
+boot = /dev/fd0
+map = /mnt/lilo-map
+delay = 100
+ramdisk = 0
+timeout = 100
+prompt
+disk = /dev/hda     # 1 GB IDE, a BIOS csak az elsõ 500 MB-ot látja.
+   bios=0x80
+   sectors = 63
+   heads = 16
+   cylinders = 2100
+image = /vmlinuz
+  append = "hd=2100,16,63"
+  root = /dev/hda2
+  label = linux
+  read-only
+  vga = extended
+other = /dev/hda1
+  label = msdos
+  table = /dev/hda
+  loader = /mnt/chain.b
+
+   Végül, szükségem volt egy MS-DOS 6.2-re az irodai rendszeremen, de nem
+   akartam bántani a elsõ merevlemezt. Hozzáadtam egy SCSI vezérlõt és
+   lemezt, msdos fájlrendszert raktam rá a Linux mkdosfs-programjával, és
+   a Windows-95 "D:" meghajtóként látja. Természetesen az MSDOS nem fog a
+   "D:-"rõl betöltõdni. Ez nem gond, ha van Lilo. Hozzáadtam a
+   következõ sort a lilo.conf fájlhoz 2. példa
+
+other = /dev/sda1
+  label = d6.2
+  table = /dev/sda
+  loader = /boot/any_d.b
+
+   Ezzel a módosítással az MSDOS-6.2 fut, és azt gondolja, hogy õ a C: a
+   Windows-95 pedig a D:.
+
+9. LILO a Mandrake Linux 9.1 telepítése után, HP termékeken
+
+   2003.11.19
+
+9.1 A kísérletben használt termékek leírása
+
+   Megjegyzés: Ez a rész semmilyen értelemben NEM egy HP termékekrõl
+   szóló reklám! Valójában az általam használt HP számítógépek egy
+   sorozatában meghibásodtak a tápegységek, problémák voltak a
+   merevlemezekkel stb. Másrészrõl a laptopok akkumulátorai idõ elõtt
+   lemerültek. Ezeken kívül a HP gépek jól mûködnek.
+
+   HP Omnibook 6000
+
+   Az Omnibook 6000 laptopok bootolható DVD meghajtóval vannak
+   felszerelve, a minap egy ICT konferencián vettem egy bootolható
+   Mandrake Linux 9.1 DVD telepítõ lemezt. A laptop indítása után, a
+   bootolható DVD lemez használatával, közvetlenül a Linux telepítõje
+   indult el.
+
+   HP Vectra VL420 (szerverként használt)
+
+   Az Omnibook 6000 laptoppal ellentétben a HP Vectra VL420-ben nincs DVD
+   meghajtó (csakegy CD meghajtó), így nem lehet DVD-rõl telepíteni.
+   Viszont lehetõség van indítólemezrõl kezdeni a telepítési eljárást.
+   Valójában számos telepítõkészlet (boot image) elérhetõ azok számára,
+   akiknek nincs (bootolható vagy semmilyen) DVD meghajtója. Ezek egyike
+   a "hálózati". Ez azt jelenti, hogy egy helyi hálózaton - legyen az
+   NFS, FTP vagy HTTP szerver - van elhelyezve a telepítõkészlet.
+
+   HP Vectra VL420 (munkaállomásként használt)
+
+   Egy másik VL420 desktop rendszert is használok, ebben van egy szabad
+   HDD, egy elõzõ Windows 2000 telepítésbõl maradt meg (ez az IDE
+   meghajtó egy másik számítógépbõl lett átrakva, abban az elsõdleges
+   volt, ebben pedig egy második, adatmentésre használt merevlemez). Jó
+   dolog az, hogy erre van HTTP és FTP szerver telepítve (természetesen
+   akkor használható, ha a rendszer arról a lemezrõl lett indítva). Ez
+   nagyszerû, így ezen szerverek egyikét használhatom most.
+
+   Készítettem egy "hálózatos" indítólemezt, majd errõl indítottam az
+   elsõ Vectra VL420 gépet (amelyet Linux szervernek szántam). Hamarosan
+   el kellett döntenem a telepítés módját (NFS vagy FTP vagy HTTP
+   szerver). Elõször a második "szabad" HTTP szervert akartam használni,
+   amelyet fentebb említettem, de figyelmetlenségbõl "Everyone"
+   csoportot próbáltam a Windows felhasználókhoz rendelni, így mindig a
+   következõ választ kaptam a Linux telepítésekor:
+
+   Error: Couldn't get file ... (or something like that)
+
+   Ekkor a "szabad" FTP szervert próbáltam használni a második Vectra
+   géprõl, ez elõször a helyi (local) és távoli (remote) IP címeket
+   kérdezte meg. Ekkor minden tökéletesen mûködött, megkezdõdött a
+   távoli Linux fájlok egy részének letöltése ennek a memóriájába,
+   mindenféle panaszkodás nélkül. Ezután hamarosan ugyanaz következett,
+   ami az Omnibook 6000 gépen:
+
+   megjelent a telepítési menü, amely rákérdezett a telepítési eljárás
+   során használni kívánt nyelvre.
+
+   Ettõl a ponttól kezdve a telepítési eljárás majdnem ugyanaz...
+
+   A következõ dolgokat állítottam be vagy választottam ki:
+
+   - használt nyelv, az alapértelmezett angol (amerikai) mellett:
+   hozzáadtam az Unicode-ot és a szerbet (a cirillt és a latint
+   egyaránt); - egér és billentyûzet; - biztonsági szint - elfogadtam az
+   alapértelmezettet: "Standard" a laptophoz és "Higher" a szerverhez;
+
+   A következõ lényeges kérdés az egyik DrakX particionálási opció
+   kiválasztása:
+
+   - a laptopnál a Windows partíción lévõ szabad hely felhasználását
+   választottam, mivel ebben egy merevlemez van, és ennek egy részén
+   szerettem volna Linuxot használni (a már telepített Windows 2000 Prof.
+   mellett). A Windows lemezkezelõ a következõt közölte:
+
+Disk 0  15      MB      FAT     (HP Diagnostics or like)
+        7.13    GB      FAT32   (C: "HPNOTEBOOK")
+        20.80   GB      Free space
+
+   A két partíció (FAT és FAT32) a HP által mellékelt CD lemezek
+   telepítése közben jöttek létre.
+
+   A Linux telepítõ az elsõ pillanatban arra panaszkodott, hogy a
+   Windows partíció "túlságosan töredezett", szükség van a Windows
+   indítására, majd a töredezettség-mentesítõ (defrag) futtatására.
+   Ezután újra kell kezdeni a Mandrake Linux telepítését. A
+   töredezettség-mentesítési eljárás kb. másfél óráig tartott! Mikor
+   újraindítottam a telepítést, 7.13 GB Windows partíciót szerettem volna
+   a 20.80 GB helyett. A "Use the free space" ("szabad terület
+   használata") lehetõséget választottam. Ekkor partíciókat készített a
+   Linux számára: /dev/hda5 and /dev/hda7. - a Vectra VL420 gépen a
+   "Custom disk partitioning" ("egyedi particionálás") lehetõséget
+   választottam, mivel két SCSI meghajtóm volt, az egyiken futott a
+   Windows 2000 szerver, a másikat teljesen a Linux szervernek szántam.
+   Mellesleg nem voltam biztos a "Erase entire disk" ("a lemez teljes
+   törlése") jelentésében (egy egész lemezt töröl vagy egy partíciót?),
+   bár az is megfelelõ megoldás lehet. A DrakX felismerte a két SCSI
+   meghajtót, mint sda és sdb. Az sdb meghajtót választottam a Linux
+   telepítéséhez. Az elsõ lépés a "Clear all" ("teljes törlés") volt,
+   majd az "Auto allocate" ("automatikus helykiosztás") következett
+   (amely beállította a meghajtón létrehozandó partíciók méretét - a
+   lektor), mindez a második meghajtóra vonatkoztatva. Végül a "Done"
+   ("kész") megjelenésekor létrejöttek a /dev/sdb1 és /dev/sdb6 Linux
+   partíciók.
+
+9.2 A LILO beállítása ezeken a HP termékeken
+
+   HP Omnibook 6000
+
+boot=/dev/hda
+map=/boot/map
+vga=normal
+default="windows"
+keytable=/boot/us.klt
+prompt
+nowarn
+timeout=100
+message=/boot/message
+menu-scheme=wb:bw:wb:bw
+image=/boot/vmlinuz
+        label="linux"
+        root=/dev/hda5
+        initrd=/boot/initrd.img
+        append="quiet devfs=mount acpi=off"
+        read-only
+image=/boot/vmlinuz
+        label="failsafe"
+        root=/dev/hda5
+        initrd=/boot/initrd.img
+        append="failsafe devfs=nomount acpi=off"
+        read-only
+other=/dev/hda2                                 <--- /dev/hda1 seems to be rese
+rved for some HP diags.
+        label="windows"
+        table=/dev/hda
+other=/dev/fd0
+        label="floppy"
+        unsafe
+
+   HP Vectra VL420 (desktop Linux kliens rendszerként telepítve)
+
+boot=/dev/hda
+map=/boot/map
+vga=normal
+default="windows"
+keytable=/boot/us.klt
+prompt
+nowarn
+timeout=100
+message=/boot/message
+menu-scheme=wb:bw:wb:bw
+image=/boot/vmlinuz
+        label="linux"
+        root=/dev/hda5
+        initrd=/boot/initrd.img
+        append="quiet devfs=mount acpi=off"
+        vga=788                                 <--- that line is missing at la
+ptop with LCD screen above.
+        read-only
+image=/boot/vmlinuz
+        label="linux-nonfb"
+        root=/dev/hda5
+        initrd=/boot/initrd.img
+        append="devfs=mount acpi=off"
+        read-only
+image=/boot/vmlinuz
+        label="failsafe"
+        root=/dev/hda5
+        initrd=/boot/initrd.img
+        append="failsafe devfs=nomount acpi=off"
+        read-only
+other=/dev/hda1                                 <--- /dev/hda1 seems not to be
+reserved for HP diags here.
+        label="windows"                                 There I have Windows 20
+00 Professional already
+        table=/dev/hda                                  installed (probably wit
+hout HP's supplied CD's).
+other=/dev/hdb1                                 <--- that is the spare disk wit
+h Windows 2000 Server.
+        label="windows2"                                Actually I had some dat
+a on it and used it as a
+        table=/dev/hdb                                  second, backup disk on
+that desktop workstation.
+        map-drive=0x80                                  I have never tried to b
+oot the computer from it, but
+           to=0x81                                      Mandrake's setup offere
+d it as a boot option.
+        map-drive=0x81                                  (And that was useful as
+ a FTP server, needed to install
+           to=0x80                                      Mandrake Linux on the o
+ther box - without DVD drive too).
+other=/dev/fd0
+        label="floppy"
+        unsafe
+
+   HP Vectra VL420 (szerver szolgáltatásokkal felvértezett desktop Linux
+   kliens rendszerként telepítve)
+
+boot=/dev/sda                                   <--- /dev/sda is the first SCSI
+ disk where LILO resides (MBR).
+map=/boot/map
+vga=normal
+default="windows"
+keytable=/boot/us.klt
+prompt
+nowarn
+timeout=100
+message=/boot/message
+menu-scheme=wb:bw:wb:bw
+image=/boot/vmlinuz
+        label="linux"
+        root=/dev/sdb1                          <--- /dev/sdb1 is the second SC
+SI disk where Linux resides.
+        initrd=/boot/initrd.img
+        append="quiet devfs=mount acpi=off"
+        vga=788
+        read-only
+image=/boot/vmlinuz
+        label="linux-nonfb"
+        root=/dev/sdb1
+        initrd=/boot/initrd.img
+        append="devfs=mount acpi=off"
+        read-only
+image=/boot/vmlinuz-secure
+        label="linux-secure"                    <--- something related to the L
+inux server security?
+        root=/dev/sdb1
+        initrd=/boot/initrd-secure.img
+        append="quiet devfs=mount acpi=off"
+        read-only
+image=/boot/vmlinuz
+        label="failsafe"
+        root=/dev/sdb1
+        initrd=/boot/initrd.img
+        append="failsafe devfs=nomount acpi=off"
+        read-only
+other=/dev/sda1                                 <--- /dev/sda1 is the first par
+tition on the first SCSI disk where Windows resides.
+        label="windows"
+        table=/dev/sda
+
+9.3 Következtetések
+
+   Mint a fenti példákból is látható, különbözõ konfigurációjú
+   számítógépeket használok, különbözõ típusú merevlemezekkel. Az
+   egyikben egy van, a másikban kettõ, és van olyan, amelyikben egy
+   rakat SCSI meghajtó van. Mindettõl függetlenül mindig megpróbáltam a
+   LILO-t az elsõ meghajtón lévõ MBR-be tenni. Úgy látszik a Linux
+   vágül megoldotta a régi 1024 cyl problémát. Valójában úgy néz ki, hogy
+   a LILO képes a Linuxot betölteni attól függetlenül, hogy az a Linux
+   partíciók egyikére került vagy sem.
+
+   Van néhány más megfontolandó dolog is a fenti kísérlettel
+   kapcsolatban, de ezek egy másik nagyszerû dokumentum részét képezik:
+   [7]Linux+WindowsNT mini-HOWTO.
+
+10. Szakirodalom
+
+   2004.03.30
+
+   Figyelem: Emberek, gyakran járok nemzeti (nemzetközi) ICT
+   konferenciákra szerte Szerbia és Montenegróban, tanulmányokat
+   publikálva és elõadásokat tartva. Például [8]ezen a képen is láthatsz
+   a hallgatóság elõtt beszélni. Szeretném a lehetõ legszélesebb körben
+   terjeszteni az amatõr rádiózás alapötletét és hasznosságát. Azt
+   szeretném, ha olvasóim mindezt a Linuxszal tennék meg. Ezen kívül,
+   különbözõ cikkeket írtam különbözõ tudományos és egyéb lapnak. Itt
+   megtalálhatod az általam írt cikkek felsorolását, és az eddig
+   konferenciákon kiadott tanulmányokat is.
+
+   Abban az esetben, ha újra ki szeretnéd adni, vagy továbbítani
+   szándékozol önkéntes munkáimat újságok, vagy más más médiának, bátran
+   keress meg. Tanulmányaim némelyike szerb cirill nyelven íródott,
+   néhány angolul, néhány pedig vegyesen is!
+
+      - "U prilog I.A.C.", MI (the youth scientists' organization
+         newspaper), No. 69, 1990.
+
+      - "U prilog I.A.C. (2)", MI (the youth scientists' organization
+         newspaper), No. 70, 1990.
+
+      - "Vise od radio-amaterskog hobija", Vojska, No. 163, 1995.
+
+      - "Korak ka zvezdama", Vojska, No. 200, 1996.
+
+      - "Die Gefahr von Innen - Internet gegen Amateurfunk",
+         AMSAT-DL Journal, No. 4, Dez./Feb. 96/97.
+
+      - "Kakva nam organizacija (ne) treba?", Radioamater,
+         Feb. 1997.
+
+      - "Kakva nam organizacija (ne) treba? (2)", Radioamater,
+         Apr./May. 1997.
+
+      - "Sateliti umiru padajuci", Vojska, No. 235, 1997.
+
+      - "The Internet is not the Enemy", QST, Aug. 1998.
+
+      - "Novi radio-amateri za novi vek", Antena, June 2000.
+
+      - "Racunarske komunikacije putem radio-veza i
+         zastita pristupa", Bezbednost, No. 3, 2000.
+
+      - "Paket-radio - Racunarske komunikacije putem radio-veza",
+         proceedings, "Info-Teh", Vrnjacka Banja, Serbia, 2001.
+
+      - "Racunarske komunikacije putem radio-amaterskih veza",
+         proceedings, "YU-Infõ, Kopaonik, Serbia, 2002.
+
+      - "Computer Communications over radiõ, presentation,
+        "Linux FEST", Belgrade, Serbia, 2002.
+
+      - "Paket-radio - Radio-amaterske digitalne veze",
+         proceedings, "Kongres JISA", Herceg Novi, Montenegro, 2002.
+
+      - "Paket-radio (2) - Modemi za radio-veze",
+         proceedings, "Info-Teh", Vrnjacka Banja, Serbia, 2002.
+
+      - "Alternativne racunarske mreze", festival catalog,
+        "INFOFEST", Budva, Montenegro, 2002.
+
+      - "Alternative computer networks", proceedings, "TELFOR",
+         Belgrade, Serbia, 2002.
+
+      - "With rule and regulation improvements to the progress"
+         proceedings, "TELFOR", Belgrade, Serbia, 2002.
+
+      - "Racunarske komunikacije putem radio-amaterskih veza (2)",
+         proceedings, "YU-Infõ, Kopaonik, Serbia, 2003.
+
+      - "Racunarske komunikacije putem radio-amaterskih veza (3)",
+         proceedings, "YU-Infõ, Kopaonik, Serbia, 2003.
+
+      - "Paket-radio (3) - Programske mogucnosti na strani servera",
+         proceedings, "Info-Teh", Vrnjacka Banja, Serbia, 2003.
+
+      - "Paket-radio (4) - Legal rules and regulations in the amateur
+         computer networks", proceedings, "Info-Teh", Vrnjacka Banja,
+         Serbia, 2003.
+
+      - "Packet-radio (2) - With rule and regulation improvements to the progre
+ss",
+         proceedings, "Kongres JISA", Herceg Novi, Montenegro, 2003.
+
+      - "Alternativne racunarske mreze (2)", festival catalog,
+        "INFOFEST", Budva, Montenegro, 2003.
+
+      - "Alternativne racunarske komunikacije putem radio-veza",
+         Info M, 6-7/2003.
+         - "Legal Rules and Regulations in the Amateur Radio Computer Networks"
+,
+         proceedings, "22nd ARRL and TAPR Digital Communications Conference",
+         Hartford, CT USA, 2003.
+
+      - "Favoritism", IEEE Potentials, Oct/Nov 2003
+
+      - "Alternative computer networks (2)", proceedings, "TELFOR",
+         Belgrade, Serbia, 2003.
+
+      - "With rule and regulation improvements to the progress (2)"
+         proceedings, "TELFOR", Belgrade, Serbia, 2003.
+
+      - "XI Telekomunikacioni forum - TELFOR 2003", Info M, 8/2003.
+
+      - "Aktivnosti organizacije IEEE Computer Society - YU Chapter"
+        Info M, 8/2003.
+
+      - "Yugoslavia IEEE Student Branch", IEEE Region 8 News,
+        Vol. 7 No. 1, Feb/Mar 2004
+
+   Besides these articles published and papers presented, I have been
+   studying for an M.Sc. degree in computing. I am also the member of the
+   following associations: IEEE Computer Society, IEEE Communications
+   Society and ACM. In addition, I have been voluntarily working on
+   establishing an academy computer network that would use the amateur
+   radio stations as the media. Such networks exist somewhere else on the
+   globe and I invite their administrators to contact me in order to
+   cooperate.
+
+11. További információk
+
+11.1 Szerzõi jog
+
+   Copyright (c) 2003 by Miroslav [9]Misko Skoric, YT7MPB.
+
+   A dokumentum szabadon másolható, terjeszthetõ és módosítható, az FSF
+   által közzétett GNU Szabad Dokumentációs Licenc v1.1, vagy annak
+   késõbbi változatában szereplõ feltételek szerint; állandó fejezetek,
+   elõoldali és hátoldali szövegek nélkül.
+
+   A licenc egy másolata megtalálható a
+   [10]http://www.fsf.org/licenses/fdl.html honlapon.
+
+11.2 A felelõsség teljes kizárása
+
+   A leírásban található információt kizárólag saját felelõsségedre
+   használhatod. A leírásban foglaltakért semmilyen felelõsséget nem
+   vállalok. A fogalmakat, példákat és a dokumentum egyéb tartalmát
+   kizárólag saját felelõsségedre használhatod.
+
+   Minden szerzõi jogot a megfelelõ tulajdonos birtokol, hacsak másként
+   nincs jelezve. Ez a leírás nem sért semmilyen termék védjegyet sem
+   pedig szolgáltatási védjegyet.
+
+   Az egyéni termékekre vagy márkákra történõ hivatkozás nem képezi
+   jóváhagyás tárgyát.
+
+   Erõsen ajánlott rendszeres idõközönként rendszeredrõl biztonsági
+   mentést készíteni nagyobb telepítések elõtt.
+
+11.3 Hírek
+
+   A Lilo dokumentáció mellett, számos mini-HOGYAN létezik, melyek
+   hasznosak lehetnek számodra. Mindegyiket úgy nevezik, hogy
+   "Linux+foobar-OS", néhány foobar-OS, a Linux és más operációs
+   rendszer(ek) egymás melletti mûködésérõl szólnak. Például, a "NT OS
+   betöltõ + Linux mini-HOGYAN" (Bernd Reichert írta), azt írja le,
+   hogyan kell hozzáadni egy sort a Linux számára a már létezõ Windows
+   NT betöltõ menüjéhez. Majd ott van a [11]Linux+WindowsNT mini-HOWTO,
+   melyet én írtam. Ez arról szól, hogyan adjuk hozzá az NT bejegyzést a
+   már létezõ Linux Lilo menünkbe (sokkal részletesebb, mint ebben a
+   dokumentumban). A "Win95 + WinNT + Linux multiboot using LILO
+   mini-HOWTÕ az írja le, hogy a különbözõ Windows változatok, hogyan
+   élhetnek együtt a Linuxszal.
+
+   Ez a mini-HOGYAN idõrõl idõre frissülni fog. Ha úgy gondolod, hogy
+   a Linux telepítõ CD-n megtalálható HOGYAN elavult, az interneten
+   megtalálhatod a legújabb kiadását a dokumentumnak. Elsõsorban a
+   [12]Linux Documentation Project honlapon, vagy a következõ [13]Linux
+   Documentation Project webhelyen.
+
+11.4 Köszönetnyilvánítás
+
+   Ez a mini-HOGYAN a következõ embereknek köszönhetõ:
+
+Cameron Spitzer (cls@truffula.sj.ca.us)
+Alessandro Rubini (rubini@linux.it)
+Tony Harris (tony@nmr.mgh.harvard.edu)
+Marc Tanguy (mtanguy@ens.uvsq.fr)
+Dragomir Kalaba, a local Linux 'guru'
+
+   Bármilyen megjegyzés, vagy javaslatot szívesen várok a következõ
+   e-mail címre: skoric at eunet dot yu
+
+11.5 HOGYAN
+
+   Segítségként bemutatok egy-két hasonló témájú dokumentumot, amelyekben
+   háttérinformáció, vagy meghatározott problémák megoldása található.
+   Néhány fontosabb HOGYAN: The Linux Bootdisk HOWTO, The Linux
+   Installation HOWTO, The Linux 2.4 SCSI subsystem HOWTO és UMSDOS
+   HOW-TO. Megtalálhatók az [14]LDP archive-ban a Metalab webhelyén
+   (korábban Sunsite-ként volt ismert).
+
+11.6 Mini-HOGYAN
+
+   Ezek a HOGYANok kisebb terjedelmû rokonai. Néhány fontosabb
+   mini-HOGYAN: Backup-With-MSDOS, Diskless, LILO, Large Disk,
+   Linux+DOS+Win95+OS2, Linux+OS2+DOS, Linux+Win95, Linux+WindowsNT,
+   Linux+NT-Loader, NFS-Root, Win95+Win+Linux, ZIP Drive, FBB
+   packet-radio BBS. Ezeket ugyanott találod meg ahol a HOGYANokat,
+   általában egy mini nevû alkönyvtárban. Ne felejts el, hogy ezeket
+   nemsokára SGML-be fordítják és rendes HOGYANokká válhatnak a
+   közeljövõben.
+
+11.7 Helyi források
+
+   A Linux legtöbb terjesztésében van egy dokumentáció könyvtár
+   telepítve, nézd meg a [15]/usr/doc könyvtárat. A legtöbb csomag a fõ
+   dokumentációját, és README fájljait stb. itt tárolja. A HOGYANok
+   archívjait is itt fogod megtalálni ( [16]/usr/doc/HOWTO) készre
+   alakított HOGYANok valamint a mini-HOGYAN archívumot is (
+   [17]/usr/doc/HOWTO/mini) sima szöveg formátumban.
+
+   A korábban említett konfigurációs fájlok legtöbbje a [18]/etc könyvtár
+   alatt található. Ha dolgozni szeretnél az [19]/etc/fstab állománnyal,
+   mely beállítja a partíciók felcsatolását, valamint lehet, hogy a
+   [20]/etc/mdtab állományra is szükséged lesz, mely az md rendszer RAID
+   beállításához szükséges.
+
+   A rendszermag forrása az [21]/usr/src/linux természetesen a végsõ
+   dokumentáció. Más szóval használd a forrást, Luke. Meg kell említenünk
+   azt is, hogy a rendszermag nem csak forráskóddal együtt érkezik,
+   melyben még megjegyzések is találhatóak (nos, legalábbis részben), de
+   egy informatív [22]dokumentációs könyvtárat is tartalmaz. Ha bármilyen
+   kérdésed lenne a rendszermaggal kapcsolatban, elõször ezt olvasd el.
+   Ez rengeted idõd fog megspórolni neked és másnak is, valamint sok
+   kellemetlenségtõl is megvéd.
+
+   Nézd meg a rendszernaplót is ( [23]/var/log/messages), hogy meglásd mi
+   is történik a rendszeredben, és hogyan is zajlott ténylegesen a
+   betöltés folyamat, ha túl sok szöveg csúszott ki a képernyõbõl. A
+   tail -f /var/log/messages parancs egy külön ablakban vagy képernyõn
+   való használata egy folyamatos képet mutat arról, hogy mi is történik
+   a rendszeredben.
+
+   Hasznos lehet a [24]/proc állomány is, fájlrendszer, mely egy ablak a
+   rendszered belsõ mûködésére. Használd inkább a cat parancsot a more
+   helyett a fájlok megtekintéséhez, mivel nulla hosszúságúnak jelzi ki
+   õket a rendszer. A less is jól mûködik ebben az esetben.
+
+11.8 Honlapok
+
+   Rengeteg informatív honlap található, melyek természetüknél fogva
+   nagyon gyorsan változnak, így nem lepõdj meg, ha ezek a hivatkozások
+   hamar elavulttá válnak.
+
+   Jó kezdõpont lehet természetesen a [25]Linux Documentation Project
+   honlap, vagy a [26]Linux Documentation Project, egy információs
+   központja a dokumentációknak, projekt oldalaknak és sok-sok másnak.
+
+   Kérlek tudasd velem, ha van bármilyen érdeklõdésre számot tartó
+   hivatkozásod.
+
+11.9 Magyar fordítás
+
+   A magyar fordítást [27]Horváth Albert készítette (2004.03.22). A
+   lektorálást [28]Daczi László végezte el (2004.05.10). A dokumentum
+   legfrissebb változata megtalálható a [29]Magyar Linux Dokumentációs
+   Projekt honlapján.
+
+12. Segítség kérése
+
+   Legvégsõ esetben abban a helyzetben találhatod magadat, hogy nem
+   tudod megoldani a problémáidat, és valaki mástól kérsz segítséget.
+   Ennek leghatékonyabb módja, hogy vagy megkérdezel egy helybélit a
+   legközelebbi Linux felhasználói csoportból, keress rájuk az
+   interneten.
+
+   Egy másik lehetõség, hogy a számtalan Usenet hírcsoport egyikében
+   teszed fel kérdésedet A gond ezzel az, hogy olyan nagy mennyiségû és
+   zajos (ezt úgy hívják, hogy alacsony jel-zaj arány), hogy kérdésedet
+   könnyen lehet hogy nem válaszolják meg.
+
+   Teljesen mindegy hol kérdezed meg, a fontos az, hogy jól kérdezz,
+   ellenkezõ esetben nem fognak komolyan venni. Ha csak azt mondod a
+   merevlemezem nem mûködik, nem fognak segíteni neked helyette inkább a
+   zaj aránya még jobban fog emelkedni, és ha szerencséd van, akkor
+   valaki meg fog kérni, hogy pontosíts.
+
+   Ehelyett írd le részletesebben a problémádat, mely lehetõséget
+   biztosít az embereknek hogy segítsenek neked. A probléma oka lehet
+   ott, ahol te nem is számítasz rá. Ezért tanácsos a következõ
+   információkat felsorolni a rendszeredrõl:
+
+   Hardver
+
+          + Processzor
+          + DMA
+          + IRQ
+          + Chip set (LX, BX stb)
+          + Bus (ISA, VESA, PCI stb)
+          + alkalmazott bõvítõkártyák (lemezvezérlõk, video, IO stb)
+
+   Szoftver
+
+          + BIOS (Az alaplapé és lehetõség szerint a SCSI vezérlõé)
+          + LILO, ha használod
+          + Linux rendszermag verziószáma, valamint a módosítások és
+            foltok
+          + a rendszermag paraméterei, ha vannak
+          + a szoftver, mely a hibát mutatja (verziószámmal vagy
+            dátummal)
+
+   Kiegészítõk
+
+          + A merevlemezek típusa a gyártó nevével egyetemben, verzió és
+            típus
+          + Más fontos kiegészítõk, melyek ugyanarra a sínrendszerre
+            vannak kötve
+
+   Ne felejtsd el, hogy a betöltés szövege a /var/log/messages fájlba
+   naplózásra kerül, mely a fenti kérdések legtöbbjére választ tud adni.
+   Nyilvánvalóan, ha a meghajtó hibás nem tudsz hozzáférni a lemezre
+   elmentett naplóhoz, de legalább visszamehetsz a képernyõn a a SHIFT
+   és PAGE UP billentyûket használva. Hasznos lehet az is, ha ennek egy
+   részét bemásolod a kérdésedbe, de ne ess túlzásba, legyen rövid, mivel
+   egy teljes naplófájl hírcsoportba való postázása több, mint egy picit
+   idegesítõ.
+
+References
+
+   1. http://tldp.org/HOWTO/Linux+WinNT.html
+   2. http://surfer.nmr.mgh.harvard.edu/partition/ramdisk.html
+   3. http://tldp.org/HOWTO/Kernel-HOWTO/index.html
+   4. http://tldp.fsf.hu/HOWTO/Kernel-HOWTO-hu/index.html
+   5. http://tldp.org/HOWTO/Linux+WinNT.html
+   6. http://www.tldp.org/HOWTO/Bootdisk-HOWTO/a1483.html
+   7. http://tldp.org/HOWTO/Linux+WinNT.html
+   8. http://www.jisa.org.yu/SlikeKongres2003/Miroslav_Skoric.jpg
+   9. http://www.coil.com/~dsmith/thinkers/pic-misko.html
+  10. http://www.fsf.org/licenses/fdl.html
+  11. http://tldp.org/HOWTO/Linux+WinNT.html
+  12. http://www.linuxdoc.org/
+  13. http://www.tldp.org/
+  14. http://metalab.unc.edu/LDP/
+  15. file://localhost/usr/doc
+  16. file://localhost/usr/doc/HOWTO
+  17. file://localhost/usr/doc/HOWTO/mini
+  18. file://localhost/etc
+  19. file://localhost/etc/fstab
+  20. file://localhost/etc/mdtab
+  21. file://localhost/usr/src/linux
+  22. file://localhost/usr/src/linux/Documentation
+  23. file://localhost/var/log/messages
+  24. file://localhost/proc
+  25. http://www.linuxdoc.org/
+  26. http://www.tldp.org/
+  27. mailto: horvalb[kukac]freemail[pont]hu
+  28. mailto: dacas[kukac]freemail[pont]hu
+  29. http://tldp.fsf.hu/

@@ -1,0 +1,663 @@
+
+Bináris Debian csomag készítése HOGYANChr. Clemens Lee
+
+             clemens@kclee.com
+
+   2002.11.30, $Date: 2003/12/19 20:07:14 $
+   Verziótörténet
+   Verzió: 3.0 2003.12.19 Átdolgozta: ccl
+   Két elírás javítása Claudio Cattazzo jelzése alapján.
+   Verzió: 2.0 2003.12.13 Átdolgozta: ccl
+   Frank Lichtenheld visszajelzésének figyelembe vétele.
+   Verzió: 1.0 2003.11.08 Átdolgozta: ccl
+   Elsõ kiadás.
+
+   Ez a mini-HOGYAN bemutatja, hogyan kell elkészíteni egy egyszerû
+   Debian .deb csomagot.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+
+        1.1. [2]További anyagok a Weben
+        1.2. [3]Magyar fordítás
+
+   2. [4]Kezdjünk hozzá
+   3. [5]Csomagszerkezet
+
+        3.1. [6]debian-binary
+        3.2. [7]data.tar.gz
+        3.3. [8]control.tar.gz
+
+   4. [9]Gyakorlat
+
+        4.1. [10]control
+        4.2. [11]dpkg-deb
+
+   5. [12]Alapos ellenõrzés
+
+        5.1. [13]lintian
+        5.2. [14]Minimális dokumentáció
+        5.3. [15]fakeroot
+        5.4. [16]További dokumentáció
+
+   6. [17]Összegzés
+   7. [18]Egyéb
+   8. [19]Köszönetnyilvánítás
+   9. [20]Hivatkozások
+
+1. Bevezetés
+
+Egy teljesen újonnan elkészített archívumot (fájl, program, szkript, csomag
+stb. - a ford.) elõször mindig a saját rendszeredre telepítsd, ne tedd bele
+rögtön a hivatalos Debian disztribúcióba. Tanulmányozd a "hivatalos"
+[21]Debian New Maintainers' Guide (Új Debian karbantartók kézikönyve)
+leírást.
+
+A szabályos Debian csomagok egy komplett forrás-csomagot tartalmaznak, az
+ebben lévõ debian/rules fájl automatikusan végrehajtja a megfelelõ
+lépéseket, beleértve a bináris elkészítését is. Itt mi most csak azt
+mutatjuk be, hogyan tegyünk bele egy kis bináris csomagba egy egyszerû
+shell szkriptet, vagy egy futtatható binárist.
+
+Feltételezem, hogy tudod használni a "tar és "man" parancsokat, valamint
+tudod mi a ".tar.gz" fájl és a [22]Debian (illetve egy szerkesztõ
+használatát ;-), de azt is feltételezem, hogy még soha nem foglalkoztál az
+olyan programokkal, mint az "ar", vagy a "dpkg".
+     _________________________________________________________________
+
+1.1. További anyagok a Weben
+
+A [23]Debian Reference (Debian referencia) egy kitûnõ áttekintést,
+valamint részletes információt nyújt a Debian minden sajátosságáról.
+
+A Debian csomagkészítés hivatalos dokumentációja a [24]Debian New
+Maintainers' Guide (Új Debian karbantartók kézikönyve).
+     _________________________________________________________________
+
+1.2. Magyar fordítás
+
+A magyar fordítást [25]Záhonyi Loránd István készítette (2004.06.01). A
+lektorálást [26]Daczi László végezte el (2004.06.02). A dokumentum
+legfrissebb változata megtalálható a [27]Magyar Linux Dokumentációs Projekt
+honlapján.
+     _________________________________________________________________
+
+2. Kezdjünk hozzá
+
+Idézet a 2.2.2-es Debian Reference (Debian referencia) leírásból,
+2002.11.30: "A Debian csomag belsõ formája a deb(5) kézikönyv oldalban van
+leírva. Mivel a belsõ forma állandóan változik (a fõ Debian kiadások
+között), mindig a dpkg-deb programot használd a .deb fájlok kezeléséhez."
+
+A dpkg-deb kézikönyv oldalából: "dpkg-deb összecsomagol, kicsomagol, és
+információkat ad a Debian archívumokról. A .deb fájlokat az ar és tar
+programokkal is kezelheted, ha szükséges. Használd a dpkg-t a rendszereden
+lévõ csomagok telepítéséhez és törléséhez."
+
+Egy csomó példaként használható .deb fájlt találsz a
+"/var/cache/apt/archives/" könyvtárban. A "dpkg-deb -I
+valamilyen_csomag.deb" paranccsal megkapod a csomag által kínált
+különlegességeket. A "dpkg-deb -c valamilyen_csomag.deb" listázza, hogy a
+csomagban lévõ fájlok hova kerültek a telepítés után.
+
+Listázd ki a .deb fájl tartalmát az "ar tv valamilyen_csomag.deb"
+paranccsal. Használd az "x" kapcsolót a fájl kicsomagolásához.
+     _________________________________________________________________
+
+3. Csomagszerkezet
+
+Vizsgáljunk meg egy példacsomagot egy kicsit közelebbrõl. Például a
+"parted_1.4.24-4_i386.deb" fájl ezt a három fájlt tartalmazza:
+
+$ ar tv parted_1.4.24-4_i386.deb
+rw-r--r-- 0/0      4 Mar 28 13:46 2002 debian-binary
+rw-r--r-- 0/0   1386 Mar 28 13:46 2002 control.tar.gz
+rw-r--r-- 0/0  39772 Mar 28 13:46 2002 data.tar.gz
+
+   Most csomagoljuk ki az összeset, beleértve a tar fájlokat is. (ar xv
+   parted_1.4.24-4_i386.deb - a ford.)
+     _________________________________________________________________
+
+3.1. debian-binary
+
+Ennek a fájlnak "2.0\n" a tartalma. Ez a .deb formátum verziószáma. 2.0
+verziónál az összes többi sort figyelmen kívül hagyja a rendszer.
+     _________________________________________________________________
+
+3.2. data.tar.gz
+
+A "data.tar.gz" tartalmazza az összes telepítendõ fájl listáját, a
+telepítés utáni elérési útvonalukkal együtt:
+
+drwxr-xr-x root/root         0 2002-03-28 13:44:57 ./
+drwxr-xr-x root/root         0 2002-03-28 13:44:49 ./sbin/
+-rwxr-xr-x root/root     31656 2002-03-28 13:44:49 ./sbin/parted
+drwxr-xr-x root/root         0 2002-03-28 13:44:38 ./usr/
+drwxr-xr-x root/root         0 2002-03-28 13:44:41 ./usr/share/
+drwxr-xr-x root/root         0 2002-03-28 13:44:38 ./usr/share/man/
+drwxr-xr-x root/root         0 2002-03-28 13:44:52 ./usr/share/man/man8/
+-rw-r--r-- root/root      1608 2002-03-28 13:44:37 ./usr/share/man/man8/parted.
+8.gz
+drwxr-xr-x root/root         0 2002-03-28 13:44:41 ./usr/share/doc/
+drwxr-xr-x root/root         0 2002-03-28 13:44:52 ./usr/share/doc/parted/
+-rw-r--r-- root/root      1880 2002-03-07 14:20:08 ./usr/share/doc/parted/READM
+E.Debian
+-rw-r--r-- root/root      1347 2002-02-27 01:40:50 ./usr/share/doc/parted/copyr
+ight
+-rw-r--r-- root/root      6444 2002-03-28 13:37:33 ./usr/share/doc/parted/chang
+elog.Debian.gz
+-rw-r--r-- root/root     15523 2002-03-28 02:36:43 ./usr/share/doc/parted/chang
+elog.gz
+
+   Ennek kell lennie az utolsó fájlnak a .deb archívumban.
+     _________________________________________________________________
+
+3.3. control.tar.gz
+
+A mi példánkban ez a fájl a következõket tartalmazza:
+
+-rw-r--r--    1 root     root         1336 Mar 28  2002 control
+-rw-r--r--    1 root     root          388 Mar 28  2002 md5sums
+-rwxr-xr-x    1 root     root          253 Mar 28  2002 postinst
+-rwxr-xr-x    1 root     root          194 Mar 28  2002 prerm
+
+   "md5sums" a data.tar.gz összes fájljának az md5sum kivonatát. A
+   példánkban ez így néz ki:
+1d15dcfb6bb23751f76a2b7b844d3c57  sbin/parted
+4eb9cc2e192f1b997cf13ff0b921af74  usr/share/man/man8/parted.8.gz
+2f356768104a09092e26a6abb012c95e  usr/share/doc/parted/README.Debian
+a6259bd193f8f150c171c88df2158e3e  usr/share/doc/parted/copyright
+7f8078127a689d647586420184fc3953  usr/share/doc/parted/changelog.Debian.gz
+98f217a3bf8a7407d66fd6ac8c5589b7  usr/share/doc/parted/changelog.gz
+
+   Ne aggódj, az "md5sum", valamint a "postinst" és a "prerm" fájlok nem
+   kötelezõek az elsõ csomagodnál, de nem árt, ha tudod, hogy minden
+   komplett hivatalos Debian csomag tartalmazza ezeket, a korrektség
+   érdekében.
+
+   A "prerm" és "postinst" ügyel arra, hogy a régi dokumentációs fájlok
+   törlõdjenek, valamint készüljön egy doc könyvtárban lévõ hivatkozás
+   (link), amely a share/doc könyvtárban lévõ megfelelõ dokumentációs
+   könyvtárra mutat.
+$ cat postinst
+#!/bin/sh
+set -e
+# Automatically added by dh_installdocs
+if [ "$1" = "configure" ]; then
+  if [ -d /usr/doc -a ! -e /usr/doc/parted -a -d /usr/share/doc/parted ]; then
+    ln -sf ../share/doc/parted /usr/doc/parted
+  fi
+fi
+# End automatically added section
+
+$ cat prerm
+#!/bin/sh
+set -e
+# Automatically added by dh_installdocs
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/doc/parted ]; then
+  rm -f /usr/doc/parted
+fi
+# End automatically added section
+
+   És végül a legérdekesebb fájl:
+$ cat control
+Package: parted
+Version: 1.4.24-4
+Section: admin
+Priority: optional
+Architecture: i386
+Depends: e2fsprogs (>= 1.27-2), libc6 (>= 2.2.4-4), libncurses5 (>= \
+5.2.20020112a-1), libparted1.4 (>= 1.4.13+14pre1), libreadline4 (>= \
+4.2a-4), libuuid1
+Suggests: parted-doc
+Conflicts: fsresize
+Replaces: fsresize
+Installed-Size: 76
+Maintainer: Timshel Knoll <timshel@debian.org>
+Deszkription: The GNU Parted disk partition resizing program
+ GNU Parted is a program that allows you to create, destroy,
+ resize, move and copy hard disk partitions. This is useful
+ for creating space for new operating systems, reorganizing
+ disk usage, and copying data to new hard disks.
+ .
+ This package contains the Parted binary and manual page.
+ .
+ Parted currently supports DOS, Mac, Sun, BSD, GPT and PC98
+ disklabels/partition tables, as well as a 'loop' (raw disk)
+ type which allows use on RAID/LVM. Filesystems supported are
+ ext2, ext3, FAT (FAT16 and FAT32) and linux-swap. Parted can
+ also detect HFS (Mac OS), JFS, NTFS, ReiserFS, UFS and XFS
+ filesystems, but cannot create/remove/resize/check these
+ filesystems yet.
+ .
+ The nature of this software means that any bugs could cause
+ massive data loss. While there are no known bugs at the moment,
+ they could exist, so please back up all important files before
+ running it, and do so at your own risk.
+
+   A "man 5 deb-control" parancs kiadásával további információkat
+   tudhatsz meg a control fájlról.
+     _________________________________________________________________
+
+4. Gyakorlat
+
+Itt az idõ, hogy a gyakorlatban is kipróbáld magad. Van egy egyszerû
+"linuxstatus" nevû shell szkriptem, melyet telepíteni akarok, hogy aztán az
+"/usr/bin/linuxstatus" könyvtárból tudjam használni. Tehát elõször a
+"linuxstatus" fájl mellé készíts egy könyvtárat, legyen ennek a neve
+"debian".
+
+$ mkdir -p ./debian/usr/bin
+$ cp linuxstatus ./debian/usr/bin
+     _________________________________________________________________
+
+4.1. control
+
+Kezdjük a control fájllal. A verziószámnak kell tartalmaznia egy kötõjelet
+és egy további Debian csomag verziószámot, például "1.1-1". Ha a programod
+csak hordozható például shell szkriptekbõl áll, akkor az "Arhitecture"
+mezõben az "all" értéket használd.
+
+A "Depends" mezõ kitöltéséhez szükséged van azon csomagok neveire,
+amelyekben azok a fájlokat vagy programokat vannak, melyeket a csomagodban
+lévõ alkalmazások, szkriptek stb. használnak. Ezen információk
+megszerzéséhez használhatod a "dpkg -S <fájl>" parancsot, például:
+
+$ dkpg -S /bin/cat
+coreutils: /bin/cat
+
+   A "coreutils" csomagról többet megtudhatsz, ha az "apt-cache showpkg
+   coreutils" parancsot használod. Ez többek között kiírja a jelenleg
+   telepített csomag verziószámát.
+
+   Egyébként két további módon is hozzájuthatsz ilyen információkhoz. A
+   [28]http://www.debian.org/distrib/packages honlapon Debian fájlokat
+   kereshetsz. Töltsd ki az oldal alján lévõ mezõket.
+
+   Végül, de nem utolsó sorban van egy frankó GUI alkalmazás (grafikus
+   program - a ford.), "kpackage", mely kényelmes csomagok közti
+   böngészési lehetõséget nyújt, és egyedi fájlok alapján is lehetséges
+   csomagot keresni. (kipróbáltam, megette az összes memóriámat (128M mem
+   + 256M swap), úgy kellett lelõnöm távoli géprõl, szóval én inkább a
+   karakteres csomagkezelõ programok használatát javaslom - a ford.)
+
+   A "Suggests", "Conflicts", és a "Replaces" stb. mezõket ki lehet
+   hagyni, ha nem szükségesek.
+
+   Íme az elsõ "control" fájlunk eredménye:
+Package: linuxstatus
+Version: 1.1-1
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash (>= 2.05a-11), textutils (>= 2.0-12), awk, procps (>= \
+1:2.0.7-8), sed (>= 3.02-8), grep (>= 2.4.2-3), coreutils (>= 5.0-5)
+Maintainer: Chr. Clemens Lee <clemens@kclee.com>
+Deszkription: Linux system information
+ This szkript provides a broad overview of different
+ system aspects.
+
+   A "control" fájlt másold a "debian" könyvtárban lévõ "DEBIAN"
+   könyvtárba.
+$ mkdir -p debian/DEBIAN
+$ find ./debian -type d | xargs chmod 755   # a Debian Woodynál ez szükséges, n
+e kérdezd, hogy miért
+$ cp control debian/DEBIAN
+
+   Ha nagy valószínûséggel többen fogják használni a csomagodat a
+   jövõben, akkor segíthet a [29]Writing Debian package descriptions
+   (Leírás készítése Debian csomaghoz) cikk.
+     _________________________________________________________________
+
+4.2. dpkg-deb
+
+Már majdnem kész van. Most gépeld be:
+
+$ dpkg-deb --build debian
+dpkg-deb: building package `linuxstatus' in `debian.deb'.
+$ mv debian.deb linuxstatus_1.1-1_all.deb
+
+   Úh, egyszerûbb volt, mint ahogy azt várni lehetett. Most már csak
+   telepítened kell a csomagot a saját gépedre, és kész:
+   root# dpkg -i ./linuxstatus_1.1-1_all.deb
+
+   Gépeld be a "linuxstatus", vagy add ki az "ls -l /usr/bin/linuxstatus"
+   parancsot, hogy sikerült-e. Ha nem kell már a csomagod, akkor gépeld
+   be a "dpkg -r linuxstatus" parancsot és ellenõrizd, hogy sikerült-e
+   az eltávolítás. Ha telepítesz egy újabb verziót, akkor nem kell
+   eltávolítanod a régit.
+
+   Ha érdekelnek verziószámozási sémák és a névválasztási konvenciók a
+   Debian csomagok tekintetében, akkor olvasd el [30]ezt a bekezdást a
+   [31]Debian Reference (Debian referencia) leírásban.
+     _________________________________________________________________
+
+5. Alapos ellenõrzés
+
+Miután megszerezted az elsõ tapasztalatokat és elkészítetted a saját
+bináris csomagodat, itt az idõ, hogy egy kicsit komolyabban is megnézzük a
+dolgot. Vess egy pillantást az elkészített csomag minõségére.
+     _________________________________________________________________
+
+5.1. lintian
+
+Szerencsénkre a Debian projekt a "lint"-hez hasonló Debian csomag
+ellenõrzõ eszközt nyújt. Ezt az eszközt "lintian"-nak hívják. Ha még nem
+telepítetted a rendszeredre, akkor itt a megfelelõ alkalom (apt-get install
+lintian).
+
+Most használd ezt a nagyszerû eszközt a csomagod ellenõrzéséhez:
+
+$ lintian linuxstatus_1.1-1_all.deb
+E: linuxstatus: binary-without-manpage linuxstatus
+E: linuxstatus: no-copyright-file
+W: linuxstatus: prerm-does-not-remove-usr-doc-link
+W: linuxstatus: postinst-does-not-set-usr-doc-link
+
+   Uh, ez nem néz ki valami teljesnek. Kihagytuk a kézikönyv oldalt, a
+   copyright fájlt, meg azokat a "prerm", meg "postinst" szkripteket.
+     _________________________________________________________________
+
+5.2. Minimális dokumentáció
+
+Nem itt kellene leírnom a kézikönyv oldalak készítésének módját, egy csomó
+könyv van, ahol egy vagy több fejezet foglalkozik ezzel a témával, ezeken
+kívül pedig elolvashatod a [32]Linux Man Page Howto (Linux kézikönyv oldal
+HOGYAN) leírást, mely az interneten elérhetõ. Szóval tekintsünk el ettõl,
+és tegyük fel, hogy van egy megfelelõ kézikönyv oldal a szkriptedhez a
+./man/man1/linuxstatus.1 helyen.
+
+Ugyanez a helyzet a "copyright" fájllal is. Elegendõ példát találsz a
+/usr/share/doc könyvtárban a find /usr/share/doc -name "copyright" parancs
+segítségével.
+
+Íme a saját példánk a "copyright" fájlra:
+
+linuxstatus
+
+Copyright: Chr. Clemens Lee <clemens@kclee.com>
+
+2002-12-07
+
+The home page of linuxstatus is at:
+http://www.kclee.com/clemens/unix/index.html#linuxstatus
+
+The entire code base may be distributed under the terms of the GNU General
+Public License (GPL), which appears immediately below.  Alternatively, all
+of the source code as any code derived from that code may instead be
+distributed under the GNU Lesser General Public License (LGPL), at the
+choice of the distributor. The complete text of the LGPL appears at the
+bottom of this file.
+
+See /usr/share/common-licenses/(GPL|LGPL)
+
+   A "prerm" és "postinst" szkripteket egytõl egyig másold be a
+   [33]példában szereplõ "parted" csomagból, ugyanazzal a névvel, a
+   saját csomagod könyvtárába. Ezeknek a fájloknak megfelelõen
+   mûködniük kell.
+
+   Most ismét készítsd el a debian csomagunkat, de elõbb a "control"
+   fájlban megnöveld a verziószámot 1.1-1-rõl 1.2-1-re (ha írunk egy új
+   kézikönyv oldalt, akkor növeljük a saját belsõ kiadási számot). Az új
+   fájlokat is el kell helyezned a megfelelõ helyen:
+$ mkdir -p ./debian/usr/share/man/man1
+$ mkdir -p ./debian/usr/share/doc/linuxstatus
+$ find ./debian -type d | xargs chmod 755
+$ cp ./man/man1/linuxstatus.1 ./debian/usr/share/man/man1
+$ cp ./copyright ./debian/usr/share/doc/linuxstatus
+$ cp ./prerm ./postinst ./debian/DEBIAN
+$ gzip --best ./debian/usr/share/man/man1/linuxstatus.1
+$
+$ dpkg-deb --build debian
+dpkg-deb: building package `linuxstatus' in `debian.deb'.
+$ mv debian.deb linuxstatus_1.2-1_all.deb
+
+   A gzip szükséges, mert a lintian elvárja, hogy a kézikönyv oldal
+   fájlja, amennyire csak lehet, tömörítve legyen.
+     _________________________________________________________________
+
+5.3. fakeroot
+
+No, akkor nézzük, hogy a csomagunk debian tulajdonságai javultak-e.
+
+$ lintian linuxstatus_1.2-1_all.deb
+E: linuxstatus: control-file-has-bad-owner prerm clemens/clemens != root/root
+E: linuxstatus: control-file-has-bad-owner postinst clemens/clemens != root/roo
+t
+E: linuxstatus: bad-owner-for-doc-file usr/share/doc/linuxstatus/ clemens/cleme
+ns != root/root
+E: linuxstatus: bad-owner-for-doc-file usr/share/doc/linuxstatus/copyright clem
+ens/clemens != root/root
+E: linuxstatus: debian-changelog-file-missing
+
+   Hopsz, újabb gondok. OK, nem adjuk föl. Valójában úgy néz ki, hogy
+   több hibaüzenetet kaptunk ugyanarra a problémára. Minden fájl a
+   "clemens" felhasználói és csoport azonosítóval lett becsomagolva, míg
+   valószínûleg a legtöbb felhasználó jobban örülne, ha "root/root"
+   felhasználóként lennének telepítve. Ezt a problémát könnyedén
+   orvosolhatod a "fakeroot" segédprogram használatával. Szóval javítsd
+   ki, és gyorsan ellenõrizd le (a changelog kimenettel most ne
+   foglalkozz):
+$ fakeroot dpkg-deb --build debian
+dpkg-deb: building package `linuxstatus' in `debian.deb'.
+$ mv debian.deb linuxstatus_1.2-1_all.deb
+$ lintian linuxstatus_1.2-1_all.deb
+E: linuxstatus: debian-changelog-file-missing
+
+   Nagyszerû, de még egy fájlt hozzá kell adnunk a csomaghoz.
+     _________________________________________________________________
+
+5.4. További dokumentáció
+
+A "doc/linuxstatus" könyvtárban lévõ "changelog" mellé még egy
+"changelog.Debian" fájlt is kell írni. Mindkettõt gzip-pel kell tömöríteni.
+
+Íme egy példa a "changelog" fájlra:
+
+linuxstatus (1.2-1)
+
+  * A lintian által jegyzett hibák javítása.
+
+ -- Chr. Clemens Lee <clemens@kclee.com>  2002-12-13
+
+   itt pedig egy "changelog.Debian" példa:
+A linuxistatus Debian karbantartója és a fõ változat szerzõje megegyezik,
+ezért nézd meg a Debian valtozások changelogját is.
+
+   A [34]changelog fájl formátumát illetõen a Debian irányvonal még
+   részletesebb.
+
+   Remélhetõleg most következik az utolsó lépés:
+$ cp ./changelog ./changelog.Debian ./debian/usr/share/doc/linuxstatus
+$ gzip --best ./debian/usr/share/doc/linuxstatus/changelog
+$ gzip --best ./debian/usr/share/doc/linuxstatus/changelog.Debian
+$ fakeroot dpkg-deb --build ./debian
+dpkg-deb: building package `linuxstatus' in `debian.deb'.
+$ mv debian.deb linuxstatus_1.2-1_all.deb
+$ lintian linuxstatus_1.2-1_all.deb
+
+   Ah, már nem panaszkodik többé a lintian :-). Most root felhasználóként
+   telepítheted a csomagot a régire, a megszokott "dpkg -i" paranccsal.
+root# dpkg -i ./linuxstatus_1.2-1_all.deb
+(Reading database ... 97124 files and directories currently installed.)
+Preparing to replace linuxstatus 1.1-1 (using linuxstatus_1.2-1_all.deb) ...
+Unpacking replacement linuxstatus ...
+Setting up linuxstatus (1.2-1) ...
+     _________________________________________________________________
+
+6. Összegzés
+
+Hogy ne kavarodj össze, idézzük fel a bináris Debian csomag elkészítésének
+összes lépését.
+
+A szükséges fájlok:
+
+    1. egy vagy több bináris futtatható fájl, vagy shell szkript
+    2. egy kézikönyv oldal minden egyes futtatható fájlhoz
+    3. "control" fájl
+    4. "copyright" fájl
+    5. "changelog" és "changelog.Debian" fájl
+
+   A helyi "debian" könyvtár elõkészítése:
+
+    1. készítsd el a "debian/usr/bin" könyvtárat (vagy ahová a futtatható
+       fájlokat szeretnéd telepíteni)
+    2. készítsd el a "debian/usr/share/man/man1" könyvtárat (vagy amelyik
+       szekcióba a kézikönyv oldalt szeretnéd elhelyezni)
+    3. készítsd el a "debian/DEBIAN" könyvtárat
+    4. készítsd el a "debian/usr/share/doc/<csomag_nev>" könyvtárat
+    5. gyõzõdj meg arról, hogy a "debian" könyvtárban lévõ összes
+       alkönyvtár 0755 hozzáférési joggal rendelkezik
+
+   Másold be a fájlokat a helyi "debian" fa-struktúrába:
+
+    1. másold a futtatható fájlokat a "debian/usr/bin" könyvtárba (vagy
+       ahová telepíteni szeretnéd õket)
+    2. másold a kézikönyv oldalt a "debian/usr/share/man/man1 könyvtárba
+    3. másold a "control" fájlt a "debian/DEBIAN" könyvtárba
+    4. másold a "copyright", "changelog" és "changelog.Debian" fájlokat a
+       "debian/usr/share/doc/<package_name>" könyvtárba
+    5. tömörítsd gzip programmal a kézikönyv oldalt, "copyright",
+       "changelog" és "changelog.Debian" fájlokat, a "--best" opcióval a
+       helyi "debian" könyvtárstruktúrába
+
+   Készítsd el és ellenõrizd le a Debian csomagot:
+
+    1. használd a "dpkg-deb --build" parancsot a "fakeroot" segítségével
+       a "debian" könyvtárra
+    2. nevezd át az eredményül kapott "debian.deb" fájlt a végsõ
+       csomagnévre, benne a verziószámmal és az architektúrára vonatkozó
+       információval
+    3. ellenõrizd a .deb fájlt a "lintian" segédprogrammal, hogy
+       megfelel-e a Debian irányvonalnak
+     _________________________________________________________________
+
+7. Egyéb
+
+Sok dolog van amit ez a HOGYAN nem fed le, mint például hogyan állítsuk elõ
+a Unix démonokat, a konfigurációs fájlokat és még sok mást.
+
+De a legfontosabb, kihangsúlyozom megint a Debian karbantartók számára, hogy
+a csomagok forrásokból állnak, nem pedig binárisokból. Ezek sosem hatnak
+egymásra közvetlenül a belsõ bináris csomagokkal. Valójában csak a
+"dpkg-deb" és "dpkg" fejlesztõk számára szükséges tudni, hogy mik ezek,
+egyébként felesleges.
+
+Ha egy fejlesztõ úgy határozott, hogy elmondja valakinek miként lehet
+Debian csomagot elkészíteni, biztosan elmagyarázza azt is, hogyan lehet a
+forrás-csomagot (source package) készíteni.
+
+Másrészt nem minden fejlesztõ akarja kiterjeszteni a szoftverét Debian alá
+(egyelõre), mégis használja az olyan csomagkezelõket, mint a "dpkg", a
+csomag forráskódjának kiadása nélkül. Ami engem illet, én mindaddig kiadom a
+szabad projektjeimet tar.gz fájlként a forráskóddal és egyebekkel együtt az
+összes architektúrához, míg egyre több ".deb" csomagot tervezek felkínálni a
+Debian felhasználóknak, akik csak telepíteni és használni akarják a
+szoftveremet.
+
+Ha valaki következõ lépésként Debian csomagként is közzé szeretné tenni
+szoftverét, úgy elõször a Debian New Maintainers' Guide (Új Debian
+karbantartók kézikönyve) valamint [35]Debian Policy Manual (Debian
+irányvonal kézikönyv) leírásokat tanulmányozza elõször. Ha Debian forrás
+csomag készítésébe fogsz bele, akkor látogass el a [36]debian-mentors
+(debian-tanacsadók) levelezõ listájára is, hogy tapasztalatokat szerezz,
+bekapcsolódj a párbeszédbe, melynek során tippeket kaphatsz az elõforduló
+problémák megoldására.
+     _________________________________________________________________
+
+8. Köszönetnyilvánítás
+
+Köszönet az alábbi embereknek:
+
+     * Colin Watson: egy mondattal hozzájárult a HOGYANhoz, és
+       visszajelezésével segített a szerkezet pontosításban és a
+       címadásban,
+     * Bill Allombert: hozzájárult egy mondattal az "Egyebek" fejezethez,
+       valamint egy visszajelzésében megerõsítette Colin egyik mondatát,
+     * Santiago Vila: az "md" az csak egy helyi alias, és a (Unix) világ
+       szabványosított változata az "mkdir", valamint
+     * Tabatha Marshall: a [37]TLDP projektbõl, általános segítség,
+     * Joey Hess, Carlo Perassi, és Joe Riel: kisebb korrekciók,
+     * Claudio Cattazzo: a saját xml dokumentumom docbook formátumra
+       konvertálása, mely számos kisebb korrekciót és fejlesztést
+       eredményezett [2003.10.04].
+     * Frank Lichtenheld: a HTML oldalak generálásakor fellépõ hibákra
+       fölhívta a figyelmet, valamint felvetette a "dpkg -S <fájl>"
+       parancs használatát, amikor egy bizonyos fájlra keresünk a
+       csomagban [2003.12.13].
+     * Hugh Hartmann: elkészítette a HOGYAN [38]olasz fordítását, Claudio
+       Cattazzo: lektorálta a fordítást [2003.12.13].
+     _________________________________________________________________
+
+9. Hivatkozások
+
+   Debian New Maintainers' Guide (Új Debian Karbantartók Útmutatója):
+   [39]http://www.debian.org/doc/maint-guide/
+   Debian:   [40]http://www.debian.org/
+   The Debian Reference (Debian referencia):
+   [41]http://www.debian.org/doc/manuals/reference/reference.en.html
+   Debian csomagok:   [42]http://www.debian.org/distrib/packages
+   Writing Debian package descriptions (Leírás készítése Debian
+   csomaghoz):   [43]http://people.debian.org/~walters/descriptions.html
+   Linux Man Page Howto (Linux kézikönyv oldal HOGYAN):
+   [44]http://www.tldp.org/HOWTO/mini/Man-Page.html
+   Debian Policy Manual (Debian irányvonal kézikönyv oldal):
+   [45]http://www.debian.org/doc/debian-policy/
+   Debian Mentors (debian tanácsadás):
+   [46]http://lists.debian.org/debian-mentors/
+   The Linux Documentation Project (a Linux Dokumentációs Projekt
+   honlapja):   [47]http://www.tldp.org/
+   Plusz az én saját kis Unix honlapom:
+   [48]http://www.kclee.com/clemens/unix/
+
+References
+
+   1. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN30
+   2. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN37
+   3. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN43
+   4. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN49
+   5. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN61
+   6. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN67
+   7. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN70
+   8. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN75
+   9. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN89
+  10. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN93
+  11. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN109
+  12. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN122
+  13. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN125
+  14. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN132
+  15. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN147
+  16. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN156
+  17. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN170
+  18. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN232
+  19. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN243
+  20. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#AEN265
+  21. http://www.debian.org/doc/maint-guide/
+  22. http://www.debian.org/
+  23. http://www.debian.org/doc/manuals/reference/reference.en.html
+  24. http://www.debian.org/doc/maint-guide/
+  25. mailto:  hamisan[kukac]mora.u-szeged[pont]hu
+  26. mailto: dacas[kukac]freemail[pont]hu
+  27. http://tldp.fsf.hu/
+  28. http://www.debian.org/distrib/packages
+  29. http://people.debian.org/~walters/descriptions.html
+  30. http://www.debian.org/doc/manuals/reference/ch-system.en.html#s-pkgname
+  31. http://www.debian.org/doc/manuals/reference/reference.en.html
+  32. http://www.tldp.org/HOWTO/mini/Man-Page.html
+  33. file://localhost/home/dacas/tldp/convert/Debian-Binary-Package-Building-HOWTO-hu.html#postinst
+  34. http://www.debian.org/doc/debian-policy/ch-miscellaneous.html#s-dpkgchangelog
+  35. http://www.debian.org/doc/debian-policy/
+  36. http://lists.debian.org/debian-mentors/
+  37. http://www.tldp.org/
+  38. http://it.tldp.org/HOWTO/Debian-Binary-Package-Building-HOWTO/index.html
+  39. http://www.debian.org/doc/maint-guide/
+  40. http://www.debian.org/
+  41. http://www.debian.org/doc/manuals/reference/reference.en.html
+  42. http://www.debian.org/distrib/packages
+  43. http://people.debian.org/~walters/descriptions.html
+  44. http://www.tldp.org/HOWTO/mini/Man-Page.html
+  45. http://www.debian.org/doc/debian-policy/
+  46. http://lists.debian.org/debian-mentors/
+  47. http://www.tldp.org/
+  48. http://www.kclee.com/clemens/unix/

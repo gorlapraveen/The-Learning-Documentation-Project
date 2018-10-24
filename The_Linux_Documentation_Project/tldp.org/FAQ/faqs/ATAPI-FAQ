@@ -1,0 +1,198 @@
+atapi.FAQ - Your most frequently asked questions about
+	    ATAPI/IDE CDROM drives.
+
+	Author:	Mathew E. Kirsch
+		Systems Manager - Computing Graphics Engineering Technology
+		SUNY at Alfred, Alfred NY 14802
+		kirschm@snyalfva.cc.alfredtech.edu
+
+Revisions:
+1.0 - First public posting, 951010
+1.1 - Added Q5 and Q6, 951011
+1.2 - Added Q7, courtesy Steve Clarke; renamed the ATAPI CDROM FAQ
+1.3 - Added Q8, due to number of people with this problem
+
+Q1: Is the <Insert your brand/model here> IDE CDROM drive supported?
+
+A1: Yes, of course it is. It is an ATAPI/IDE CDROM drive, meaning it utilizes
+    the IDE hard drive interface that is present in most typical home PC's
+    today. It has been like this since kernel version 1.1.85. 
+
+Q2: I already have two IDE hard drives. Will my ATAPI CDROM still work?
+
+A2: Yes, but you need to have a second IDE interface card to make it work.
+    Unfortunately, not just any IDE card will work. The secondary interface
+    card that you choose must have jumper-selectable IRQs and base addresses,
+    or, you need to purchase a card that is specifically manufactured for
+    use as a secondary interface. One such card is the Data Technologies 
+    model 2183. Its typically only $15, so its not a big expenditure on your 
+    part. If you bought a Mitsumi with an interface card, use that one.
+    Another option is an EIDE card with dual IDE "ports", meaning it has
+    two IDE/EIDE interfaces on the same card. I've been out of circulation
+    for a while USENET-wise, but I heard that the 1.3.x kernels fully support
+    EIDE interfaces. 
+
+Q3: I can't seem to find the driver for the FX400 in the kernel source,
+    what should I be looking for?
+
+A3: There isn't a SPECIFIC driver for the Mitsumi FX400 (or for any other
+    ATAPI/IDE CDROM drive for that matter). What you need is the ATAPI 
+    CDROM driver that has been included in the kernel source officially
+    since at least kernel version 1.1.85. It can be enabled just like any
+    other driver when you "make config" and recompile the kernel. Recompiling
+    the kernel is an entire FAQ in itself, so I won't cover it here.
+
+Q4: What options should I enable so I can use my new 
+    <insert brand name/model here> ATAPI CDROM?
+
+A4: Here is an excerpt from the "make config" sequence:
+
+*
+* Please see drivers/block/README.ide for help/info on IDE drives
+*
+   Use old disk-only driver for primary i/f (CONFIG_BLK_DEV_HD) [n] n
+   Use new IDE driver for primary/secondary i/f (CONFIG_BLK_DEV_IDE) [y] y
+   Include support for IDE/ATAPI CDROMs (CONFIG_BLK_DEV_IDECD) [n] y
+
+    As you can see, you do NOT want to use the old disk-only driver, and you
+    DO want to use the new IDE driver and include support for ATAPI CDROMs.
+    Also, make sure you enable ISO9660 filesystem support (the standard 
+    CDROM filesystem type). Compile your kernel, and copy the compressed kernel,
+    vmlinuz, from /usr/src/linux/arch/i386/boot to / and do the same for 
+    System.map. If you are using an older version of Slackware (older than 2.2),
+    you also need to run a short script to create the device nodes (in /dev) 
+    for the two devices on that secondary interface. The script is located in
+    /usr/src/linux/drivers/block, and is called MAKEDEV.ide1.
+    Update LILO or loadlin (whichever you prefer to use) as needed,
+    reboot and away you (should) go. As long as you have your secondary IDE 
+    interface on IRQ 15, and at port address 170h-177h (the defaults for the
+    DTC 2183 interface, but always double-check factory jumper settings, and
+    as always: when in doubt, ask someone), things should work admirably. 
+    Linux should have no problem recognizing the secondary interface, and your 
+    bootup sequence should look something like this: 
+
+hda: WDC AC1210F, 202MB w/64KB Cache, CHS=989/12/35, MaxMult=16
+hdb: Maxtor 7345 AT, 329MB w/64KB Cache, CHS=790/15/57, MaxMult=32
+hdc: FX400_02, ATAPI, CDROM drive
+ide1: secondary interface on irq 15
+ide0: primary interface on irq 14
+
+    This may seem a bit confusing, so I'll translate. The first line indicates
+    that my first hard drive (/dev/hda) is a Western Digital 202MB hard drive.
+    The second is a Maxtor 329MB drive. hda is the first drive on the first
+    interface, and hdb is the second drive on the first interface. hdc is the 
+    first drive on the second interface, and hdd (not used on my system, yet :)
+    is the second drive on the second interfae. The third line, therefore, 
+    indicates that there is an FX400 ATAPI CDROM located on the first device 
+    of the second interface. The final two lines indicate that there are two
+    IDE interfaces, one on IRQ 15, one on IRQ 14. The drives you have will
+    show up differently, but the format will be the same. Remember where the
+    CDROM was recognized, as you will have to make a symbolic file link to the
+    /dev/cdrom device. Do this by typing (from anywhere):
+
+	ln -s /dev/hdc /dev/cdrom
+
+    Once booted, you should now be able to insert your favorite Slackware
+    distribution CDROM and mount it by typing:
+
+	mount /dev/cdrom /mnt
+
+    Pretty simple, eh?
+
+    Note that in some cases you may have to add the following line to your
+    /etc/lilo.conf or to your loadlin script (whichever you use):
+
+	append="hdc=cdrom"    <--- for lilo.conf
+	hdc=cdrom	      <--- from the lilo "boot:" prompt
+
+Q5: I've installed the drive as the only device on the secondary interface,
+    with the CDROM drive jumpered as SLAVE/SINGLE, and Linux won't 
+    see it. What am I missing?
+
+A5: Well, quite a lot, to be frank. 99.99% of the ATAPI CDROM drives
+    are shipped jumpered as SLAVE or SINGLE, and this simply will
+    not work with Linux. By the IDE standard, a single
+    drive on an interface must be jumpered as MASTER. There isn't (or
+    shouldn't be) a specification for SINGLE in the IDE standard.
+    Change the jumper on the back of the CDROM drive to MASTER,
+    and follow the directions in Question 4, and you should be set to go.
+
+Q6: I've heard that putting my ATAPI CDROM and my IDE hard drive on the same 
+    IDE channel slows down the hard drive. What is the story?
+
+A6: From my personal experience (and the experience of several others who
+    commented on the subject), there is no truth to the rumor that putting
+    the CDROM and HDD on the same channel slows things down.
+    The rumor states that the MEDIA TRANSFER RATE is set to the speed of
+    the slowest device on the IDE channel. This is wrong.
+    The real rumor should be that the INSTRUCTION TRANSFER RATE is set
+    to the speed of the slower device on the IDE channel. Since the 
+    instructions are handled in firmware (the logic chips on the control
+    boards on the drives) rather than on the spinning media, the only
+    reason the INSTRUCTION TRANSFER RATE would be slower on one device
+    is due to a poor design by the manufacturer.
+    You mileage may vary here, because the rumor may actually be true
+    if you're using certain IDE/EIDE controller boards. If you are
+    experiencing the slowdown when your CDROM and HDD are on the same
+    IDE channel, send the brand and model of your controller to me,
+    and I'll list it here.
+
+Q7: I just got kernel 1.3.(19-30), and my ATAPI CDROM quit working. Why?
+
+A7: Somebody reworked the IDE/ATAPI drivers for kernel versions 
+    1.3.19 through 1.3.30, and they got broken in the process.
+    Don't ask me why, because as I see it, if it ain't broke, don't 
+    fix it! Another view on the subject is: If you don't want to be a
+    guinea pig, don't get the odd-numbered (1.1.x, 1.3.x, 1.n.x) kernels.
+    Stick to the even numbered, or production kernels, like 1.2.13.
+
+Q8: Why does my Mitsumi FX401 drive perform badly?
+
+A8: Mitsumi recently (about August '95) replaced the FX400 with the FX401.
+This model, although similar, has a few new minor features and a small speed
+increase. Unfortunately, the timing of this drive is slightly different and
+breaks the standard IDE/ATAPI controller in Linux 1.2.* - 1.3.26 with some
+EIDE controllers. The symptoms are break activity of the CDROM drive followed
+by about 10 seconds pause and an timeout/reset error message in a syslog
+file. The only known solution to this problem is to upgrade to a new
+development kernel 1.3.28 or later. The new code is stable in 1.3.30.
+Unfortunately, this new code doesn't work with several other drives. 
+<thanks to steven.clarke@keble.oxford.ac.uk for Q7/A7>
+
+Q9: I just got finished wiring up my Sound Blaster 16 IDE, and the ATAPI drive
+    isn't detected! 
+
+A9: The most likely result of your troubles has to do with the base addressing
+    of the IDE port on the Sound Blaster. This comes from the factory set to
+    use the TERTIARY (third. Yes, there is a third and fourth IDE port now, but
+    so far linux doesn't use them in the latest production kernel.) IDE port.
+    Remember that for linux to see a second IDE port, it has to be at the 
+    secondary address (0x170-0x177, IRQ 15). This is the only way production 
+    Linux will ever see your second interface and ATAPI CDROM. 
+    You can also change a couple of lines in ide.c in the kernel source
+    to probe for your secondary IDE card at the tertiary address/IRQ, but
+    that's only for the adventurous. 
+    A second cause of your problem may be the fact that when Creative Labs
+    manufactures a CDROM drive, they put the master/slave jumper on the
+    SLAVE pins. It is pretty likely that the CDROM drive is the only 
+    device on the SoundBlaster IDE interface, and by the definition
+    of the IDE standard, a single device on any given interface MUST
+    be jumpered as MASTER. This doesn't bother DOS or any of the other
+    inferior operating systems, because they are forgiving with regard
+    to the manufacturer and user screw-ups. Linux is an operating system
+    for someone that knows their computer fairly well, and it adheres
+    to standards STRICTLY. 
+    You will also have to reconfigure your ATAPI CDROM and SB16IDE in
+    DOS, Win 3.1x, Win 4.x, and OS/2, because the change of address won't
+    be realized by these inferior (IMHO) operating systems.
+
+Epilogue: If you have any comments, questions, additions and/or corrections,
+    let me know. I can be reached at kirschm@snyalfva.cc.alfredtech.edu, 
+    at my brother's email vp24njcb@ubvms.cc.buffalo.edu, or at a new site
+    kirschm@london.cgt.alfredtech.edu (hopefully by late August, this will be
+    my main address).
+    I will periodically update this listing with new questions, and 
+    contributions, and I hope that it will eventually grow into a general
+    ATAPI FAQ.
+
+    Cheers

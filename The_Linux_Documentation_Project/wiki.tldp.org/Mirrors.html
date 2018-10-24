@@ -1,0 +1,974 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<!-- Mirrored from wiki.tldp.org/Mirrors by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 21:06:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script src="moin_static184/js/jquery.js" type="text/javascript"></script><meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow">
+
+<title>Mirrors - The Linux Documentation Project</title>
+<script type="text/javascript" src="http://wiki.tldp.org/moin_static184/common/js/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="http://wiki.tldp.org/moin_static184/gugiel/css/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="http://wiki.tldp.org/moin_static184/gugiel/css/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="http://wiki.tldp.org/moin_static184/gugiel/css/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="http://wiki.tldp.org/moin_static184/gugiel/css/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static184/gugiel/css/msie.css">
+<![endif]-->
+
+
+<link rel="alternate" title="The Linux Documentation Project: Mirrors" href="http://wiki.tldp.org/Mirrors?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Mirrors&amp;ddiffs=1" type="application/rss+xml">
+
+
+<link rel="Start" href="http://wiki.tldp.org/FrontPage">
+<link rel="Alternate" title="Wiki Markup" href="http://wiki.tldp.org/Mirrors?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://wiki.tldp.org/Mirrors?action=print">
+<link rel="Search" href="http://wiki.tldp.org/FindPage">
+<link rel="Index" href="http://wiki.tldp.org/TitleIndex">
+<link rel="Glossary" href="http://wiki.tldp.org/WordIndex">
+<link rel="Help" href="http://wiki.tldp.org/HelpOnFormatting">
+</head>
+
+<body  lang="en" dir="ltr">
+
+<div id="header">
+<div id="utils">
+<div id="username"><a href="http://wiki.tldp.org/Mirrors?action=login" id="login" rel="nofollow">Login</a></div>
+
+<form id="searchform" method="get" action="http://wiki.tldp.org/Mirrors">
+<div>
+<input type="hidden" name="action" value="fullsearch">
+<input type="hidden" name="context" value="180">
+<label for="searchinput">Search:</label>
+<input id="searchinput" type="text" name="value" value="" size="20"
+    onfocus="searchFocus(this)" onblur="searchBlur(this)"
+    onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search">
+<input id="titlesearch" name="titlesearch" type="submit"
+    value="Titles" alt="Search Titles">
+<input id="fullsearch" name="fullsearch" type="submit"
+    value="Text" alt="Search Full Text">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+</div>
+<div id="logo"><a href="http://wiki.tldp.org/FrontPage"><img src="http://wiki.tldp.org/moin_static184/ldp/tldp.png" alt="[LDP]"></a></div>
+<h1 id="locationline">
+
+<span id="pagelocation"><a class="backlink" href="http://wiki.tldp.org/Mirrors?action=fullsearch&amp;context=180&amp;value=linkto%3A%22Mirrors%22" rel="nofollow" title="Click to do a full-text search for this title">Mirrors</a></span>
+</h1>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://wiki.tldp.org/RecentChanges">RecentChanges</a></li><li class="wikilink"><a href="http://wiki.tldp.org/FindPage">FindPage</a></li><li class="wikilink"><a class="nonexistent" href="http://wiki.tldp.org/HelpContents">HelpContents</a></li><li class="current"><a href="http://wiki.tldp.org/Mirrors">Mirrors</a></li>
+</ul>
+
+<div id="pageline"><hr style="display:none;"></div>
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onClick="toggleComments();return false;">Comments</a></li><li><a class="nbinfo" href="http://wiki.tldp.org/Mirrors?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="http://wiki.tldp.org/Mirrors?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="http://wiki.tldp.org/Mirrors">
+<div>
+    <label>More Actions:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="RenamePage" disabled class="disabled">Rename Page</option>
+<option value="DeletePage" disabled class="disabled">Delete Page</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Subscribe User</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Remove Spam</option>
+<option value="show" disabled class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="Load">Load</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    <input type="submit" value="Do">
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+
+
+</div>
+
+<div class="sidebar"><div dir="ltr" id="SideBar.sidebar" lang="en"><span class="anchor" id="SideBar.top"></span>
+<span class="anchor" id="SideBar.line-1"></span><div><table><tbody><tr>  <td><p class="line891"><strong><a class="http" href="http://tldp.org/">LDP Home</a></strong><br>
+<a href="http://wiki.tldp.org/LDP Manifesto">Manifesto</a><br>
+<a class="http" href="http://tldp.org/history.html">History</a><br>
+<a class="http" href="http://tldp.org/docs.html#howto">Stable HOWTOs</a></td>
+  <td><p class="line891"><img alt="http://www.tldp.org/images/ldp.gif" class="external_image" src="http://www.tldp.org/images/ldp.gif" title="http://www.tldp.org/images/ldp.gif" width="150" /></td>
+  <td><p class="line891"><strong><a href="http://wiki.tldp.org/FrontPage">LDP wiki</a></strong><br>
+<a href="http://wiki.tldp.org/MembersPage">MembersPage</a><br>
+<a href="http://wiki.tldp.org/AuthorsPage">AuthorsPage</a><br>
+<a href="http://wiki.tldp.org/VisitorsPage">VisitorsPage</a><br>
+<a href="http://wiki.tldp.org/TranslatorsPage">TranslatorsPage</a><br>
+<a href="http://wiki.tldp.org/Page_Status">Wiki HOWTOs</a></td>
+</tr>
+</tbody></table></div><span class="anchor" id="SideBar.line-2"></span><span class="anchor" id="SideBar.bottom"></span></div></div>
+<div id="page" lang="en" dir="ltr">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+<h1 id="Linux_Documentation_Project_Mirrors">Linux Documentation Project Mirrors</h1>
+<span class="anchor" id="line-2"></span><p class="line862">The following sites mirror the LDP pages, please use the site nearest to you. DAILY means mirrored daily, DAILY*<em>N</em> means mirrored <em>N</em> times per day, WEEKLY means mirrored weekly, WEEKLY*<em>N</em> means mirrored <em>N</em> times a week. <span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><p class="line867">
+<h1 id="Mirror_Date">Mirror Date</h1>
+<span class="anchor" id="line-5"></span><p class="line862">If you are using a mirror site, the date on the main page of the mirror (upper right corner) should be within two weeks of the date found on <a class="http" href="http://www.tldp.org/">http://tldp.org/</a>. If the date is not within that time period, please email <a class="mailto" href="mailto:feedback@LDP_NO_SPAM.en.tldp.org">feedback(at)en.tldp.org</a> with the location of the outdated mirror. = Becoming linke to become a mirror site for the LDP, please see the <a href="http://wiki.tldp.org/Mirroring Information">Mirroring Information</a>. <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line867">
+<h1 id="Some_Mirrors_Problems">Some Mirrors Problems</h1>
+<span class="anchor" id="line-8"></span><p class="line862">Some pages may be unavailable on the mirrors. This may be a configuration problem on the mirror, or a configuration problem on the main tldp.org Web site. Please report any error to <a class="mailto" href="mailto:feedback@LDP_NO_SPAM.en.tldp.org">feedback(at)en.tldp.org</a>. In the following list errors are noted when seen and not yet fixed. Forgive the inconvenience. <span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span><p class="line867">
+<h1 id="Mirrors_List">Mirrors List</h1>
+<span class="anchor" id="line-11"></span><p class="line862">Mirror sites are located in: <a href="http://wiki.tldp.org/Mirrors#australia">Australia</a>, <a href="http://wiki.tldp.org/Mirrors#austria">Austria</a>, <a href="http://wiki.tldp.org/Mirrors#argentina">Argentina</a>, <a href="http://wiki.tldp.org/Mirrors#bahamas">Bahamas</a>, <a href="http://wiki.tldp.org/Mirrors#belgium">Belgium</a>, <a href="http://wiki.tldp.org/Mirrors#bosnia">Bosnia &amp; Herzegovina</a>, <a href="http://wiki.tldp.org/Mirrors#brazil">Brazil</a>, <a href="http://wiki.tldp.org/Mirrors#bulgaria">Bulgaria</a>, <a href="http://wiki.tldp.org/Mirrors#canada">Canada</a>, <a href="http://wiki.tldp.org/Mirrors#china">China</a>, <a href="http://wiki.tldp.org/Mirrors#columbia">Columbia</a>, <a href="http://wiki.tldp.org/Mirrors#costarica">Costa Rica</a>, <a href="http://wiki.tldp.org/Mirrors#croatia">Croatia</a>, <a href="http://wiki.tldp.org/Mirrors#czech">Czech Republic</a>, <a href="http://wiki.tldp.org/Mirrors#denmark">Denmark</a>, <a href="http://wiki.tldp.org/Mirrors#estonia">Estonia</a>, <a href="http://wiki.tldp.org/Mirrors#finland">Finland</a>, <a href="http://wiki.tldp.org/Mirrors#france">France</a>, <a href="http://wiki.tldp.org/Mirrors#germany">Germany</a>, <a href="http://wiki.tldp.org/Mirrors#greece">Greece</a>, <a href="http://wiki.tldp.org/Mirrors#hongkong">Hong Kong</a>, <a href="http://wiki.tldp.org/Mirrors#hungary">Hungary</a>, <a href="http://wiki.tldp.org/Mirrors#iceland">Iceland</a>, <a href="http://wiki.tldp.org/Mirrors#india">India</a>, <a href="http://wiki.tldp.org/Mirrors#indonesia">Indonesia</a>, <a href="http://wiki.tldp.org/Mirrors#ireland">Ireland</a>, <a href="http://wiki.tldp.org/Mirrors#israel">Israel</a>, <a href="http://wiki.tldp.org/Mirrors#italy">Italy</a>, <a href="http://wiki.tldp.org/Mirrors#japan">Japan</a>, <a href="http://wiki.tldp.org/Mirrors#latvia">Latvia</a>, <a href="http://wiki.tldp.org/Mirrors#Lebanon">Lebanon</a>, <a href="http://wiki.tldp.org/Mirrors#malaysia">Malaysia</a>, <a href="http://wiki.tldp.org/Mirrors#moldova">Moldova</a>, <a href="http://wiki.tldp.org/Mirrors#netherlands">Netherlands</a>, <a href="http://wiki.tldp.org/Mirrors#newzealand">New Zealand</a>, <a href="http://wiki.tldp.org/Mirrors#norway">Norway</a>, <a href="http://wiki.tldp.org/Mirrors#philippines">Philippines</a>, <a href="http://wiki.tldp.org/Mirrors#poland">Poland</a>, <a href="http://wiki.tldp.org/Mirrors#portugal">Portugal</a>, <a href="http://wiki.tldp.org/Mirrors#romania">Romania</a>, <a href="http://wiki.tldp.org/Mirrors#russia">Russia</a>, <a href="http://wiki.tldp.org/Mirrors#singapore">Singapore</a>, <a href="http://wiki.tldp.org/Mirrors#southafrica">South Africa</a>, <a href="http://wiki.tldp.org/Mirrors#spain">Spain</a>, <a href="http://wiki.tldp.org/Mirrors#sweden">Sweden</a>, <a href="http://wiki.tldp.org/Mirrors#switzerland">Switzerland</a>, <a href="http://wiki.tldp.org/Mirrors#taiwan">Taiwan</a>, <a href="http://wiki.tldp.org/Mirrors#thailand">Thailand</a>, <a href="http://wiki.tldp.org/Mirrors#turkey">Turkey</a>, <a href="http://wiki.tldp.org/Mirrors#ukraine">Ukraine</a>, <a href="http://wiki.tldp.org/Mirrors#uk">UK</a>, <a href="http://wiki.tldp.org/Mirrors#usa">USA</a>, <a href="http://wiki.tldp.org/Mirrors#vietnam">Viet Nam</a>. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span><p class="line867"><hr /><p class="line874"> <span class="anchor" id="line-14"></span><ul><li style="list-style-type:none"><p class="line891"><span class="anchor" id="australia"></span> <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></li></ul><p class="line867">
+<h2 id="Australia">Australia</h2>
+<span class="anchor" id="line-17"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-18"></span><p class="line891"><a class="http" href="http://ldp.ausics.net/">http://ldp.ausics.net/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Brisbane, Queensland </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-19"></span><p class="line891"><a class="http" href="http://mirror.linux.org.au/LDP/">http://mirror.linux.org.au/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Canberra </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-20"></span><p class="line891"><a class="http" href="http://tldp.mirrors.ilisys.com.au/">http://tldp.mirrors.ilisys.com.au</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Perth </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-21"></span><p class="line891"><a class="http" href="http://mirror.cse.unsw.edu.au/pub/LDP/">http://mirror.cse.unsw.edu.au/pub/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Sydney </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span><p class="line867"><span class="anchor" id="austria"></span> <span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span><p class="line867">
+<h2 id="Austria">Austria</h2>
+<span class="anchor" id="line-27"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://linuxdoc.uibk.ac.at/LDP/">http://linuxdoc.uibk.ac.at/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Innsbruck </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span><p class="line867"><span class="anchor" id="argentina"></span> <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><p class="line867">
+<h2 id="Argentina">Argentina</h2>
+<span class="anchor" id="line-33"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-34"></span><p class="line891"><a class="http" href="http://ldp.localhost.net.ar/">http://ldp.localhost.net.ar/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Ciudad de Buenos Aires </td>
+  <td><p class="line862">? </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><p class="line867"><span class="anchor" id="bahamas"></span> <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><p class="line867">
+<h2 id="Bahamas">Bahamas</h2>
+<span class="anchor" id="line-40"></span><p class="line867"><span class="anchor" id="bosnia"></span> <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><p class="line867">
+<h2 id="Bosnia_.26_Herzegovina">Bosnia &amp; Herzegovina</h2>
+<span class="anchor" id="line-43"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://ldp.blic.net/">http://ldp.blic.net/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Banja Luka </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><p class="line867"><span class="anchor" id="brazil"></span> <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span><p class="line867">
+<h2 id="Brazil">Brazil</h2>
+<span class="anchor" id="line-49"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><p class="line867"><span class="anchor" id="bulgaria"></span> <span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span><p class="line867">
+<h2 id="Bulgaria">Bulgaria</h2>
+<span class="anchor" id="line-55"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://ldp.fixity.net/">http://ldp.fixity.net/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Varna </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span><p class="line867"><span class="anchor" id="canada"></span> <span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><p class="line867">
+<h2 id="Canada">Canada</h2>
+<span class="anchor" id="line-61"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-62"></span><p class="line862"> <a class="http" href="http://sunsite.ualberta.ca/LDP/">http://sunsite.ualberta.ca/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Edmonton, Alberta </td>
+  <td><p class="line862"> - </td>
+  <td><p class="line862"> Good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span><p class="line867"><span class="anchor" id="china"></span> <span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><p class="line867">
+<h2 id="China">China</h2>
+<span class="anchor" id="line-68"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-69"></span><p class="line891"><a class="http" href="http://mirror.bjtu.edu.cn/tldp.org">http://mirror.bjtu.edu.cn/tldp.org</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Beijing </td>
+  <td><p class="line862">idealities-Re5JQEeQqe8AvxtiuMwx3w AT public.gmane.org </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span><span class="anchor" id="line-72"></span><p class="line867"><span class="anchor" id="columbia"></span> <span class="anchor" id="line-73"></span><span class="anchor" id="line-74"></span><p class="line867">
+<h2 id="Columbia">Columbia</h2>
+<span class="anchor" id="line-75"></span><p class="line867"><span class="anchor" id="costarica"></span> <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><p class="line867">
+<h2 id="Costa_Rica">Costa Rica</h2>
+<span class="anchor" id="line-78"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span><p class="line867"><span class="anchor" id="croatia"></span> <span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><p class="line867">
+<h2 id="Croatia">Croatia</h2>
+<span class="anchor" id="line-84"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://viveka.math.hr/LDP/">http://viveka.math.hr/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Zagreb </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span><p class="line867"><span class="anchor" id="czech"></span> <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><p class="line867">
+<h2 id="Czech_Republic">Czech Republic</h2>
+<span class="anchor" id="line-90"></span><p class="line867"><span class="anchor" id="denmark"></span> <span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><p class="line867">
+<h2 id="Denmark">Denmark</h2>
+<span class="anchor" id="line-93"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://mirrors.dotsrc.org/ldp/">http://mirrors.dotsrc.org/ldp/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Aalborg </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><p class="line867"><span class="anchor" id="estonia"></span> <span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><p class="line867">
+<h2 id="Estonia">Estonia</h2>
+<span class="anchor" id="line-99"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span><p class="line867"><span class="anchor" id="finland"></span> <span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span><p class="line867">
+<h2 id="Finland">Finland</h2>
+<span class="anchor" id="line-105"></span><p class="line867"><span class="anchor" id="france"></span> <span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><p class="line867">
+<h2 id="France">France</h2>
+<span class="anchor" id="line-108"></span><div><table><tbody><tr>  <td><p class="line891"><a class="http" href="http://ldp.mirror.sdv.fr/">http://ldp.mirror.sdv.fr/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Strasbourg </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, jan 2013/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-109"></span><p class="line862"> <a class="http" href="http://tldp.meulie.net/">http://tldp.meulie.net/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Strasbourg </td>
+  <td><p class="line862"> domain AT meulie.net </td>
+  <td><p class="line862"> good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span><p class="line867"><span class="anchor" id="germany"></span> <span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span><p class="line867">
+<h2 id="Germany">Germany</h2>
+<span class="anchor" id="line-115"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-116"></span><p class="line891"><a class="https" href="https://fourdots.com/mirror/LDP/">https://fourdots.com/mirror/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Germany, Saxony </td>
+  <td><p class="line862">goran.tepsic AT fourdots.com </td>
+  <td><p class="line862">good, jan 2016/pentago </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-117"></span><p class="line891"><a class="http" href="http://www.articlesfoundation.com/LDP/">http://www.articlesfoundation.com/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Hilter a.T.W. </td>
+  <td><p class="line862">support AT articlesfoundation.com </td>
+  <td><p class="line862">good, mar 2014/AndréSchulz </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-118"></span><p class="line891"><a class="http" href="http://artfiles.org/ldp">http://artfiles.org/ldp</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Artfiles New Media GmbH, Hamburg </td>
+  <td><p class="line862">mirror-JZ2lp5Gev0dg9hUCZPvPmw AT public.gmane.org </td>
+  <td><p class="line862">good jan 2013/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-119"></span><p class="line862"> <a class="http" href="http://www.sfr-fresh.com/linux/LDP/">http://www.sfr-fresh.com/linux/LDP/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Birlinghoven </td>
+  <td><p class="line862"> info AT sfr-fresh.com </td>
+  <td><p class="line862"> good, jan 2013/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span><p class="line867"><span class="anchor" id="greece"></span> <span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><p class="line867">
+<h2 id="Greece">Greece</h2>
+<span class="anchor" id="line-125"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-126"></span><p class="line862"> <a class="http" href="http://mirrors.ntua.gr/LDP/">http://mirrors.ntua.gr/LDP/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Athens </td>
+  <td><p class="line862"> noc AT ntua.gr </td>
+  <td><p class="line862"> good, 2013, March, jdd </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-127"></span><p class="line862"> <a class="http" href="http://ldp.cc.uoc.gr/">http://ldp.cc.uoc.gr/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Heraklion </td>
+  <td><p class="line862"> admin AT physics.uoc.gr </td>
+  <td><p class="line862"> good, 9 Dec, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><p class="line867"><span class="anchor" id="hongkong"></span> <span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><p class="line867">
+<h2 id="Hong_Kong">Hong Kong</h2>
+<span class="anchor" id="line-133"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><p class="line867"><span class="anchor" id="hungary"></span> <span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span><p class="line867">
+<h2 id="Hungary">Hungary</h2>
+<span class="anchor" id="line-138"></span><p class="line867"><span class="anchor" id="iceland"></span> <span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span><p class="line867">
+<h2 id="Iceland">Iceland</h2>
+<span class="anchor" id="line-141"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://ldp.icenet.is/">http://ldp.icenet.is/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Reykjavik </td>
+  <td><p class="line862">Albert Ragnarsson </td>
+  <td><p class="line862">Good, nov 1, 2008/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span><p class="line867"><span class="anchor" id="india"></span> <span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><p class="line867">
+<h2 id="India">India</h2>
+<span class="anchor" id="line-147"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-148"></span><p class="line862"> <a class="http" href="http://ftp.iitm.ac.in/LDP/">http://ftp.iitm.ac.in/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Chennai </td>
+  <td><p class="line862"> webmaster AT iitm.ac.in </td>
+  <td><p class="line862"> good, March, 2013, jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-149"></span><p class="line862"> <a class="http" href="http://glug.nith.ac.in/LDP/">http://glug.nith.ac.in/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Hamirpur </td>
+  <td><p class="line862"> mailglug AT gmail.com </td>
+  <td><p class="line862"> good, 5 Feb, 2013, ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><p class="line867"><span class="anchor" id="indonesia"></span> <span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><p class="line867">
+<h2 id="Indonesia">Indonesia</h2>
+<span class="anchor" id="line-155"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-156"></span><p class="line862"> <a class="http" href="http://ldp.indosite.co.id/">http://ldp.indosite.co.id/</a> very fast from indonesia </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Jakarta </td>
+  <td><p class="line862">Abdussalam Sukarta </td>
+  <td><p class="line862">good, 10 Dec, 2008, jdd </td>
+  <td><p class="line862">- </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-157"></span><p class="line862"> <a class="http" href="http://ldp.indosite.com/">http://ldp.indosite.com/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Jakarta </td>
+  <td><p class="line862"> Abdussalam Sukarta </td>
+  <td><p class="line862">good, 10 Dec, 2008, jdd </td>
+  <td><p class="line862">- </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-158"></span><p class="line862"> <a class="http" href="http://tldp.vlsm.org/">http://tldp.vLSM.org/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Depok </td>
+  <td><p class="line862"> vLSM.org AT gmail.com </td>
+  <td><p class="line862"> good, 5 Dec, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span><p class="line867"><span class="anchor" id="ireland"></span> <span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><p class="line867">
+<h2 id="Ireland">Ireland</h2>
+<span class="anchor" id="line-164"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-165"></span><p class="line862"> <a class="http" href="http://ftp.heanet.ie/pub/LDP/">http://ftp.heanet.ie/pub/LDP/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Dublin </td>
+  <td><p class="line862"> mirrors AT heanet.ie </td>
+  <td><p class="line862"> good, 5 Dec, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><p class="line867"><span class="anchor" id="israel"></span> <span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><p class="line867">
+<h2 id="Israel">Israel</h2>
+<span class="anchor" id="line-171"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span><p class="line867"><span class="anchor" id="italy"></span> <span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><p class="line867">
+<h2 id="Italy">Italy</h2>
+<span class="anchor" id="line-178"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-179"></span><p class="line862"> <a class="http" href="http://mirrors.muzzy.it/LDP/">http://mirrors.muzzy.it/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Arezzo </td>
+  <td><p class="line862"> mirrors AT muzzy.it </td>
+  <td><p class="line862"> good, Oct, 01 2014, Muzzy </td>
+  <td><p class="line862">- </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span><p class="line867"><span class="anchor" id="japan"></span> <span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><p class="line867">
+<h2 id="Japan">Japan</h2>
+<span class="anchor" id="line-186"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-187"></span><p class="line862"> <a class="ftp" href="ftp://mirrors.go-part.com/ldp/">ftp://mirrors.go-part.com/ldp/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Tokyo </td>
+  <td><p class="line862"> ortega.x3 AT gmail.com </td>
+  <td><p class="line862"> good, Jan 15, 2013, OX3 </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-188"></span><span class="anchor" id="line-189"></span><span class="anchor" id="line-190"></span><p class="line867"><span class="anchor" id="latvia"></span> <span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span><p class="line867">
+<h2 id="Latvia">Latvia</h2>
+<span class="anchor" id="line-193"></span><ul><li><p class="line891"><a class="ftp" href="ftp://ftp.linux.edu.lv/mirrors/LDP/">ftp://ftp.linux.edu.lv/mirrors/LDP/</a>  updated: DAILY location: Riga <span class="anchor" id="line-194"></span><span class="anchor" id="line-195"></span></li></ul><p class="line867"><span class="anchor" id="Lebanon"></span> <span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span><p class="line867">
+<h2 id="Lebanon-1">Lebanon</h2>
+<span class="anchor" id="line-198"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-199"></span><span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span><p class="line867"><span class="anchor" id="malaysia"></span> <span class="anchor" id="line-202"></span><span class="anchor" id="line-203"></span><p class="line867">
+<h2 id="Malaysia">Malaysia</h2>
+<span class="anchor" id="line-204"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-205"></span><p class="line891"><a class="http" href="http://mirror.oscc.org.my/ldp/">http://mirror.oscc.org.my/ldp/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Cyberjaya </td>
+  <td><p class="line862">contact AT oscc.org.my </td>
+  <td><p class="line862">good, nov 22, 2008/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-206"></span><span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><p class="line867"><span class="anchor" id="moldova"></span> <span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span><p class="line867">
+<h2 id="Moldova">Moldova</h2>
+<span class="anchor" id="line-211"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span><span class="anchor" id="line-214"></span><span class="anchor" id="line-215"></span><p class="line867"><span class="anchor" id="netherlands"></span> <span class="anchor" id="line-216"></span><span class="anchor" id="line-217"></span><p class="line867">
+<h2 id="Netherlands">Netherlands</h2>
+<span class="anchor" id="line-218"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-219"></span><p class="line862"> <a class="http" href="http://tldp.unix.nl/">http://tldp.unix.nl/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Geldermalsen </td>
+  <td><p class="line862"> tldp AT unix.nl </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862">- </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span><span class="anchor" id="line-222"></span><p class="line867"><span class="anchor" id="newzealand"></span> <span class="anchor" id="line-223"></span><span class="anchor" id="line-224"></span><p class="line867">
+<h2 id="New_Zealand">New Zealand</h2>
+<span class="anchor" id="line-225"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-226"></span><span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span><p class="line867"><span class="anchor" id="norway"></span> <span class="anchor" id="line-229"></span><span class="anchor" id="line-230"></span><p class="line867">
+<h2 id="Norway">Norway</h2>
+<span class="anchor" id="line-231"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-232"></span><p class="line862"> <a class="http" href="http://www.nvg.ntnu.no/linux/ldp/">http://www.nvg.ntnu.no/linux/ldp/</a> </td>
+  <td><p class="line862"> WEEKLY? </td>
+  <td><p class="line862"> Trondheim </td>
+  <td><p class="line862"> www AT nvg.ntnu.no </td>
+  <td><p class="line862"> good (slightly out of date 2008-12-29), Jan 6, 2009 ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-233"></span><span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span><p class="line867"><span class="anchor" id="philippines"></span> <span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span><p class="line867">
+<h2 id="Philippines">Philippines</h2>
+<span class="anchor" id="line-238"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-239"></span><span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span><p class="line867"><span class="anchor" id="poland"></span> <span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><p class="line867">
+<h2 id="Poland">Poland</h2>
+<span class="anchor" id="line-244"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-245"></span><p class="line862"> <a class="http" href="http://piotrkosoft.net/pub/mirrors/LDP/">http://piotrkosoft.net/pub/mirrors/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Oswiecim </td>
+  <td><p class="line862"> admin AT piotrkosoft.net </td>
+  <td><p class="line862"> good, 27 Nov, 2008 ATG </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-246"></span><p class="line862"> <a class="http" href="http://www.man.poznan.pl/LDP/">http://www.man.poznan.pl/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Poznan </td>
+  <td><p class="line862"> mim AT man.poznan.pl </td>
+  <td><p class="line862"> good, 27 Nov, 2008 ATG </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-247"></span><p class="line862"> <a class="http" href="http://ftp.icm.edu.pl/pub/linux/Documentation/">http://ftp.icm.edu.pl/pub/linux/Documentation/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Warszawa </td>
+  <td><p class="line862"> rzm AT icm.edu.pl </td>
+  <td><p class="line862"> good, 24 May, 2009 ser </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span><span class="anchor" id="line-250"></span><p class="line867"><span class="anchor" id="portugal"></span> <span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span><p class="line867">
+<h2 id="Portugal">Portugal</h2>
+<span class="anchor" id="line-253"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-254"></span><p class="line891"><a class="http" href="http://mirrors.dominios.pt/LDP">http://mirrors.dominios.pt/LDP</a> </td>
+  <td><p class="line862">2 Hours </td>
+  <td><p class="line862">Faro </td>
+  <td><p class="line862"> <a class="mailto" href="mailto:cjsantos-Lq3Kmr9RqdUAvxtiuMwx3w@public.gmane.org">cjsantos-Lq3Kmr9RqdUAvxtiuMwx3w@public.gmane.org</a> </td>
+  <td><p class="line862">good 2010 June 23/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-255"></span><p class="line891"><a class="http" href="http://mirrors.fe.up.pt/LDP/">http://mirrors.fe.up.pt/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Porto </td>
+  <td><p class="line891"><tt class="backtick">mirrors-A1Gx7Te15Zc&nbsp;AT&nbsp;public.gmane.org</tt> </td>
+  <td><p class="line862">good feb 28, 2010/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-256"></span><p class="line862"> <a class="http" href="http://ftp.dei.uc.pt/LDP/">http://ftp.dei.uc.pt/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Coimbra </td>
+  <td><p class="line862"> ftpadm AT dei.uc.pt </td>
+  <td><p class="line862"> good, 26 Nov, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-257"></span><p class="line862"> <a class="http" href="http://ldp.ist.utl.pt/">http://ldp.ist.utl.pt</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Lisbon </td>
+  <td><p class="line862"> ftp-adm AT ist.utl.pt </td>
+  <td><p class="line862"> good, 26 Nov, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-258"></span><span class="anchor" id="line-259"></span><span class="anchor" id="line-260"></span><p class="line867"><span class="anchor" id="romania"></span> <span class="anchor" id="line-261"></span><span class="anchor" id="line-262"></span><p class="line867">
+<h2 id="Romania">Romania</h2>
+<span class="anchor" id="line-263"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-264"></span><p class="line862"> <a class="http" href="http://ldp.oprit.ro/">http://ldp.oprit.ro/</a> </td>
+  <td><p class="line862"> WEEKLY </td>
+  <td><p class="line862"> Bucharest </td>
+  <td><p class="line862"> cristi AT oprit.ro </td>
+  <td><p class="line862"> </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-265"></span><span class="anchor" id="line-266"></span><span class="anchor" id="line-267"></span><p class="line867"><span class="anchor" id="russia"></span> <span class="anchor" id="line-268"></span><span class="anchor" id="line-269"></span><p class="line867">
+<h2 id="Russia">Russia</h2>
+<span class="anchor" id="line-270"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-271"></span><p class="line862"> <a class="http" href="http://ldp.dvo.ru/">http://ldp.dvo.ru/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Vladivostok </td>
+  <td><p class="line862"> noc AT dvo.ru </td>
+  <td><p class="line862"> good, 26 Nov, 2008, ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-272"></span><span class="anchor" id="line-273"></span><span class="anchor" id="line-274"></span><p class="line867"><span class="anchor" id="singapore"></span> <span class="anchor" id="line-275"></span><span class="anchor" id="line-276"></span><p class="line867">
+<h2 id="Singapore">Singapore</h2>
+<span class="anchor" id="line-277"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-278"></span><span class="anchor" id="line-279"></span><span class="anchor" id="line-280"></span><span class="anchor" id="line-281"></span><p class="line867"><span class="anchor" id="southafrica"></span> <span class="anchor" id="line-282"></span><span class="anchor" id="line-283"></span><p class="line867">
+<h2 id="South_Africa">South Africa</h2>
+<span class="anchor" id="line-284"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-285"></span><p class="line862"> <a class="http" href="http://www.linux.org.za/LDP/">http://www.linux.org.za/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Gauteng </td>
+  <td><p class="line862"> oskar AT linux.org.za </td>
+  <td><p class="line862"> good, 25 Nov, 2008, ATG </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-286"></span><p class="line891"><a class="http" href="http://ftp.leg.uct.ac.za/pub/stuff/tldp">http://ftp.leg.uct.ac.za/pub/stuff/tldp</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Cape Town </td>
+  <td><p class="line862"> legadmin AT leg.uct.ac.za </td>
+  <td><p class="line862">Good, faster after-hours, Nov 29, 2008, jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-287"></span><span class="anchor" id="line-288"></span><span class="anchor" id="line-289"></span><p class="line867"><span class="anchor" id="spain"></span> <span class="anchor" id="line-290"></span><span class="anchor" id="line-291"></span><p class="line867">
+<h2 id="Spain">Spain</h2>
+<span class="anchor" id="line-292"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-293"></span><span class="anchor" id="line-294"></span><span class="anchor" id="line-295"></span><p class="line867"><span class="anchor" id="sweden"></span> <span class="anchor" id="line-296"></span><span class="anchor" id="line-297"></span><p class="line867">
+<h2 id="Sweden">Sweden</h2>
+<span class="anchor" id="line-298"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-299"></span><p class="line862"> <a class="http" href="http://ftp.sunet.se/LDP/">http://ftp.sunet.se/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Uppsala </td>
+  <td><p class="line862"> archive AT ftp.sunet.se </td>
+  <td><p class="line862"> good, 25 Nov, 2008, ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-300"></span><span class="anchor" id="line-301"></span><span class="anchor" id="line-302"></span><p class="line867"><span class="anchor" id="switzerland"></span> <span class="anchor" id="line-303"></span><span class="anchor" id="line-304"></span><p class="line867">
+<h2 id="Switzerland">Switzerland</h2>
+<span class="anchor" id="line-305"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-306"></span><p class="line891"><a class="http" href="http://tldp.mirror.testserver.li/">http://tldp.mirror.testserver.li/</a> </td>
+  <td><p class="line862"> DAILY*4 </td>
+  <td><p class="line862"> Otelfingen </td>
+  <td><p class="line862"> roots AT testserver.li </td>
+  <td><p class="line862"> good, 24 Nov, 2008, ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-307"></span><span class="anchor" id="line-308"></span><span class="anchor" id="line-309"></span><p class="line867"><span class="anchor" id="taiwan"></span> <span class="anchor" id="line-310"></span><span class="anchor" id="line-311"></span><p class="line867">
+<h2 id="Taiwan">Taiwan</h2>
+<span class="anchor" id="line-312"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-313"></span><span class="anchor" id="line-314"></span><span class="anchor" id="line-315"></span><p class="line867"><span class="anchor" id="thailand"></span> <span class="anchor" id="line-316"></span><span class="anchor" id="line-317"></span><p class="line867">
+<h2 id="Thailand">Thailand</h2>
+<span class="anchor" id="line-318"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line891"><a class="http" href="http://www.thailinux.org/LDP">http://www.thailinux.org/LDP</a> </td>
+  <td><p class="line862">Daily </td>
+  <td><p class="line862">Bangkok, Thailand </td>
+  <td><p class="line862">phumin AT sawasdee.org </td>
+  <td><p class="line862">Good, nov 1,2008/jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-319"></span><span class="anchor" id="line-320"></span><span class="anchor" id="line-321"></span><p class="line867"><span class="anchor" id="turkey"></span> <span class="anchor" id="line-322"></span><span class="anchor" id="line-323"></span><p class="line867">
+<h2 id="Turkey">Turkey</h2>
+<span class="anchor" id="line-324"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-325"></span><p class="line862"> <a class="http" href="http://ldp.linux.org.tr/">http://ldp.linux.org.tr/</a> </td>
+  <td><p class="line862"> DAILY*4 </td>
+  <td><p class="line862"> Ankara (Bilkent) </td>
+  <td><p class="line862"> info AT lkd.org.tr </td>
+  <td><p class="line862"> good, 24 Nov, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-326"></span><p class="line862"> <a class="http" href="http://ldp.ce.itu.edu.tr/">http://ldp.ce.itu.edu.tr/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Istanbul (ITU) </td>
+  <td><p class="line862"> wm AT cs.itu.edu.tr </td>
+  <td><p class="line862"> good, Nov 10, 2009, jdd </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-327"></span><span class="anchor" id="line-328"></span><span class="anchor" id="line-329"></span><p class="line867"><span class="anchor" id="ukraine"></span> <span class="anchor" id="line-330"></span><span class="anchor" id="line-331"></span><p class="line867">
+<h2 id="Ukraine">Ukraine</h2>
+<span class="anchor" id="line-332"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-333"></span><span class="anchor" id="line-334"></span><span class="anchor" id="line-335"></span><p class="line867"><span class="anchor" id="uk"></span> <span class="anchor" id="line-336"></span><span class="anchor" id="line-337"></span><p class="line867">
+<h2 id="United_Kingdom">United Kingdom</h2>
+<span class="anchor" id="line-338"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-339"></span><p class="line891"><a class="http" href="http://mirror.ox.ac.uk/sites/www.tldp.org/">http://mirror.ox.ac.uk/sites/www.tldp.org/</a> &amp; <a class="ftp" href="ftp://mirror.ox.ac.uk/sites/www.tldp.org/">ftp://mirror.ox.ac.uk/sites/www.tldp.org/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Oxford </td>
+  <td><p class="line862">sysdev AT oucs.ox.ac.uk </td>
+  <td><p class="line862">good on 11/05/2008 by ATG </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-340"></span><span class="anchor" id="line-341"></span><span class="anchor" id="line-342"></span><p class="line867"><span class="anchor" id="usa"></span> <span class="anchor" id="line-343"></span><span class="anchor" id="line-344"></span><p class="line867">
+<h2 id="United_States_of_America">United States of America</h2>
+<span class="anchor" id="line-345"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">state </td>
+  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested by </td>
+  <td><p class="line862"> error examples </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-346"></span><p class="line862">CA </td>
+  <td><p class="line862"> <a class="http" href="http://mirrors.usc.edu/pub/ldp/">http://mirrors.usc.edu/pub/ldp/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Los Angeles </td>
+  <td><p class="line862"> mirrors-help AT linux.usc.edu </td>
+  <td><p class="line862"> good but slow, Nov 9, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-347"></span><p class="line862">CA </td>
+  <td><p class="line891"><a class="http" href="http://mirrors.kernel.org/LDP/">http://mirrors.kernel.org/LDP/</a> </td>
+  <td><p class="line862"> HOURLY </td>
+  <td><p class="line862"> Santa Clara </td>
+  <td><p class="line862"> webmaster AT kernel.org </td>
+  <td><p class="line862"> good, Dec 3, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-348"></span><p class="line862">GA </td>
+  <td><p class="line862"> <a class="http" href="http://www.gtlib.gatech.edu/LDP/">http://www.gtlib.gatech.edu/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Atlanta </td>
+  <td><p class="line862"> lxmirror AT gtlib.gatech.edu </td>
+  <td><p class="line862"> good, URL change (removed .cc), Nov 11, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-349"></span><p class="line862">IL </td>
+  <td><p class="line862"> <a class="http" href="http://www.silug.org/LDP/">http://www.silug.org/LDP/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Fairview Heights </td>
+  <td><p class="line862"> info AT silug.org </td>
+  <td><p class="line862"> good, Nov 12, 2008, ATG </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-350"></span><p class="line862">IN </td>
+  <td><p class="line891"><a class="http" href="http://tldp.askapache.com/">http://tldp.askapache.com/</a> </td>
+  <td><p class="line862"> DAILY*2 </td>
+  <td><p class="line862"> Indianapolis </td>
+  <td><p class="line862"> webmaster(at) askapache.com </td>
+  <td><p class="line862"> good Nov 21, 2009/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-351"></span><p class="line862">KY </td>
+  <td><p class="line862"> <a class="http" href="http://cowbox.coe.uky.edu/LDP/">http://cowbox.coe.uky.edu/LDP/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Lexington </td>
+  <td><p class="line862"> webmaster AT coe.uky.edu </td>
+  <td><p class="line862"> good, Dec 10, 2008, jdd </td>
+  <td><p class="line862">- </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-352"></span><p class="line862">MD </td>
+  <td><p class="line891"><a class="http" href="http://www.mikesbawx.org/LDP/">http://www.mikesbawx.org/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Waldorf </td>
+  <td><p class="line862">Michael K. Buckingham </td>
+  <td><p class="line862">good, nov 12, 2008/jdd </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-353"></span><p class="line862"> </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862"> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-354"></span><p class="line862">NE </td>
+  <td><p class="line862"> <a class="http" href="http://ldp.pakuni.net/">http://ldp.pakuni.net/</a> </td>
+  <td><p class="line862"> DAILY </td>
+  <td><p class="line862"> Omaha </td>
+  <td><p class="line862"> infosec AT pakuni.net </td>
+  <td><p class="line862"> good with errors, Jan 14, 2016, ATG </td>
+  <td><p class="line862"> <a class="http" href="http://ldp.pakuni.net/LDP/LDP-Author-Guide/cvs.html">~/LDP/LDP-Author-Guide/cvs.html</a>, <a class="http" href="http://ldp.pakuni.net/LDP/LGNET/">~/LDP/LGNET/</a> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-355"></span><p class="line862">NJ </td>
+  <td><p class="line891"><a class="http" href="http://www.linuxsecurity.com/docs/LDP/">http://www.linuxsecurity.com/docs/LDP/</a> </td>
+  <td><p class="line862">Twice DAILY </td>
+  <td><p class="line862">Newark </td>
+  <td><p class="line862">dwreski-ckTX/ <a class="mailto" href="mailto:lAc7teZkjO+N0TKoEEOCMrvLtNR@public.gmane.org">lAc7teZkjO+N0TKoEEOCMrvLtNR@public.gmane.org</a> </td>
+  <td><p class="line862">Good, April 5, 2010/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-356"></span><p class="line862">TX </td>
+  <td><p class="line891"><a class="http" href="http://mirror.uta.edu/LDP/">http://mirror.uta.edu/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Arlington </td>
+  <td><p class="line862">? </td>
+  <td><p class="line862">good, nov 6, 2008/jdd </td>
+  <td><p class="line862"> NA </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-357"></span><p class="line862">TX </td>
+  <td><p class="line891"><a class="http" href="http://www.cyberuse.com/LDP">http://www.cyberuse.com/LDP</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862"> </td>
+  <td><p class="line862">help AT cyberuse.com &amp; shk AT cinedictum.com </td>
+  <td><p class="line862">good, Jan 7, 2009/jdd </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-358"></span><p class="line862">WA </td>
+  <td><p class="line891"><a class="http" href="http://snolug.ghostwheel-systems.cc/LDP/">http://snolug.ghostwheel-systems.cc/LDP/</a> </td>
+  <td><p class="line862">DAILY </td>
+  <td><p class="line862">Marysville </td>
+  <td><p class="line862">- </td>
+  <td><p class="line862">good, nov 10, 2008/jdd </td>
+  <td><p class="line862"> NA </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-359"></span><span class="anchor" id="line-360"></span><span class="anchor" id="line-361"></span><p class="line867"><span class="anchor" id="vietnam"></span> <span class="anchor" id="line-362"></span><span class="anchor" id="line-363"></span><p class="line867">
+<h2 id="Viet_Nam">Viet Nam</h2>
+<span class="anchor" id="line-364"></span><div><table style="width: 80%"><tbody><tr>  <td><p class="line862">mirror </td>
+  <td><p class="line862">updated </td>
+  <td><p class="line862">location </td>
+  <td><p class="line862">admin mail </td>
+  <td><p class="line862">tested/by </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-365"></span><span class="anchor" id="line-366"></span><span class="anchor" id="line-367"></span><p class="line867"><hr /><p class="line874"> <span class="anchor" id="line-368"></span><span class="anchor" id="bottom"></span></div><p id="pageinfo" class="info" lang="en" dir="ltr">Mirrors  (last edited 2016-01-14 09:55:21 by <span title="pentago @ 7-125-dynamic.kti.rs[178.79.7.125]"><a class="nonexistent" href="http://wiki.tldp.org/pentago" title="pentago @ 7-125-dynamic.kti.rs[178.79.7.125]">pentago</a></span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onClick="toggleComments();return false;">Comments</a></li><li><a class="nbinfo" href="http://wiki.tldp.org/Mirrors?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="http://wiki.tldp.org/Mirrors?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="http://wiki.tldp.org/Mirrors">
+<div>
+    <label>More Actions:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="RenamePage" disabled class="disabled">Rename Page</option>
+<option value="DeletePage" disabled class="disabled">Delete Page</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Subscribe User</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Remove Spam</option>
+<option value="show" disabled class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="Load">Load</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    <input type="submit" value="Do">
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+&copy; The Linux Documentation Project, 1992-2013. <a href="http://wiki.tldp.org/SiteCredits">Site credits</a>.
+
+</div>
+
+<a href="http://ibiblio.org/"><img align=right src="http://www.ibiblio.org/hosted/images/sm_hosted_trans.gif"></a>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-720605-2");
+pageTracker._trackPageview();
+</script>
+</body>
+
+<!-- Mirrored from wiki.tldp.org/Mirrors by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 21:06:01 GMT -->
+</html>
+

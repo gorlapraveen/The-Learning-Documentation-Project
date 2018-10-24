@@ -1,0 +1,479 @@
+#!/usr/bin/perl
+#
+# ldp_mk - create all output forms needed for the LDP from SGML/XML file
+# Copyright (C) 2002-2000  - Greg Ferguson (gferg@metalab.unc.edu)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+#
+# usage:
+#
+# ldp_mk -style <stylesheet> -txt <txt_filter> -mk_index <file>.sgml
+#
+#  where:
+#      <stylesheet> - fullpath to a DSSSL stylesheet
+#      <txt_filter> - one of the following: lynx, w3m, html2text
+#
+
+if($ARGV[0] eq '') {
+   &usage();
+   exit(0);
+}
+
+my($_toolroot)=$ENV{'SGML_TOOLROOT'} || '/export/sunsite/users/gferg/toolroot';
+my($_jade) = 'jade-1.2.1';
+my($dtd) = 'SGML';
+my($dcl) = '';
+my($linuxdoc) = 1;
+my($create_index, $html_only, $ldpwn) = 0;
+my($cmd, $fname, $fname_wo_ext, $txt_filter, $style, $db_style, $s, $db_v, $x) = '';
+my(@flines) = ();
+
+while(1) {
+
+     if ($ARGV[0] eq "-style") {
+         shift(@ARGV);
+         $style = $ARGV[0];
+         shift(@ARGV);
+     } elsif ($ARGV[0] eq "-txt") {
+         shift(@ARGV);
+         $txt_filter = $ARGV[0];
+         shift(@ARGV);
+     } elsif ($ARGV[0] eq "-mk_index") {
+         shift(@ARGV);
+         $create_index = 1;
+     } elsif ($ARGV[0] =~ /^\-html/) {
+         shift(@ARGV);
+         $html_only = 1;
+     } elsif ($ARGV[0] =~ /^\-ldpwn/) {
+         shift(@ARGV);
+         $ldpwn = 1;
+     } else {
+         last;
+     }
+}
+$fname = $ARGV[(@ARGV + 0) - 1];
+$fname_wo_ext = $fname;
+if( $fname =~ /\.[\w]+ml$/ ) {
+    $fname_wo_ext =~ s/\.[\w]+$//;
+} else {
+    if( -e "$fname.sgml" ) {
+        $fname .= "\.sgml";
+    } else {
+        $fname .= "\.xml";
+    }
+}
+if( !(-e "$fname") ) {
+      print "\nldp_mk: ERROR - cannot find/read $fname\n";
+      &usage();
+      exit(0);
+}
+
+if( $style eq '' ) {
+    if ($ldpwn == 1) {
+        $style = "$_toolroot/dsssl/docbook/html/ldpwn.dsl";
+    } else {
+        $style = "$_toolroot/dsssl/docbook/html/ldp.dsl#html";
+    }
+}
+$db_style = "$_toolroot/dsssl/docbook/html/docbook.dsl";
+
+
+# determine DTD 
+#
+open(FP_IN, "head -100 $fname | grep -i '\!doctype' |") || 
+               die "\nldp_mk: ERROR - cannot determine DTD for $fname\n";
+$s = <FP_IN>;
+close(FP_IN);
+
+if( $s eq '' ) {
+    die "\nldp_mk: cannot determine DTD for $fname\n";
+}
+
+
+
+if( $s =~ /linuxdoc/i ) {
+
+    $linuxdoc = 1;
+    print "\nldp_mk: $fname is LinuxDoc SGML\n";
+
+    if( $txt_filter eq '' ) {
+        $txt_filter = 'lynx';
+    }
+
+} else {
+
+    if( $s =~ /\ xml\ /i ) {
+        $dtd = 'XML';
+        $x   = 'x';
+        $dcl = "${_toolroot}/${_jade}/pubtext/xml.dcl";
+    }
+
+    # determine docbook version
+    #
+    if( $s =~ /V3\./ ) {
+        $db_v = "3.x";
+        $s = "${_toolroot}/dtd/docbook_31/catalog:";
+    } elsif ( $s =~ /V4\.1/ ) {
+        $db_v = "4.1.2";
+        $s = "${_toolroot}/dtd/docbook${x}_41/catalog:";
+    } elsif ( $s =~ /V4\.2/ ) {
+        $db_v = "4.2";
+        $s = "${_toolroot}/dtd/docbook${x}_42/catalog:";
+    } else {
+        die "\nldp_mk: cannot determine DTD version for $fname\n";
+    }
+
+    # do not override any various SGML catalog file settings
+    #
+    if( $ENV{'SGML_CATALOG_FILES'} eq '' ) {
+        $s .= "${_toolroot}/dsssl/docbook/catalog:"  .
+              "${_toolroot}/${_jade}/dsssl/catalog";
+        $ENV{'SGML_CATALOG_FILES'} = $s;
+    }
+
+    if( !(-d "$fname_wo_ext") && $ldpwn == 0 ) {
+          mkdir("$fname_wo_ext", 0755);
+    }
+
+    $linuxdoc = 0;
+    print "\nldp_mk: $fname is DocBook (vers. ${db_v}) $dtd\n";
+
+    if( $txt_filter eq '' ) {
+        $txt_filter = 'w3m';
+    }
+}
+
+
+# create the index...
+#
+if( $linuxdoc == 0 && $create_index == 1 ) {
+
+    print "\nldp_mk: creating index from $fname...\n";
+
+    $cmd = 
+      "$_toolroot/mkindex/collateindex.pl -N -o index." .
+      ($dtd eq 'XML' ? "xml;" : "sgml;") .
+      "jade -t sgml -V html-index -d $db_style $dcl $fname; " .
+      "$_toolroot/mkindex/collateindex.pl -g -t Index -i doc-index " .
+      "-o index." . ($dtd eq 'XML' ? "xml" : "sgml") . " HTML.index;" .
+      "rm -f HTML.index";
+
+    system($cmd);
+}
+
+# create HTML version
+#
+print "\nldp_mk: creating HTML from $fname...\n";
+
+if( $linuxdoc == 1 ) {
+
+    ## $cmd = "$_toolroot/linuxdoc-tools/bin/sgml2html -c latin $fname";
+    $cmd = "$_toolroot/linuxdoc-tools/bin/sgml2html -c ascii $fname";
+
+} else {
+
+    $cmd = 
+       "jade -t sgml -i html -d $style $dcl $fname; " .
+       "mv -f \*.htm\* $fname_wo_ext/;" .
+       "jade -t sgml -i html -V nochunks " .
+                  "-d $style $dcl $fname > 00_${fname_wo_ext}.html";
+
+    if( $ldpwn == 1 ) {
+        $cmd = "jade -t sgml -i html -d $style $dcl $fname > 00_${fname_wo_ext}.html ";
+    }
+}
+
+system($cmd);
+if( ($linuxdoc == 1 && !(-e "$fname_wo_ext.html"))
+    ||
+    ($linuxdoc == 0 && !(-e "00_${fname_wo_ext}.html")) ) {
+   print "\nldp_mk: WARNING - could not create HTML: $fname_wo_ext\n";
+}
+
+if( $html_only == 1 ) {
+    system("rm -f index.sgml index.xml");
+    exit(0);
+}
+
+
+# create PLAIN TEXT version
+#
+print "\nldp_mk: creating plain text from $fname...\n";
+
+if( $linuxdoc == 1 ) {
+
+    $cmd = "($_toolroot/linuxdoc-tools/bin/sgml2txt -c latin -f $fname; " .
+           "cat ${fname_wo_ext}.txt | sed -r 's/\\x1b\\[[0-9]+m//g' > f99; " .
+	   "mv f99 ${fname_wo_ext}.txt)";
+
+} else {
+
+    $s = '';
+    open(F_IN, "+< 00_${fname_wo_ext}.html");
+    while(<F_IN>) {
+          if( $_ =~ /^WIDTH=\"\d\"/ ) {
+              next;
+          }
+          $s .= $_;
+    }
+    seek(F_IN,0,0);
+    print F_IN $s;
+    truncate(F_IN, tell(F_IN));
+    close(F_IN);
+
+    # fix to place URLs in-line for text variant
+    #
+    open(F_OUT, "> TXT_${fname_wo_ext}.html");
+    $s =~ s/<A\s*HREF=\"(.*?)\"\s*TARGET=\"(.*?)\"\s*>(.*?)<\/A\s*>/<TT>[$1]<\/TT>\ $3/gm;
+    print F_OUT $s;
+    close(F_OUT);
+    
+    if( $txt_filter =~ /lynx/i ) {
+        $cmd = "lynx -dump ";
+
+    } elsif( $txt_filter =~ /w3m/i ) {
+        $cmd = "$_toolroot/w3m/w3m -S -cols 78 -dump ";
+
+    } elsif( $txt_filter =~ /html2text/ ) {
+        $cmd = "$_toolroot/html2text/bin/html2text -style pretty -nobs ";
+
+    } else {
+        print "\nldp_mk: txt_filter($txt_filter) unrecognized, using lynx\n";
+        $cmd = "lynx -dump ";
+    }
+
+    $cmd .= "TXT_${fname_wo_ext}.html > $fname_wo_ext.txt;" .
+            "rm -f TXT_${fname_wo_ext}.html";
+}
+
+system($cmd);
+
+# patch the text file; especially needed w/lynx
+#
+if( -e "$fname_wo_ext.txt" ) {
+
+    my($def_blanks)= 3;
+    my($count)     = 0;
+    @flines = ();
+
+    open(CPIPE, "pwd |");
+    $s = <CPIPE>; chop($s);
+    my($pat) = 'file://localhost' . $s . '/';
+    $pat =~ s/\+/\\+/g;
+    my($pat2) = $fname_wo_ext;
+    $pat2 =~ s/\+/\\+/g;
+    close(CPIPE);
+
+    open(HFILE, "+< $fname_wo_ext.txt") || 
+                           die "\nldp_mk: cannot open: $fname_wo_ext.txt";
+    while(<HFILE>) {
+           if (length($_) == 1) {
+               $count++;
+           } else {
+               $count = 0;
+           }
+           if ($count <= $def_blanks) {
+               $_ =~ s/$pat//g;
+               $_ =~ s/00_$pat2/$pat2/g;
+               push(@flines, $_);
+           }
+    }
+
+    seek(HFILE,0,0);
+    print HFILE @flines;
+    truncate(HFILE, tell(HFILE));
+    close(HFILE);
+
+} else {
+
+    print "\nldp_mk: WARNING - could not create TXT: $fname_wo_ext.txt\n";
+}
+
+if ($ldpwn == 1) {
+
+    system("mv -f 00_${fname_wo_ext}.html ${fname_wo_ext}.html");
+
+    # create rss feed
+    #
+    open(NFILE, "+< ${fname_wo_ext}.html") || 
+                           die "ldp_mk: cannot open ${fname_wo_ext}.html $!\n";
+    @flines = <NFILE>;
+    for ($i=0; $i < (@flines + 0); $i++) {
+
+        if ($flines[$i] =~ /<LI/i) {
+
+            $flines[$i] =~ s/<LI/<LI><span class=\"rss:item\"/;
+            if ($flines[($i+1)] =~ /^><p/i) { 
+                $i++;
+                $flines[$i] = '';
+            }
+
+        } elsif ($flines[$i] =~ /^><\/li/i) {
+
+            $flines[$i] = "</span></li\n";
+            if ($flines[($i-1)] =~ /<\/p/i) { 
+                $flines[($i-1)] =~ s/<\/p//i;
+            }
+        }
+        $flines[$i] =~ s/$PAT_STR/$CHG_STR/g;
+    }
+
+    seek(NFILE,0,0);
+    print NFILE @flines;
+    truncate(NFILE, tell(NFILE));
+    close(NFILE);
+
+    $cmd = "$_toolroot/tidy/bin/tidy -ascii -c -wrap 200 -f /dev/null " .
+           "-m ${fname_wo_ext}.html";
+    system($cmd); 
+
+    exit;
+}
+
+
+# create PDF/PS versions
+#
+# Note that we use the single-page HTML variant
+#
+print "\nldp_mk: creating PDF/PS from $fname...\n";
+
+my($print_str) = '';
+
+if( $linuxdoc == 1 ) {
+
+    # patch the linuxdoc-source single HTML file
+    #
+    system("$_toolroot/sgml_ld_1html $fname");
+    $print_str = "00_${fname_wo_ext}.html";
+
+    $cmd = "$_toolroot/htmldoc/bin/htmldoc --size universal -t pdf " .
+	   "--datadir $_toolroot/htmldoc/share/htmldoc " .
+           "--firstpage p1 -f $fname_wo_ext.pdf $print_str; " .
+           "$_toolroot/htmldoc/bin/htmldoc --size universal -t ps  " .
+	   "--datadir $_toolroot/htmldoc/share/htmldoc " .
+           "--firstpage p1 -f $fname_wo_ext.ps  $print_str";
+
+    if( -e "00_$fname_wo_ext.html" ) {
+        system($cmd);
+    }
+
+} elsif( -e "00_$fname_wo_ext.html" ) {
+
+    # create new files from DocBook-source single HTML file to use for print
+    #
+    $cmd="$_toolroot/ldp_print/ldp_print --toolroot ${_toolroot}/htmldoc/bin " .
+         "--postscript 00_${fname_wo_ext}.html";
+    system($cmd);
+    system("mv -f 00_${fname_wo_ext}.pdf ${fname_wo_ext}.pdf");
+    system("mv -f 00_${fname_wo_ext}.ps  ${fname_wo_ext}.ps");
+}
+
+if( !(-e "$fname_wo_ext.pdf") ) {
+      print "\nldp_mk: WARNING - could not create $fname_wo_ext.pdf\n";
+}
+if( !(-e "$fname_wo_ext.ps") ) {
+      print "\nldp_mk: WARNING - could not create $fname_wo_ext.ps..trying pdf2ps\n";
+      if( -e "${fname_wo_ext}.pdf" ) {
+          system("pdf2ps ${fname_wo_ext}.pdf ${fname_wo_ext}.ps");
+      }
+}
+if( -e "$fname_wo_ext.ps" ){
+      $cmd = "gzip -f $fname_wo_ext.ps";
+      system($cmd);
+}
+
+
+#
+# perform the packaging steps
+#
+
+print "\nldp_mk: creating HTML package...\n";
+
+if( $linuxdoc == 1 ) {
+    $cmd = "tar -cvf $fname_wo_ext-html.tar $fname_wo_ext\*.html; " .
+           "gzip -f $fname_wo_ext-html.tar";
+} else {
+    $cmd = "tar -cvf $fname_wo_ext-html.tar $fname_wo_ext/\*; " .
+           "gzip -f $fname_wo_ext-html.tar";
+}
+system($cmd);
+
+if( !(-e "$fname_wo_ext-html.tar.gz") ) {
+   print "\nldp_mk: WARNING - could not create $fname_wo_ext-html.tar.gz\n";
+}
+
+# print "\nldp_mk: creating SGML package...\n";
+#
+# $cmd = "cp $fname ldp_mk_tmp; gzip -f ldp_mk_tmp; " .
+#        "mv -f ldp_mk_tmp.gz $fname_wo_ext." . lc($dtd) . ".gz";
+# system($cmd);
+
+
+# if LinuxDoc, create DocBook SGML...
+#
+if( $linuxdoc == 1 ) {
+
+    print "\nldp_mk: creating DocBook from LinuxDoc...\n";
+
+    $ENV{'SGML_CATALOG_FILES'} =
+           "$_toolroot/dtd/docbook.cat:$_toolroot/$_jade/dsssl/catalog";
+
+    $cmd = "sgmlnorm $_toolroot/ld2db/docbook.dcl $fname > EX_$fname ;" .
+           "jade -t sgml -c $_toolroot/ld2db/catalog " .
+                 "-d $_toolroot/ld2db/ld2db.dsl#db EX_$fname > DB_$fname ;" .
+           "rm -f EX_$fname";
+    system($cmd);
+
+    if( !(-e "DB_$fname") ) {
+        print "\nldp_mk: WARNING - could not create DocBook: DB_$fname\n";
+    } else {
+        $cmd = "gzip -f DB_$fname";
+        system($cmd);
+    }
+}
+
+
+# cleanup
+system("rm -f index.sgml index.xml body.html title.html");
+
+# make plucker version
+
+$plucker_cmd  = "$_toolroot/plucker/bin/plucker-build --zlib-compression " .
+		"-M999 -N \"${fname_wo_ext}\" -f ${fname_wo_ext} " .
+		"--category=LDP --stayonhost --pluckerdir=./ "; 
+if( $linuxdoc == 1 ) {
+    $plucker_cmd .= "-H ${fname_wo_ext}.html";
+    system("${plucker_cmd}");
+} else {
+    $plucker_cmd .= "-H index.html";
+    system("cd ${fname_wo_ext} ; ${plucker_cmd}; mv ${fname_wo_ext}.pdb ../${fname_wo_ext}.pdb");
+}
+
+print "\nldp_mk: completed...\n";
+
+exit(0);
+
+
+
+sub usage {
+
+  print "\n\n",
+        "usage: ldp_mk ",
+        "-style <stylesheet> -txt <txt_filter> -mk_index <file>.sgml\n\n",
+        " where:\n",
+        "       <stylesheet> - fullpath to a DSSSL stylesheet\n",
+        "       <txt_filter> - one of the following: lynx, w3m, html2text\n";
+}
+

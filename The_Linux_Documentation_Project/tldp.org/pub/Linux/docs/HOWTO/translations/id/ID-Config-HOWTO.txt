@@ -1,0 +1,1584 @@
+  Configuration HOWTO
+  Oleh Guido Gonzato, guido@ibogfs.cineca.it diterjemahkan
+  oleh Ronny Haryanto giant@technologist.com
+  v0.99.3, 4 November 1997, diterjemahkan tanggal 24 April
+  1998
+
+  HOWTO ini bertujuan agar membuat anda lebih mudah dan cepat mengkon-
+  figurasi sistem Linux baru. Dokumen ini meliputi beberapa konfigurasi
+  yang sangat umum untuk berbagai aplikasi yang umumnya digunakan,
+  sehingga anda bisa langsung bekerja dengan sistem yang berjalan dengan
+  baik.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Pendahuluan
+
+  2. Setup Umum Sistem
+
+     2.1 Keyboard
+     2.2 Kernel
+     2.3 Pesan-pesan sewaktu boot
+     2.4 Hostname (nama mesin)
+     2.5 Sendmail macet
+     2.6 Device Drivers
+     2.7 Mouse
+     2.8 Titik mount
+     2.9 LILO dan Loadlin
+     2.10 Konfigurasi Printer
+
+  3. Konfigurasi perangkat lunak
+
+     3.1 (TT
+     3.2 (TT
+     3.3 (TT
+     3.4 (TT
+     3.5 (TT
+     3.6 (TT
+     3.7 TeX dan kawan-kawan
+     3.8 PPP
+     3.9 Klien POP
+     3.10 Sistem X Window
+     3.11 Fortran
+     3.12 Konfigurasi untuk pengguna
+
+  4. Akhir
+
+     4.1 Hak cipta
+     4.2 Tanggapan
+     4.3 Terima kasih dan disclaimer
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+
+  Penulis sudah memasang Linux di banyak PC, dan menurut penulis
+  distribusi Linux yang ada sekarang ini sangat bagus, tetapi kerap kali
+  kekurangan konfigurasi yang mendasar. Sebagian besar program bisa
+  berjalan langsung, tetapi sebagian lagi tidak. Ini sebenarnya
+  memalukan, penulis berpendapat bahwa pendatang baru seharusnya tidak
+  berkelit dengan masalah 'backspace' yang sering dijumpai, atau
+  berpikiran bahwa emacs tidak mendukung warna, atau melihat isi sebuah
+  direktori dalam hitam putih.
+  Untuk membantu penulis mengingat apa yang harus dikonfigurasi dahulu,
+  penulis membuat rangkuman yang kemudian dikembangkan menjadi HOWTO
+  ini. Di dokumen ini anda akan menjumpai banyak contoh konfigurasi
+  untuk berbagai macam aplikasi/program yang umum. Contoh-contoh
+  tersebut adalah berdasarkan pengalaman pribadi penulis menggunakan
+  Linux yang berbasis Red Hat, jadi jika anda menggunakan distribusi
+  lain, diharapkan untuk berhati-hati. Jangan menganggap tip-tip di sini
+  sebagai pedoman, tip-tip tersebut kebetulan saja bisa bekerja untuk
+  penulis. Dalam situasi bagaimanapun, jika anda ingin tahu lebih banyak
+  anda harus membaca dokumentasi dari paket-paket dan juga HOWTO-HOWTO
+  yang berhubungan dengan subjek tersebut. Dokumen ini hanyalah sebuah
+  rangkuman, penulis berharap ini berguna.
+
+  Sebuah PC bisa mempunyai konfigurasi perangkat keras yang tak
+  terhingga banyaknya, tetapi berdasarkan pengalaman penulis yang satu
+  ini sering dijumpai: sebuah PC dengan harddisk yang besar dibagi tiga
+  partisi (DOS/Windows, Linux, dan swap), modem, drive CD-ROM, printer,
+  mouse. Penulis beranggapan bahwa ini adalah perangkat keras yang
+  hendak anda konfigurasi, tetapi untuk mengadaptasi tip-tip ini untuk
+  konfigurasi lain tidak begitu sulit. Dokumen ini juga beranggapan
+  bahwa anda adalah root sewaktu menyunting/memperbaiki/hacking.
+
+  Dan sekarang, gulung lengan kemeja anda.
+
+
+
+  2.  Setup Umum Sistem
+
+
+
+
+  2.1.  Keyboard
+
+
+  Pertama-tama, bagaimana cara mengkonfigurasi keyboard. Jika langkah
+  ini terlewatkan sewaktu instalasi atau anda mengganti keyboard, anda
+  harus:
+
+
+  o  memilih tabel keyboard yang cocok dari /usr/lib/kbd/keytables/;
+     sebagai contoh, it.map berarti anda memilih keyboard Itali
+
+  o  menyunting berkas /etc/sysconfig/keyboard sehingga mengandung:
+     KEYTABLE="/usr/lib/kbd/keytables/it.map"
+
+  o  untuk memilih kecepatan pengulangan dan waktu tunda dari keyboard,
+     tambahkan baris berikut ke /etc/profile atau salah satu dari
+     berkas-berkas rc anda :
+
+
+
+       /sbin/kbdrate -s -r 16 -d 500  # ganti sesuka anda
+
+
+
+
+
+  o  dan akhirnya, untuk mendapat ijin (permission) mengubah keyboard,
+     lakukkan:
+
+
+
+       ~# chmod 666 /dev/port
+
+
+
+  Setelah reboot berikutnya, keyboard akan berjalan dengan lancar.
+
+
+
+  2.2.  Kernel
+
+
+  Menurut pendapat penulis, yang harus dilakukan kemudian adalah
+  membangun kembali kernel yang sesuai dengan sistem anda. Hal ini tidak
+  sulit, tetapi bagaimanapun juga, silakan mengacu ke berkas README di
+  /usr/src/linux/. Petunjuk:
+
+
+  o  pertimbangkan secara matang kebutuhan anda. Lebih baik memilih
+     kernel yang cocok dan menambalnya dengan 'patch' kemudian, daripada
+     mengkonfigurasi dan meng-compile ulang setiap bulan; apalagi jika
+     sistem Linux anda digunakan untuk server. Jangan lupa untuk
+     menambahkan dukungan untuk perangkat keras yang kemungkinan akan
+     anda tambahkan di kemudian hari;
+
+  o  jika PC anda berbasis Cyrix, gunakan patch-patch yang sesuai untuk
+     meningkatkan dayaguna. Informasi di
+     http://www.linuxhq.com/patch/20-p0591.html;
+
+  o  pengguna notebook dapat membuat layar menjadi lebih mudah dibaca
+     dengan menerapkan patch noblink (tidak berkedip);
+
+  o  lagi untuk pengguna notebook, jika anda berencana untuk menggunakan
+     modem/fax PCMCIA jangan meng-compile serial support sebagai module;
+     masukkan ke dalam kernel, jika tidak modem PCMCIA anda tidak akan
+     bekerja.
+
+
+
+  2.3.  Pesan-pesan sewaktu boot
+
+
+  Jika anda ingin mengubah pesan-pesan sewaktu boot, periksalah apakah
+  /etc/rc.d/rc.local menimpa ulang /etc/issue dan /etc/motd. Jika ya,
+  jalankan editor kesukaan anda dan ubahlah sesuka anda.
+
+
+
+  2.4.  Hostname (nama mesin)
+
+
+  Menjalankan perintah hostname nama_mesin_baru tidaklah cukup. Sunting
+  berkas /etc/sysconfig/network dan ubahlah nama mesin yang ada di sana.
+
+
+
+  2.5.  Sendmail macet
+
+
+  Di beberapa sistem, sendmail mengunci mesin sewaktu boot. Pastikan
+  berkas /etc/hosts mengandung baris
+
+
+
+       127.0.0.1 localhost
+
+
+
+
+
+
+  2.6.  Device Drivers
+
+
+  Devices (alat-alat) di /dev (atau hubungan/link ke device drivers yang
+  benar) mungkin tidak ada. Periksalah mouse, modem, dan drive CD-ROM
+  anda tersambung ke mana, kemudian:
+
+
+
+       ~# cd /dev
+       /dev# ln -s /dev/cua0 mouse
+       /dev# ln -s /dev/cua1 modem
+       /dev# ln -s /dev/hdb cdrom
+
+
+
+
+  jika dikehendaki, lakukan chmod 666 ke device-device tersebut supaya
+  bisa digunakan oleh semua user. Tip: di beberapa laptop device untuk
+  mouse adalah /dev/psaux: ingatlah ini juga sewaktu mengkonfigurasi
+  X11.
+
+  Sebagai tambahan, mungkin juga dikehendaki agar floppy bisa diakses
+  oleh user yang bukan root, bisa dengan chmod 666 /dev/fd*. Hal ini
+  diketahui mengakibatkan masalah keamanan, tetapi penulis tidak
+  mengetahui secara mendetil. Penulis membuka diri terhadap masukan
+  tentang hal ini.
+
+
+
+  2.7.  Mouse
+
+
+  Program gpm terkadang sangat berguna untuk melakukan cut and paste di
+  console dan untuk menggunakan mouse di beberapa aplikasi/program.
+  Periksalah apakah ada berkas /etc/sysconfig/mouse yang mengandung:
+
+
+
+       MOUSETYPE="Microsoft"
+       XEMU3=yes
+
+
+
+
+  Kemudian anda juga harus mempunyai berkas /etc/rc.d/init.d/gpm. Tentu
+  saha, pastikan konfigurasinya sesuai dengan mouse anda. Tip: di
+  beberapa laptop, MOUSETYPE adalah ``PS/2''.
+
+
+
+  2.8.  Titik mount
+
+
+  Terkadang sangat memudahkan jika anda memiliki titik mount untuk
+  floppy, CD-ROM, partisi DOS, dan device-device lain. Misalnya, anda
+  bisa melakukan yang berikut ini:
+
+
+
+       ~# cd /mnt
+       /# mkdir a: ; mkdir floppy ; mkdir cdrom ; mkdir win ; mkdir zip
+
+
+
+
+  akan membuat titik mount untuk floppy MS-DOS, floppy ext2, CD-ROM,
+  partisi DOS, dan Zip drive yang terhubung ke paralel port.
+
+  Sekarang suntinglah berkas /etc/fstab dan tambahkan yang berikut:
+
+
+
+       /dev/fd0        /mnt/a:         msdos           user,noauto 0 1
+       /dev/fd0        /mnt/floppy     ext2            user,noauto 0 1
+       /dev/cdrom      /mnt/cdrom      iso9660         ro,user,noauto 0 1
+       /dev/hda1       /mnt/dos        msdos           user,noauto 0 1
+       /dev/sda4       /mnt/zip        vfat            user,noauto 0 1
+
+
+
+
+  Tentu saja, anda harus menggunakan device-device yang sesuai di kolom
+  pertama. Supaya dapat menggunakan nama berkas panjang di Win95,
+  gantilah msdos dengan vfat di baris kedua terakhir. Tapi ini tidak
+  (belum) berarti anda bisa menggunakan vfat32.
+
+
+
+  2.9.  LILO dan Loadlin
+
+
+  Banyak orang yang ingin menggunakan Linux dan DOS/Windows di satu PC,
+  dan menghendaki agar bisa memilih yang mana yang akan digunakan
+  sewaktu boot. Misalkan /dev/hda1 adalah DOS/Windows dan /dev/hda2
+  berisi Linux.  Lakukan yang berikut:
+
+
+
+       ~# fdisk
+       Using /dev/hda as default device!
+
+       Command (m for help):a
+       Partition number (1-4): 2
+
+       Command (m for help):w
+       ~#
+
+
+
+
+  akan membuat partisi Linux bisa di-boot; langkah ini seharusnya
+  dilakukan dengan activate sewaktu menjalankan QuickInst milik LILO,
+  tetapi hal itu tidak berjalan pada Red Hat penulis.
+
+  Tuliskan /etc/lilo.conf yang sederhana ini:
+
+
+
+       boot = /dev/hda2
+       compact
+       delay = 50
+       # message = /boot/bootmesg.txt  # tulis sendiri
+       root = current
+       image = /boot/vmlinuz
+         label = linux
+       other = /dev/hda1
+         table = /dev/hda
+         label = dos
+
+
+
+  Kemudian jalankan /sbin/lilo , itu saja. Karena LILO adalah bagian
+  penting dari instalasi, penulis sangat menganjurkan untuk membaca
+  dokumentasinya.
+
+  Untuk menge-boot Linux dari DOS tanpa me-reset komputer, letakkan
+  LOADLIN.EXE di sebuah direktori (di partisi DOS!) yang tercantum di
+  path DOS; kemudian buat sebuah salinan/copy dari kernel anda,
+  katakanlah, C:\DOS\VMLINUZ. Berkas .BAT yang berikut ini akan menge-
+  boot Linux:
+
+
+
+       rem   linux.bat
+       smartdrv /C
+       loadlin c:\dos\vmlinuz root=/dev/hda2 r
+
+
+
+
+  Jika anda menggunakan Windows 95, ubahlah properties dari berkas .BAT
+  tersebut agar berjalan di mode MS-DOS.
+
+
+
+  2.10.  Konfigurasi Printer
+
+
+  Red Hat memiliki alat konfigurasi printer yang bekerja sangat baik
+  untuk printer DeskJet 400 milik penulis; jika anda tidak menggunakan
+  Red Hat, konfigurasi manual bisa dilakukan seperti di bawah ini.
+
+  Andaikan anda mempunyai printer yang bukan printer PostScript, dan
+  akan digunakan untuk mencetak teks biasa (misal: program C) dan
+  berkas-berkas PostScript lewat GhostScript (penulis beranggapan
+  GhostScript sudah terpasang).
+
+  Mengkonfigurasi printer meliputi beberapa tahap:
+
+
+  o  periksalah paralel port yang mana yang terhubung ke printer; sbb:
+
+
+
+       ~# echo "hello, world" > /dev/lp0
+       ~# echo "hello, world" > /dev/lp1
+
+
+
+
+
+  dan perhatikan yang mana yang bekerja.
+
+  o  buatlah dua direktori spool (penampung):
+
+
+
+       ~# cd /var/spool/lpd
+       /var/spool/lpd/# mkdir raw ; mkdir postscript
+
+
+
+
+
+  o  jika printer anda mencetak bertangga-tangga (staircase-effect)
+     (seperti sebagian besar printer inkjet), anda membutuhkan sebuah
+     filter. Cobalah mencetak dua baris dengan
+       ~# echo "baris satu" > /dev/lp1 ; echo "baris dua" > /dev/lp1
+
+
+
+
+
+  jika hasilnya seperti
+
+
+
+       baris satu
+                 baris dua
+
+
+
+
+
+  maka simpanlah berkas berikut sebagai /var/spool/lpd/raw/filter:
+
+
+
+       #!/bin/sh
+       # untuk memperbaiki "staircase effect"
+       awk '{print $0, "\r"}'
+
+
+
+
+
+  buatlah menjadi executable dengan chmod 755 /var/spool/lpd/raw/filter.
+
+  o  buatlah sebuah filter untuk emulasi PostScript. Tulislah filter
+     berikut ini sebagai /var/spool/lpd/postscript/filter:
+
+
+
+       #!/bin/sh
+
+       DEVICE=djet500
+       RESOLUTION=300x300
+       PAPERSIZE=a4
+       SENDEOF=
+
+       nenscript -TUS -ZB -p- |
+       if [ "$DEVICE" = "PostScript" ]; then
+               cat -
+       else
+               gs -q -sDEVICE=$DEVICE \
+                       -r$RESOLUTION \
+                       -sPAPERSIZE=$PAPERSIZE \
+                       -dNOPAUSE \
+                       -dSAFER \
+                       -sOutputFile=- -
+       fi
+
+       if [ "$SENDEOF" != "" ]; then
+               printf "\004"
+       fi
+
+
+
+
+
+  (di contoh ini dianggap menggunakan printer HP DeskJet. Ubahlah sesuai
+  dengan printer anda).
+
+  o  akhirnya, tambahkan yang berikut di /etc/printcap:
+
+
+
+       # /etc/printcap
+       lp|ps|PS|PostScript|djps:\
+               :sd=/var/spool/lpd/postscript:\
+               :mx#0:\
+               :lp=/dev/lp1:\
+               :if=/var/spool/lpd/postscript/filter:\
+               :sh:
+       raw:\
+               :sd=/var/spool/lpd/raw:\
+               :mx#0:\
+               :lp=/dev/lp1:\
+               :if=/var/spool/lpd/raw/filter:\
+               :sh:
+
+
+
+
+
+  Untuk konfigurasi yang lebih kompleks atau eksotik, Printing-HOWTO
+  menunggu untuk dibaca.
+
+  Jika anda menggunakan Red Hat: ketahuilah bahwa GSDEVICE yang dipilih
+  oleh 'printtool' bisa bekerja, tetapi belum tentu pilihan terbaik
+  untuk printer anda. Anda bisa bermain-main sedikit dengan berkas
+  postscript.cfg; misalnya, penulis mengubah GSDEVICE dari cdj500 ke
+  djet500 dan sekarang hasil cetakan keluar lebih cepat.
+
+
+
+  3.  Konfigurasi perangkat lunak
+
+
+
+
+  3.1.  bash (1)
+
+
+  Untuk mengubah perilaku bash , berikut adalah berkas-berkas yang
+  disunting:
+
+
+  o  /etc/bashrc berisi alias dan fungsi-fungsi untuk seluruh sistem;
+
+  o  /etc/profile berisi hal-hal environment dan program-program sewaktu
+     mulai menjalankan bash untuk seluruh sistem;
+
+  o  $HOME/.bashrc berisi alias dan fungsi-fungsi untuk user;
+
+  o  $HOME/.bash_profile berisi hal-hal environment dan program-program
+     sewaktu mulai menjalankan bash untuk user;
+
+  o  $HOME/.bash_logout berisi perintah-perintah yang dijalankan sewaktu
+     logout;
+
+  o  $HOME/.inputrc berisi definisi tombol dan lain-lain.
+
+  Contoh dari berkas-berkas di atas ditunjukkan di bawah ini. Pertama-
+  tama, yang paling penting: /etc/profile. Yang digunakan untuk
+  mengkonfigurasi banyak hal di sistem Linux anda, seperti yang akan
+  kita lihat berikut ini.
+
+
+  ______________________________________________________________________
+  # /etc/profile
+
+  # System wide environment and startup programs
+  # Functions and aliases go in /etc/bashrc
+
+  # This file sets the following features:
+  #
+  #   o path
+  #   o prompts
+  #   o a few environment variables
+  #   o colour ls
+  #   o less behaviour
+  #   o keyboard settings
+  #
+  # Users can override these settings and/or add others in their
+  # $HOME/.bash_profile
+
+  # set a decent path
+
+  echo $PATH | grep X11R6 > /dev/null
+  if [ $? = 1 ] ; then   # add entries to the path
+    PATH="$PATH:/usr/X11R6/bin:$HOME/bin:."
+  fi
+
+  # notify the user: login or non-login shell. If login, the prompt is
+  # coloured in blue; otherwise in magenta. Root's prompt is red.
+
+  USER=`whoami`
+  if [ $LOGNAME = $USER ] ; then
+    COLOUR=44
+  else
+    COLOUR=45
+  fi
+
+  if [ $USER = 'root' ] ; then
+    COLOUR=41
+  fi
+
+  # put a real escape character instead of ^[
+  PS1='^[[$COLOUR;37;1m$HOSTNAME:^[[37;40;1m\w\$ '
+  PS2="Continue> "
+
+  # no core dumps, please
+
+  ulimit -c 0
+
+  # set umask
+
+  if [ `id -gn` = `id -un` -a `id -u` -gt 14 ]; then
+          umask 002
+  else
+          umask 022
+  fi
+
+  # a few variables
+
+  USER=`id -un`
+  LOGNAME=$USER
+  MAIL="/var/spool/mail/$USER"
+  EDITOR=jed
+  HOSTNAME=`/bin/hostname`
+  HISTSIZE=1000
+  HISTFILESIZE=1000
+  export PATH PS1 PS2 USER LOGNAME MAIL EDITOR HOSTNAME HISTSIZE HISTFILESIZE
+
+  # enable colour ls
+
+  eval `dircolors /etc/DIR_COLORS -b`
+  export LS_OPTIONS='-F -s -T 0 --color=tty'
+
+  # customize less
+
+  LESS='-M-Q'
+  LESSEDIT="%E ?lt+%lt. %f"
+  LESSOPEN="| lesspipe.sh %s"
+  VISUAL=jed
+  LESSCHARSET=latin1
+  export LESS LESSEDIT LESSOPEN VISUAL LESSCHARSET
+
+  # customise the keyboard
+
+  /sbin/kbdrate -s -r 16 -d 500
+
+  for i in /etc/profile.d/*.sh ; do
+          if [ -x $i ]; then
+                  . $i
+          fi
+  done
+  ______________________________________________________________________
+
+
+
+  Ini adalah /etc/bashrc:
+
+
+  ______________________________________________________________________
+  # /etc/bashrc
+
+  # System wide functions and aliases
+  # Environment stuff goes in /etc/profile
+
+  alias which="type -path"
+  alias d="ls"
+  alias dir="d"
+  ______________________________________________________________________
+
+
+
+  This is .bashrc:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ______________________________________________________________________
+  # $HOME/.bashrc
+  # Source global definitions
+
+  if [ -f /etc/bashrc ]; then
+          . /etc/bashrc
+  fi
+
+  # this is needed to notify the user that they are in non-login shell
+
+  COLOUR=45
+  # put a real escape character instead of ^[
+  PS1='^[[$COLOUR;37m$USER:^[[37;40m\w\$ '
+
+  # aliases
+
+  alias cp='cp -i'
+  alias l=less
+  alias lyx='lyx -width 900 -height 700'
+  alias mv='mv -i'
+  alias rm='rm -i'
+  alias x=startx
+
+  # A few useful functions
+
+  inst() # Install a .tar.gz archive in the current directory.
+  { gzip -dc $1 | tar xvf - }
+
+  cz() # List the contents of a .zip archive.
+  { unzip -l $* }
+
+  ctgz() # List the contents of a .tar.gz archive.
+  {
+    for file in $* ; do
+      gzip -dc ${file} | tar tf -
+    done
+  }
+
+  tgz() # Create a .tgz archive a la zip.
+  {
+    name=$1 ; tar -cvf $1 ; shift
+    tar -rf ${name} $*
+    gzip -S .tgz ${name}
+  }
+  ______________________________________________________________________
+
+
+
+  Ini adalah .bash_profile:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ______________________________________________________________________
+  # $HOME/.bash_profile
+
+  # User specific environment and startup programs
+  # This file contains user-defined settings that override
+  # those in /etc/profile
+
+  # Get aliases and functions
+  if [ -f ~/.bashrc ]; then
+          . ~/.bashrc
+  fi
+
+  # re-get PS1 settings
+
+  if [ $USER = 'root' ] ; then
+    COLOUR=41
+  else
+    COLOUR=44
+  fi
+
+  # put a real escape character instead of ^[
+  PS1='^[[$COLOUR;37;1m$HOSTNAME:^[[37;40;1m\w\$ '
+
+  export PS1
+  ______________________________________________________________________
+
+
+
+  Ini adalah .bash_logout:
+
+
+  ______________________________________________________________________
+  # $HOME/.bash_logout
+  clear
+  ______________________________________________________________________
+
+
+
+  Ini adalah .inputrc:
+
+
+  ______________________________________________________________________
+  # $HOME/.inputrc
+
+  # key bindings
+
+  "\e[1~": beginning-of-line
+  "\e[3~": delete-char
+  "\e[4~": end-of-line
+  # (F1 .. F5) are "\e[[A" ... "\e[[E"
+  "\e[[A": "info \C-m"
+
+  set bell-style visible         # please don't beep
+  set meta-flag On               # allow 8-bit input (i.e, accented letters)
+  set convert-meta Off           # don't strip 8-bit characters
+  set output-meta On             # display 8-bit characters correctly
+  set horizontal-scroll-mode On
+  set show-all-if-ambiguous On
+  ______________________________________________________________________
+
+
+
+  Supaya tombol backspace dan delete dapat bekerja dengan benar di xterm
+  dan aplikasi-aplikasi X11 lainnya, yang berikut ini juga diperlukan:
+
+
+  o  letakan yang berikut di .xinitrc:
+
+
+       usermodmap=$HOME/.Xmodmap
+       xmodmap $usermodmap
+
+
+
+
+
+  o  letakkan yang berikut di .Xmodmap:
+
+
+       keycode 22 = BackSpace
+       keycode 107 = Delete
+
+
+
+
+  akan memperbaiki console. Untuk memperbaiki xterm:
+
+  o  letakkan yang berikut di .Xdefaults:
+
+
+       xterm*VT100.Translations: #override <Key>BackSpace: string(0x7F)\n\
+               <Key>Delete:        string(0x1b) string("[3~")\n\
+               <Key>Home:          string(0x1b) string("[1~")\n\
+               <Key>End:           string(0x1b) string("[4~")\n\
+               Ctrl<Key>Prior:     string(0x1b) string("[40~")\n\
+               Ctrl<Key>Next:      string(0x1b) string("[41~")
+
+       nxterm*VT100.Translations: #override <Key>BackSpace: string(0x7F)\n\
+               <Key>Delete:        string(0x1b) string("[3~")\n\
+               <Key>Home:          string(0x1b) string("[1~")\n\
+               <Key>End:           string(0x1b) string("[4~")\n\
+               Ctrl<Key>Prior:     string(0x1b) string("[40~")\n\
+               Ctrl<Key>Next:      string(0x1b) string("[41~")
+
+
+
+
+
+  Info lebih lanjut di halaman-halaman 'man' dari bash(1) dan
+  readline(3).
+
+  Jangan beranggapan bahwa semua aplikasi akan berjalan mulus! Jika anda
+  menjalankan joe di xterm misalnya, beberapa tombol tidak bekerja; juga
+  untuk rxvt. Kabarnya ada masalah dengan termcap.
+
+
+
+  3.2.  ls (1)
+
+
+  ls dapat menampilkan isi direktori menggunakan warna untuk menyorot
+  jenis-jenis berkas yang berbeda. Untuk dapat menggunakan fasilitas
+  ini, tambahkan baris-baris berikut ke /etc/profile:
+
+
+
+       eval `dircolors /etc/DIR_COLORS -b`
+       export LS_OPTIONS='-F -T 0 --color=tty'
+
+
+
+
+  akan mengeset environment variable LS_COLORS sehingga berisi daftar
+  warna yang tercantum di /etc/DIR_COLORS. Catatan: jangan bertanya
+  mengapa, tetapi hal ini tidak bekerja dengan beberapa versi dari rxvt;
+  gunakanlah xterm sebagai pengganti. Sepertinya rxvt mengandung bug
+  yang mencegahnya untuk mengambil variabel-variabel environment dengan
+  benar dalam keadaan-keadaan tertentu.
+
+
+
+  3.3.  less (1)
+
+
+  Dengan menggunakan program bagus ini anda bukan saja bisa melihat isi
+  berkas teks, tetapi juga yang dipadatkan dengan gzip, tar dan zip,
+  halaman-halaman 'man', dan sebagainya. Konfigurasinya meliputi
+  beberapa langkah:
+
+
+  o  supaya tombol-tombol gerak bisa digunakan dengan less, buatlah
+     berkas ASCII bernama .lesskey di home direktori anda:
+
+
+
+       ^[[A   back-line
+       ^[[B   forw-line
+       ^[[C   right-scroll
+       ^[[D   left-scroll
+       ^[OA   back-line
+       ^[OB   forw-line
+       ^[OC   right-scroll
+       ^[OD   left-scroll
+       ^[[6~  forw-scroll
+       ^[[5~  back-scroll
+       ^[[1~  goto-line
+       ^[[4~  goto-end
+       ^[[7~  goto-line
+       ^[[8~  goto-end
+
+
+
+
+
+  kemudian jalankan perintah lesskey yang akan membuat berkas biner
+  .less berisi definisi tombol.
+
+  o  simpanlah berkas berikut sebagai /usr/bin/lesspipe.sh:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     ___________________________________________________________________
+     #!/bin/sh
+     # This is a preprocessor for 'less'.  It is used when this environment
+     # variable is set:   LESSOPEN="|lesspipe.sh %s"
+
+     lesspipe() {
+       case "$1" in
+       *.tar) tar tf $1 2>/dev/null ;; # View contents of .tar and .tgz files
+       *.tgz|*.tar.gz|*.tar.Z|*.tar.z) tar ztf $1 2>/dev/null ;;
+       *.Z|*.z|*.gz) gzip -dc $1  2>/dev/null ;; # View compressed files correctly
+       *.zip) unzip -l $1 2>/dev/null ;; # View archives
+       *.arj) unarj -l $1 2>/dev/null ;;
+       *.rpm) rpm -q -p -i -l $1 2>/dev/null ;;
+       *.1|*.2|*.3|*.4|*.5|*.6|*.7|*.8|*.9|*.n|*.man) FILE=`file -L $1`
+         FILE=`echo $FILE | cut -d ' ' -f 2`
+         if [ "$FILE" = "troff" ]; then
+           groff -s -p -t -e -Tascii -mandoc $1
+         fi ;;
+       *) FILE=`file -L $1` ; # Check to see if binary
+         FILE1=`echo $FILE | cut -d ' ' -f 2`
+         FILE2=`echo $FILE | cut -d ' ' -f 3`
+         if [ "$FILE1" = "Linux/i386" -o "$FILE2" = "Linux/i386" \
+              -o "$FILE1" = "ELF" -o "$FILE2" = "ELF" ]; then
+           strings $1
+         fi ;;
+       esac
+     }
+
+     lesspipe $1
+     ___________________________________________________________________
+
+
+
+  jangan lupa untuk membuatnya menjadi executable dengan chmod 755
+  lesspipe.sh.
+
+  o  tambahkan baris-baris berikut di /etc/profile:
+
+
+       LESS="-M-Q"                     # long prompt, silent
+       LESSEDIT="%E ?lt+%lt. %f"       # edit top line
+       LESSOPEN="| lesspipe.sh %s"     # filter
+       VISUAL=jed                      # default editor---insert your favourite
+       LESSCHARSET=latin1              # display accented letters if needed
+       export LESS LESSEDIT LESSOPEN VISUAL LESSCHARSET
+
+
+
+
+
+  Variabel LESSCHARSET di atas dikarenakan penulis tinggal di Itali dan
+  penulis berencana menggunakan ISO 8859/1 character set. Jika anda
+  tidak akan menggunakannya sebaiknya jangan didefinisikan.
+
+
+
+  3.4.  emacs (1)
+
+
+  Beberapa distribusi emacs tidak dikonfigurasi untuk menggunakan warna
+  dan penyorotan sintaks (syntax highlighting). Tambahkan di .emacs:
+
+
+       (global-font-lock-mode t)
+       (setq font-lock-maximum-decoration t)
+
+  Ini hanya bekerja di X11. Silakan membaca dokumentasi emacs untuk
+  mengkonfigurasi penuh sesuai keinginan anda (kemungkinan bisa memakan
+  waktu berbulan-bulan).
+
+
+
+  3.5.  joe (1)
+
+
+  Periksalah di /usr/bin/ apakah jmacs, jstar, and jpico adalah symlinks
+  (symbolic links) ke joe atau merupakan berkas-berkas biner sendiri;
+  dalam hal yang terakhir, anda dapat mengubahnya ke symlinks untuk
+  menghemat ruang harddisk:
+
+
+
+       ~# cd /usr/bin
+       /usr/bin# ln -sf joe jmacs ; ln -sf joe jstar ; ln -sf joe jpico
+
+
+
+
+  Kemudian, anda tinggal menyalin berkas /usr/lib/joe/joerc ke direktori
+  home sebagai .joerc dan menyuntingnya.
+
+
+
+  3.6.  jed
+
+
+  Ini adalah editor favorit penulis, jed mengerjakan apa yang penulis
+  butuhkan, lebih kecil dan lebih mudah dikonfigurasi daripada emacs,
+  dan menurut hemat penulis mengemulasikan editor lain lebih baik.
+  Banyak pengguna di universitas penulis ingin jed supaya mengemulasikan
+  EDT, editor sistem VMS.
+
+  Berkas-berkas konfigurasinya adalah .jedrc and /usr/lib/jed/lib/*;
+  yang pertama bisa dicontoh dari jed.rc di direktori yang terakhir
+  disebut.
+
+
+  o  supaya jed menggunakan tombol-tombol dengan benar, buatlah
+     /usr/lib/jed/lib/defaults.sl yang hanya berisi:
+
+
+
+       () = evalfile("linux");
+
+
+
+
+
+  o  suntinglah /usr/lib/jed/lib/linux.sl; hilangkan komentar dari baris
+     Info_Directory = "/usr/info"; dan tambahkan /bin/mail setelah
+     UCB_Mailer =;
+
+  o  mengkonfigurasi jed agar mengemulasikan EDT (atau editor lain)
+     tidak sulit: anda cukup mengubah beberapa baris di .jedrc.  Jika
+     anda ingin menggunakan `+' di numeric keypad untuk menghapus sebuah
+     kata (bukan satu karakter), tambahkan di .jedrc:
+
+
+
+
+
+
+  unsetkey("\eOl");
+  unsetkey("\eOP\eOl");
+  setkey("edt_wdel", "\eOl");
+  setkey("edt_uwdel", "\eOP\eOl");
+
+
+
+
+
+  setelah baris () = evalfile("edt");.
+
+  o  membuat xjed menggunakan numeric keypad untuk emulasi EDT
+     membutuhkan beberapa baris berikut di .Xmodmap:
+
+
+
+       keycode 77  = KP_F1
+       keycode 112 = KP_F2
+       keycode 63  = KP_F3
+       keycode 82  = KP_F4
+       keycode 86  = KP_Separator
+
+
+
+
+
+  Selanjutnya, pastikan /etc/X11/XF86Config mengandung baris-baris
+  berikut:
+
+
+
+       #   ServerNumLock  # harus dibuat menjadi komentar dengan tanda # di depan
+           XkbDisable
+
+
+
+
+
+  Hal ini berlaku untuk XFree 3.2. Kecuali anda menggunakan keyboard
+  standar Amerika, ketahuilah bahwa ``XkbDisable'' mengakibatkan beber-
+  apa masalah. Anda akan tahu sendiri nantinya.
+
+  o  mengubah warna untuk xjed dilakukan dengan menambahkan baris-baris
+     berikut di .Xdefaults:
+
+
+
+       xjed*Geometry: 80x32+150+50
+       xjed*font: 10x20
+       xjed*background: midnight blue
+
+
+
+
+
+  Info lebih lanjut di xjed.doc, yang disertakan di paketnya.
+
+
+
+  3.7.  TeX dan kawan-kawan
+
+
+  Penulis beranggapan anda memiliki distribusi TeTeX. Beberapa hal:
+
+
+
+  o  untuk mengkonfigurasi penggunaan tanda hubung untuk bahasa anda,
+     suntinglah berkas
+     /usr/lib/texmf/texmf/tex/generic/config/language.dat, kemudian:
+
+
+
+       ~# texconfig init ; texconfig hyphen
+
+
+
+
+
+  o  jika anda menambahkan sebuah paket LaTeX, setelah menambahkan
+     berkas-berkas di bawah /usr/lib/texmf/texmf/tex/latex/ jalankan
+     perintah texhash supaya TeTeX mengenali paket baru tersebut.
+
+  o  untuk mengkonfigurasi dvips, berkas yang perlu diubah adalah
+     /usr/lib/texmf/texmf/dvips/config/config.ps. Ketahuilah bahwa
+     kolom-kolom mengenai resolusi default juga mempegaruhi perilaku
+     xdvi; jika anda tidak ingin program tersebut membuat fonts setiap
+     kali dijalankan, mungkin bisa membantu jika ditambahkan yang
+     berikut ini di .Xdefault:
+
+
+
+       XDvi*mfmode:
+
+
+
+
+
+
+
+  3.8.  PPP
+
+
+  Penulis beranggapan bahwa kernel anda sudah memliki dukungan PPP dan
+  TCP/IP di dalamnya, menggunakan loopback, dan anda sudah memasang
+  paket pppd dengan benar. (Syarat-syarat tersebut biasanya sudah
+  terpasang secara default). Ada dua cara untuk menggunakan PPP: a)
+  konfigurasi manual, dan b) menggunakan program yang menjalankannya
+  secara otomatis. Pertama, manual.
+
+  Misalkan data-data dari ISP anda sbb:
+
+
+  o  No. telp: 1234567
+
+  o  Nameserver (DNS): 123.231.112.111
+
+  o  Mail server: mbox.supernet.edu
+
+  o  Domain: supernet.edu
+
+  o  Remote hostname: www.supernet.edu
+
+  o  username anda: John
+
+  o  password anda: _Loo%ny
+
+  Untuk konfigurasi manual koneksi PPP, lakukan:
+
+
+  o  buatlah berkas /usr/local/bin/ppp-on berikut, yang akan digunakan
+     untuk membuat koneksi ke ISP anda:
+
+       #!/bin/sh
+       # ppp-on: script to connect to an ISP
+       INIT=ATX3  # tergantung modem anda, bisa juga ATZ
+       PHONE=1234567
+       /usr/sbin/pppd connect "/usr/sbin/chat '' $INIT OK ATDP$PHONE \
+       CONNECT '' " user John
+
+
+
+
+
+  kemudian buatlah menjadi executable dengan chmod 755
+  /usr/local/bin/ppp-on. Jika ISP anda tidak menggunakan protokol PAP,
+  anda bisa menggunakan script berikut:
+
+
+
+       #!/bin/sh
+       # ppp-on: script to connect to an ISP
+       INIT=atx3  # tergantung modem anda, bisa juga ATZ
+       PHONE=1234567
+       /usr/sbin/pppd connect "/usr/sbin/chat '' $INIT OK ATDT$PHONE \
+       CONNECT '' 'ogin' John 'word' _Loo%ny ''" /dev/modem 38400 \
+       modem defaultroute
+
+
+
+
+
+  o  buatlah berkas /usr/local/bin/ppp-off berikut, yang digunakan untuk
+     memutuskan hubungan ppp:
+
+
+
+       #!/bin/sh
+       # ppp-off
+       DEVICE=ppp0
+       if [ -r /var/run/$DEVICE.pid ]; then
+         kill -INT `cat /var/run/$DEVICE.pid`
+         if [ ! "$?" = "0" ]; then
+           echo "removing stale $DEVICE pid file."
+           rm -f /var/run/$DEVICE.pid ; exit 1
+         fi
+         echo "$DEVICE link terminated" ; exit 0
+       fi
+       # link not active
+       echo "$DEVICE link is not active" ; exit 1
+
+
+
+
+
+  kemudian buatlah menjadi executable dengan chmod 755
+  /usr/local/bin/ppp-off.
+
+  o  buatlah berkas /etc/ppp/options:
+
+
+
+
+
+
+
+
+
+
+  # /etc/ppp/options
+  /dev/modem
+  38400
+  lock
+  crtscts
+  modem
+  asyncmap 0
+  remotename www.supernet.edu
+  defaultroute
+
+
+
+
+
+  o  jika ISP anda menggunakan protokol PAP (kebanyakan menggunakan),
+     buatlah berkas /etc/ppp/pap-secrets:
+
+
+
+       # /etc/ppp/pap-secrets
+       # username     remotehost           secret
+       John           www.supernet.edu     _Loo%ny
+
+
+
+
+
+  o  suntinglah /etc/resolv.conf:
+
+
+
+       # /etc/resolv.conf
+       search supernet.edu
+       nameserver 123.231.112.111
+
+
+
+
+
+  o  suntinglah /etc/sendmail.cf. Carilah baris yang dimulai dengan DS,
+     dan buatlah menyerupai:
+
+
+
+       DSmbox.supernet.edu
+
+
+
+
+
+  Fuih! Jika anda beruntung, semestinya sudah bisa bekerja. Jika tidak,
+  bersiap-siaplah mempelajari PPP-HOWTO.
+
+  Sudah cukup dengan konfigurasi manual. Ada paket bagus yang
+  mengotomatisasi hal-hal di atas bernama ezppp dan bisa didapat dari
+  http://www.serv.net/~cameron/ezppp/index.html.
+
+
+
+  3.9.  Klien POP
+
+
+  Untuk mengambil mail-mail anda dari sebuah server POP, gunakan
+  program/klien POP seperti fetchpop atau fetchmail. Yang terakhir
+  mungkin satu-satunya pilihan jika server POP ISP anda mempunyai
+  masalah dengan perintah LAST.
+  Untuk mengkonfigurasi klien-klien tersebut:
+
+
+  o  fetchpop: pertama kali dijalankan anda akan ditanyai berbagai
+     pertanyaan. Anda tinggal menjawab pertanyaan-pertanyaan tersebut
+     dan sudah beres.
+
+  o  fetchmail: pergunakan contoh berikut untuk .fetchmailrc:
+
+
+
+       # $HOME/.fetchmailrc
+       poll mbox.supernet.edu with protocol pop3;
+         user john there with password _Loo%ny is john here
+         mda "/usr/bin/procmail -f fetchmail"
+
+
+
+
+
+  Baris terakhir mungkin tidak dibutuhkan. Anda harus mengeset permis-
+  sion berkas ini dengan chmod 600 .fetchmailrc, jika tidak fetchmail
+  tidak akan bekerja.
+
+
+
+  3.10.  Sistem X Window
+
+
+  Setelah X bekerja (video card yang benar, dll.), ada banyak
+  kemungkinan untuk konfigurasi; tergantung pada window manager yang
+  anda gunakan. Pada dasarnya, anda menyunting berkas-berkas ASCII di
+  direktori home anda. Untuk window managernya:
+
+
+  o  fvwm: salinlah /etc/X11/fvwm/system.fvwmrc sebagai $HOME/.fvwmrc,
+     lihat-lihatlah isinya dan mulailah bereksperimen. Berkas
+     system.fvwmrc contoh ini menurut penulis sedikit terlalu sederhana
+     dan tidak menunjukkan semua kemampuan fvwm.
+
+  o  fvwm95-2: salinlah /etc/X11/fvwm95-2/fvwm2rc95 sebagai
+     $HOME/.fvwm2rc95, kemudian suntinglah. Contohnya lumayan bagus.
+
+  o  TheNextLevel: ini agak sulit dikonfigurasi. Salinlah
+     /etc/X11/TheNextLevel/.* ke direktori home anda, lihat-lihatlah
+     isinya dengan baik, kemudian cobalah mengkonfigurasi sedikit-
+     sedikit. Yang pertama kali seharusnya dilihat adalah
+     .fvwm2rc.defines.
+
+  Sebagai tambahan, jangan lupa untuk membuat .xinitrc. Contoh:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #!/bin/sh
+
+  # $HOME/.xinitrc
+
+  # set a few keys correctly
+
+  usermodmap=$HOME/.Xmodmap
+  xmodmap $usermodmap
+
+  xset s noblank  # turn off the screen saver
+  xset s 300 2    # screen saver start after 5 min
+  xsetroot -solid "medium blue" &
+
+  # rxvt saves memory, but has a few bugs:
+  #   - home and end keys are not recognised;
+  #   - backspace and delete don't work as in console;
+  #   - colours are not properly inherited by the environment;
+  #   - problems with the environment in general;
+  # xterm is therefore better in many cases. However, rxvt is best
+  # for running some colour apps like mc.
+
+  xterm -ls -bg black -fg white -sb -sl 500 -j -ls -fn 10x20 -fb 10x20bold \
+  -title "Color xterm" -geometry 80x25+150+0 &
+
+  fvwm95-2
+
+
+
+
+
+
+  3.11.  Fortran
+
+
+  Menurut pengalaman penulis, jika anda membutuhkan Fortran, alternatif
+  yang baik untuk g77 adalah penerjemah Fortran ke C f2c dan yaf77
+  sebagai front-end.
+
+  Dapatkan yaf77 dari
+  ftp://sunsite.unc.edu/pub/Linux/devel/languages/fortran/yaf77-1.4.tgz
+  dan mirror-mirrornya.
+
+
+
+  3.12.  Konfigurasi untuk pengguna
+
+
+  Penulis menganjurkan supaya pengguna baru sudah memiliki berkas-berkas
+  konfigurasi yang siap digunakan ketika mereka pertama kali login.
+  Letakkan berkas-berkas berikut di bawah /etc/skel/: bashrc,
+  bash_profile, bash_logout, inputrc, less, xinitrc, fvwmrc, fvwm2rc95,
+  Xmodmap, Xdefaults, jedrc, joerc, emacs.
+
+  (Catatan: karena masalah sewaktu mem-format dokumen ini, penulis
+  terpaksa menghilangkan tanda titik (`.') di awal nama berkas-berkas di
+  atas)
+
+  Ketahuilah bahwa .pinerc tidak bisa sepenuhnya dikonfigurasi; pastikan
+  bahwa minimal user-domain, smtp-server, and nntp-server terdefinisi
+  dengan benar.
+
+
+
+
+
+
+  4.  Akhir
+
+
+
+
+  4.1.  Hak cipta
+
+
+  Kecuali dinyatakan, dokumen-dokumen Linux HOWTO adalah hak cipta dari
+  penulisnya masing-masing. Dokumen-dokumen Linux HOWTO boleh diproduksi
+  ulang dan didistribusi ulang secara keseluruhan maupun sebagian,
+  dengan media fisik maupun elektronik, selama informasi hak cipta ini
+  tercantum di masing-masing salinan. Distribusi ulang secara komersil
+  diperbolehkan dan dianjurkan; tetapi, diminta menginformasikan penulis
+  tentang adanya distribusi semacam itu.
+
+  Semua terjemahan, pekerjaan turunan atau kumpulan yang mengandung
+  dokumen-dokumen Linux HOWTO harus di bawah informasi hak cipta ini.
+  Yaitu, jika Anda membuat sebuah turunan/bentuk lain dari HOWTO, Anda
+  dilarang menerapkan larangan-larangan tambahan untuk distribusinya.
+  Pengecualian dipertimbangkan dalam kondisi-kondisi tertentu; silakan
+  menghubungi koordinator Linux HOWTO di alamat berikut.
+
+  Jika Anda mempunyai pertanyaan, silakan menghubungi Greg Hankins,
+  koordinator Linux HOWTO, di gregh@sunsite.unc.edu. Gunakan 'finger'
+  untuk mendapatkan nomor telepon dan alamat darat.
+
+
+  4.2.  Tanggapan
+
+
+  Mungkin lebih daripada HOWTO-HOWTO yang lain, yang ini membutuhkan dan
+  menyambut semua usul, kritik, dan sumbangan. Jika anda merasa ada yang
+  kurang di sini, silakan mengirim email ke penulis. Jika anda memiliki
+  distribusi selain Red Hat dan berkas-berkas konfigurasi anda lain atau
+  terletak di direktori lain, diharapkan menginformasikan penulis dan
+  penulis akan menyertakannya. Tujuan penulis adalah membuat hidup
+  dengan Linux semudah mungkin.
+
+  Linux mempunyai banyak sekali paket-paket, jadi tidaklah mungkin
+  menyertakan semua instruksi-instruksi untuk masing-masing paket.
+  Penulis berharap permintaan-permintaan atau usul-usul anda dibuat
+  semasuk akal mungkin.
+
+
+
+  4.3.  Terima kasih dan disclaimer
+
+
+  ``Configuration HOWTO'' ditulis oleh Guido Gonzato,
+  guido@ibogfs.cineca.it, dan diterjemahkan oleh Ronny Haryanto,
+  giant@technologist.com.  Banyak terima kasih kepada semua
+  penulis/pengelola HOWTO dan halaman-halaman 'man' lain, di mana hasil
+  pekerjaan mereka sudah penulis 'contek'.
+
+  Dokumen ini disediakan ''apa adanya''. Penulis telah memberikan usaha
+  semampunya untuk membuat dokumen ini seakurat mungkin, tetapi anda
+  menggunakan informasi yang terkandung di dalamnya dengan resiko anda
+  sendiri. Penulis tidak akan bertanggung jawab atas segala kerusakan
+  yang mungkin terjadi dari dokumen ini.
+
+  Penulis berharap pekerjaannya berguna, seperti penulis merasa setiap
+  kali memasang sistem Linux baru...
+
+  Selamat menikmati,
+
+  Guido   =8-)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

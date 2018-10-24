@@ -1,0 +1,1274 @@
+
+      -----------------------------------------------------------      
+                             The Wine FAQ                              
+                                                                       
+      Frequently asked questions about Wine.                           
+      -----------------------------------------------------------      
+                                                                       
+      Questions                                                        
+                                                                       
+      Click on the question to see its answer.                         
+                                                                       
+          About Wine                                                   
+                                                                       
+                                                                       
+       1. What is Wine?                                                
+       2. What's UNIX? What's Linux? What's FreeBSD? What's GNU?       
+       3. Is Wine an emulator?                                         
+       4. What's the history of Wine?                                  
+       5. Why would anyone want Wine? Doesn't Windows suck?            
+       6. What is Wine, and what is it supposed to do?                 
+       7. What is the current version of Wine?                         
+       8. When will Wine be finished?                                  
+       9. What undocumented APIs / interfaces are not understood?      
+          Would seeing Microsoft source help?                          
+                                                                       
+          Getting Wine                                                 
+                                                                       
+                                                                       
+      10. Do I need Unix first? Where can I get Linux?                 
+      11. Can I get Wine on CD?                                        
+                                                                       
+          Common troubles with configuring Wine                        
+                                                                       
+                                                                       
+      12. This RPM requires libncurses.so.5, but the latest            
+          ncurses I can find is libncurses.so.4?                       
+      13. Why does it keep saying that Xpm is not installed?           
+      14. What is this kernel/kernel32 mismatch warning?               
+      15. I'm getting a X_OpenFont crash when starting Wine!           
+      16. All my Wine windows stick on top and/or on all my            
+          desktops!                                                    
+      17. Wine looks like Windows 3.1, but I run Windows 95            
+          applications?                                                
+      18. I compiled Wine from source, but it can't find the .so       
+          files, like libavifil32.so!                                  
+      19. Wine won't start on my new glibc2.1.3-based                  
+          distribution (RedHat 6.2, Mandrake 7.0, etc)!                
+                                                                       
+          Common troubles with running programs with Wine              
+                                                                       
+                                                                       
+      20. I'm getting a relocation records stripped message,           
+          what's this?                                                 
+      21. I can't start programs in paths with spaces in them!         
+      22. I tried to run a setup application, but it complains         
+          that it can't create start menu entries, what can I do?      
+      23. My application wants me to change disks/CD-ROMs, but I       
+          can't unmount it while it is running, what can I do?         
+                                                                       
+          Getting Help                                                 
+                                                                       
+                                                                       
+      24. Is there any documentation for Wine?                         
+      25. I couldn't find the answer to my question in the             
+          documentation, but I've written a document explaining        
+          how to solve it. What should I do?                           
+                                                                       
+          Developing programs using Wine                               
+                                                                       
+                                                                       
+      26. Can I use Wine to port my Win32 sources to Unix?             
+      27. Will MFC work with Wine? What do I need to do?               
+      28. Are there any commercial applications which have been        
+          ported using Wine?                                           
+      29. How can I detect Wine?                                       
+                                                                       
+          Becoming a Wine developer                                    
+                                                                       
+                                                                       
+      30. How do I become a Wine developer? What do I need to          
+          know?                                                        
+                                                                       
+          About this FAQ                                               
+                                                                       
+                                                                       
+      31. How recent is this FAQ? Where can I get the latest           
+          version?                                                     
+      32. Who maintains this FAQ? What's its history? How do I         
+          submit additions?                                            
+      33. What's the copyright on this FAQ? How may I use it?          
+                                                                       
+          Capabilities                                                 
+                                                                       
+                                                                       
+      34. Which programs does Wine currently run?                      
+      35. Are there programs which Wine will never be able to          
+          run?                                                         
+      36. Can I use Wine to access my Winmodem?                        
+      37. Will MS Windows programs typically run faster or slower      
+          under UNIX and Wine than they do under DOS and MS            
+          Windows? Will certain kinds of programs run slower or        
+          faster?                                                      
+      38. Are there any advantages or disadvantages to running MS      
+          Windows applications under Wine that I should be aware       
+          of?                                                          
+      39. Will Wine support MS Windows networked applications          
+          that use winsock.dll?                                        
+      40. I'm a software developer who wants to use UNIX to            
+          develop programs rather than DOS, but I need to write        
+          DOS and MS Windows programs as well. Will I be able to       
+          run my favorite DOS and/or MS Windows compilers under        
+          Wine?                                                        
+                                                                       
+          What You Need to Run Wine                                    
+                                                                       
+                                                                       
+      41. Under what hardware platform(s) and operating system(s)      
+          will Wine run?                                               
+      42. What minimum CPU must I have in my computer to be able       
+          to run Wine and MS Windows applications smoothly?            
+      43. How much disk space will the Wine source code and            
+          binaries take on my hard drive? What other software do       
+          I need to have installed to compile and run Wine?            
+      44. How much RAM do I need to have on my UNIX system to be       
+          able to run Wine and MS Windows applications smoothly?       
+      45. I have a Drivespaced, Doublespaced or Stackered DOS          
+          partition. Can Wine run MS Windows binaries located in       
+          such a partition?                                            
+      46. Do I need to have a DOS partition on my system to use        
+          Wine? Does MS Windows need to be loaded into that            
+          partition in order to run MS Windows programs under          
+          Wine?                                                        
+      47. If Wine completely replaces MS Windows, will it              
+          duplicate all of the functions of MS Windows?                
+      48. Will I be able to install MS Windows applications in         
+          any flavor of a UNIX filesystem?                             
+      49. Will Wine run only under X, or can it run in character       
+          mode?                                                        
+      50. Will Wine run under any X window manager? Does it            
+          require a window manager at all?                             
+      51. Will 32-bit Windows 95/98 applications run under Wine?       
+      52. What about NT specific programs, which use NT-only           
+          features?                                                    
+                                                                       
+          How to Find, Install, Configure and Run Wine                 
+                                                                       
+                                                                       
+      53. Where can I get Wine?                                        
+      54. If I do not have an Internet account, how can I get          
+          Wine?                                                        
+      55. How do I install Wine on my hard drive?                      
+      56. How do I compile the Wine distribution source code?          
+      57. How do I configure Wine to run on my system?                 
+      58. How do I run an MS Windows program under Wine?               
+      59. I have installed and configured Wine, but Wine cannot        
+          find MS Windows on my drive. Where did I go wrong?           
+      60. I'm running a DirectX game, but the graphics is slow,        
+          how can I speed it up?                                       
+      61. I think I've found a bug. How do I report this bug to        
+          the Wine programming team?                                   
+      62. I was able to get various MS Windows programs to run,        
+          but parts of them do not work. What is wrong?                
+      63. I have run various MS Windows programs, but since the        
+          program menus do not work, how can I exit these              
+          programs?                                                    
+      64. How do I remove Wine from my computer?                       
+                                                                       
+          How to Get Help with Wine                                    
+                                                                       
+                                                                       
+      65. Is there a Usenet newsgroup for Wine?                        
+      66. Is there a World Wide Web site for Wine?                     
+                                                                       
+          How You Can Help with the Wine Project                       
+                                                                       
+                                                                       
+      67. How can I help contribute to the Wine project, and in        
+          what way(s)?                                                 
+      68. I want to help beta test Wine. How can I do this?            
+      69. I have written some code that I would like to submit to      
+          the Wine project. How do I go about doing this?              
+                                                                       
+          Who's Responsible for Wine?                                  
+                                                                       
+                                                                       
+      70. Who is responsible for writing and maintaining the Wine      
+          source code?                                                 
+      71. Who are the folks and organizations who have                 
+          contributed money or equipment to the Wine project?          
+                                                                       
+      Questions and Answers                                            
+                                                                       
+      About Wine                                                       
+                                                                       
+                                                                       
+                                                                       
+       1. What is Wine?                                                
+                                                                       
+          Wine is Windows on UNIX.                                     
+                                                                       
+                                                                       
+                                                                       
+       2. What's UNIX? What's Linux? What's FreeBSD? What's GNU?       
+                                                                       
+          UNIX refers to a number of OSes based on the OS started      
+          at Bell Labs in the 70's. GNU is a longstanding project      
+          to create a free Unix. Linux and FreeBSD are free            
+          Unixes, building on the GNU project. Some distributors,      
+          such as Debian, refer to the result as GNU/Linux in          
+          recognition of the GNU heritage.                             
+                                                                       
+                                                                       
+                                                                       
+       3. Is Wine an emulator?                                         
+                                                                       
+          Unfortunately, no. Wine provides low-level binary            
+          compatibility, but currently only for OSes running on        
+          Intel-compatible chips.                                      
+                                                                       
+                                                                       
+                                                                       
+       4. What's the history of Wine?                                  
+                                                                       
+          As far as I remember it was a discussion in                  
+          comp.os.linux about Windows emulation. The first real        
+          code came from Eric Youngdale (at this point he was          
+          toying around with object formats, i.e. he was writing       
+          the ELF infrastructure for Linux and applied this            
+          knowledge to write a simple loader for Windows               
+          binaries). Then Bob Amstadt got the actual project           
+          running (with TK widgets). -- Joerg                          
+                                                                       
+          Also see http://www.winehq.com/about.html.                   
+                                                                       
+                                                                       
+                                                                       
+       5. Why would anyone want Wine? Doesn't Windows suck?            
+                                                                       
+          Not everyone thinks so. And for those that don't,            
+          Windows programs would suck less when run on a more          
+          stable and flexible UNIX platform.                           
+                                                                       
+                                                                       
+                                                                       
+       6. What is Wine, and what is it supposed to do?                 
+                                                                       
+          Wine is a program which allows the operation of DOS and      
+          MS Windows programs (Windows 3.x and Win32 executables)      
+          on UNIX. It consists of a program loader, which loads        
+          and executes a Windows binary, and a library that            
+          implements Windows API calls using their UNIX or X11         
+          equivalents. The library may also be used for porting        
+          Win32 code into native UNIX executables.                     
+                                                                       
+          Wine is free software, and its license (contained in         
+          the file LICENSE in each distribution) is BSD style.         
+          Basically, this means that you can do anything with          
+          Wine except claim that you wrote it.                         
+                                                                       
+                                                                       
+                                                                       
+       7. What is the current version of Wine?                         
+                                                                       
+          A new version of Wine is distributed about every three       
+          weeks. You will be able to keep up on all the latest         
+          releases by reading the newsgroup                            
+                                                                       
+          comp.emulators.ms-windows.wine                               
+                                                                       
+          where new release announcements are made. You can also       
+          subscribe to the wine-announce mailing list to be            
+          notified of new releases via email.                          
+                                                                       
+          When downloading Wine from your FTP site of choice (see      
+          http://www.winehq.com/download.html for some of these        
+          choices), you can make sure that you are getting the         
+          latest version by watching the version numbers in the        
+          distribution filename.                                       
+                                                                       
+          For instance, the distribution released on June 20,          
+          1994 was called Wine-940620.tar.gz.                          
+                                                                       
+          Patch files are also available. If you are current to        
+          the previous version, you can download and apply just        
+          the current patch file rather than the entire new            
+          distribution. The patch filenames follow the same            
+          conventions as the monthly distribution.                     
+                                                                       
+          Read-only CVS access is also available. See http://          
+          www.winehq.com/dev.html                                      
+                                                                       
+                                                                       
+                                                                       
+       8. When will Wine be finished?                                  
+                                                                       
+          Large software projects are never finished, only             
+          released.                                                    
+                                                                       
+          Because Wine is being developed by volunteers, it is         
+          difficult to predict when it will be ready for general       
+          release. Between 90-98% of the functions used by MS          
+          Windows applets, and 80-90% of the functions used by         
+          major programs, have been at least partially                 
+          implemented at this time. However, the remaining 10%         
+          will likely take another 90% of the time, not including      
+          debugging.                                                   
+                                                                       
+                                                                       
+                                                                       
+       9. What undocumented APIs / interfaces are not understood?      
+          Would seeing Microsoft source help?                          
+                                                                       
+          The best would be if the Windows API would be fully          
+          documented, so Wine could be a perfect "clean-room"          
+          implementation. Seeing the source code might make it         
+          harder to prove that no copyright violations have taken      
+          place. That said, the documentation is often bad,            
+          nonexistent, and even misleading where it exists, so a       
+          fair amount of reverse engineering have been necessary,      
+          particularly in the shell (Explorer) interface.              
+                                                                       
+          Getting Wine                                                 
+                                                                       
+                                                                       
+                                                                       
+      10. Do I need Unix first? Where can I get Linux?                 
+                                                                       
+          The short answer is yes: Wine is not an OS, it runs on       
+          top of your OS. A project named Generic Windows, a           
+          prepacked setup of FreeBSD+XFree86+Wine, has been            
+          proposed, but its domain name, genericwindows.com,           
+          seems to have disappeared from the Web.                      
+                                                                       
+                                                                       
+                                                                       
+      11. Can I get Wine on CD?                                        
+                                                                       
+          You can get the source on any CD which mirrors a Wine        
+          site, such as the Metalab CD's marketed by Walnut Creek      
+          CDROM. Be warned that these might be slightly out of         
+          date by the time you get them.                               
+                                                                       
+          Common troubles with configuring Wine                        
+                                                                       
+                                                                       
+                                                                       
+      12. This RPM requires libncurses.so.5, but the latest            
+          ncurses I can find is libncurses.so.4?                       
+                                                                       
+          RedHat has pulled a bad versioning trick; ncurses 5 is       
+          still installed as libncurses.so.4 in order to avoid         
+          having to recompile the rest of the distribution. If         
+          you must use a RPM rather than compile from source,          
+          make a symlink, like                                         
+          cd /usr/lib                                                  
+          ln -s libncurses.so.4 libncurses.so.5                        
+                                                                       
+                                                                       
+                                                                       
+      13. Why does it keep saying that Xpm is not installed?           
+                                                                       
+          You need the Xpm development headers. On RedHat and          
+          SuSE, this is the xpm-devel package. On Debian, this is      
+          the xpm4g-dev package. Remember to rm config.cache (or       
+          make distclean) before trying again.                         
+                                                                       
+                                                                       
+                                                                       
+      14. What is this kernel/kernel32 mismatch warning?               
+                                                                       
+          An error in the configuration file, which unfortunately      
+          many RPM creators have overlooked. If you run win32          
+          applications and have win95/winNT installed with this        
+          error, Wine will crash on startup. The wine.conf should      
+          contain something like this (but you may ignore the          
+          DllPairs section if it doesn't exist, as it was              
+          obsoleted a while ago):                                      
+          [DllPairs]                                                   
+          krnl386 = kernel32                                           
+          [DllOverrides]                                               
+          kernel32, gdi32, user32 = builtin                            
+          krnl386, gdi, user      = builtin                            
+                                                                       
+                                                                       
+                                                                       
+      15. I'm getting a X_OpenFont crash when starting Wine!           
+                                                                       
+          Make sure you have run mkfontdir in all your X font          
+          directories to make sure X has a current list of             
+          available fonts. Also, some Windows fonts do not work        
+          properly in X. When Wine starts, it queries the X            
+          server for the metrics of every font on the system, and      
+          for some fonts this may fail. Run wine -debugmsg +font       
+          -sync to see what fonts it was querying the X server         
+          about, then remove the offending font.                       
+                                                                       
+                                                                       
+                                                                       
+      16. All my Wine windows stick on top and/or on all my            
+          desktops!                                                    
+                                                                       
+          Have you tried the -managed or -desktop command line         
+          options? See the man page for details.                       
+                                                                       
+                                                                       
+                                                                       
+      17. Wine looks like Windows 3.1, but I run Windows 95            
+          applications?                                                
+                                                                       
+          The visual look and the API are completely different         
+          and independent things, think of the look as a theme,        
+          it does not change what the applications think they are      
+          running on. That said, to change the look, set the           
+          WineLook option under [Tweak.Layout] in your wine.conf.      
+                                                                       
+                                                                       
+                                                                       
+      18. I compiled Wine from source, but it can't find the .so       
+          files, like libavifil32.so!                                  
+                                                                       
+          When compiling from source, the libraries go into /usr/      
+          local/lib by default. Most Linux distributions aren't        
+          set up to look there by default, you have to add /usr/       
+          local/lib to /etc/ld.so.conf (and then rerun ldconfig)       
+          yourself (or let tools/wineinstall do it for you).           
+                                                                       
+                                                                       
+                                                                       
+      19. Wine won't start on my new glibc2.1.3-based                  
+          distribution (RedHat 6.2, Mandrake 7.0, etc)!                
+                                                                       
+          There are severe bugs in stock glibc2.1.3. For towupper      
+          crashes, or errors about MENU_CopySysPopup and USER,         
+          you can work around the problem by defining the              
+          environment variable LC_ALL, i.e. export LC_ALL=en (in       
+          bash) or setenv LC_ALL en (in tcsh).                         
+                                                                       
+          Common troubles with running programs with Wine              
+                                                                       
+                                                                       
+                                                                       
+      20. I'm getting a relocation records stripped message,           
+          what's this?                                                 
+                                                                       
+          It means that a Win32 application tried to start             
+          another executable, but this new executable wanted           
+          itself loaded at an address typically already occupied       
+          by the old executable, and did not have the relocation       
+          records necessary for it to be loaded anywhere else          
+          (recent versions of MSVC++ removes (strips) this             
+          information by default). Sometimes you can get the           
+          application up anyway by just manually starting the          
+          other executable it was trying to run (this applies to       
+          Lotus Notes, for example).                                   
+                                                                       
+          The root of this problem is that Win32 keeps separate        
+          address spaces for each Win32 process, so that two           
+          executables will never clash under Windows. However,         
+          there is a lot of work left before Wine can do the           
+          same, mostly having to do with how these applications        
+          are going to communicate with each other once they are       
+          separated.                                                   
+                                                                       
+                                                                       
+                                                                       
+      21. I can't start programs in paths with spaces in them!         
+                                                                       
+          Did you do something like wine /c/Program Files/foo/         
+          bar.exe? The shell sees unescaped spaces as argument         
+          separators, for obvious reasons. To tell it that it's        
+          all one argument, you must quote it. Examples:               
+          wine /c/Program\ Files/foo/bar.exe                           
+          wine "/c/Program Files/foo/bar.exe"                          
+                                                                       
+          But the best and simplest idea is always to cd into the      
+          program's directory first and then just run wine             
+          bar.exe. Many applications depend on the current             
+          directory being the program directory, and they might        
+          not work otherwise.                                          
+                                                                       
+                                                                       
+                                                                       
+      22. I tried to run a setup application, but it complains         
+          that it can't create start menu entries, what can I do?      
+                                                                       
+          If you're running without a real Windows installation,       
+          first you need to install the necessary registry             
+          entries, if you haven't already done so. See                 
+          documentation/no-windows for more information. Next,         
+          you need to create directories for the paths in the          
+          registry. If your Drive C path is /c, you would type         
+          something like                                               
+          mkdir "/c/windows/Start Menu"                                
+          mkdir "/c/windows/Start Menu/Programs"                       
+                                                                       
+          to prepare the start menus, and after this the install       
+          should succeed. (The newest version of tools/                
+          wineinstall should do all this for you.)                     
+                                                                       
+                                                                       
+                                                                       
+      23. My application wants me to change disks/CD-ROMs, but I       
+          can't unmount it while it is running, what can I do?         
+                                                                       
+          Use the Supermount kernel patch, and mount your              
+          removable media using the Supermount filesystem (read        
+          its README file). Supermount implements DOS/                 
+          Windows-like behaviour (it allows you to change media        
+          (as long as no files are open) without unmounting).          
+                                                                       
+          (Mandrake kernels are known to include this patch by         
+          default.)                                                    
+                                                                       
+          Getting Help                                                 
+                                                                       
+                                                                       
+                                                                       
+      24. Is there any documentation for Wine?                         
+                                                                       
+          Yes, a bit. Look in the documentation/ directory of the      
+          source distribution. Also see the WineHQ website and         
+          the draft version of the Wine-HOWTO.                         
+                                                                       
+                                                                       
+                                                                       
+      25. I couldn't find the answer to my question in the             
+          documentation, but I've written a document explaining        
+          how to solve it. What should I do?                           
+                                                                       
+          Updates and additions to the Wine documentation              
+          directory should be sent to the wine-patches mailing         
+          list. Website and FAQ additions should be sent to            
+          webmaster@winehq.com.                                        
+                                                                       
+          Developing programs using Wine                               
+                                                                       
+                                                                       
+                                                                       
+      26. Can I use Wine to port my Win32 sources to Unix?             
+                                                                       
+          That is the idea of Winelib. Right now you may have          
+          some difficulties, but this should change soon.              
+                                                                       
+                                                                       
+                                                                       
+      27. Will MFC work with Wine? What do I need to do?               
+                                                                       
+          Work is underway to support this.                            
+                                                                       
+                                                                       
+                                                                       
+      28. Are there any commercial applications which have been        
+          ported using Wine?                                           
+                                                                       
+          At this time, Corel's WordPerfect Office Suite and           
+          Deneba's Canvas 7 are known to use Winelib.                  
+                                                                       
+                                                                       
+                                                                       
+      29. How can I detect Wine?                                       
+                                                                       
+          You shouldn't need to. If there's a quirk in Wine you        
+          need to work around, it's better to fix it in Wine.          
+                                                                       
+          Becoming a Wine developer                                    
+                                                                       
+                                                                       
+                                                                       
+      30. How do I become a Wine developer? What do I need to          
+          know?                                                        
+                                                                       
+          If you can program C, that's a good start. Download the      
+          sources via CVS, subscribe to the mailing lists, look        
+          around the source, and pay attention to the                  
+          comp.emulators.ms-windows.wine newsgroup and the             
+          mailing lists. See if there's anything that you think        
+          you can fix or work on. You won't have much trouble          
+          finding areas that need work in Wine (grep for FIXMEs        
+          in the source).                                              
+                                                                       
+          About this FAQ                                               
+                                                                       
+                                                                       
+                                                                       
+      31. How recent is this FAQ? Where can I get the latest           
+          version?                                                     
+                                                                       
+          This document was last edited Tue Mar 06 01:33:11 EST        
+          2001. It is available from http://www.winehq.com/            
+          faq.html.                                                    
+                                                                       
+                                                                       
+                                                                       
+      32. Who maintains this FAQ? What's its history? How do I         
+          submit additions?                                            
+                                                                       
+          Dave Gardner maintained it from 1995-1998. Douglas           
+          Ridgway <ridgway@winehq.com>, the current maintainer,        
+          took it over in 1999. Proposed new questions should be       
+          sent to him.                                                 
+                                                                       
+                                                                       
+                                                                       
+      33. What's the copyright on this FAQ? How may I use it?          
+                                                                       
+          The original Wine FAQ, which this FAQ was based on, was      
+          copyright © 1995-1998 David Gardner. It may be               
+          reproduced and modified under the same terms as Wine         
+          itself.                                                      
+                                                                       
+          Capabilities                                                 
+                                                                       
+                                                                       
+                                                                       
+      34. Which programs does Wine currently run?                      
+                                                                       
+          Please see the Apps database.                                
+                                                                       
+                                                                       
+                                                                       
+      35. Are there programs which Wine will never be able to          
+          run?                                                         
+                                                                       
+          Wine is designed to allow applications to run, and           
+          implements an application programming interface. It is       
+          not designed to interface directly with hardware, which      
+          is the responsibility of the underlying operating            
+          system. Wine does not in general allow using Windows         
+          drivers under Unix. That said, Wine has been used to         
+          support parallel devices, such as parallel port              
+          scanners for which no Unix driver is available.              
+                                                                       
+                                                                       
+                                                                       
+      36. Can I use Wine to access my Winmodem?                        
+                                                                       
+          No. These are usually cheap DAC/ADC boards that comes        
+          with software that consumes some of the processing           
+          power of your main CPU instead of letting the hardware       
+          do its own job of decoding/encoding the acoustic             
+          signals that carries data over the phone line. The           
+          software drivers use VxDs to access the hardware, which      
+          brings us to the previous question, above.                   
+                                                                       
+          See http://www.linmodems.org/ instead.                       
+                                                                       
+                                                                       
+                                                                       
+      37. Will MS Windows programs typically run faster or slower      
+          under UNIX and Wine than they do under DOS and MS            
+          Windows? Will certain kinds of programs run slower or        
+          faster?                                                      
+                                                                       
+          When work on Wine is completed, programs should              
+          typically run at about the same speed under Wine as          
+          they do under DOS and MS Windows. Currently, there are       
+          debugging features built into each release, and this         
+          slows down the execution of programs. However, these         
+          debugging features will be removed for any                   
+          post-development releases.                                   
+                                                                       
+                                                                       
+                                                                       
+      38. Are there any advantages or disadvantages to running MS      
+          Windows applications under Wine that I should be aware       
+          of?                                                          
+                                                                       
+          As with OS/2, you will be running MS Windows programs        
+          under a protected mode operating system, which brings        
+          certain advantages (and some disadvantages).                 
+                                                                       
+          For instance, there will be crash protection. That is,       
+          each MS Windows application running under Wine will be       
+          running in its own X window and its own portion of           
+          reserved memory. If one MS Windows application crashes,      
+          it will not crash the other MS Windows or UNIX               
+          applications that you may have running at the same           
+          time.                                                        
+                                                                       
+          However, be aware that some applications are broken and      
+          they access memory that they haven't properly (or at         
+          all) allocated. Under OS/2 or Wine, they will crash.         
+          Under MS Windows, they may work for a period of time,        
+          but then eventually you will have to reboot the              
+          machine.                                                     
+                                                                       
+          Also, MS Windows programs should run at about the same       
+          speed under Wine as they do under MS Windows.                
+                                                                       
+          When Wine is finished, you will be able to run your          
+          favorite MS Windows applications in a UNIX environment.      
+          However, be aware that any application written for MS        
+          Windows will run much less efficiently than its native       
+          UNIX cousin. For Linux, there is a database of such          
+          applications at the Linux Apps Page.                         
+                                                                       
+                                                                       
+                                                                       
+      39. Will Wine support MS Windows networked applications          
+          that use winsock.dll?                                        
+                                                                       
+          Yes, Wine does support such applications, more so the        
+          16-bit than the 32-bit version of winsock. Working           
+          applications include Agent (a Usenet newsreader), mIRC,      
+          ws-FTP and Internet Explorer.                                
+                                                                       
+                                                                       
+                                                                       
+      40. I'm a software developer who wants to use UNIX to            
+          develop programs rather than DOS, but I need to write        
+          DOS and MS Windows programs as well. Will I be able to       
+          run my favorite DOS and/or MS Windows compilers under        
+          Wine?                                                        
+                                                                       
+          Wine now supports DOS applications natively, which           
+          means that you might be able to run command-line             
+          utilities. Some have reported success in running (to         
+          varying degrees of success) various C++ compilers, and       
+          the Borland Dephi and Turbo Pascal for Windows               
+          compilers. Others have reported success in running the       
+          Borland C++ 5.0 command line compiler (bcc) as well as       
+          some of the debugging tools in the MS SDK, but these         
+          compilers' IDEs generally do not run yet.                    
+                                                                       
+          What You Need to Run Wine                                    
+                                                                       
+                                                                       
+                                                                       
+      41. Under what hardware platform(s) and operating system(s)      
+          will Wine run?                                               
+                                                                       
+          Wine is being developed specifically to run on the           
+          Intel x86 class of CPUs under certain UNIXes that run        
+          on the x86 platform. UNIXes currently being tested for       
+          Wine compatibility include Linux, FreeBSD, and Solaris       
+          x86. NetBSD, OpenBSD, Unixware, and SCO OpenServer 5         
+          worked at one time, but Wine now requires kernel-level       
+          threads which are not currently available (or                
+          understood by the Wine team) in those platforms. The         
+          Wine development team hopes to attract the interest of       
+          other commercial UNIX and UNIX clone vendors as well.        
+                                                                       
+          There are side efforts underway to port Wine to the          
+          Alpha, OS/2, and BeOS platforms. You can find out more       
+          information about the OS/2 port at http://                   
+          www.winehq.com/wine/documentation/wine_os2                   
+                                                                       
+                                                                       
+                                                                       
+      42. What minimum CPU must I have in my computer to be able       
+          to run Wine and MS Windows applications smoothly?            
+                                                                       
+          Wine won't run on any x86 CPU less than an 80386. It is      
+          known to also work in the 80486 and Pentium CPUs.            
+          Beyond that, the basic test is, if you can run X11 now,      
+          you should be able to run Wine and MS Windows                
+          applications under it. As always, the faster your CPU,       
+          the better. Having a math coprocessor is unimportant.        
+          However, having a graphics accelerated video card            
+          supported by X will help greatly.                            
+                                                                       
+                                                                       
+                                                                       
+      43. How much disk space will the Wine source code and            
+          binaries take on my hard drive? What other software do       
+          I need to have installed to compile and run Wine?            
+                                                                       
+          You need approximately 220 megabytes of free hard drive      
+          space to store and compile the source code. Wine also        
+          needs about 18 megs in your /tmp directory.                  
+                                                                       
+          Many development tools need to be installed in order to      
+          compile Wine. A list of required packages for several        
+          distributions is included in the README.                     
+                                                                       
+          To run Wine, you will need the following:                    
+            + The compiled Wine binary                                 
+            + A properly configured wine.conf file (or ~/.winerc       
+              file)                                                    
+            + An installed and working X Window system                 
+            + Some MS Windows programs to test                         
+                                                                       
+                                                                       
+                                                                       
+      44. How much RAM do I need to have on my UNIX system to be       
+          able to run Wine and MS Windows applications smoothly?       
+                                                                       
+          If you can run X smoothly on your UNIX system now, you       
+          should be able to run Wine and MS Windows applications       
+          just fine too. A typical Wine workstation should             
+          realistically have at least 16 megabytes of RAM and a        
+          16 megabyte swap partition. More is better, of course.       
+          You can run Wine with 8/8, but it is not recommended.        
+          If you wish to be part of the development team and           
+          program Wine itself, be aware that the new debugger is       
+          rather memory intensive. Some have suggested that 64         
+          megabytes is the minimum RAM needed for Wine                 
+          development, although some are able to work (albeit          
+          slowly) with 24 megabytes of physical RAM and lots of        
+          swap space.                                                  
+                                                                       
+                                                                       
+                                                                       
+      45. I have a Drivespaced, Doublespaced or Stackered DOS          
+          partition. Can Wine run MS Windows binaries located in       
+          such a partition?                                            
+                                                                       
+          Yes, but only if the operating system supports mounting      
+          those types of drives.                                       
+                                                                       
+          There is a Linux filesystem driver called dmsdos that        
+          will allow read/write access through Doublespaced and        
+          Drivespace 1.0 drives. More specifically, it supports        
+          mounting DOS 6.0 and 6.2 Doublespaced, DOS 6.22              
+          Drivespaced, and Windows 95 Doublespaced compressed          
+          partitions (read and write access works fine, but write      
+          access is slow). It can be found at ftp://                   
+          metalab.unc.edu/pub/Linux/system/filesystems/dosfs/.         
+                                                                       
+                                                                       
+                                                                       
+      46. Do I need to have a DOS partition on my system to use        
+          Wine? Does MS Windows need to be loaded into that            
+          partition in order to run MS Windows programs under          
+          Wine?                                                        
+                                                                       
+          Unlike Wabi, you do not need a licensed and installed        
+          copy of DOS or MS Windows to install, configure and run      
+          Wine. However, Wine has to be able to 'see' an MS            
+          Windows binary if it is to run it.                           
+                                                                       
+          Some folks have successfully installed and run some          
+          small programs in their UNIX filesystem without having       
+          a DOS partition or MS Windows. However, not all              
+          programs will work this way yet. Some applications'          
+          installation programs want to distribute some of the         
+          package's files into the /windows and /windows/system        
+          directories in order to run, and unless these exist on       
+          your UNIX filesystem, those programs will not install        
+          correctly and probably will not run well, if at all.         
+                                                                       
+          If you have a DOS partition with MS Windows installed        
+          in it, make sure that your UNIX system can 'see' this        
+          partition (check your /etc/fstab file or mount the           
+          partition manually) so that Wine can run the MS Windows      
+          binaries located in the DOS partition.                       
+                                                                       
+          When it is finished, Wine will not require that you          
+          have a DOS partition on your system at all, meaning          
+          that you will not need to have MS Windows installed          
+          either. Wine programmers will provide an application         
+          setup program to allow you to install your MS Windows        
+          programs straight from your distribution diskettes or        
+          CDs onto your UNIX filesystem, or from within your UNIX      
+          filesystem if you ftp an MS Windows program over the         
+          Internet.                                                    
+                                                                       
+          To run without a DOS partition, you need to set a UNIX       
+          path to be your drive C, and make sure that the /            
+          windows and /windows/system directories point to some        
+          place that actually exist. Here's an example, copied         
+          from a machine which has no DOS partition but                
+          successfully runs Wine                                       
+              [Drive C]                                                
+              Path=/var/lib/wine                                       
+              Type=hd                                                  
+              Label=MS-DOS                                             
+              Filesystem=win95                                         
+                                                                       
+              [wine]                                                   
+              Windows=c:\windows                                       
+              System=c:\windows\system                                 
+              Temp=e:\                                                 
+              Path=c:\windows;c:\windows\system;c:                     
+                                                                       
+          In /var/lib/wine/windows, you will need to install a         
+          win.ini config file that you might find on a typical MS      
+          Windows 3.1 machine. The directory /var/lib/wine/            
+          windows/system should exist, but doesn't need to             
+          contain anything. However, to use MS DLLs, you can copy      
+          them into that directory.                                    
+                                                                       
+          If you have DOS/MS Windows installed on your system,         
+          you can mount that partition at bootup by modifying the      
+          file /etc/fstab in your UNIX partition. If you edit          
+          this file by hand, it should contain something similar       
+          to the following                                             
+          /dev/hda1 /dosc msdos uid=0,gid=100,umask=007 0 0            
+                                                                       
+          This will allow you to read and write to the DOS             
+          partition without being root.                                
+                                                                       
+                                                                       
+                                                                       
+      47. If Wine completely replaces MS Windows, will it              
+          duplicate all of the functions of MS Windows?                
+                                                                       
+          Most of them, yes. However, some applications and            
+          applets that come with MS Windows, such as File Manager      
+          and Calculator, can be considered by some to be              
+          redundant, since 32-bit UNIX programs that duplicate         
+          these applets' functions already exist.                      
+                                                                       
+                                                                       
+                                                                       
+      48. Will I be able to install MS Windows applications in         
+          any flavor of a UNIX filesystem?                             
+                                                                       
+          Wine is written to be filesystem independent, so MS          
+          Windows applications will install and run under any          
+          filesystem supported by your brand of UNIX.                  
+                                                                       
+                                                                       
+                                                                       
+      49. Will Wine run only under X, or can it run in character       
+          mode?                                                        
+                                                                       
+          Most of Wine's development effort is geared against MS       
+          Windows' GUI, but some limited support for character         
+          mode has appeared, by setting GraphicsDriver=ttydrv in       
+          wine.conf's [wine] section.                                  
+                                                                       
+                                                                       
+                                                                       
+      50. Will Wine run under any X window manager? Does it            
+          require a window manager at all?                             
+                                                                       
+          Wine is window manager independent, so the X window          
+          manager you choose to run has no bearing on your             
+          ability to run MS Windows programs under Wine. Wine          
+          uses standard X libraries, so no additional ones are         
+          needed. Wine has its own window management, which acts       
+          like MS Windows. It can be turned off to use the native      
+          window manager with the -managed command-line switch.        
+                                                                       
+                                                                       
+                                                                       
+      51. Will 32-bit Windows 95/98 applications run under Wine?       
+                                                                       
+          Yes, 32-bit programs are now about as well supported as      
+          16-bit programs.                                             
+                                                                       
+                                                                       
+                                                                       
+      52. What about NT specific programs, which use NT-only           
+          features?                                                    
+                                                                       
+          These are only poorly supported.                             
+                                                                       
+          How to Find, Install, Configure and Run Wine                 
+                                                                       
+                                                                       
+                                                                       
+      53. Where can I get Wine?                                        
+                                                                       
+          Because of lags created by using mirror, word of this        
+          newest release may reach you before the release is           
+          actually available at the ftp sites listed here. The         
+          sources are available from the following locations:          
+            + ftp://metalab.unc.edu/pub/Linux/ALPHA/wine/              
+              development/                                             
+            + ftp://tsx-11.mit.edu/pub/linux/ALPHA/Wine/               
+              development/                                             
+            + ftp://ftp.infomagic.com/pub/mirrors/linux/sunsite/       
+              ALPHA/wine/development/                                  
+            + ftp://ftp.progsoc.uts.edu.au/pub/Wine/development/       
+                                                                       
+          It should also be available from any site that mirrors       
+          tsx-11 or metalab (formerly sunsite).                        
+                                                                       
+          Some of these ftp sites may archive previous versions        
+          of Wine as well as the current one. To determine which       
+          is the latest one, look at the distribution filename,        
+          which will take the form Wine-YYMMDD.tar.gz. Simply          
+          replace YYMMDD in the distribution filename with the         
+          numbers for year, month and date, respectively. The          
+          latest one is the one to get.                                
+                                                                       
+          Wine binary packages are available for several OS'es         
+          and distributions. See http://www.winehq.com/                
+          download.html for the most recent list.                      
+                                                                       
+          Current Wine sources are also available via anonymous        
+          client/server CVS. You will need CVS 1.9 or above. If        
+          you are coming from behind a firewall, you will either       
+          need a hole in the firewall for the CVS port (2401) or       
+          use SOCKS. To login to the CVS tree, do                      
+          export CVSROOT=:pserver:cvs@cvs.winehq.com:/home/wine        
+          cvs login                                                    
+                                                                       
+          Use "cvs" as the password (without the quotes). Note         
+          that /home/wine is a path on the server, not on your         
+          machine.                                                     
+                                                                       
+          To check out the entire Wine source tree (which may be       
+          slow), use                                                   
+          cvs -z 3 checkout wine                                       
+                                                                       
+          or if you just want a subtree, or individual file, you       
+          can do that too with                                         
+          cvs -z 3 checkout wine/ANNOUNCE                              
+                                                                       
+          Be aware, though, that getting the entire Wine source        
+          tree via CVS is pretty slow, especially compared to          
+          getting Wine from an FTP mirror near you.                    
+                                                                       
+          Patch files are also available, so that you don't have       
+          to download, install and configure the entire                
+          distribution each week if you are current to the             
+          previous release. Patch file release names follow the        
+          same numbering convention as do the general releases,        
+          and take the form                                            
+                                                                       
+          Wine-YYMMDD.diff.gz                                          
+                                                                       
+          Patch files are available from the same sites that           
+          distribute the full release. To upgrade to a new             
+          release by using a patch file, first cd to the               
+          top-level directory of the release (the one containing       
+          the README file), then do a "make clean", and patch the      
+          release with                                                 
+          gunzip -c patch-file | patch -p1                             
+                                                                       
+          where patch-file is the name of the patch file               
+          something like Wine-YYMMDD.diff.gz. You can then re-run      
+          ./configure, and then run make depend && make.                
+                                                                       
+          If you are mirroring the Wine distribution from the          
+          tsx-11 site and wish to be listed here in this FAQ,          
+          please send email to the FAQ author/maintainer at            
+          webmaster@winehq.com                                         
+                                                                       
+                                                                       
+                                                                       
+      54. If I do not have an Internet account, how can I get          
+          Wine?                                                        
+                                                                       
+          Some CD-ROM archives of Internet sites, notably those        
+          from Walnut Creek that archive ftp.cdrom.com and             
+          metalab.unc.edu, may include some versions of Wine on        
+          their CD releases. However, the age of these                 
+          distributions should always be questioned, as the            
+          'snapshot' of the ftp site may have been taken anywhere      
+          from 1-4 months (or more) prior to the CD's pressing         
+          date.                                                        
+                                                                       
+          Your best bet to get the very latest distribution of         
+          Wine, if you do not have your own Internet account, is       
+          to find a friend who does have an Internet account, and      
+          have him/her ftp the necessary file(s) for you.              
+          Unfortunately, since the Wine source no longer fits on       
+          a 1.44 MB floppy, you'll have to figure out some way to      
+          transfer the file to your computer.                          
+                                                                       
+          If you have an email account on a BBS that can reach         
+          the Internet through a gateway, you may be able to use       
+          'email ftp' to get the Wine release sent to you; check       
+          with your BBS system operator for details.                   
+                                                                       
+                                                                       
+                                                                       
+      55. How do I install Wine on my hard drive?                      
+                                                                       
+          Just un-gzip and un-tar the file, and follow the             
+          instructions contained in the README file that will be       
+          located in the base Wine directory.                          
+                                                                       
+                                                                       
+                                                                       
+      56. How do I compile the Wine distribution source code?          
+                                                                       
+          See the README for instructions. Additionally, you may       
+          want to set the TMPDIR environment variable TMPDIR=~/        
+          tmp or TMPDIR=/tmp (if you are root)                         
+                                                                       
+                                                                       
+                                                                       
+      57. How do I configure Wine to run on my system?                 
+                                                                       
+          Wine requires that you have a file called usr/local/etc      
+          /wine.conf (you can supply a different filename when         
+          configuring wine) or a file called .winerc in your home      
+          directory. The format of this file is explained in the       
+          wine.conf man page . The file wine.ini contains a            
+          config file example. More explicit directions can be         
+          found in the README file that will be located in the         
+          base Wine directory after you ungzip and untar the           
+          distribution file.                                           
+                                                                       
+                                                                       
+                                                                       
+      58. How do I run an MS Windows program under Wine?               
+                                                                       
+          When invoking Wine, you must specify the entire path to      
+          the executable, or by filename only.                         
+                                                                       
+          For example to run Windows' solitaire, type any of the       
+          following:                                                   
+            + wine sol or wine sol.exe (using the search path to       
+              locate the file)                                         
+            + wine c:\\windows\\sol.exe (using a DOS filename)         
+            + wine /usr/windows/sol.exe (using a UNIX filename)        
+                                                                       
+          The path of the file will also be added to the path          
+          when a full name is supplied on the command line.            
+                                                                       
+                                                                       
+                                                                       
+      59. I have installed and configured Wine, but Wine cannot        
+          find MS Windows on my drive. Where did I go wrong?           
+                                                                       
+          If you have a DOS partition, first make sure that you        
+          have mounted it, either by putting the entry into [tt /      
+          etc/fstab], or by manually mounting it. Remember too         
+          that unless your version of UNIX can see through it, or      
+          you are running a utility that can see through it, your      
+          DOS partition must not be located on a Drivespaced,          
+          Doublespaced or Stackered partition, as neither Linux,       
+          FreeBSD, NetBSD or Wine can natively 'see' files             
+          located in these compressed DOS partitions.                  
+                                                                       
+          Check your path statements in the wine.conf file. No         
+          capital letters may be used in paths, as they are            
+          automatically converted to lowercase.                        
+                                                                       
+                                                                       
+                                                                       
+      60. I'm running a DirectX game, but the graphics is slow,        
+          how can I speed it up?                                       
+                                                                       
+          If you're using XFree86, you can take advantage of DGA.      
+          You must have rw access to /dev/mem to do this. On many      
+          distributions, you can add yourself to the kmem group.       
+          Otherwise, you have to change /dev/mem permissions, or       
+          even play as root.                                           
+                                                                       
+                                                                       
+                                                                       
+      61. I think I've found a bug. How do I report this bug to        
+          the Wine programming team?                                   
+                                                                       
+          Bug reports should be posted to the newsgroup                
+          comp.emulators.ms-windows.wine. See documentation/           
+          bugreports for a list of what to include. This means at      
+          least the following:                                         
+            + The Wine version tested                                  
+            + The MS Windows program name and, if possible, the        
+              version number of the software tested                    
+            + A brief description of the bug                           
+            + The relevant part(s) of the output of the Wine           
+              debugger                                                 
+                                                                       
+                                                                       
+                                                                       
+      62. I was able to get various MS Windows programs to run,        
+          but parts of them do not work. What is wrong?                
+                                                                       
+          Wine is not complete at this time, so some of each           
+          programs' features may not work. They will in time as        
+          more of the MS Windows API calls are included in Wine.       
+                                                                       
+                                                                       
+                                                                       
+      63. I have run various MS Windows programs, but since the        
+          program menus do not work, how can I exit these              
+          programs?                                                    
+                                                                       
+          Kill the xterm shell window that you called up to run        
+          your MS Windows program, and the X window that appeared      
+          with the program will be killed too.                         
+                                                                       
+                                                                       
+                                                                       
+      64. How do I remove Wine from my computer?                       
+                                                                       
+          All you have to do is to type                                
+          rm -fR \[/path/\]Wine*                                       
+                                                                       
+          Make sure that you specify the exact path when using         
+          the powerful 'rm -fR' command. If you are afraid that        
+          you might delete something important, or might               
+          otherwise delete other files within your filesystem, cd      
+          into each Wine subdirectory singly and delete the files      
+          found there manually, one file or directory at a time.       
+          Neither the Wine developers and programmers, nor the         
+          Wine FAQ author/maintainer, can be held responsible for      
+          your deleting any files in your own filesystem.              
+                                                                       
+          How to Get Help with Wine                                    
+                                                                       
+                                                                       
+                                                                       
+      65. Is there a Usenet newsgroup for Wine?                        
+                                                                       
+          Yes, and it's called comp.emulators.ms-windows.wine.         
+          The newsgroup serves as a place for developers to            
+          discuss Wine, and for minor announcements for the            
+          general public. Major announcements will be crossposted      
+          to other appropriate newsgroups, such as the following       
+          comp.os.linux.announce comp.windows.x.announce               
+          comp.emulators.announce If your Usenet site does not         
+          carry these newsgroups, please urge your ISP's sysadmin      
+          and/or uplink to add them.                                   
+                                                                       
+                                                                       
+                                                                       
+      66. Is there a World Wide Web site for Wine?                     
+                                                                       
+          Here are a few                                               
+            + WineHQ The official site.                                
+            + http://www.qbc.clic.net/~krynos/wine_en.html             
+                                                                       
+          If you are installing or maintain a WWW page pertaining      
+          to Wine that you feel would be useful for others to          
+          read, please inform the FAQ author/maintainer at             
+          webmaster@winehq.com.                                        
+                                                                       
+          How You Can Help with the Wine Project                       
+                                                                       
+                                                                       
+                                                                       
+      67. How can I help contribute to the Wine project, and in        
+          what way(s)?                                                 
+                                                                       
+          You can contribute programming skills, or monetary or        
+          equipment donations, to aid the Wine developers in           
+          reaching their goals. To find out who, what, where,          
+          when and why, please post your desire to contribute to       
+          the newsgroup comp.emulators.ms-windows.wine                 
+                                                                       
+                                                                       
+                                                                       
+      68. I want to help beta test Wine. How can I do this?            
+                                                                       
+          Beta testers are currently not needed, as Wine is still      
+          Alpha code at this time. However, anyone is welcome to       
+          download the latest version and try it out at any time.      
+                                                                       
+                                                                       
+                                                                       
+      69. I have written some code that I would like to submit to      
+          the Wine project. How do I go about doing this?              
+                                                                       
+          Patches are greatly appreciated and should be submitted      
+          to the wine-patches mailing list. Also see this page         
+          for a description of what happens to submitted patches.      
+                                                                       
+          Who's Responsible for Wine?                                  
+                                                                       
+                                                                       
+                                                                       
+      70. Who is responsible for writing and maintaining the Wine      
+          source code?                                                 
+                                                                       
+          Wine is available thanks to the work of many people.         
+          Please see the file AUTHORS in the distribution for the      
+          complete list.                                               
+                                                                       
+                                                                       
+                                                                       
+      71. Who are the folks and organizations who have                 
+          contributed money or equipment to the Wine project?          
+                                                                       
+          People and organizations who have given generous             
+          contributions of money, equipment, or licenses, include      
+            + David L. Harper                                          
+            + Bob Hepple                                               
+            + Mark A. Horton                                           
+            + Kevin P. Lawton                                          
+            + the Syntropy Institute                                   
+            + James Woulfe                                             
+            + vmWare Inc.                                              
+            + Corel                                                    
+                                                                       

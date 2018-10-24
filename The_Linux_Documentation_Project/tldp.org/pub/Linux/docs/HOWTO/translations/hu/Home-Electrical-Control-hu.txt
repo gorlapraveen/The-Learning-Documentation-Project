@@ -1,0 +1,385 @@
+
+Háztartási gépek vezérlése HOGYANRui Li
+
+   ruili@worldnet.att.net
+
+   Joy Yokley - A dokumentum át lett alakítva Linuxdoc-ról DocBook v4.1
+   (SGML) formátumra.
+
+   2003.02.08
+   Verziótörténet
+   Verzió: 0.008 2003.02.08 Átdolgozta: Goldencat
+   Verzió: 0.007 2002.02.12 Átdolgozta: RL
+   Verzió: 0.006 2001.06.27 Átdolgozta: JEY
+   Verzió: 0.005 2001.06.13 Átdolgozta: RL
+   Verzió: 0.004 2001.06.12 Átdolgozta: JEY
+
+   Ez a HOGYAN bemutatja Neked, miként használhatod a Linuxot háztartási
+   gépek vezérlésére. Mindössze egy egyszerû áramkört kell készítened
+   ahhoz, hogy szinte bármilyen eszközt vezérelj a Linux segítségével.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Bevezetés
+   2. [2]Rendszerkövetelmények
+   3. [3]Elektronikus áramkör
+   4. [4]Példák relé alkalmazására
+   5. [5]Külön köszönet
+   6. [6]Szerzõi jog és licenc
+   7. [7]Magyar fordítás
+
+1. Bevezetés
+
+Sokan kérdezték tõlem: "Lehetséges mindenféle elektromos eszköz (például:
+lámpa, rádió, tv, stb.) vezérlése egy egyszerû számítógéppel?" A válasz
+"IGEN". A módja nagyon egyszerû, bárki képes megcsinálni.
+
+Miután elolvastam a Kávéfõzõgép mini-HOGYANt, támadt egy ötletem, miként
+vezérelhetném otthoni elektromos eszközeimet. Néhány módosítást végeztem a
+Kávéfõzõgép mini-HOGYANban megadott áramkörön és írtam egy egyszerû
+programot. Az áramkör bármilyen kisméretû elektromos eszköz vezérlésére
+képes. ^_^ A crontab-ot használhatod a világítás automatikus vezérlésére
+vagy a légkondid bekapcsolására. Én a videómagnóm és videó CD lejátszóm
+vezérlésére használom (ezeket állandóan átalakítom). Egy egyszerû program
+elkészítésével bármit vezérelhetsz a WEB-en keresztül. A telnet, SSH és
+telefonos kapcsolat használatával vezérelheted az áramkörre kapcsolt összes
+berendezésed.
+
+Ez az áramkör NAGYON EGYSZERÛ. Még ha semmit sem tudsz az elektromos
+áramkörökrõl akkor is el tudod készíteni.
+
+(A rendszer biztonságos üzemeltetéséhez egy vészkapcsoló beépítése is
+szükséges a 220V-os áramkörbe - a szaklektor megjegyzése)
+     _________________________________________________________________
+
+2. Rendszerkövetelmények
+
+Szerezz bármilyen számítógépet amelyen fut a Linux és van rajta párhuzamos
+port. :) Én egy 386DX gépet használok 4MB memóriával és 40MB merevlemezzel.
+Szükséged lesz a gcc-re a program lefordításához. Amennyiben a telnet-et és
+SSH-t akarod használni, akkor szükséged lesz a telnetd vagy sshd démonokra
+is. Megírhatod a programod a ioperm és outb használatával. Ha az én
+programomat szeretnéd használni a g++-ra lesz szükséged.
+
+Klikkelj a következõ hivatkozásra a programom letöltéséhez. A g++-ra lesz
+szükséges ennek lefordításához. [8]edc.sourceforge.net/paralle.tar.gz.
+     _________________________________________________________________
+
+3. Elektronikus áramkör
+
+A párhuzamos porton lévõ tápvonal 0 és 5 volt közötti feszültséget tud
+szolgáltatni, ezért ezt relé vezérlésére tudjuk használni, a relé pedig
+elektromos eszközt vezérelhet.
+
+A 2 - 9 vonalat a +5V-ra használd
+
+A 18 - 25 vonalat pedig földelésre
+
+
+            ____________________________________________________________
+
+           /                                                            \
+
+           \     13  12  11  10   9   8   7   6   5   4   3   2   1     /
+
+            \                                                          /
+
+             \     25  24  23  22  21  20  19  18  17  16  15  14     /
+
+              \______________________________________________________/
+
+
+
+
+
+
+
+
+
+                                             | Vcc a relének
+
+                                             |
+
+                                             |
+
+                                    / -------+--------| |---------|
+
+P adat              4.7K         B /  c      | 1N4002 |_|         |-------
+
+-----------/\/\/\/\---------+-----| NPN    _____        | relé    |elektromos e
+szköz
+
+                            |     \   e     /_\       |-|         |-------
+
+                 LED        X      \         +--------| |---------|
+
+P földelés                  |       |        |
+
+----------------------------+-------+--------+
+
+Relé földelés                                |
+
+---------------------------------------------+
+
+
+
+           A fenti ábrán található jelölések magyarázata:
+P adat          párhuzamos port adatvonal(2 - 9, bármire használható)
+
+
+
+P földelés:  párhuzamos port földelés (18 - 25, használd mindet)
+
+Vcc:  a relé típusától függ. Én 12V DC-t használok.
+
+relé földelés:  földelés a 12V DC számára
+
+4.7k:  4.7K ellenállás
+
+NPN:  C2235 NPN tranzisztor
+
+1N4002:  1N4002 dióda
+
+LED:  fénykibocsátó dióda
+
+relé:  egy tekercsrelé
+
+   A párhuzamos portról kapott +5 volt fogja bekapcsolni a relét. Amint a
+   relé bekapcsol az ahhoz kapcsolódó eszköz is bekapcsol. Amikor a
+   párhuzamos port adatvonala visszatér 0 állapotba a relé és az eszköz
+   ki fog kapcsolni.
+     _________________________________________________________________
+
+4. Példák relé alkalmazására
+
+A lejjebb található ábrák mutatják be a relék mûködését.
+
+A relé maga csak egy kapcsoló, amint az a lenti ábrán is látható:
+
+relé kikapcsolása                        relé bekapcsolása
+
+
+
+       |3                                    |3
+
+       |                                     |
+
+       |                                     |
+
+       o                                     o
+
+        \                                    |
+
+       o \                                   o
+
+       |                                     |
+
+       |                                     |
+
+       |                                     |
+
+       |4                                    |4
+
+
+   A lejjebb található ábra bemutatja a 4 lábas relé bekötését.
+
+      ____________________________
+
+      |                          |
+
+  1   |                          |  3
+
+ -----|---------s     o----------|-------
+
+      | tekercs s      \kapcsoló |
+
+  2   |         s       \        |  4
+
+ -----|---------s     o- \-------|-------
+
+      |                          |
+
+      |                          |
+
+      |                          |
+
+      |__________________________|
+
+
+   A fenti ábrán a 3 és 4 csatlakozó kapcsolata bontott állapotban van
+   alapértelmezés szerint. Mikor +12V-ot küldesz az 1 és 2
+   csatlakozólábra bekapcsol a kapcsoló, a 3 és 4 csatlakozó zárt
+   állapotba kerül.
+
+   A következõ az 5 lábas relé:
+
+           ________________________________
+
+           |                              |
+
+     1     |                              |       5
+
+  ---------|---+            o-------------|----------------
+
+           |   |-----------/----  s       |
+
+           |              /       s       |
+
+     3     |             /        s       |
+
+  ---------|-----------o/ tekercs s       |       4
+
+           |                 o----s-------|----------------
+
+           |                      |       |
+
+           |                      |       |
+
+     2     |                      |       |
+
+ ----------|----------------------+       |
+
+           |______________________________|
+
+   A fenti ábrán a 3 láb az 5 lábbal alapállapotban zárva van. Az 1 és 2
+   lábra +12V-ot küldve bekapcsolod a kapcsolót. Az 1 és 2 láb bont, az 5
+   és 4 láb zárt állapotba kerül.
+ relé kikapcsolása               relé bekapcsolása
+
+
+
+     |5                                  |5
+
+     |                                   |
+
+     |                                   |
+
+     o                                   o
+
+      \                                  |
+
+     o \                                 o  o
+
+     |  o                                |  |
+
+     |  |                                |  |
+
+     |  |                                |  |
+
+    4|  |3                              4|  |3
+
+   Néhány relének 5-nél több lába is lehet. A több láb mindössze több
+   kapcsolót jelent.
+
+   Írtam egy egyszerû programot, amely 8 relét képes vezérelni. A
+   program elérhetõ a következõ helyen (a g++ -ra is szükséged lesz a
+   használatához) [9]http://edc.sourceforge.net/paralle.tar.gz
+
+   A teljes áramkör nyolc relét tud vezérelni, ami azt jelenti, hogy az
+   áramkör nyolc különbözõ eszköz vezérlésére alkalmas. Szükséged lesz
+   egy DB25 csatlakozóra. Nyomtatókábel használatával csatlakoztasd a
+   kapcsolótáblát a számítógéphez. Én beleraktam a kapcsolótáblát egy
+   dobozba és nyomtatókábellel csatlakoztattam a linuxos gépemhez:
+   Elõlap: LED, Kapcsoló, Hátoldal:  DB25 csatlakozó
+
+   Íme egy példa a kapcsolótábla és elektromos eszköz összekötésére:
+                        CSATLAKOZTATOTT KAPCSOLÓTÁBLA
+
+
+
+
+
+                          +-----+ tápfeszültség kivezetés
+
+       1 ________3        |   __|________             ||   ||
+
+       --|      |---------+  |  |       |             ||   ||
+
+       2 | relé |4           | (o) (o)  |            _||___||__
+
+       --|______|----+       |------|---|            |        |
+
+                     |              |                |        |
+
+                     | +------------+                |        | csatlakozó
+
+            földelés | | melegpont                   |        |
+
+                     | |                             |        |
+
+                   __|_|__                           |        |
+
+                   | | | |                           |________|
+
+                   | | | | csatlakozó
+
+                   | | | |
+
+                   |_|_|_| (tudom, hogy ez nem néz ki csatlakozónak, de mégis a
+z :-) )
+
+                    || ||
+
+                    || ||
+
+
+   A rendszer beüzemeléséhez mindössze az elektromos eszközöket kell
+   bedugnod a csatlakozóaljzatba. Ennyi az egész! Nem kell
+   megváltoztatnod semmit sem az elektromos eszközön és bármilyen eszközt
+   csatlakoztathatsz ehhez. Csatlakoztasd a tápfeszültség kimenetet egy
+   fali aljzatba.
+
+   A kész mû megtekintéséhez nézd meg a következõ képeket:
+
+     * [10]http://edc.sourceforge.net/p1.jpg
+     * [11]http://edc.sourceforge.net/p2.jpg
+     * [12]http://edc.sourceforge.net/p3.jpg
+
+   A következõ kép a teljes elektonikus áramkört mutatja (8 eszköz
+   vezérlése): [13]http://edc.sourceforge.net/01.png
+     _________________________________________________________________
+
+5. Külön köszönet
+
+Külön köszönet Rufus Changnak [14]rufus@chu.url.com.tw.
+
+és Chih-Wei Huangnak [15]cwhuang@linux.org.tw.
+     _________________________________________________________________
+
+6. Szerzõi jog és licenc
+
+Copyright Rui Li 2000-2001. Erre a dokumentumra a GNU GPL licenc vonatkozik,
+de minden egyes másolatban meg kell hagyni a szerzõ nevét és e-mail címét.
+Kérlek hagyd meg a nevem és e-mail címem amennyiben ezt a HOGYANt másolod.
+     _________________________________________________________________
+
+7. Magyar fordítás
+
+A magyar fordítást [16]Daczi László készítette (2002.06.27). A lektorálást
+[17]Kóra Sándor végezte el (2002.06.27). Utoljára [18]Daczi László
+frissítette (2003.02.10). Bármilyen fordítással kapcsolatos észrevételt a
+[19]linuxhowto@sch.bme.hu címre küldjetek. A dokumentum legfrissebb
+változata megtalálható a [20]Magyar Linux Dokumentációs Projekt honlapján.
+
+References
+
+   1. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#INTRODUCTION
+   2. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#SYSREQUIREMENTS
+   3. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#CIRCUIT
+   4. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#RELAY
+   5. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#THANKS
+   6. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#COPYRIGHT
+   7. file://localhost/home/dacas/temp/Home-Electrical-Control-hu.html#TRANSLATION
+   8. http://edc.sourceforge.net/paralle.tar.gz
+   9. http://edc.sourceforge.net/paralle.tar.gz
+  10. http://edc.sourceforge.net/p1.jpg
+  11. http://edc.sourceforge.net/p2.jpg
+  12. http://edc.sourceforge.net/p3.jpg
+  13. http://edc.sourceforge.net/01.png
+  14. mailto:rufus@chu.url.com.tw
+  15. mailto:cwhuang@linux.org.tw
+  16. mailto:dacas@freemail.hu_NO_SPAM
+  17. mailto:kora@korhaz.rethy.hu_NO_SPAM
+  18. mailto:dacas@freemail.hu_NO_SPAM
+  19. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  20. http://tldp.fsf.hu/index.html

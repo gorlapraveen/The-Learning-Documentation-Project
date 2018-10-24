@@ -1,0 +1,840 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/Bash-Beginners-Guide/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:42:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>Bash Guide for Beginners</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="f32.html"><META
+NAME="KEYWORD"
+CONTENT="Linux"><META
+NAME="KEYWORD"
+CONTENT="Scripts"><META
+NAME="KEYWORD"
+CONTENT="linux"><META
+NAME="KEYWORD"
+CONTENT="Bash"><META
+NAME="KEYWORD"
+CONTENT="guide"><META
+NAME="KEYWORD"
+CONTENT="Guide"><META
+NAME="KEYWORD"
+CONTENT="Exercises"><META
+NAME="KEYWORD"
+CONTENT="exercises"><META
+NAME="KEYWORD"
+CONTENT="bash"><META
+NAME="KEYWORD"
+CONTENT="scripting"><META
+NAME="KEYWORD"
+CONTENT="Scripting"><META
+NAME="KEYWORD"
+CONTENT="awk"><META
+NAME="KEYWORD"
+CONTENT="sed"><META
+NAME="KEYWORD"
+CONTENT="variables"><META
+NAME="KEYWORD"
+CONTENT="functions"><META
+NAME="KEYWORD"
+CONTENT="loops"><META
+NAME="KEYWORD"
+CONTENT="conditionals"></HEAD
+><BODY
+CLASS="book"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+></A
+>Bash Guide for Beginners</H1
+><H3
+CLASS="author"
+><A
+NAME="AEN5"
+></A
+>Machtelt Garrels</H3
+><DIV
+CLASS="affiliation"
+><SPAN
+CLASS="orgname"
+>Garrels BVBA
+<BR></SPAN
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><br>
+<TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:tille wants no spam _at_ garrels dot be"
+>tille wants no spam _at_ garrels dot be</A
+>&#62;</TT
+><br>
+</P
+></DIV
+></DIV
+><P
+CLASS="edition"
+>Version 1.11 Last updated 20081227&nbsp;Edition </P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="f32.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="intro_01.html"
+>Why this guide?</A
+></DT
+><DT
+>2. <A
+HREF="intro_02.html"
+>Who should read this book?</A
+></DT
+><DT
+>3. <A
+HREF="intro_03.html"
+>New versions, translations and availability</A
+></DT
+><DT
+>4. <A
+HREF="intro_04.html"
+>Revision History</A
+></DT
+><DT
+>5. <A
+HREF="intro_05.html"
+>Contributions</A
+></DT
+><DT
+>6. <A
+HREF="intro_06.html"
+>Feedback</A
+></DT
+><DT
+>7. <A
+HREF="intro_07.html"
+>Copyright information</A
+></DT
+><DT
+>8. <A
+HREF="intro_08.html"
+>What do you need?</A
+></DT
+><DT
+>9. <A
+HREF="intro_09.html"
+>Conventions used in this document</A
+></DT
+><DT
+>10. <A
+HREF="intro_10.html"
+>Organization of this document</A
+></DT
+></DL
+></DD
+><DT
+>1. <A
+HREF="chap_01.html"
+>Bash and Bash scripts</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="sect_01_01.html"
+>Common shell programs</A
+></DT
+><DT
+>1.2. <A
+HREF="sect_01_02.html"
+>Advantages of the Bourne Again SHell</A
+></DT
+><DT
+>1.3. <A
+HREF="sect_01_03.html"
+>Executing commands</A
+></DT
+><DT
+>1.4. <A
+HREF="sect_01_04.html"
+>Building blocks</A
+></DT
+><DT
+>1.5. <A
+HREF="sect_01_05.html"
+>Developing good scripts</A
+></DT
+><DT
+>1.6. <A
+HREF="sect_01_06.html"
+>Summary</A
+></DT
+><DT
+>1.7. <A
+HREF="sect_01_07.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>2. <A
+HREF="chap_02.html"
+>Writing and debugging scripts</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="sect_02_01.html"
+>Creating and running a script</A
+></DT
+><DT
+>2.2. <A
+HREF="sect_02_02.html"
+>Script basics</A
+></DT
+><DT
+>2.3. <A
+HREF="sect_02_03.html"
+>Debugging Bash scripts</A
+></DT
+><DT
+>2.4. <A
+HREF="sect_02_05.html"
+>Summary</A
+></DT
+><DT
+>2.5. <A
+HREF="sect_02_06.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="chap_03.html"
+>The Bash environment</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="sect_03_01.html"
+>Shell initialization files</A
+></DT
+><DT
+>3.2. <A
+HREF="sect_03_02.html"
+>Variables</A
+></DT
+><DT
+>3.3. <A
+HREF="sect_03_03.html"
+>Quoting characters</A
+></DT
+><DT
+>3.4. <A
+HREF="sect_03_04.html"
+>Shell expansion</A
+></DT
+><DT
+>3.5. <A
+HREF="sect_03_05.html"
+>Aliases</A
+></DT
+><DT
+>3.6. <A
+HREF="sect_03_06.html"
+>More Bash options</A
+></DT
+><DT
+>3.7. <A
+HREF="sect_03_07.html"
+>Summary</A
+></DT
+><DT
+>3.8. <A
+HREF="sect_03_08.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="chap_04.html"
+>Regular expressions</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="sect_04_01.html"
+>Regular expressions</A
+></DT
+><DT
+>4.2. <A
+HREF="sect_04_02.html"
+>Examples using grep</A
+></DT
+><DT
+>4.3. <A
+HREF="sect_04_03.html"
+>Pattern matching using Bash features</A
+></DT
+><DT
+>4.4. <A
+HREF="sect_04_04.html"
+>Summary</A
+></DT
+><DT
+>4.5. <A
+HREF="sect_04_05.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="chap_05.html"
+>The GNU sed stream editor</A
+></DT
+><DD
+><DL
+><DT
+>5.1. <A
+HREF="sect_05_01.html"
+>Introduction</A
+></DT
+><DT
+>5.2. <A
+HREF="sect_05_02.html"
+>Interactive editing</A
+></DT
+><DT
+>5.3. <A
+HREF="sect_05_03.html"
+>Non-interactive editing</A
+></DT
+><DT
+>5.4. <A
+HREF="sect_05_04.html"
+>Summary</A
+></DT
+><DT
+>5.5. <A
+HREF="sect_05_05.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="chap_06.html"
+>The GNU awk programming language</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="sect_06_01.html"
+>Getting started with gawk</A
+></DT
+><DT
+>6.2. <A
+HREF="sect_06_02.html"
+>The print program</A
+></DT
+><DT
+>6.3. <A
+HREF="sect_06_03.html"
+>Gawk variables</A
+></DT
+><DT
+>6.4. <A
+HREF="sect_06_04.html"
+>Summary</A
+></DT
+><DT
+>6.5. <A
+HREF="sect_06_05.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="chap_07.html"
+>Conditional statements</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="sect_07_01.html"
+>Introduction to if</A
+></DT
+><DT
+>7.2. <A
+HREF="sect_07_02.html"
+>More advanced if usage</A
+></DT
+><DT
+>7.3. <A
+HREF="sect_07_03.html"
+>Using case statements</A
+></DT
+><DT
+>7.4. <A
+HREF="sect_07_04.html"
+>Summary</A
+></DT
+><DT
+>7.5. <A
+HREF="sect_07_05.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="chap_08.html"
+>Writing interactive scripts</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="sect_08_01.html"
+>Displaying user messages</A
+></DT
+><DT
+>8.2. <A
+HREF="sect_08_02.html"
+>Catching user input</A
+></DT
+><DT
+>8.3. <A
+HREF="sect_08_03.html"
+>Summary</A
+></DT
+><DT
+>8.4. <A
+HREF="sect_08_04.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>9. <A
+HREF="chap_09.html"
+>Repetitive tasks</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="sect_09_01.html"
+>The for loop</A
+></DT
+><DT
+>9.2. <A
+HREF="sect_09_02.html"
+>The while loop</A
+></DT
+><DT
+>9.3. <A
+HREF="sect_09_03.html"
+>The until loop</A
+></DT
+><DT
+>9.4. <A
+HREF="sect_09_04.html"
+>I/O redirection and loops</A
+></DT
+><DT
+>9.5. <A
+HREF="sect_09_05.html"
+>Break and continue</A
+></DT
+><DT
+>9.6. <A
+HREF="sect_09_06.html"
+>Making menus with the select built-in</A
+></DT
+><DT
+>9.7. <A
+HREF="sect_09_07.html"
+>The shift built-in</A
+></DT
+><DT
+>9.8. <A
+HREF="sect_09_08.html"
+>Summary</A
+></DT
+><DT
+>9.9. <A
+HREF="sect_09_09.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="chap_10.html"
+>More on variables</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="sect_10_01.html"
+>Types of variables</A
+></DT
+><DT
+>10.2. <A
+HREF="sect_10_02.html"
+>Array variables</A
+></DT
+><DT
+>10.3. <A
+HREF="sect_10_03.html"
+>Operations on variables</A
+></DT
+><DT
+>10.4. <A
+HREF="sect_10_04.html"
+>Summary</A
+></DT
+><DT
+>10.5. <A
+HREF="sect_10_05.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="chap_11.html"
+>Functions</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="sect_11_01.html"
+>Introduction</A
+></DT
+><DT
+>11.2. <A
+HREF="sect_11_02.html"
+>Examples of functions in scripts</A
+></DT
+><DT
+>11.3. <A
+HREF="sect_11_03.html"
+>Summary</A
+></DT
+><DT
+>11.4. <A
+HREF="sect_11_04.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>12. <A
+HREF="chap_12.html"
+>Catching signals</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="sect_12_01.html"
+>Signals</A
+></DT
+><DT
+>12.2. <A
+HREF="sect_12_02.html"
+>Traps</A
+></DT
+><DT
+>12.3. <A
+HREF="sect_12_03.html"
+>Summary</A
+></DT
+><DT
+>12.4. <A
+HREF="sect_12_04.html"
+>Exercises</A
+></DT
+></DL
+></DD
+><DT
+>A. <A
+HREF="app3.html"
+>Shell Features</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="x7243.html"
+>Common features</A
+></DT
+><DT
+>A.2. <A
+HREF="x7369.html"
+>Differing features</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="gloss.html"
+>Glossary</A
+></DT
+><DT
+><A
+HREF="glossary.html"
+>Index</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>1. <A
+HREF="intro_09.html#conventions"
+>Typographic and usage conventions</A
+></DT
+><DT
+>1-1. <A
+HREF="sect_01_05.html#table_01_01"
+>Overview of programming terms</A
+></DT
+><DT
+>2-1. <A
+HREF="sect_02_03.html#table_02_01"
+>Overview of set debugging options</A
+></DT
+><DT
+>3-1. <A
+HREF="sect_03_02.html#table_03_01"
+>Reserved Bourne shell variables</A
+></DT
+><DT
+>3-2. <A
+HREF="sect_03_02.html#table_03_02"
+>Reserved Bash variables</A
+></DT
+><DT
+>3-3. <A
+HREF="sect_03_02.html#table_03_03"
+>Special bash variables</A
+></DT
+><DT
+>3-4. <A
+HREF="sect_03_04.html#table_03_04"
+>Arithmetic operators</A
+></DT
+><DT
+>4-1. <A
+HREF="sect_04_01.html#table_04_01"
+>Regular expression operators</A
+></DT
+><DT
+>5-1. <A
+HREF="sect_05_01.html#tab_05_01"
+>Sed editing commands</A
+></DT
+><DT
+>5-2. <A
+HREF="sect_05_01.html#tab_05_02"
+>Sed options</A
+></DT
+><DT
+>6-1. <A
+HREF="sect_06_02.html#tab_06_01"
+>Formatting characters for gawk</A
+></DT
+><DT
+>7-1. <A
+HREF="sect_07_01.html#tab_07_01"
+>Primary expressions</A
+></DT
+><DT
+>7-2. <A
+HREF="sect_07_01.html#tab_07_02"
+>Combining expressions</A
+></DT
+><DT
+>8-1. <A
+HREF="sect_08_01.html#tab_08_01"
+>Escape sequences used by the echo command</A
+></DT
+><DT
+>8-2. <A
+HREF="sect_08_02.html#tab_08_02"
+>Options to the read built-in</A
+></DT
+><DT
+>10-1. <A
+HREF="sect_10_01.html#tab_10_01"
+>Options to the declare built-in</A
+></DT
+><DT
+>12-1. <A
+HREF="sect_12_01.html#tab_12_01"
+>Control signals in Bash</A
+></DT
+><DT
+>12-2. <A
+HREF="sect_12_01.html#tab_12_02"
+>Common kill signals</A
+></DT
+><DT
+>A-1. <A
+HREF="x7243.html#AEN7246"
+>Common Shell Features</A
+></DT
+><DT
+>A-2. <A
+HREF="x7369.html#AEN7387"
+>Differing Shell Features</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Figures</B
+></DT
+><DT
+>1. <A
+HREF="intro_03.html#AEN71"
+>Bash Guide for Beginners front cover</A
+></DT
+><DT
+>2-1. <A
+HREF="sect_02_01.html#AEN1409"
+>script1.sh</A
+></DT
+><DT
+>3-1. <A
+HREF="sect_03_01.html#AEN1878"
+>Different prompts for different users</A
+></DT
+><DT
+>6-1. <A
+HREF="sect_06_02.html#AEN4111"
+>Fields in awk</A
+></DT
+><DT
+>7-1. <A
+HREF="sect_07_02.html#AEN5029"
+>Testing of a command line argument with if</A
+></DT
+><DT
+>7-2. <A
+HREF="sect_07_02.html#AEN5144"
+>Example using Boolean operators</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="f32.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/Bash-Beginners-Guide/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:43:53 GMT -->
+</HTML
+>

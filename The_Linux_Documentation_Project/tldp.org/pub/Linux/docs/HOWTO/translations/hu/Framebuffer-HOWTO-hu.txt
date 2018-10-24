@@ -1,0 +1,2044 @@
+  Framebuffer-HOGYAN
+  Alex Buell, alex.buell@tahallah.demon.co.uk
+  v1.1, 22 July 1999
+
+  Ez a dokumentáció bemutatja a framebuffer eszközök használatát Linux
+  alatt különbözõ platformokon. A többfejes megjelenítõk beállításáról
+  is találsz itt útmutatót.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+
+  1. Közremûködõk
+  2. Mi is az a framebuffer eszköz?
+  3. Milyen elõnyei vannak a framebuffer eszközöknek?
+  4. Framebuffer eszközök használata Intel platformokon
+     4.1 Mi az a vesafb?
+     4.2 Hogy aktíváljam a vesafb meghajtót?
+     4.3 Milyen VESA módok állnak rendelkezésemre?
+     4.4 Matrox kártyád van?
+     4.5 Permedia kártyád van?
+     4.6 ATI kártyád van?
+     4.7 Mely grafikus kártyák VESA 2.0 kompatibilisek?
+     4.8 Lefordíthatom a vesafb-t modulként?
+     4.9 Hogyan módosíthatom a kurzort?
+
+  5. Framebuffer eszközök használata Atari m68k platformokon
+     5.1 Milyen üzemmódok állnak rendelkezésre Atari m68k platformokon?
+     5.2 Egyéb alopciók az Atari m68k platformokra
+     5.3 A belsõ alopciók használata Atari m68k platformokon
+     5.4 Az Atari m68k platformok külsõ alopcióinak használata
+
+  6. Framebuffer eszközök használata Amiga m68k platformokon
+     6.1 Mely üzemmódok használhatók Amiga m68k platformokon?
+     6.2 Az Amiga m68k platformok alopciói
+     6.3 A támogatott Amiga grafikus kiegészítõ kártyák
+
+  7. Framebuffer eszközök használata Macintosh m68k platformokon
+  8. Framebuffer eszközök használata PowerPC platformokon
+  9. Framebuffer eszközök használata Alpha platformokon
+     9.1 Milyen üzemmódokat használhatok?
+     9.2 Mely grafikus kártyák mûködnek a framebuffer eszközzel?
+
+  10. Framebuffer eszközök használata SPARC platformokon
+     10.1 Mely grafikus kártyák mûködnek a framebuffer eszközzel?
+     10.2 A framebuffer eszközök beállítása
+
+  11. Framebuffer eszközök használata MIPS platformokon
+  12. Framebuffer eszközök használata ARM platformokon
+     12.1 Netwinders
+     12.2 Acorn Archimedes
+     12.3 Egyéb ARM portok (SA 7110s et. al)
+
+  13. Több fejes framebufferek használata
+     13.1 Bevezetés
+     13.2 Visszajelzés
+     13.3 Közremûködõk
+     13.4 Lemondás a szabványokról
+     13.5 Copyright Információk
+     13.6 Milyen hardver támogatott?
+     13.7 Kereskedelmi támogatás
+     13.8 Az összes cucc beszerzése.
+     13.9 Kezdjünk bele
+        13.9.1 Mozduljunk egy konzollal odébb...
+        13.9.2 Az "fbset" program használata a második monitor beállításához
+        13.9.3 Az X beállítása framebuffer támogatására.
+        13.9.4 Próbáld meg elindítani az X szervert a második monitoron.
+     13.10 Összefoglalás
+     13.11 Egyéb megjegyzések és problémák
+        13.11.1 Az "ötös init szint" (azaz az xdm/gdm) mûködésre bírása
+        13.11.2 Az x2x program használata.
+        13.11.3 Egyéb hasznos utasítások
+        13.11.4 A. Függelék - Octave cvtmode.m szkript
+        13.11.5 B. Függelék - Borne Shell szkript "cvtfile"
+
+  14. Karakterkészletek használata és váltása
+  15. Konzol módok váltása
+  16. Az X11 FBdev meghajtó üzembe helyezése
+  17. Hogyan alakíthatom át az XFree86 modeline sorokat framebuffer eszköz idõkre?
+  18. További információkat keresel?
+
+
+  ______________________________________________________________________
+
+  1.  Közremûködõk
+
+  Köszönet az alább felsorolt embereknek, akik segítettek a Framebuffer-
+  HOWTO elkészítésében.
+
+
+  ·  Jeff Noxon jeff@planetfall.com
+
+  ·  Francis Devereux f.devereux@cs.ucl.ac.uk
+
+  ·  Andreas Ehliar ehliar@futurniture.se
+
+  ·  Martin McCarthy marty@ehabitat.demon.co.uk
+
+  ·  Simon Kenyon simon@koala.ie
+
+  ·  David Ford david@kalifornia.com
+
+  ·  Chris Black cblack@cmpteam4.unil.ch
+
+  ·  N Becker nbecker@fred.net
+
+  ·  Bob Tracy rct@gherkin.sa.wlk.com
+
+  ·  Marius Hjelle marius.hjelle@roman.uib.no
+
+  ·  James Cassidy jcassidy@misc.dyn.ml.org
+
+  ·  Andreas U. Trottmann andreas.trottmann@werft22.com
+
+  ·  Lech Szychowski lech7@lech.pse.pl
+
+  ·  Aaron Tiensivu tiensivu@pilot.msu.edu
+
+  ·  Jan-Frode Myklebust a permedia kártyákról adott
+     információkértjanfrode@ii.uib.no
+
+  ·  Számos más embert is felsorohatnék még, köszönöm nekik is!
+
+  Köszönet Rick Niles-nek frederick.a.niles@gsfc.nasa.gov aki
+  megengedte, hogy az õ Multi-Head Mini-HOWTO-ját felhasználjam e HOWTO
+  elkészítésében.
+
+  Köszönet az alább felsorolt embereknek, hogy elkészítették az Intel
+  platformos X11-hez a libc5/glibc2-es XF86_FBdev X11 framebuffer
+  meghajtót.
+
+  A Framebuffer-HOWTO magyar fordítását, a Framebuffer-HOGYAN-t Bábos
+  Balázs (bbk@swi.hu) készítette.
+
+
+  ·  Brion Vibber brion@pobox.com
+
+  ·  Gerd Knorr kraxel@cs.tu-berlin.de
+
+  és természetesen a framebuffer eszközök készítõinek:
+
+
+  ·  Martin Schaller - original author of the framebuffer concept
+
+  ·  Roman Hodek Roman.Hodek@informatik.uni-erlangen.de
+
+  ·  Andreas Schwab schwab@issan.informatik.uni-dortmund.de
+
+  ·  Guenther Kelleter
+
+  ·  Geert Uytterhoeven Geert.Uytterhoeven@cs.kuleuven.ac.be
+
+  ·  Roman Zippel roman@sodom.obdg.de
+
+  ·  Pavel Machek pavel@atrey.karlin.mff.cuni.cz
+
+  ·  Gerd Knorr kraxel@cs.tu-berlin.de
+
+  ·  Miguel de Icaza miguel@nuclecu.unam.mx
+
+  ·  David Carter carter@compsci.bristol.ac.uk
+
+  ·  William Rucklidge wjr@cs.cornell.edu
+
+  ·  Jes Sorensen jds@kom.auc.dk
+
+  ·  Sigurdur Asgeirsson
+
+  ·  Jeffrey Kuskin jsk@mojave.stanford.edu
+
+  ·  Michal Rehacek michal.rehacek@st.mff.cuni.edu
+
+  ·  Peter Zaitcev zaitcev@lab.ipmce.su
+
+  ·  David S. Miller davem@dm.cobaltmicro.com
+
+  ·  Dave Redman djhr@tadpole.co.uk
+
+  ·  Jay Estabrook
+
+  ·  Martin Mares mj@ucw.cz
+
+  ·  Dan Jacobowitz dan@debian.org
+
+  ·  Emmanuel Marty core@ggi-project.org
+
+  ·  Eddie C. Dost ecd@skynet.be
+
+  ·  Jakub Jelinek jj@ultra.linux.cz
+
+  ·  Phil Blundell philb@gnu.org
+
+  ·  Anyone else, stand up and be counted. :o)
+
+
+
+  2.  Mi is az a framebuffer eszköz?
+
+  A framebuffer eszköz a grafikus hardver egy leképezése. A video
+  hardver framebuffer-ét reprezentálja, és az alkalmazói szoftverek
+  számára a grafikus hardverhez való hozzáférést jól definiált
+  interfészen kereszül biztosítja, így a szoftvernek semmit sem kell
+  tudnia az alacsony szintû interfész cuccokról [Geert Uytterhoeven
+  framebuffer.txt-jébõl szedtem a linux kernel forrásból]
+
+
+  3.  Milyen elõnyei vannak a framebuffer eszközöknek?
+
+
+  A pingvin logo. :o) Komolyabbra fordítva a szót, a framebuffer
+  meghajtók legfõbb elõnye az, hogy általános interfészt biztosít minden
+  platform számára. A 2.1.x-es kernel késõi fejlesztésénél fordult elõ,
+  hogy az Intel platform konzol meghajtói tökéletesen különböztek a más
+  platformok meghajtóitól. A 2.1.109 bevezetésével mindez pozitív
+  irányba változott, és sokkal általánosabb konzol kezelést mutattak be
+  az Intel platformra, valamint ekkor mutattak be valódi bittérképes
+  grafikus konzolt, ami képes volt Intel gépen a pingvin logo
+  megjelenítésére. Jegyezzük meg, hogy a 2.0.x-es kernelek nem
+  támogatják a framebuffer eszközöket, de elképzelhetõ valamikor, hogy
+  valaki visszamenõleg elkészíti a kódot a 2.1.x-es kernelbõl a 2.0.x-es
+  kernelbe. Azért van kivétel e szabály alól, mert a v0.9.x-es kernel
+  m68k platformra átírt változata már tartalmaz beépített framebuffer
+  eszköztámogatást.
+
+  A 2.2.x-es kernel kiadásával a framebuffer eszköz támogatás nagyon
+  síma és stabil lett. Célszerû is használnod, ha a grafikus kártyád
+  támogatja, amennyiben 2.2.x-es kernelt használsz. A régebbi, 2.0.x-es
+  kernelek nem támogatják a framebuffer eszközöket, legalábbis Intel
+  platformon.
+
+
+  ·  0.9.x (m68k) - bemutatták az m68k framebuffer eszközöket. Jegyezzük
+     meg, hogy a 0.9.x funkcionálisan az 1.0.9-es Intellel egyenértékû
+     (és az 1.2.x-es kiegészítés)
+
+  ·  2.1.107 - bemutatták az Intel framebuffer és az új konzol
+     eszközöket és általános támogatást tettek hozzá, scrollback buffer
+     támogatás nélkül.
+
+  ·  2.1.113 - a vgacon scrollback buffer támogatást kapott.
+
+  ·  2.1.116 - a vesafb scrollback buffer támogatást kapott.
+
+  ·  2.2.x - csatolták a matroxfb(Matrox)-t és a atyfb(ATI)-t.
+
+  Van néhány nagyszerû tulajdonsága a framebuffer eszközöknek, többek
+  között általános kapcsolókat adhatsz át a kernelnek indulásidõben,
+  akár még framebuffer eszköz függõ paramétereket is. Ilyenek például:
+
+
+  ·  video=xxx:off - letiltja a framebuffer eszköz automatikus
+     felismerését
+
+  ·  video=map:octalis-szám - a virtuális konzolokat (VC-k) framebuffer
+     (FB) eszközhöz rendeli
+
+     ·  video=map:01 a VC0-t FB0-hoz, a VC1-t FB1-het, a VC2-t FB0-hoz,
+        a VC3-t az FB1-hez rendeli
+
+     ·  video=map:0132 a VC0-t az FB0-hoz, a VC1-t az FB1-hez, a VC2-t
+        az FB3-hoz, a VC4-t az FB2-höz, a VC5-t az FB0-hoz rendeli...
+
+  A framebuffer eszközöket a kernelben meghatározott sorrendben ismeri
+  fel a rendszer, de ha megadod a video=xxx opciót, meghatározhatod azt
+  a framebuffer eszközt, amit a kernelben meghatározott sorrendben
+  felismerendõ eszközök elõtt szeretnél felismertetni.
+
+
+  4.  Framebuffer eszközök használata Intel platformokon
+
+  4.1.  Mi az a vesafb?
+
+  A vesafb egy VESA 2.0 kompatibilis grafikus kártyákkal mûködõ
+  framebuffer eszköz Intel architektúrára. Nagyban hasonlít a kernelben
+  levõ framebuffer eszköz meghajtókhoz.
+
+  A vesafb képernyõmeghajtó lehetõvé teszi, hogy grafikus módokat
+  használj Intel platformon bitmap-es szöveges konzolokon. Lehetõvé
+  teszi továbbá, hogy logo-t jeleníts meg, ami valószínûleg a fõ oka
+  annak, hogy vesafb-t használj.
+
+  Sajnos, nem használhatod a vesafb-vel a VESA 1.2-es kártyákat.  Ez
+  azért van, mert az 1.2-es kártyák nem lineáris frame buffering-et
+  használnak. A lineáris framebuffering egyszerûen azt jelenti, hogy a
+  rendszer processzor közvetlenül hozzáfér a képernyõ minden egyes
+  bitjéhez. A történelmet tekintve, a régebbi grafikus kártyák csak 64K-
+  t engedtek egyszerre hozzáférni a kernelnek, mivel a fantasztikus
+  CGA/EGA üzemmódoknak ez volt a korlátja. Elképzelhetõ, hogy valaki
+  írni fog egy vesafb12-es eszközmeghajtót ezekhez a kártyákhoz, de
+  értékes kernel memóriát használna, és meglehetõsen ronda patch-re
+  lenne szükség.
+
+  Létezik azonban egy potenciális lehetõség, VESA 2.0-s kiegészítést
+  adhatsz a VESA 1.2-es kártyádnak. Letölthetsz egy DOS alól futó
+  rezidens programot, amit ha loadlin-el használsz, segíthet a kártya
+  megfelelõ grafikus üzemmódba konfigurálásában. Jegyezzük meg, hogy ez
+  nem mindig mûködik, például néhány Cirrus Logic kártya, mint például a
+  VLB 54xx-es sorozat, a frame buffering-hez olyan memória címeket
+  használ (például a 15-16MB-os tartomány), amik megakadályozzák, hogy
+  32MB memóriánál több memóriával rendelkezõ rendszerek rendesen
+  mûködjenek. Van mód arra, hogy mûködésre bírjuk, ha a BIOS-ban
+  szerepel egy olyan opció, amely lyukat hagy a 15-16Mbyte területen a
+  memóriában. Így talán mûködne, de a Linux nem támogatja a
+  memórialyukakat. Bár van patch ennek az opciónak a megvalósítására
+  [Kinek van, és honnan lehet beszerezni?]. Ha szeretnél kísérletezni
+  ezzel az opcióval, rengeteg TSR szerû program rendelkezésedre áll, a
+  legjobb példa például az UNIVBE, amit megtalálsz az Interneten.
+
+  Elképzelhetõ, hogy találsz kernel patch-et, hogy mûködésre bírd a VESA
+  1.2-es kártyád a VESA framebuffer meghajtóval. Például, léteznek
+  patch-ek a régebbi S3 kártyákhoz (mint az S3 Trio, S3 Virge), melyek
+  VESA 1.2-es támogatással rendelkeznek. Ezekhez a kártyákhoz
+  választhatsz patch-et a
+  ftp://ccssu.crimea.ua/pub/linux/kernel/v2.2/unofficial/s3new.diff.gz
+  címrõl.
+
+
+  4.2.  Hogy aktíváljam a vesafb meghajtót?
+
+  Tegyük fel, hogy menuconfig-ot használsz, ekkor a következõ lépésekre
+  van szükséged:
+
+  Ha a processzorod (Intel platformokon) támogatja az MTRR-t,
+  engedélyezd.  Ez felgyorsítja a processzor és a grafikus kártya között
+  a memóriamásolást, de nem feltétlen szükséges. Ezt megteheted
+  természetesen a konzol eszköz sikeres beállítása után is.
+
+  FONTOS: A 2.1.x kernelverziók esetén, menj a Code Maturity Level
+  menübe, és engedélyezd a fejlesztés alatt álló ésvagy nem teljes
+  meghajtóprogramok kiválasztási lehetõségét. Erre a 2.2.x kernelverziók
+  esetében már nincs szükség.
+
+  Menj a Consol Drivers menübe, és engedélyezd a következõket:
+
+
+  ·  VGA Text Console
+
+  ·  Video Selection Support
+
+  ·  Support for frame buffer devices (experimental)
+
+
+  ·  VESA VGA Graphic console
+
+  ·  Advanced Low Level Drivers
+
+  ·  Válaszd ki a Mono, 2bpp, 4bpp, 8bpp, 16bpp, 24bpp és a 32bpp
+     tömörített pixel meghajtókat
+
+  VGA Chipset Support (text only) - vgafb - szerepelnie kellene a fenti
+  listában, de mivel már helytelenítik a használatát, és többé nem
+  támogatott, így nem szerepeltettük a listában. Rövidesen el is lesz
+  távolítva. Használd inkább a VGA Text Console-t (fbcon). A VGA
+  Character/Attributes csak VGA Chipset támogatással használatos, és nem
+  szükséges kiválasztani.
+
+  Biztosítsd, hogy a Mac változó bpp tömörített pixel támogatás nem
+  engedélyezett.  A Linux 2.1.111-es kernelverziója (és a 112-es) úgy
+  tûnik, hogy automatikusan engedélyezi, ha az Advanced Low Level
+  Drivers elsõre ki lett választva.  Ez a 2.1.113-ban már nem így
+  történik többé.
+
+  Fennáll ezenkívük a karakterek memóriábafordításának lehetõsége is, de
+  erre valójában nincs szükség és mindig használhatod a kbd-0.99 setfont
+  szerszámát (lásd a karakterekrõl szóló fejezetet), amivel
+  megváltoztathatod a karaktereket úgy, hogy betöltöd a karaktereket a
+  konzol eszközbe.
+
+  Gyõzõdj meg róla, hogy ezek nem modulok lesznek. [Nem vagyok benne
+  biztos, hogy lehetséges már modulba fordítani õket - kérlek javíts ki,
+  ha tévednék]
+
+  El kell készítened a framebuffer eszközöket a /dev alkönyvárban.
+  Framebuffer eszközönként egyre lesz szükséged, így mindössze annyi a
+  teendõd, hogy kiadod az elsõ alkalommal a mknod /dev/fb0 c 29 0
+  parancsot. A következõk 32 többszörösei lesznek, például a /dev/fb1
+  elkészítéséhez mknod /dev/fb1 c 29 32 parancsot kell kiadnod, és így
+  tovább, egészen a nyolcadik framebuffer eszközig (mknod /dev/fb7 c 29
+  224).
+
+  Ezután fordítsd újra a kernelt, módosítsd a /etc/lilo.conf-ot, és
+  csatold a VGA=ASK paramétert, majd futtasd a lilo-t, erre azért van
+  szükség, hogy kiválaszthasd, melyik módot szeretnéd majd használni.
+
+  Íme egy példa a LILO konfigurációra (az én gépemrõl vettem):
+
+
+  # LILO konfigurációs állomány
+  boot = /dev/hda3
+  delay = 30
+  prompt
+  vga = ASK # Engedjük, hogy a felhasználó adja meg a kívánt módot
+  image = /vmlinuz
+    root = /dev/hda3
+    label = Linux
+    read-only # A nem-UMSDOS állományrendszert célszerû csak olvashatónak beilleszteni az ellenõrzéshez
+
+
+
+  Indítsd újra a kernelt, és próbaképpen, írj be 0301-et a VGA promptnál
+  (ez 640x480-as felbontást ad 256 színnel) és máris egy aranyos pici
+  pingvin logót láthatsz.
+
+  Jegyezzük meg, hogy a VGA promptnál a szám beírásánál 'x' nélkül kell
+  beírnod a számot "0" és 3 számjegy formában. Erre nincs szükség LILO
+  használatával.
+
+
+  Ha látod, hogy jól mûködik, felfedezheted a különbözõ VESA módokat
+  (lásd lejjebb), eldöntheted, hogy melyik tetszik a legjobban és be
+  bedrótozhatod a "VGA=x" paraméter használatával a lilo.conf
+  állományba. Ha kiválasztottad, hogy melyik tetszik a legjobban, keresd
+  ki a neki megfelelõ hexadecimális számot a lentebb található
+  táblázatból (pl. 1280x1024 @ 256-hoz "VGA=0x307"-et találsz), és újra
+  le kell futtatnod a lilo-t. Mindössze ennyi a teendõ. A késõbbi
+  hivatkozásokhoz olvasd el a LoadLin/LILO HOGYANokat.
+
+  MEGJEGYZÉS! A vesafb nem engedélyezi a scrollback buffering-et
+  alapértelmezés szerint. Neked kell átadni az engedélyezõ kernel
+  paramétert. Az engedélyezéshez használd a video=vesa:ypan vagy a
+  video=vesa:ywrap paramétereket. Mindkettõ ugyanazt a dolgot teszi, de
+  másképpen. Az ywrap lényegesen gyorsabb, mint az ypan, de nem, vagy
+  részben rosszul mûködik VESA 2.0-s grafikus kártyákkal. Az ypan
+  lassabb az ywrap-nál, de nagyobb mértékben kompatibilis. Ez az opció
+  csak a 2.1.116-os és magasabb verziószámú kernelekben van jelen. A
+  korábbi kernelekben nem volt meg a scrollback buffering
+  engedélyezésének képesség a vesafb-hez.
+
+
+  4.3.  Milyen VESA módok állnak rendelkezésemre?
+
+  Ez valójában a rendszered VESA 2.0 kompatibilis grafikus kártyájától
+  függ, valamint a rajta lévõ video memória mennyiségétõl. Az csak a
+  tesztelés kérdése, hogy melyik video üzemmód a legjobb a grafikus
+  kártyádnak.
+
+  A következõ tábla a VGA promptnál beadható, vagy a LILO programmal
+  használható üzemmódok számait mutatja. (jelenleg ezek a számok 0x200
+  felettiek, hogy könnyebb legyen a táblára hivatkozni)
+
+
+  Színek     640x400 640x480 800x600 1024x768 1280x1024 1600x1200
+  ---------+-----------------------------------------------------
+   4 bites |    ?       ?     0x302      ?        ?         ?
+   8 bites |  0x300   0x301   0x303    0x305    0x307     0x31C
+  15 bites |    ?     0x310   0x313    0x316    0x319     0x31D
+  16 bites |    ?     0x311   0x314    0x317    0x31A     0x31E
+  24 bites |    ?     0x312   0x315    0x318    0x31B     0x31F
+  32 bites |    ?       ?       ?        ?        ?         ?
+
+
+
+  Kulcs: 8 bites = 256 színû, 15 bites = 32,768 színû, 16 bites = 65,536
+  színû, 24 bites = 16.8 millió színû, 32 bites - ugyanaz, mint a 24
+  bites, de az extra 8 bit más dolgok tárolására is felhasználható, ami
+  tökéletesen megfelel a 32 bites PCI/VLB/EISA busznak.
+
+  Egyéb üzemmódok a gyártó diszkréciójától függ, mivel a VESA 2.0
+  dokumentációja csak a 0x31F feletti üzemmódokat definiálja. Némi
+  próbálkozásra lesz szükséged az extra üzemmódok felfedezéséhez.
+
+
+  4.4.  Matrox kártyád van?
+
+
+  Ha Matrox grafikus kártyád van, nincs is szükséged a vesafb-re, annál
+  inkább a matroxfb meghajtóra. Ez nagyban kiszélesíti a kártyád
+  képességeit. A Matroxfb a Matrox Mystique Millennium I & II, G100 és
+  G200 kártyákkal mûködik. Támogatja ezen kívül a többfejes rendszereket
+  (ez az, ha két Matrox kártyád van a gépedben, két megjelenítõt
+  használhatsz ugyanabban a gépben!). Ahhoz, hogy beállítsd rendszered a
+  Matroxhoz, a következõket kell tenned:
+
+
+  Esetleg szükséged lehet a BIOS frissítésére, amihez le kell töltened a
+  BIOS frissítést a http://www.matrox.com/mgaweb/drivers/ftp_bios.htm
+  honlapról.  Ügyelj rá, hogy a frissítéshez majd DOS-ra lesz szükséged.
+
+  Menj a Code Maturity Level menübe és engedélyezd a fejlesztés alatt
+  álló és/vagy nem teljes meghajtóprogramok kiválasztási lehetõségét.
+  Erre a 2.2.x kernelverziók esetében már nincs szükség.
+
+
+  Menj a Console Drivers menübe és engedélyezd a következõket:
+
+
+  ·  VGA Text Console
+
+  ·  Video Selection Support
+
+  ·  Support for frame buffer devices (experimental)
+
+  ·  Matrox Acceleration
+
+  ·  Válassz a következõkbõl annak megfelelõen, hogy milyen kártyád van:
+
+     ·  Millennium I/II support
+
+     ·  Mystique support
+
+     ·  G100/G200 support
+
+  ·  Engedélyezd a többfejes támogatást (Multihead Support), ha egynél
+     több Matrox kártyát szeretnél használni
+
+  ·  Advanced Low Level Drivers
+
+  ·  Válaszd ki a Mono, 2bpp, 4bpp, 8bpp, 16bpp, 24bpp és 32bpp
+     tömörített pixel meghajtókat
+
+  Fordítsd újra a kernelt. Ezután módosítanod kell a lilo.conf
+  állományt, hogy engedélyezd a Matroxfb eszközt. A leggyorsabb és
+  legegyszerûbb módja, ha felhasználod az enyémet.
+
+
+  # LILO konfigurációs állomány
+  boot = /dev/hda3
+  delay = 30
+  prompt
+  vga = 792    # Erre azért van szükség, hogy használható állapotban induljon
+  # A Linux bootolható partíció beállítása következik
+  image = /vmlinuz
+    append = "video=matrox:vesa:440" # akkor váltsunk Matroxfb-re
+    root = /dev/hda3
+    label = Linux
+    read-only # A nem-UMSDOS állományrendszert célszerû csak olvashatónak beilleszteni az ellenõrzéshez
+
+
+
+  Végül kell készítened a framebuffer eszközöket a /dev alkönyvárban.
+  Framebuffer eszközönként egyre lesz szükséged, így mindössze annyi a
+  teendõd, hogy kiadod az elsõ alkalommal a mknod /dev/fb0 c 29 0
+  parancsot. A következõk 32 többszörösei lesznek, például a /dev/fb1
+  elkészítéséhez mknod /dev/fb1 c 29 32 parancsot kell kiadnod, és így
+  tovább, egészen a nyolcadik framebuffer eszközig (mknod /dev/fb7 c 29
+  224).
+
+  És ennyi. [MEGJEGYZÉS: Ha valaki használ többfejes támogatást, kérem,
+  vegye fel a kapcsolatot velem - beszélnem kell valakivel róla, hogy
+  dokumentálhassam!]
+  4.5.  Permedia kártyád van?
+
+
+  A Permedia kártyákat nem lehet a vesafb-vel használni, de szerencsére
+  elkészült egy használható Permedia framebuffer meghajtó. Feltéve, hogy
+  menuconfig-ot használsz, tedd a következõket:
+
+
+  Menj a Code Maturity Level menübe és engedélyezd a fejlesztés alatt
+  álló és/vagy nem teljes meghajtóprogramok kiválasztási lehetõségét.
+  Erre a 2.2.x kernelverziók esetében már nincs szükség.
+
+  Menj a Console Drivers menübe és engedélyezd a következõket:
+
+
+  ·  VGA Text Console
+
+  ·  Video Selection Support
+
+  ·  Support for frame buffer devices (experimental)
+
+  ·  Permedia2 support (experimental)
+
+  ·  Generic Permedia2 PCI board support
+
+  ·  Advanced Low Level Drivers
+
+  ·  Válaszd ki a Mono, 2bpp, 4bpp, 8bpp, 16bpp, 24bpp és 32bpp
+     tömörített pixel meghajtókat
+
+  ·  Ha szeretnél kernelbefordított karaktereket, válaszd ki a
+     következõket:
+
+     ·  Select compiled-in fonts
+
+     ·  Select Sparc console 12x22 font
+
+  Fordítsd újra a kerneled. Ezután módosítanod kell a lilo.conf
+  állományt, hogy engedélyezd a pm2fb eszközt. A leggyorsabb, és
+  legyegyszerûbb módja, ha felhasználod a következõ példát:
+
+
+  # LILO konfigurációs állomány
+  boot = /dev/hda3
+  delay = 30
+  prompt
+  vga = 792    # Erre azért van szükség, hogy használható állapotban induljon
+  # A Linux bootolható partíció beállítása következik
+  image = /vmlinuz
+    append = "video=pm2fb:mode:1024x768-75,font:SUN12x22,ypan" # akkor váltsunk át pm2fb
+    root = /dev/hda3
+    label = Linux
+    read-only # A nem-UMSDOS állományrendszert célszerû csak olvashatónak beilleszteni az ellenõrzéshez
+
+
+
+  A "pm2fb:mode:1024x768-75,font:SUN12x22,ypan" sor jelzi, hogy
+  1024x768-as felbontást választottál 75Hz-en, SUN12x22
+  karakterkészlettel (ha nem választottad ki), és ypan scrollback
+  támogatással. Kívánságod szerint választhatsz más üzemmódot is.
+
+  Végül kell készítened a framebuffer eszközöket a /dev alkönyvárban.
+  Framebuffer eszközönként egyre lesz szükséged, így mindössze annyi a
+  teendõd, hogy kiadod az elsõ alkalommal a mknod /dev/fb0 c 29 0
+  parancsot. A következõk 32 többszörösei lesznek, például a /dev/fb1
+  elkészítéséhez mknod /dev/fb1 c 29 32 parancsot kell kiadnod, és így
+  tovább, egészen a nyolcadik framebuffer eszközig (mknod /dev/fb7 c 29
+  224).
+
+  További információkat a Permedia framebuffer meghajtóról a
+  http://www.cs.unibo.it/ nardinoc/pm2fb/index.html honlapon találsz.
+
+  video=pm2fb:[opció[,opció[,opció...]]]
+
+  ahol az opciók a következõk lehetnek:
+
+
+  ·  off a meghajtó letiltásához
+
+  ·  mode:resolution a konzol felbontásának beállításához. Az üzemmódot
+     az fb.modes.ATI állomány tartalmazza Geert fbset csomagjában.
+     Minden üzemmód színméjsége 8bpp. A lehetséges üzemmódok listája a
+     következõ:
+
+     ·  640x480-(60,72,75,90,100)
+
+     ·  800x600-(56,60,70,72,75,90,100)
+
+     ·  1024x768-(60,70,72,75,90,100,illo) illo=80KHz 100Hz
+
+     ·  1152x864-(60,70,75,80)
+
+     ·  1280x1024-(60,70,74,75)
+
+     ·  1600x1200-(60,66,76)
+
+  ·  Az alapértelmezett felbontás 640x480-60.
+
+  ·  font:font name a konzol karakterkészletének beállításához. Például:
+     font:SUN12x22
+
+  ·  ypan beállítja az aktuális virtuális magasságot akkorára, amekkorát
+     a video memória mérete megenged.
+
+  ·  oldmem opció csak a CybervisionPPC felhasználók számára él. Ezzel a
+     kapcsolóval megmondhatod a rendszernek, hogy a kártyádon Fujitsu
+     SGRAM-ok vannak (minden 30-Dec-1998 elõtti CVisionPPC-k esetén).
+
+  ·  virtual (ideiglenesen) add meg, hogy a kernel áthelyezi a
+     platformodon a PCI régiókat.
+
+
+  4.6.  ATI kártyád van?
+
+
+  [MEGJEGYZÉS: Ez az információ a legjobb formájában látható, csak másod
+  vagy harmadkézbõl van, mivel nincs ATI kártyám, hogy tesztelhessem.
+  Kérlek javíts ki, ha tévednék, vagy égess meg!] 8)
+
+  Az ATI kártyák használhatóak a vesafb meghajtóval, de lehetnek
+  problémáid a használatával, attól függõen, hogy milyen súlyosan
+  károsodott a kártyád.  Szerencsére az atyfb framebuffer meghajtó
+  rendelkezésedre áll. Feltéve, hogy menuconfig-ot használsz, a
+  következõket kell tenned:
+
+  Menj a Code Maturity Level menübe és engedélyezd a fejlesztés alatt
+  álló és/vagy nem teljes meghajtóprogramok kiválasztási lehetõségét.
+  Erre a 2.2.x kernelverziók esetében már nincs szükség.
+
+  Menj a Console Drivers menübe és engedélyezd a következõket:
+
+
+  ·  VGA Text Console
+
+  ·  Video Selection Support
+
+  ·  Support for frame buffer devices (experimental)
+
+  ·  ATI Mach64 display support
+
+  ·  Advanced Low Level Drivers
+
+  ·  Válaszd ki a Mono, 2bpp, 4bpp, 8bpp, 16bpp, 24bpp és 32bpp
+     tömörített pixel meghajtókat
+
+  ·  Ha szeretnél kernelbefordított karaktereket, válaszd ki a
+     következõket:
+
+     ·  Select compiled-in fonts
+
+     ·  Select Sparc console 12x22 font
+
+  Fordítsd újra a kerneled. Ezután módosítanod kell a lilo.conf
+  állományt, hogy engedélyezd a atyfb eszközt. A leggyorsabb, és
+  legyegyszerûbb módja, ha felhasználod a következõ példát:
+
+
+  # LILO konfigurációs állomány
+  boot = /dev/hda3
+  delay = 30
+  prompt
+  vga = 792    # Erre azért van szükség, hogy használható állapotban induljon
+  # A Linux bootolható partíció beállítása következik
+  image = /vmlinuz
+    append = "video=atyfb:1024x768,font:SUN12x22"
+    root = /dev/hda3
+    label = Linux
+    read-only # A nem-UMSDOS állományrendszert célszerû csak olvashatónak beilleszteni az ellenõrzéshez
+
+
+
+  Az "atyfb:mode:1024x768,font:SUN12x22" jelzi, hogy egy 1024x768
+  üzemmódot választottál.
+
+  Végül kell készítened a framebuffer eszközöket a /dev alkönyvárban.
+  Framebuffer eszközönként egyre lesz szükséged, így mindössze annyi a
+  teendõd, hogy kiadod az elsõ alkalommal a mknod /dev/fb0 c 29 0
+  parancsot. A következõk 32 többszörösei lesznek, például a /dev/fb1
+  elkészítéséhez mknod /dev/fb1 c 29 32 parancsot kell kiadnod, és így
+  tovább, egészen a nyolcadik framebuffer eszközig (mknod /dev/fb7 c 29
+  224).
+
+  video=atyfb:[opció[,opció[,opció...]]]
+
+  ahol opció a következõ lehet:
+
+
+  ·  font:SZTRING Kiválaszja a beépített karakterkészletet (amit a
+     kernelbe fordítottál)
+
+  ·  noblink Kikapcsolja a villogást
+
+  ·  noaccel Letiltja a gyorsítást
+
+  ·  vram:ULONG Megmondja az atyfb meghajtónak, hogy mennyi memóriád van
+
+  ·  pll:ULONG Ismeretlen
+
+  ·  mclk:ULONG Ismeretlen
+
+  ·  vmode:ULONG Ismeretlen
+
+  ·  cmode:ULONG - beállítja a színmélységet - 0, 8, 15, 16, 24 és 32
+
+
+  4.7.  Mely grafikus kártyák VESA 2.0 kompatibilisek?
+
+  A következõ felsorolás tartalmazza az összes olyan grafikus kártyát,
+  melyekrõl ismert, hogy mûködnek a vesafb eszközzel:
+
+
+  ·  ATI PCI VideoExpression 2MB (max. 1280x1024 @ 8bit)
+
+  ·  ATI PCI All-in-Wonder
+
+  ·  Matrox Millennium PCI - BIOS v3.0
+
+  ·  Matrox Millennium II PCI - BIOS v1.5
+
+  ·  Matrox Millennium II AGP - BIOS v1.4
+
+  ·  Matrox Millennium G200 AGP - BIOS v1.3
+
+  ·  Matrox Mystique & Mystique 220 PCI - BIOS v1.8
+
+  ·  Matrox Mystique G200 AGP - BIOS v1.3
+
+  ·  Matrox Productiva G100 AGP - BIOS v1.4
+
+  ·  Minden Riva 128 alapú kártya
+
+  ·  Diamond Viper V330 PCI 4MB
+
+  ·  Genoa Phantom 3D/S3 ViRGE/DX
+
+  ·  Hercules Stingray 128/3D TV kimenettel
+
+  ·  Hercules Stingray 128/3D TV kimenet nélkül - BIOS frissítés
+     szükséges (ingyenesen beszerezhetõ a support@hercules.com)
+
+  ·  SiS 6326 PCI/AGP 4MB
+
+  ·  STB Lightspeed 128 (Nvida Riva 128 alapú) PCI
+
+  ·  STB Velocity 128 (Nvida Riva 128 alapú) PCI
+
+  ·  Jaton Video-58P ET6000 PCI 2MB-4MB (max. 1600x1200 @ 8bit)
+
+  A következõ felsorolás alaplapon elhelyezkedõ chip készleteket
+  tartalmaz:
+
+
+  ·  Trident Cyber9397
+
+  ·  SiS 5598
+
+  Az alábbi feketelista olyan grafikus kártyákat tartalmaz, melyek nem
+  mûködnek együtt a vesafb eszközzel:
+
+
+  ·  TBA
+
+
+
+  4.8.  Lefordíthatom a vesafb-t modulként?
+
+
+
+  Tudomásom szerint a vesafb nem modularizálható, hacsak valamikor a
+  vesafb fejlesztõi úgy nem döntenek, hogy módosítják a forrást, és
+  modularizálhatóvá teszik. Jegyezzük meg, hogy ha még lehetségessé is
+  válik a modularizálhatóság, indulásidõben akkor sem fogsz semmi
+  kimenetet látni a megjelenítõn, amíg a vesafb nincs modulpróbálva.
+  Talán sokkal ésszerûbb lenne a kernelben hagyni, azokra az esetekre,
+  ha indításkor probléma lépne fel.
+
+
+  4.9.  Hogyan módosíthatom a kurzort?
+
+
+  [A VGA-softcursor.txt-bõl vettem - köszönet Martin Mares-nek érte!]
+
+  A Linuxnak most már többféle képessége is lehetõvé teszi a kurzor
+  megjelenésének módosítását. Általában átállíthatod a hardver kurzor
+  méretét (és körüljárhatsz néhány csúnya hibát azokon a csapnivaló
+  Trident kártyákon -- nézd meg a #define TRIDENT_GLITCH-et a
+  drivers/char/vga.c állományban). Ebben az esetben ha engedélyezed a
+  "Software generated cursor"-t a rendszer konfigurációdban,
+  eljátszhatsz néhány új trükkel: átalakíthatod a kurzorod nem villogó
+  piros blokká, a karakter inverz hátterévé változtathatod, vagy
+  kiemeltté teheted az adott karaktert, és még mindig választhatsz, hogy
+  az eredeti hardver kurzor látható maradjon, vagy sem. Lehet még néhány
+  dolog, amire sose gondoltam még.
+
+  A kurzor megjelenítését a
+
+  <ESC>[?1;2;3c
+
+
+  szabályozza, ahol 1, 2 és 3 lejjebb megmagyarázott paraméterek. Ha
+  kihagyod bármelyiket, az alapértelmezésre állnak, ami 0.
+
+  Az 1. paraméter a kurzor méretét határozza meg (0=alapértelmezett,
+  1=láthatatlan, 2=aláhúzás, ..., 8=teljes blokk) + 16 ha a szoftver
+  kurzort szeretnéd alkalmazni, + 32 ha mindig szeretnél a háttérszínen
+  változtatni + 64 ha nem szertnéd ugyanazd a hátteret, mint ami az
+  elõtér. A kiemelést nem veszi figyelembe az utolsó két flag esetén.
+
+  A második paraméter kiválasztja az általad megváltoztatandó karakter
+  attribútum bitet (egyszerûen össze XOR-olva e paraméter értékével).
+  Hagyományos VGA-n a négy magas bit határozza meg a hátteret, az alsó
+  négy pedig az elõteret. Mindkét csoportban, a három alacsony bit
+  állítja a színt (mint a konzol hagyományos színkódjai esetén), s a
+  legértékesebb bit állítja be a kiemelést (vagy néhány esetben a
+  villogást -- a VGA-d konfigurációjától függõen).
+
+  A harmadik paraméter az általad beállítandó karakter attribútum
+  bitekbõl áll. A bit beállítása a bit átállítása elõtt lép érvénybe,
+  így egyszerûen törölhetsz egy bitet a beállító és az átállító maszkba
+  illesztve.
+
+  Hagyományos villogó aláhúzás beállításához:     echo -e '\033[?2c'
+  Villogó blokk beállításához:                    echo -e '\033[?6c' Nem
+  villogó piros blokk beállításához:          echo -e '\033[?17;0;64c'
+
+
+
+  5.  Framebuffer eszközök használata Atari m68k platformokon
+
+
+  Ez a fejezet bemutatja a framebuffer lehetõségeket Atari m68k
+  platformokon.
+
+
+  5.1.  Milyen üzemmódok állnak rendelkezésre Atari m68k platformokon?
+
+
+
+  Színek    320x200 320x480 640x200 640x400 640x480 896x608 1280x960
+  ---------+---------------------------------------------------------
+   1 bit   |                         sthigh   vga2    falh2   tthigh
+   2 bites |                 stmid            vga4
+   4 bites | stlow                         ttmid/vga16 falh16
+   8 bites |         ttlow                   vga256
+
+
+
+  ttlow, ttmid és tthigh módokat csak a TT használja, a vga2, vga4,
+  vga15, vga256, falh3 és falh16 módokat csak a Falcon használja.
+
+  Ha a video=xxx kernel opcióval használod alopció nélkül, a kernel a
+  következõ sorrendben fogja végigpróbálni az üzemmódokat, amíg a
+  hardvernek megfelelõ módot nem talál:
+
+
+  ·  ttmid
+
+  ·  tthigh
+
+  ·  vga16
+
+  ·  sthigh
+
+  ·  stmid
+
+  Megadhatsz egy általad használni kívánt üzemmódot is, ha nem szertnéd,
+  hogy a rendszer automatikusan keresse meg az általad kívánt üzemmódot.
+  Például a video=vga16 4 bites 640x480 felbontású megjelenítõt ad.
+
+
+  5.2.  Egyéb alopciók az Atari m68k platformokra
+
+
+  Több alopció megadható a video=xxx paraméterrel:
+
+
+  ·  inverse - invertálja a megjelenítõt, így az elõtér- és a
+     háttérszínek megcserélõdnek. Általában a háttér fekete, de ezzel az
+     alopcióval fehér lesz.
+
+  ·  font - beállítja a szöveges módban használandó karakterkészletet.
+     Jelenleg csak a VGA8x8, VGA8x16, PEARL8x8 karakterkészleteket
+     választhatod ki. Az alapértelmezés szerint ha a képernyõ függõleges
+     mérete kisebb 400 képpontnál, a VGA8x8 karakterkészletet, egyébként
+     a VGA8x16 karakterkészletet használja.
+
+  ·  internal - egy nagyon érdekes opció. Részletesebb információkért
+     nézd meg a következõ fejezetet.
+
+  ·  external - mint fenn.
+
+  ·  monitorcap - megadja a multisync-ek képességeit. NE használd fix
+     szinkronizációval rendelkezõ monitor esetén!
+  5.3.  A belsõ alopciók használata Atari m68k platformokon
+
+
+  Szintakszis: internal:(xres);(yres)[;(xres_max);(yres_max);(offset)]
+
+  Ez a paraméter néhány kiegészítõ belsõ video hardver képességét
+  határozza meg, mint például az OverScan módokat. A (xres) és a (yres)
+  megadja a képernyõ kiterjesztett dimenzióit.
+
+  Ha az OverScan üzemmódod számára fekete keretre van szükség, az
+  internal: alopció utolsó három argumentumába kell írnod. Az (xres_max)
+  a hardver által engedélyezett legnagyobb vonalhosszúság, az (yres_max)
+  a sorok számának maximuma és az (offset) a képernyõ memória látható
+  részének a fizikai kezdetéhez viszonyított eltolás bájtokban.
+
+  Gyakran a kiterjesztett belsõ video hardvert külön aktiválni kell,
+  ehhez kell a "switches=*" opciót használnod. [Megjegyzés: A szerzõ
+  szerene némi extra információhoz jutni. Az m68k dokumentációja a
+  kernelben nem teljesen világos ennél a pontnál, és neki nincs Atarija!
+  Példák is hasznosak lennének]
+
+
+  5.4.  Az Atari m68k platformok külsõ alopcióinak használata
+
+
+  Szintaxis:
+  external:(xres);(yres);(depth);(org);(scrmem)[;(scrlen)[;(vgabase)[;(colw)[;(coltype)[;(xres_virtual)]]]]]
+
+  Ez eléggé összetett, így ez a dokumentáció megpróbálja amennyire csak
+  lehet érthetõen elmagyarázni, de a Szerzõ nagyra értékelné, ha valaki
+  átnézné, hogy nem kutyult-e össze valamit! :o)
+
+  Ez az alopció meghatározza, hogy külsõ video hardvered van (leginkább
+  egy grafikus kárty), és hogyan használhatod Linux-al. A kernel
+  alapértelmezés szerint a belsõ video hardver ismeretére korlátozott,
+  így neked kell a szükséges paraméterekkel ellátni, hogy használhasd a
+  külsõ video hardvert. Két korlátozás van: át kell váltanod az indítás
+  elõtt abba az üzemmódba és amikor boot-olsz, nem változtathatod meg az
+  üzemmódokat.
+
+  Az elsõ három paraméter magától érthetõdik: megadja a képernyõ
+  dimenzióit képpontokban: magasság (height), szélesség (width) és
+  mélység (depth). A megadott mélységnek 2^n szín esetén a használandó
+  síkok számának kell lennie. Például ha a 256 színû megjelenítõt
+  szeretnél használni, a mélységnek 8-at kell megadnod. Ez a külsõ
+  grafikus hardvertõl függ, bár így a hardver képességeire leszel
+  lekorlátozva.
+
+  Ezután meg kell adnod a kernelnek, hogy szervezõdik a memória - add
+  meg betûvel az (org) paramétert:
+
+
+  ·  n - hagyományos síkokat használjon, tehát egyik teljes sík a másik
+     után
+
+  ·  i - átlapolt síkokat használjon, azaz 16 bit az elsõ síkból, majd
+     16 a következõbõl, és így tovább. Csak a beépített Atari video
+     módok használják ezt - és nem is létezik ezt a módot támogató
+     grafikus kártya.
+
+  ·  p - tömörített képpontokat használ, azaz az egymást követõ bitek
+     egy képpont összes síkját tartalmazzák. Ez a leggyakoribb megoldás
+     a 256 színû képernyõ megjelenítésére a grafikus kártyákon.
+
+  ·  t - valódi színt használ, azaz ez valójában tömörített képpontokat
+     használ, de nincs szüksége szín feloldó táblára, mint az egyéb
+     tömörített képpont üzemmódok esetében. Ezek az üzemmódok általában
+     a 24 bites megjelenítõk - melyek 16.8 millió színt bocsátanak
+     rendelkezésedre.
+
+  Habár, monokróm üzemmódok esetében az (org) paraméternek más jelentése
+  van:
+
+
+  ·  n - hagyományos színeket használ, azaz 0=fehér, 1=fekete
+
+  ·  i - invertált színeket használ, azaz 0=fekete, 1=fehér
+
+  A következõ fontos video hardver elem a videomemória báziscíme. Ezt a
+  (scrmem) paraméter adja meg, hexadecimális, 0x prefix-el rendelkezõ
+  formában. Ezt a külsõ video hardvereddel kapott dokumentációból kell
+  megkeresned.
+
+  A következõ paraméter, az (scrlen) megadja a kernel számára a
+  videómemória méretét. Ha ez hiányzik, az (xres), (yres) és a (depth)
+  paraméterekbõl számolódik. Manapság nem érdemes ide értéket írni.
+  Hagyd üresen, és tégy két kettõspontot egymás mellé, ha meg kell adnod
+  a (vgabase) paramétert, különben hagyd az egészet.
+
+  A (vgabase) paraméter opcionális. Ha nincs megadva, a kernel nem tudja
+  írni és olvasni a video hardver szín regisztereit, ezért neked kell
+  beállítani a megfelelõ színeket a Linux indítása elõtt. Azonban ha a
+  kártyád VGA kompatibilis, megadhatod a VGA regiszterek címét, így már
+  meg tudja változtatni a szín feloldó táblákat. Az ehhez szükséges
+  információt a külsõ video hardver dokumentációjában találod meg. Hogy
+  tisztázzuk, a (vgabase) a bázis cím, azaz a 4k-hoz igazított cím. A
+  színregiszterek írásához, olvasásához a kernel a (vgabase) + 0x3c7 és
+  a (vgabase) + 0x3c9 közötti címtartományt használja. Ezt a paramétert
+  hexadecimálisan kell megadni, és elé kell írni a 0x prefixet,
+  ugyanúgy, mint a (scrmem) esetében.
+
+  A (colw) csak akkor bír jelentéssel, ha a (vgabase) paraméter is
+  adott. Ez mondja meg a kernelnek, hogy mekkorák a szín regiszterek,
+  azaz mennyi az egy színre jutó bitek száma (piros/zöld/kék). Az
+  alapértelmezett érték általában 6 bit, de gyakori a 8 bit használata
+  is.
+
+  A (coltype) a (vgabase) paraméterrel együtt használatos, megadja a
+  grafikus kártyád szín regiszter modeljét a kernelnek.  Jelenleg a vga
+  és a mv300 típusok támogatottak. A vga az alapértelmezett.
+
+  A (xres_virtual) csak a ProMST/ET4000 kártyák esetén szükséges, ahol a
+  fizikai vonalhosszúság különbözik a láthatótól. A ProMST esetén
+  2048-at kell megadnod, szemben az ET4000-el, ahol a video kártya
+  inicializálásától függ.
+
+
+  6.  Framebuffer eszközök használata Amiga m68k platformokon
+
+
+
+  Ez a fejezet bemutatja az Amigák opcióit, melyek nagyon hasonlítanak
+  az Atari m68k platformokra már bemutatottakhoz.
+
+
+  6.1.  Mely üzemmódok használhatók Amiga m68k platformokon?
+
+
+  Ez az Amigában használt chipsettõl függ. Három fõ típusa van: OCS, ECS
+  és AGA, melyek használják a színes framebuffer eszközt.
+
+
+  ·  NTSC üzemmódok:
+
+     ·  ntsc - 640x200
+
+     ·  ntsc-lace - 640x400
+
+  ·  PAL üzemmódok:
+
+     ·  pal - 640x256
+
+     ·  pal-lace - 640x512
+
+  ·  ECS üzemmódok: - 2 bites színek ECS-n, 8 bites színek csak az AGA
+     chipseteken.
+
+     ·  multiscan - 640x480
+
+     ·  multiscan-lace - 640x960
+
+     ·  euro36 - 640x200
+
+     ·  euro36-lace - 640x400
+
+     ·  euro72 - 640x400
+
+     ·  euro72-lace - 640x800
+
+     ·  super72 - 800x300
+
+     ·  super72-lace - 800x600
+
+     ·  dblntsc - 640x200
+
+     ·  dblpal - 640x256
+
+     ·  dblntsc-ff - 640x400
+
+     ·  dblntsc-lace - 640x800
+
+     ·  dblpal-ff - 640x512
+
+     ·  dblpal-lace - 640x1024
+
+  ·  VGA üzemmódok: - 2 bites színek ECS-n, 8 bites színek csak az AGA
+     chipseteken.
+
+     ·  vga - 640x480
+
+     ·  vga70 - 640x400
+
+
+  6.2.  Az Amiga m68k platformok alopciói
+
+
+  Ezek az Atari m68k alopciókhoz hasonlóak. Úgy mint:
+
+
+  ·  depth - megadja a képpont bitmélységét.
+
+  ·  inverse - ugyanazt teszi, mint az Atari-n.
+
+  ·  font - ugyanazt teszi, mint az Atari-n, bár a VGA8x8
+     karakterkészlet helyett a PEARL8x8 karakterkészletet használja, ha
+     a képernyõ mérete 400 képpontnál keskenyebb.
+
+
+  ·  monitorcap - meghatározza a multisync monitorok képességeit. Ne
+     használd állandó szinkronizációs idõvel rendelkezõ monitorok
+     esetében!
+
+
+  6.3.  A támogatott Amiga grafikus kiegészítõ kártyák
+
+
+
+  ·  Phase5 CyberVision 64 (S3 Trio64 chipkészlet)
+
+  ·  Phase5 CyverVision 64-3D (S3 ViRGE chipkészlet)
+
+  ·  MacroSystems RetinaZ3 (NCR 77C32BLT chipkészlet)
+
+  ·  Helfrich Piccolo, SD64, GVP ECS Spectrum, Village Tronic Picasso
+     IIII+ és IV/ (Cirrus Logic GD542x/543x)
+
+
+  7.  Framebuffer eszközök használata Macintosh m68k platformokon
+
+
+  Jelenleg az implementált framebuffer eszköz csak a Linux elõtt a MacOS
+  alatt kiválasztott üzemmódot támogatja, valamint az 1, 2, 4 és 8 bites
+  színes üzemmódokat.
+
+  A framebuffer alopciókat a következõ szintaxis szerint választhatod
+  ki:
+
+
+  video=macfb:<font>:<inverse>
+
+
+
+  Válaszhatsz VGA8x8, VGA8x16 és 6x11, stb. karakterkészleteket. Az
+  inverse opció segítségével invertálhatod a video jelet.
+
+
+  8.  Framebuffer eszközök használata PowerPC platformokon
+
+
+  A szerzõ szeretne bõvebb információt kapni a framebuffer eszközök ezen
+  a platformon történõ használatáról.
+
+
+
+  9.  Framebuffer eszközök használata Alpha platformokon
+
+  9.1.  Milyen üzemmódokat használhatok?
+
+
+
+  Egyenlõre kizárólag a TGA PCI kártya áll rendelkezésre - ami csak
+  80x30-at tud 640x480-as felbontásban, 8, vagy 24/32 biten.
+
+
+  9.2.  Mely grafikus kártyák mûködnek a framebuffer eszközzel?
+
+
+  A következõ felsorolás tartalmazza az összes olyan grafikus kártyát,
+  melyekrõl ismert, hogy mûködnek Alpha platformon:
+
+
+  ·  DEC TGA PCI (DEC21030) - 640x480 @ 8 bites vagy 24/32 bites
+     változatok
+
+  10.  Framebuffer eszközök használata SPARC platformokon
+
+  10.1.  Mely grafikus kártyák mûködnek a framebuffer eszközzel?
+
+
+  A következõ felsorolás tartalmazza az összes olyan grafikus kártyát,
+  melyekrõl ismert, hogy mûködnek SPARC platformon:
+
+
+  ·  MG1/MG2 - SBus vagy Sun3-ba intergrálva - max. 1600x1280 @ mono
+     (BWtwo)
+
+  ·  CGthree - hasonló az MG1/MG2-höz, de támogat színeket is -
+     maximális felbontás?
+
+  ·  GX - SBus - max. 1152x900 @ 8bit (CGsix)
+
+  ·  TurboGX - SBus - max. 1152x900 @ 8 bit (CGsix)
+
+  ·  SX - kizárólag SS10/SS20 - max. 1280x1024 @ 24 bit - (CGfourteen)
+
+  ·  ZX(TZX) - SBus - 24bites 3D gyorsító kártya - maximális felbontás?
+     (Leo)
+
+  ·  TCX - AFX - kizárólag Sparc 4-hez - max. 1280x1024 @ 8bit
+
+  ·  TCX(S24) - AFX - kizárólag Sparc 5-höz- max. 1152x900 @ 24bit
+
+  ·  Creator - SBus - max. 1280x1024 @ 24bit (FFB)
+
+  ·  Creator3D - SBus - max. 1920x1200 @ 24bit (FFB)
+
+  ·  ATI Mach64 - gyorsított 8/24bites kizárólag Sparc64 PCI-hoz
+
+  Használhatsz PROM-ot a kimenõ karakterek megjelenítésére a képernyõn,
+  vagy a soros konzolon.
+
+  Nézd meg a Sparc Frame Buffer GYIK-et a
+
+  http://c3-a.snvl1.sfba.home.com/Framebuffer.html
+
+
+
+  10.2.  A framebuffer eszközök beállítása
+
+
+
+  A make config alatt választanod kell, hogy a promcon-t és/vagy az
+  fbcon-t fordítod bele. Választhatod mindkettõt, de ekkor kernel flag-
+  ekkel kell kiválasztanod az eszközt. Mindig az fbcon az elsõdleges, ha
+  nem állítod be az elsõdlegest. Ha a promcon nincs kiválasztva, az
+  indításkor a dummycon-ra mutat alapértelmezés szerint. Ha a promcon ki
+  van választva, ezt az eszközt használja.  Amint a buszok elindultak,
+  ha az fbcon bele van fordítva, a kernel megkeresi a fenti
+  framebuffereket és az fbcon segítségével használja azokat. Ha nincs
+  framebuffer eszköz, a promcon aktíválódik.
+
+  Íme a kernel opciók:
+
+
+
+  video=sbus:opciók
+          ahol az "opciók" vesszõvel elválaszott lista:
+                  nomargins       a margót 0,0-ra állítja
+                  margins=12x24   a margót 12,24-re állítja (az alapértelmezettet a
+  felbontásból számolja ki)
+                  off             ne használja az SBus/UPA framebuffer eszközöket
+                  font=SUN12x22   egy meghatározott karakterkészletet használjon
+
+
+
+  Így például, ha
+
+   video=sbus:nomargins,font=SUN12x22
+
+
+  indítod a géped, csinos, gyors konzolt kapsz 96x40-es szöveges fel­
+  bontással, ami hasonlít a Solaris konzolhoz, de szinekkel és olyan
+  virtuális terminálokkal, mint az Intel platformokon.
+
+  Ha a SUN12x22 karakterkészletet szeretnéd használni, engedélyezned
+  kell a make config alatt (tiltsd le a fontwidth != 8 opciót). A
+  gyorsított framebufferek bármely 1 és 16 képpont közötti szélességgel
+  rendelkezõ karakterkészletet meg tudnak jeleníteni, míg a buta
+  framebuffer-ek csak a 4, 8, 12 és 16 képpont szélességû karaktereket
+  támogatja.
+
+  Ajánlatos friss consoletools csomagot beszerezned.
+
+
+  11.  Framebuffer eszközök használata MIPS platformokon
+
+
+
+  Ezen a platformon nincs szükség beavatkozásra, minden automatikusan
+  mûködik. Az Indy-k bedrótozva 160x64-es konzolt használnak. Habár
+  lépéseket tettek, hogy átírják ezen Indy-k számára a konzol kódját,
+  így tartsd rajta a szemed ezen a fejezeten.
+
+
+  12.  Framebuffer eszközök használata ARM platformokon
+
+
+
+  12.1.  Netwinders
+
+  A Netwinder-ek számára (melyek a ARM SA110 RISC chipet használják - a
+  szeretnivaló British processzort), kétféle Cyber2000 framebuffer
+  meghajtó áll rendelkezésre - egy a 2.0.x-es kernelhez, a másik a
+  2.2.x-es kernelek számára. Nagyon nyilvánvaló mindkét kernel számára e
+  meghajtó használatának engedélyezése, bár a régebbi verzióba a
+  színmélység és a felbontás bele van drótozva, ám jó hír, hogy az újabb
+  verzió a 2.2.x-es kernelek esetében sokkal rugalmasabb, de jelenleg
+  még képlékeny állapotban van és még fejlesztés alatt áll. Ahhoz, hogy
+  fusson, legalább a kernel forrásod ARM port-jával jövõ dokumentációt
+  is el kell olvasnod.
+
+  A Netwinder-ek VGA kompatibilis chipkészletet használnak, de sajnos
+  senki nem portolta még a vgafb-t. Ez talán megtörténi valamikor, ha
+  valaki egy ideig a kezében tarthatná. [Én megtenném, ha valaki adna
+  egy NetWindert, hogy eljátszhassak vele]
+
+
+  12.2.  Acorn Archimedes
+
+  Az Acorn-oknak az 1.9.x-es Linux napok óta mindig van framebuffer
+  támogatása. Habár az Acornfb meghajtó a 2.2.x-ben teljesen új, mivel
+  az általános framebuffer interfész megváltozott a 2.1.x-es kernelek
+  fejlesztése során (ami természetesen a 2.2.x lett).  Mint korábban,
+  egyszerû ügy a meghajtó aktiválása, a színmélység és a felbontás
+  beállítása.
+
+
+  12.3.  Egyéb ARM portok (SA 7110s et. al)
+
+  Meglepõ módon, még a Psion 5 és a Geofox is rendelkezik framebuffer
+  meghajtóval!  Mesélték, hogy még a pingvin is szépen megjelenik
+  [Valaki megdobhatna egy Psion 5-el!]
+
+
+  13.  Több fejes framebufferek használata
+
+  A dokumentáció ezen része Frederick A. Niles-nek köszönhetõ, aki
+  fenntartja az itt megjelenõ információk jogát.
+
+
+  13.1.  Bevezetés
+
+  E dokumentáció fõ célja, hogy bevezessen a kétfejes Linux konfiguráció
+  futtatás rejtelmeibe. Bár ez a folyamat nagyon egyszerû, több probléma
+  felléphet, amik aztán balul üthetnek ki.
+
+  A példa, amire koncentrálok, egy X szerver futtatása lesz a második
+  monitoron. Ezt szépnek találom, mivel sokan találhatnak régi, nagy
+  19-21 inches fix frekvenciájú monitorokat, amiket kidobnak az emberek,
+  mert nem tudják használni. Így elindíthatod a rendszered egy kis
+  multisync monitorral, és használhatod X alatt a szép nagy monitort.
+
+  Kérlek értsd meg, hogy a két fejes támogatás jelenleg fejlesztés alatt
+  áll, így gyorsan változik ez az információ. Ebben a dokumentációban
+  bármi lehet már most elavult, vagy egyszerûen helytelen már most,
+  amikor ezt olvasod.
+
+  ** FIGYELEM ** Ez a dokumentáció az XFree86 4.0 kiadása elõtt készült.
+  Ha az XFree86 4.0 megjelenése után olvasod ezt, már sokminden
+  megváltozott.  Próbáld meg beszerezni e dokumentáció újabb változatát.
+
+
+  13.2.  Visszajelzés
+
+  A dokumentációval kapcsolatos visszajelzéseket természetesen örömmel
+  fogadjuk. A vissyajelzéseitek nélkül nem is létezhetne ez a
+  dokumentáció.  Így kérlek, minden hozzáfûznivalót, megjegyzést,
+  kritikát küldj a következõ címre: Frederick.A.Niles@gsfc.nasa.gov.
+
+
+  13.3.  Közremûködõk
+
+  A következõ emberek mûködtek közre e mini-HOGYAN elkészítésében.
+
+  *  Petr Vandrovec vandrove@vc.cvut.cz
+
+  *  Andreas Ehliar ehliar@lysator.liu.se (x2x)
+
+  *  Marco Bizzarri m.bizzarri@icube.it (több X szerver)
+
+
+  13.4.  Lemondás a szabványokról
+
+  Semmi kötelezettséget nem fogadunk el e dokumentáció tartalmával
+  kapcsolatban.  Az elképzeléseket, példákat és egyéb részeit saját
+  felelõsségedre használhatod. Mivel ez egy újdonsült dokumentáció,
+  tartalmazhat hibákat és elírásokat, amik tönkretehetik a rendszered.
+  Használd ezért különleges körültekintéssel és bár ez elég szokatlan,
+  nem vállalok semmi felelõsséget, mely e dokumentáció használatának
+  következményeibõl eredne.
+
+
+  13.5.  Copyright Információk
+
+  A dokumentáció ezen részét (c)1999 Frederick Niles másolásjog védi, és
+  a következõ feltételek mellett terjeszthetõ:
+
+  *  A Linux HOWTO dokumentációk egészben, vagy részeiben
+  reprodukálhatók terjeszthetõk, akármilyen fizikai vagy elektronikus
+  médián, amíg ez a copyright figyelmeztetés változatlanul szerepel az
+  összes másolaton.  Kereskedelmi terjesztés engedélyezett és
+  bátorított, bár a szerzõ szeretne értesülni az ily módon terjesztett
+  példányokról.
+
+  *  Minden fordítás, leszármazott munkák, vagy összegyûjtött munkák
+  bármely Linux HOWTO dokumentáció esetén e copyright figyelmeztetéssel
+  együtt kell, hogy terjesztõdjenek. Így, nem készíthetsz egy Linux
+  HOWTO-ból leszármaztatott munkát, és nem vethetsz ki rá terjesztés
+  beli korlátozást.  Kivételt lehet kérni bizonyos körülmények között e
+  szabályok alól, vedd fel a kapcsolatot a Linux HOWTO koordinátorral a
+  lent szereplõ címen.
+
+  *  Ha kérdésed van, vedd fel a kapcsolatot a Linux HOWTO
+  koodinátorral, a linux-howto@sunsite.unc.edu címen
+
+
+  13.6.  Milyen hardver támogatott?
+
+  A legtöbb videokártya feltételezi, hogy õ az egyetlen a rendszerben és
+  állandó címmel elsõdleges megjelenítõ kártyának van beállítva. Van
+  azonban néhány kivétel:
+
+  *  Matrox kártyák: Ez magába foglalja a Matrox Millennium, Matrox
+  Millennium II, Matrox Mystique, Matrox Mystique 220, Matrox Productiva
+  G100, Matrox Mystique G200, Matrox Millennium G200 és Matrox Marvel
+  G200 video kártyákat.
+
+
+  *  MDA: Ide soroljuk a monokróm Hercules grafikus adaptereket több
+  mással egyetemben.  Ez csak szöveges második fej támogatást nyújt.
+
+  Megjegyzés: csak a második kártyának kell a fentiek valamelyikének
+  lennie.
+
+
+  13.7.  Kereskedelmi támogatás
+
+  Ez a mini-HOGYAN elsõsorban szabad szoftverhez készült. Azonban
+  létezik néhány kereskedelmi X szerver, ami rendelkezik több-fejes
+  támogatással. Ezek közé tartozik a Metro Link (www.metrolink.com)
+  Metro-X szervere és az Xi Graphics (www.xig.com) Accelerated-X
+  szervere.
+
+
+  13.8.  Az összes cucc beszerzése.
+
+  A következõ patch-ekre és programokra lesz szükséged:
+
+  * "fbset" program próbáld itt:
+  http://www.cs.kuleuven.ac.be/ geert/bin/ (megjegyzés: ez a program a
+  RedHat 6.0-al jön)
+
+
+  * "fbaddon" Matrox dual head patch-ek Linux kernelhez próbáld itt:
+  ftp://platan.vc.cvut.cz/pub/linux/matrox-latest/
+
+  * "con2fb" program próbáld itt:
+  ftp://platan.vc.cvut.cz/pub/linux/matrox-latest/
+
+  * X11 frame buffer szerver, XF86_FBDev. Ez az XFree86 3.3.1 szabványos
+  része
+
+
+  13.9.  Kezdjünk bele
+
+  Az elsõ dolog, amit tenned kell, hogy alkalmazod a Linux forrás
+  másolatára az "fbaddon" patch-et. Ezután be kell konfigurálnod a
+  kernelt, majd bekapcsolni a frame buffer támogatást. Ha Matrox kártyád
+  van, kapcsold be a Matrox általánosított gyorsított meghajtó
+  támogatását és a kártyádnak megfelelõ típust is add meg. Ne kapcsold
+  be a VESA framebuffer támogatást. Csak ütközést okoz. Kapcsold be
+  (természetesen) a többfejes támogatást. Készítsd el a kernelt és
+  indítsd újra a rendszert.
+
+  Most fel kell telepítened az "fbset" programot és gondosan át kell
+  olvasnod az összes vele kapcsolatos dokumentációt, hogy hogyan adhatod
+  meg a beállításokat. Erõsen javasolt az "/etc/fb.modes" állomány
+  használata, ha már eldöntötted, milyen beállításokat használsz. Az
+  fbset program tartalmaz egy Perl szkriptet, amivel átalakíthatod az
+  XF86Config állományodat fb.modes beállításokká.  Az A és B függelékben
+  csatoltam a saját octave/Bourne parancsértelmezõ szkriptemet, hogy
+  átalakíthasd az XF86Config állományodat.
+
+  Hozzá kell szoknod a framebuffer eszköz használatához a monitorodon,
+  meg kell értened minden olyan dolgot, amire a ugyan elsõ pillantásra
+  nincs szükséged a többfejes támogatáshoz, de késõbb rengeteg fejfájást
+  takaríthat meg neked.
+
+  Arra fogok öszpontosítano a magyarázatomban, hogy a második monitoron
+  elinduljon egy X, utána bármi más konfiguráció beállítása nyilvánvaló
+  részhalmaza lesz a már elvégzett eljárásoknak.
+
+
+  13.9.1.  Mozduljunk egy konzollal odébb...
+
+  Fordítsd le a "con2fb" programot. Ha argumentum nélkül futtatod, a
+  következõ használati utasítást kapod:
+
+  "usage: con2fb fbdev console".
+
+  Így a példa utasítás "con2fb /dev/fb1 /dev/tty6" lesz, hogy áthelyezd
+  a hatodik virtuális konzolt a második monitorra. Használd a CTRL-ALT-
+  F6 billentyûzet kombinációt a konzolra váltáshoz, és lám, tényleg a
+  második monitoron tûnik fel.
+
+
+  13.9.2.  Az "fbset" program használata a második monitor beállításához
+
+  Csak annak a monitornak a beállításait változtatja meg az "fbset"
+  program, amelyik képernyõn futtatod. Ezért óvatosan kell bánnod az
+  "-fb" kapcsolóval a második monitoron. Bizonyos esetekben ha nem
+  teszel semmi mást, legalább a virtuális függõleges felbontást
+  szeretnéd az aktuális függõleges felbontássá tenni.
+
+  pl. "fbset -fb /dev/fb1 -vyres 600"
+
+  Ez rettenetesen lelassítaná a szöveges üzemmódot, de az X
+  visszataszító lenne e nélkül.
+
+  13.9.3.  Az X beállítása framebuffer támogatására.
+
+  A framebuffer.txt állomány ezt nálam sokkal jobban elmagyarázza, de
+  azért álljon itt két nagyon fontos pont.
+
+  Gyõzõdj meg róla, hogy átállítottad az "X" láncot, hogy az
+  "XF86_FBDev"-re mutasson.
+
+  Ezután hozzá kell adnod egy monitor szekciót az XF86Config
+  állományodban a framebuffer eszköz számára. Íme egy példa:
+
+
+  # A framebuffer szerver
+
+  Section "Screen"
+      Driver      "fbdev"
+      Device      "Millennium"
+      Monitor     "NEC MultiSync 5FGp"
+      Subsection "Display"
+          Depth       8
+          Modes       "default"
+          ViewPort    0 0
+      EndSubsection
+      Subsection "Display"
+          Depth       16
+          Modes       "default"
+          ViewPort    0 0
+      EndSubsection
+      Subsection "Display"
+          Depth       24
+          Modes       "default"
+          ViewPort    0 0
+      EndSubsection
+      Subsection "Display"
+          Depth       32
+          Modes       "default"
+          ViewPort    0 0
+      EndSubsection
+  EndSection
+
+
+
+  A "default" üzemmódokat használom, mivel nem hiszem, hogy bármely más
+  érték mûködne a Matrox framebuffer esetében.
+
+
+  13.9.4.  Próbáld meg elindítani az X szervert a második monitoron.
+
+  Állítsd a FRAMEBUFFER változót a második framebufferre.
+
+  "export FRAMEBUFFER=/dev/fb1"
+
+  vagy
+
+  "setenv FRAMEBUFFER /dev/fb1"
+
+  Úgy kell elindítanod az X szervert, hogy egyaránt egyezzen a
+  kiválasztott színmélység és ugyanazon a monitoron jelenjen meg,
+  ahonnan az X szervert indítottad.
+
+  pl. "startx -- :0 -bpp 16 vt06"
+
+  Ez a példa elindítja a "nulladik" X szervert a hatos virtuális
+  konzolon 16 bites színnel. Használd az ":1"-et a másik X szerver
+  indításához másik framebufferen, így egyszerre két X szervered futhat.
+
+  13.10.  Összefoglalás
+
+  A második monitoron való X szerver futtatásának fontosabb lépései a
+  következõ pontokban foglalható össze:
+
+  * Szerezz kernel patch-et, fbset, és con2fb programokat.
+
+  * Patch-eld meg a kernelt, konfiguráld, építsd újra és indítsd újra a
+  gépet.
+
+  * Add hozzá az XF86_FBDev szekciót az XF86Config állományhoz és
+  állítsd be az X láncot.
+
+  Minden esetben, amikor újraindítod a géped:
+
+  * Helyezz át egy konzolt.            pl. "con2fb /dev/fb1 /dev/tty6"
+
+  * Állítsd be a paramétereket         pl. "fbset -fb /dev/fb1
+  1280x1024"
+
+  * Állítsd be a FRAMEBUFFER változót. pl. "export FRAMEBUFFER=/dev/fb1"
+
+  * Indítsd el az X szervert.          pl. "startx -- -bpp 16 vt06"
+
+  Automatizálhatod ezt minden egyes újraindítás alkalmával
+  parancsértelmezõ alias használatával. Alias-nak kell lennie és nem
+  parancsértelmezõ szkriptnek, mivel fel kell insmernie az aktuális
+  konzol számát. Ez az én C-parancsértelmezõ alias-om, ami az X-et a
+  második, rögzített frekvenciájú monitoromon indítja:
+
+
+  alias startxfb = "
+  setenv FRAMEBUFFER /dev/fb\!*;    # beállítja a környezeti változót a parancs argumentumára.
+  con2fb $FRAMEBUFFER /dev/$tty;    # Elmozdítja az fb-t az aktuális tty-re.
+  fbset -fb $FRAMEBUFFER 1280x1024@62;  # Kedvenc az /etc/fb.modes-ból.
+  startx -- :\!* -bpp 16 vt0`echo $tty | cut -dy f 2`' # X ezen a tty-n.
+  "
+
+
+
+  A .cshrc állományomban ez mind ugyanabban a sorban található együtt, a
+  megjegyzések nélkül, de a könnyebb olvashatóság érdekében sortörést
+  tettem bele, valamint megjegyzéseket szúrtam be magyarázat gyanánt.  A
+  framebuffer sorszámát argumentumként átadom neki és már indul is az X.
+
+  Nem vagyok biztos benne, hogy hogyan kell ugyanezt az alias-t bash
+  alatt elkészíteni. Nem tudom, hogyan kell meghatározni az aktuális
+  tty-t, vagy hogyan kell az argumentumokat átadni a bash-nek. Ha valaki
+  elmondaná, beszúrnám ide. Habár használhatod a "tty" utasítást, hogy
+  megtudd az aktuális VT nevét és egyszerûen két külön alias-t adsz
+  mindkét X szervernek.
+
+
+  13.11.  Egyéb megjegyzések és problémák
+
+  * Az "fbset" és a "startx" egyaránt ugyanarról a framebuffer-rõl kell,
+  hogy fussanak. Ez a súlyos korlátozás gátat szab a szkriptekbõl
+  történõ automatizálásnak.
+
+  * Az XFree86 4.0-ben "megfelelõ" több-fejes támogatás lesz, de a 3.3.1
+  nem rendelkezik ezzel. Futtathatsz két külön szervert 3.3.1-el, és
+  használhatod az x2x-et, hogy kapcsolgass közöttük, habár... (lásd a
+  következõ pontot)
+
+  * Az inaktív framebuffer a használata utolsó képkockáját tartalmazza,
+  nem fog frissülni.
+  * A monitor, ami nincs kiválasztva, nem õrzi meg az állapotát, ha nem
+  aktív (De azért általában megteszi.).
+
+  * Geert Uytterhoeven (a framebuffer karbantartója) és Linus Torvalds
+  nem értenek egyet a jelenlegi "framebuffer per VT" többfejes konzol
+  támogatás változtatásban (pl. fbaddon), így lehet, hogy soha nem lesz
+  a kernel fa fõ csapása ez a téma. (Ezt harmadkézbõl hallottam, és
+  elképzelhetõ, hogy semmi sem igaz belõle.)
+
+  * Ha "megszeged a szabályokat" és az X szervert másik monitorról
+  indítod ("startx" futtatása), a gép csúnyán össze fog omlani a
+  billentyûzet és az egér bemenetének összekeveredésével.
+
+  * A framebuffer.txt dokumentáció a kernel forrásban elmagyarázza, hogy
+  az XF86Config állomány Modeline beállítását közvetlenül is
+  használhatod az X szerver futtatásához. A Matrox framebuffer
+  használata úgy látszik arra kényszeríti az X szervert, hogy
+  szabaduljon meg mindezektõl. így egy idõben csak egy ("default")
+  beállításod lehet (ugyanaz, mint szöveges üzemmódban).
+
+  * Az XF86_FBDev nem gyorsított. Habár létezik patch a gyorsított
+  Matrox támogatásra a http://www.in-berlin.de/User/kraxel/xfree86/
+  címen.
+
+
+  13.11.1.  Az "ötös init szint" (azaz az xdm/gdm) mûködésre bírása
+
+  Még nem találtam rá megoldást, hogy hogyan lehetne ötös init szintben
+  elindítani a gépet két monitoros konfigurációval (és tulajdonképpen a
+  szerver megvan a második monitoron vagy mindkettõn). Míg elég
+  egyszerûnek tûnik egy új sor hozzáadása a gdm/xdm Xservers
+  állományához, az a megkötés, hogy ugyanarról a framebuffer-rõl kell
+  indítanod az X szervert, megakadályozza a nyilvánvaló megoldást a
+  mûködésben. Ha valaki talál rá megoldást, kérem, küldje el E-mail-ben
+  nekem és beillesztem ide.
+
+
+  13.11.2.  Az x2x program használata.
+
+  Létezik egy aranyos kis program, az x2x, ami X szerverek között
+  kapcsolgat neked, ha a képernyõ széléhez érsz. A program legutóbbi
+  ismert honlapja a http://ftp.digital.com/pub/DEC/SRC/x2x/ címen volt.
+  Ez egy opcionális Debian csomag is egyúttal. Még nem próbáltam, de
+  több felhasználó sikeres használatot jelzett.
+
+
+  13.11.3.  Egyéb hasznos utasítások
+
+  Ezek létezõ Linux utasítások, amik megérdemlik, hogy az ember
+  emlékezzen rájuk, amikor többfejes konfigurációval küzd (különösen, ha
+  szkripteket ír).
+
+  * A "chvt" lehetõvé teszi a virtuális terminálok közötti váltást.
+
+  * Az "openvt" új virtuális terminálon (VT)indít programot.
+
+  * A "tty" visszaadja az aktuális terminál nevét.
+
+
+  13.11.4.  A. Függelék - Octave cvtmode.m szkript
+
+  (jegyezzük meg a bpp beállítást)
+
+
+
+  #!/usr/bin/octave -q
+  bpp = 16;
+  DCF = sscanf(argv(1,:), "%f");
+  HR  = sscanf(argv(2,:), "%f");
+  SH1 = sscanf(argv(3,:), "%f");
+  SH2 = sscanf(argv(4,:), "%f");
+  HFL = sscanf(argv(5,:), "%f");
+  VR  = sscanf(argv(6,:), "%f");
+  SV1 = sscanf(argv(7,:), "%f");
+  SV2 = sscanf(argv(8,:), "%f");
+  VFL = sscanf(argv(9,:), "%f");
+  pixclock = 1000000 / DCF;
+  left_margin = HFL - SH2;
+  right_margin = SH1 - HR;
+  hsync_len = SH2 - SH1;
+
+  # 3) függõleges idõk:
+  upper_margin = VFL - SV2;
+  lower_margin = SV1 - VR;
+  vsync_len = SV2 - SV1;
+
+  RR = DCF / (HFL * VFL) *1e6;
+  HSF = DCF / HFL * 1e3;
+
+  printf("mode \"%dx%d\"\n",HR,VR);
+  printf("   # D: %3.2f MHz, H: %3.2f kHz, V: %2.2f Hz\n", DCF, HSF, RR);
+  printf("   geometria %d %d %d %d %d\n", HR, VR, HR, VR, bpp);
+  printf("   idõk %d %d %d %d %d %d %d\n", ...
+                                   pixclock, left_margin, right_margin, ...
+                                   upper_margin, lower_margin, ...
+                                   hsync_len, vsync_len);
+  printf("endmode\n");
+
+
+
+  13.11.5.  B. Függelék - Borne Shell szkript "cvtfile"
+
+  (Ez hívja meg az octave szkriptet, a "cvtmode"-t)
+
+  #!/bin/sh
+
+  # Shell szkript, mely átalakítja az XF86Config állományt fb.modes állománnyá.
+  # A cvtmode.m octave szkriptet használja
+
+  if [ -z $1 ]; then
+    FILE=/etc/X11/XF86Config
+  else
+    FILE=$1
+  fi
+
+  i=1
+  LEN=`grep Modeline $FILE | wc -l`
+  while expr $i \< $LEN > /dev/null ;
+  do
+    CURLINE=`grep Modeline $FILE | cut -d'"' -f 3-20 | head -$i | tail -1 `
+    ./cvtmode.m $CURLINE
+    echo " "
+    i=`expr $i + 1`
+  done
+
+
+
+  14.  Karakterkészletek használata és váltása
+
+
+  A kbd-0.99 csomagra van szükséged ahhoz, hogy váltani tudj a
+  karakterkészletek között. A ftp://ftp.win.tue.nl/pub/linux/utils/kbd
+  címrõl szerezheted ezt be.
+
+  A kbd-0.99 csomag letöltésének és telepítésének nagy elõnye, hogy be
+  tudsz tölteni nemzetközi karaktereket is (pl. az Euro szimbólumot) a
+  konzol eszközödre (Az a minimum, hogy a három legfontosabb szimbólumot
+  tartalmazza a billentyûzetem, a dollár jelet, az Angol font
+  szimbólumot és az Euro jelet!).
+
+
+  15.  Konzol módok váltása
+
+
+  Ahhoz, hogy üzemmódot tudj váltani (azaz 640x480, 800x600, stb), az
+  fbset programra van szükséged (jelenleg az fbset-19990118.tar.gz) -
+  ftp-vel megleled az alább található címen:
+
+
+  http://www.cs.kuleuven.ac.be/~geert/bin/fbset-19990118.tar.gz
+
+
+
+  Teljes utasításkészlettel érkezik a használatát illetõen.
+
+
+  16.  Az X11 FBdev meghajtó üzembe helyezése
+
+
+  Ha nem 3.3.3.1-es vagy késõbbi XFree86-ot használsz, sürgõsen
+  frissítsd legalább 3.3.3.1-es XFree86-ra, ez tartalmazza a framebuffer
+  eszközök számára az FBdev X meghajtót. Egyébként kövesd az alább
+  található lépéseket a letöltéshez, vagy készítsd el a saját FBdev
+  meghajtódat a régebbi XFree86 verziókhoz, mint a 3.3.2, vagy a 3.3.3,
+  stb.
+
+  Menj a http://www.xfree86.org címre, és töltsd le a legfrisebb
+  XServers forrás arhívumot, tömörítsd ki és konfiguráld be a
+  meghajtókat a következõ lépéseket követve:
+
+
+  ·  Szerkeszd az xc/config/cf/xf86site.def állományt, töröld a "#define
+     for XF68FBDevServer" megjegyzést
+
+  ·  Kommentezz ki minden FB_VISUAL_STATIC_DIRECTCOLOR referenciát,
+     mivel ezek valótlanok, és többé nem használatosak. Ha XFree86
+     3.3.3.1-et használsz, mincs szükség erre a lépésre - mivel már
+     eltávolították õket.
+
+  ·  Szerkeszd az xc/programs/Xserver/hw/xfree86/os-
+     support/linux/lnx_io.c állományt, és írd át a K_RAW-t K_MEDIUMRAW-
+     ra.
+
+  majd készítsd el a meghajtót. Ne aggódj az m68k referenciák miatt, ez
+  Intel platformot támogat. Ezután készítsd el az egész dolgot - jó
+  idõbe beletelik, míg végigmegy a hatalmas forrásfán.
+
+  Választhatod azonban, ha idõt szeretnél megspórolni, hogy az alábbi
+  szerverek valamelyikérõl beszerzed a megfelelõ binárist. Vedd
+  figyelembe, hogy ezek
+
+  A libc5 esetén a következõt használd:
+
+  http://user.cs.tu-berlin.de/~kraxel/linux/XF68_FBDev.gz
+
+
+  glibc2 esetén pedig a következõ címekrõl tölts le:
+
+
+  http://user.cs.tu-berlin.de/~kraxel/linux/XF68_FBDev.libc6.gz
+  http://pobox.com/~brion/linux/fbxserver.html
+
+
+
+  Jelentették, hogy az X11 nem mûködik néhány grafikus kártyával, ha a
+  vesafb lehetõség engedélyezett. Ha ez történik, próbáld ki az X11 új
+  XF86_FBdev meghajtóját.
+
+  Ez a meghajtó, a vesafb-vel egyetemben egyaránt segíthet az X11
+  magasabb grafikus felbontásában való futtatásában néhány olyan
+  chipkészlet esetén, amit nem támogatnak a jelenlegi X11 meghajtók. A
+  példák az MGA G200-ra vonatkoznak.
+
+  Ahhoz, hogy bekonfigurálhasd az XF86_FBdev meghajtót az X11
+  rendszeredhez, a következõképpen kell átszerkesztened az XF86Config
+  állományt:
+
+
+  Section "Screen"
+          Driver          "FBDev"
+          Device          "Primary Card"
+          Monitor         "Primary Monitor"
+          SubSection      "Display"
+                  Modes           "default"
+          EndSubSection
+  EndSection
+
+
+
+  Ezen kívül az XkbDisable paramétert is be kell állítanod a
+  billentyûzet szekcióban, vagy az XF86_FBDev szervert a '-kb' opcióval
+  hívd, hogy úgy állíthasd be a billentyûzeted, hogy helyesen mûködjön.
+  Ha elfeletkezel az XkbDisable beállításáról, a következõ sort kell az
+  .Xmodmap állományodba tenni, hogy kijavíthasd a billentyûzet
+  hozzárendeléseket. Másik lehetséges megoldásként átszerkesztheted az
+  xkb állományod, hogy a lejjebb található listát tükrözze.
+
+  Ezt javították az XFree86 3.3.3.1-ben, és mindenképpen jó ötlet
+  frissíteni erre a verzióra, mert van néhány hibajavítás és nem
+  utolsósorban tartalmazza az FBDev-et, az egyik már korábban említett
+  meghajtót.
+
+
+  ! Keycode settings required
+  keycode 104 = KP_Enter
+  keycode 105 = Control_R
+  keycode 106 = KP_Divide
+  keycode 108 = Alt_R Meta_R
+  keycode 110 = Home
+  keycode 111 = Up
+  keycode 112 = Prior
+  keycode 113 = Left
+  keycode 114 = Right
+  keycode 115 = End
+  keycode 116 = Down
+  keycode 117 = Next
+  keycode 118 = Insert
+  keycode 119 = Delete
+
+  Lehet, hogy némi machinálást ígényel (próbáld meg átmásolni az eredeti
+  definíciót az eredeti X11 meghajtóból, amit használtál és írd át a
+  meghajtó nevet FBDev-re), de tulajdonképpen ez az, amire a vesafb X11
+  meghajtó használatához szükséged van.
+
+  Remélhetõleg a grafikus kártyák támogatásának problémáját kijavítják
+  az X11 késõbbi kiadásaiban.
+
+
+  17.  Hogyan alakíthatom át az XFree86 modeline sorokat framebuffer
+  eszköz idõkre?
+
+
+  Ha feltelepítetted az XFree86-t (X11) a gépedre, és eredményesen
+  használod, egyszerû dolog átalakítani a modeline sorokat az
+  XF86Config-ból a framebuffer eszköz számára szükséges idõkre.
+
+  A framebuffer eszközhöz a következõ mezõkre van szükség:
+
+  ·  pixclock - pixel óra picoszerkundumban
+
+  ·  left_margin - time fron sync to picture
+
+  ·  right_margin - time from picture to sync
+
+  ·  upper_margin - time from sync to picture
+
+  ·  lower_margin - time from picture to sync
+
+  ·  hsync_len - length of horizontal sync
+
+  ·  vsync_len - length of vertical sync
+
+
+  Egy XFree86 mode sor a következõ mezõket tartalmazza:
+
+
+  Modeline  "1280x1024" DCF HR SH1 SH2 HFL VR SV1 SV2 VFL
+
+
+
+  Néhány egyszerû számítás elvégzésére van szükség az XF86 mode-sorok
+  framebuffer eszköz idõzítésbe való átszámításához. Például meg kell
+  vizsgálnunk, hogy hogyan alakíthatjuk át az XF86Config állományból
+  vett modeline sor értékeit.
+
+
+  Modeline  "1280x1024" 110.00 1280 1328 1512 1712 1024 1025 1028 1054
+
+
+
+  Elõször számoljuk ki a szükséges pixclock értéket. Az XFree86
+  megahertzet használ, míg a framebuffer eszközök picoszekundumot
+  használnak (Hogy miért? Nem tudom. ) Ossz el egymilliót a DFC-vel.
+  Például: 1,000,000 / 110.0 = 9090.9091
+
+
+  Most ki kell számolnunk a vízszintes idõket.
+
+  ·  left_margin = HFL - SH2
+
+  ·  right_margin = SH1 - HR
+
+  ·  hsync_len = SH2 - SH1
+
+
+  A példánkban ez a következõ lenne:
+
+  ·  left_margin = 1712 - 1512 = 200
+
+  ·  right_margin = 1328 - 1280 = 48
+
+  ·  hsync_len = 1512 - 1328 = 184
+
+
+  És most ki kell számolnunk a függõleges idõket.
+
+  ·  upper_margin = VFL - SV2
+
+  ·  lower_margin = SV1 - VR
+
+  ·  vsync_len = SV2 - SV1
+
+
+  Például ez a következõ lenne:
+
+  ·  upper_margin = 1054 - 1028 = 26
+
+  ·  lower_margin = 1025 - 1024 = 1
+
+  ·  vsync_len = 1028 - 1025 = 3
+
+
+  Most felhasználhatjuk ezt az információt a framebuffer kívánt
+  üzemmódjába állításához.  Például a matroxfb framebufferhez a
+  következõre van szükség:
+
+
+  video=matrox:xres:<>,yres:<>,depth:<>,left:<>,right:<>,hslen:<>,upper:<>,lower:<>,vslen:<>
+
+
+
+  A következõ sort tettem be a /etc/lilo.conf állományomba:
+
+  append = "video=matrox:xres:1280,yres:1024,depth:32,left:200,right:48,hslen:184,upper:26,lower:0,vslen:3"
+
+
+
+  Jegyezzük meg, hogy ebben az esetben a pixclock nem használatos. Csak
+  akkor szökséges, ha nem szereted az alapértelmezett órajeleket.
+  Átadhatod ezt paraméterként is. A pixclock beállítása e HOGYAN más
+  részeiben megtalálod.
+
+
+  18.  További információkat keresel?
+
+
+  Azoknak akik érdeklõdnek a framebuffer meghajtók iránt, nézzék meg a
+
+  http://www.csoft.net/~systems/jim/fb.html
+
+
+  honlapot a programozási információkért.
+
+  A franciául beszélõk számára megtalálható egy fordítás a
+
+  http://www.freenix.org/unix/linux/HOWTO/mini/Vesafb.html
+
+
+

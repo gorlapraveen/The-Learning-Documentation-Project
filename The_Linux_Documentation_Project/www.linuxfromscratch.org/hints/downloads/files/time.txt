@@ -1,0 +1,205 @@
+AUTHOR: Archaic <archaic@remove-this.indy.rr.com>
+
+DATE: 2003-09-28
+
+LICENSE: GNU Free Documentation License http://www.gnu.org/licenses/fdl.txt
+
+SYNOPSIS: Explanation of timezones, UTC, and the TZ environment variable
+
+DESCRIPTION: Your Linux system is multinational. It can not only talk in
+different languages, but it's aware of timezones, too. This hint tells you how
+you can set it up.
+
+PREREQUISITES: The script provided is based on lfs-bootscripts-1.11, but should
+be easy to modify even if major changes happen to the boot scripts.
+
+HINT: Earth is divided in 24 time zones. The local time in a zone depends on
+how many zones it is away from Greenwich, Great Britain. The difference in time
+is relative to the 0 zone over Greenwich. For example, in Indiana, USA (where I
+live) we're in the -5 zone. That means, it's five hours earlier here than in
+Great Britain. This compensates for the world turning.
+
+### Local vs. UTC ###
+
+   The first and most important question you'll have to answer is whether you
+want to store the time in your machine in either UTC or local time format. UTC
+(Universal Time Coordinated) is the same as GMT (Greenwich Mean Time). Local
+time is the time that is displayed on a clock hanging on a wall near you. Each
+format has its own advantages and disadvantages, but both of them are
+discussed in this hint.
+
+   Traditionally, all POSIX machines (i.e. Solaris, BSD, UNIX) have their
+system time in UTC format. The more stupid OS's (mainly the Microsoft ones)
+require their users to configure their machines for local time. Fortunately,
+Linux can handle both the normal UTC machines and the machines suffering from
+Microsoft diseases that have their system time in local format.
+
+   At this point, you'll have to decide what it's gonna be; local or UTC time.
+Some guidelines: If you're running Windows and Linux together on 1 box, I
+recommend you use local time. If you have Windows but you hardly use it or if
+you don't have Windows at all, it's a good idea to store your time in UTC
+format. Once you've decided, edit /etc/sysconfig/clock. Use UTC=0 for local
+time and UTC=1 for UTC (GMT) time.
+
+### Determining Your Timezone ###
+
+   Knowing what timezone you're living in is important for the rest of this
+hint. But it's not enough to know how many zones you're away from Greenwich,
+since daylight saving is also influenced by this choice. LFS comes with an easy
+program to determine your timezone in only a few questions (usually 2 or 3).
+Run it now:
+
+	# tzselect
+
+   When this program quits, the last line it prints is your timezone. Here, it
+prints "America/Indianapolis" (without the quotes). Remember this value. Write
+it down or put it somewhere in a text file. This variable will be referenced to
+as $TIMEZONE in the rest of this hint to simplify explanations.
+
+### Using the $TIMEZONE Setting ###
+
+   Now that you know what timezone you're living in, we can put this knowledge
+into practice. First, we start by creating the /etc/localtime file. This file
+needs to exist whether you choose UTC or local time. This can be a symlink or a
+copy of the real file renamed to localtime. At the time of this writing, LFS
+was using a real file, so I will use that method, though a symlink will work
+fine.
+
+	# cp --remove-destination /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+
+
+   Next, we need to modify the setclock boot script, but first a brief
+explanation of system time and hardware time.
+
+   The hardware clock is the clock that ticks in your BIOS and keeps the time
+even if the system is powered off. However, the hardware clock is not all that
+precise. The system clock is the time that the kernel maintains while it's
+running and it is considerably more precise. But how does the system clock know
+what time it is? During boot up, the standard LFS boot scripts set the system
+clock from the hardware clock. After that, the hardware clock is ignored. The
+problem with this scenario is that after many days of uptime (depending on the
+accuracy of your BIOS), there could be a rather large discrepancy between the
+system clock and the hardware clock. When you reboot, the still inaccurate
+hardware clock will be used to set the system clock. Therefore, it would
+behoove us to allow the kernel to update the BIOS time at shutdown so that the
+BIOS will be more likely to have an accurate time when the system boots up the
+next time. Reading from and writing to the hardware clock is done by a program
+named hwclock(8). This program is part of a normal LFS system, so you don't
+need to download it. We'll modify some of the boot scripts to make this program
+run at power up and power down.
+
+   NOTE: Keith Harwood informed me that his DS10 Alpha box's hardware clock is
+more accurate than its system clock. The system clock was losing a couple of
+minutes a day. This is most likely a kernel flaw of some sort, but you should
+probably check your system's time against a known good time and compare it after
+the system has been running at least a day. I doubt any x86 users will find the
+hardware clock more accurate than the system clock.
+
+   In the book, a script named setclock is created in /etc/rc.d/init.d. This
+script performs only half of the job, because it only sets the system time from
+the hardware clock. We will modify this script and create some additional
+symlinks to make this script save the system time to the hardware clock at
+shutdown/reboot. 
+
+cat >/etc/rc.d/init.d/setclock <<"EOF"
+#!/bin/bash
+# Begin $rc_base/init.d/setclock - Setting Linux Clock
+
+# Based on setclock script from LFS-3.1 and earlier.
+# Rewritten by Gerard Beekmans  - gerard@linuxfromscratch.org
+# Rewritten by Marc Heerdink to include writing to the hardware clock
+# Rewritten by Archaic <archaic@remove-this.indy.rr.com> to conform to
+# lfs-bootscripts-1.11
+
+source /etc/sysconfig/rc
+source $rc_functions
+source /etc/sysconfig/clock
+
+case "$1" in
+     start)
+          case "$UTC" in
+               yes|true|1)
+                    echo "Setting system clock..."
+                    hwclock --hctosys --utc
+                    evaluate_retval
+                    ;;
+
+               no|false|0)
+                    echo "Setting system clock..."
+                    hwclock --hctosys --localtime
+                    evaluate_retval
+                    ;;
+
+               *)
+                    echo "Invalid value for UTC in /etc/sysconfig/clock: $UTC"
+                    echo "Valid values for UTC are 1 and 0."
+                    exit 1
+                    ;;
+          esac
+          ;;
+
+     stop)
+          case "$UTC" in
+               yes|true|1)
+                    echo "Updating hardware clock..."
+                    hwclock --systohc --utc
+                    evaluate_retval
+                    ;;
+
+               no|false|0)
+                    echo "Updating hardware clock..."
+                    hwclock --systohc --localtime
+                    evaluate_retval
+                    ;;
+
+               *)
+                    echo "Invalid value for UTC in /etc/sysconfig/clock: $UTC"
+                    echo "Valid values for UTC are 1 and 0."
+                    exit 1
+                    ;;
+          esac
+          ;;
+
+     *)
+          echo "Usage: $0 {start|stop}"
+          exit 1
+          ;;
+esac
+
+# End $rc_base/init.d/setclock
+EOF
+
+chmod 755 /etc/rc.d/init.d/setclock
+
+   Next are the symlinks. The symlink to run the setclock script is already
+present in /etc/rc.d/rc.sysinit.d, so the only symlinks we have to create are
+the ones to run setclock when the system shuts down:
+
+	# ln -s ../init.d/setclock /etc/rc.d/rc0.d/K45setclock &&
+	# ln -s ../init.d/setclock /etc/rc.d/rc6.d/K45setclock
+
+   At this point, the boot scripts are correctly set up and the only thing
+that's left to configure is the TZ environment variable.
+
+### TZ Environment Variable ###
+
+   This variable is used by hwclock, when it's run from a shell, and some
+programs that heavily depend on timezones. This variable is used system-wide,
+so it's a good idea to have it in the system-wide environment that is set up in
+/etc/profile. Add these lines to your /etc/profile:
+
+	export TZ=value_of_$TIMEZONE
+
+ACKNOWLEDGEMENTS: This hint was originally written by Marc Heerdink. It's still
+80% his text.
+
+CHANGELOG:
+
+[2002-04-10]
+ * Marc Heerdink's final version
+
+[2003-09-28]
+ * Edited out irrelevant or redundant info
+ * Fixed some typos and grammatical errors
+ * Updated the script and file locations to match current LFS
+ * Update to new hint format

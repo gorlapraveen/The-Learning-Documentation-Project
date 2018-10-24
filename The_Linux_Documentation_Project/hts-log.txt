@@ -1,0 +1,135 @@
+HTTrack3.48-24 launched on Wed, 24 Oct 2018 04:05:12 at http://http://tldp.org/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/*
+(webhttrack -q -%i -Y http://http://tldp.org/ -O "/home/debian/Documents/learning.praveengorla/The_Linux_Documentation_Project" -n -%P -N0 -s2 -p7 -D -a -K0 -c4 -%k -A25000 -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -%s -%u )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+04:05:22	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 774): http://tldp.org/images/flags/t_es.gif
+04:05:23	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 318): http://tldp.org/images/flags/t_fr.gif
+04:05:24	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 318): http://tldp.org/images/flags/t_it.gif
+04:06:01	Warning: 	Link wiki.tldp.org/Mirrors not scanned (follow robots meta tag)
+05:01:28	Warning: 	Moved Permanently for traduc.org/robots.txt
+05:01:28	Warning: 	Redirected link is identical because of 'URL Hack' option: traduc.org/robots.txt and https://traduc.org/robots.txt
+05:01:28	Warning: 	Warning moved treated for traduc.org/robots.txt (real one is https://traduc.org/robots.txt)
+05:01:28	Warning: 	Moved Permanently for traduc.org/
+05:01:28	Warning: 	Redirected link is identical because of 'URL Hack' option: traduc.org/ and https://traduc.org/
+05:01:28	Warning: 	File has moved from traduc.org/ to https://traduc.org/
+05:01:29	Warning: 	Moved Permanently for it.tldp.org/robots.txt
+05:01:29	Warning: 	File has moved from it.tldp.org/robots.txt to http://www.pluto.it/ildp/robots.txt
+05:01:29	Warning: 	Moved Permanently for it.tldp.org/
+05:01:29	Warning: 	File has moved from it.tldp.org/ to http://www.pluto.it/ildp/
+05:01:31	Warning: 	Link wiki.tldp.org/LDP Manifesto not scanned (follow robots meta tag)
+05:01:32	Warning: 	Link wiki.tldp.org/LdpStaff not scanned (follow robots meta tag)
+05:03:42	Warning: 	Moved Permanently for ibiblio.org/
+05:03:42	Warning: 	Redirected link is identical because of 'URL Hack' option: ibiblio.org/ and https://ibiblio.org/
+05:03:42	Warning: 	File has moved from ibiblio.org/ to https://ibiblio.org/
+05:04:10	Warning: 	Link wiki.tldp.org/MembersPage not scanned (follow robots meta tag)
+05:04:10	Warning: 	Link wiki.tldp.org/AuthorsPage not scanned (follow robots meta tag)
+05:04:10	Warning: 	Link wiki.tldp.org/VisitorsPage not scanned (follow robots meta tag)
+05:16:42	Warning: 	Unexpected socket error during pre-loop
+05:16:43	Warning: 	Unexpected socket error during pre-loop
+05:54:58	Warning: 	Unexpected socket error during pre-loop
+05:56:19	Warning: 	Unexpected socket error during pre-loop
+05:56:19	Warning: 	Unexpected socket error during pre-loop
+05:56:19	Warning: 	Unexpected socket error during pre-loop
+05:56:39	Warning: 	Unexpected socket error during pre-loop
+05:56:59	Warning: 	Unexpected socket error during pre-loop
+05:57:20	Warning: 	Unexpected socket error during pre-loop
+05:57:40	Warning: 	Unexpected socket error during pre-loop
+05:58:00	Warning: 	Unexpected socket error during pre-loop
+05:58:21	Warning: 	Unexpected socket error during pre-loop
+05:58:41	Warning: 	Unexpected socket error during pre-loop
+05:59:01	Warning: 	Unexpected socket error during pre-loop
+05:59:21	Warning: 	Unexpected socket error during pre-loop
+05:59:42	Warning: 	Unexpected socket error during pre-loop
+06:00:02	Warning: 	Unexpected socket error during pre-loop
+06:00:22	Warning: 	Unexpected socket error during pre-loop
+06:00:43	Warning: 	Unexpected socket error during pre-loop
+06:01:03	Warning: 	Unexpected socket error during pre-loop
+06:01:23	Warning: 	Unexpected socket error during pre-loop
+06:01:43	Warning: 	Unexpected socket error during pre-loop
+06:02:04	Warning: 	Unexpected socket error during pre-loop
+06:02:24	Warning: 	Unexpected socket error during pre-loop
+06:02:44	Warning: 	Unexpected socket error during pre-loop
+06:03:05	Warning: 	Unexpected socket error during pre-loop
+06:03:25	Warning: 	Unexpected socket error during pre-loop
+06:03:45	Warning: 	Unexpected socket error during pre-loop
+06:04:05	Warning: 	Unexpected socket error during pre-loop
+06:04:26	Warning: 	Unexpected socket error during pre-loop
+06:04:46	Warning: 	Unexpected socket error during pre-loop
+06:05:06	Warning: 	Unexpected socket error during pre-loop
+06:05:27	Warning: 	Unexpected socket error during pre-loop
+06:05:47	Warning: 	Unexpected socket error during pre-loop
+06:06:07	Warning: 	Unexpected socket error during pre-loop
+06:06:27	Warning: 	Unexpected socket error during pre-loop
+06:06:48	Warning: 	Unexpected socket error during pre-loop
+06:07:08	Warning: 	Unexpected socket error during pre-loop
+06:07:28	Warning: 	Unexpected socket error during pre-loop
+06:07:49	Warning: 	Unexpected socket error during pre-loop
+06:08:09	Warning: 	Unexpected socket error during pre-loop
+06:08:29	Warning: 	Unexpected socket error during pre-loop
+06:08:49	Warning: 	Unexpected socket error during pre-loop
+06:09:10	Warning: 	Unexpected socket error during pre-loop
+06:09:30	Warning: 	Unexpected socket error during pre-loop
+06:09:50	Warning: 	Unexpected socket error during pre-loop
+06:09:50	Warning: 	Unexpected socket error during pre-loop
+06:11:11	Warning: 	Unexpected socket error during pre-loop
+06:11:11	Warning: 	Unexpected socket error during pre-loop
+06:11:11	Warning: 	Unexpected socket error during pre-loop
+06:11:31	Warning: 	Unexpected socket error during pre-loop
+06:11:51	Warning: 	Unexpected socket error during pre-loop
+06:12:12	Warning: 	Unexpected socket error during pre-loop
+06:12:32	Warning: 	Unexpected socket error during pre-loop
+06:12:52	Warning: 	Unexpected socket error during pre-loop
+06:13:13	Warning: 	Unexpected socket error during pre-loop
+06:13:33	Warning: 	Unexpected socket error during pre-loop
+06:13:53	Warning: 	Unexpected socket error during pre-loop
+06:14:14	Warning: 	Unexpected socket error during pre-loop
+06:14:34	Warning: 	Unexpected socket error during pre-loop
+06:14:54	Warning: 	Unexpected socket error during pre-loop
+06:15:14	Warning: 	Unexpected socket error during pre-loop
+06:15:35	Warning: 	Unexpected socket error during pre-loop
+06:15:55	Warning: 	Unexpected socket error during pre-loop
+06:16:15	Warning: 	Unexpected socket error during pre-loop
+06:16:18	Warning: 	Unexpected socket error during pre-loop
+06:16:39	Warning: 	Unexpected socket error during pre-loop
+06:17:01	Warning: 	Unexpected socket error during pre-loop
+06:17:21	Warning: 	Unexpected socket error during pre-loop
+06:17:44	Warning: 	Unexpected socket error during pre-loop
+06:18:08	Warning: 	Unexpected socket error during pre-loop
+06:18:28	Warning: 	Unexpected socket error during pre-loop
+06:18:49	Warning: 	Unexpected socket error during pre-loop
+06:19:10	Warning: 	Unexpected socket error during pre-loop
+06:19:31	Warning: 	Unexpected socket error during pre-loop
+06:19:54	Warning: 	Unexpected socket error during pre-loop
+06:20:18	Warning: 	Unexpected socket error during pre-loop
+06:20:39	Warning: 	Unexpected socket error during pre-loop
+06:21:01	Warning: 	Unexpected socket error during pre-loop
+06:21:24	Warning: 	Unexpected socket error during pre-loop
+06:21:48	Warning: 	Unexpected socket error during pre-loop
+06:23:08	Warning: 	Unexpected socket error during pre-loop
+06:23:08	Warning: 	Unexpected socket error during pre-loop
+06:23:08	Warning: 	Unexpected socket error during pre-loop
+06:23:08	Warning: 	Unexpected socket error during pre-loop
+06:23:49	Warning: 	Unexpected socket error during pre-loop
+06:24:09	Warning: 	Unexpected socket error during pre-loop
+06:24:29	Warning: 	Unexpected socket error during pre-loop
+06:24:50	Warning: 	Unexpected socket error during pre-loop
+06:25:10	Warning: 	Unexpected socket error during pre-loop
+06:25:30	Warning: 	Unexpected socket error during pre-loop
+06:25:50	Warning: 	Unexpected socket error during pre-loop
+06:26:11	Warning: 	Unexpected socket error during pre-loop
+06:26:31	Warning: 	Unexpected socket error during pre-loop
+06:26:51	Warning: 	Unexpected socket error during pre-loop
+06:27:12	Warning: 	Unexpected socket error during pre-loop
+06:27:32	Warning: 	Unexpected socket error during pre-loop
+06:27:52	Warning: 	Unexpected socket error during pre-loop
+06:28:12	Warning: 	Unexpected socket error during pre-loop
+06:28:33	Warning: 	Unexpected socket error during pre-loop
+06:28:53	Warning: 	Unexpected socket error during pre-loop
+06:37:44	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 0): http://tldp.org/pub/Linux/docs/HOWTO/translations/es/anexo1
+06:54:45	Error: 	"Forbidden" (403) at link http://tldp.org/LDP/Linux-Dictionary/ (from http://tldp.org/guides.html)
+06:58:27	Warning: 	Unexpected socket error during pre-loop
+07:02:21	Error: 	"Forbidden" (403) at link http://tldp.org/LDP/lame/ (from http://tldp.org/guides.html)

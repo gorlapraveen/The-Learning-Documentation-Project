@@ -1,0 +1,58 @@
+LINUX USER'S GUIDE --- DISTRIBUCION DEL TRABAJO
+
+quien		archivo (.tex)  Título                       cant. páginas
+--------------------------------------------------------------------------
+cballard	guide		Documento principal
+cballard	bib		Bibliography
+cballard	copyright	Copyrights				 1
+cballard	convntns	Conventions				 1
+cballard	thanks		Acknowledgments				 1
+cballard	intro		Introduction				 5
+cballard	unixinfo	What's \unix, anyway?			 4
+cballard	starting	Getting Started				10
+cballard	shell		The \unix\ Shell			13
+luisgh		x11             X Window System				10
+al000129	shell2          Working with Unix			11
+descor		commands        Powerful Little Programs		 9
+eferro/cbarona	emacs		Editing files with Emacs		16
+richy		config          I Gotta Be Me!				20
+cgarcia		network         Talking to Others			 6
+a920226		funny           Funny Commands				10
+ezanardi	errors          Errors, Mistakes, Bugs,			 4
+				and Other Unpleasantries		 .
+sorrodp		vi              Introduction to Vi			13
+*******		gpl             The GNU General Public License		 7
+*******		lgpl            The GNU Library General Public License	 9
+
+Traductores:
+------------
+a920226		José Manuel Puerta Peña	<a920226@ZIPI.FI.UPM.ES>
+al000129	Oscar Porcar Borras	<al000129@llevant.uji.es>
+cballard	César Ballardini	<cballard@santafe.com.ar>
+cbarona		Carlos Barona Martínez	<cbarona@mx2.redestb.es>
+cgarcia		Carlos Garcia Arques	<cgarcia@isabel.dit.upm.es>
+descor		David Escorial		<descor@opera.dia.fi.upm.es>
+eferro		Eduardo Ferro Aldama	<eferro@poboxes.com>
+ezanardi	Enrique Zanardi		<ezanardi@molec1.dfis.ull.es>
+luisgh		Luis Francisco Gonzalez	<luisgh@cogs.susx.ac.uk>
+richy		Richy			<richy@millorsoft.es>
+sorrodp		Pedro Soria-Rodriguez	<sorrodp@ece.WPI.EDU>
+
+Revisión GLUP
+----------------
+starting	Lucas Di Pentima	<lucasdipe@usa.net>
+network		Raul Pingarron		<raul@qsystems.es>
+vi		Manuel de Vega Barreiro	<barreiro@arrakis.es>
+
+La extensiva revisión sobre TODO el documento que realizó José Miguel
+Gurpegui <jmgurpe@unav.es> requiere una mención especial y el
+reconocimiento de los lectores.
+
+El capítulo de emacs ha sido el más difícil de delegar, pues ha pasado
+por las manos de Leonardo Martínez <leonardo@santafe.com.ar> y Germán
+Maglione <gmaglion@frsf.utn.edu.ar> que nos entregaron una primera
+versión, antes de ser retraducido por Eduardo Ferro Aldama
+<eferro@poboxes.com> y Carlos Barona Martínez <cbarona@mx2.redestb.es>
+que lo han puesto en su excelente versión final y actual.
+
+Gracias por las revisiones a Alexandre Maneu i Victòria <mansoft@maptel.es>. 

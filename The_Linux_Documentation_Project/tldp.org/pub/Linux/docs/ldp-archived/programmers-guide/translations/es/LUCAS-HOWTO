@@ -1,0 +1,438 @@
+  Linux LUCAS/INSFLUG-HOWTO en Castellano
+  Juan José Amor, jjamor@ls.fi.upm.es
+  27 de Abril de 1996
+
+  Lo que sigue es una pequeña guía para ayudar a la   participación de
+  la gente en los proyectos LUCAS e INSFLUG para la documentación de
+  Linux en Castellano.   Este documento nace ahora mismo, con lo que
+  inevitablemente tendrá errores, los cuales agradezco se me hagan
+  saber, en la dirección de correo electrónico jjamor@ls.fi.upm.es. Ha
+  sido revisado el 15 de Julio de 1998.
+  ______________________________________________________________________
+
+  Indice General:
+
+  1.      Introducción
+
+  1.1.    ¿Qué es LUCAS?
+
+  1.2.    ¿Qué es INSFLUG?
+
+  2.      Los manuales
+
+  2.1.    LaTeX
+
+  2.1.1.  Instalación
+
+  2.1.2.  Utilización
+
+  2.1.3.  Cómo se organiza un documento LaTeX.
+
+  2.1.4.  Algunos comentarios adicionales
+
+  3.      Los HOWTO
+
+  3.1.    Instalación de
+
+  3.2.    Pequeña introducción a SGML
+
+  4.      Estilo recomendado de escritura
+
+  5.      Referencias
+
+  6.      Agradecimientos
+
+  7.      Contacto
+  ______________________________________________________________________
+
+  1.  Introducción
+
+  Esta guía pretende facilitar la tarea de los participantes en el
+  proyecto LUCAS. Por lo tanto, en ella hablaré de cómo escribir en los
+  lenguajes que luego son procesados por algunas herramientas (SGML,
+  LaTeX) así como de la instalación de dichas herramientas.
+
+  No pretende explicar exhaustivamente todo, sino dar las ideas
+  fundamentales. Por lo tanto, será conveniente que el lector interesado
+  consulte otros ficheros HOWTO así como manuales on-line de las
+  herramientas para completar la información que necesite.
+
+  Al final se incluyen enlaces (directamente seleccionables desde la
+  versión HTML de este documento) a aquellos ficheros que nos hayamos
+  referido en las siguientes secciones.
+
+  1.1.  ¿Qué es LUCAS?
+
+  LUCAS es el acrónimo (quizás algo jocoso) de LinUx en CAStellano. La
+  idea inicial, propuesta por Ramón Gutiérrez, era traducir el libro
+  Linux Installation and Getting Started de Matt Welsh. Aunque lo de
+  LUCAS no iba muy en serio, así se lo tomó Matt cuando se lo comentó el
+  coordinador de la primera traducción, Alfonso Belloso, con lo que el
+  proyecto quedó bautizado.
+
+  Actualmente, la primera traducción está acabada, en fase ``beta'',
+  libremente disponible on-line desde diversas fuentes; y se negocia la
+  posibilidad de publicarlo en papel. Por otro lado, ya se está
+  realizando la traducción del manual Network Administration Guide, de
+  Olaf Kirch.
+
+  1.2.  ¿Qué es INSFLUG?
+
+  INSFLUG significa ``Impatient & Novatous Spanish Fido Linux Users
+  Group'', un grupo de usuarios nacido en Fidonet (como LuCAS,
+  realmente) que entre otras cosas se reparte el trabajo de traducir los
+  documentos cortos tipo HOWTO. Están coordinados por Francisco José
+  Montilla (pacopepe@nova.es) y hasta ahora la cosa marcha viento en
+  popa (no hay más que ver los HOWTO que ya están traducidos, véanse las
+  referencias finales).
+
+  2.  Los manuales
+
+  Los manuales que traducimos en LUCAS están todos escritos, por el
+  momento, en LaTeX. Por lo tanto, en esta sección hablaremos de ese
+  sistema de composición de textos.
+
+  2.1.  LaTeX
+
+  LaTeX es un sistema de composición de textos muy conocido en el mundo
+  científico, por su capacidad para la escritura de textos técnicos. Ha
+  servido para publicar algunos libros y es una herramienta habitual
+  para escribir artículos, memorias de trabajos técnicos o tesis
+  doctorales.
+
+  LaTeX es, probablemente, el mejor procesador de textos del mundo, pero
+  tiene el inconveniente de que no es ``WYSIWYG'' lo que dificulta en
+  gran medida su uso por parte de personas acostumbradas a otros
+  procesadores de texto. Creemos que los resultados hacen que merezca la
+  pena dedicar un poco tiempo a entender LaTeX y trabajar con él.
+
+  LaTeX nació en Unix, con lo que está disponible en plataformas con
+  este sistema operativo, incluyendo ordenadores personales con Linux.
+  Como ocurre con muchos programas de libre distribución, ha sido
+  portado con éxito a otras muchas plataformas, incluyendo DOS/Windows.
+  Éste es otro punto a favor de LaTeX: la posibilidad de trabajar con él
+  en virtualmente todas las plataformas hardware y software existentes.
+
+  2.1.1.  Instalación
+
+  Sobre la instalación de LaTeX no vamos a escribir demasiado, ya que
+  afortunadamente forma parte de los paquetes de la distribución de
+  Linux más usada actualmente, la Slackware, por lo que la instalación
+  es completamente automática. Destacamos, sin embargo, que hay que
+  tratar de instalarse todos los paquetes de LaTeX (excepto algunos
+  evidentes, como los soportes de idiomas orientales y otras rarezas),
+  haciendo énfasis en las herramientas de visualización y conversión de
+  ficheros procesados .DVI (dvips, xdvi...) lo que nos permitirá
+  imprimir o ver el resultado por pantalla.
+
+  2.1.2.  Utilización
+
+  El uso de LaTeX es parecido al de un compilador. Los pasos a seguir en
+  una sesión típica son:
+
+  1. Escribir el texto ``código fuente'' en LaTeX con un editor de
+     textos ASCII (se recomienda usar Emacs).
+
+  2. Se ``compila'' el fichero escrito, escribiendo el comando latex
+     fichero.tex.
+
+  3. Se visualiza el resultado desde X-Window con el comando xdvi
+     fichero.dvi.
+
+  4. Se reedita el fichero para corregir o continuar el trabajo, y
+     finalmente se imprime con el comando dvips fichero.dvi, si se tiene
+     una impresora PostScript. Si no, pueden usarse otros programas como
+     dvi500 para imprimir sobre una HP DeskJet 500 o compatible.
+
+  Imaginamos que al lector le preocupará, más que lo anterior, cómo
+  escribir un fichero fuente en LaTeX. Nosotros no vamos a dar aquí una
+  descripción exhaustiva del sistema (para ello remitimos a los manuales
+  de LaTeX y al documento Una descripción de LaTeX escrito por Tomás
+  Bautista). La idea de LUCAS es traducir, por lo que vamos a dar a
+  continuación unas ideas sobre cómo entender un poco los ficheros
+  fuente LaTeX de los libros a traducir en Inglés para ayudar a producir
+  el equivalente en Castellano.
+
+  2.1.3.  Cómo se organiza un documento LaTeX.
+
+  Un documento LaTeX se organiza en uno o más ficheros, normalmente con
+  extensión .tex. Cada uno de esos ficheros contiene texto, que puede
+  escribirse con cualquier editor ASCII. Ese texto puede ser,
+  básicamente, de dos tipos: comandos LaTeX y el texto propiamente
+  dicho.
+
+  Los comandos LaTeX se preceden todos con una barra ``\fR''. Entre
+  estos comandos tenemos documentstyle, que inicia el documento para
+  establecer el ``estilo'' (conjunto de reglas presentes en librería
+  para elegir el tipo de documento, idioma, etc); newpage, que sirve
+  para provocar un salto de página; tableofcontents que provoca la
+  aparición ahí de un índice automático de contenidos, etc.
+
+  Cuando se traduzca un texto escrito con LaTeX, es preciso respetar
+  todos los comandos que aparezcan, limitándose a traducir el texto que
+  aparecería en el papel del libro. A continuación explicamos, para el
+  lector interesado, cómo se traducen los caracteres españoles a sus
+  códigos correspondientes en LaTeX. De todas formas, no es necesario
+  utilizarlos ya que existen filtros como recode de GNU capaces de
+  generar estos códigos.
+
+  ·  Acentos sobre vocales. Se introduce el comando ' y luego la vocal
+     entre llaves. Por ejemplo,
+             Esto es una traducci\'{o}n.
+
+  Como curiosidad, al atildar una ``i'' es necesario eliminar el punto
+  de la ``i''. Por ello, debería escribirse así:
+
+          Esto es una \'{\i} con tilde.
+
+  ·  Diéresis. Se usa el comando " delante de la vocal. Por ejemplo,
+
+             Ping\"uino
+
+  ·  Eñe. La emblemática letra de nuestro idioma se escribe con el
+     código ~{n}. Por ejemplo,
+
+             Espa\~{n}ol
+
+  ·  Interrogante y admiración. Nuestro signo de interrogación ``¿'' se
+     escribe con el carácter ? seguido de una tilde grave. El de
+     admiración es similar, pero usando el signo ! en lugar de ?.  Por
+     ejemplo,
+
+             ?`Lo hab\'{e}is entendido?
+
+  ·  Ordinales. Este es el más complicado. Precisa definir un comando
+     nuevo en LaTeX, y luego referirse a ese comando. Para definir el
+     comando nuevo puede ponerse:
+
+             \newcommand\mord{{\raise1ex\hbox{\underbar{\scriptsize o}}}}
+             \newcommand\ford{\raise1ex\hbox{\underbar{\scriptsize a}}}
+
+  Luego, podemos usarlo con los comandos mord para el ordinal masculino,
+  y ford para el femenino, por ejemplo:
+
+          1\mord.- Leer este documento
+          2\mord.- Apuntarse a LuCAS
+          3\mord.- Traducir
+
+  2.1.4.  Algunos comentarios adicionales
+
+  Si va a colaborar con la traducción de algún manual de Linux, debe
+  saber que sus fuentes en LaTeX se encontrarán organizadas en varios
+  ficheros, con lo que en el momento de comenzar se le asignarán
+  ficheros a traducir, no secciones. Cuando lo haga, le rogamos
+  empaquete los ficheros traducidos usando una jerarquía de directorios
+  similar a la original. Por ejemplo, si le correspondiese traducir los
+  ficheros siguientes:
+
+  ·  Directorio primer/, ficheros uno.tex, dos.tex.
+
+  ·  Directorio segundo/, ficheros tres.tex, cuatro.tex
+
+  Los ficheros que nos entregue deberán ir empaquetados de manera que al
+  descomprimirlos se creen automáticamente esos directorios y se metan
+  los ficheros en su directorio correspondiente. Evidentemente,
+  preferimos que como empaquetador use el TAR, de modo que al poner,
+  para el ejemplo anterior, tar tvf ejemplo.tar saldría lo siguiente por
+  pantalla:
+
+  $ tar tvf prueba.tar
+
+  drwxr-xr-x usuario/users      0 Apr 14 12:44 1996 primer/
+  -rw-r--r-- usuario/users      0 Apr 14 12:44 1996 primer/uno.tex
+  -rw-r--r-- usuario/users      0 Apr 14 12:44 1996 primer/dos.tex
+  drwxr-xr-x usuario/users      0 Apr 14 12:44 1996 segundo/
+  -rw-r--r-- usuario/users      0 Apr 14 12:44 1996 segundo/tres.tex
+  -rw-r--r-- usuario/users      0 Apr 14 12:44 1996 segundo/cuatro.tex
+
+  Finalmente, decir al futuro colaborador de LuCAS que no es
+  estrictamente necesario instalar LaTeX en su sistema para participar:
+  basta con tener un editor ASCII y entender los puntos anteriores sobre
+  cómo es un texto LaTeX, con el fin de poder traducir los ficheros
+  aunque nunca llegue a procesarlos. De eso ya nos encargaríamos
+  nosotros. Tampoco es necesario generar los códigos especiales para los
+  acentos: si lo desea, limítese a acentuar o poner diéresis donde
+  corresponda, indicándonos en un mensaje asociado a los ficheros si ha
+  optado por esta solución y qué tabla de códigos ha usado en su caso
+  (las tablas ISO, que son las que usa Linux o Windows, o las IBM-PC,
+  que aparecen por defecto en MS-DOS).
+
+  3.  Los HOWTO
+
+  Los HOWTO son unos documentos más breves que los manuales, centrados
+  en algún asunto determinado (como puede ser la instalación de un
+  determinado tipo de hardware en Linux). Son extremadamente útiles
+  (como ya debe haber comprobado el lector más de una vez) lo que ha
+  motivado la ``formalización'' de su estructura frente a la
+  ``anarquía'' de los primeros documentos.
+
+  La herramienta que debe usarse hoy en día para su composición es el
+  sistema linuxdoc, un sistema basado en el lenguaje SGML (Standard
+  Generalized Markup Language), del que ahora mismo existe ya una
+  versión, la 1.5, que soporta los caracteres españoles según las tablas
+  ISO 8859-1 (que son las que usa Linux, cualquier Unix e incluso
+  Windows, puesto que ahora mismo solo MS-DOS u OS/2 usan las clásicas
+  tablas del IBM-PC, que contrariamente a lo que se piensa no son, ni
+  mucho menos, un estándar de futuro).
+
+  3.1.  Instalación de linuxdoc-SGML
+
+  Se puede obtener linuxdoc-sgml-1.5.tar.gz de diversas fuentes,
+  destacando el servidor FTP del autor del sistema:
+  ftp://ftp.cc.gatech.edu/pub/people/gregh/linuxdoc-sgml/linuxdoc-
+  sgml-1.5.tar.gz.
+
+  Antes de instalarlo es recomendable tener ya en nuestro sistema
+  algunas herramientas, como groff, LaTeX y gawk.
+
+  A continuación se puede desempaquetar linuxdoc-sgml-1.5.tar.gz en
+  algún directorio de acceso público, y compilarlo siguiendo las
+  instrucciones del fichero INSTALL que contiene el paquete. Para ello,
+  será preciso tener instalado las herramientas de desarrollo en C (gcc
+  y demás).
+
+  3.2.  Pequeña introducción a SGML
+
+  Existe un HOWTO escrito, por supuesto, en SGML, que describe con
+  elevada claridad cómo se usa linuxdoc-SGML. Su autor es Matt Welsh y
+  desde hace poco se encuentra traducido por Francisco J. Montilla (ver
+  el final de este documento). Por lo tanto, aquí solo veremos algunas
+  guías de traducción de documentos en SGML.
+
+  Los comandos SGML son un superconjunto de los de HTML, el lenguaje más
+  utilizado para los documentos del World Wide Web, por lo que si conoce
+  este sencillo lenguaje, pocas cosas nuevas tendrá que aprender.
+
+  Los comandos van todos encerrados entre </ y >. Algunos usuales son
+  </p>, para cambiar de párrafo, </sect> para hacer una nueva sección,
+  </sect1> para abrir una subsección, etc.
+
+  El procesamiento de un documento .sgml se hace con los comandos:
+
+      % sgml2txt -l fichero.sgml           (producir texto ASCII)
+      % sgml2latex -l fichero.sgml         (producir fuente LaTeX)
+      % sgml2html -l fichero.sgml          (producir ficheros HTML)
+
+  Para procesar los ficheros .tex, recomendamos hacer un enlace
+  simbólico desde el directorio /usr/lib/linuxdoc-sgml-lib/ a
+  /usr/lib/texmf/tex/latex/linuxdoc-sgml para no tener problemas.
+
+  Hay otros formatos, pero creemos que los tres anteriores serán los más
+  usuales. Insistimos en remitirle a la excelente traducción de
+  Francisco J. Montilla para saber más.
+
+  4.  Estilo recomendado de escritura
+
+  En esta sección pretendemos aconsejar algunos estilos a seguir. La
+  idea es que, como los manuales se suelen repartir entre distintos
+  participantes del Proyecto, es recomendable que todos escriban más o
+  menos de la misma manera.
+
+  Evidentemente, es imposible lograr lo anterior. Pero sí pueden
+  seguirse las siguientes reglas:
+
+  1. Anglicismos informáticos. Aquellos que tengan traducción más o
+     menos conocida deben traducirse. No así aquellos que no la tienen o
+     no es aceptada. Veamos algunos ejemplos:
+
+  ·  Kernel, floppy, driver...: Pueden ser traducidos perfectamente. Los
+     anteriores son, respectivamente, núcleo, disquetera y manejador (o
+     manejador de dispositivos).
+
+  ·  Hardware, software...: Nunca pueden ser traducidos. Poco
+     clarificador iba a ser hablar de chatarra en lugar de hardware.
+  ·  Hay palabras que frecuentemente se manejan mal traducidas. Por
+     ejemplo, se han inventado verbos como bajarse (por download), o
+     tosear (por toss). Recomendamos encarecidamente que se busque una
+     traducción adecuada al contexto. Por ejemplo, en lugar de ``puede
+     usted bajarse el programa de tal sitio de FTP'' ponga ``puede usted
+     obtener el programa de tal servidor de FTP''.
+
+  2. Tratamiento al lector. Hemos decidido que sea de ``usted'', en
+     lugar de ``tú''. Esto es un problema que no tienen los
+     angloparlantes, pero tampoco nos vamos a quejar ahora de la riqueza
+     de nuestro idioma castellano.
+
+  5.  Referencias
+
+  1. Una descripción de LaTeX, por Tomás Bautista. Se encuentra
+     disponible en ftp://ftp.cma.ulpgc.es/pub/text-
+     processing/latex2e/doc/ldesc2e/.
+
+  2. Guía de usuario de Linuxdoc-SGML, traducida por Francisco J.
+     Montilla.  Disponible en el WWW del proyecto LuCAS.
+
+  3. Recordamos que (casi) todo el software de Linux se encuentra
+     disponible en http://sunsite.unc.edu/pub/Linux, incluida por
+     supuesto la versión completa de LaTeX para Linux.
+
+  4. Recordamos también el servidor oficial de Linuxdoc-SGML:
+     ftp://ftp.cc.gatech.edu/pub/people/gregh/linuxdoc-sgml/
+
+  5. Dónde conseguir los documentos traducidos:
+
+  ·  WWW: http://lucas.ctv.es
+
+  ·  FTP: ftp://slug.ctv.es/pub/LuCAS
+
+  ·  FTP: ftp://bipv02.bi.ehu.es/pub/linux/docs.
+
+  ·  FTP: ftp://luna.gui.uva.es/pub/docs-esp
+
+  6.  Agradecimientos
+
+  Las siguientes personas tienen mi gratitud, aunque directamente no
+  hayan intervenido en este documento:
+
+  ·  Ramón Gutiérrez Camus (INF.SCDII46@cosme.renfe.es) (2:344/14.21).
+     Modera el área R34.LINUX donde hablamos de todo estos asuntos, y se
+     ocupa del montaje de los ficheros LaTeX que le enviamos los
+     traductores.
+
+  ·  Alfonso Belloso Martínez (alfon@iies.es) (2:344/17.2). Coordinó la
+     traducción del manual LIPP, traduciendo además buena parte del
+     libro.
+
+  ·  Francisco J. Montilla (pacopepe@nova.es) (2:345/402.22). Creó el
+     grupo INSFLUG en FidoNet y propuso la idea de traducir los HOWTO.
+     Actualmente somos muchos los que trabajamos en ello.
+
+  ·  Ismael Olea González (olea@alboran.ualm.es) (2:345/108.9). Uno de
+     los más activos en el uso de SGML, Linux y demás. Con él supe la
+     existencia de SGML, el soporte de los acentos ISO, etc...
+
+  Además, tengo que agradecer las facilidades que me ha puesto
+  InforEspaña durante un tiempo, y CTV/Slug actualmente
+  (http://lucas.ctv.es/), a la hora de gestionar allí la lista de correo
+  así como los servicios FTP y WWW.
+
+  Por último, debo agradecer los muchos mensajes de ánimo recibidos por
+  hispanohablantes de todo el mundo. Es esto, precisamente, y no otra
+  cosa, lo que nos anima a seguir adelante con nuestros proyectos.
+
+  7.  Contacto
+
+  Si desea participar en el proyecto LuCAS (traduciendo o repasando
+  documentación traducida: esto último nos hace bastante falta) puede
+  escribir a cualquiera de nosotros:
+
+  ·  Juan José Amor, jjamor@ls.fi.upm.es
+
+  ·  Alfonso Belloso, alfon@iies.es
+
+  Si desea traducir o repasar HOWTO, puede también contactar con
+  nosotros, aunque lo más indicado será que lo haga con el responsable
+  de INSFLUG:
+
+  ·  Francisco J. Montilla, pacopepe@iname.com
+
+  Además, le recomendaremos que se apunte a la lista de correo LuCAS.
+  Puede hacerlo enviando un mensaje a lucas-request@slug.ctv.es con las
+  palabras "subscribe" en el asunto del mensaje.  Para enviar un mensaje
+  al grupo, hágalo a la siguiente dirección: lucas@slug.ctv.es
+
+  INSFLUG también mantiene una lista de correo. Si desea suscribirse,
+  hágalo enviando un mensaje con contenido: "subscribe insflug" a la
+  dirección majordomo@nova.es.  Los mensajes a dicha lista deberán
+  dirigirse a insflug@nova.es
+

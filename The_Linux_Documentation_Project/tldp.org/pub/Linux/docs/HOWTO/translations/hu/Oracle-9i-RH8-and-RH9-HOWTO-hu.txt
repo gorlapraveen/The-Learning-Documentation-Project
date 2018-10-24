@@ -1,0 +1,1095 @@
+
+ Oracle 9i egyszerû telepítése RedHat Linux 8.x és 9.x operációs rendszerekre
+                                    HOGYAN
+
+Evgueni Tzvetanov
+
+   v1.1, 2003 június 23.
+     _________________________________________________________________
+
+   A dokumentum az Oracle 9i Standard Edition adatbázis kezelõ
+   telepítését írja le RedHat 8.x és 9.x operációs rendszerekre.
+     _________________________________________________________________
+
+1. Bevezetés
+
+   Feltételezem, hogy az olvasónak van ismerete a Linux
+   fájlrendszerekrõl, parancsokról, eszközökrõl, shell-ekrõl és shell
+   szkript programozásról.
+
+1.1 Áttekintés
+
+   A dokumentum egy egyszerûsített Oracle 9i adatbáziskezelõ telepítési
+   folyamatát mutatja be RedHat 8.x és 9.x operációs rendszereken. Mivel
+   csak telepítési segítség, a folyamat követése során figyelemebe kell
+   venni az adott Linux operációs rendszer és az Oracle disztribúciójának
+   verzióját, valamint a PC paramétereit is.
+
+   Az telepítés leírása csak Linux rendszerekre vonatkozik, Unix
+   rendszerekre nem terjed ki. Más operációs rendszerhez az Oracle
+   Installation Guide (Oracle telepítési kézikönyv) használatát
+   javasoljuk.
+
+   Nem vagyok sem adatbázis-adminisztrátor (DBA; Database Administrator),
+   sem nagy tudású Oracle adminisztrátor, ezért ne kérdezzetek tõlem
+   ezzel kapcsolatban. Ezt a feladatot meghagyom a tapasztalt
+   adatbázis-adminisztrátoroknak :)
+
+1.2 Szerzõi jog
+
+   This document is Copyright 2003 by Evgueni Tzvetanov (Speedy). A
+   dokumentum másolása, terjesztése és/vagy módosítása engedélyezett a
+   Free Software Foundation (Szabad Szoftver Alapítvány) által közzétett
+   GNU Free Documentation License 1.2, vagy annak késõbbi változatában
+   leírt feltételek szerint; állandó fejezetek, elõoldali és hátoldali
+   szövegek nélkül.
+
+   Licenc teljes szövege megtalálható a [1]GNU Free Documentation License
+   honlapon.
+
+1.3 A felelõsség teljes elhárítása
+
+   A dokumentumban található információkat saját felelõsségre
+   használjuk. A dokumentum tartalmára vonatkozóan semmilyen
+   felelõsséget nem vállalok. A dokumentumban lévõ elképzelések, példák
+   és/vagy minden más tartalmat teljes mértékben a saját felelõsségünkre
+   használjuk.
+
+   Minden szerzõi jog a tulajdonosoké, hacsak arról konkrétan másképpen
+   nem rendelkeznek. Ebben a dokumentumban szereplõ kifejezések
+   használata semmi estere sem lehetnek hatással termék védjegyre vagy
+   szolgáltatói védjegyre.
+
+   Bizonyos termékek vagy védjegyek megnevezése jóváhagyásként
+   (hozzájárulásként) nem tekinthetõek.
+
+   Különösen ajánljuk, hogy elsõ telepítés elõtt és megszokott
+   idõközönként is biztonsági mentéseket készítsünk.
+
+1.4 Készítõk
+
+   Ez a dokumentum különbözõ források (könyvek és honlapok)
+   tudásanyagának felhasználásával készült.
+
+     * Oracle 9i Installation Guide (Oracle 9i telepítési kézikönyv)
+     * Oracle 9i Database Administrator's Guide (Oracle 9i
+       adatbázis-adminisztrátorok kézikönyve)
+     * DBA's guide to databases on Linux (adatbázis-adminisztrátorok
+       kézikönyve Linuxhoz)
+     * Oracle 8i: A beginner's guide (Oracle 8i: Kezdõk kézikönyve)
+     * Oracle web site ( [2]Oracle web site) (az Oracle honlapja)
+
+   Ki szeretném fejezni õszinte köszönetem ezen mûvek készítõinek!
+
+   Azoknak az embereknek is köszönöm a segítséget, akik tippeket adtak,
+   és megoldások széles választékával bõvítették a doksit.
+
+     * Steve Schladel-nek, kollégának és egyben DBA-nak az UMDNJ-mél, aki
+       a RedHat 9.x telepítési folyamat leállásainak számos
+       kiküszöböléséhez adott útmutatást.
+     * Rene Bauer-nek, aki részletes magyarázatokat küldött a JRE verziók
+       eltéréseibõl adódó problémák megoldására a gcc 2.9.x vs. gcc 3.2
+       disztribúciók és a Legato Single Server Version telepítés
+       összefüggéseiben.
+
+   A példákban felsorolt tapasztalatok sok teszt és tapasztalás
+   eredményképpen bõvült ki. Próbáljunk ki mindent, amit csak akarunk;
+   ez a legfõbb kulcsa annak, hogy megtaláljuk a kívánt megoldást. Még
+   ha egy-két rendszeren károkat is okozunk, kreativitásunkat segíti és
+   saját hibáinkból tanulunk.
+
+   Megjegyzéseket vagy javaslatokat nyugodtan küldjenek az
+   [3]evgueni@email.com e-mail címre.
+
+1.5 Magyar fordítás
+
+   A magyar fordítást [4]Velancsics Anikó készítette (2004.03.22). A
+   lektorálást [5]Daczi László végezte el (2004.05.20). A dokumentum
+   legfrissebb változata megtalálható a [6]Magyar Linux Dokumentációs
+   Projekt honlapján.
+
+2. Elõkészületek
+
+2.1 Az Oracle 9i adatbázis kezelõ letöltése
+
+   Az Oracle 9i adatbázis kezelõ könnyen beszerezhetõ az [7]Oracle
+   webhelyérõl. Ott kattintsunk a Download (letöltés) hivatkozásra és
+   kövessük a disztribúciónk szerinti útmutatásokat. Néhány oldalt el
+   kell olvasnunk, mielõtt eljuthatunk a letöltés hivatkozáshoz. Ezek a
+   szerzõi jogokat, beleegyezõ nyilatkozatot tartalmazzák melyeket
+   figyelmesen olvassunk át. Többi csak statisztikai információ.
+   Amennyiben még nem vagyunk tagok, regisztráljuk magunkat az Oracle
+   webhelyen, hogy a szabadon letölthetõ anyagokhoz hozzáférhessünk.
+
+   A szerver alkalmazások 3 fájlban tölthetõk le, ezekhez hasonló
+   megnevezésekkel:
+     * lnx_920_disk1.cpio.gz
+     * lnx_920_disk2.cpio.gz
+     * lnx_920_disk3.cpio.gz
+
+   Más verziók nevükben eltérhetnek, de telepítés tekintetében hasonlóak.
+
+   Az Oracle telepítési útmutató kétféle telepítéshez használható - CD
+   vagy merevlemez telepítéshez. Én az elsõt használtam. A fájlok
+   letöltése és a CD-k elkészítése (lásd. a következõ részt) sok idõt
+   vesz igénybe, ezért legyünk türelemmel! Mindezen kívûl a telepítés
+   sok lemezterületet is igényel, a 3 fájl kb. 1.5 GB. Háromszor ennyi
+   területre lesz szükségünk, ha a lemezen akarjuk tartani az archív
+   fájlokat, a könyvtárakat és a CD képfájlokat (image), míg biztosan el
+   nem készülnek a hibátlan CD-k.
+
+   A következõ parancsokat adjuk ki a letöltött fájlok könyvtárában,
+   mindhárom letöltött fájlra vonatkozóan:
+
+     gunzip lnx_920_disk1.cpio.gz
+     cpio -idmv < lnx_920_disk1.cpio
+
+   Ezek a parancsok 3 könyvtárat készítenek Disk1, Disk2 Disk3 néven.
+
+2.2 A CD lemezek elkészítése
+
+   Mivel a Linux rendszeren történõ CD írást a CD-Writing-HOWTO (CD írás
+   HOGYAN) teljességgel tartalmazza, ezért az alábbiak csak az Oracle
+   adatbázis kezelõjéhez tartozó speciális lépéseket mutatják be.
+
+  A CD képfájlok elkészítése
+
+   Elsõ lépés, hogy az Oracle 3 CD-jérõl CD képfájlokat készítünk. A
+   következõ parancsokat a megfelelõ fájlnév és könyvtár nevének
+   megváltoztatásával mindhárom könyvtárra alkalmazzuk:
+
+     mkisofs -r -o ora9id1.iso Disk1/
+
+   Ez 3 ISO CD képfájlt készít el, melyek az telepítési folyamathoz
+   szükségesek. Lehet, hogy a parancs több figyelmeztetõ információt is
+   generál a szükséges névváltoztatásokat illetõen, de nem kell aggódni,
+   az képfájlok a helyes könyvtár-fastruktúra információkat fogják
+   tartalmazni. Ennek ellenõrzésére fel kell csatololni (mount) az
+   képfájlokat egy könyvtárba a loopback eszköz használatával (ehhez a
+   rendszermagnak támogatnia kell loopback eszközt), ahogyan az a
+   CD-Writing-HOWTO (CD írás HOGYAN) leírásában is megtalálható:
+
+     mount -t iso9660 -o ro,loop=/dev/loop0 cd_image mount_dir
+
+   ahol a cd_image az mkisofs parancs által készített CD képfájl.
+   felscatolás után könyvtárválásokkal ellenõrizhetõ a
+   könyvtárstruktúra helyessége. Ha minden rendben van, jöhet a
+   következõ lépés.
+
+  A CD lemezek írása
+
+   Az képfájlok CD lemezre írása akármilyen parancssorból indítható vagy
+   GUI programmal elkészíthetõk, amik ISO CD képfájlokat használnak CD
+   lemezek készítéséhez. Részletesebben errõl a CD-Writing-HOWTO (CD
+   írás HOGYAN)dokumentumban olvashatunk. A CD-k írását követõen
+   bizonyosodjunk meg arról, hogy azok pontosan ugyanazt a
+   könyvtárstruktúrát tartalmazzák mint a Disk1, Disk2, Disk3 könyvtárak.
+   Ehhez csatoljuk fel az új CD-ket és a megszokott módon járjuk be a
+   könyvtárstruktúrát. Az képfájlok bármilyen CD íróval bármilyen
+   operációs rendszeren CD-re írhatók, amennyiben támogatják az ISO
+   képfájlok használatát CD íráshoz.
+
+   Az mkisofs parancs készíthet üres könyvtárakat magában a CD képfájl
+   root (gyökér) könyvtárában. Ez semmilyen problémát nem okoz a
+   telepítés tartalmára nézve. Egyszerûen figyelmen kívül kell hagyni.
+
+3. Telepítés elõtti teendõk
+
+   A telepítés elõtt szükségünk lesz néhány lépés megtételére, melyek a
+   következõ témaköröket érintik:
+
+3.1 Rendszer követelmények
+
+  Hardver követelmények
+
+   Az Oracle 9i teljesítménye miatt egy jobb számítógépre lesz
+   szükségünk. Az Installation Guide ajánlása szerint:
+
+Paraméter       Szükséges       Elegendõ (tesztelt)
+---------------------------------------------------
+CPU             PII vagy K6     K6/2 *(1)
+RAM             512 MB          256 MB
+HDD tárhely     3.5 GB          2.5 GB *(2)
+Swap tárhely    1GB vagy RAMx2  512 MB vagy több
+
+   (1)Nagyobb adatbázisokhoz Dual CPU ajánlott. Általánosan nagyobb
+   teherbírású CPU párok (Xeon vagy Athlon MP) vagy még a quad rendszerek
+   is jó választás(ok)nak számítanak.
+
+   (2)több adatbázis használata esetén RAID SCSI HDD vagy külön HDD
+   ajánlott az egyes adatbázisokhoz.
+
+  Szoftver követelmények
+
+   Oracle adatbázishoz szükséges minimális rendszermag és JRE szoftver:
+
+Paraméter            Szükséges       Elegendõ (tesztelt)
+--------------------------------------------------------
+Rendszermag-verzió   2.4.7           vagy újabb
+JRE                  1.1.8v3         1.1.8v3
+
+   Az Oracle 8i és ezt követõ verzióknál a telepítési folyamat java
+   alapú GUI alkalmazás, így fõ követelmény az X szerver és valamilyen
+   Window Manager megléte. Minimálisan a JRE 1.1.8v3 verzió ugyancsak
+   elengedhetetlen. A leírt Oracle telepítés JRE 1.1.8v3 verzió mellett
+   történt, és mivel más verzióval nem volt kipróbálva, más esetekben nem
+   garantált a helyes mûködése. Csak saját kockázatra teszeljük.
+
+   A szükséges követelmények Enterprise Server telepítés mellett
+   érvényesek. Standard Edition telepítéshez az elégséges értékek
+   megfelelnek. Bizonyos esetekben pedig még ezeknél alacsonyabb
+   paraméterek is lehetségesek.
+
+  A konkrét telepítési környezet
+
+   A bemutatott telepítés a következõ környezetet használja:
+
+CPU                     K6 III /400
+RAM                     512 MB
+HDD tárhely             2.3 GB
+Swap tárhely            512 MB
+CD ROM                  24x
+Rendszermag-verzió      2.4.18-24.8.0
+JRE                     1.1.8v3
+
+   Ez a környezet csak kis adatbázis teszteléséhez elegendõ. Ahogy azt
+   korábban említettük, nagyobb vagy igen nagy adatbázis használatához
+   nagyobb teljesítményû hardvert használjunk.
+
+3.2 Környezeti változók és profilok
+
+   Telepítés elõtt néhány környezeti változó értékét be kell állítanunk.
+   Ezeket a változókat beállíthatjuk konkrétan a sorok beírásával az
+   összes olyan .bash_profile fájlban, amelyek tulajdonosa az adatbázis
+   eléréséhez jogosult, vagy általánosabb megközelítésben - az
+   /etc/profile fájlban (akárcsak a bemutatott telepítésünkben):
+     _________________________________________________________________
+
+
+ORACLE_BASE=/u01/app/oracle
+ORACLE_HOME=/u01/app/oracle/product/9.2.0.1.0
+ORACLE_SID=ORTD
+
+PATH=$PATH:$ORACLE_HOME/bin
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib:$ORACLE_HOME/network/lib
+
+export PATH ORACLE_BASE ORACLE_HOME ORACLE_SID LD_LIBRARY_PATH
+     _________________________________________________________________
+
+   Az említettek teljes mértékben érvényesek mind a RedHat8.x és 9.x
+   operációs rendszerekre, bár úgy néz ki, hogy az Oracle egy másik
+   változatot tervez RedHat 9.-re. Ennek megfelelõen tartalmaznia és
+   exportálnia kell az elõzõeket. A következõ beállítás ahhoz
+   szükséges, hogy ne ragadjon az telepítés egy végtelen ciklusba:
+     _________________________________________________________________
+
+LD_ASSUME_KERNEL=2.4.1
+     _________________________________________________________________
+
+   Köszönet Steve Schladel kollégának és adatbázis-adminisztrátornak az
+   telepítés problémamentesítéséért.
+
+   Az ORACLE_SID változó beállítására az Oracle Test Database rövidítését
+   használtam. Ezt mindenki egy választott SID értékkel állíthatja be. Ez
+   lesz az alapértelmezett adatbázis név, valamint a teljes adatbázis név
+   része.
+
+   A változóról bõvebben a Oracle Administrator's Manual or Reference
+   (Oracle Adminisztrator Kézikönyben vagy Referenciában) olvashatunk.
+
+3.3 JRE
+
+   A JRE (Java Runtime Enviroment) letölthetõ a [8]Blackdown website -
+   Blackdown webhelyrõl. Válasszuk az 1.1.8v3 verziót, ha nem tudjuk
+   pontosan melyiket töltsük le, majd tömörítsük ki az /usr/local
+   könyvtárba. Ez egy könyvtárt fog létrehozni a JRE verziójának
+   megfelelõ elnevezéssel. Hozzuk létre a következõ hivatkozást (link)
+   az /usr/local könyvtárban:
+
+     ln -s jre118_v3 jre
+
+   JRE 1.1.8v3 disztribúció esetén. Ha újabb verziót használunk akkor a
+   parancsot annak megfelelõen változtassuk meg. Adjuk a PATH változóhoz
+   a JRE bin könyvtárát:
+
+     PATH=$PATH:/usr/local/jre/bin
+     export $PATH
+
+   illetve a szükséges útvonalakat egészítsük ki vele.
+
+3.4 Root felhasználóként végrehajtandó feladatok
+
+   A telepítés megkezdése elõtt a Linux környezetet és
+   könyvtársturktúrát elõ kell készítenünk. Néhány lépés részletes
+   leírása következik. Ne feledjük el, hogy ezek a Standard Edition
+   telepítéséhez szükséges minimális lépések. Ha valaki az Enterprise
+   változatot vagy további szolgáltatásokat kíván telepíteni, annak azt
+   ajánljuk, hogy az Oracle 9i Installation Guide (Oracle 9i telepítési
+   útmutató) leírást tanulmányozza át hozzá.
+
+   Root felhasználóként jelentkezzünk be, majd kövessük az alábbiakat.
+
+  A rendszermag beállítása
+
+   Amennyiben a következõ rész nem teljesen világos, a Linux IPC
+   programozói referenciában lehet a témának utánajárni.
+
+   A 2.2.1-es verzióktól kezdve a rendszermagot a /proc fájlrendszeren
+   kersztül dinamikusan lehet paraméterezni, nem kell azt újra fordítani.
+   A /proc fájlrendszer használata ezért a rendszer paraméterezéséhez
+   nagy rugalmasságot biztosít. A következõkben a rendszermag
+   átparaméterezéséhez szükséges, minden rendszerindításkor lefutó
+   szkriptek elkészítését mutatjuk be.
+
+   Lépjünk be a /proc/sys/kernel könyvtárba.
+
+   A rendszermagnak a telepítéshez szükséges beállításairól lesz szó a
+   következõkben.
+
+  Nézzük meg és állítsuk be a szemafor paramétereit
+
+   Az SEMMSL, SEMMNS, SEMOPM és SEMMNI szemaforok paramétereit a
+
+     cat sem
+
+   paranccsal tudjuk megnézni. Ehhez hasonló kimenetet kapunk:
+
+     250 32000 32 128
+
+   ami az említett szemaforok értékeit jelenti a fenti felsorolási
+   sorrendben. Állítsuk át a paramétereket a következõképpen:
+
+     echo 100 32000 100 100 > sem
+
+  Nézzük meg és állítsuk be az osztott memória (shared memory) paramétereit
+
+   Az SHMMAX, SHMMIN, SHMMNI, SHMSEG osztott memória paraméterek értékeit
+   a
+
+     cat shm_param
+
+   paranccsal tudjuk lekérdezni, ahol az shm_param az említett SHMMAX,
+   SHMMIN, SHMMNI, SHMSEG valamelyikét jelöli. A következõ beállításokat
+   végezzük el:
+
+     echo 2147483648 > shmmax
+     echo 4096 > shmmni
+     echo 2097152 > shmall
+
+   A fenti parancsokat az aktuális futási szinthez tartozó init
+   szkriptekbe helyezve minden rendszerindításkor lefuttathatjuk, hogy
+   meghatározzuk melyik Oracle adatbázist használjuk, de ne feledjük el
+   ezeket a paramétereket beállítani még az adatbázis indítása elõtt. A
+   futási szintekrõl és indító szkriptekrõl további információt
+   találhatunk a Linux Administrator's guide (Linux adminisztrációs
+   kézikönyv) leírásban.
+
+  Fájlkezelõk (File handles)
+
+   Állítsuk be a fájlkezelõket az alábbi parancsokkal:
+
+     echo 65536 > /proc/sys/fs/file-max
+     ulimit -n 65536
+
+  Socket-ek
+
+   Soket-ek beállítása:
+
+     echo 1024 65000 > /proc/sys/net/ipv4/ip_local_port_range
+
+  Folyamatok (process) korlátozása
+
+   Process limit beállítása:
+
+     ulimit -u 16384
+
+  Csoportok és hozzáférések
+
+   Ahogy minden Oracle adatbázis, a 9i tulajdonosához is tartozik egy
+   felhasználó, amit tradicionálisan oracle-nek neveznek el. A
+   csoportokkal szembeni elvárások kissé eltérnek a megszokottól; Kell
+   hogy legyen egy OSDBA group, ami alapértelmezetten a dba nevet viseli.
+   Szükség van továbbá egy másik group-ra is (általában oinstall névvel)
+   ami a szoftver telepítéseket felügyeli. Operátorok csoportjára is
+   szükség van (de ez tetszõleges), ami operátori hozzáférést biztosít a
+   felhasználók egy csoportjának. A csoportok létrehozásának menete:
+
+     groupadd dba
+     groupadd oinstall
+     groupadd oper
+
+   Miután elkészítettük a csoportokat, adjunk hozzáférést az Oracle
+   tulajdonosának:
+
+     useradd -c DBA -g oinstall -G dba oracle
+
+   ez létrehozza az oracle felhasználót, ami elsõdlegesen az oinstall,
+   másodsorban pedig a dba csoportba tartozik.
+
+   Az adatbázis felhasználóit a késõbbiekben az /etc/group fájlban kell
+   a dba csoporthoz adni.
+
+  Felcsatolási pontok (mount points) és hozzáférések
+
+   Az Oracle telepítéshez minimálisan 2 csatolás szükséges - egy a
+   szoftver és egy az adatbázis fájlokhoz. Abban az esetben ha OFA-t
+   (Optimal Flexible architecture) használunk, akkor 4 csatolásra lesz
+   szükség - egy a szoftverhez, három pedig az adatbázis fájlokhoz.
+
+   Oracle dokumentációs követelmény, hogy mindegyik csatolási pont külön
+   külön lemez legyen, de minimálisan ahogy azt mi is használjuk, a
+   csatolási helyeknek könyvtáraknak kell lenniük. Hagyományosan a
+   csatolások elnevezései /u01, /u02, /u03, stb. Ezeket a rendszeren
+   bárhol root alkönyvtárként kell felcsatolni. Én konkrétan kettõ
+   könyvtárba, /u01, /u02 könyvtárként a root könyvtár alá készítettem
+   csatolási pontot.
+
+   Ezekkel a parancsokkal elkészíthetjük a megfelelõ csatolási pontokat
+   (root felhasználóként).
+
+     mkdir /u01 /u02
+     chown oracle.dba /u01 /u02
+     chmod 755 /u01 /u02
+
+   Az utolsó két parancs az Oracle 9i telepítéséhez, az telepítés
+   könyvtár tulajdonjogait állítja be a telepítõ felhasználóhoz
+   (dba-hoz), de az telepítés után adminisztrátorként a legfelsõ
+   könyvtár a root tulajdonává tehetõ.
+
+  Fájl-létrehozási jogosultságok
+
+   Legtöbbször a umask 0022-re van állítva. Oracle adatbázis
+   telepítésénél ajánlott leellenõrizni, hogy ez a 0022 érték legyen
+   beállítva. Ez biztosítja, hogy az telepítés a megfelelõ
+   attribútumokkal jöjjön létre. Ellenõrizzük le a beállítást az
+
+     umask
+
+   paranccsal, majd állítsuk be a
+
+     umask 0022
+
+   paranccsal. Ha az umask alapértelmezett értéke nem a 0022, akkor azt
+   akár profile-ból is érdemes beállítanunk.
+
+3.5 oracle felhasználóként elvégzendõ beállítások
+
+   Telepítés elõtt lépjünk be oracle felhasználóként egy X terminálról,
+   és bizonyosodjunk meg a DISPLAY és PATH változók megfelelõ
+   beállításáról. A DISPLAY változónak tartalmaznia kell az X szerver
+   nevét, számát és screen számát, ahol az Oracle Univerzal Installer
+   futni fog. Ez utóbbira csak akkor van szükség ha távoli X servert-t
+   használunk. Helyi telepítés esetén az X szerver manager használatával
+   minden probléma nélkül futtathatjuk a telepítõt. Ha az telepítõ
+   futtatása során bármilyen problémába ütközünk a DISPLAY változó
+   kapcsán, hajtsuk végre a következõket:
+
+     xhost +localhost
+     export DISPLAY=localhost:0.0
+
+   Ez egy trükk.
+
+   Továbbá oracle felhasználóként adjuk ki az
+
+     env
+
+   parancsot, majd ellenõrizzük le az összes elõzõekben említett
+   változót. Ha úgy találjuk, hogy egy vagy több változónak nem
+   megfelelõek az értékei, javítsuk ki õket és a környezeti változókat
+   töltsük újra.
+
+4. Telepítés
+
+4.1 CD lemezek felcsatolása (az telepítés megkezdése elõtt ill. közben)
+
+   Általában RedHat Linuxon önmûködõen felcsatolódnak a CD-ROM
+   meghajtóba helyezett CD lemezek, de kézzel is felcsatolhatjuk õket,
+   röviden a következõképpen:
+
+   Indítsunk egy terminál ablakot és váltsunk superuser-re. Hagyjuk a
+   terminál ablakot nyitva a telepítés alatt. Szükség esetén majd kéznél
+   lesz.
+
+   Helyezzük az elsõ CD lemezt a CD-ROM meghajtóba. Ellenõrizzük le,
+   hogy a CD-k fel vannak-e csatolva valamelyik könyvtárba. Általában ez
+   az /mnt/cdrom szokott lenni, de ha úgy tetszik, változtassuk meg,
+   ahogy akarjuk. Futtassuk a következõket (feltéve persze, hogy a
+   csatolási könyvtárunk az /mnt/cdrom ):
+
+     mount /dev/cdrom /mnt/cdrom
+
+   ami felcsatolja a CD lemezt az /mnt/cdrom könyvtárba. Ez lesz a
+   telepítés könyvtára.
+
+   A telepítés folyamán, az Oracle Universal Installer kérni fogja, hogy
+   cseréljünk CD-t, ezért ha a CD lecsatolása nem történik automatikusan,
+   menjünk a root terminálunkhoz és végezzük el a következõket:
+
+     cd /mnt
+     eject
+
+   Ezzel lecsatoljuk a CD lemeztt és kinyitjuk a CD-ROM meghajtót. Ekkor
+   helyezzük be a következõ CD lemezt és csukjuk be a CD-ROM-ot.
+   Használjuk a mount parancsot újra, ha a felcsatolás nem automatikus,
+   majd váltsunk át a telepítési képernyõhöz, hogy folytassuk az
+   telepítést.
+
+4.2 A telepítõ futtatása
+
+   Miután felcsatoltuk az elsõ lemezt, indítsunk egy új terminált és
+   váltsunk át az /mnt/cdrom könyvtárba. Ez a telepítés csatolási pontja.
+   Innen futtassuk a következõt:
+
+     ./runInstaller &
+
+   Továbbiakban az ugyanebben a könyvtárban található index.html fájlt
+   böngészõben megnyithatjuk, és telepítésünkhöz használhatjuk.
+
+4.3 Telepítési képernyõk és lépések
+
+   Az Oracle Universal Installer 2.2-nek egyszerû, természetes felülete
+   van. A következõ telepítési rész átugorható, és saját belátás szerint
+   is eredményesen folytatható a telepítés. A képernyõk jó és logikus
+   sorrendben követik egymást.
+
+   Abban az esetben, ha ellenõrizni akarjuk, hogy hol tartunk, vessük
+   össze a folyamatunkat az alábbiakban leírt képernyõkkel és
+   lépésekkel.
+
+  Üdvözlõ képernyõ (Welcome Screen)
+
+   Itt határozhatjuk meg, hogy a terméket telepíteni vagy törölni
+   kívánjuk. Elsõ telepítésünk esetén a folytatáshoz kattintsuk a "Next"
+   gombra.
+
+   Egy új párbeszédablak (Inventory Location) fog megjelenni, ami az
+   átmeneti telepítéshez a késõbbiekben is használatos könyvtár
+   megjelölését kéri tõlünk. Válasszuk az OK gombot, ha rendben találunk
+   mindent, máskülönben írjuk be a kívánt, telepítéshez használandó
+   könyvtár nevét.
+
+  UNIX csopornév képernyõ (UNIX Group Name Screen)
+
+   Ez a képernyõ az Oracle Installation Group (Oracle telepítés csoport)
+   meghatározására szolgál, ami alapértelmezésben az oinstall. Ha meg
+   akarjuk változtatni a csoport nevét, vagy egy másik speciális
+   csoportot akarunk használni az telepítéshez, akkor most végezzük azt
+   el. Egyébként írjuk be az oinstall-t, és a "Next"-tel menjünk tovább.
+   A megjelenõ párbeszédablak azt mutatja, hogy a root felhasználóként
+   bejelentkezett terminálunkat kell használnunk (amit korábban
+   indítottunk). Váltsunk át a root terminálhoz, és a kövessük képernyõn
+   látható instrukciókat, ami az /tmp/ könyvtárban lévõ orainstRoot.sh
+   szkriptet futtatja.
+
+   Sikeres futtatás esetén a képernyõn a következõ látható:
+
+     Creating Oracle Inventory pointer file (/etc/oraInst.loc)
+     Changing groupname of /u01/app/oracle/oraInventory to oinstall.
+
+   Váltsunk vissza a párbeszédablakhoz, és kattintsunk a "Continue"
+   gomra.
+
+  Fájl elhelyezések képernyõ (File Locations Screen)
+
+   Ezen a képernyõn a telepítés forrás- és célkönyvtára látható.
+   Amennyiben a környezeti változók rendben vannak, nem kell
+   megváltoztatnunk semmit sem, de ha mégis változtatni akarunk rajta,
+   akkor körültekintõen és tudatosan tegyük azt. Kattintsunk a "Next"
+   gombra.
+
+   A képernyõ jobb felsõ részén látható folyamatjelzõ a hosszadalmas
+   lemezolvasási mûveleteket jelzi. Legyünk türelemmel.
+
+  Telepíthetõ programok képernyõ (Available Products Screen)
+
+   A képernyõ a telepíthetõ termékeket mutatja. Mivel mi csak az
+   adatbázis kezelõt akarjuk telepíteni, ez elsõ opció
+   (alapértelmezett) érdekes számunkra. Tulajdonképpen ez néhány, a
+   következõ részekben felsorolt termékeket tartalmazza. Kattintsunk a
+   "Next" gombra.
+
+  Telepítési típusok képernyõ (Installation Types Screen)
+
+   Mivel példánk a Standard Edition Installation-t mutatja be, ezért
+   válasszuk a Standard Installation-t. Választhatjuk az Enterprise-t is,
+   de a két folyamat innentõl eltérhet, és további opciók beállítására
+   is szükség lehet. Ennek eldöntése a telepítést végzõ személy
+   feladata.
+
+   Kattintsunk a "Next" gombra. Egy kis várakozás után folytassuk a
+   következõ lépéssel.
+
+  Adatbázis beállítási képernyõ (Database Configuration Screen)
+
+   Itt (operátorként) kiválasztható, hogy milyen céllal fog az adatbázis
+   mûködni, annak érdekében, hogy a telepítés a paramétereket ahhoz
+   igazíthassa. General Purpose-t válasszuk majd kattintsunk a "Next"
+   gombra. Ismét egy rövid várakozás következik.
+
+  Adatbázis azonosítás képernyõ (Database Identification Screen)
+
+   Az operátor itt beírhatja az adatbázis nevét. Egyértelmûen
+   értelmezhetõk a képernyõn a szövegrészek. Példánkban én következõt
+   írtam be:
+
+     ORTD.zeus
+
+   mivel az adatbázis szerverem host neve "zeus". Használjuk a saját
+   adatbázisunk host nevét, majd kattintsunk a "Next" gombra.
+
+  Adatbázis fájlok elhelyezése képernyõ (Database File Location Screen)
+
+   Ez a képernyõ arra szolgál, hogy meghatározzuk az adatbázis fájlok
+   fizikai elhelyezkedését. Ajánlott hogy az adat fájlok egy elkülönített
+   lemezen (könyvtárban) legyenek. Nálam például az alapértelmezett
+   értéktõl eltérõen az
+
+     /u02/oradata
+
+   könyvtárban vannak, az alapértelmezett helyett. Mikor végeztünk
+   kattintsunk a "Next" gombra.
+
+  Adatbázis karakterkészlet képernyõ (Database Character Set Screen)
+
+   Itt különbözõ karakterkészleteket állíthatunk be az adatbázisunkhoz.
+   Én meghagytam a "Use the Default Character Set" beállítást. Lépjünk a
+   "Next"-tel tovább.
+
+  Összefoglaló képernyõ (Summary Screen)
+
+   Ha ezt a képernyõ látjuk, akkor az OUI-val elkészült a telepítési
+   folyamat elõkészítése. Most át lehet nézi telepítési fát, és
+   láthatjuk miket választottunk. Megengedi, hogy visszamenjünk és
+   javítsuk, ha valahol nem értünk egyet a felsoroltakkal. Egyébként
+   pedig kattintsunk az "Install" gombra és a telepítési folyamat
+   elkezdõdik.
+
+  Telepítõ képernyõ (Install Screen)
+
+   Ez egy nagyon hosszadalmas és unalmas képernyõ, ami idõnként a CD
+   lemezek cseréjét kéri. Egy folyamatkijelzõt jelenít meg, és tételesen
+   összegzi az egyes részek százalékarányát a teljes folyamathoz képes.
+
+   A telepítési folyamat nagyon hosszú. Elõször a szoftverkomponensek
+   telepítése történik, majd minden hivatkozás (link) elkészül.
+
+   Valamivel töltsük el az idõt, és idõnként nézzünk a képernyõre,
+   hogy kell-e CD lemezt cserélnünk.
+
+   FONTOS! Az én esetemben (kétszer telepítettem) hibaüzenetet kaptam, az
+   összekapcsolási folyamat 79%-nál. A hibaüzenet párbeszédablaka a
+   következõt tartalmazta:
+
+     Error in invoking target install of makefile
+     /u01/app/oracle/product/9.2.0.1.0/ctx/lib/ins_ctx.mk
+
+   Mindkét telepítésnél figyelmen kívül hagytam, és semmi probléma nem
+   látszott az összeszerkesztési folyamatban.
+
+   A telepítés végén egy párbeszéd ablak bukkan elõ. Néhány terminál
+   parancsot kell végrehajtani a telepítési folyamat befejezése elõtt.
+   Alapvetõen van egy roor.sh nevû szkript az $ORACLE_HOME könyvtárban,
+   amit root felhasználóként kell futtatni a root terminálról. Maga a
+   folyamat idõt és sok HDD mûveletet igényel, legyünk türelemmel, és
+   ne aggódjunk miatta.
+
+  Beállítási eszközök képernyõ (Configuration Tools Screen)
+
+   Három task-ot próbál lefuttatni a konfigurációs eszközök képernyõ és
+   mindegyikrõl hibát jelez. A probléma megoldása a következõ. Az
+   $ORACLE_HOME könyvtárban van egy JRE nevû hivatkozás (link), ami az
+   Oracle JRE könyvtárra mutat. Töröljük ezt a hivatkozást, és készítsünk
+   egyet a saját JRE disztribúciónkhoz, amirõl az elõzõekben már
+   szóltunk. Végrehajtandó parancsok:
+
+     rm -f JRE
+     ln -s /usr/local/jre/ JRE
+
+   Miután végrehajtottuk a parancsokat, próbáljuk meg egyenként
+   kiválasztani a táblázat Tool Name (eszközök neve) oszlopából az egyes
+   tételeket, és kattintsunk a "Retry" gombra. Ha nem sikerül, akkor se
+   aggódjunk. Ezek opcionálisak a telepítés során, és késõbb is végre
+   lehet õket hajtani.
+
+  Hibaelhárítás
+
+   Amennyiben az utolsó (nem kötelezõ) mûveletek nem hajthatók végre,
+   legalább kettõjük megvalósítására, vannak speciális megoldási
+   javaslatok. Elõször is az Oracle dokumentációt érdemes kézbe venni,
+   és a telepítés hibaelhárításakor a sorok között böngészni. Ha a
+   feltételek rendben vannak, akkor komoly hiba nem lehet a mûveletben.
+   Ha mégis, akkor ellenõrizzük át az összes kezdeti feltételt, fájl és
+   könyvtár jogosultságokat és a tárhelyet.
+
+   Minden könnyen letörölhetõ és visszaállítható, csupán az Oracle
+   felcsatolási pontok könyvtárainak (/u01, /u02, stb.) tartalmát kell
+   leszedni, és az /etc könyvtárban lévõ oratab fájlt törölni. Azért,
+   hogy ne maradjon nyoma az Oracle-nek a rendszeren még egy
+   fájl-csoportot törölni kell. Ezek az /usr/local/bin könyvtárban
+   található oraenv, coraenv, dbhome nevû fájlok. Habár ott is
+   hagyhatjuk õket, és a legközelebbi telepítésnél a telepítõ majd
+   rákérdez, hogy maradjanak-e.
+
+   Nos, akkor a nem kötelezõ feladatok:
+
+  Hálózati beállítások (Net Configuration Assistant)
+
+   Ennek futtatásához menjünk a $ORACLE_HOME/bin könyvtárba, és onnan
+   futtassuk:
+
+     ./netca &
+
+   Ez az alkalmazás négy feladat közül egyet elindít. Ténylegesen a
+   listener az amit be kell állítani. A többi nem olyan fontos, de
+   próbáljuk meg azokat is beállítani. A listener beállítása elõtt
+   lehetséges, hogy már fut egy listener. Ellenõrizzük ezt a következõ
+   parancs végrehajtásával:
+
+     ps afx | grep LISTEN | grep -v grep
+
+   Amennyiben a következõ sorhoz hasonlót kapunk:
+
+     15922 ? S 0:00 /u01/app/oracle/product/9.2.0.1.0/bin/tnslsnr
+     LISTENER
+
+   már fut egy listener. Állítsuk le a következõ $ORACLE_HOME/bin
+   könyvtárban lévõ paranccsal:
+
+     ./lsnrctl stop
+
+   Lehetséges, hogy törölnünk kell a meglévõ listener-t és egy újat kell
+   készítenünk. Ez teljesen rajtunk múlik. Kövessük az alkalmazás
+   menetét. Amennyiben készítettünk egy új listenert, az egész folyamat
+   végén az új listener fog elindulni.
+
+  Adatbázis beállítás (Database Configuration Assistant)
+
+   Ennek futtatásához lépjünk be a $ORACLE_HOME/bin könyvtárba és
+   futtassuk:
+
+     ./dbca &
+
+   Ez az alkalmazás talán a legfontosabb a beállítások közül. Az
+   adatbázis létrehozását és beállítását segíti. Ha a telepítés során
+   vagy az elõzõekben említett alkalmazások újraindításával nem készült
+   még adatbázis, ennek futtatásával készíthetjük el azt.
+
+   Amíg az adatbázist nem használjuk, az törölhetõ és újra létrehozható.
+   Itt tehetjük ezt meg. Az alkalmazás összes funkcióit ez a dokumentum
+   nem tartalmazhatja, de mivel egy GUI alkalmazásról van szó, ezért
+   nagyon könnyû vele a feladatokat elvégezni.
+
+   Személy szerint itt szeretem elkészíteni az adatbázist, mert itt az
+   összes szükséges paraméter ellenõrizhetõ, kiváltképp a könyvtárak
+   ahová az adatfájlok készülnek (kerülnek). Válasszuk a "Typical"-t az
+   adatbázis paraméterezéséhez. A következõ képernyõn fastruktúra
+   segítségével állíthatjuk be az adatbázis fájlok helyét. {ORACLE_BASE}
+   helyett állítsunk be például az /u02 könyvtárat. Ez rakja az adatbázis
+   fájlokat használatra az /u02/oradata/SID könyvtárba. Mindez csak
+   példa, rajtunk múlik, hogyan döntünk az adatbázis könyvtárfájának
+   meghatározásáról.
+
+   Az adatbázis elkészítése végén be kell írni a SYS és SYSTEM
+   felhasználókhoz tartozó jelszavakat. Írjuk be (megerõsítéssel),
+   jegyezzük meg õket, és lépjünk ki (ezek az "OK"-t jelentik). Majd
+   futtassuk:
+
+     ps afx
+
+   és a képernyõn a következõ sorokhoz hasonlóknak kell megjelennie:
+     _________________________________________________________________
+
+
+PID     TTY      STAT   TIME COMMAND
+    1   ?        S      0:04 init
+    2   ?        SW     0:01 [keventd]
+
+..... Lots of other lines we are not interested in...
+
+11665   ?        S      0:00 ora_pmon_ORTD
+11667   ?        S      0:00 ora_dbw0_ORTD
+11671   ?        S      0:00 ora_lgwr_ORTD
+11673   ?        S      0:00 ora_ckpt_ORTD
+11675   ?        S      0:00 ora_smon_ORTD
+11677   ?        S      0:00 ora_reco_ORTD
+11679   ?        S      0:00 ora_cjq0_ORTD
+11681   ?        S      0:02 ora_qmn0_ORTD
+11683   ?        S      0:00 ora_s000_ORTD
+11685   ?        S      0:00 ora_d000_ORTD
+11812   pts/1    S      0:00 /u01/app/oracle/product/9.2.0.1.0/bin/tnslsnr LIST
+ENER -inherit
+     _________________________________________________________________
+
+   Ha megnézzük az ábrát, ez a futó adatbázisunkat mutatja. A fenti
+   példában szereplõ utolsó sor a listener (lehetséges, hogy máshol
+   található a képernyõn).
+
+   (Gratulálunk!) Sikeresen befejezõdött a telepítés!
+
+  Hibaelhárítás frissítések
+
+   A következõ Rene Bauer-tól származó frissítés. A következõ problémák
+   merülhettek fel:
+     * JRE verzió kompatibilitás
+     * Hiányzó adatbázis-beállító fájl
+     * Legato Single Server Version telepítési hiba
+
+   JRE kompatibilitási problémát egyedül Rene jelzett, de sok e-mail-t
+   kaptam ezzel kapcsolatban. A probléma abból származik, hogy a RedHat8
+   és 9 a gcc 3.2-es verzióval készült, míg némely régebbi JRE verziót
+   gcc 2.9.x verzióval fordítottak. A megoldás az, hogy a legutolsó JRE
+   verziót letöltjük. Ennek az frissítésnek az idejében ez a 1.4.1-es
+   verzió volt, és mivel a JRE nem futtatható, futtassuk le a következõ
+   parancsot, hogy elkészüljön a megfelelõ hivatkozás (link):
+
+     ln -s $JRE_DIR/bin/java $JRE_DIR/bin/jre
+
+   ahol a $JRE_BIN a jre könyvtárunkat jelöli.
+
+   A második frissítés az adatbázis létrehozása után hiányzó beállítási
+   fájlt érinti. Az init{ORACLE_SID}.ora fájlnak alapértelmezetten az
+   $ORACLE_HOME/db/ könyvtárban kellene létrejönnie.
+
+   Rene megoldása: A telepítõ egy spfile{ORACLE_SID}.ora nevû fájlt
+   készít, így egy hivatkozás készíthetõ ami pótolja a hiányzó fájlt.
+   Lépjünk az ORACLE_HOME/dbs/ könyvtárba, és hajtsuk végre a
+   következõt:
+
+     ln -s spfile{ORACLE_SID}.ora init{ORACLE_SID}.ora
+
+   Az én megoldásom: A telepítés közben létrejön egy init.ora nevû fájl.
+   Ezt egyszerûen lemásolom init{ORACLE_SID}.ora néven. Lépjünk be a
+   $ORACLE_HOME/dbs/ könyvtárba, majd futtassuk:
+
+     cp init.ora initORTD.ora
+
+   A harmadik probléma az Oracle telepítõ folyamat hibájára vonatkozik,
+   a Legato Single Server Version telepítésnél. Nekem nem volt ilyen
+   problémám, de itt van Rene verziója, amit megpróbálok lerövidíteni
+   amennyire lehet. A legutolsó root.sh fájl, ami az Oracle telepítés
+   kérésére futtatódott hibát okozott az LSSV telepítése alatt. Rene
+   szerint, a RedHat 8 és 9 ncurses5-tel készült, de alapértelmezetten az
+   ncurses4 kompatibilitás csomag nincs telepítve, így annak telepítése
+   után az LSSV probléma megszûnik.
+
+   Az említett hibák valószínûleg nem az utolsó megoldandó problémák,
+   ezért bátorítok minden megjegyzést és kiegészítést, amivel a
+   "Hibaelhárítás" fejezetet bõvíthetem. Minden, a dokumentum
+   tökéletesítését célzó visszajelzést köszönettel veszek.
+
+5. Telepítés utáni teendõk
+
+   Az Oracle Installation Guide egy hosszadalmas telepítés után
+   végrehajtandó folyamatot is leír. Néhány közülük elengedhetetlen,
+   néhányra pedig a telepített példányunk esetén talán soha nem is lesz
+   szükségünk, mindenesetre ez a dokumentum bõvebben nem tárgyalja.
+
+   Nézd meg az Installation Guide (Telepítési kézikönyv) leírást ezekhez
+   az eljárásokhoz. Ez a leírás a minimális telepítéshez nyújt
+   használható segítséget, ez elegendõ az alapvetõ mûveletek
+   végrehajtásához.
+
+5.1 Az oratab fájl szerkesztése
+
+   Különösen fontos lépés, hogy az adatbázis-parancssorból bármikor
+   elindítható és leállítható, rendszerindításkor automatikusan is
+   indítható. Lépjünk az /etc könyvtárba az oratab fájl szerkesztéséhez.
+   Az alábbi sor:
+
+     ORTD:/u01/app/oracle/product/9.2.0.1.0:N
+
+   utolsó értéket állítsuk "Y"-ra, azaz így:
+
+     ORTD:/u01/app/oracle/product/9.2.0.1.0:Y
+
+   Mentsünk és menjünk vissza az Oracle home könyvtárunkba.
+
+5.2 Rendszerindításkor adatbázist indító szkript
+
+   Általános elképzelés az, hogy az adatbázist a szerver rendszerindítás
+   idejében automatikusan indítsuk el. Ehhez szükséges egy szkript, ami a
+   futási szintû beállítások közé tehetõ. Az itteni megoldás csak
+   például szolgál, mindenkinek a saját gépén a saját futási szintû
+   beállításaihoz kell a beállítást megtennie.
+     _________________________________________________________________
+
+
+#!/bin/bash
+#
+# Run-level Startup script for the Oracle Instance and Listener
+#
+# chkconfig: 345 91 19
+# description: Startup/Shutdown Oracle listener and instance
+
+ORA_HOME="/u01/app/oracle/product/9.2.0.1.0"
+ORA_OWNR="oracle"
+
+# if the executables do not exist -- display error
+
+if [ ! -f $ORA_HOME/bin/dbstart -o ! -d $ORA_HOME ]
+then
+        echo "Oracle startup: cannot start"
+        exit 1
+fi
+
+# depending on parameter -- startup, shutdown, restart
+# of the instance and listener or usage display
+
+case "$1" in
+    start)
+        # Oracle listener and instance startup
+        echo -n "Starting Oracle: "
+        su - $ORA_OWNR -c "$ORA_HOME/bin/lsnrctl start"
+        su - $ORA_OWNR -c $ORA_HOME/bin/dbstart
+        touch /var/lock/subsys/oracle
+        echo "OK"
+        ;;
+    stop)
+        # Oracle listener and instance shutdown
+        echo -n "Shutdown Oracle: "
+        su - $ORA_OWNR -c "$ORA_HOME/bin/lsnrctl stop"
+        su - $ORA_OWNR -c $ORA_HOME/bin/dbshut
+        rm -f /var/lock/subsys/oracle
+        echo "OK"
+        ;;
+    reload|restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 start|stop|restart|reload"
+        exit 1
+esac
+exit 0
+     _________________________________________________________________
+
+   Ezt a fájlt egyszerûen kimásolhatjuk, beilleszthetjük rendszerünkbe
+   és beállításainknak megfelelõ változtatásokat végezhetünk raja.
+
+   Ha már másoljuk és szerkesszük a fájlt, tegyük azt az /etc/rc.d/init.d
+   könyvtárba, és állítsuk át a tulajdonjogait és attribútumait a
+   könyvtár többi fájljának értékeire..
+
+   Ehhez és a következõkhöz root felhasználóként kell bejelentkezzünk.
+
+   A fenti kód ötödik sorában olvasható a következõ:
+
+     # chkconfig: 345 91 19
+
+   Ezt a chkconfig parancs használja a futási szintekhez tartozó
+   szkriptek meghatározására. A 345 érték azokat a futási szinteket
+   sorolja fel, melyeken Oracle-t futtathatunk, ha például azt akarjuk,
+   hogy az Oracle csak a 3-a és 5-ös szinteken fusson, akkor írjuk át
+   35-re. A következõ 91-es érték az indítási sorszámot írja le. Ez
+   annyit jelent, hogy ha 100 induló folyamatunk van, akkor az Oracle a
+   91-dikként fog elindulni. A következõ érték a leállítási szám,
+   miszerint ha a rendszer leáll és például 100 folyamatnak kell
+   leállnia, akkor az Oracle a 19-dik lesz a sorban. Ezeket az értékeket
+   az Oracle indító és leállító folyamatainak a viszonylagos besorolására
+   szokták használni. Itt példaként szerepelnek a beállítások.
+   Megváltoztathatjuk õket, de sose feledkezzünk el arról, hogy az
+   Oracle nem példányosítható, néhány rendszerfolyamat korábban történõ
+   indítása nélkül.
+
+   Hajtsuk végre a következõ parancsot:
+
+     chkconfig -add oracle
+
+   Ezzel, a szkript elején felsorolt futási szintekhez tartozó
+   könyvtárakban lehet a megfelelõ hivatkozásokat létrehozni.
+
+   Az újonnan készített automatikus indítások teszteléséhez újra kell
+   indítanunk) a rendszert, azonban ne feledkezzünk meg arról, hogy az
+   automatikus indítás elõtt a rendszermag paramétereket is be kell
+   állítanunk. Egyébként a rendszermag beállításának a parancsa a fenti
+   szkript start részében is elhelyezhetõ.
+
+5.3 Telepítés tesztelése SQL*Plusz-szal
+
+   Amennyiben tipikus adatbázist telepítettünk, egy scott nevû
+   felhasználónak is kellett készülnie. Hozzátartozó jelszó a tiger.
+   Hajtsuk végre a következõt:
+
+     sqlplus scott/tiger
+
+   ami az SQL*Plus értelmezõjét futtatja és scott felhasználóként lép az
+   adatbázisba. A következõt kellene látnunk a képernyõnkön:
+     _________________________________________________________________
+
+
+SQL*Plus: Release 9.2.0.1.0 - Production on Fri Feb 21 10:55:45 2003
+
+Copyright (c) 1982, 2002, Oracle Corporation.  All rights reserved.
+
+Connected to:
+Oracle9i Release 9.2.0.1.0 - Production
+JServer Release 9.2.0.1.0 - Production
+
+SQL>quit
+Disconnected from Oracle9i Release 9.2.0.1.0 - Production
+JServer Release 9.2.0.1.0 - Production
+     _________________________________________________________________
+
+   Kilépés elõtt magunk is kipróbálhatunk néhány SQL parancsot, hogy
+   lássuk az adatbázis mintatábláit, vagy bármit amit akarunk. Innentõl
+   kezdve a mi elképzelésünké és céljainké a terep.
+
+6. Kliensek
+
+   Minden platformra van (futtatható) Oracle 9i adatbázis kliens
+   szoftver, úgyhogy a tervezett platformra a megfelelõ klienst
+   letölthetjük (már ami beszerezhetõ). Én szeretem a klienst szoftvert
+   feltenni mind a DB szerverre mind a MS Windows munkaállomásra. Ez
+   talán többplatformos ellenõrzési lehetõséget nyújt, illetve úgy
+   hiszem :)
+
+   Töltsük le és készítsük elõ a platformunkra megfelelõ klienst
+   tartalmazó CD lemezeket, amin majd használjuk a klienst. Nem
+   nélkülözhetetlen, de ajánlott hogy legyen klienst tartalmazó CD
+   lemezünk. Elképzelhetõ ugyan, hogy a telepítést elvégezhetjük a
+   merevlemezrõl ahová letöltöttük a klienst, azért én azt ajánlom, hogy
+   ne sajnáljuk az idõt a CD megírására, így mindig kéznél lesz. A
+   kliens is az Oracle Universal Istaller-t (Általános Oracle telepítõt)
+   használja, így elég egyszerû dolgunk lesz az elõzõek után.
+
+   Mikor elõször futtatjuk az Enterprise Management Console-t, az
+   végigvezet minket az adatbázis csatlakozás során. Adjuk meg az
+   adatbázisunk teljes nevét, a SID nevet, és próbáljunk SYS
+   felhasználóként SYSDBA jogosultságokkal bejelentkezni az adatbázisba.
+   Néhány helyen be kell írjuk az adatbázis-szerverünk IP címét, és
+   választanunk kell egy portot a kliens csatlakozáshoz. Én az
+   alapértelmezett értékeket hagytam meg (még a szerver hálózati
+   beállításoknál is).
+
+   Ha semmilyen hibaüzenetet nem kapunk, akkor kész. Megcsináltuk.
+
+   Élvezzük a szerverek és kliensek játékát!
+
+7. Utószó
+
+   Az Oracle 9i egy nagyon hasznos, összetett és mindenekelõtt nagyon
+   biztonságos alkalmazás. Ez a dokumentum elég felszínes megközelítést
+   ad csupán, és nem is akar átfogó útmutatóul szolgálni. Remélem, hogy a
+   kezdeti telepítés során némely dologban segítséget nyújt, de fontos,
+   hogy saját helyzetünket elemezve mindig a megbízhatóbb forrást
+   használjuk.
+
+   Néhány mûveletet SQL*Pusz-szal közvetlenül is elvégezhetünk. Ez
+   nagyobb rugalmasságot ad a szoftver beállításához, és a telepítés
+   elvégzéséhez is. Mindezt én gyakorlottabb kezekre bízom.
+
+   Sok dologról nem szóltam, ami magában az Oracle dokumentációban
+   megtalálható. Tanulmányozzuk át az eredeti forrást részletesen!
+
+   Sok szerencsét!
+
+References
+
+   1. http://www.gnu.org/copyleft/fdl.html
+   2. http://www.oracle.com/
+   3. mailto:evgueni@email.com
+   4. mailto:  velan[kukac]primposta[pont]hu
+   5. mailto: dacas[kukac]freemail[pont]hu
+   6. http://tldp.fsf.hu/
+   7. http://www.oracle.com/
+   8. http://www.blackdown.org/

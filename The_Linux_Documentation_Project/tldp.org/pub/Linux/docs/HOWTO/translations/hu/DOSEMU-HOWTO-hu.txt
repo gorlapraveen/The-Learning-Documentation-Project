@@ -1,0 +1,1385 @@
+  Dosemu HOGYAN
+  Mike Deisher Frissítette Uwe Bonnes dosemu0.64.4-ra aktu­
+  alizálva, 1997 március 15.  Frissítette David Hodges, david­
+  hodges@altavista.net Fordította Radics Géza és Radics László
+  valamint Nagy János
+
+
+  Ez a dokumentum leírja, hogyan tudsz Dos-os programokat futtatni Linux
+  alatt. Az ismert problémákra is választ kapsz.
+  ______________________________________________________________________
+
+  Tartalomjegyzék
+
+
+
+  1. Bevezetés
+     1.1 Tulajdonképp mi is az a DOSEMU ?
+     1.2 Milyen operációs rendszer alatt mûködik?
+     1.3 Milyen processzor kell a futtatásához?
+     1.4 És, ha Alpha/Sparc/Motorola/egyéb nem-Intel CPU-m van?
+     1.5 Szükséges MS-DOS a dosemuhoz?
+     1.6 Futtathatok Microsoft Windows programot dosemu segítségével?
+     1.7 És ha valami még a dosemuval és a Winemu-val sem fut?
+     1.8 Nevek és számok
+     1.9 A dosemu mely verzióját használjam ?
+     1.10 Melyik a legújabb verzió és honnan tudom beszerezni ?
+     1.11 Hol tehetem fel kérdéseim ?
+     1.12 Hová írjak, amennyiben hibát találtam ?
+     1.13 Milyen leírások vannak még a dosemuról ?
+     1.14 Van egy programom ami hibásan mûködik, még sincs felsorolva        az EMUfailure.txt-ben...
+     1.15 Hol kell jeleznem, ha kibõvítem ezt a HOGYAN-t ?
+     1.16 Greg üzenete ...
+
+  2. A dosemu fordítása és futtatása
+     2.1 Hol van a telepítési leírás ?
+     2.2 A tíz leggyakoribb probléma a dosemu fordítása közben.
+     2.3 Hogyan csinálhatok aout bináris fájlokat?
+     2.4 Hogyan fordítsam le, ha kevés a gépem memóriája?
+     2.5 Sikertelen fordítási néhány különös hiba miatt "slang"-gel kapcsolatban.
+     2.6 Milyen beállítási lehetõségeim vannak?
+     2.7 Szükséges a root-nak indítani a dosemut ?
+     2.8 Hogyan frissíthetem a dosemumat ?
+     2.9 A DOS milyen verziói léteznek dosemu alatt ?
+
+  3. Merevlemez beállításai
+     3.1 Hogyan használhatnám a saját merevlemezemet ?
+     3.2 Hogyan érhetem el a hdimage-t Linuxból?
+     3.3 Használhatom a "stacked/double-spaced/super-stored" lemezemet ?
+     3.4 Saját virtuális lemez készítése.
+
+  4. Párhuzamos, soros portok valamint az egérke
+     4.1 A portok elérése mûködött a régebbi kiadásban, de most már nem !
+     4.2 Portok elérése gyorsabb a régebbi kiadásban !
+     4.3 Hol a (microsoft kompatibilis) egér meghajtó?
+     4.4 Miért nem mûködik az egérmeghajtó programom?
+     4.5 Miért szemetel a dosemu a COM4-re?
+     4.6 Hogyan válthatok a dosemu a Linuxos héj között, (screen programmal)?
+     4.7 Hogyan kelthetem életre a párhuzamos portot?
+
+  5. Több felhasználós és a nem interaktív futtatás
+     5.1 Használhatom a dosemut egy több-felhasználós rendszeren ?
+     5.2 Hogy futathatok dos parancsokat nem interaktív módon ?
+
+  6. dosemu és a Netware
+     6.1 Hogyan érhetem el a Netware-t?
+
+  7. dosemu és az X-window(97/2/9).
+     7.1 Futtathatom a dosemut konzolos módban, ha fut az X?
+     7.2 Lehetséges egy X-window-os ablakban futtatni?
+     7.3 Xdos nem mûködik távoli X-display-en!
+     7.4 Xdos nem találja a VGA betûkészletet
+     7.5 A VGA betükészlet túl apró az én nagy felbontású képernyõmön
+     7.6 Dosemu sikertelen fordítása néhány X-re utaló ismeretlen hiba miatt!
+     7.7 Rendesen mûködik az ANSI emuláció?
+
+  8. dosemu és az MS-Windows 3.1
+     8.1 Megbirkózik az MS-Windows 3.1-gyel a dosemu?
+     8.2 Lehetséges 32bit-es rendszerszintû alkalmazás futtatása winemu-val
+     8.3 Hibaüzenet: Cannot find the vdtapi.386 file when starting dosemu
+     8.4 Windows 3.x és az xdos:
+     8.5 Telepíthetõ windows a dosemuból?
+     8.6 Egér versus win31-in-xdos:
+     8.7 Miért tûnik el az ikonom Program manager-ben?
+
+  9. Videó és a hang
+     9.1 Játszhatok "32-bites videós játékokkal" dosemuban ?
+     9.2 Kilépésnél kapok egy teljes képernyõs hibaüzenetet
+     9.3 Miért nem mûködik az ÉN hangkártyám dosemu alatt?
+
+  10. Játékok
+     10.1 Duke3d nem megy
+
+  11. Problémák és javítások
+     11.1 Biztonsági rések
+     11.2 dosemu modotta: "ERROR: general protection" és annyi...
+     11.3 Dosemu meghal rögtön indítás után. Van telepített Win9X-em.
+     11.4 A dosemu elszállt! Hogyan ölhetem meg?
+     11.5 Dosemu leállt és nem tudok beírni semmit.
+     11.6 Engedélyeztem az EMS memóriát a dosemu.conf-ban de nem segített.
+     11.7 Hogyan szabadulhatok meg a "disk change" üzenetektõl? (94/8/11)
+     11.8 A dosemu már nem indult el másodjára, miután konzolos módban léptem ki!
+     11.9 Miért mûködik terminál alatt és konzol alatt miért nem ?
+     11.10 Hogy tudom felturbózni a dosemut?
+     11.11 CDROM-om néhány fájlt nem tudott beolvasni dosemu alól.
+     11.12 Hogyan nézhetem meg a hibakeresõ kiírást (debugging output)?
+     11.13 MMiiéérrtt dduupplláázzóóddnnaakk mmeegg aa bbeeggééppeelltt bbeettüükk ????
+     11.14 Dosemu összeszemeteli a képernyõt?
+     11.15 MS FoxPro 2.6 nem fog futni ...
+
+  12. Dosemu tervhez való segedelem
+     12.1 Ki a felelõs a dosemuért?
+     12.2 SEGÍTENI AKAROK!!!
+
+
+  ______________________________________________________________________
+
+  1.  Bevezetés
+
+  1.1.  Tulajdonképp mi is az a DOSEMU ?
+
+  Idézve a manualból, "dosemu" egy egy-felhasználós program, ami
+  kihasználja a Linux kernel és a 80386 processzor tulajdonságait, hogy
+  futtasson egy MS-DOS/FreeDOS/DR-DOS környezetet, amit mi "DOS box"-nak
+  becézünk. Ez a DOS box ötvözi a hardver és a szoftver lehetõségeit:
+
+  o képes szimulálni az összes I/O és processzor utasításokat
+
+  o támogatja iAPX86 processzor család valós módja szerinti a "word"
+  méretét és címzési módjait, miközben teljesen védett módban fut
+
+  o képes elfogni a DOS és BIOS rendszerhívásokat és emulálni azokat,
+  ahogy az szükséges a helyes mûködéshez és a jó sebességhez
+
+  o képes olyan hardver környezetet szimulálni, amit már tudnak
+  használni a DOS-os programok
+
+  o képes ellátni DOS szolgáltatásait (service) a Linux szolgáltatásain
+  keresztül,például képes merevlemeznek szimulálni egy Linux könyvtárt.
+
+
+  1.2.  Milyen operációs rendszer alatt mûködik?
+
+  A dosemut elsõdlegesen Linuxra írták. De NetBSD és FreeBSD alatt is
+  lehetséges futtatni, habár a grafikai emuláció nem mûködik NetBSD-n.
+
+
+
+  1.3.  Milyen processzor kell a futtatásához?
+
+  Dosemu csak Intelkompatibilis 80x86 processzorral mûködik együtt, pl.:
+  80386, 80486, Pentium, AMD:) stb.
+
+
+  1.4.  És, ha Alpha/Sparc/Motorola/egyéb nem-Intel CPU-m van?
+
+  Dosemu CSAK Intelkompatibilis 80x86 processzorral mûködik, de léteznek
+  alternatívák: például Bochs (http://bochs.sourceforge.net) Ez egy
+  nyílt forráskódú PC emulátor, ami a legtöbb Unixos (és MS-Windows)
+  felületen fut, de vannak más utak is - nézd meg a comp.emulators.misc
+  FAQ-t: ftp://rtfm.mit.edu/pub/usenet-by-hierarchy/comp/emulators/misc/
+
+
+  1.5.  Szükséges MS-DOS a dosemuhoz?
+
+  Nem. Szükséged van valamelyik DOS verzióra, de nem feltétlenül azMS-
+  DOS-ra, nézd meg a 2.9 részt.
+
+
+  1.6.  Futtathatok Microsoft Windows programot dosemu segítségével?
+
+  Nem igazán. Jobban jársz, ha a Windows emulátor Wine-t használod
+  ((http://www.winehq.com). Ha csakazértis Windowst akarsz használni
+  dosemuval, nézd meg a 8. fejezetet - dosemu és az MS-Windows 3.1.
+
+
+  1.7.  És ha valami még a dosemuval és a Winemu-val sem fut?
+
+  Már csak a Pc-emulátor marad, lásd 1.4.
+
+  1.8.  Nevek és számok
+
+
+       (éé/hh/nn) éé=év hh=hónap nn=vajon?
+
+
+
+       winemu a WinOS/2 futtatását jelenti dosemu alatt.
+
+
+
+  1.9.  A dosemu mely verzióját használjam ?
+
+  A dosemut a kernelhez hasonlóan számozzák. Páratlan számúak a még nem
+  stabil fejlesztõi verziót takarják, míg a párosak a stabil
+  fejlesztések.  Éppen most jelent meg a 1.2 (tehát stabil) változat, a
+  fejlesztõi változatnak utána kell nézni! Lehetõleg stabil verziót
+  használj!
+
+
+  1.10.  Melyik a legújabb verzió és honnan tudom beszerezni ?
+
+  1.2-es a legújabb (2001-06-30), megtalálható az alábbi címen:
+
+       ftp://ftp.dosemu.org/pub/dosemu/
+
+
+  Ha a fejlesztõi verziót töltöd le, lehetõleg ne jelezz vissza hibákat.
+
+
+  1.11.  Hol tehetem fel kérdéseim ?
+
+  Ha valami nem menne - miután ezt a leírást átolvastad - elõször jár
+  utána, hátha egy fórumon már elõtted megkérdezték és meg is
+  válaszolták.  Pl: utánakereshetsz, ha konyítasz valamicskét az
+  angolhoz:
+
+       http://www.dejanews.com
+
+
+  A kereséssel általában gyorsabban találsz gyógyírt!  Kérdéseid a
+  http://linux.index.hu -n is vagy a magyar levelezõlistán is felteheted
+  (aminek az archívumában is kereshetsz!).
+
+
+  1.12.  Hová írjak, amennyiben hibát találtam ?
+
+  Ha hibát találsz a dosemuban valamint, ha beszélsz angolul, fel kell
+  iratkoznod a Linux-msdos levelezõ listára.  Küldj egy e-mailt a
+  majordomo@vger.rutgers.edu -ra és a levél törzsébe írd bele:
+
+        subscribe Linux-msdos your_username@your.email.address
+
+
+  Leiratkozásnál pedig:
+
+        unsubscribe Linux-msdos your_username@your.email.address
+
+
+  Ha már feliratkoztál erre a címre, küldheted a hibákat: linux-
+  msdos@vger.rutgers.edu Ez elküldi a Linux.dev.msdos news-groupra. De
+  mielõtt írnál, olvass el minden leírást beleértve a lista archívumát
+  is!
+
+
+  1.13.  Milyen leírások vannak még a dosemuról ?
+
+  Dosemuval kapsz leírást. A legfontosabb a README.txt és a README-
+  tech.txt ezek sokkal részletesebben és "naprakészebben" tárgyalják a
+  dosemut.
+
+  A "dosemu Novice's Altering Guide" vagy DANG inkább a belsõ mûködést
+  tárgyalja. Ez inkább haladóknak ajánlott, akik maguk akarják
+  módosítani a forráskódot, Alistair MacDonald írta és a dosemu doc
+  könyvtárában van.  Az EMU failure lista (EMUfailure.txt) itt azok a
+  programok vannak felsorolva, amik köztudottan nem mûködnek dosemuval.
+
+  És persze a dosemu GYIK/HOGYAN. Mindkettõt megtalálod a doc
+  könyvtárban.  A legújabbakat ugyancsak megtalálod a
+  http://www.dosemu.org
+
+
+  1.14.  Van egy programom ami hibásan mûködik, még sincs felsorolva
+  az EMUfailure.txt-ben...
+
+  Elõször ellenõrizd le, hogy a hibát nem egy ismert hibajelenség okozta
+  ami fel van sorolva az EMUfailure.txt-ben. Ha úgy gondolod, hogy ez
+  valami új Jelezd ezt a Linux-msdos@vger.rutgers.edu -n. Talán itt
+  néhányan segíthetnek. Adj leírást a beállításairól, a kernel és a
+  dosemu verziószámáról. Pl. az xdos-t használhatod, hogy kivágd a
+  hibaüzenetet.  De olvasható jelentést írj! Ismerjük a
+  ../etc/dosemu.conf fájl tartalmát.  Szóval csak az aktív sorokat írd
+  meg a dosemu.conf -ból.  Ha lehet, futtasd a dosemut debug
+  kapcsolókkal, nézd át a kimenetet és csak a szerinted fontos részeket
+  küld el belõle. De a többi részét is mentsd el arra az esetre, ha
+  valaki rákérdez a részletekre.
+
+
+
+  1.15.  Hol kell jeleznem, ha kibõvítem ezt a HOGYAN-t ?
+
+  A legjobb az lenne, ha a dosemuHOWTO-xx.x.sgml-t szerkeszted, készíts
+  egy diff fájl-t valahogy így:
+
+
+       diff -uw eredeti-fájl új-fájl
+
+
+  és küld el davidhodges@altavista.net. Ha nem tudod mi az a SGML ne is
+  törõdj vele, bármilyen változtatás vagy információ meghallgatásra
+  talál.
+
+
+  1.16.  Greg üzenete ...
+
+  Amíg máshogy nincs meghatározva, a Linux HOGYAN írások szerõi jogai az
+  íróit illeti. A Linux HOGYAN írások másolhatók és terjeszthetõk
+  részben vagy egészében bármilyen fizikális vagy elektronikus formában,
+  amíg ez a szerzõjogi írás is megmarad minden másolaton. Kereskedelmi
+  kiadás megengedett és támogatott; habár a szerzõk szeretnék, ha
+  tájékoztatnák õket minden ilyen kiadásnál.
+
+  Az összes fordításnak, kivonatnak, vagy összefoglalónak, egyesítésének
+  bármely Linux HOGYAN-nal, tartalmaznia kell ezt a szerzõjogi írást.
+  Ezért nem csinálhatod, hogy összeollózol egy részt a HOGYANból és
+  erõsebb feltételek mellet kibocsátod. Bizonyos esetekben
+  engedélyezhetõ ezeknek a szabályoknak elhagyása; Ha ilyesmiben töröd a
+  fejed, vedd fel a Linux HOGYAN koordinátorral a kapcsolatot a címét,
+  lejjebb megtalálod.
+
+  Röviden, szeretnénk terjeszteni ezeket az információkat amennyi
+  csatornán csak lehetséges, de meg kívánjuk õrizni a szerzõi jogot erre
+  a dokumentumra, és szeretnénk értesülni minden tervrõl a HOGYAN
+  kiadásaival kapcsolatban.
+
+  Amennyiben kérdésed lenne, keresd meg Greg Hankins, a Linux HOGYAN
+  koordinátort: gregh@cc.gatech.edu
+
+
+  2.  A dosemu fordítása és futtatása
+
+  2.1.  Hol van a telepítési leírás ?
+
+  A telepítési útmutatót a "QuickStart" fájlban találod.
+
+
+  2.2.  A tíz leggyakoribb probléma a dosemu fordítása közben.
+
+  Valószínûleg problémád lesz, ha:
+
+  1. Nem olvasod el a QuickStart útmutatót.
+
+  2. Ha régebbi dosemut próbálsz fordítani.
+
+  3. Ha régebbi kernelen próbálod fordítani, mint 2.0.28 vagy 2.1.15.
+
+  4. Ha rossz Linux kernel forráskódód van a /usr/src/Linux könyvtárban
+  vagy hiányzik a /usr/src/Linux/include/version.h
+
+  5. Olyan kernellel fordítod, amibe nincs belefordítva az IPC.
+
+  6. Ha 2.7.2 -nél régebbi gcc vagy 5.x.x. régebbi libc -vel fordítod.
+
+  7. Elfelejted átírni a /etc/dosemu.conf, /etc/dosemu.users és a
+  /var/lib/dosemu/global.conf fájlokat
+  8. Olyan partícióról akarod futtatni a dosemut, ami be van
+  "mount"-olva
+
+  9. Nem állítottad be a futtatási jogokat (így csak a root
+  futtathatja).
+
+  10. Úgy próbálod futtatni meg a DPMI-t használó programokat, hogy
+  nincs engedélyezve a DPMI opció /etc/dosemu.conf fájlban.
+
+
+  2.3.  Hogyan csinálhatok aout bináris fájlokat?
+
+  A 0.64.4 verziótól kezdve nincsen többé aout támogatás. Ha mégis
+  elengedhetetlen számodra, a 0.64.3.1 verziót kell használnod. A
+  konfiguráló szkriptnek kell gondoskodnia róla, ha az egy standard
+  setup.
+
+
+  2.4.  Hogyan fordítsam le, ha kevés a gépem memóriája?
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) jelezte (95/4/8) hogy ha
+  kifogysz a swap területbõl az után a sor után, ahol CFLAGS definiálva
+  van hozzá kell adni a CFLAGS+=-fno-inline bejegyzést, a dpmi/Makefile-
+  ban. Mielõtt ezt teszed, kétszer is ellenõrizd a lehetséges swap
+  területet, mert Linux eleshet, amikor kifogy a swapterületbõl.
+
+
+  2.5.  Sikertelen fordítási néhány különös hiba miatt "slang"-gel kapc­
+  solatban.
+
+  Valószínûleg
+
+       slangforce off
+
+
+  áll a compiletime-settings fájlban. Állítasd át "on"-ra és fordítsd
+  újra.
+
+
+  2.6.  Milyen beállítási lehetõségeim vannak?
+
+  A compiletime-settings.help fájl leírja azokat az opciókat, amiket
+  módosítani tudsz fordítási idõ alatt. A README.txt pedig azokat írja
+  le, amiket futás közben állíthatsz.
+
+
+  2.7.  Szükséges a root-nak indítani a dosemut ?
+
+  NEM. Elvileg a dosemu ejti a root privilégiummal rendelkezõket, ahol
+  csak tudja, ugyanis biztonságosabb nem rootként futtatni,
+  kifejezetten, ha DPMI programot használsz. A legtöbb DOS-os alkalmazás
+  nem igényli, hogy root futtassa. Fõleg, ha X alól indítod.  Így nem
+  kell megengedned a felhasználóknak, hogy root joggal indított dosemu
+  másolatot használjanak. Be tudod ezt állítani /etc/dosemu.users
+  fájlban személyre szabottan.
+
+  Ha a program megkívánja a közvetlen kapcsolatot a hardver portjaival
+  (például ha a program kapcsolatot tud létesíteni egy ritka hardverrel,
+  amit sem a Linux sem a dosemu nem támogat)akkor kénytelen vagy
+  rootként indítani, de sem nyomtatásnál, sem a soros portnál sem az
+  egérnél vagy a videokártyánál nincs szükséged erre, mivel ezeket
+  lekezeli a dosemu, így nem kell root jog ezek használatához.
+
+
+
+  2.8.  Hogyan frissíthetem a dosemumat ?
+
+  HA frissíted a dosemut, a következõ parancsokat kell kiadnod:
+
+       # make pristine # ./configure # make
+
+
+  Ha nem adod ki a "make pristine" parancsot, a legújabb lefordított
+  verzió rossz lesz.
+
+
+  2.9.  A DOS milyen verziói léteznek dosemu alatt ?
+
+  A DOS bármely verziója együttmûködik a dosemuval, némi megkötéssel:
+
+  FreeDOS-hoz (http://www.freedos.org) jelenleg még nem tudsz hozzáfûzni
+  Linuxos fájlrendszert és nem tudsz kapcsolódni Novell hálózatra; mivel
+  a FreeDos még csak béta állapotban - ezért kevésbé megbízható -.
+
+
+  DOS 4.01 magával is vannak problémái, így a dosemuval sem fog
+  tökéletesen mûködni.
+
+
+  A Ms-DOS 7-nél Win95-öt ne indítsad a grafikus felülettel indításkor
+  (boot).  Ha a (win95) installálás közben felajánlott biztonsági
+  lemezérõl (Rescue Disk) készítesz virtuális boot-lemezt, akkor nem
+  lesz a grafikus felülettel baj, amennyiben a Win95 lemezrõl hozod a
+  rendszerfájlokat az msdos.sys-be be kell írnod a [Options] rész alá az
+
+       [Options] Logo=0 BootGUI=0
+
+
+  sort.
+
+
+  3.  Merevlemez beállításai
+
+  3.1.  Hogyan használhatnám a saját merevlemezemet ?
+
+  Elõször is, "mount"-old be a dos-os partíciót Linux könyvtárként.
+  Például, hozz létre egy könyvtárat /dos néven (mkdir -m 755 /dos) És
+  csempészd be az alábbi sort az /etc/fstab fájlba:
+
+         /dev/hda1       /dos     msdos   umask=022
+
+
+  (ebben a példában, a partíció írásvédett lesz, ha írhatóvá akarod
+  tenni 022 cseréld ki 000 -ra, és a könyvtár létrehozásánál a -m 777
+  paramétert használd) add ki a: #mount /dos parancsot. Részlet a
+  README.txt-bõl :
+
+
+
+    Elég, ha bemásolod egy Linuxos könyvtárba,
+    pl.: /var/lib/dosemu/bootdir -ba a DOS C: meghajtóról a legfontosabb
+    fájlokat (IO.SYS, MSDOS.SYS, config.sys, autoexec.bat), majd a dosemu.conf
+    fájlban átírod a
+
+         $_hdimage = "bootdir"
+
+    bejegyzést. A dosemu csinál lredir-rel egy meghajtót, amirõl már tud
+    bootolni. Elõször szerkeszd át a config.sys és az autoexec.bat fájlokat,
+    mielõtt még elindítod a dosemut.
+    Továbblépve még rafináltabb módon is eljárhatsz. Ha azt akarod, hogy
+    ugyanarról a DOS-os lemezrõl bootoljon (amit a Linuxon kívül használsz),
+    csak be kell csatolnod (mount) a DOS partíciót (mondjuk a /dos alá) és
+    csinálni néhány linket bootdir könyvtárába. Így meghatározhatod hogy mely
+    fájlok/könyvtárak látszódjanak a dosemu alatt és, hogy melyek legyenek
+    különbözõek. Itt egy teljesség igénye nélkül készült lista:
+
+
+         config.sys
+         autoexec.bat
+         command.com -> /dos/command.com
+         io.sys -> /dos/io.sys
+         msdos.sys -> /dos/msdos.sys
+         dos -> /dos/dos
+         bc -> /dos/bc
+         windows -> /dos/windows
+
+
+  Ennyi, habár ennek is van egy hátránya, nem használhatod a DosC kernelt
+  (FreeDos) így, mert azzal egyelõre nem mûködik ez a könyvtár-hozzáfûzés
+  (redirector), talán majd a jövõben.
+
+
+
+  3.2.  Hogyan érhetem el a hdimage-t Linuxból?
+
+  Használd az mtools-t. Ezzel a sorral
+
+
+         drive n:  file="/var/lib/dosemu/hdimage" MTOOLS_SKIP_CHECK=1 \
+         MTOOLS_LOWER_CASE=1 MTOOLS_NO_VFAT=1 partition=1 offset=128
+
+
+  /etc/mtools.conf -ban; használhatod a mtools-t, így: "mdir n:". "mcopy
+  n:/config.emu /tmp" ezzel bemásolod a config.emu-t a /tmp könyvtárba.
+  Itt szerkesztheted, és aztán másold vissza. Nyugodtan használd a
+  szívedhez legközelebb álló meghajtó-jelet, az N: csak példa.
+
+
+  3.3.  Használhatom a "stacked/double-spaced/super-stored" lemezemet ?
+
+  Egyelõre, a tömörített lemezek még nem csatlakoztathatóak az általános
+  kernellel. Kell egy kernelfolt, amit "dmsdosfs"-nak hívnak. Megtalálod
+  a sunsite.unc.edu -n vagy egyéb tükrén, pl:
+
+       http://sunsite.unc.edu:/pub/Linux/system/filesystems/dosfs/
+
+
+  Még jobb, ha utánanézel a http://sun-site.unc.edu:/pub/Linux/Incoming
+  -en hátha van már újabb verzió. A "wholedisk" beállítás a régebbi
+  dosemuban még megengedett volt, mára már nem az, bár a
+
+         $_hdimage = "/dev/hda1"
+
+
+  mûködni fog, de így lehet, hogy egy dosemu összeomlásakor elvesztesz
+  minden adatot.
+
+  Ha a DOS-os partíciód már csatolva (mount) van - írási joggal - és
+  arról akarnád indítani ("boot"-olni) a dosemut, kapsz egy
+  hibaüzenetet, és az emu felfüggeszti a mûködését. Ez azért van így,
+  mert a DOS és a Linux is függetlenül szeret írni a lemezre, és így
+  teleszemetelnék a meghajtódat(95/8/11).
+
+  ---------------------
+
+  Ha insta1llálva van a LILO, ez nem fog menni. Bár kikerülhetõ a
+  probléma...
+
+  Thomas Mockridge (thomas@aztec.co.za) jelenti (94/8/5):
+
+  Stacker 4.0 esetén:
+
+  1. dd a MBR egy fájlba (vagy pl.: norton utility-val)
+
+  2. Indítsd el a DOS-t (ne az emuból), add ki a "fdisk /mbr"parancsot,
+  majd tedd aktívvá az fdisk segítségével
+
+  3. Mentsd ki az új MBR-t is egy fájlba.
+
+  4. Rakd vissza az eredeti MBR-t
+
+  5. És helyezd el a második MBR-t /var/lib/dosemu/partition.hda? néven
+  (? A te DOS partíciód száma)
+
+  6. Állítsd be a dosemu.conf -t
+
+       disk {partition "/dev/hda? ?"}
+
+
+  az újabb verzióban:
+
+       $_hdimage = "/dev/hda1"
+
+
+
+  7.Ennyi!
+
+  Holger Schemel (q99492@pbhrzx.uni-paderborn.de) jelenti (94/2/10): Ez
+  tökéletesen mûködik a dosemu MS-DOS 6.0-al telepített változatával.
+  Ha mégis probléma lenne, kézileg ki kell javítanod a DBLSPACE.INI
+  fájlban a meghajtó betûjelét a dosemuban lévõre.  Darren J Moffat
+  (moffatd@dcs.gla.ac.uk) jelenti (94/3/27): "...használj 6.2 ha be
+  tudod szerezni!! Csak legyen kéznél egy LILO boot-lemez mert a dos
+  kicseréli a MBR-t !"
+
+
+  3.4.  Saját virtuális lemez készítése.
+
+  A legegyszerûbb, ha a "mkdexe"-t használod (README.txt-ben pontos
+  leírás található errõl). A régimódibb (és legtöbben így csinálják):
+
+  A "mkfatimage16" programmal (azért olvasd el a manlapját) létrehoznak
+  egy 32megabájtos lemezt:
+
+      mkfatimage16 -k 32768 > hdimage
+
+
+
+  ez valószínûleg nagyobb annál, mint amire szükséged lesz. Ha mégis
+  nagyobbat szeretnél, fontold meg a disk redirector használatát. És
+  persze nem árt, ha leformattálod ezután.
+
+
+  4.  Párhuzamos, soros portok valamint az egérke
+
+  4.1.  A portok elérése mûködött a régebbi kiadásban, de most már nem !
+
+  Olvasd el a ../doc/README.txt  és a port-fejezetet a
+  ../etc/config.dist-ban
+
+
+  4.2.  Portok elérése gyorsabb a régebbi kiadásban !
+
+  Lehetõséged van a portok naplózására, így alapbeállítás szerint minden
+  port-elérés egy kivételt okoz a vm86-módon kívül. És ez idõbe kerül.
+  Ha nem akarod Naplózni a portokat, használd a "fast" kulcsot a
+  "appropriate port statement"-nél a dosemu.conf-ban.
+
+
+  4.3.  Hol a (microsoft kompatibilis) egér meghajtó?
+
+  Tom Kimball (tk@pssparc2.oc.com) jelenti (93/11/24): A legtöbb egérhez
+  nem kell semmiféle meghajtó, ugyanis a dosemu belsõ meghajtója kezelni
+  tudja. Azonban néhány egérnél külön (DOS-os) meghajtó szükséges, ha
+  szükséges innen beszerezheted:
+
+    oak.oakland.edu:/pub/msdos/mouse/mouse701.zip   (mscmouse)
+    oak.oakland.edu:/pub/msdos/mouse/gmous102.zip   (gmouse)
+
+
+
+  4.4.  Miért nem mûködik az egérmeghajtó programom?
+
+  Mark Rejhon (mdrejhon@magi.com) jelenti (95/4/7):
+
+  Ha elindítasz egy egérmeghajtó programot annak idõ kell a
+  behangolásához (általában 30-60mp), de ha már többet vársz, mint egy
+  perc, próbáld meg meghatározni -az egérmeghajtó parancssorában- azt a
+  COM portot amelyikre az egér rá van kötve.
+
+
+  4.5.  Miért szemetel a dosemu a COM4-re?
+
+  Rob Janssen (rob@pe1chl.ampr.org) jelenti (94/3/24):
+
+  jmorriso@bogomips.ee.ubc.ca szerint, "dosemu szemeteli a COM4-et
+  (0x2e8, IRQ 5). 0x2e8 nincs ilyen port{} a config-ban.  Le kell
+  futtatnom a setserial /dev/cua3 irq 5 miután kiléptem a dosemuból."
+
+  Ennek az oka a VGA BIOS. Amikor engedélyeztem az IO port figyelését,
+  úgy tûnt, hogy ez szennyezi.
+
+  Ez az "allowvideoportaccess on" tiltásával kijavítható. Amennyiben
+  továbbra is problémád lenne a képpel, próbálj nagyobb tartományt
+  engedélyezni az IO címeknek. (pl.: 40-43)
+
+
+  4.6.  Hogyan válthatok a dosemu a Linuxos héj között, (screen program­
+  mal)?
+
+  John Taylor (taylor@pollux.cs.uga.edu) jelenti (94/5/25):
+
+  Én Linux 1.1.13-at használok, és rá akarok mutatni, hogy milyen
+  nagyszerû tulajdonság ez, az (IMHO). 52-es verziótól futtathatom a
+  "screen" nevû programot. Amibõl a "dos -D-a" hívhatom meg a dosemut.
+  Mi is a nagyszerû (IMHO)-ban, a "screen-parancsok" (pl.: a CTRL-A
+  parancs) mûködnek! Ez azt jelenti, hogy válthatok a DOS és a UNIX héj
+  között. Ez lehetõvé teszi a dosemu futtatását a soros vonalon (serial
+  line), mert nagyon könnyû váltani.
+
+
+  4.7.  Hogyan kelthetem életre a párhuzamos portot?
+
+  A dosemu.conf -ban van egy sor a vége felé, nyomtatás átirányítása az
+  lpr-be vagy fájlba. De, ha közvetlen elérést akarsz a nyomtatóval,
+  tedd megjegyzésbe az elõbbi sort (#-jellel) és add hozzá a következõ
+  sorokat:
+
+       $_ports { device /dev/lp0 fast range 0x3bc 0x3bf  } # lpt0
+
+
+  a "monitor card" nyomtató porthoz, vagy
+
+       $_ports { device /dev/lp1 fast range 0x378 0x37f } # lpt1
+
+
+  vagy
+
+       $_ports { device /dev/lp2 fast range 0x278 0x27f } # lpt2
+
+
+  Hans Lermen (lermen@dosemu.org) írta:
+
+  Ezeket a sorokat nem lehet ilyen egyszerûen hozzátenni, így kell
+  kinéznie:
+
+  $_ports = "...." $_ports = $_ports, " device /dev/lp0 fast range 0x3bc 0x3bf"
+
+
+  (az üres helyek fontosak!)
+
+
+  5.  Több felhasználós és a nem interaktív futtatás
+
+  5.1.  Használhatom a dosemut egy több-felhasználós rendszeren ?
+
+  Igen, beállíthatod a dosemut, de olvasd el a README.txt-t.
+
+
+  5.2.  Hogy futathatok dos parancsokat nem interaktív módon ?
+
+  Több lehetõséged is van: 1.Dosemu standard bemenetét egy fájlba
+  irányítod.  2.Használd a "keystroke" beállítást, és a -I paramétert
+  (bõvebb leírás a README.txt-ben) hogy meghatározd az egyes
+  billentyûleütésekre mit is csináljon, ha begépelik a dosemuban.
+  3.használd a mkdexe programot, hogy létrehozz egy DEXE fájlt (ez egy
+  kisebb DOS virtuális lemez ami csak azt a programot tartalmazza amit
+  futtatni szeretnél) nézd meg a README.txt-t.
+
+  Itt van még néhány alternatíva:
+
+
+  Daniel T. Schwager (danny@dragon.s.bawue.de) jelenti (94/7/2):
+
+  Használhatsz különbözõ dosemu.conf fájlokat (és így különbözõ
+  bootolható merevlemzrõl/vagy virtuális lemezrõl indíthatod, így
+  használhatsz különbözõ autoexec.bat-okat is), ehhez így kell meghívnod
+  a dosemut:
+
+    $ dos -F my_quicken_q_exe_dosemu.conf
+
+  -------------------
+
+
+  Dietmar Braun (braun@math20.mathematik.uni-bielefeld.de) jelenti
+  (94/7/4): Ez nem nagy probléma, ha kihasználod a dosemu "redirector"
+  (csatolhatóság) tulajdonságát. Ez lehetõvé teszi hogy meghajtóként
+  csatold a Linux egyik könyvtárát és így elég változatos környezetet
+  hozhatsz létre.
+
+  Tehát itt van egy shell szkript, amit nevezz DOS-nak
+
+      mkdir /tmp/dos.$$
+      DOSTMP=/tmp/dos.$$; export DOSTMP
+
+
+  És egy kis trükkel "echo $* > $DOSTMP/startup.bat" valóban mûködik
+  (legyen ez most egy kis C program ami kicseréli a "/"-t "\"-re, a
+  sorok végzõdését átkonvertálja és hozzáad egy "^Z" -t a fájl végéhez),
+  hozd létre az indító fájlokat és a linkeket, ebbe a könyvtárba és
+  indítsd a dosemut.  Az autoexec.bat-ban a c: meghajtó tmp-könyvtárhoz
+  van átirányítva, amiben lehet link a $HOME és a $PWD-hez.
+
+  Így ha meg akarom nézni a fájlaim neveit (amik lerövidülnek 8.3
+  alakúvá) csak a DOS dir parancsát kell kiadnom. Összefoglalva van egy
+  többfelhasználós, többfeladatos DOS-om (hisz a dosemu független
+  session).  Természetesen csak azokhoz az erõforrásokhoz férek hozzá,
+  amikhez egyébként is hozzáférnék Linuxban. Egyszer ezt használtam ki,
+  hogy használhassam a DOS-os meghajtómat a nyomtatóhoz. Nálam a
+  printcap df történetesen DOS program. Még készíthetsz is egy DOS-os
+  programot nyomtató szûrõként is.
+
+
+  6.  dosemu és a Netware
+
+  6.1.  Hogyan érhetem el a Netware-t?
+
+  Ahogy mindig is, csatlakozhatsz a Linux fájlrendszerén keresztül.
+  Csatold a Netware lemezedet a Caldera's Netware utilities vagy Volker
+  Lendecke's free ncpfs utility segítségével.
+
+      ftp://ftp.gwdg.de:/pub/Linux/misc/ncpfs
+
+
+  Ha valódi IPX elérésre van szükséged, például ha a Novell
+  "syscon"-hoz, olvasd el a ../doc/NOVELL-HOWTO.txt-t.  FreeDOS-ból
+  jelenleg még nem tudsz kapcsolódni a Netware-hez.
+
+
+  7.  dosemu és az X-window(97/2/9).
+
+  7.1.  Futtathatom a dosemut konzolos módban, ha fut az X?
+
+  Ronald Schalk (R.Schalk@uci.kun.nl) jelenti (94/1/17):
+
+  Igen, nincs vele semmi probléma. Mivel ctrl-alt-(Fn) válthatsz át egy
+  virtuális konzolra (VC), és ott bármilyen Linux alkalmazást
+  futtathatsz így a dosemut is.
+
+
+  7.2.  Lehetséges egy X-window-os ablakban futtatni?
+
+  Ha feltelepítetted az X-et és sikeresen lefordítottad a dosemut és
+  tökéletesen mûködik az X-en kívül, lehetõséged van futtatni "xdos"
+  vagy "dos -X" -el elõugrik egy dosemu ablak az X-ben. Ha mégsem,
+  ellenõrizd le, hogy:
+
+    1. Dosemu X támogatással lett fordítva. Ez az alapbeállítás bár
+       lehetséges, hogy a compiletime-settings fájlban az "x off" beállítás
+       szerepelt, ha ez így lenne, javítsd ki "x on"-ra és add ki a "make
+       pristine; make; make install" parancsokat, ekkor belefordítja az X
+       támogatást, amennyiben az "X-libraries" a /usr/X11R6 -ba lett telepítve.
+
+    2. Állítsd be az X billentyû-térképedet. Xterm-ben, gépeld be a
+
+         xmodmap -e "keycode 22 = 0xff08"
+         xmodmap -e "keycode 107 = 0xffff"
+
+       ezzel rögzíted a backspace és a del billentyûket.
+
+    3. Állítsd be az X-függõ beállításokat a /etc/dosemu.conf fájlban.
+
+
+
+  Alternatív lehetõségként, használhatod a dosemut az színes xterm-en
+  belül is, de ez nem javallott, mert több szín is hibásan jelenik meg.
+  Ehhez nem szükséges lefordítani az X-támogatást. Mindazonáltal, ha
+  mégis így szeretnéd használni, így kell eljárnod:
+
+
+    1. telepítsd az ansi_xterm-et. Az ehhez szükséges csomag:
+       tsx-11.mit.edu:/pub/Linux/ALPHA/dosemu/Development/ansi-xterm-R6.tar.gz
+
+    2. Állítsd be az X billentyû-térképedet. Egy xterm-ben, gépeld be:
+
+         xmodmap -e "keycode 22 = 0xff08"
+         xmodmap -e "keycode 107 = 0xffff"
+
+       ezzel rögzíted a backspace és a del billentyûket.
+
+    3. Állítsd be a terminal-függõ (és nem az X-függõ) beállításokat a
+    /etc/dosemu.conf -ban
+
+
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) jelenti (95/3/31):
+
+  Én az xrdb használom az alábbi kódrészlettel:
+
+       dosxterm*Font:  vga dosxterm*geometry: 80x25 dosxterm*saveLines: 25
+
+
+  vagy álnevezem (alias) a "dosxterm"-et "term -fn vga -title dosxterm
+  -geometry 80x25 -sl 25"-é
+
+  Ha ezt a xrdb eljárást használod, már csak el kell indítanod "xterm
+  -name dosxterm".
+
+
+  7.3.  Xdos nem mûködik távoli X-display-en!
+
+  Jelenleg a dosemu a MIT osztott memória (MIT shared memory extensions)
+  rendszert használ, ezért csak helyi kijelzõn tud mûködni. Ha az xdos-t
+  akarod futtatni távoli kijelzõn, a "mitshm off"-fal (compiletime-
+  settings fájlban) fordítsd le a dosemut (97/2/9).
+
+
+  7.4.  Xdos nem találja a VGA betûkészletet
+
+  Ellenõrizd le, hogy a VGA fontok amiket feltelepítettél fel vannak-e
+  sorolva annak a könyvtárnak a font.dir-jében ahova feltelepítetted:
+
+         hertz:~> grep misc /usr/X11R6/lib/X11/XF86Config
+             FontPath    "/usr/X11R6/lib/X11/fonts/misc/"
+         hertz:~> grep vga /usr/X11R6/lib/X11/fonts/misc/fonts.dir
+         vga.pcf vga
+         vga11x19.pcf vga11x19
+         hertz:~> ls /usr/X11R6/lib/X11/fonts/misc/vga*
+         /usr/X11R6/lib/X11/fonts/misc/vga.pcf
+         /usr/X11R6/lib/X11/fonts/misc/vga11x19.bdf
+         /usr/X11R6/lib/X11/fonts/misc/vga11x19.pcf
+
+
+
+  Ha telepítettél néhány X-es betûkészletet, amikor elsõ alkalommal
+  telepíted a dosemut az X-támogatással, "mkfontdir" és a "xset fp
+  rehash" parancsokat ki kell adni. A dosemu figyelmeztetni fog
+  telepítés közben erre. Írj nekünk, ha valami nem mûködik nálad.
+  (97/2/13)
+
+
+  7.5.  A VGA betükészlet túl apró az én nagy felbontású képernyõmön
+
+  Nézz utána a vga11x19 készletnek.  (97/2/13)
+
+
+  7.6.  Dosemu sikertelen fordítása néhány X-re utaló ismeretlen hiba
+  miatt!
+
+  Feljebb már említettük, hogy alapbeállítás szerint a dosemu a MIT
+  rendszert (MIT shared  memory extensions) használja. XFree86 alatt ez
+  csak 3.1.2 verziótól támogatott. Ha régebbi verziót használsz,
+  kénytelen leszel frissíteni, vagy beállítani a dosemut, hogy ne ezt a
+  MIT-et használja (olvasd el az utolsó fejezetet (97/2/9).
+
+
+  7.7.  Rendesen mûködik az ANSI emuláció?
+
+  Marty Leisner (leisner@sdsp.mc.xerox.com) jelenti (95/3/31): Persze.
+  Én a nnansi.com használom X window alatt. Ekkor 25, 43 és 50 soros
+  módban is tökéletesen mûködik, habár 50 soros módot igencsak
+  körülményes kezelni 1024x768 felbontáson (Hacsak nem kisebb
+  betûkészletet használsz vagy nagyobb képernyõt).
+
+
+  8.  dosemu és az MS-Windows 3.1
+
+  8.1.  Megbirkózik az MS-Windows 3.1-gyel a dosemu?
+
+  Részlet a ../doc/README.Windows fájlból:
+
+
+    ***************************************************************
+    *       FIGYELEM!!! FIGYELEM!!! FIGYELEM!!! FIGYELEM!!!       *
+    *                                                             *
+    *  Vigyázz  Bátor  János!!!  Még nem ajánlott és ismert egy   *
+    *  rakás  hiba!  A  nagyobb  programok   majdnem   biztosan   *
+    *  nem mûködnek!!! LEGYÉL FELKÉSZÜLVE A RENDSZERLEÁLLÁSOKRA   *
+    *  AMIKOR EZT PROBÁLOD!!!                                     *
+    *                                                             *
+    *        VESZÉLY!!! VESZÉLY!!!  VESZÉLY!!! VESZÉLY!!!         *
+    ***************************************************************
+
+
+
+  Rendben, lehetséges a WINOS2 (ez a módosított verziója a Windows 3.1
+  -nek OS/2 felhasználok számára) indítása dosemu alatt. Köszönet érte
+  Lutz & Dong -nak!
+
+  Jóllehet, ekkor SZÜKSÉGES MIND A KÉT LICENSZ, a WINDOWS-3.1-é és a
+  OS/2-é !!!
+
+  De jó sok probléma ismert. Windows-t könnyebb összeomlasztani, mint
+  valaha, a nagyobbacska programok nem töltõdnek be, stb. Más szóval,
+  még nem alkalmas napi használatra. Több videokártyával is problémája
+  van (csak egy fehér képernyõt látsz, de azért nézd meg lentebb a
+  win31-in-xdos).  A "program groups" szeret eltûnni.   ...  tehát
+  alapvetõen elég gyötrelmes.
+
+  További részletekért olvasd el README.txt-t.
+
+
+  8.2.  Lehetséges 32bit-es rendszerszintû alkalmazás futtatása winemu-
+  val
+
+  Sajnos nem.  Mivel ezeket a 0-ás gyûrûben kellene futtatni, ami
+  kernelszintû lenne. Ezt pedig nem engedi a Linux .(97/04/27)
+
+
+  8.3.  Hibaüzenet: Cannot find the vdtapi.386 file when starting dosemu
+
+  A magyarázat feljebb van, winemu nem tudja kezelni a 32 bites
+  rendszerszintû alkalmazásokat. Az összes meghajtó, ami 386-tal
+  végzõdik 32 bites. Ahhoz, hogy futtatni tudjad a winemu-t, ki kell
+  törölnöd az összes .386 meghajtót a win.ini-ben.  (97/04/27)
+
+
+  8.4.  Windows 3.x és az xdos:
+
+  A 0.64.3 verziótól kezdõdõen a dosemu képes Windows-t futtatni xdos-
+  ban.  Persze, ez még nem teljesen javallott, és ha mindenképpen ki
+  akarod próbálni, biztonságosabb konzolon elindítani, mert ha ekkor
+  lefagy, nem blokkolja le a billentyûzetedet vagy fagyasztja le a
+  képernyõt!
+
+  Ötletek:
+
+  1. Szerezd be a Dosemu & Linux forráskódját.
+  2. Tömörítsd ki a dosemut.
+  3. Futtasd a "./configure" a dosemu beállításhoz (ekkor alapbeállítás szerint engedélyezett a vm86plus).
+  4. Pötyögd be a "make"-t a fordítás elkezdéséhez.
+  5. Szerezd meg a Trident SVGA meghajtóprogramot a Windows-hoz. A fájlok a tvgaw31a.zip-ben vannak és/vagy a tvgaw31b.zip-ben . Megszerezhetõ a garbo.uwasa.fi -n a /windows/drivers alatt.
+  6. Tömöríttesd ki a géppel a Trident meghajtóprogramot.
+  7. A Windows setup-ban, ezt telepítsd: Trident "800x600 256 color for 512K boards".
+  8. Így telepítheted az WINOS2-e.
+  9. Ilyen pont az eredetiben NINCS!!
+  10. Indítsd el az xdos-t.
+  11. Dosemuban, menj a windows könyvtárba és indítsd el a winemu-t.
+  12. Imádkozz.
+
+
+
+  8.5.  Telepíthetõ windows a dosemuból?
+
+  Nem hiszem, hogy képes lennél rá. Valami hasonlót fog kiírni, ha mégis
+  próbára teszed a szerencséd:
+
+       The XMS driver you have on your system is not compatible with Win­
+       dows...
+
+
+  Kénytelen-kelletlen, de Dos-ból kell telepíteni a windows-t. Aztán már
+  át tudod másolni a windows-t valahová a Linux fájlrendszerébe és
+  használd az lredir -t, hogy ugyanoda helyezd, mint ahova a DOS-ban
+  telepítetted, pl.:
+
+  Tegyük fel, hogy itt van a windowsod: "d:\windows". És neked a "/dosd"
+  könyvtárba van csatolva (mount) a "d:\" meghajtó. Másold át windows-t
+  pl. így:
+
+         cp -a /dosd/windows /usr/share/win
+
+
+  a dosemuban visszacsatolhatod az átmásolt windows rendszert így:
+
+         lredir d: linux\fs\dosd
+
+
+  (nem inkább a "lredir d:\windows /usr/share/win"- t? a fordító).  Így
+  már a dosemu nem fogja szemetelni a windows könyvtáradat, de a win­
+  dows-on végzett beállítások sem fognak látszódni dosemu alatt.  (mag­
+  yarul nem lesz kapcsolat a DOS-os és a dosemus windows között.  Ha
+  ugyanezt szeretnéd megcsinálni a c:> lévõ windows-oddal, olvasd el az
+  errõl szóló GYIK-ot.  Használhatod a windows-os setup.exe -t, ha
+  telepíteni akarsz egy meghajtót vagy változtatni szeretnél
+  valamin.(97/2/1497)
+
+
+  8.6.  Egér versus win31-in-xdos:
+
+  1. A "mouse.drv" WinOS2-beli egér-meghajtót használd.
+
+  2. Ha ekkor rendesen mûködik az egér írd be a win.ini fájlba:
+
+         [windows]
+         MouseThreshold1=0
+         MouseThreshold2=0
+         MouseSpeed=0
+
+
+
+  3. Az egeret ekkor nem az X rajzolja ki, hanem a windows maga, tehát
+  független a frissítésük, és az egér-mutató mozgása nem késleltetett.
+  (A gyakorlatban tehát 2 egér-mutatód van, de az X-é láthatatlan lesz,
+  ha a DOS-Box fölé érsz.)
+
+  4. Mivel a koordinátákat a windows is megkapja és az viszonylagosan
+  helyettesíti be, szükséges bekalibrálni az egeret. Ez automatikusan
+  végbemegy, ha DOS-Box ablak fölé mész.: a mutató a 0,0 pontra ugrik és
+  utána ismét jó koordinátákat ad vissza. Innentõl kezdve, ha szükséges
+  újra kalibrálni, csak ki kell menni az ablakon kívülre majd újra
+  vissza. (97/2/10)
+
+
+  8.7.  Miért tûnik el az ikonom Program manager-ben?
+
+  MS-Windows és a WinOS2 program manager-e egy kicsit különbözik. Amíg
+  az MS-Win progman.ini-ben tárolja a beállításokat, WinOS2 a
+  progman.ini-t a system.ini-ben is el akarja tárolni.  Itt egy tipp
+  (friest@acm.org (Todd T. Fries))-tól:
+
+       cat progman.ini >> system.ini
+
+
+  Ezt is írd be!: ">>" :-)
+
+
+
+  9.  Videó és a hang
+
+  9.1.  Játszhatok "32-bites videós játékokkal" dosemuban ?
+
+  Mark Rejhon (mdrejhon@magi.com) jelenti (95/4/8):
+
+  A jelenlegi DPMI fejlesztéssel, ami a 0.60-tól kezdve igaz, már TUDSZ
+  futtatni néhány 32-bites videós játékot a dosemuban. Ha a játék
+  kompatibilis az OS/2 DOS-ával, van esélyed mûködésre bírni! (Pl:
+  Descent, Dark Forces, Mortal Kombat 2, Rise of The Triad, amelyek
+  sikeresen mûködtek a dosemuval)
+
+  Mielõtt megpróbálnál futtatni egy ilyen játékot, billentyûzetet be
+  kell állítani raw keyboard módot és engedélyezni kell a VGA grafikus
+  módot /etc/dosemu.conf fájlban.  És ki kell kapcsolnod a hangot a
+  játékban. (valakinek még meg kell írnia a sound board elmulációt, ami
+  megoldaná a hangkezelést) Észrevehetõ, hogy a játék idõszámlálója egy
+  kicsit lassabb, köszönhetõen a Linux multitasking-nak és a gyors
+  idõzítõ támogatás hiányának. Ezért a játékok 5-100%-os sebességgel
+  fognak futni. Tipikusan, 50%-osan de ez még javulni fog a következõ
+  kiadásokkal.
+
+  Ki tudja, talán mûködik. Ha nem tudod munkára bírni, ellenõrizd le a
+  EMUfailure.txt-ben nincs-e felsorolva, vagy nem esik-e a felsorolt
+  játékok kategóriába, jelenleg azokat még senkinek nem sikerült életre
+  kelteni.  Ha úgy gondolod fel kell sorolni a EMUfailure.txt-ben írj a
+  linux-msdos@vger.rutgers.edu címre.
+
+  Azonban a DPMI használatával egy biztonsági rést nyitsz (különösen a
+  dos4gw-s alapú játékoknál), DOS kliensen keresztül elérhetõvé válik az
+  egész felhasználói (user space) terület, innentõl kezdve lehetõsége
+  van módosítani a dosemu kódját Használd a 'secure' lehetõséget a
+  /etc/dosemu.conf, pl.:
+
+       $_secure = "ngd" # secure for: n (normal users), g (guest), d (dexe)
+
+
+  megszünteti ezt. Azért jobb, ha a dosemut mezei felhasználóként
+  indítod X alatt.
+
+
+  9.2.  Kilépésnél kapok egy teljes képernyõs hibaüzenetet
+
+  (95/4/8) A probléma, az hogy a szöveges képernyõ VGA font információi
+  nem lettek elmentve. Szerezd meg a svgalib csomag egy másolatát, pl.
+  innen (ez forráskód):
+
+         sunsite.unc.edu:/pub/Linux/libs/graphics/svgalib-1.3.1.tar.gz
+
+
+  De beszerezhetsz egy elõre lefordított változatot is. Használd a
+  savetextmode-ot hogy elmentsd a jelenlegi szöveges módot és fontot egy
+  fájlba a /tmp könyvtárba. Hogy a dosemu futtatása után visszaállíthasd
+  azt.
+
+  Kiegészítés (lermen@elserv.ffm.fgan.de (97/2/11))-tól:
+
+  Mindenképpen olvasd el a src/arch/Linux/debugger/README.recover -t és
+  a README.dosdebug, dosdebug segíthet a visszaállításnál.
+
+
+  9.3.  Miért nem mûködik az ÉN hangkártyám dosemu alatt?
+
+  Dosemu tartalmaz egy kezdetleges soundblaster emulátort, amit Sbemu-
+  nak kereszteltek - ennek a dokumentációja jelenleg:
+  http://www.slitesys.demon.co.uk/a.macdonald/dosemu/sound/ érhetõ el.
+  A fejlesztés még jelenleg is folyik, nem teljes, így még igencsak
+  kevés programmal mûködik együtt.
+
+
+  10.  Játékok
+
+  10.1.  Duke3d nem megy
+
+  Hans Lermen (lermen@elserv.ffm.fgan.de) jelentette (97/2/16): duke3d
+  csak setupban lehet konfigurálni és, ha a "keyboard + mouse" választod
+  nem fog mûködni!
+
+
+  11.  Problémák és javítások
+
+  11.1.  Biztonsági rések
+
+  Ha a dosemu összes tulajdonságát ki akarod használni, akkor rootként
+  kell indítanod, pl.: a portok eléréséhez. A legtöbb dosos program nem
+  igényli ezt, bár általában ha X alól használod szükséges root joggal
+  indítani. Elméletileg a dosemu csak igen ritkán kéri ezt, és a további
+  kiadások próbálják ezt is csökkenteni. De a DPMI használatával egy DOS
+  kliensen keresztül elérhetõvé válik az egész felhasználói (user space
+  ) terület, innentõl kezdve lehetõsége van módosítani a dosemu kódját.
+  Használd a 'secure' lehetõséget a /etc/dosemu.conf, pl.:
+
+         $_secure = "ngd" # secure for: n (normal users), g (guest), d (dexe)
+
+
+  megszünteti ezt. Nem árt körülnézni a README.txt-ben további biz­
+  tonsági megfontolások céljából.
+
+
+  11.2.  dosemu modotta: "ERROR: general protection" és annyi...
+
+  Ez olyankor történik meg veled, ha egy olyan programot használsz
+  aminek DPMI-re van szüksége és az nem engedélyezett. Cseréld ki a
+  következõ sort:
+
+      $_dpmi = (off)
+
+
+  a /etc/dosemu.conf -ban
+
+      $_dpmi = (szám)
+
+
+  -re, ahol a szám a rá szánt memória nagysága kilobájtban (pl.: a DOOM-
+  nak 4000 kb elég).Gondolj az elõbb leírtakra, miszerint a DPMI
+  használata esetén nem ajánlott rootként futtatni a dosemut!  De
+  okozhatja az is, hogy a program VCPI-t használ (olvasd el az EMUfail­
+  ure.txt-t, ha többet szeretnél tudni.) vagy más módot, arra hogy védet
+  módba kapcsoljon (mást mint DPMI-t), ebben az esetben soha (míg meg
+  nem írod te magad) nem fog mûködni dosemu alatt.  Ha ezek közül egyik
+  sem, van egy programod ami nincs felsorolva a EMUfailure.txt-ben,
+  olvasd el az 1.14. fejezetet.
+
+
+  11.3.  Dosemu meghal rögtön indítás után. Van telepített Win9X-em.
+
+  Dosemu bízik abban, hogy a DOS verzió a hdimage-n és a becsatolt
+  meghajtón megegyezik a command.com. Ha nem a dosemu elõbb, vagy utóbb
+  elhasal.  A Win95-nél lehet cserélni a DOS verziót mikor megjelenik a
+  "Win95 indítása" felírat az F4, F5 és az F8 egyikét megnyomod.
+  Különösen figyelj a command.com -ra. A config.emu-ban állítsd a
+  megfelelõ DOS verziónak megfelelõen a shell változót, pl.:
+  shell=c:\win95\command.com c:\ /P /E:1024 (97/02/28)
+
+
+  11.4.  A dosemu elszállt! Hogyan ölhetem meg?
+
+  Válts át egy másik konzolra és indítsd el a "dosdebug" programot.
+  Majd utána add ki a kill parancsot (ez eltart egy darabig, de mûködni
+  fog).
+
+         # ps -ax
+
+
+
+  11.5.  Dosemu leállt és nem tudok beírni semmit.
+
+  Daniel Barlow (jo95004@sable.ox.ac.uk) jelenti (95/4/8):
+
+  Ha nincsen se, terminálod se hálózatod, hogy beléphess a gépedre, meg
+  kell nyomnod a reset gombot. Ha még maradt egy használható konzolod
+  valahol, Írd be a "kbd_mode -a"-t, hogy kikapcsold a bill.t a raw
+  módból, és/vagy "stty sane" parancsot, hogy lásd, hogy mit írsz.
+
+  Igen hasznos, ha egy olyan szkriptet használsz a dosemu futtatására,
+  ami a dosemu után lefuttatja a "kbd_mode -a" parancsot. Amikor elhasal
+  a dosemu, a szkript rendszerint tovább fut, és még kiadja a "kbd_mode
+  -a" parancsot.
+
+
+  11.6.  Engedélyeztem az EMS memóriát a dosemu.conf-ban de nem
+  segített.
+
+  Rob Janssen (rob@pe1chl.ampr.org) jelenti (94/7/11): Ne felejtsd el
+  meghívni az ems.sys -t a config.sys fájlban!
+
+
+  11.7.  Hogyan szabadulhatok meg a "disk change" üzenetektõl? (94/8/11)
+
+  Szerezd meg és telepítsd a "klogd"-t. Probáld innen:
+
+         sunsite.unc.edu:/pub/Linux/system/Daemons/sysklogd1.2.tgz
+
+
+
+  11.8.  A dosemu már nem indult el másodjára, miután konzolos módban
+  léptem ki!
+
+  Aldy Hernandez (aldy@sauron.cc.andrews.edu) jelenti (94/7/8): Állítsd
+  disable értékre a videó és/vagy a BIOS caching -et.
+
+
+  11.9.  Miért mûködik terminál alatt és konzol alatt miért nem ?
+
+  JyiJiin Luo (jjluo@casbah.acns.nwu.edu) jelenti (94/4/19):
+
+  Gyakorlatilag ugyanaz a probléma mint elöbb. Ki kell állítani minden
+  videó shadow beállítást az AMI BIOS-odban. Ezek után megfelelõen
+  mûködik a dosemu.
+
+
+  11.10.  Hogy tudom felturbózni a dosemut?
+
+  Néhány esetben hasznos lehet a HogThreshold értékével játszani a
+  dosemu.conf fájlban.  Daniel Barlow(jo95004@sable.ox.ac.uk) jelenti
+  (95/4/8): HogThreshold értékét állítsd kb. a felére a BogoMips
+  értékének, amit a rendszer kiír bootoláskor.
+
+
+  11.11.  CDROM-om néhány fájlt nem tudott beolvasni dosemu alól.
+
+  Vinod G Kulkarni (vinod@cse.iitb.ernet.in) jelenti (94/4/7):
+
+  Amikor a CDROM hozzá van fûzve (mount) a Linux fájlrendszeréhez és
+  használva volt a dosemu alatt (mapped drive), elõfordulhat némi
+  probléma.  A CD-ROM (iso9660) a kernel próbálja kitalálni a fájl
+  típusát (pl. szöveges vagy bináris). Ha ez nem sikerül, megpróbálja
+  heurisztikusan használni a fájlt. Némely körülmény között ez a
+  heurisztika kudarcot vall, amikor szöveges fájlt binárisan akar
+  kezelni.
+
+  A végeredménye, hogy ha néhány fájlt próbálsz átmásolni (a Linuxban
+  magában is nem feltétlen dosemun keresztül) általában nagyobb lesz az
+  eredetinél a mérete.(Üres karaktereket rak a ^J, ^M elé.)
+
+  Így dosemu alatt futó program hibát fog jelezni vagy bedobja a
+  törülközõt, amit sokan a dosemu hibájának rónak fel.
+
+  Rob Janssen (pe1chl@rabo.nl) jelenti (94/8/10):
+
+  A megoldás annyi, hogy ki kell kapcsolni ezt a konvertálást. Ha
+  paranccsal fûzöd (mount) a CD-ROM-ot írd a parancs mögé a "-o
+  conv=binary" -t, vagy használd ezt az /etc/fstab-ban:
+
+         /dev/cdrom      /cdrom          iso9660 conv=binary,ro
+
+
+  Nem szükséges semmilyen kernelfolt.
+
+
+  11.12.  Hogyan nézhetem meg a hibakeresõ kiírást (debugging output)?
+
+  Daniel Barlow (jo95004@sable.ox.ac.uk) jelenti (95/4/8):
+
+  0.60-as verziótól, a hibakeresõ kiírás (debugging output) a
+  parancssorból egy fájlba tudod irányítani, így: "dos -D+a -o
+  /tmp/debug", ezzel jegyzed az összes hibakeresõ kiíratást (debug
+  output) a /tmp/debug -fájlban. Már nincs szükség a stderr
+  átirányítására.
+
+
+  11.13.  MMiiéérrtt dduupplláázzóóddnnaakk mmeegg aa bbeeggééppeelltt
+  bbeettüükk ????
+
+  Nick Holloway (alfie@dcs.warwick.ac.uk) jelenti (94/2/22):
+
+  Miután futtattam a DOS-t és eljátszadoztam a stty beállításaival,
+  megduplázódtak a beütött karakterek. Most már tudom mi lehet az oka!
+  Ez csak olyankor fordul elõ, ha olyan konzolon futatod, amin be van
+  állítva az 'istrip'. Ez az ok (szerintem), mert az egyszerû
+  kódletapogatót (raw scancodes) meghiúsítja az 'istrip', (a billentyû
+  felengedését is leütés eseménynek érzékeli).  Azaz az bemeneti
+  feldolgozást ki kell kapcsolni, amikor a scan kódokat (scan codes)
+  használsz a konzolon. (Ez amúgy sem egy jó ötlet a tty sorai miatt)
+
+
+  11.14.  Dosemu összeszemeteli a képernyõt?
+
+  Még grafikus kártyák tucatjai nincsenek teljesen támogatva a
+  dosemuban, ha a grafikus konzolt engedélyezed, és a dosemu kidõl,
+  lehet hogy összeszemeteli a képernyõt szinte használhatatlanná téve
+  azt.  De felkészülhetsz erre az eshetõségre.
+  Spudgun(spudgun@earthlight.co.nz) írta ezt az eljárást: Elõször mentsd
+  el a regisztereidet ha konzolt futtatsz
+
+         cat /usr/bin/savetextmode
+         restoretextmode -w /etc/textregs
+         restorefont -w /etc/fontdata
+
+
+  miután bekövetkezett az összeomlás futtasd ezt a szkriptet:
+
+         restoretextmode -r /etc/textregs restorefont -r /etc/fontdata restorepalette
+
+
+  Ha ez nem csinált semmit, annak az lehet az oka hogy az X szerver néha
+  átállítja a Vid kártya regisztereit egy furcsa állásba, s ezért
+  hibásan fog mûködni a szkript is. Az X szerver cseréje és/vagy
+  savetextmode futtatása egy vt-n X alól segíteni fog.
+
+
+  11.15.  MS FoxPro 2.6 nem fog futni ...
+
+  FoxPro 2.6 nem fut hálózati meghajtón.  Alexey Naidyonov
+  (growler@growler.tsu.tula.ru) konstatálta ezt a problémát:
+
+  Valószínûleg a FoxPro fájlaid egy lredir-elt lemezen vannak, igaz? A
+  baj, az hogy a FoxPro nem fut ilyen lemezen, de amikor az elõbb
+  említett lemez, (partíció) benne van a /etc/dosemu/conf-ban, menni
+  fog.
+
+
+  12.  Dosemu tervhez való segedelem
+
+  12.1.  Ki a felelõs a dosemuért?
+
+  A Dosemu Matthias Lautner és Robert Sanders munkájának alapján
+  kezdõdött.  Hans Lermen (lermen@dosemu.org) a dosemu újabb verzióinak
+  megszerkesztéséért és szervezéséért felelõs. A dosemu története:
+
+              Verzió     Dátum               Személy
+             -------------------------------------------------
+              0.1        1992 Szeptember 3   Matthias Lautner
+              0.2        1992Szeptember 13   Matthias Lautner
+              0.3        ???                 Matthias Lautner
+              0.4        1992 November 26    Matthias Lautner
+              0.47       1993 Január 27      Robert Sanders
+              0.47.7     1993 Február 5      Robert Sanders
+              0.48       1993 Február 16     Robert Sanders
+              0.48pl1    1993 Február 18     Robert Sanders
+              0.49       1993 Május 20       Robert Sanders
+              0.49pl2    1993 November 18    James MacLean
+              0.49pl3    1993 November 30    James MacLean
+              0.49pl3.3  1993 December 3     James MacLean
+              0.50       1994 Március 4      James MacLean
+              0.50pl1    1994 Március 18     James MacLean
+              0.52       1994 Június 16      James MacLean
+              0.60       1995 Április 9      James MacLean
+              0.64.4     1997 Február 9      Hans Lermen
+              0.66.3     1997 Április 20     Hans Lermen
+              0.98.1     1998 December 9     Hans Lermen
+              0.98.6     1999 Március 21     Hans Lermen
+
+
+
+  12.2.  SEGÍTENI AKAROK!!!
+
+  A dosemu project csapatmunka.  Ha segíteni akarsz, nézd meg a DPR-t
+  (dosemu Project Registry). Az aktuális másolat a doc/DANG könyvtárban
+  található.
+
+
+

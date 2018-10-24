@@ -1,0 +1,24 @@
+Begin3
+Title:          Linux Network Administrators' Guide
+Version:        1.0
+Entered-date:   18AUG94
+Description:    The Network Administrators' Guide is a 350-page book
+		covering all major tasks of running Linux in a networked
+		environment, ranging from basic TCP/IP configuration
+		to NFS, NIS, SLIP, PPP, inetd, etc. Also covers UUCP.
+		About a third of the book is devoted to the installation
+		and management of mail and news (smail, IDA-sendmail,
+		C News, nntpd).
+Keywords:       Documentation, Networking, TCP/IP, Ethernet, SLIP, PPP,
+		NIS, NFS, UUCP, Mail, News
+Author:         okir@monad.swb.de (Olaf Kirch)
+Primary-site:   sunsite.unc.edu  /pub/Linux/docs/LDP
+		nag-1.0.src.tar.gz (LaTeX source)
+		nag-1.0.dvi.tar.gz (DVI preformatted)
+		nag-1.0.ps.tar.gz (PostScript preformatted)
+		nag-1.0.ascii.tar.gz (plain ASCII preformatted)
+Alternate-Site:	tsx-11.mit.edu /pub/linux/docs
+Platform:       Linux, but much of it should apply to UNIX OS's in general.
+Copying-policy: LDP license (included in the distribution)
+End
+

@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/debian-tutorial/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:24:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Debian Tutorial (Obsolete Documentation)</title>
+
+<link href="index-2.html" rel="start">
+<link href="ap-misc_appendix.html" rel="prev">
+<link href="ch-about.html" rel="next">
+<link href="index-2.html#contents" rel="contents">
+<link href="index-2.html#copyright" rel="copyright">
+<link href="ch-about.html" rel="chapter" title="1 About this manual">
+<link href="ch-introduction.html" rel="chapter" title="2 Introduction">
+<link href="ch-start.html" rel="chapter" title="3 Getting started">
+<link href="ch-basics.html" rel="chapter" title="4 The Basics">
+<link href="ch-docs.html" rel="chapter" title="5 Reading documentation and getting help">
+<link href="ch-shell.html" rel="chapter" title="6 Using the shell">
+<link href="ch-files.html" rel="chapter" title="7 More on files">
+<link href="ch-editor.html" rel="chapter" title="8 Creating and editing text files">
+<link href="ch-custom_shell.html" rel="chapter" title="9 Customizing the shell">
+<link href="ch-X.html" rel="chapter" title="10 The X Window System">
+<link href="ch-text_tools.html" rel="chapter" title="11 Text tools">
+<link href="ch-file_tools.html" rel="chapter" title="12 File tools">
+<link href="ch-disks.html" rel="chapter" title="13 Using disks">
+<link href="ch-dpkg.html" rel="chapter" title="14 Removing and installing software">
+<link href="ch-troubleshooting.html" rel="chapter" title="15 Troubleshooting">
+<link href="ch-advanced.html" rel="chapter" title="16 Advanced topics">
+<link href="ch-next.html" rel="chapter" title="17 Where to from here?">
+<link href="ch-helping.html" rel="chapter" title="18 Contributing to Debian: How can I help?">
+<link href="ap-apps_appendix.html" rel="appendix" title="A A brief survey of available applications">
+<link href="ap-components_appendix.html" rel="appendix" title="B Summary of GNU/Linux system components">
+<link href="ap-booting_appendix.html" rel="appendix" title="C Appendix C: Booting the system">
+<link href="ap-misc_appendix.html" rel="appendix" title="D Miscellaneous">
+<link href="ch-about.html#s-acknowldgements" rel="section" title="1.1 Acknowledgements">
+<link href="ch-introduction.html#s-introduction-debian" rel="section" title="2.1 What is Debian?">
+<link href="ch-introduction.html#s-introduction-DFSG" rel="section" title="2.2 What's free software?">
+<link href="ch-introduction.html#s-introduction-how" rel="section" title="2.3 How to Read This Book">
+<link href="ch-introduction.html#s-introduction-ldp" rel="section" title="2.4 The Linux Documentation Project">
+<link href="ch-start.html#s-start-multi" rel="section" title="3.1 A multiuser, multitasking operating system">
+<link href="ch-start.html#s-start-login" rel="section" title="3.2 Logging in">
+<link href="ch-start.html#s-start-keys" rel="section" title="3.3 Keys">
+<link href="ch-start.html#s-start-commandline" rel="section" title="3.4 Command history and editing the command line">
+<link href="ch-start.html#s-start-root" rel="section" title="3.5 Logging in as root">
+<link href="ch-start.html#s-start-VC" rel="section" title="3.6 Virtual consoles">
+<link href="ch-start.html#s-start-shutdown" rel="section" title="3.7 Shutting down">
+<link href="ch-basics.html#s-basics-commandline" rel="section" title="4.1 The command line and <samp>man</samp> pages">
+<link href="ch-basics.html#s-basics-files" rel="section" title="4.2 Files and Directories">
+<link href="ch-basics.html#s-basics-processes" rel="section" title="4.3 Processes">
+<link href="ch-basics.html#s-basics-shell" rel="section" title="4.4 The shell">
+<link href="ch-basics.html#s-basics-jobs" rel="section" title="4.5 Managing processes with Bash">
+<link href="ch-basics.html#s-basics-bash" rel="section" title="4.6 A few Bash features">
+<link href="ch-basics.html#s-basics-identity" rel="section" title="4.7 Managing your identity">
+<link href="ch-docs.html#s-docs-sources" rel="section" title="5.1 Kinds of documentation">
+<link href="ch-docs.html#s-docs-info" rel="section" title="5.2 Using info">
+<link href="ch-docs.html#s-docs-textfiles" rel="section" title="5.3 Viewing text files with more and less">
+<link href="ch-docs.html#s-docs-howtos" rel="section" title="5.4 HOWTOs">
+<link href="ch-docs.html#s-docs-support" rel="section" title="5.5 Getting help from a person">
+<link href="ch-docs.html#s-docs-sysinfo" rel="section" title="5.6 Getting information from the system">
+<link href="ch-shell.html#s-shell-variables" rel="section" title="6.1 Environment variables">
+<link href="ch-shell.html#s-shell-path" rel="section" title="6.2 Where commands live: the <samp>PATH</samp> variable">
+<link href="ch-shell.html#s-custom_shell-aliases" rel="section" title="6.3 Aliases and shell functions">
+<link href="ch-shell.html#s-shell-io" rel="section" title="6.4 Controlling input and output">
+<link href="ch-shell.html#s-shell-modifiers" rel="section" title="6.5 Specifying how and when to run commands">
+<link href="ch-shell.html#s-shell-wildcards" rel="section" title="6.6 Filename expansion (&quot;Wildcards&quot;)">
+<link href="ch-shell.html#s6.7" rel="section" title="6.7 Interactive/non-interactive">
+<link href="ch-files.html#s-files-permissions" rel="section" title="7.1 Permissions">
+<link href="ch-files.html#s-files-tour" rel="section" title="7.2 What files are on my system? Where can I put my own files?">
+<link href="ch-files.html#s-file-manager" rel="section" title="7.3 Using a filemanager">
+<link href="ch-editor.html#s-editor-textfile" rel="section" title="8.1 What's a text file?">
+<link href="ch-editor.html#s-editor-editor" rel="section" title="8.2 Text editors">
+<link href="ch-editor.html#s-editor-vi" rel="section" title="8.3 Creating and editing a text file with <code>vi</code>">
+<link href="ch-custom_shell.html#s-custom_shell-dotfiles" rel="section" title="9.1 .rc files and <samp>ls -a</samp>">
+<link href="ch-custom_shell.html#s-custom_shell-etc" rel="section" title="9.2 System-wide vs. user-specific configuration">
+<link href="ch-X.html#s-X-starting" rel="section" title="10.1 Starting the X environment">
+<link href="ch-X.html#s-X-intro" rel="section" title="10.2 Intro: What is X">
+<link href="ch-X.html#s-X-basics" rel="section" title="10.3 Basic X operations">
+<link href="ch-X.html#s-X-startup" rel="section" title="10.4 Customizing your X startup">
+<link href="ch-text_tools.html#s-text_tools-regexps" rel="section" title="11.1 Regular expressions">
+<link href="ch-file_tools.html#s-file_tools-backup" rel="section" title="12.1 Backup tools">
+<link href="ch-file_tools.html#s-file_tools-compression" rel="section" title="12.2 File compression with <samp>gzip</samp>">
+<link href="ch-file_tools.html#s-file_tools-split" rel="section" title="12.3 Splitting files into smaller pieces">
+<link href="ch-file_tools.html#s-file_tools-find" rel="section" title="12.4 Finding files">
+<link href="ch-file_tools.html#s-file_tools-file" rel="section" title="12.5 Determining a file's contents">
+<link href="ch-disks.html#s-disks-concepts" rel="section" title="13.1 Concepts">
+<link href="ch-disks.html#s-disks-mount" rel="section" title="13.2 <samp>mount</samp> and <samp>/etc/fstab</samp>">
+<link href="ch-disks.html#s-network-ppp" rel="section" title="13.3 PPP">
+<link href="ch-dpkg.html#s-dpkg-dpkg" rel="section" title="14.1 The <code>dpkg</code> package utility">
+<link href="ch-dpkg.html#s-dpkg-what" rel="section" title="14.2 What a package maintenance utility does">
+<link href="ch-dpkg.html#s-dpkg-apt" rel="section" title="14.3 Apt">
+<link href="ch-dpkg.html#s-dpkg-dselect" rel="section" title="14.4 Using dselect.">
+<link href="ch-dpkg.html#s-dpkg-commandline" rel="section" title="14.5 Using dpkg manually">
+<link href="ch-dpkg.html#s-dpkg-compiling" rel="section" title="14.6 Compiling software yourself">
+<link href="ch-dpkg.html#s-dpkg-proprietary" rel="section" title="14.7 Proprietary software not in .deb format">
+<link href="ch-troubleshooting.html#s-troubleshooting-frozen" rel="section" title="15.1 Debian is frozen or crashed!">
+<link href="ch-troubleshooting.html#s-troubleshooting-termgarbage" rel="section" title="15.2 My terminal isn't behaving properly">
+<link href="ch-troubleshooting.html#s-troubleshooting-vi" rel="section" title="15.3 The computer beeps when I press a key, and my screen shows a text file and/or a lot of <samp>~</samp> symbols.">
+<link href="ch-advanced.html#s-advanced-scripting" rel="section" title="16.1 Introduction to shell scripting">
+<link href="ch-advanced.html#s-advanced-files" rel="section" title="16.2 Advanced files">
+<link href="ch-advanced.html#s-advanced-kernel" rel="section" title="16.3 Compiling the kernel">
+<link href="ch-advanced.html#s-advanced-security" rel="section" title="16.4 A few words on security">
+<link href="ch-advanced.html#s-advanced-programming" rel="section" title="16.5 Programming on Linux">
+<link href="ch-next.html#s-next-manuals" rel="section" title="17.1 Other Debian manuals to read">
+<link href="ch-next.html#s-next-resources" rel="section" title="17.2 Other resources">
+<link href="ch-helping.html#s-helping-bugs" rel="section" title="18.1 Submit bug reports">
+<link href="ch-helping.html#s-helping-other" rel="section" title="18.2 Other things">
+<link href="ap-apps_appendix.html#s-A_apps-whatever" rel="section" title="A.1 (Subheadings could copy the structure of the menu system)">
+<link href="ap-misc_appendix.html#s-unix-history" rel="section" title="D.1 Unix History">
+<link href="ap-misc_appendix.html#sD.2" rel="section" title="D.2 GNU/Linux History">
+<link href="ap-misc_appendix.html#sD.3" rel="section" title="D.3 The Linux kernel's version numbering">
+<link href="ch-introduction.html#s-introduction-debian-os" rel="subsection" title="2.1.1 What's an operating system, and what sort of operating system is Debian?">
+<link href="ch-introduction.html#s-introduction-debian-how" rel="subsection" title="2.1.2 Who creates Debian?">
+<link href="ch-basics.html#s-basics-commandline-description" rel="subsection" title="4.1.1 Describing the command line">
+<link href="ch-basics.html#s-basics-files-intro" rel="subsection" title="4.2.1 Introduction to files">
+<link href="ch-basics.html#s-basics-files-using" rel="subsection" title="4.2.2 Using files: a tutorial">
+<link href="ch-basics.html#s-basics-bash-completion" rel="subsection" title="4.6.1 Tab Completion">
+<link href="ch-docs.html#s-docs-support-posting" rel="subsection" title="5.5.1 Dos and Don'ts of asking a question">
+<link href="ch-shell.html#s-shell-variables-parents" rel="subsection" title="6.1.1 Parent and child processes">
+<link href="ch-shell.html#s-interactive-shells" rel="subsection" title="6.7.1 Interactive shells">
+<link href="ch-files.html#s-files-permissions-groups" rel="subsection" title="7.1.1 File Ownership">
+<link href="ch-files.html#s-files-permissions-mode" rel="subsection" title="7.1.2 Mode">
+<link href="ch-files.html#s-files-permissions-tutorial" rel="subsection" title="7.1.3 Permissions in practice">
+<link href="ch-editor.html#s-editor-vi-creating" rel="subsection" title="8.3.1 Creating a file">
+<link href="ch-editor.html#s-editor-vi-editing" rel="subsection" title="8.3.2 Editing an existing file">
+<link href="ch-editor.html#s-editor-vi-editing-movement" rel="subsection" title="8.3.2.1 Moving around in a file">
+<link href="ch-editor.html#s-editor-vi-editing-deletion" rel="subsection" title="8.3.2.2 Deleting text">
+<link href="ch-editor.html#s-editor-vi-editing-moremoving" rel="subsection" title="8.3.2.3 Sophisticated movement">
+<link href="ch-editor.html#s-editor-vi-editing-numbers" rel="subsection" title="8.3.2.4 Repeating commands">
+<link href="ch-editor.html#s-editor-vi-editing-advanced" rel="subsection" title="8.3.2.5 Advanced reference">
+<link href="ch-X.html#s-X-basics-mouse" rel="subsection" title="10.3.1 The mouse">
+<link href="ch-X.html#s-X-basics-clients" rel="subsection" title="10.3.2 X clients">
+<link href="ch-X.html#s-X-basics-trouble" rel="subsection" title="10.3.3 Troubleshooting">
+<link href="ch-X.html#s-X-basics-leaving" rel="subsection" title="10.3.4 Leaving the X environment">
+<link href="ch-disks.html#s-disks-mount-mounting" rel="subsection" title="13.2.1 Mounting a filesystem">
+<link href="ch-disks.html#s-disks-mount-cdromexample" rel="subsection" title="13.2.2 Example: Mounting a CD-ROM">
+<link href="ch-disks.html#s-disks-mount-fstab" rel="subsection" title="13.2.3 <samp>/etc/fstab</samp>: Automating the mount process">
+<link href="ch-disks.html#s-disks-mount-removable" rel="subsection" title="13.2.4 Removable disks (floppies, Zip disks, etc.)">
+<link href="ch-disks.html#s-network-ppp-introduction" rel="subsection" title="13.3.1 Introduction">
+<link href="ch-disks.html#s-network-ppp-preparation" rel="subsection" title="13.3.2 Preparation">
+<link href="ch-disks.html#s-network-ppp-wvdial" rel="subsection" title="13.3.3 The Easy Way: <samp>wvdial</samp>">
+<link href="ch-disks.html#s-network-ppp-pppd" rel="subsection" title="13.3.4 Doing It Manually">
+<link href="ch-dpkg.html#s-apt-config" rel="subsection" title="14.3.1 Configuring Apt">
+<link href="ch-dpkg.html#s-apt-usage" rel="subsection" title="14.3.2 Using apt-get.">
+<link href="ch-advanced.html#s-advanced-scripting-why" rel="subsection" title="16.1.1 What and why">
+<link href="ch-advanced.html#s-advanced-scripting-example" rel="subsection" title="16.1.2 A simple example">
+<link href="ch-advanced.html#s-advanced-files-hardlinks" rel="subsection" title="16.2.1 The real nature of files: hard links and inodes">
+<link href="ch-advanced.html#s-advanced-files-types" rel="subsection" title="16.2.2 Types of files">
+<link href="ch-advanced.html#s-advanced-files-types-symlinks" rel="subsection" title="16.2.2.1 Symbolic links">
+<link href="ch-advanced.html#s-files-misc-types-devices" rel="subsection" title="16.2.2.2 Device files">
+<link href="ch-advanced.html#s-advanced-files-types-devices-null" rel="subsection" title="16.2.2.2.1 <samp>/dev/null</samp>">
+<link href="ch-advanced.html#s-advanced-files-types-pipes" rel="subsection" title="16.2.2.3 Named pipes (FIFOs)">
+<link href="ch-advanced.html#s-advanced-files-types-sockets" rel="subsection" title="16.2.2.4 Sockets">
+<link href="ch-advanced.html#s-advanced-files-proc" rel="subsection" title="16.2.3 The <samp>proc</samp> filesystem">
+<link href="ch-advanced.html#s-advanced-files-permissions" rel="subsection" title="16.2.4 Advanced aspects of file permissions">
+<link href="ch-advanced.html#s-advanced-files-permissions-absolute" rel="subsection" title="16.2.4.1 Using numeric arguments with <samp>chmod</samp>">
+<link href="ch-advanced.html#s-advanced-files-chattr" rel="subsection" title="16.2.5 chattr">
+<link href="ch-advanced.html#s-advanced-files-copying" rel="subsection" title="16.2.6 Large-scale copying">
+<link href="ch-advanced.html#s-advanced-files-undocumented" rel="subsection" title="16.2.7 Other concepts not yet covered, but should be">
+
+</head>
+
+<body>
+
+<p><a name="index"></a></p>
+<hr>
+
+<p>
+[ <a href="ap-misc_appendix.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-about.html">1</a> ]
+[ <a href="ch-introduction.html">2</a> ]
+[ <a href="ch-start.html">3</a> ]
+[ <a href="ch-basics.html">4</a> ]
+[ <a href="ch-docs.html">5</a> ]
+[ <a href="ch-shell.html">6</a> ]
+[ <a href="ch-files.html">7</a> ]
+[ <a href="ch-editor.html">8</a> ]
+[ <a href="ch-custom_shell.html">9</a> ]
+[ <a href="ch-X.html">10</a> ]
+[ <a href="ch-text_tools.html">11</a> ]
+[ <a href="ch-file_tools.html">12</a> ]
+[ <a href="ch-disks.html">13</a> ]
+[ <a href="ch-dpkg.html">14</a> ]
+[ <a href="ch-troubleshooting.html">15</a> ]
+[ <a href="ch-advanced.html">16</a> ]
+[ <a href="ch-next.html">17</a> ]
+[ <a href="ch-helping.html">18</a> ]
+[ <a href="ap-apps_appendix.html">A</a> ]
+[ <a href="ap-components_appendix.html">B</a> ]
+[ <a href="ap-booting_appendix.html">C</a> ]
+[ <a href="ap-misc_appendix.html">D</a> ]
+[ <a href="ch-about.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Debian Tutorial (Obsolete Documentation)
+<br></h1>
+
+<hr>
+
+<h2><a name="copyright"></a>Copyright Notice</h2>
+
+<p>
+&copy; 1998 Software in the Public Interest and individual contributors.
+</p>
+
+<p>
+Permission is granted to make and distribute verbatim copies of this manual
+provided the copyright notice and this permission notice are preserved on all
+copies.
+</p>
+
+<p>
+Permission is granted to copy and distribute modified versions of this manual
+under the conditions for verbatim copying, provided also that the sections that
+reprint &quot;The GNU General Public License,&quot; &quot;The GNU Library
+General Public License,&quot; and other clearly marked sections held under
+separate copyright are reproduced under the conditions given within them, and
+provided that the entire resulting derived work is distributed under the terms
+of a permission notice identical to this one.
+</p>
+
+<p>
+Permission is granted to copy and distribute translations of this manual into
+another language under the conditions for modified versions.  &quot;The GNU
+General Public License&quot; and &quot;The GNU Library General Public
+License&quot; may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+</p>
+
+<p>
+At your option, you may distribute verbatim and modified versions of this
+document under the terms of the GNU General Public License, excepting the
+clearly marked sections held under separate copyright.
+</p>
+
+<hr>
+
+<h2><a name="contents"></a>Contents</h2>
+
+<ul>
+<li><a href="ch-about.html">1 About this manual</a>
+  <ul>
+  <li><a href="ch-about.html#s-acknowldgements">1.1 Acknowledgements</a>
+  </ul></li>
+<li><a href="ch-introduction.html">2 Introduction</a>
+  <ul>
+  <li><a href="ch-introduction.html#s-introduction-debian">2.1 What is Debian?</a></li>
+  <li><a href="ch-introduction.html#s-introduction-DFSG">2.2 What's free software?</a></li>
+  <li><a href="ch-introduction.html#s-introduction-how">2.3 How to Read This Book</a></li>
+  <li><a href="ch-introduction.html#s-introduction-ldp">2.4 The Linux Documentation Project</a>
+  </ul></li>
+<li><a href="ch-start.html">3 Getting started</a>
+  <ul>
+  <li><a href="ch-start.html#s-start-multi">3.1 A multiuser, multitasking operating system</a></li>
+  <li><a href="ch-start.html#s-start-login">3.2 Logging in</a></li>
+  <li><a href="ch-start.html#s-start-keys">3.3 Keys</a></li>
+  <li><a href="ch-start.html#s-start-commandline">3.4 Command history and editing the command line</a></li>
+  <li><a href="ch-start.html#s-start-root">3.5 Logging in as root</a></li>
+  <li><a href="ch-start.html#s-start-VC">3.6 Virtual consoles</a></li>
+  <li><a href="ch-start.html#s-start-shutdown">3.7 Shutting down</a>
+  </ul></li>
+<li><a href="ch-basics.html">4 The Basics</a>
+  <ul>
+  <li><a href="ch-basics.html#s-basics-commandline">4.1 The command line and <samp>man</samp> pages</a></li>
+  <li><a href="ch-basics.html#s-basics-files">4.2 Files and Directories</a></li>
+  <li><a href="ch-basics.html#s-basics-processes">4.3 Processes</a></li>
+  <li><a href="ch-basics.html#s-basics-shell">4.4 The shell</a></li>
+  <li><a href="ch-basics.html#s-basics-jobs">4.5 Managing processes with Bash</a></li>
+  <li><a href="ch-basics.html#s-basics-bash">4.6 A few Bash features</a></li>
+  <li><a href="ch-basics.html#s-basics-identity">4.7 Managing your identity</a>
+  </ul></li>
+<li><a href="ch-docs.html">5 Reading documentation and getting help</a>
+  <ul>
+  <li><a href="ch-docs.html#s-docs-sources">5.1 Kinds of documentation</a></li>
+  <li><a href="ch-docs.html#s-docs-info">5.2 Using info</a></li>
+  <li><a href="ch-docs.html#s-docs-textfiles">5.3 Viewing text files with more and less</a></li>
+  <li><a href="ch-docs.html#s-docs-howtos">5.4 HOWTOs</a></li>
+  <li><a href="ch-docs.html#s-docs-support">5.5 Getting help from a person</a></li>
+  <li><a href="ch-docs.html#s-docs-sysinfo">5.6 Getting information from the system</a>
+  </ul></li>
+<li><a href="ch-shell.html">6 Using the shell</a>
+  <ul>
+  <li><a href="ch-shell.html#s-shell-variables">6.1 Environment variables</a></li>
+  <li><a href="ch-shell.html#s-shell-path">6.2 Where commands live: the <samp>PATH</samp> variable</a></li>
+  <li><a href="ch-shell.html#s-custom_shell-aliases">6.3 Aliases and shell functions</a></li>
+  <li><a href="ch-shell.html#s-shell-io">6.4 Controlling input and output</a></li>
+  <li><a href="ch-shell.html#s-shell-modifiers">6.5 Specifying how and when to run commands</a></li>
+  <li><a href="ch-shell.html#s-shell-wildcards">6.6 Filename expansion (&quot;Wildcards&quot;)</a></li>
+  <li><a href="ch-shell.html#s6.7">6.7 Interactive/non-interactive</a>
+  </ul></li>
+<li><a href="ch-files.html">7 More on files</a>
+  <ul>
+  <li><a href="ch-files.html#s-files-permissions">7.1 Permissions</a></li>
+  <li><a href="ch-files.html#s-files-tour">7.2 What files are on my system? Where can I put my own files?</a></li>
+  <li><a href="ch-files.html#s-file-manager">7.3 Using a filemanager</a>
+  </ul></li>
+<li><a href="ch-editor.html">8 Creating and editing text files</a>
+  <ul>
+  <li><a href="ch-editor.html#s-editor-textfile">8.1 What's a text file?</a></li>
+  <li><a href="ch-editor.html#s-editor-editor">8.2 Text editors</a></li>
+  <li><a href="ch-editor.html#s-editor-vi">8.3 Creating and editing a text file with <code>vi</code></a>
+  </ul></li>
+<li><a href="ch-custom_shell.html">9 Customizing the shell</a>
+  <ul>
+  <li><a href="ch-custom_shell.html#s-custom_shell-dotfiles">9.1 .rc files and <samp>ls -a</samp></a></li>
+  <li><a href="ch-custom_shell.html#s-custom_shell-etc">9.2 System-wide vs. user-specific configuration</a>
+  </ul></li>
+<li><a href="ch-X.html">10 The X Window System</a>
+  <ul>
+  <li><a href="ch-X.html#s-X-starting">10.1 Starting the X environment</a></li>
+  <li><a href="ch-X.html#s-X-intro">10.2 Intro: What is X</a></li>
+  <li><a href="ch-X.html#s-X-basics">10.3 Basic X operations</a></li>
+  <li><a href="ch-X.html#s-X-startup">10.4 Customizing your X startup</a>
+  </ul></li>
+<li><a href="ch-text_tools.html">11 Text tools</a>
+  <ul>
+  <li><a href="ch-text_tools.html#s-text_tools-regexps">11.1 Regular expressions</a>
+  </ul></li>
+<li><a href="ch-file_tools.html">12 File tools</a>
+  <ul>
+  <li><a href="ch-file_tools.html#s-file_tools-backup">12.1 Backup tools</a></li>
+  <li><a href="ch-file_tools.html#s-file_tools-compression">12.2 File compression with <samp>gzip</samp></a></li>
+  <li><a href="ch-file_tools.html#s-file_tools-split">12.3 Splitting files into smaller pieces</a></li>
+  <li><a href="ch-file_tools.html#s-file_tools-find">12.4 Finding files</a></li>
+  <li><a href="ch-file_tools.html#s-file_tools-file">12.5 Determining a file's contents</a>
+  </ul></li>
+<li><a href="ch-disks.html">13 Using disks</a>
+  <ul>
+  <li><a href="ch-disks.html#s-disks-concepts">13.1 Concepts</a></li>
+  <li><a href="ch-disks.html#s-disks-mount">13.2 <samp>mount</samp> and <samp>/etc/fstab</samp></a></li>
+  <li><a href="ch-disks.html#s-network-ppp">13.3 PPP</a>
+  </ul></li>
+<li><a href="ch-dpkg.html">14 Removing and installing software</a>
+  <ul>
+  <li><a href="ch-dpkg.html#s-dpkg-dpkg">14.1 The <code>dpkg</code> package utility</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-what">14.2 What a package maintenance utility does</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-apt">14.3 Apt</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-dselect">14.4 Using dselect.</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-commandline">14.5 Using dpkg manually</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-compiling">14.6 Compiling software yourself</a></li>
+  <li><a href="ch-dpkg.html#s-dpkg-proprietary">14.7 Proprietary software not in .deb format</a>
+  </ul></li>
+<li><a href="ch-troubleshooting.html">15 Troubleshooting</a>
+  <ul>
+  <li><a href="ch-troubleshooting.html#s-troubleshooting-frozen">15.1 Debian is frozen or crashed!</a></li>
+  <li><a href="ch-troubleshooting.html#s-troubleshooting-termgarbage">15.2 My terminal isn't behaving properly</a></li>
+  <li><a href="ch-troubleshooting.html#s-troubleshooting-vi">15.3 The computer beeps when I press a key, and my screen shows a text file and/or a lot of <samp>~</samp> symbols.</a>
+  </ul></li>
+<li><a href="ch-advanced.html">16 Advanced topics</a>
+  <ul>
+  <li><a href="ch-advanced.html#s-advanced-scripting">16.1 Introduction to shell scripting</a></li>
+  <li><a href="ch-advanced.html#s-advanced-files">16.2 Advanced files</a></li>
+  <li><a href="ch-advanced.html#s-advanced-kernel">16.3 Compiling the kernel</a></li>
+  <li><a href="ch-advanced.html#s-advanced-security">16.4 A few words on security</a></li>
+  <li><a href="ch-advanced.html#s-advanced-programming">16.5 Programming on Linux</a>
+  </ul></li>
+<li><a href="ch-next.html">17 Where to from here?</a>
+  <ul>
+  <li><a href="ch-next.html#s-next-manuals">17.1 Other Debian manuals to read</a></li>
+  <li><a href="ch-next.html#s-next-resources">17.2 Other resources</a>
+  </ul></li>
+<li><a href="ch-helping.html">18 Contributing to Debian: How can I help?</a>
+  <ul>
+  <li><a href="ch-helping.html#s-helping-bugs">18.1 Submit bug reports</a></li>
+  <li><a href="ch-helping.html#s-helping-other">18.2 Other things</a>
+  </ul></li>
+<li><a href="ap-apps_appendix.html">A A brief survey of available applications</a>
+  <ul>
+  <li><a href="ap-apps_appendix.html#s-A_apps-whatever">A.1 (Subheadings could copy the structure of the menu system)</a>
+  </ul></li>
+<li><a href="ap-components_appendix.html">B Summary of GNU/Linux system components</a><li><a href="ap-booting_appendix.html">C Appendix C: Booting the system</a><li><a href="ap-misc_appendix.html">D Miscellaneous</a>
+  <ul>
+  <li><a href="ap-misc_appendix.html#s-unix-history">D.1 Unix History</a></li>
+  <li><a href="ap-misc_appendix.html#sD.2">D.2 GNU/Linux History</a></li>
+  <li><a href="ap-misc_appendix.html#sD.3">D.3 The Linux kernel's version numbering</a></li>
+  </ul></li>
+</ul>
+
+<hr>
+
+<p>
+[ <a href="ap-misc_appendix.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-about.html">1</a> ]
+[ <a href="ch-introduction.html">2</a> ]
+[ <a href="ch-start.html">3</a> ]
+[ <a href="ch-basics.html">4</a> ]
+[ <a href="ch-docs.html">5</a> ]
+[ <a href="ch-shell.html">6</a> ]
+[ <a href="ch-files.html">7</a> ]
+[ <a href="ch-editor.html">8</a> ]
+[ <a href="ch-custom_shell.html">9</a> ]
+[ <a href="ch-X.html">10</a> ]
+[ <a href="ch-text_tools.html">11</a> ]
+[ <a href="ch-file_tools.html">12</a> ]
+[ <a href="ch-disks.html">13</a> ]
+[ <a href="ch-dpkg.html">14</a> ]
+[ <a href="ch-troubleshooting.html">15</a> ]
+[ <a href="ch-advanced.html">16</a> ]
+[ <a href="ch-next.html">17</a> ]
+[ <a href="ch-helping.html">18</a> ]
+[ <a href="ap-apps_appendix.html">A</a> ]
+[ <a href="ap-components_appendix.html">B</a> ]
+[ <a href="ap-booting_appendix.html">C</a> ]
+[ <a href="ap-misc_appendix.html">D</a> ]
+[ <a href="ch-about.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Debian Tutorial (Obsolete Documentation)
+</p>
+
+<address>
+29 Dezember 2009<br>
+<br>
+Havoc Pennington <code><a href="mailto:hp@debian.org">hp@debian.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+
+<!-- Mirrored from tldp.org/LDP/www.debian.org/doc/manuals/debian-tutorial/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Oct 2018 00:24:38 GMT -->
+</html>
+

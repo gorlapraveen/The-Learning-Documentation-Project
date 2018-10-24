@@ -1,0 +1,1254 @@
+  Java CGI HOWTO
+  David H. Silber dhs@orbits.com diterjemahkan oleh Tedi
+  Heriyanto tedi.h@a-vip.comt
+  v.0.4, 18 November 1996, terj. 28 Peb 1999
+
+  Dokumen HOWTO ini menjelaskan bagaimana memasang server Anda agar
+  dapat menjalankan program-program CGI yang ditulis dalam Java dan
+  bagaimana menggunakan Java untuk menulis program-program CGI. Meskipun
+  dokumen-dokumen HOWTO ditujukan untuk sistem operasi Linux, namun yang
+  satu ini tidak tergantung pada versi Unix yang digunakan.
+
+  1.  Pendahuluan
+
+  Oleh karena cara Java dirancang, pemrogram tidak memiliki akses yang
+  mudah ke variabel-variabel lingkungan sistem. Karena cara Java
+  Development Kit (JDK) dipasang, diperlukan banyak token untuk
+  memanggil suatu program, yang tidak terkait sangat baik dengan format
+  standar HTML/operasi CGI. Terdapat banyak cara untuk mengatasinya, dan
+  saya telah mengimplementasikan salah satunya. Baca lebih lanjut untuk
+  rinciannya.
+
+
+  1.1.  Pengetahuan Dasar
+
+  Saya mengasumsikan bahwa anda memiliki pengetahuan umum tentang
+  konsep-konsep HTML dan CGI dan paling tidak memiliki sedikit
+  pengetahuan tentang server HTTP anda. Anda perlu juga mengetahui
+  bagaimana membuat program dalam Java, atau akan ada banyak hal berikut
+  yang tidak dimengerti.
+
+
+  1.2.  Mengenai Dokumen Ini
+
+  Versi terakhir dokumen ini (bahasa Inggris) dapat dibaca di Java-CGI
+  HOWTO <http://www.orbits.com/software/Java_CGI.html>
+
+
+  1.3.  Paket
+
+  Versi terakhir paket yang dijelaskan di sini dapat diakses melalui FTP
+  anonim di Java CGI
+  <ftp://ftp.orbits.com/pub/software/java_cgi-0.4.tgz>
+
+  Paket distribusi mencakup kode sumber SGML untuk dokumen ini.
+
+  Paket didistribusikan berdasarkan GNU Library General Public License.
+  Dokumen ini dapat didistribusikan berdasarkan syarat-syarat yang ada
+  di informasi hak cipta Linux HOWTO.
+
+  Jika anda menggunakan software ini, buatlah acuan ke Java CGI
+  <http://www.orbits.com/software/Java_CGI.html>, sehingga yang lain
+  akan dapat menemukan class-class Java CGI.
+
+
+  1.4.  Ucapan Terima Kasih
+
+  Dokumen ini hadir berkat kebaikan Stellar Orbits Technology Services.
+  (Kunjungi kami di Stellar Orbits Technology <http://www.orbits.com/>
+  untuk melihat apa yang kami lakukan).
+
+
+  2.  Mensetup Server Anda agar Menjalankan Program-Program Java CGI
+
+  Bagian ini akan membimbing anda melakukan instalasi paket Java CGI
+  dengan penjelasan seperlunya sehingga anda tahu apa dampak tindakan
+  anda.  Jika Anda hanya ingin menginstal program-program dan acuh
+  terhadap mengapa dan di mana, lanjutkan ke ``Mensetup Server Anda
+  untuk    menjalankan Program-program Java CGI (Bentuk Ringkas)''.
+
+
+  2.1.  Kebutuhan Sistem
+
+  Software ini dapat bekerja di semua web server yang mirip Unix yang
+  telah memiliki Java Development Kit. Saya menggunakannya di sistem
+  Linux Debian yang menggunakan Apache sebagai http daemon. Jika anda
+  menemukan bahwa ia tidak berjalan di server anda, silakan hubungi saya
+  di dhs@orbits.com.
+
+  Sayangnya, interpreter run-time Java banyak memerlukan memori  -- anda
+  mungkin perlu menambahkan beberapa megabyte RAM ke server anda jika
+  akan menggunakan banyak program Java CGI.
+
+
+  2.2.  Software tambahan Java CGI
+
+  Software yang saya tulis untuk membantu dalam hal ini disebut Java
+  CGI.  Anda dapat memperolehnya dari Java CGI
+  <ftp://ftp.orbits.com/pub/software/java_cgi-0.4.tgz>. (Angka versi
+  mungkin berubah).
+
+
+  2.3.  Membuka Kode sumber
+
+  Carilah direktori yang tepat untuk membuka paket ini. (Jika anda tidak
+  memiliki tempat standar untuk menaruh paket-paket, saya sarankan anda
+  menggunakan /usr/local/src/). Bukalah distribusi dengan menggunakan
+  perintah berikut :
+
+
+       ______________________________________________________________________
+         gzip -dc java_cgi-0.4.tgz | tar -xvf -
+       ______________________________________________________________________
+
+
+
+
+  Perintah ini akan membuat suatu direktori bernama java_cgi-0.4. Di
+  sana anda akan menemukan file-file yang diacu oleh dokumen ini. (Jika
+  nomor versi berubah, untuk seterusnya gunakan instruksi-instruksi dari
+  distribusi).
+
+
+  2.4.  Tentukan Kebijakan Local Path Anda
+
+  Anda perlu memutuskan lokasi untuk menaruh program-program Java CGI
+  anda.  Umumnya, anda akan menaruhnya di suatu direktori yang sesuai
+  dengan direktori cgi-bin anda. Server Apache saya dikonfigurasi untuk
+  memakai /var/web/cgi-bin sebagai direktori cgi-bin, jadi saya
+  menggunakan /var/web/javacgi sebagai direktori untuk menaruh program-
+  program Java CGI. Anda mungkin tidak ingin menaruh program Java CGI
+  anda ke dalam salah satu direktori CLASSPATH yang ada. Editlah
+  Makefile untuk mencerminkan konfigurasi sistem anda. Pastikan bahwa
+  anda login sebagai user root dan menjalankan make install. Hal ini
+  akan mengkompilasi program-program Java, memodifikasi script java.cgi
+  agar sesuai dengan sistem anda dan menginstal program-program ke dalam
+  tempat yang tepat. Jika anda ingin versi HTML dokumentasi ini dan
+  sebuah dokumen percobaan, jalankan make all.
+
+
+
+
+
+  2.5.  Menguji instalasi anda.
+
+  Dokumen-dokumen yang terinstal dari distribusi adalah
+  javacgitest.html, javaemailtest.html dan javahtmltest.html. Jika anda
+  menginstal seluruh paket, ia akan ada di dalam direktori yang anda
+  tentukan di WEBDIR dalam Makefile. Jika tidak, anda dapat menjalankan
+  make test untuk membangunnya dari javacgitest.html,
+  javaemailtest.html-dist dan javahtmltest.html-dist.
+
+
+  Bila anda yakin bahwa instalasi anda telah bekerja dengan baik, anda
+  boleh menghapus CGI_Test.class, Email_Test.class dan HTML_Test.class
+  dari direktori JAVACGI anda dan javacgitest.html, javaemailtest.html
+  dan javahtmltest.html dari direktori WEBDIR anda oleh karena mereka
+  hanya menampilkan informasi yang normalnya hanya tersedia untuk server
+  kepada user.
+
+
+  3.  Mensetup Server Anda untuk Menjalankan Program Java CGI (Bentuk
+  Ringkas)
+
+
+  o  Ambillah paket Java CGI dari Java CGI
+     <ftp://www.orbits.com/pub/software/java_cgi-0.4.tgz>. (Nomor versi
+     mungkin berubah).
+
+  o  Bukalah distribusi dengan perintah :
+
+
+       ______________________________________________________________________
+            gzip -dc java_cgi-0.4.tgz | tar -xvf -
+       ______________________________________________________________________
+
+
+
+
+  (Jika nomor versi berubah, selanjutnya gunakan instruksi-instruksi
+  dari distribusi).
+
+  o  Editlah Makefile yang anda temukan di direktori java_cgi-0.4 yang
+     baru tercipta agar sesuai dengan sistem anda.
+
+  o  Sebagai root, jalankan make install. Hal ini akan mengkompilasi
+     program Java, mengaplikasikan informasi spesifik sistem anda dan
+     menginstal berbagai file. Jika anda ingin versi HTML dokumentasi
+     ini dan sebuah dokumen percobaan, jalankan make all.
+
+  o  Anda siap untuk lanjut.
+
+
+  4.  Mengeksekusi program Java CGI
+
+  4.1.  Hambatan untuk menjalankan program Java dalam Model CGI
+
+  Terdapat dua masalah utama dalam menjalankan program Java dari sebuah
+  web server :
+
+
+  4.1.1.  Anda tidak dapat menjalankan program Java seperti halnya file
+  eksekusi biasa.
+
+  Anda perlu menjalankan interpreter run-time Java dan memberikan class
+  awal (program untuk dijalankan) pada perintah baris.  Dengan sebuah
+  form HTML, tidak ada pengawasan untuk mengirimkan perintah baris ke
+  web server.
+
+  4.1.2.  Java tidak memiliki akses umum ke lingkungan.
+
+  Setiap variabel lingkungan yang akan diperlukan oleh program Java
+  harus secara eksplisit diberikan.  Tidak ada metode yang menyerupai
+  fungsi getenv() pada C.
+
+
+  4.2.  Mengatasi masalah-masalah dalam menjalankan program Java CGI
+
+  Untuk berurusan dengan hambatan-hambatan ini, saya menulis sebuah
+  program CGI shell yang menyediakan informasi yang diperlukan oleh
+  interpreter Java.
+
+
+  4.2.1.  Script java.cgi.
+
+  Script shell ini mengelola interaksi antara daemon HTTP dan program
+  Java CGI yang anda ingin gunakan.  Ia mengekstraksi nama program yang
+  ingin anda jalankan dari data yang diberikan server. Ia mengumpulkan
+  seluruh data lingkungan ke dalam file temporer.  Lalu, ia menjalankan
+  interpreter run-time Java dengan menambahkan nama file informasi
+  lingkungan dan nama program.
+
+  Script java.cgi dikonfigurasi dan diinstal dalam ``Tentukan Kebijakan
+  Local   Path Anda''.
+
+
+  4.2.2.  Memanggil java.cgi dari sebuah form HTML.
+
+
+  Form-form saya yang memakai program Java CGI menspesifikasikan aksi
+  sebuah form sebagai berikut :
+
+
+       ______________________________________________________________________
+
+         <form action="/cgi-bin/java.cgi/CGI_Test" method="POST">
+       ______________________________________________________________________
+
+
+
+
+  Dengan /cgi-bin/ adalah direktori lokal untuk biner CGI anda, java.cgi
+  adalah front-end yang memungkinkan kita untuk menjalankan program Java
+  melalui web dan CGI_Test adalah sebuah contoh nama program Java untuk
+  dijalankan.
+
+
+  5.  Menggunakan class Java CGI
+
+  Saat ini terdapat tiga kelas utama yang didukung -- ``CGI'', ``Email''
+  dan ``HTML''. Saya sedang mempertimbangkan untuk menambah class yang
+  berkaitan dengan input dan output yang berformat MIME -- MIMEin &
+  MIMEout.
+
+  Terdapat pula sedikit class pendukung dan percobaan. ``CGI_Test'',
+  ``Email_Test'' dan ``HTML_Test'' ditujukan agar digunakan untuk
+  menguji instalasi program.  Mereka dapat juga digunakan sebagai titik
+  awal bagi program Java anda yang menggunakan pustaka class ini.  Class
+  ``Text'' adalah superclass bagi class-class Email dan HTML.
+
+
+  5.1.  CGI
+
+
+
+  5.1.1.  Sintaks Class
+
+
+
+       ______________________________________________________________________
+         public class CGI
+       ______________________________________________________________________
+
+
+
+
+
+  5.1.2.  Deskripsi Class
+
+  Class CGI berisi Informasi CGI -- variabel-variabel lingkungan yang
+  diset oleh web server dan nama/nilai yang dikirim dari sebuah form
+  ketika tindakan submit dipilih.  Seluruh informasi disimpan dalam
+  Properties obyek class.
+
+  Class ini terdapat dalam paket Orbits.net.
+
+
+  5.1.3.  Ringkasan Anggota
+
+
+
+       ______________________________________________________________________
+                 CGI()         //  Konstruktor.
+                 getNames()    //  Ambil daftar nama-nama.
+                 getValue()    //  Ambil nilai form dg menspesifikasikan nama.
+       ______________________________________________________________________
+
+
+
+
+
+  5.1.4.  Lihat Juga
+
+  ``CGI_Test''.
+
+
+  5.1.5.  CGI()
+
+
+     Kegunaan
+        Membangun sebuah obyek yang mengandung data CGI yang tersedia.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public CGI()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Ketika sebuah obyek CGI dikonstruksi, seluruh informasi CGI
+        yangtersedia ditaruh di penyimpanan lokal terhadap obyek baru.
+
+
+  5.1.6.  getNames()
+
+
+
+     Kegunaan
+        Tampilkan nama-nama yang didefinisikan memiliki nilai terkait.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public Enumeration getKeys ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Memberikan daftar lengkap nama yang nilai korespondennya
+        terdefinisi.
+
+     Hasil
+        Sebuah Enumerasi seluruh nama yang terdefinisikan.
+
+
+  5.1.7.  getValue()
+
+
+     Kegunaan
+        Mengambil nilai yang sesuai dengan nama yang dispesifikasikan.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public String getValue ( String name )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Metode ini menyediakan korespondensi antara nama dan nilai yang
+        dikirim dari sebuah form HTML.
+
+     Parameter
+
+        name
+           Kunci untuk memilih nilai.
+
+     Hasil
+        Sebuah string berisi nilai.
+
+
+  5.2.  CGI_Test
+
+  Class ini menyediakan sebuah contoh bagaimana menggunakan class CGI
+  dan sebuah program percobaan yang dapat digunakan untuk mengkonfirmasi
+  bahwa paket Java CGI berfungsi dengan benar.
+
+
+  5.2.1.  Ringkasan Anggota
+
+
+
+       ______________________________________________________________________
+                 main()      //  Program main().
+       ______________________________________________________________________
+
+
+  5.2.2.  Lihat Juga
+
+  ``CGI''
+
+
+  5.2.3.  main()
+
+
+     Kegunaan
+        Menyediakan metode main().
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public static void main( String argv[] )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Ini adalah titik masuk untuk program CGI yang tidak mengerjakan
+        sesuatu namun mengembalikan sebuah daftar pasangan nama/nilai
+        yang ada dan nilai mereka saat ini.
+
+     Parameter
+
+        argv[]
+           Argumen-argumen yang diberikan ke program oleh java.cgi
+           script. Saat ini tidak digunakan.
+
+
+  5.3.  Email
+
+  5.3.1.  Sintaks Class
+
+
+
+       ______________________________________________________________________
+         public class Email extends Text
+       ______________________________________________________________________
+
+
+
+
+
+  5.3.2.  Deskripsi Class
+
+  Pesan-pesan dibangun dengan metode add*() class Text dan metode khusus
+  email ditambahkan oleh class ini. Setelah selesai, pesan dikirimkan ke
+  tujuannya.
+
+  Class ini terdapat dalam paket Orbits.net
+
+
+  5.3.3.  Ringkasan Anggota
+
+
+
+
+
+
+
+
+
+  ______________________________________________________________________
+            Email()      //  Konstruktor.
+            send()       //  Mengirim pesan email.
+            sendTo()     //  Menambahkan tujuan ke pesan.
+            subject()    //  Menset Subject: untuk pesan.
+  ______________________________________________________________________
+
+
+
+
+
+  5.3.4.  Lihat Juga
+
+  ``Email_Test'', ``Text''.
+
+
+  5.3.5.  Email()
+
+
+     Kegunaan
+        Membangun sebuah obyek yang mengandung pesan email.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public Email()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menset pesan kosong untuk diselesaikan oleh metode-metode Email.
+
+     Lihat Juga
+        ``Text''.
+
+
+  5.3.6.  send()
+
+
+     Kegunaan
+        Mengirim pesan email.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void send ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Memformat dan mengirim pesan. Jika belum ada alamat tujuan yang
+        diset, tidak ada tindakan diambil.
+
+
+  5.3.7.  sendTo()
+
+
+     Kegunaan
+        Menambahkan tujuan pesan.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public String sendTo ( String address )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menambah alamat ke daftar tujuan metode ini. Tidak ada batasan
+        jumlah tujuan yang boleh dimiliki pesan email. Saya yakin bahwa
+        jika anda membuat daftar yang cukup besar, anda dapat melampaui
+        ukuran parameter daftar yang dapat diterima Mail Transfer Agent
+        atau memakai seluruh memori anda.
+
+     Parameter
+
+        address
+           Sebuah tujuan untuk mengirimkan pesan.
+
+
+  5.3.8.  subject()
+
+
+     Kegunaan
+        Menset subyek untuk pesan.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void subject ( String subject )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Metode ini menset teks untuk baris Subject email. Jika dipanggil
+        lebih dari satu kali, subyek yang paling akhir disetlah yang
+        digunakan.
+
+     Parameter
+
+        subject
+           Teks untuk baris Subject pesan.
+
+
+  5.4.  Email_Test
+
+  Class ini menyediakan sebuah contoh bagaimana menggunakan class Email
+  dan menguji program yang dapat digunakan untuk memastikan bahwa paket
+  Java CGI berfungsi dengan benar.
+
+
+  5.4.1.  Ringkasan Anggota
+
+
+
+       ______________________________________________________________________
+                 main()      //  Program main().
+       ______________________________________________________________________
+
+
+  5.4.2.  Lihat Juga
+
+  ``Email''.
+
+
+  5.4.3.  main()
+
+
+     Kegunaan
+        Menyediakan metode main()
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public static void main( String argv[] )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Ini adalah titik awal untuk program CGI yang mengembalikan
+        daftar pasangan nama/nilai yang ada dan nilainya saat ini. Ia
+        juga akan mengirimkan daftar ini ke alamat yang dispesifikasikan
+        dalam variabel Email.
+
+     Parameter
+
+        argv[]
+           Argumen-argumen yang diberikan kepada program oleh script
+           java.cgi. Saat ini tidak digunakan.
+
+
+  5.5.  HTML
+
+
+  5.5.1.  Sintaks Class
+
+
+
+       ______________________________________________________________________
+         public class HTML extends Text
+       ______________________________________________________________________
+
+
+
+
+
+  5.5.2.  Deskripsi Class
+
+  Pesan-pesan dibangun dengan metode-metode add*() class Text dan
+  metode-metode khusus HTML ditambahkan oleh class ini. Setelah selesai,
+  pesan dikirimkan ke tujuannya.
+
+  Saat ini, tidak ada pemeriksaan kesalahan untuk memastikan bahwa
+  metode- metode pembangun daftar digunakan dalam urutan yang benar,
+  sehingga pemrogram harus bekerja keras agar tidak melanggar sintaks
+  HTML.
+
+  Class ini ada dalam paket Orbits.net
+
+
+
+
+
+  5.5.3.  Ringkasan Anggota
+
+
+
+       ______________________________________________________________________
+                 HTML()                  //  Konstruktor.
+                 author()                //  Menset nama penulis dokumen.
+                 definitionList()        //  Memulai daftar definisi.
+                 definitionListTerm()    //  Menambah suatu hal ke daftar definisi.
+                 endList()               //  Mengakhiri sebuah daftar.
+                 listItem()              //  Menambah suatu item ke daftar.
+                 send()                  //  Mengirim pesan HTML.
+                 title()                 //  Menset teks untuk judul dokumen.
+       ______________________________________________________________________
+
+
+
+
+
+  5.5.4.  Lihat Juga
+
+  ``HTML_Test'', ``Text''.
+
+
+  5.5.5.  HTML()
+
+
+     Kegunaan
+        Membangun sebuah obyek yang akan mengandung pesan HTML.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public HTML()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menset pesan kosong untuk diselesaikan oleh metode-metode HTML.
+
+     Lihat Juga
+        ``Text''.
+
+
+  5.5.6.  author()
+
+
+     Kegunaan
+        Menset nama penulis dokumen.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void author ( String author )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menset nama penulis dokumen ke penulis.
+
+     Parameter
+
+        author
+           Teks untuk digunakan sebagai penulis pesan ini.
+
+     Lihat Juga
+        title().
+
+
+  5.5.7.  definitionList()
+
+
+     Kegunaan
+        Memulai daftar definisi.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void definitionList ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Memulai daftar definisi. Sebuah daftar definisi adalah daftar
+        khusus sehingga setiap masukan dalam daftar adalah sebuah term
+        yang diikuti oleh definisi teks untuk term tersebut. Awal daftar
+        definisi diikuti oleh penciptaan (paling sedikit) satu pasangan
+        term/teks dan sebuah panggilan ke metode endList(). Sebagai
+        catatan, untuk saat ini, daftar tidak dapat dibuat bersarang.
+
+     Lihat Juga
+        definitionListTerm(), endList(), listItem().
+
+
+  5.5.8.  definitionListTerm()
+
+
+     Kegunaan
+        Menambah sebuah term ke daftar definisi.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void definitionListTerm ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menambah sebuah term ke daftar definisi. Teks untuk bagian term
+        masukan daftar saat ini ditambahkan ke pesan setelah metode ini
+        dipanggil dan sebelum metode listItem yang terkait dipanggil.
+
+     Lihat Juga
+        definitionList(), listItem().
+
+
+  5.5.9.  endList()
+
+
+
+     Kegunaan
+        Mengakhiri daftar.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void endList ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Mengakhiri daftar. Metode ini menutup daftar. Sebagai catatan,
+        untuk saat ini, daftar tidak dapat dibuat bersarang.
+
+     Lihat Juga
+        definitionList().
+
+
+  5.5.10.  listItem()
+
+
+     Kegunaan
+        Menambah sebuah masukan ke daftar.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+                  public void listItem ()
+
+                  public void listItem ( String item )
+
+                  public boolean listItem ( String term, String item )
+
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menambah sebuah masukan ke daftar. Jika bentuk pertama yang
+        digunakan, teks untuk item daftar saat ini ditambahkan ke pesan
+        setelah metode ini dipanggil dan sebelum metode-metode daftar
+        lainnya dipanggil. Dalam bentuk kedua dan ketiga, teks item
+        dispesifikasikan sebagai parameter metode daripada ditambahkan
+        (atau sebagai tambahan) ke pesan. Bentuk ketiga adalah khusus
+        untuk daftar definisi dan menyediakan term dan definisi masukan
+        daftar.
+
+     Parameter-parameter
+
+        item
+           Teks untuk masukan daftar.
+
+        term
+           Teks untuk bagian definisi masukan daftar term.
+
+     Lihat Juga
+        definitionList(), definitionListTerm(), endList().
+
+
+
+
+  5.5.11.  send()
+
+
+     Kegunaan
+        Mengirim pesan HTML.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void send ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Mengirim pesan HTML.
+
+
+  5.5.12.  title()
+
+
+     Kegunaan
+        Menset teks untuk judul dokumen.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void title ( String title )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menset teks untuk judul dokumen.
+
+     Parameter
+
+        title
+           Teks untuk judul pesan.
+
+     Lihat Juga
+        author().
+
+
+  5.6.  HTML_Test
+
+  Class ini menyediakan sebuah contoh bagaimana menggunakan class HTML
+  dan sebuah program percobaan yang dapat digunakan untuk memastikan
+  bahwa paket Java CGI telah berfungsi dengan benar.
+
+
+  5.6.1.  Ringkasan Anggota
+
+
+
+       ______________________________________________________________________
+                 main()      //  Program main().
+       ______________________________________________________________________
+
+
+
+
+  5.6.2.  Lihat Juga
+
+  ``HTML''.
+
+
+  5.6.3.  main()
+
+
+     Kegunaan
+        Menyediakan metode main().
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public static void main( String argv[] )
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Ini adalah titik awal bagi program CGI yang mengembalikan
+        daftarpasangan nama/nilai yang ada dalam dokumen HTML, dengan
+        setiap pasangan nama/nilai ditampilkan dalam elemen daftar
+        definisi.
+
+     Parameter
+
+        argv[]
+           Argumen-argumen yang diberikan ke program oleh script
+           java.cgi.    Saat ini tidak digunakan.
+
+
+  5.7.  Text
+
+  5.7.1.  Sintaks Class
+
+
+
+       ______________________________________________________________________
+         public abstract class Text
+       ______________________________________________________________________
+
+
+
+
+
+  5.7.2.  Deskripsi Class
+
+  Class ini merupakan superclass dari class Email dan HTML. Pesan-pesan
+  dibangun dengan metode-metode dalam class ini dan diselesaikan serta
+  diformat dengan metode-metode dalam subclass-subclass.
+
+  Class ini ada dalam paket Orbits.text.
+
+
+  5.7.3.  Ringkasan Anggota
+
+
+
+
+
+
+
+
+  ______________________________________________________________________
+            Text()            //  Konstruktor.
+            add()             //  Menambah teks ke obyek.
+            addLineBreak()    //  Menambah ganti baris.
+            addParagraph()    //  Menambah ganti paragraf.
+  ______________________________________________________________________
+
+
+
+
+
+  5.7.4.  Lihat Juga
+
+  ``Email'', ``HTML''.
+
+
+  5.7.5.  add()
+
+
+     Kegunaan
+        Menambahkan teks ke item.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+                  public void add ( char addition )
+
+                  public void add ( String addition )
+
+                  public void add ( StringBuffer addition )
+
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Menambahkan addition ke isi item teks.
+
+     Parameter
+
+        addition
+           Teks yang akan ditambahkan ke item teks.
+
+     Lihat Juga
+        addLineBreak(), addParagraph().
+
+
+  5.7.6.  addLineBreak()
+
+
+     Kegunaan
+        Memaksa penggantian baris pada titik ini dalam teks.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void addLineBreak ()
+          ___________________________________________________________________
+
+
+
+
+
+     Deskripsi
+        Menambahkan penggantian baris ke teks di lokasi saat ini.
+
+     Lihat Juga
+        add(), addParagraph().
+
+
+  5.7.7.  addParagraph()
+
+
+     Kegunaan
+        Memulai paragraf baru.
+
+     Sintaks
+
+
+          ___________________________________________________________________
+          public void add ()
+          ___________________________________________________________________
+
+
+
+
+     Deskripsi
+        Memulai paragraf baru pada titik ini dalam aliran teks.
+
+     Lihat Juga
+        add(), addLineBreak().
+
+
+  6.  Rencana-rencana Mendatang
+
+
+  o  Menambah ke class Email :
+
+     Email( int capacity )
+        Digunakan ketika kita tahu berapa besar ruangan yang perlu
+        dialokasikan untuk pesan.
+
+     sendTo( String  address )
+        Menambah sebuah daftar tujuan utama ke pesan e-mail.
+
+     sendCc( String address )
+        Menambah sebuah tujuan Carbon-Copy ke pesan e-mail.
+
+     sendCc( String  address )
+        Menambah sebuah daftar tujuan Carbon-Copy ke pesan e-mail.
+
+     sendBcc( String address )
+        Menambah sebuah tujuan Blind Carbon-Copy ke pesan e-mail.
+
+     sendBcc( String  address )
+        Menambah sebuah daftar tujuan Blind Carbon-Copy ke pesan e-mail.
+
+
+  o  Menambah ke class HTML :
+
+     HTML( int capacity )
+        Digunakan ketika kita tahu berapa besar ruang yang perlu
+        dialokasikan   untuk pesan.
+
+     public void unorderedList()
+        Memulai daftar yang tidak terorder.
+
+     public void orderedList()
+        Memulai daftar yang terorder.
+     public void directoryList()
+        Memulai daftar direktori.
+
+     public void menuList()
+        Memulai daftar menu.
+
+     void anchor( String anchorName )
+        Menspesifikasikan anchor.
+
+     void link( String url, String text )
+        Menspesifikasikan link.
+
+     void applet( String url, String altText )
+        Menspesifikasikan link applet.
+
+
+  o  Memungkinkan daftar HTML untuk dibuat bersarang.
+
+  o  Menambah kode untuk pengecekan kesalahan untuk memaksa urutan yang
+     benar     bagi kode pemformatan daftar HTML.
+
+  o  Lokasi file data lingkungan dapat dikonfigurasi dari Makefile.
+
+  o  Membuang pasangan nama/nilai kosong yang muncul dalam daftar ketika
+     kita berurusan dengan metode GET untuk transfer data.
+
+  o  Mempertimbangkan bila memiliki CGI yang mengimplementasikan antar
+     muka java.util.Enumeration untuk secara suksesif menyediakan nama
+     variabel.
+
+  o  Menambah class Test, yang akan menggunakan setiap metode dalam
+     paket.
+
+  o  Mendokumentasikan bagaimana CGI_Test, Email_Test dan HTML_Test
+     membangun     satu sama lain untuk memberikan uji yang
+     berkelanjutan bagi proses debugging.
+
+  o  Mendokumentasikan bagaimana Test menggunakan setiap karateristik
+     yang tersedia dalam paket ini.
+
+
+  7.  Perubahan-perubahan
+
+  7.1.  Perubahan dari 0.3 ke 0.4
+
+
+  o  Penambahan lebih detil class HTML untuk memberikan kegunaan
+     minimal.
+
+  o  Menulis class HTML_Test dan javahtmltest.html-dist.
+
+  o  Penambahan metode-metode HTML untuk menangani daftar definisi.
+
+
+  7.2.  Perubahan-perubahan dari 0.2 ke 0.3
+
+
+  o  Penambahan class Text dan Email. HTML juga ditambahkan, tetapi
+     hanya sedikit saja.
+
+  o  Menaruh berbagai class ke dalam paket. Class-class utama ada di
+     dalam  Orbits.net.*, class pendukung Text ada di dalam
+     Orbits.text.Text.
+
+  o  Perubahan CGItest ke CGI_Test.
+
+  o  Penambahan class Email_Test
+
+
+  7.3.  Perubahan dari 0.1 ke 0.2
+
+
+  o  Variabel-variabel lingkungan ditaruh ke file sementara tidak
+     dimasukkan  ke perintah baris interpreter Java. Class CGI dan
+     java.cgi perlu dimodifikasi.
+
+  o  Dokumen javacgitest.html dijadikan bagian distribusi.
+
+  o  File-file teks yang dimodifikasi oleh make selama instalasi
+     diberikan dengan nama-nama yang berakhiran dengan -dist.
+
+
+  8.  Penterjemah :
+
+  Tedi Heriyanto tedi.h@a-vip.com
+
+  Selesai diterjemahkan 28 Februari 1999.
+
+  Dokumen ini diformat menggunakan SGML-Tools version 1.0.7
+  <http://pobox.com/~cg/sgmltools/>
+
+  Versi terbaru HOWTO ini (versi bahasa Indonesia) dapat Anda temukan di
+
+  Tedi Heriyanto's Homepage <http://www.a-vip.com/tedi_h/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,584 @@
+
+Szünetmentes tápegység HOGYANEric Steven Raymond
+
+   [1]Thyrsus Enterprises
+
+   Verziótörténet
+   Verzió: 1.1 2004.02.21 Átdolgozta: esr
+   Hozzáadva néhány telepítési tanács, valamint egyéb technológiákról
+   szóló anyag.
+   Verzió: 1.0 2003.10.07 Átdolgozta: esr
+   Elsõ kiadás.
+
+   A szünetmentes tápegység (Uninterruptable Power Supply; UPS) fontos
+   dolognak számít, ha olyan helyen lakunk, ahol rendszeres az
+   áramkimaradás. Különösen akkor fontos, ha egy folyamatosan üzemelõ
+   levelezõ-, DNS- vagy webszervert üzemeltetünk. Ez a HOGYAN segítséget
+   ad a szünetmentes tápegység átgondolt kiválasztásához, és a nyílt
+   forráskódú operációs rendszerrel való használatához.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [2]Bevezetés
+
+        1.1. [3]A dokumentum célja
+        1.2. [4]A dokumentum újabb verziói
+        1.3. [5]Szerzõi jog és licenc
+        1.4. [6]Magyar fordítás
+
+   2. [7]Az energia-védelem (Power Protecion) áttekintése
+
+        2.1. [8]Túlfeszültség-védelem (Surge Suppressor)
+        2.2. [9]Hálózati kiegyenlítõ (Line Conditioner)
+        2.3. [10]Szünetmentes tápegység (Uninterruptable Power Supply)
+
+   3. [11]Az alapok
+
+        3.1. [12]A szünetmentes tápegység kiválasztása
+        3.2. [13]A szünetmentes tápegység és más eszközök telepítése: a
+                teljes kép
+
+        3.3. [14]Szoftveres támogatás
+        3.4. [15]A rendszer beállítása automatikus újraindításhoz
+
+   4. [16]A szünetmentes tápegység karbantartása
+
+        4.1. [17]Az akkumulátor élettartamának növelése
+        4.2. [18]A szünetmentes tápegység újrakalibrálása
+        4.3. [19]Az akkumulátorok cseréje
+        4.4. [20]Akkumulátorok vásárlása
+
+   5. [21]Köszönetnyilvánítás és kapcsolódó források
+
+1. Bevezetés
+
+1.1. A dokumentum célja
+
+A szünetmentes tápegység (Uninterruptable Power Supply; UPS) fontos dolognak
+számít, ha olyan helyen lakunk, ahol rendszeres az áramkimaradás. Különösen
+akkor fontos, ha egy folyamatosan üzemelõ levelezõ-, DNS- vagy webszervert
+üzemeltetünk. Az öregedõ amerikai áramszolgáltató hálózat miatt ez egyre
+fontosabb kérdéssé vált még az amerikai hackerek számára is, de mindenki ki
+van téve a viharok és természeti jelenségek okozta áramkimaradásoknak. Ez a
+dokumentum mind szoftveres, mind hardveres oldalról foglalkozik a védelem
+megvalósításával.
+
+Ez a segédlet elsõsorban kis rendszerekkel foglalkozik -- egy számítógéppel
+és a hozzá tartozó szünetmentes tápegységgel. Jelen dokumentum az otthoni és
+kisvállalati felhasználásra szánt szünetmentes tápegységekkel foglalkozik.
+Nagyobb szerverfarmokhoz teljesen más típusú (és jelentõsen drágább)
+egységeket gyártanak, amelyekrõl ez a dokumentum említést tesz, de nem
+tárgyal.
+     _________________________________________________________________
+
+1.2. A dokumentum újabb verziói
+
+A HOGYAN legújabb változata megtalálható a világhálón, a
+[22]http://www.tldp.org/HOWTO/UPS-HOWTO.html honlapon.
+     _________________________________________________________________
+
+1.3. Szerzõi jog és licenc
+
+A szerzõi jogok tulajdonosa Eric S. Raymond, Copyright (c) 2003.
+
+A dokumentum a Free Software Foundation által kiadott GNU Free Documentation
+License 1.2-es vagy újabb verziójában foglalt feltételek keretein belül
+másolható, terjeszthetõ és/vagy módosítható; invariáns fejezet, elsõ
+borítólapszöveg és hátsó borítólapszöveg nincsen. A licenc egy másolata
+megtalálható a [23]www.gnu.org/copyleft/fdl.html honlapon.
+
+A HOGYANnal kapcsolatos kérdéseket és hozzászólásokat Eric S. Raymond várja,
+az <[24]esr@snark.thyrsus.com> címen. A szünetmentes tápegységekkel
+kapcsolatos egyéni problémákkal nem foglalkozik, az ilyen levelekre nem
+válaszol.
+     _________________________________________________________________
+
+1.4. Magyar fordítás
+
+A magyar fordítást [25]Vadon Péter készítette (2004.03.26). A lektorálást
+[26]Daczi László végezte el (2004.04.08). A dokumentum legfrissebb változata
+megtalálható a [27]Magyar Linux Dokumentációs Projekt honlapján. Utoljára
+frissítve 2004.04.16-án.
+     _________________________________________________________________
+
+2. Az energia-védelem (Power Protecion) áttekintése
+
+Az energia-védelem háromféle módja használható otthoni felhasználóknak:
+
+    1. Túlfeszültség-védelem (Surge Suppressor)
+    2. Hálózati kiegyenlítõ (Line Conditioner)
+    3. Szünetmentes tápegység (Uninterruptable Power Supply)
+
+   Bár ez a HOGYAN a szünetmentes tápegységekre koncentrál, azért a másik
+   két védelmi rendszert is bemutatjuk érintõlegesen, azért, hogy
+   segítsen megérteni a szünetmentes tápegység feladatát. Ez hasznos
+   lehet még akkor is, ha a szünetmentes tápegységek csökkenõ árából
+   eredõen csökken az azok iránti érdeklõdés. Mindezek mellett a másik
+   két lehetõség is jól használható.
+     _________________________________________________________________
+
+2.1. Túlfeszültség-védelem (Surge Suppressor)
+
+Ezek alapvetõen különleges biztosítékok az áramforrás és a hardver között;
+lecsípik a feszültség tüskéket, de alacsony feszültség vagy áramszünet
+esetén nem nyújtanak segítséget.
+
+Ez eléggé csekély védelem egy drága hardver számára. Nem csak tápfeszültség
+esetében használhatók, hanem telefonvonal, RS-232 és párhuzamos port
+esetében is (ha hosszú kábelt használsz; általában felesleges, ha az eszközt
+közvetlenül a számítógéphez csatlakoztatod, és az összes eszköz védett a
+külsõ áramforrásoktól). Jól jegyezd meg, hogy az összes számítógéphez
+csatlakoztatott eszközt védelemmel kell ellátni; ha túlfeszültség-védelemmel
+látod el számítógéped, de például a nyomtatód nem, akkor egy zárlatos
+nyomtató a számítógépet is tönkreteheti.
+
+Fontos tudni a túlfeszültség-védelemrõl azt, hogy idõnként szükség lehet a
+cseréjére, ha nagy áramlökést "szívott magába". A biztosítékon kívül a
+legtöbb túlfeszültség-védelemben vannak un. Metal-Oxide Varistor alkatrészek
+(MOV), amelyek elnyomják a túlfeszültséget. A legtöbb olcsó
+túlfeszültség-védelemmel az a baj, hogy nem jelzik, ha a MOV telített, így
+nincs többé védelem. Sokkal jobb, ha van egy kijelzõ rajta.
+
+Túlfeszültség-védelmet elektronikai alkatrész boltban, kedvezõbb áron
+számítástechnikai boltban vagy magazinon keresztül vehetsz. Ezek alacsony
+árú eszközök (8-10 eFT - a lektor)
+     _________________________________________________________________
+
+2.2. Hálózati kiegyenlítõ (Line Conditioner)
+
+Ezek az eszközök kiszûrik a zajt az AC vonalakból. A zaj elronthatja a
+tápegységet, és korai meghibásodáshoz vezethet. A túlfeszültségtõl és rövid
+feszültségeséstõl is megvédenek.
+
+A Tripp-Lite 1200-t mint jobbféle hálózati kiegyenlítõt használtam; egy
+doboz nagy lágyacél transzformátorral és egy pár kondenzátorral, így nincs
+lehetõsége a túláram átjutásának egyik oldalon sem. Ha egy ilyet használsz,
+csak nevetsz az áramszüneteken és viharokon. Járulékos szolgáltatás, ha
+véletlenül kihúzod a csatlakozót a falból, van idõd újra bedugni azt,
+mielõtt a géped észrevenné (velem ez történt egyszer). De egy igazi
+szünetmentes tápegység jobb.
+
+Netter Trey McLendon jó dolgokat mondott a Zero hálózati kiegyenlítõkrõl:
+"A munkahelyi rendszerünk [...] 2,5 éve védve van a viharoktól...az egyik
+villám kiütött egy MOV-típusú túlfeszültség-védelmet, amit az utca
+túloldalán egy Mac disztribútor használt. A Zero hálózati kiegyenlítõ csak
+zümmögött egy kicsit amikor a feszültséghullám megérkezett, de ez nem
+okozott fennakadást. A mûködési elve a következõ: a ZS egységek passzív
+elemek hálózatával mérsékelik az áramlökést, majd elvezetik a semleges
+vonalra, amely szabvány szerint a földre van kötve a dobozon kívül. A MOV
+egységek a földbe vezetik az áramlökést a számítógépnél, amikor
+keresztülmegy a soros portokon, hálózati (network) csatlakozókon stb."
+
+Az áruk nagy szórást mutat $40-400 között, a készülék képességeitõl és
+terhelhetõségétõl függõen. A legjobb választás lehet egy megbízható
+csomagküldõ szolgálattól rendelni egyet. A hálózati kiegyenlítõket
+általában nem kell kicserélni áramlökés után; ellenõrizd le, hogy a Te
+készülékedben vannak-e MOV-ok.
+     _________________________________________________________________
+
+2.3. Szünetmentes tápegység (Uninterruptable Power Supply)
+
+Egy szünetmentes tápegységnek három funkciója van. Elõször, megszûri a
+hálózati feszültséget, lecsillapítja a tüskéket és a
+feszültség-ingadozásokat, amelyek megrongálhatják a készülékeket. Másodszor,
+egy bizonyos üzemidõt még biztosít áramkimaradás esetén -- sokszor így
+hidalhatunk át rövidebb áramszüneteket. Harmadszor, ha a szünetmentes
+tápegység energia fogytán van, elindíthat egy számítógép-leállítási
+folyamatot, és így megkímél minket a fájlrendszerek sérülésétõl. Bár a
+váratlan leállások által okozott károk manapság sokkal kisebbek a naplózó
+fájlrendszereknek köszönhetõen mint például a Linux EXT3 vagy JFS
+fájlrendszere, egy teljes leállítási folyamat még mindig az egyik
+legfontosabb a rendszergazda lelki nyugalmának megõrzése érdekében.
+     _________________________________________________________________
+
+3. Az alapok
+
+3.1. A szünetmentes tápegység kiválasztása
+
+A szünetmentes tápegységek manapság már nem drágák. Az Egyesült Államokban
+2003-ban $150 alatt is lehet vásárolni megfelelõ egységet (mo.-on bruttó
+20-30 ezer forinttól kaphatók - a lektor), és az árak egyre csökkennek.
+Sõt, olyannyira olcsóak, hogy már nem szükséges a számítógép
+teljesítmény-felvételének bonyolult kiszámítása a megfelelõ szünetmentes
+tápegység kiválasztásához. Ez két-három éve még elengedhetetlen lett volna.
+Inkább egy egyszerûbb és hatékonyabb módon választjuk ki az egységet.
+
+A szünetmentes tápegységek a szerint vannak osztályozva, hogy a feltöltött
+akkumulátoruk hány watt teljesítményt képes leadni teljes lemerüléséig. A
+piacon viszont VA (volt-amper) egységben megadott értékeket látunk. Az
+átlagfogyasztóknak szánt egységek dobozán gyakran nem is található meg a
+teljesítményadat. Ennek az az oka, hogy a VA-ben megadott adatok nagyobbak
+és jobban néznek ki. A wattos érték hozzávetõleg a VA érték fele; a pontos
+magyarázat megtalálható a hivatalos kiadványban a következõ címen, az APC
+honlapján, a [28]A hatásos, a csúcsérték és a hullámtermészet PDF
+dokumentumban.
+
+Még ha tudjuk is a wattos teljesítményét a szünetmentes tápegységnek,
+alapvetõen a számítógép wattos fogyasztása határozza meg az áthidalható
+idõt. Ez a fogyasztás nehezen becsülhetõ meg. Még olyan dolgok is
+közrejátszhatnak, hogy például mekkora monitort használunk. (A nagyobb
+monitorok sokkal több energiát fogyaszthatnak.)
+
+A gyártók úgy próbálják megoldani ezt a problémát, hogy a dobozon egy
+várható áthidalható idõt tüntetnek fel. De sokszor túloznak, néha még hamis
+értékeket is megadnak (Ezt hívják "Marketingnek"). Egy olyan értéket adnak
+meg, amelyet egy minimális rendszer kikapcsolt lemezegységekkel egy pici
+monitorral át tud hidalni, ahogyan a laptopgyártók is hamis üzemidõt adnak
+meg. A becsületesebb gyártók táblázatba foglalva adják meg a különbözõ
+rendszerekre vonatkozó ("asztali", "torony" stb.) várható értékeket.
+Hozzávetõlegesen mindig a megadott érték felével kell számolni.
+
+Azt tanácsolom, hogy ne nézzük a számokat. Inkább vásároljunk egy felsõ
+kategóriás otthoni egységet az APC, a Best, a Tripp-Lite, a Belkin, vagy más
+neves gyártó kínálatából. Nyugodtan válasszuk a leghosszabb áthidalható
+idõt biztosító, legmagasabb wattos teljesítményû, vagy legnagyobb VA
+értékû egységet; a különbözet az olcsóbb modellhez képest nemigen haladja
+meg a 75 dollárt. Garantáltan jó érzés tölt majd el a döntéseddel
+kapcsolatban az elsõ nagyobb áramszünetkor, ha nem garasoskodsz.
+
+Egy másik érv amellett, hogy egy nagyobb kapacitású egységet vásároljunk egy
+olyan helyett, ami nem képes kiszolgálni a rendszerünket az, hogy a
+túlterhelt szünetmentes tápegységek csúnya dolgokra képesek például
+[29]kigyulladhatnak és felrobbanhatnak.
+
+Mindenképpen egy line interactive típusú egységet vásároljunk a régebbi
+standby vagy SPS típusú helyett. A régebbi típusok nem szûrik ki a
+feszültségzavarokat. Az SPS nagy elõnye (az alacsony ár) mára eltûnt,
+mivel a line-interactive típusok már nagyon olcsók. Léteznek más típusú
+szünetmentes tápegységek, de azok vagy elavultak vagy nagy nagyobb
+rendszerparkhoz tervezték õket. A különbözõ típusok leírása megtalálható a
+[30]A szünetmentes tápegységek különbözõ típusai PDF dokumentumban, az APC
+webhelyén.
+
+Egy másik fontos szempont a választásban az, hogy az egység hogyan
+kommunikál a számítógéppel. Nem tanácsos soros porton (RS-232C kábelen
+keresztül kommunikáló) egységet vásárolni. Ezek a modellek kifutóban vannak,
+helyettük az USB és Ethernet csatlakozású eszközök jelennek meg. Ennek az az
+egyszerû magyarázata, hogy az RS-232C interfész nem mindig kiszámítható,
+nehéz beállítani és nyomon követni. Az Ethernet túlzás egy ilyen rendszer
+számára; a szünetmentes tápegységeknek nincs szükségük ekkora
+sávszélességre. Az USB csatlakozást válasszuk, amely jó ár/teljesítmény
+arányának köszönhetõen megfelelõ, és viszonylag egyszerû a
+hibaelhárítása.
+
+Nemrég még nagy különbség volt az okos (smart) és a buta (dumb) egységek
+között. A buta egységek külön tûkön jelezték a feszültségszintet; az okos
+típusok a kommunikációs kábelt egyszerûen a jellemzõk közvetítõjeként
+használták és az aktuális állapotról tájékoztatta a számítógépet. De csak
+RS232C típusú egységek között létezik buta, és lehet, hogy a dokumentum
+olvasásakor már nem is gyártják ezeket az egységeket.
+
+Én az APC szünetmentes tápegységeket részesítem elõnyben (nem állok
+kapcsolatban a céggel). De a termékek között nincs lényeges eltérés, amíg a
+nagy márkák egyikét választjuk.
+     _________________________________________________________________
+
+3.2. A szünetmentes tápegység és más eszközök telepítése: a teljes kép
+
+Ajánlásaink egy éles Unix környezethez a következõk:
+
+    1. Egy szünetmentes tápegység a számítógépes rendszernek.
+    2. Túlfeszültség-védelem az összes telefonvonal, soros és párhuzamos
+       kapcsolathoz, amely elhagyja a szobát.
+    3. Hálózati kiegyenlítõ minden olyan eszközhöz, amely nem a
+       szünetmentes tápegységhez csatlakozik. Áramlökés esetén könnyebb
+       lecserélni egy $50 hálózati kiegyenlítõt, mint egy $1500
+       lézernyomtatót.
+
+   Ha ez túl drága számodra, akkor a szünetmentes tápegység helyett
+   hálózati kiegyenlítõt vegyél, mint amilyen például a TrippLite. De
+   legalább ilyened legyen. Védelem nélkül használni a rendszered rossz
+   befektetés, mivel villámcsapás esetén el fogod veszteni a
+   felszerelésed -- Murphy törvénye szerint ez mindig a lehetõ
+   legrosszabb idõben történik.
+
+   Lényeges dolog, hogy lézernyomtatót általában nem csatlakoztatunk
+   UPS-re -- a toner fûtése elég sok energiát igényel ahhoz, hogy
+   másodperceken belül lekapcsolja a UPS-t. Másik dolog, hogy
+   lézernyomtatót soha nem kell a UPS-el egy körbe kapcsolni. -- a fûtés
+   minden 20-30 másodpercben áramlökést okoz, ezt a legtöbb UPS
+   áramkimaradásnak érzékeli. Szóval egy külön hálózati kiegyenlítõt
+   vegyél a lézernyomtatóhoz.
+
+   Egy UPS-t közvetlenül az AC tápegységhez kell csatlakoztatni (azaz a
+   túlfeszültség-védelem nem szükséges, és nem is ajánlott a fali
+   csatlakozó és a UPS között). Továbbá túlfeszültség-védelem a UPS és a
+   felszerelés között felesleges.
+     _________________________________________________________________
+
+3.3. Szoftveres támogatás
+
+A szünetmentes tápegység kapcsolatban áll a számítógéppel, így ha olyan
+hosszú ideig tart az áramkimaradás, hogy az akkumulátor kimerül, akkor
+szabályosan leállíthatja a számítógépet. Ennek megtételéhez a számítógépen
+futnia kell a háttérben egy alkalmazásnak -- egy démonnak, a Unix
+szóhasználatában -- amely a szünetmentes tápegységtõl érkezõ megszakítás
+(terminate) üzenetet figyeli. Ekkor az operációs rendszert leállítja.
+
+A szünetmentes tápegységekhez általában CD-n mellékelnek ilyen programot.
+Ezek hasztalanok, mivel (a) nagyrészt Windows rendszerhez készültek, és (b)
+ha véletlenül mégis Linuxhoz készültek, akkor szinte biztosan egy általunk
+nem használt verzióhoz készült binárisok.
+
+A soros porton kapcsolódó szünetmentes tápegységek idejében féltucatnyi
+szabad forráskódú figyelõprogram létezett: apcd, dumbupsd, genpowerd.
+powerd, smupsd, usvd stb. Ezek viszonylag buta programok voltak, egy
+egyszerû feladatra írták õket. Sokukhoz szükség volt egy egyedi RS232C
+kábel elkészítésére, mivel a gyártók megváltoztatták a portokat az ügyfelek
+megtartása érdekében.
+
+De ezek az idõk elmúltak. Az USB kapcsolatú egységek szakítottak a házi
+kábelkészítéssel, viszont bonyolultabb figyelõ program kell hozzájuk. A kör
+így jelentõsen szûkült. Csak két projekt maradt meg.
+
+A [31]Network UPS Tools (Hálózati szünetmentes tápegység eszközök) projekt
+egy általános szünetmentes tápegység-figyelõ démon, amelynek célja, hogy
+intelligensen kommunikáljon minden mai szünetmentes tápegységgel.
+
+Az [32]apcupsd egy kifejezetten az APC (American Power Corporation)
+termékeivel kommunikáló démon.
+
+Mindkettõ biztos alapokon nyugvó, jól felügyelt projekt.
+Fejlesztõcsapataik kölcsönösen barátságosak, és szó volt az egyesülésrõl
+is. 2003 októberében az apcupsd projekt kínál több szolgáltatást, többek
+között jobb USB támogatásával és jobb dokumentációjával -- de a NUT-nak jobb
+a felépítése, több a fejlesztõje és a Red Hat és más nagy disztribúciók is
+használják.
+
+Ha APC terméket veszünk, használjuk az apcupsd-t, és a NUT-ot ha mást
+veszünk. Mindkettõhöz elérhetõ RPM és Debian csomag, amelyek megfelelõen
+beállítják a bootolási folyamatot, és telepítik a démonok binárisait, így a
+telepítés mindkét esetben egyszerû.
+     _________________________________________________________________
+
+3.4. A rendszer beállítása automatikus újraindításhoz
+
+Ha a szünetmentes tápegység egy állandóan mûködõ DNS-, Web- vagy
+levelezõszervert véd, szükség ven rá, hogy a számítógép automatikusan el
+tudjon indulni a számítógép leállása után, amikor a táphálózat újra
+mûködik.
+
+A számítógépek általában gyárilag nem így vannak beállítva. Általában a
+tápellátás megszûnése és újbóli rendelkezésre állása után meg kell nyomnunk
+egy gombot a számítógép elindulásához. Ezt kipróbálhatjuk számítógépünkön.
+Állítsuk le a számítógépet, húzzuk ki a tápcsatlakozót, majd dugjuk vissza.
+Ha a számítógép azonnal elindul, akkor nincs semmi teendõnk.
+
+Ha a számítógép nem indul el, kapcsoljuk be és lépjünk be a számítógép SETUP
+(BIOS beállítások) programjába, amit általában bekapcsolás után a DEL,
+esetleg az F10 gomb megnyomásával tehetünk meg. Ezután keressük meg és
+állítsuk be a megfelelõ helyen az azonnali bekapcsolás engedélyezését.
+
+Általában ezt a BOOT menüben találjuk, Restore on AC/Power Loss (folytatás
+áramkimaradás után) vagy Full-On (mindig bekapcsolva) néven. A pontos
+megnevezések a ROM BIOS gyártójától függ. Általában három beállítási
+lehetõségünk van: Last State (utolsó állapot megtartása), Power On
+(bekapcsolva) vagy Power Off (kikapcsolva).
+
+Egyes BIOS-ok nem támogatják ezt a lehetõséget. Ez egy nagyon rossz
+megoldás a BIOS gyártójától, de elõfordul. Ebben az esetben az egyetlen
+megoldás egy új alaplap vásárlása.
+     _________________________________________________________________
+
+4. A szünetmentes tápegység karbantartása
+
+A szünetmentes tápegységben található egy akkumulátor. Ez általában egy
+ólom-kénsav akku, mivel a gyártónak ezt a legolcsóbb elõállítani, de ezen
+kívül használnak még líthium-ionos és zselés akkumulátorokat is.
+
+Az akkumulátor messze a legérzékenyebb alkatrésze a szünetmentes
+tápegységnek. Hosszú használat után akkumulátorproblémák léphetnek fel. 6-12
+havonta érdeme újrakalibrálni az akkumulátor érzékelõt, és néhány évente ki
+kell cserélni az akkukat.
+     _________________________________________________________________
+
+4.1. Az akkumulátor élettartamának növelése
+
+Az akkumulátor élettartamának növeléséhez (a) kerüljük a teljes kisütést és
+(b) ne tegyük ki magas hõnek, nagy hidegnek vagy magas páratartalomnak. A
+teljes kisütések ellen az egyetlen ellenszer, ha olyan helyen lakunk, ahol
+az áramkimaradások rövidek és nem túl gyakoriak.
+     _________________________________________________________________
+
+4.2. A szünetmentes tápegység újrakalibrálása
+
+A becsült áthidalható idõtartam pontossága idõvel romlik. Ennek a tipikus
+jele, hogy a szünetmentes tápegység túlbecsüli az áthidalható idõtartamot,
+de az is megeshet, hogy nem jelzi ki az akkumulátor rossz állapotát, és
+ebbõl kellemetlen dolgok keletkezhetnek.
+
+A szünetmentes tápegységek belsõ programjába be van építve egy
+újrakalibrálási procedúra. Ez alapvetõen egy teljes kisütésbõl és egy
+újratöltésbõl áll, miközben az egység egy speciális tesztüzemmódban van.
+Ennek a folyamatnak az elindítása az egység szoftverétõl függ.
+
+Ezt minden akkucsere után el kell végezni (lásd alább). Ezenkívül
+karbantartásként nem árt ugyanezt 6-12 havonta elvégezni, de ennél
+gyakrabban nem szabad; amint azt már említettük, a teljes kisütés lerövidíti
+az akkuk élettartamát.
+     _________________________________________________________________
+
+4.3. Az akkumulátorok cseréje
+
+A modern szünetmentes tápegységekben található egy érzékelõ, amely értesít
+bennünket, ha az akkumulátort ki kell cserélni. Ezt általában fény- és
+hangjelzéssel jelzik. Ha beállítottunk egy figyelõ démont, ez is értesít
+minket és esetleg egy figyelmeztetõ e-mailt is küld nekünk. Amennyiben
+figyelmen kívül hagyjuk, egy idõ után megszûnik a fény- és hangjelzés,
+bizonyos idõközönként újra elindul.
+
+Esetenként a riasztás téves is lehet. Ezért riasztás esetén nem árt másnap
+elindítani egy öntesztelõ folyamatot a szünetmentes tápegységen, és azt
+figyelni, hogy kapunk-e újabb riasztást. (az öntesztelés elindítása
+egységenként más és más lehet). Amennyiben a riasztás így sem múlik el, ki
+kell cserélnünk az akkumulátorokat.
+
+Olyan eset is elõfordult, hogy a hibás akkumulátor olyan jelenséget
+produkált, mintha az átalakító vagy a vezérlõ elektronika lett volna hibás.
+Akkor is az akkumulátorra kell elsõként gyanakodni, ha a szünetmentes
+tápegység epileptikus tüneteket produkál, például villognak a panel fényei.
+
+A szünetmentes tápegységek gyártói arra ösztönöznek, hogy a teljes egységet
+cseréljük ki, ha az akkumulátorok már tönkrementek, mert így nagyobb a
+profitjuk. De valójában nincs semmi különleges ezekben az akkumulátorokban.
+Teljesen közönséges akkumulátorok, nagyon sokféle területen használják
+õket, és szabvány csatlakozókkal rendelkeznek. Nem csak a szünetmentes
+tápegység gyártójától lehet beszerezni õket, sõt, sokszor sokkal jobb és
+olcsóbb típusokkal is helyettesíthetõk.
+
+Ajánlott megvárni az akkumulátor tönkremenetelét, mielõtt egy újat
+rendelünk; az akkumulátorok tárolásuk közben veszítenek az élettartamukból,
+ha nem tartjuk õket teljesen feltöltve.
+
+Az akkumulátorokat soha ne dobjuk ki a szemétbe! Mérgezõ fémeket és savakat
+tartalmaznak. Környezetünk érdekében inkább adjuk le egy gyûjtõhelyen. A
+legtöbb akkumulátor-kereskedõnél ezt megtehetjük. Amennyiben ez mégsem
+lehetséges, a helyi szemétszállító vagy szemétfeldolgozó vállalatnál
+érdeklõdhetünk ez ügyben.
+
+Most néhány tanács következik arra vonatkozóan, hogy hogyan vásároljunk
+tartalék akkumulátorokat. Egy fontos figyelmeztetés: több felhasználó is
+vásárolt a lent említett utángyártott akkumulátorok közül olyat, amely --
+mint utóbb kiderült -- nem az egységéhez való volt. A problémát vágás,
+forrasztás és egyéb nemkívánatos dolgok árán oldották meg, ezért nagyon
+fontos az akkumulátorok milliméter pontos méretének ismerete -- a
+csatlakozókat is beleértve.
+
+Habár lehetséges az akkumulátorok üzem közbeni cseréje, ez nem a
+legmegfelelõbb eljárás, mivel az egység nem fogja tudni, hogy kicserélték
+az akkumulátorokat, és a figyelõprogram továbbra is alacsony
+akkufeszültségre fog figyelmeztetni. A hiba elkerüléséhez ki kell sütnünk,
+majd fel kell töltenünk az akkumulátort. Ekkor már pontosabb lesz az
+akkumulátor kalibrálása.
+
+Lehet, hogy csak többszöri kisütés és feltöltés után érik el az akkuk teljes
+kapacitásukat, és csak ekkor lesz pontos az áthidalható idõtartam becslése.
+Ha az egységünkben több akkumulátor is található, és a figyelõprogram
+különbözõ feszültségszintet mutat az akkukban, akkor úgy is megtudhatjuk,
+hogy mikor érik el teljes kapacitásukat, hogy figyeljük a feszültségek
+eltérését. Ha az értékek közel azonosak, akkor érték el a cellák a névleges
+kapacitásukat.
+     _________________________________________________________________
+
+4.4. Akkumulátorok vásárlása
+
+Az APC minden SmartUPS modellhez gyárt "csere akkumulátorokat", de csak az
+Egyesült Államokban árusítja ezeket közvetlenül. Bármely Yamaha SeaDoo
+boltban találunk 35 Ah kapacitású deep cycle marine akkukat, amelyek az APC
+egyes modelljeiben használt akkukkal csereszabatosak. Ezek zselés akkuk, és
+kétszer akkora használati idõvel és/vagy fele akkora töltési idõvel
+rendelkeznek. Néhány nyugati parti árusítóhely:
+
+Jet Works
+1587 Monrovia Ave.
+Newport Beach CA 9266?
+Tel: +1 714 548-5259
+
+J-W Batteries, Inc.
+Tel: +1 714 548-4017
+
+WPS 49-1200
+GEL-CELL KB-35 BATTERY
+
+   A cég, amit leginkább ajánlottak nekem (Carl Erhorn, az apcupsd egyik
+   fõ fejlesztõje is ajánlotta) a Texas-i Battery Wholesale
+   Distributors of Georgetown, Kérdésekkel a (800) 365-8444 telefonszámon
+   lehet hozzájuk fordulni, reggel 9:00-tól 17:00-ig (Texas-i helyi idõ
+   szerint), hétfõtõl péntekig. Carl állítása szerint még hétvégén is
+   kapott tõlük e-mailt annak ellenére, hogy olyankor nem tartanak
+   nyitva.
+
+   A mindenkori aktuális árlista megtalálható a
+   [33]www.batterywholesale.com webhelyen. Az Egyesült Államokon kívülre
+   is szállítanak, elfogadják az általánosan használt hitelkártyákat, és
+   telefonon vagy weben keresztül is rendelhetünk.
+
+   Carl állítása szerint a BWD olyan gyártók termékeit is forgalmazza,
+   amelyek szabványos méretû, de megnövelt kapacitású akkukat gyártanak.
+   Ezek az eredeti akkuk kapacitását sokszor akár 15%-kal is
+   meghaladhatják, ami hosszabb használati idõt eredményezhet. Ez egy
+   kellemes többletszolgáltatás minimális árkülönbségért.
+
+   A BWD ezen kívül "környezetbarát", újrahasznosítja a régi akkukat, és
+   visszaveszi azokat, ha nem találunk közeli újrahasznosítót. Csak a
+   postaköltséget kell kifizetnünk, ezen felül semmilyen költség nem
+   terhel minket.
+
+   Carl a következõket mondta: "Nagyon meg vagyok elégedve a
+   termékeikkel, a kiszolgálással és az áraikkal. Remélem olyan
+   segítõkésznek találod õket, mint én. 1994 óta állok velük
+   kapcsolatban, és soha nem csalódtam bennük. A tulajdonos is ért a
+   technikai részekhez, így ha kérdésed van egy termékkel kapcsolatban,
+   részletesen tud válaszolni."
+     _________________________________________________________________
+
+5. Köszönetnyilvánítás és kapcsolódó források
+
+Ezen dokumentum egyes részei, elsõsorban a szünetmentes tápegység
+karbantartásáról szóló részek eredetileg az apcupsd dokumentációjának részét
+képezte. A projekt karbantartói jóindulatúan hozzájárultak ahhoz, hogy
+ezeket jelen dokumentumban felhasználhassam.
+
+Létezett egy korábbi Szünetmentes tápegység HOGYAN, amelyet Harvey J. Stein
+írt, és 1997-ben módosított utoljára. Ez annyira elavult volt, hogy semmit
+sem tudtam belõle felhasználni.
+
+Létezik egy [34]Szünetmentes tápegység GYIK amely egy kicsit régi, de
+tartalmaz néhány ma is használható jó tanácsot.
+
+References
+
+   1. http://www.catb.org/~esr/
+   2. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#introduction
+   3. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#purpose
+   4. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#newversions
+   5. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#license
+   6. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#hungarian_translation
+   7. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN47
+   8. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#surge
+   9. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#conditioners
+  10. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN76
+  11. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN79
+  12. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN81
+  13. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN104
+  14. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN118
+  15. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN139
+  16. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#maintaining
+  17. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN156
+  18. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN159
+  19. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN164
+  20. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN176
+  21. file://localhost/home/dacas/tldp/convert/UPS-HOWTO-hu.html#AEN188
+  22. http://www.tldp.org/HOWTO/UPS-HOWTO.html
+  23. http://www.gnu.org/copyleft/fdl.html
+  24. mailto:esr@snark.thyrsus.com
+  25. mailto:vape[kukac]maffia[pont]hu
+  26. mailto:dacas[kukac]freemail[pont]hu
+  27. http://tldp.fsf.hu/index.html
+  28. http://sturgeon.apcc.com/whitepapers.nsf/URL/WP-17/$FILE/WP17.pdf
+  29. http://www.exploits.org/nut/library/pictures/dead/
+  30. http://sturgeon.apcc.com/whitepapers.nsf/URL/WP-1/$FILE/WP1.pdf
+  31. http://www.exploits.org/nut/
+  32. http://www2.apcupsd.com/
+  33. http://www.batterywholesale.com/
+  34. http://www.jetcafe.org/~npc/doc/ups-faq.html

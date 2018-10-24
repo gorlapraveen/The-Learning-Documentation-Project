@@ -1,0 +1,927 @@
+
+                     Signal 11 while compiling the kernel
+
+   This FAQ describes what the possible causes are for an effect that
+   bothers lots of people lately. Namely that a linux(*)-kernel (or any
+   other large package for that matter) compile crashes with a "signal
+   11". The cause can be software or (most likely) hardware. Read on to
+   find out more.
+   (*) Of course nothing is Linux specific. If your hardware is flaky,
+   Linux, Windows 3.1, FreeBSD, Windows NT and NextStep will all crash.
+   If you are not reading this at [1]http://www.BitWizard.nl/sig11/,
+   that's where you can find the most recent version.
+   For those of you who prefer reading this in French, the French
+   translation can be found at
+   [2]http://www.linux-france.org/article/sig11-fr/.
+   For those of you who prefer reading japanese, the Japanese translation
+   can be found at [3]http://www.linux.or.jp/JF/JFdocs/GCC-SIG11-FAQ/.
+   [4]Email me at R.E.Wolff@BitWizard.nl if you find any spelling errors,
+   worthwhile additions or with an "it also happened to me" story. (Note
+   that I reject some suggested additions on my belief that it is
+   technical nonsense). I would appreciate it if you put "sig11" or
+   something like that in the subject. You can also [5]Email me about
+   other subjects.
+     _________________________________________________________________
+
+The Sig11 FAQ
+
+  QUESTION
+
+   Signal 11, what does that mean?
+
+  ANSWER
+
+   Signal 11, or officially know as "segmentation fault", means that the
+   program accessed a memory location that was not assigned. That's
+   usually a bug in the program. So if you're writing your own program,
+   that's the most likely cause. However, this FAQ will concentrate on
+   the possibilities besides that.
+
+  QUESTION
+
+   My (kernel) compile crashes with
+      gcc: Internal compiler error: program cc1 got fatal signal 11
+
+   What is wrong with the compiler? Which version of the compiler do I
+   need? Is there something wrong with the kernel?
+
+  ANSWER
+
+   Most likely there is nothing wrong with your installation, your
+   compiler or kernel. It very likely has something to do with your
+   hardware. There are a variety of subsystems that can be wrong, and
+   there is a variety of ways to fix it. Read on, and you'll find out
+   more. There are two exceptions to this "rule". You could be running
+   low on virtual memory, or you could be installing Red Hat 5.x, 6.x or
+   7.x. There is more about this near the end.
+     _________________________________________________________________
+
+  QUESTION
+
+   Ok it may not be the software, How do I know for sure?
+
+  ANSWER
+
+   First lets make sure it is the hardware that is causing your trouble.
+   When the "make" stops, simply type "make" again. If it compiles a few
+   more files before stopping, it must be hardware that is causing you
+   troubles. If it immediately stops again (i.e. scans a few directories
+   with "nothing to be done for xxxx" before bombing at exactly the same
+   place), try
+        dd if=/dev/HARD_DISK of=/dev/null bs=1024k count=MEGS
+
+   Change HARD_DISK to "hda" to the name of your harddisk (e.g. hda or
+   sda. Or use "df ."). Change the MEGS to the number of megabytes of
+   main memory that you have. This will cause the first several megabytes
+   of your harddisk to be read from disk, forcing the C source files and
+   the gcc binary to be reread from disk the next time you run it. Now
+   type make again. If it still stops in the same place I'm starting to
+   wonder if you're reading the right FAQ, as it is starting to look like
+   a software problem after all.... Take a peek at the "what are the
+   other possibilities" question..... If without this "dd" command the
+   compiler keeps on stopping at the same place, but moves to another
+   place after you use the "dd" you definitely have a disk->ram transfer
+   problem.
+
+  QUESTION
+
+   What does it really mean? Are you sure it's a hardware problem?
+
+  ANSWER
+
+   Well, the compiler accessed memory outside its memory range. If this
+   happens on working hardware it's a programming error inside the
+   compiler. That's why it says "internal compiler error". However when
+   the hardware occasionally flips a bit, gcc uses so many pointers, that
+   it is likely to end up accessing something outside of its addressing
+   range. (random addresses are mostly outside your addressing range, as
+   not very many people have a significant part of 4G as main memory...
+   :-) It seems that nowadays, everybody with "signal 11" problems gets
+   directed to this page. If you're developing your own software or have
+   software that hasn't been debugged quite enough, "signal 11" (or
+   segmentation fault) is still a very strong hint that there is
+   something wrong with the program. Only when a program like "gcc" that
+   works for almost everybody else to crash on a dataset (e.g. the
+   Linux-kernel) that has also been well-tested, then it becomes a hint
+   that there is something wrong with your hardware. If some software
+   component like a hardware driver in your system is broken, it could
+   cause symptoms that are VERY close to those of a hardware failure.
+   However, when a driver is faulty it is more likely to cause serious
+   trouble inside the kernel, than just causing the compiler to crash.
+     _________________________________________________________________
+
+  QUESTION
+
+   Ok. I may have a hardware problem what is it?
+
+  ANSWER
+
+   If it happens to be the hardware it can be:
+     * Main memory. Your main memory might be getting an occasional bit
+       wrong. If this happens on the "writes", you won't see any parity
+       errors. There are several ways to fix it:
+          + The memory speed might be too slow. Increase the number of
+            wait states in the BIOS.
+            This could be caused by the AMIBIOSs autoconfig option: it
+            may only know about 486s running upto 80 MHz, whereas you
+            currently buy 100 MHz versions. -- Pat V.
+          + The memory speed might be too slow. Get faster DRAM SIMMs.
+            For example current ASUS motherboards require 60 ns DRAM if
+            you have a 100, or 133 MHz processor (Take a look in your
+            motherboard's manual). I've heard reports that 70 ns also
+            works, reliability problems like random sig11's belong to the
+            possibilities.... (I wouldn't take the risk) -- Andrew
+            Eskilsson (mpt95aes@pt.hk-r.se)
+          + You might think that you can run your 100MHz SDRAMs at
+            100MHz. Wrong! read
+            [6]http://www.bitwizard.nl/sig11/sdram.html why I think this
+            is the case. You need at least one speed grade faster than
+            the speed they are rated for.
+          + There is a bad chip on one of the SIMMs. If you own more than
+            1 bank of memory you might be able to pull SIMMs and see if
+            the problem goes away. Be careful for STATIC!!!
+          + We handled a hard one here the last week. It turned out that
+            ALL 4 16Mb SIMMs were broken in that they dropped a bit
+            around once per hour. This was sufficient to crash the
+            machine in about a day, or crash a kernel compile in about an
+            hour. A new set of SIMMs works perfectly. It took a long
+            while to diagnose this one, because all 4 of the SIMMs were
+            affected equally, so leaving half of the memory out didn't
+            change things.
+            Mark Kettner (kettner@cat.et.tudelft.nl) reports that his
+            system was capable of running my memory test for 2300 times
+            faultlessly, but then detected around 10 errors. It then
+            continued detecting no faults for a few hundred runs
+            again..... In his case running kernel compiles was a much
+            more efficient way of detecting the health of the system (in
+            the most stable configuration the system could compile around
+            14 kernels before going bzurk). His solution was to "trade
+            in" the old memory for a so called "memory upgrade". The
+            shopkeeper then "tests" in their memory tester, which OKs the
+            memory. He then got a good discount on the new memory :-).
+          + It seems that some 30-72 pin converters can cause memory
+            errors. (See how old this entry is? Who remembers 30pin
+            SIMMs? However all these things hold perfectly for SIMM <->
+            DIMM converters, or socket370 <-> slot 1 converters) (It
+            hasn't been proven whether the 4 SIMMS in the converter had
+            gone bad, or if the SIMM converter was at fault. The SIMMS
+            had been functioning perfectly for years before they were
+            moved into the converter....) -- Naresh Sharma
+            (n.sharma@is.twi.tudelft.nl). Paul Gortmaker
+            (paul.gortmaker@anu.edu.au) adds that the SIMM converters
+            should have at least 4 bypass capacitors to keep the power
+            supply of the SIMMs clean.
+          + If the refresh of the DRAM isn't functioning properly, the
+            DRAMs will slowly lose their information. Some (486)
+            motherboards stop refreshing correctly when you turn on
+            "hidden refresh". There seems to be a program called "dram"
+            around that can also mess up your refresh to cause sig11
+            problems. -- Hank Barta (hank@pswin.chi.il.us), Ron Tapia
+            (tapia@nmia.com)
+          + The number of wait states could be too low. Increase the
+            number of waist states in the BIOS for a fix. The Intel
+            Endeavour board doesn't allow you to increase the memory wait
+            states. This can supposedly be fixed by flashing a MR BIOS
+            into the motherboard. -- David Halls
+            (david.halls@cl.cam.ac.uk)
+     * Cache memory. Your cache memory might be getting an occasional bit
+       wrong. Caches are usually not equipped with parity. You can
+       diagnose that this is the case by turning off the cache in the
+       BIOS. If the problem goes away it is probably the cache. There are
+       several ways to fix it:
+          + The cache memory speed might be too slow. Increase the number
+            of wait states in the BIOS.
+          + The cache memory speed might be too slow. Get faster SRAM
+            chips.
+          + There is a bad chip in your cache. It is unlikely that you
+            can swap chips as easily as with SIMMs. Be careful for
+            STATIC!!! -- Joseph Barone (barone@mntr02.psf.ge.com)
+          + The cache might be set to "write back" while there is a bug
+            in the write back implementation of your chipset. The
+            motherboard where this happened was a "MV020 486VL3H" (with
+            20M RAM) -- Scott Brumbaugh (scottb@borris.beachnet.com)
+            (Mail address doesn't work. Scott: Get back at me with a
+            valid return address)
+          + The motherboard may require a jumper to switch between Cache
+            On A Stick and the old-fashioned dip chip cache. (JP16 on Rev
+            2.4 ASUS P/I-P55TP4XE motherboards)
+     * Disk transfers. A block coming from disk might incur an occasional
+       bit error.
+          + If you have this problem, you are most likely to have to do
+            the "dd" command to "move" the problem from one place to the
+            next....
+          + Some IDE harddisks cannot handle the "irq_unmasking" option.
+            This may only show under load. And it could show as a sig11.
+          + Do you have a kalok 31xx? Throw it in the garbage. (or sell
+            it to a DOS user. Update: Haven't heard about kalok for
+            years. They're probably bust. The drives also don't work with
+            W95 by the way.)
+          + SCSI? Termination? A short bus might still work (unreliably
+            that is) with bad termination. A long bus might get errors
+            anyway. Can you turn on parity on the host and the DISK?
+     * The CPU itself. Some batches of processors have a much higher
+       percentage of them that happen to be "bad". Some years ago:
+       original Intel-Pentium-120's. A few years ago AMD K6/2-300's
+       (1998, produced in weeks 34 through 39!). And recently AMD
+       K6/2-450's. Some people may decide that say 400MHz is acceptable
+       to them, however if this turns out to be the problem, you're
+       entitled to a new processor. Go and exchange it where you bought
+       it. (Forget about those P120's, it's not worth the trouble... ;-)
+       -- Guillaume Cottenceau (gcottenc@ens.insa-rennes.fr).
+     * The CPU itself. Some batches of K6 processors simply have a design
+       bug. Read [7]http://www.multimania.com/poulot/k6bug.html and then
+       make sure you get your K6 exchanged. -- Rongen (rongen@istar.ca).
+     * Overclocking. Cyrix P-166 processors run at 133MHz, not at 166.
+       This must be logical to the guys at Cyrix, but nobody else. You're
+       overclocking them if you run them at 166Mhz.....
+     * Overclocking. Some vendors (or private people) think it is
+       possible to overclock some CPUs. Some of them may work others
+       don't. You might want to try turning off turbo (note that most
+       pentium motherboards no longer support a non-turbo mode) and see
+       if the problem goes away. Check the speed of your CPU compared
+       (printed on it, carefully remove the fan if necessary) with what
+       the motherboard jumpers or BIOS settings say.... It seems that
+       even Intel may make mistakes in this area. I now have several
+       reliable reports that official pentium would sig11 at their rated
+       speed, but not at a lower speed. As for some speeds the
+       motherboard is only stressed HARDER for a slower processor speed,
+       (120 MHz-> motherboard runs at 60MHz, 100MHz-> motherboard runs at
+       66MHz), I think it is unlikely that this has anything to do with
+       the motherboard. Moreover a new 120MHz processor is now
+       functioning correctly. -- Samuel Ramac (sramac@vnet.ibm.com). This
+       is not unique to Intel or any of its competitors.
+     * CPU temperature. A high speed processor might overheat without the
+       correct heat sink. This can also be caused by a failing fan. (My
+       personal '486 has a fan that takes a few minutes to get up to
+       speed. It probably will never really FAIL because it's now
+       decommissioned :-). The CPU can become erratic if "pushed" by
+       compiling a kernel. This problem becomes worse if you disable
+       "HALT" on the LILO command line. Linux tries to power-down the CPU
+       by executing the "halt" instruction when the system is idle. This
+       preserves power, and therefore the CPU temperature drops when the
+       system is idle. You therefore might not notice this problem when
+       simply editing, and it might only surface after hours of CPU
+       intensive jobs when the ambient temp is high. If you have a
+       Pentium with Fdiv bug, it is advisable to trade it in at Intel.
+       They will send you a new one that pre-configured with an official
+       Intel-approved FAN. Also note that most normal glues are very bad
+       thermal conductors. There is special thermal glue available that
+       should be used when a fan needs to be glued to a CPU. -- Arno
+       Griffioen (arno@ixe.net), -- W. Paul Mills (wpmills@midusa.net) --
+       Alan Wind (wind@imada.ou.dk)
+       Intel says that the allowable temperature ranges for the outside
+       of your CPU is:
+       0 to +85 C: Intel486 SX, Intel486 DX, IntelDX2, IntelDX4 processor
+       0 to +95 C: IntelDX2, IntelDX4 OverDrive® processors
+       0 to +80 C: 60 MHz Pentium® processor
+       0 to +70 C: 66 to 166 MHz Pentium processor
+       For information on how to measure this and some confirmation of
+       what I say here, see:
+       [8]http://pentium.intel.com/procs/support/faqs/iarcfaq.htm
+       (Especially questions Q5, Q6 and Q12. The document is getting
+       slightly outdated, but it is still very accurate. It seems the
+       questions move around a bit every now and then as well.)
+     * CPU voltage. Some motherboards allow you to select the CPU
+       voltage. Some motherboards badly document the jumper settings that
+       manage this. It seems that a 5V processor might still work most of
+       the time at 3.3 volts..... -- Karl Heyes (krheyes@comp.brad.ac.uk)
+     * RAM voltage. It seems that vendors are preparing for 3.3V RAM now.
+       Most memory is now 3.3V. (but be careful if you have a board
+       capable of setting the RAM voltage: 3.3v RAM will break at
+       5V.....) (Having heard little about this, I think the switch must
+       be automatic.)
+     * Local bus overloading. At 25 MHz you're allowed to have 3
+       VesaLocalBus (VLB) cards, At 33MHz only two, at 40MHz only one and
+       guess what at 50MHz NONE! (i.e. you are allowed to run your system
+       with a 50MHz local bus, but then you're not allowed to use any VLB
+       cards). Some systems start acting flaky when you overload the VLB.
+       Even when your VLB isn't overloaded (over the limits stated
+       above), the system may lose a few nanoseconds of margin by adding
+       an extra VLB card, so you might need to add a cache wait state or
+       something after you've added a new VLB card.... -- Richard
+       Postgate (postgate@cafe.net)
+     * Power management. Some laptops (and nowadays also "green" pc's)
+       have power management features. These might interfere with Linux.
+       One feature might save a memory image to HD and restore the RAM
+       when you press a key. This sounds like fun, but Linux device
+       drivers don't expect that the hardware has been turned off between
+       two accesses. Some may recover, but others not. Try turning it
+       off, or enabling "APM support" in your kernel. -- Elizabeth Ayer
+       (eca23@cam.ac.uk)
+     * Dust buildup. Some dust might conduct a bit and create a weak
+       short. It might increase capacitances somewhere, and degrade
+       timing characteristics. It might impede thermal flow, and lead to
+       overheating components. It might even short a jumper connection! I
+       recommend that every year or so, it is a good idea to open up your
+       computer, and vacuum the inside. Tip: Those cotton-on-a-stick
+       thingies help prodding the dust out of inaccessible spots... --
+       Craig Graham (c_graham@hinge.mistral.co.uk)
+     * The CPU itself. Several people are reporting that they have found
+       nothing to blame except the CPU. This could also have been an
+       incompatibility between the CPU and the motherboard. A wave of
+       reports concerning Intel CPUs has passed (Feb '97). A new wave of
+       reports is coming in that are blaming Cyrix/IBM 6x86 CPUs.
+       Although it could indeed be the CPU, it could also be that your
+       motherboard is incompatible with your CPU. At least I've seen a
+       motherboard manual mention that it isn't compatible with older
+       6x86's. My own experience is that these devices aren't bad at all,
+       and on a kernel compile I benchmarked a P166+ to be equivalent
+       with a P155 (1.3 times faster than a P120).
+
+     The Memory hole. Many modern motherboards allow you to use old ISA
+   video cards with one or two megabytes of linear frame buffer. To
+   achieve this, they have to map out the memory just below 16Mb. Nobody
+   actually ever used this feature, but if you turn the memory hole (or
+   LFB support in some BIOSes) on, your machine will certainly be
+   flaky..... -- Paul Connolly (pconnolly@macdux.com.au)
+
+     The Microcode. Especially on SMP systems, the CPUS may need an
+   upgrade. Since the Pentium division disaster, Intel have their CPUs
+   field upgradable! The CPU can be bumped a few versions by a special
+   instruction from the BIOS. These upgrades usually come with your BIOS,
+   so make sure you're running the latest BIOS, especially if you have an
+   SMP system. -- Jeffrey Friedl (Email withheld).
+     _________________________________________________________________
+
+  QUESTION
+
+   RAM timing problems? I fiddled with the bios settings more than a
+   month ago. I've compiled numerous kernels in the mean time and nothing
+   went wrong. It can't be the RAM timing. Right?
+
+  ANSWER
+
+   Wrong. Do you think that the RAM manufacturers have a machine that
+   makes 60ns RAMs and another one that makes 70ns RAMs? Of course not!
+   They make a bunch, and then test them. Some meet the specs for 60 ns,
+   others don't. Those might be 61 ns if the manufacturer would have to
+   put a number to it. In that case it is quite likely that it works in
+   your computer when for example the temperature is below 40 degrees
+   centigrade (chips become slower when the temp rises. That's why some
+   supercomputers need so much cooling).
+
+   However "the coming of summer" or a long compile job may push the
+   temperature inside your computer over the "limit". -- Philippe Troin
+   (ptroin@compass-da.com)
+     _________________________________________________________________
+
+  QUESTION
+
+   I got suckered into not buying ECC memory because it was slightly
+   cheaper. I feel like a fool. I should have bought the more expensive
+   ECC memory. Right?
+
+  ANSWER
+
+   Buying the more expensive ECC memory and motherboards protects you
+   against a certain type of errors: Those that occur randomly by passing
+   alpha particles.
+   Because most people can reproduce "signal 11" problems within half an
+   hour using "gcc" but cannot reproduce them by memory testing for hours
+   in a row, that proves to me that it is not simply a random alpha
+   particle flipping a bit. That would get noticed by the memory test
+   too. This means that something else is going on. I have the impression
+   that most sig11 problems are caused by timing errors on the CPU <->
+   cache <-> memory path. ECC on your main memory doesn't help you in
+   that case. When should you buy ECC? a) When you feel you need it. b)
+   When you have LOTS of RAM. (Why not a cut-off number? Because the
+   cut-off changes with time, just like "LOTS".) Some people feel very
+   strong about everybody using ECC memory. I refer them to reason "a)".
+     _________________________________________________________________
+
+  QUESTION
+
+   Memory problems? My BIOS tests my memory and tells me its ok. I have
+   this fancy DOS program that tells me my memory is OK. Can't be memory
+   right?
+
+  ANSWER
+
+   Wrong. The memory test in the BIOS is utterly useless. It may even
+   occasionally OK more memory than really is available, let alone test
+   whether it is good or not.
+   A friend of mine used to have a 640k PC (yeah, this was a long time
+   ago) which had a single 64kbit chip instead of a 256kbit chip in the
+   second 256k bank. This means that he effectively had 320k working
+   memory. Sometimes the BIOS would test 384k as "OK". Anyway, only
+   certain applications would fail. It was very hard to diagnose the
+   actual problem....
+   Most memory problems only occur under special circumstances. Those
+   circumstances are hardly ever known. gcc Seems to exercise them. Some
+   memory tests, especially BIOS memory tests, don't. I'm no longer
+   working on creating a floppy with a linux kernel and a good memory
+   tester on it. Forget about bugging me about it......
+   The reason is that a memory test causes the CPU to execute just a few
+   instructions, and the memory access patterns tend to be very regular.
+   Under these circumstances only a very small subset of the memories
+   breaks down. If you're studying Electrical Engineering and are
+   interested in memory testing, a masters thesis could be to figure out
+   what's going on. There are computer manufacturers that would want to
+   sponsor such a project with some hardware that clients claim to be
+   unreliable, but doesn't fail the production tests......
+     _________________________________________________________________
+
+  QUESTION
+
+   Does it only happen when I compile a kernel?
+
+  ANSWER
+
+   Nope. There is no way your hardware can know that you are compiling a
+   kernel. It just so happens that a kernel compile is very tough on your
+   hardware, so it just happens a lot when you are compiling a kernel.
+   Compiling other large packages like gcc or glibc also often trigger
+   the sig11.
+     * People have seen "random" crashes for example while installing
+       using the slackware installation script.... -- dhn@pluto.njcc.com
+     * Others get "general protection errors" from the kernel (with the
+       crashdump). These are usually in /var/adm/messages. --
+       fox@graphics.cs.nyu.edu
+     * Some see bzip2crash with "signal 11" or with "internal assertion
+       failure (#1007)." Bzip2 is pretty well-tested, so if it crashes,
+       it's likely not a bug in bzip2. -- Julian Seward (jseward@acm.org)
+     _________________________________________________________________
+
+  QUESTION
+
+   Nothing crashes on NT, Windows 95, OS/2 or DOS. It must be something
+   Linux specific.
+
+  ANSWER
+
+   First of all, Linux stresses your hardware more than all of the above.
+   Some OSes like the Microsoft ones named above crash in unpredictable
+   ways anyway. Nobody is going to call Microsoft and say "hey, my
+   windows box crashed today". If you do anyway, they will tell you that
+   you, the user, made an error (see [9]the interview with Bill Gates in
+   a German magazine....) and that since it works now, you should shut
+   up.
+   Those OSes are also somewhat more "predictable" than Linux. This means
+   that Excel might always be loaded in the exact same memory area.
+   Therefore when the bit-error occurs, it is always excel that gets it.
+   Excel will crash. Or excel will crash another application. Anyway, it
+   will seem to be a single application that fails, and not related to
+   memory.
+   What I am sure of is that a cleanly installed Linux system should be
+   able to compile the kernel without any errors. Certainly no sig-11
+   ones. (** Exception: Red Hat 5.0 with a Cyrix processor. See
+   elsewhere. **)
+   Really Linux and gcc stress your hardware more than other OSes. If you
+   need a non-linux thingy that stresses your hardware to the point of
+   crashing, you can try winstone. -- Jonathan Bright
+   (bright@informix.com)
+     _________________________________________________________________
+
+  QUESTION
+
+   Is it always signal 11?
+
+  ANSWER
+
+   Nope. Other signals like four, six and seven also occur occasionally.
+   Signal 11 is most common though.
+
+   As long as memory is getting corrupted, anything can happen. I'd
+   expect bad binaries to occur much more often than they really do.
+   Anyway, it seems that the odds are heavily biased towards gcc getting
+   a signal 11. Also seen:
+     * free_one_pmd: bad directory entry 00000008
+     * EXT2-fs warning (device 08:14): ext_2_free_blocks bit already
+       cleared for block 127916
+     * Internal error: bad swap device
+     * Trying to free nonexistent swap-page
+     * kfree of non-kmalloced memory ...
+     * scsi0: REQ before WAIT DISCONNECT IID
+     * Unable to handle kernel NULL pointer dereference at virtual
+       address c0000004
+     * put_page: page already exists 00000046
+       invalid operand: 0000
+     * Whee.. inode changed from under us. Tell Linus
+     * crc error -- System halted (During the uncompress of the Linux
+       kernel)
+     * Segmentation fault
+     * "unable to resolve symbol"
+     * make [1]: *** [sub_dirs] Error 139
+       make: *** [linuxsubdirs] Error 1
+     * The X Window system can terminate with a "caught signal xx"
+
+   The first few ones are cases where the kernel "suspects" a
+   kernel-programming-error that is actually caused by the bad memory.
+   The last few point to application programs that end up with the
+   trouble.
+
+   -- S.G.de Marinis (trance@interseg.it)
+   -- Dirk Nachtmann (nachtman@kogs.informatik.uni-hamburg.de)
+     _________________________________________________________________
+
+  QUESTION
+
+   What do I do?
+
+  ANSWER
+
+   Here are some things to try when you want to find out what is wrong...
+   note: Some of these will significantly slow your computer down. These
+   things are intended to get your computer to function properly and
+   allow you to narrow down what's wrong with it. With this information
+   you can for example try to get the faulty component replaced by your
+   vendor.
+     * Jumper the motherboard for lower CPU and bus speed.
+     * Go into the BIOS and tell it "Load BIOS defaults". Make sure you
+       write the disk drive settings down beforehand.
+     * Disable the cache (BIOS) (or pull it out if it's on a "stick").
+     * boot kernel with "linux mem=4M" (disables memory above 4Mb).
+     * Try taking out half the memory. Try both halves in turn.
+     * Fiddle with settings of the refresh (BIOS)
+     * Try borrowing memory from someone else. Preferably this should be
+       memory that runs Linux flawlessly in the other machine... (Silicon
+       graphics Indy machines are also nice targets to borrow memory
+       from)
+     * If you want to verify if a solution really works try the following
+       script:
+   #!/bin/sh
+   #set -x
+   t=1
+   while [ -f log.$t ]
+     do
+     t=`expr $t + 1`
+   done
+
+   while true
+     do
+     make clean
+     make -k bzImage > log.$t
+     t=`expr $t + 1`
+   done
+       All the resulting logfiles should be the same (i.e. the same size,
+       and the same contents). Every kernel build takes around 4 minutes
+       on a 1GHz Athlon with 512Mb of memory. (and about 3 months on a
+       386 with 4Mb :-).
+     * Another way to test if your current setup is stable might be to
+       run "md5sum" on files of different sizes (dd if=/dev/random
+       of=testfile bs=1024k count=). If you use a file twice the size of
+       your RAM, you'll be exercising your disk. If you use a file 4 to
+       10 Mb smaller than your RAM, you'll exercise your RAM/CPU.
+       Whether this method catches all possible problems, however, is
+       uncertain. Gcc executes lots of different instructions in
+       different orders, and md5sum might simply not hit the right
+       sequence of instructions that gcc does. But if md5sum leads to
+       errors, it might do so quicker than a kernel compile. -- Rob
+       Ludwick (rob@no-spam)
+
+   The hardest part is that most people will be able to do all of the
+   above except borrowing memory from someone else, and it doesn't make a
+   difference. This makes it likely that it really is the RAM. Currently
+   RAM is the most pricy part of a PC, so you rather not have this
+   conclusion, but I'm sorry, I get lots of reactions that in the end
+   turn out to be the RAM. However don't despair just yet: your RAM may
+   not be completely wasted: you can always try to trade it in for
+   different or more RAM.
+     _________________________________________________________________
+
+  QUESTION
+
+   I had my RAMs tested in a RAM-tester device, and they are OK. Can't be
+   the RAM right?
+
+  ANSWER
+
+   Wrong. It seems that the errors that are currently occurring in RAMS
+   are not detectable by RAM-testers. It might be that your motherboard
+   is accessing the RAMs in dubious ways or otherwise messing up the RAM
+   while it is in YOUR computer. The advantage is that you can sell your
+   RAM to someone who still has confidence in his RAM-tester......
+     _________________________________________________________________
+
+  QUESTION
+
+   What other hardware could be the problem?
+
+  ANSWER
+
+   Well, any hardware problem iside your computer. But things that are
+   easy to check should be checked first. So, for example, all your cards
+   should be correctly inserted into the mother board.
+     _________________________________________________________________
+
+  QUESTION
+
+   Why is the Red Hat install bombing on me?
+
+  ANSWER
+
+   The Red Hat 5.x, 6.x and 7.x install has problems on some machines.
+   Try running the install with only 32M. This can usually be dome with
+   mem=32m as a boot parameter.
+
+   It could be that there is a read-error on the CD. The installer
+   handles this less-than-perfect..... Make sure that your CD is
+   flawless! It seems that the installer will bomb on marginal CDs!
+
+   People report, and I've seen with my own eyes, that Red Hat installs
+   can go wrong (crash with signal 7 or signal 11) on machines that are
+   perfectly in order. My machine was and still is 100% reliable
+   (actually the machine I tested this on, is by now reliably dead).
+   People are getting into trouble by wiping the old "working just fine"
+   distribution, and then wanting to install a more recent Red Hat
+   distribution. Going back is then no longer an option, because going
+   back to 5.x also results in the same "crashes while installing".
+
+   Patrick Haley (haleyp@austin.rr.com) reports that he tried all memory
+   configurations up to 96Mb (32 & 64) and found that only when he had
+   96Mb installed, the install would work. This is also consistent with
+   my own experience (of Red Hat installs failing): I tried the install
+   on a 32M machine.
+
+   NEW: It seems that this may be due to a kernel problem. The kernel may
+   (temporarliy) run low on memory and kill the current process. The fix
+   by Hubert Mantel (mantel@suse.de) is at:
+   [10]http://juanjox.linuxhq.com/patch/20-p0459.html.
+
+   If this is actually the case, try switching to the second virtual
+   console (ctrl-alt-F2) and type "sync" there every few seconds. This
+   reduces the amount of memory taken by harddisk-buffers... I would
+   really appreciate hearing from you if you've seen the Red Hat install
+   crash two or more times in a row, and then were able to finish the
+   install using this trick!!!
+
+   What do you do to get around this problem?...
+     * Use SuSE. It's better: It doesn't crash during the installation.
+       (Moreover, it actually is better. ;-)
+     * Maybe you're running into a bad-block on your CD. This can be
+       drive-dependent. If that's the case, try making a copy of the CD
+       in another drive. Try borrowing someone elses copy of Red Hat.
+     * Try configuring a GIGABYTE of swap. I have two independent reports
+       that report that they got through with a gig of swap. Please
+       report to me if it helps!
+     * Modify the "settings" for the harddisk. Changing the setting from
+       "LBA" to "NORMAL" in the bios has helped for at least one person.
+       If you try this, I'd really appreciate it if you'd [11]EMail me: I
+       would like to hear from you if it helps or not. (and what you
+       exactly changed to get it to work)
+     * I got my machine to install by installing a minimal base system,
+       and then adding packages to the installed system.
+     * Someone suggested that the machine might be out-of-memory when
+       this happens. Try having a swap partition ready. Also, the install
+       may be "prepared" to handle low mem situations, but misjudging the
+       situation. For example, it may load a RAMDISK, leaving just 1M of
+       free RAM, and then trying to load a 2M application. So if you have
+       16M of RAM, booting with mem=14M may actually help, as the "load
+       RAMDISK" stage would then fail and the install would then know to
+       run off the CD instead of off the RAMDISK. (installs used to work
+       for >8M machines. Is that still true?)
+     * Try, in one session to clear the disk of all the partitions that
+       are going to be used by Linux. Reboot. Then try the install.
+       Either by partitioning manually, or by letting the install program
+       figure it out. (I take it that Red Hat has that possibility too,
+       SuSE has it...) If this works for you, I'd appreciate it if you'd
+       tell me.
+     * A corrupted download can also cause this. Duh.
+     * Someone reports that installs on 8Mb machines no longer work, and
+       that the install ungracefully exits with a sig7. -- Chris Rocco
+       (crocco@earthlink.net)
+     * One person reports that disabling "BIOS shadow" (system & VIDEO),
+       helped for him. As Linux doesn't use the BIOS, shadowing it
+       doesn't help. Some computers may even give you 384k of extra RAM
+       if you disable the shadowing. Just disable it, and see what
+       happens. -- Philippe d'Offay (pdoffay@pmdsoft.com).
+     _________________________________________________________________
+
+  QUESTION
+
+   What are other possibilities?
+
+  ANSWER
+
+   Others have noted the following possibilities:
+     * The compiler and libc included in Red Hat 5.0 have an odd
+       interaction with the Cyrix processor. It crashes the compiler,
+       This is VERY odd. I would think that the only way that this can be
+       the case is when the Cyrix has a bug that has gone undetected all
+       this time, and reliably gets triggered when THAT gcc compiles the
+       Linux kernel. Anyway, if you just want compile a kernel, you
+       should get a new compiler and/or libc from the Red Hat website.
+       (start at the homepage, and click errata).
+     * Compiling a 2.0.x kernel with a 2.8.x gcc or any egcs doesn't
+       work. There are a few bugs in the kernel that don't show up
+       because gcc 2.7.x does a lousy job optimizing it. gcc 2.8.x and
+       egcs just dump some of the code because we didn't tell it not to.
+       Anyway, you usually get a kernel that seems to work but has funny
+       bugs. For example X may crash with a signal 11. Oh, and before you
+       ask, no it's not going to be fixed. Don't bother Alan or Linus
+       about this OK? -- Hans Peter Verne (h.p.verne@kjemi.uio.no)
+     * The pentium-optimizing-gcc (the one with the version number ending
+       in "p") fails with the default options on certain source files
+       like floppy.c in the kernel. The "triggers" are in the kernel,
+       libc and in gcc itself. This is easily diagnosed as "not a
+       hardware problem" because it always happens in the same place. You
+       can either disable some optimizations (try -fno-unroll-loops
+       first) or use another gcc. -- Evan Cheng (evan@top.cis.syr.edu)
+       (In other words: gcc 2.7.2p crashes with sig11 on floppy.c .
+       Workaround-1: Use plain gcc. Workaround-2: Manually compile
+       floppy.c with "-O" instead of "-O2". )
+     * A bad connection between a disk and the system. For example IDE
+       cables are only allowed to be 40cm (16") long. Many systems come
+       with longer cables. Also a removable IDE rack may add enough
+       trouble to crash a system.
+     * A badly misconfigured gcc -- some parts from one version, some
+       from another. After a few weeks I ended up re-installing from
+       scratch to get everything right. -- Richard H. Derr III
+       (rhd@Mars.mcs.com).
+     * Gcc or the resulting application may terminate with sig11 when a
+       program is linked against the SCO libraries (which come with
+       iBCS). This occurs on some applications that have -L/lib in their
+       LDFLAGS....
+     * When compiling a kernel with an ELF compiler, but configured for
+       a.out (or the other way around, I forgot) you will get a signal 11
+       on the first call to "ld". This is easily identified as a software
+       problem, as it always occurs on the FIRST call to "ld" during the
+       build. -- REW
+     * An Ethernet card together with a badly configured PCI BIOS. If
+       your (ISA) Ethernet card has an aperture on the ISA bus, you might
+       need to configure it somewhere in the BIOS setup screens.
+       Otherwise the hardware would look on the PCI bus for the shared
+       memory area. As the ISA card can't react to the requests on the
+       PCI bus, you are reading empty "air". This can result in
+       segmentation faults and kernel crashes. -- REW
+     * Corrupted swap partition. Tony Nugent (T.Nugent@sct.gu.edu.au)
+       reports he used to have this problem and solved it by an mkswap on
+       his swap partition. (Don't forget to type "sync" before doing
+       anything else after an mkswap. -- Louis J. LaBash Jr.
+       (lou@minuet.siue.edu))
+     * NE2000 card. Some cheap Ne2000 cards might mess up the system. --
+       Danny ter Haar (dth@cistron.nl) I personally might have had
+       similar problems, as my mail server crashed hard every now and
+       then (once a day). It now seems that 1.2.13 and lots of the 1.3.x
+       kernels have this bug. I haven't seen it in 1.3.48. Probably got
+       fixed somewhere in the meantime.... -- REW
+     * Power supply? No I don't think so. A modern heavy system with two
+       or three harddisk, both SCSI and IDE will not exceed 120 Watts or
+       so. If you have loads of old harddisks and old expansion cards the
+       power requirements will be higher, but still it is very hard to
+       reach the limits of the power supply. Of course some people manage
+       to find loads of old full-size harddisks and install them into
+       their big-tower. You can indeed overload a powersupply that way.
+       -- Greg Nicholson (greg@job.cba.ua.edu) A faulty power supply CAN
+       of course deliver marginal power, which causes all of the
+       malfunctioning that you read about in this file.... -- Thorsten
+       Kuehnemann (thorsten@actis.de)
+     * An inconsistent ext2fs. Some circumstances can cause the kernel
+       code of the ext2 file system to result in Signal 11 for Gcc. --
+       Morten Welinder (terra@diku.dk)
+     * CMOS battery. Even if you set the BIOS as you want it, it could be
+       changing back to "bad" settings under your nose if the CMOS
+       battery is bad. -- Heonmin Lim (coco@me.umn.edu)
+     * No or too little swap space. Gcc doesn't gracefully handle the
+       "out of memory" condition. -- Paul Brannan (brannanp@musc.edu)
+     * Incompatible libraries. When you have a symlink from "libc.so.5"
+       pointing to "libc.so.6", some applications will bomb with sig11.
+       -- Piete Brooks (piete.brooks@cl.cam.ac.uk).
+     * Broken mouse. Somehow, a mouse seems to be able to break in a way
+       that it causes some (mouse related) programs to crash with Sig11.
+       I've seen it happen on an X server that would crash if you moved
+       the mouse quickly. Matthew might not even have been moving his
+       mouse. -- REW & Matthew Duggan (stauff@guarana.org).
+     _________________________________________________________________
+
+  QUESTION
+
+   I found that running ..... detects errors much quicker than just
+   compiling kernels. Please mention this on your site.
+
+  ANSWER
+
+   Many people email me with notes like this. However, what many don't
+   realize is that they encountered ONE case of problematic hardware. The
+   person recommending "unzip -t" happened to have a certain broken DRAM
+   stick. And unzip happened to "find" that much quicker than a kernel
+   compile.
+
+   However, I'm sure that for many other problems, the kernel compile
+   WOULD find it, while other tests don't. I think that the kernel
+   compile is good because it stresses lots of different parts of the
+   computer. Many other tests just excercize just one area. If that area
+   happens to be broken in your case, it will show a problem much quicker
+   than "kernel compile" will. But if your computer is OK on that area
+   and broken in another, the "faster" test may just tell you your
+   computer is OK, while the kernel compile test would have told you
+   something was wrong.
+
+   In any case, I might just as well list what people think are good
+   tests, which they are, but not as general as the "try and compile a
+   kernel" test....
+     * Run unzip while compiling kernels. Use a zipfile about as large as
+       RAM.
+     * use "memetest86".
+     * do dd if=/dev/hda of=/dev/null while compiling kernels.
+     * run md5sum on large trees.
+
+   Note that whatever fast method you may find to tell you that your
+   computer is broken, it won't guarantee your computer is fine if such a
+   test suddenly doesn't fail anymore. I always recommend that after
+   fiddling with things to make it work, you should run a 24-hour
+   kernel-compile test.
+     _________________________________________________________________
+
+  QUESTION
+
+   I don't believe this. To whom has this happened?
+
+  ANSWER
+
+   Well for one it happened to me personally. But you don't have to
+   believe me. It also happened to:
+     * Johnny Stephens (icjps@asuvm.inre.asu.edu)
+     * Dejan Ilic (d92dejil@und.ida.liu.se)
+     * Rick Tessner (rick@myra.com)
+     * David Fox (fox@graphics.cs.nyu.edu)
+     * Darren White (dwhite@baker.cnw.com) (L2 cache)
+     * Patrick J. Volkerding (volkerdi@mhd1.moorhead.msus.edu)
+     * Jeff Coy Jr. (jcoy@gray.cscwc.pima.edu) (Temp problems)
+     * Michael Blandford (mikey@azalea.lanl.gov) (Temp problems: CPU fan
+       failed)
+     * Alex Butcher (Alex.Butcher@bristol.ac.uk) (Memory waitstates)
+     * Richard Postgate (postgate@cafe.net) (VLB loading)
+     * Bert Meijs (L.Meijs@et.tudelft.nl) (bad SIMMs)
+     * J. Van Stonecypher (scypher@cs.fsu.edu)
+     * Mark Kettner (kettner@cat.et.tudelft.nl) (bad SIMMs)
+     * Naresh Sharma (n.sharma@is.twi.tudelft.nl) (30->72 converter)
+     * Rick Lim (ricklim@freenet.vancouver.bc.ca) (Bad cache)
+     * Scott Brumbaugh (scottb@borris.beachnet.com)
+     * Paul Gortmaker (paul.gortmaker@anu.edu.au)
+     * Mike Tayter (tayter@ncats.newaygo.mi.us) (Something with the
+       cache)
+     * Benni ??? (benni@informatik.uni-frankfurt.de) (VLB Overloading)
+     * Oliver Schoett (os@sdm.de) (Cache jumper)
+     * Morten Welinder (terra@diku.dk)
+     * Warwick Harvey (warwick@cs.mu.oz.au) (bit error in cache)
+     * Hank Barta (hank@pswin.chi.il.us)
+     * Jeffrey J. Radice (jjr@zilker.net) (Ram voltage)
+     * Samuel Ramac (sramac@vnet.ibm.com) (CPU tops out)
+     * Andrew Eskilsson (mpt95aes@pt.hk-r.se) (DRAM speed)
+     * W. Paul Mills (wpmills@midusa.net) (CPU fan disconnected from CPU)
+     * Joseph Barone (barone@mntr02.psf.ge.com) (Bad cache)
+     * Philippe Troin (ptroin@compass-da.com) (delayed RAM timing
+       trouble)
+     * Koen D'Hondt (koen@dutlhs1.lr.tudelft.nl) (more kernel error
+       messages)
+     * Bill Faust (faust@pobox.com) (cache problem)
+     * Tim Middlekoop (mtim@lab.housing.fsu.edu) (CPU temp: fan
+       installed)
+     * Andrew R. Cook (andy@anchtk.chm.anl.gov) (bad cache)
+     * Allan Wind (wind@imada.ou.dk) (P66 overheating)
+     * Michael Tuschik (mt2@irz.inf.tu-dresden.de) (gcc2.7.2p victim)
+     * R.C.H. Li (chli@en.polyu.edu.hk) (Overclocking: ok for months...)
+     * Florin (florin@monet.telebyte.nl) (Overclocked CPU by vendor)
+     * Dale J March (dmarch@pcocd2.intel.com) (CPU overheating on laptop)
+     * Markus Schulte (markus@dom.de) (Bad RAM)
+     * Mark Davis (mark_d_davis@usa.pipeline.com) (Bad P120?)
+     * Josep Lladonosa i Capell (jllado@arrakis.es) (PCI options
+       overoptimization)
+     * Emilio Federici (mc9995@mclink.it) (P120 overheating)
+     * Conor McCarthy (conormc@cclana.ucd.ie) (Bad SIMM)
+     * Matthias Petofalvi (mpetofal@ulb.ac.be) ("Simmverter" problem)
+     * Jonathan Christopher Mckinney (jono@tamu.edu) (gcc2.7.2p victim)
+     * Greg Nicholson (greg@job.cba.ua.edu) (many old disks)
+     * Ismo Peltonen (iap@bigbang.hut.fi) (irq_unmasking)
+     * Daniel Pancamo (pancamo@infocom.net) (70ns instead of 60 ns RAM)
+     * David Halls (david.halls@cl.cam.ac.uk)
+     * Mark Zusman (marklz@pointer.israel.net) (Bad motherboard)
+     * Elizabeth Ayer (eca23@cam.ac.uk) (Power management features)
+     * Thorsten Kuehnemann (thorsten@actis.de)
+     *
+     * (Email me with your story, you might get to be mentioned here...
+       :-) ---- Update: I like to hear what happened to you. This will
+       allow me to guess what happens most, and keep this file as
+       accurate as possible. However I now have around 500 different
+       Email addresses of people who've had sig-11 problems. I don't
+       think that it is useful to keep on adding "random" people's names
+       on this list. What do YOU think?
+     _________________________________________________________________
+
+   I'm interested in new stories. If you have a problem and are unsure
+   about what it is, it may help to [12]Email me at
+   R.E.Wolff@BitWizard.nl . My curiosity will usually drive me to
+   answering your questions until you find what the problem is..... (on
+   the other hand, I do get pissed when your problem is clearly described
+   above :-)
+     _________________________________________________________________
+
+   This page is hosted by [13]www.BitWizard.nl
+     _________________________________________________________________
+
+References
+
+   1. http://www.BitWizard.nl/sig11/
+   2. http://www.linux-france.org/article/sig11-fr/
+   3. http://www.linux.or.jp/JF/JFdocs/GCC-SIG11-FAQ/
+   4. mailto:r.e.wolff@BitWizard.nl
+   5. file://localhost/public/linuxdoc/LDP/FAQ/sig11/honeypot.html
+   6. http://www.bitwizard.nl/sig11/sdram.html
+   7. http://www.multimania.com/poulot/k6bug.html
+   8. http://pentium.intel.com/procs/support/faqs/iarcfaq.htm
+   9. http://www.cantrip.org/nobugs.html
+  10. http://juanjox.linuxhq.com/patch/20-p0459.html
+  11. mailto:r.e.wolff@BitWizard.nl
+  12. mailto:R.E.Wolff@BitWizard.nl
+  13. http://www.BitWizard.nl/

@@ -1,0 +1,3337 @@
+         Pertanyaan yang sering ditanyakan (Frequently Asked Questions)
+                     Sistem Operasi Linux dengan Jawabannya
+                                  21 Maret '98
+              Julian Adhi Nugroho <adhi@semarang.wasantara.net.id>
+                  Muhammad Isnaini <isnaini@technologist.com>
+
+
+Ini adalah daftar dari pertanyaan yang sering dilontarkan tentang Linux, sistem
+operasi yang merupakan varian Unix untuk 386/486/586/686 (lihat 'P 1.1 Apakah
+Linux itu ?' untuk keterangan lebih lanjut). FAQ ini sebaiknya dibaca bersamaan
+dengan dokumen HOWTO sebagai pelengkap, yang tersedia di :
+
+http://www.linux.or.id/howto.html                                     (bhs Ind)
+http://cathena.com/id-linux/howto.html                                (bhs Ind)
+http://sunsite.unc.edu/pub/Linux/docs/HOWTO/translations/indonesian/  (bhs Ind)
+http://sunsite.unc.edu/pub/Linux/docs/HOWTO/                          (bhs Ing)
+
+Sementara itu, LDP (Linux Documentation Project) dapat diperoleh di :
+
+http://sunsite.unc.edu/LDP/                                           (bhs Ing)
+
+Silakan periksa HOWTO dan LDP (Proyek Dokumentasi Linux) serta FAQ ini,
+khususnya 'P 12.1 Anda masih belum dapat menjawab pertanyaan saya !', sebelum
+anda melakukan posting pertanyaan anda ke newsgroup atau ke mailing list^.
+
+Versi yang baru dari FAQ ini, terbit sebulan sekali, bila salinan FAQ ini
+berumur lebih dari sebulan yang lalu, mungkin sudah kadaluwarsa (out of date).
+
+Di akhir FAQ ini juga disertakan Kamus [Padanan] Kata untuk mempermudah
+pengguna komputer baru pada umumnya serta pengguna Linux baru pada khususnya
+untuk lebih mengerti tentang peristilahan dalam Linux dan juga komputer.
+Kata-kata yang terdapat dalam kamus, diikuti dengan tanda ^ (cerat), di
+seluruh bagian FAQ ini.
+
+==============================================================================
+
+Indeks
+
+1. Perkenalan dan Informasi Umum.
+
+   P 1.1  Apakah Linux itu ?
+   P 1.2  Perangkat Lunak apa saja yang didukung ?
+   P 1.3  Apakah Linux jalan di komputer saya ? Perangkat keras apa saja yang
+          didukung ?
+   P 1.4  Porting^ ke prosesor apa saja yang didukung ?
+   P 1.5  Berapa spasi harddisk yang diperlukan oleh Linux ?
+   P 1.6  Apakah Linux termasuk PD^ ? Hak Ciptanya ?
+
+2. Sumberdaya jaringan dan source^.
+
+   P 2.1  Di manakah saya bisa mendapatkan HOWTO dan dokumentasi lainnya ?
+   P 2.2  Di manakah seharusnya saya cari di WWW untuk bahan-bahan Linux ?
+   P 2.3  Newsgroup apakah yang tersedia untuk Linux ?
+   P 2.4  Bagaimanakah cara saya menginstall Linux ?
+   P 2.5  Di manakah saya mendapatkan [material] Linux dengan FTP^ ?
+   P 2.6  Saya tidak punya akses ke FTP^. Di manakah saya bisa mendapatkan
+          Linux ?
+   P 2.7  Saya tak punya akses ke Usenet^. Di manakah saya bisa mendapatkan
+          informasi ?
+   P 2.8  Mailing List^ apa sajakah yang ada ?
+   P 2.9  Apakah ada newsgroup yang terarsipkan di suatu tempat ?
+
+3. Kompatibilitas dengan sistem operasi lain.
+
+   P 3.1  Dapatkah Linux menggunakan disk bersama-sama dengan DOS ?
+          OS/2 ? 386BSD ? Win95 ?
+   P 3.2  Bagaimanakah saya mengakses file-file di partisi DOS atau disket ?
+   P 3.3  Dapatkah saya menggunakan drive DOS yang ter-Stacker/DBLSPC/dll ?
+   P 3.4  Dapatkah saya mengakses partisi HPFS OS/2 dari Linux ?
+   P 3.5  Dapatkah Linux mengakses sistem file Amiga ?
+   P 3.6  Dapatkah Linux mengakses BSD, SysV, dll. UFS ?
+   P 3.7  Dapatkah Linux mengakses sistem file SMB ?
+   P 3.8  Dapatkah Linux mengakses sistem file Mac ?
+   P 3.9  Dapatkah saya menjalankan program-program Microsoft Windows di
+          bawah Linux ?
+   P 3.10 Bagaimanakah saya dapat mem-boot Linux dari Boot Manager OS/2 ?
+   P 3.11 Bagaimanakah cara saya melakukan share partisi swap antara Linux
+          dan MS Windows ?
+
+4. Kendali Linux atas sistem file, disk dan drive.
+
+   P 4.1  Bagaimanakah membuat Linux bekerja dengan harddisk yang berkapasitas
+          besar ?
+   P 4.2  Bagaimanakah saya dapat melakukan Undelete^ files ?
+   P 4.3  Apakah ada defragmenter^ untuk ext2fs dll. ?
+   P 4.4  Bagaimanakah saya memformat dan membuat sistem file di disket ?
+   P 4.5  Saya memperoleh pesan yang 'menakutkan' tentang inodes^, blocks,
+          dan sejenisnya.
+   P 4.6  Area swap saya tidak bekerja.
+   P 4.7  Bagaimanakah menghapus LILO^, sehingga sistem saya mem-boot DOS
+          lagi ?
+   P 4.8  Mengapakah saya tak dapat memakai fdformat, kecuali login^
+          sebagai root^ ?
+   P 4.9  Apakah ada sesuatu semacam Stacker atau Doublespace untuk Linux ?
+   P 4.10 Partisi ext2fs saya dicek setiap kali saya reboot.
+   P 4.11 Sistem file root^ saya read-only !
+   P 4.12 Saya punya file /proc/kcore yang besar ! Dapatkah saya hapus ?
+   P 4.13 AHA1542C saya tidak bekerja dengan Linux.
+
+5. Porting^, compiling^, dan tempat memperoleh program-program.
+
+   P 5.1  Bagaimanakah saya melakukan porting^ XXX ke Linux ?
+   P 5.2  Apakah ld.so itu dan di manakah saya memperolehnya ?
+   P 5.3  Apakah ada orang yang melakukan porting^ / kompilasi^ / penulisan
+          XXX untuk Linux ?
+   P 5.4  Dapatkah saya menggunakan kode atau sebuah kompiler terkompilasi
+          untuk 486 di atas 386 saya ?
+   P 5.5  Apakah yang gcc -O6 kerjakan ?
+   P 5.6  Di manakah linux/*.h dan asm/*.h berada ?
+   P 5.7  Saya mendapatkan pesan kesalahan (error) saat saya mencoba
+          mengkompilasi kernel^.
+   P 5.8  Bagaimanakah saya membuat shared library^ ?
+   P 5.9  File executable^ saya sangat besar.
+   P 5.10 Apakah Linux mendukung 'thread' atau proses 'lightweight' ?
+   P 5.11 Di manakah saya dapatkan 'lint' untuk Linux ?
+   P 5.12 Di manakah dapat saya temukan 'kermit' untuk Linux ?
+   P 5.13 Di manakah Java Developer's Kit untuk Linux ?
+   P 5.14 Di manakah saya bisa mendapatkan browser^ Netscape untuk X-Window ?
+
+6. Pemecahan masalah untuk masalah umum lainnya.
+
+   P 6.1  free dumps core.
+   P 6.2  Clock (waktu) saya adalah 'sangat' salah.
+   P 6.3  Script setuid tidak terlihat bekerja.
+   P 6.4  Memori yang bebas seperti yang dilaporkan terus menyusut.
+   P 6.5  Saat saya menambahkan memori lebih, komputer melambat dan merangkak.
+   P 6.6  Beberapa program (contoh : xdm) tidak mengizinkan saya masuk.
+   P 6.7  Beberapa program mengizinkan saya masuk tanpa password.
+   P 6.8  Mesin saya berjalan sangat lambat saat saya menjalankan GCC atau
+          X atau ...
+   P 6.9  Saya hanya dapat login sebagai root^.
+   P 6.10 Layar saya hanya terpenuhi oleh karakter-karakter aneh, bukan
+          karakter-karakter normal.
+   P 6.11 Saya telah 'mengubah' sistem saya dan tak dapat login untuk
+          memperbaikinya.
+   P 6.12 Saya telah menemukan lubang keamanan besar di rm !
+   P 6.13 lpr(1) dan/atau lpd(8) tidak bekerja.
+   P 6.14 Timestamp^ file pada partisi msdos diset tidak benar.
+   P 6.15 Bagaimanakah mengeset LILO^ untuk mem-boot file vmlinux ?
+   P 6.16 Saya tak sengaja meng-uninstall ld.so saya, bagaimana memasangnya ?
+   P 6.17 Tolong, tulisan LILO keluar terus-menerus saat booting !
+   P 6.18 Deteksi CD-ROM Drive saya lama sekali, saat booting.
+   P 6.19 Saya ingin agar penginstallan file .tgz tercatat, sehingga
+          memudahkan bagi saya nantinya untuk menguninstall.
+
+7. Bagaimakah mengerjakan ini atau mencari tahu .... ?
+
+   P 7.1  Bagaimanakah saya mendapatkan scrollback pada mode teks ?
+   P 7.2  Bagaimanakah menukar virtual console^ ? Bagaimanakah
+          memfungsikannya ?
+   P 7.3  Bagaimanakah saya mengeset time zone (zona waktu) ?
+   P 7.4  Versi Linux apa dan apa nama mesin yang saya pakai ?
+   P 7.5  Bagaimanakah saya mengaktif/non-aktifkan core dumps ?
+   P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?
+   P 7.7  Dapatkah saya memiliki lebih dari 3 port serial dengan
+          melakukan sharing interrupt ?
+   P 7.8  Bagaimanakah saya membuat disket boot ?
+   P 7.9  Bagaimanakah saya memetakan ulang keyboard saya ke United Kingdom,
+          Prancis, dll ?
+   P 7.10 Bagaimanakah menyalakan NUM LOCK secara default (standar) ?
+   P 7.11 Bagaimanakah saya mempunyai spasi swap lebih dari 128 MB ?
+   P 7.12 Bagaimanakah saya memprogram XYZ di bawah Linux ?
+   P 7.13 Apakah ELF dan sebangsanya itu ?
+   P 7.14 Apakah file .gz itu ? Dan .tgz ? dan .... ?
+   P 7.15 Kepanjangan dari apakah VFS itu ?
+   P 7.16 Apakah BogoMIPS itu ?
+   P 7.17 Apakah Linux Journal itu dan di manakah saya mendapatkannya ?
+   P 7.18 Berapa banyak orang yang menggunakan Linux ?
+   P 7.19 Bagaimanakah seharusnya saya mengucapkan Linux ?
+   P 7.20 Bagaimana menghubungkan Linux dengan Windows 95 dengan null cable ?
+   P 7.21 Bagaimanakah agar Linux mengenali RAM sampai dengan 128 MB ?
+   P 7.22 Apakah yang harus saya lakukan untuk membatasi login seseorang ?
+   P 7.23 Apakah saya dapat membuat zona waktu untuk WIB, WITA, WIT sendiri ?
+
+8. Masalah seputar jaringan komputer.
+
+   P 8.1  Telnet^ ke Linux dari komputer lain harus menunggu cukup lama sebelum
+          tersambung.
+   P 8.2  Linux saya bengong setelah saya mengubah file /etc/HOSTNAME.
+   P 8.3  Bagaimana mengkonfigurasi dua atau lebih kartu Ethernet ?
+   P 8.4  Saya menginginkan satu mesin Linux saya punya dua alamat IP.
+
+9. Pesan kesalahan yang acapkali dijumpai.
+
+   P 9.1  Unknown terminal type linux and similar.
+   P 9.2  Selama proses linking saya memperoleh simbol mcount yang tidak
+          terdefinisi. (Undefined symbol).
+   P 9.3  lp1 on fire
+   P 9.4  INET: Warning: old style ioctl... called!
+   P 9.5  ld: unrecognized option '-m486'
+   P 9.6  GCC says Internal compiler error.
+   P 9.7  make says Error 139
+   P 9.8  shell-init: permission denied saat saya login.
+   P 9.9  No utmp entry. You must exec ... saat saya login.
+   P 9.10 Warning -- bdflush not running.
+   P 9.11 Warning: obsolete routing request made.
+   P 9.12 EXT2-fs: warning: mounting unchecked filesystem.
+   P 9.13 EXT2-fs warning: maximal count reached.
+   P 9.14 EXT2-fs warning: checktime reached.
+   P 9.15 df says Cannot read table of mounted filesystems.
+   P 9.16 fdisk says Partition X has different physical/logical ...
+   P 9.17 fdisk: Partition 1 does not start on cylinder boundary
+   P 9.18 fdisk says partition n has an odd number of sectors.
+   P 9.19 mtools says cannot initialise drive XYZ
+   P 9.20 At the start of booting: Memory tight
+   P 9.21 You don't exist. Go away.
+
+10. Sistem X Window.
+
+   P 10.1 Apakah Linux mendukung X Window ?
+   P 10.2 Di manakah saya mendapatkan XF86Config untuk sistem saya ?
+   P 10.3 Login xterm menunjukkan keanehan pada who, finger.
+   P 10.4 Saya tidak dapat menjalankan X Window dengan benar.
+   P 10.5 Bagaimana cara meng-capture (menangkap) gambar di X-Window ?
+   P 10.6 Bagaimanakah cara menyalin blok teks dengan mouse ?
+   P 10.7 Apa yang harus saya lakukan, agar resolusi dapat berubah manakala
+          saya menjalankan X-Window ?
+   P 10.8 Adakah program yang dapat menghitung waktu akses internet dial-up ?
+   P 10.9 Bagaimana cara menguji apakah file konfigurasi X-Window saya
+          sudah tepat ?
+
+11. Pertanyaan-pertanyaan yang dapat dipergunakan untuk perangkat lunak
+    yang sudah sangat kadaluwarsa (out-of-date).
+
+   P 11.1 Emacs hanya mengeluarkan dumps core.
+   P 11.2 fdisk 'mengatakan' tak dapat menggunakan sektor nnn dari partisi
+          ini.
+   P 11.3 GCC kadangkala menggunakan virtual memory dalam jumlah besar dan
+          'thrashes'.
+   P 11.4 Keyboard saya menjadi 'lucu' sesudah saya memindahkan VC^.
+
+12. Bagaimanakah mendapatkan bantuan yang lebih lanjut.
+
+   P 12.1 Anda masih belum dapat menjawab pertanyaan saya !
+   P 12.2 Apakah yang perlu diletakkan dalam permintaan bantuan.
+   P 12.3 Saya ingin mengirim surat ke 'seseorang' tentang masalah saya.
+
+13. Informasi yang administratif dan acknowledgements (pengakuan).
+
+   P 13.1 Umpan balik untuk dokumen ini, diharapkan.
+   P 13.2 Format apa sajakah yang tersedia untuk FAQ ini.
+   P 13.3 Sumber dan acknowledgements.
+   P 13.4 Disclaimer dan Hak Cipta.
+
+===============================================================================
+
+1. Perkenalan dan Informasi Umum.
+
+P 1.1  Apakah Linux itu ?
+
+   Linux adalah Unix yang 'free' yang ditulis mula-mula oleh Linus Torvalds
+   dengan bantuan dari tim-tim hacker^ yang 'merajutnya' dari seantero penjuru
+   dunia Internet. Cita-cita Linux pada masa yang akan datang adalah sesuai
+   dengan POSIX^, dan punya semua kemampuan (feature) yang anda harapkan dari
+   sebuah Unix modern, sangat lengkap : multitasking (multi tugas), virtual
+   memory (ingatan 'semu'), shared libraries^, demand loading (pemuatan sesuai
+   permintaan), shared, copy-on-write executables, proper memory management
+   (pengaturan ingatan yang wajar) dan TCP/IP networking (jaringan komputer
+   menggunakan TCP/IP).
+
+   Linux jalan terutama di atas PC berbasiskan 286/386/586, menggunakan
+   fasilitas perangkat keras dari keluarga prosesor 386 (segmen TSS, dkk)
+   untuk mengimplementasikan kemampuan-kemampuannya. Porting^ ke arsitektur
+   yang lain sedang berjalan.
+   (Lihat 'P 1.4  Porting^ ke prosesor apa saja yang didukung ?')
+
+   Lihat Linux INFO-SHEET untuk lebih jelasnya. (Lihat 'P 2.1  Di manakah saya
+   bisa mendapatkan HOWTO dan dokumentasi lainnya ?')
+
+   Kernel^ Linux didistribusikan di bawah lisensi GNU
+   General Public License (GNU GPL). (Lihat 'P 1.6  Apakah Linux termasuk PD^ ?
+   Hak Ciptanya ?')
+
+   ----------------------------------------------------------------------------
+
+P 1.2  Perangkat Lunak apa saja yang didukung ?
+
+   Linux mempunyai GCC, Emacs, X-Window, semua utility^ standar Unix, TCP/IP
+   (termasuk SLIP dan PPP) dan ratusan program-program yang dikompilasi dan
+   ditulis untuk Linux.
+
+   Ada DOS emulator^, tersedia di tsx-11.mit.edu/pub/linux/ALPHA/dosemu yang
+   dapat menjalankan DOS itu sendiri dan beberapa (tetapi tidak semua)
+   aplikasi-aplikasi DOS.
+   Pastikan untuk melihat file README untuk menentukan versi dosemu yang
+   manakah yang anda harus ambil. Juga, lihat DOSEMU-HOWTO (tertanggal saat
+   ini - tidak meliputi versi terbaru dari program tersebut), yang terletak
+   di sunsite.unc.edu/pub/Linux/docs/HOWTO.
+
+   Pekerjaan telah dilanjutkan atas emulator^ untuk file biner Microsoft
+   Windows. (Lihat 'P 3.9  Dapatkah saya menjalankan program-program Microsoft
+   Windows di bawah Linux ?')
+
+   Kode emulasi^ iBCS2 (Intel Binary Compatibility Standard - Standar
+   Kompatibilitas untuk menjalankan file biner pada prosesor Intel) untuk file
+   biner SVR4 ELF dan SVR3.2 COFF dapat dimasukkan dalam kernel^ sebagai
+   pilihan sewaktu kompilasi. Lihat file README di
+   tsx-11.mit.edu/pub/linux/BETA/ibcs2/
+ 
+   Untuk informasi lebih lanjut, lihat INFO-SHEET, yang merupakan salah satu
+   HOWTO (Lihat 'P 2.1  Di manakah saya bisa mendapatkan HOWTO dan dokumentasi
+   lainnya ?'). Lihat juga 'P 5.1  Bagaimanakah saya melakukan porting^ XXX ke
+   Linux ?'
+
+   Beberapa perusahaan mempunyai persediaan perangkat lunak komersial, termasuk
+   Motif. Mereka memberitahukan ketersediaannya dalam comp.os.linux.announce --
+   coba cari arsip-arsip mereka. (Lihat 'P 2.9  Apakah ada newsgroup yang
+   terarsipkan di suatu tempat ?')
+
+   ----------------------------------------------------------------------------
+
+P 1.3  Apakah Linux jalan di komputer saya ? Perangkat keras apa saja yang
+       didukung ?
+
+   Anda membutuhkan sebuah komputer 386, 486, atau 586, dengan setidak-
+   tidaknya RAM sebesar 2 MB dan sebuah disk drive, untuk mencoba Linux. Untuk
+   mengerjakan apa pun yang berguna, RAM yang lebih banyak (4 MB untuk
+   menginstall / memasang distribusi secara umum, dan 8 MB sangat
+   direkomendasikan untuk menjalankan X) dan sebuah harddisk adalah menjadi
+   syarat utama.
+
+   Bus^ lokal VESA (VLB) dan bus^ PCI didukung.
+
+   MCA (bus^ yang menjadi 'hak' IBM) dan harddisk ESDI kebanyakan didukung.
+   Ada informasi yang lebih jauh untuk bus^ MCA dan kartu-kartu (cards) yang
+   didukung oleh Linux dalam halaman web Micro Channel Linux,
+   http://glycerine.itsmm.uni.edu/mca
+
+   Linux jalan di atas keluarga laptop / notebook berbasiskan 386, dengan
+   X untuk kebanyakan laptop. Ada halaman web yang berhubungan dengan yang
+   sedang dibicarakan (relevan), yaitu di
+   http://www.cs.utexas.edu/users/kharker/linux-laptop/.
+
+   Untuk lebih detilnya, PC, kartu video, pengendali disk (disc-controller)
+   dan lainnya, yang mana bekerja dengan Linux, lihatlah INFO-SHEET dan
+   Hardware-HOWTO. (Lihat 'P 2.1  Di manakah saya bisa mendapatkan HOWTO dan
+   dokumentasi lainnya ?')
+
+   Ada porting^ untuk Linux ke 8086, diketahui sebagai Embeddable Linux Kernel
+   Subset (ELKS). Ini adalah subset kernel^ Linux 16-bit yang terutama akan
+   digunakan untuk embedded system. Lihatlah ke
+   http://www.linux.org.uk/Linux8086.html untuk informasi yang akurat.
+   Linux tidak akan pernah benar-benar berjalan optimal di atas 8086 atau
+   '286, karena Linux mensyaratkan task-switching (pergantian tugas) dan
+   utility^ pengaturan memori yang tidak ditemukan di atas prosesor-
+   prosesor itu.
+
+   Linux mendukung multi proses dengan arsitektur MP Intel. Lihatlah file
+   Documentation/smp.tex pada distribusi source code^ kernel^ Linux.
+
+   ----------------------------------------------------------------------------
+
+P 1.4  Porting^ ke prosesor apa saja yang didukung ?
+
+   Sebuah proyek sedang berjalan untuk menulis Linux ke sistem berbasis
+   68000-series yang cocok, seperti Amiga dan Atari. Sekarang sedang mencapai
+   kualitas beta-test, dan mempunyai sebuah server X.
+
+   Ada pula mailing list^ Linux untuk 680x0. (Lihat 'P 2.8  Mailing List^ apa
+   sajakah yang ada ?')
+
+   FAQ Linux/68k terletak di :
+   ftp.uni-erlangen.de/pub/Linux/680x0/FAQ, yang juga merupakan arsip Linux/
+   68k. Site itu dimirror^ pada tsx-11.mit.edu/pub/linux/680x0.
+
+   Ada beberapa mailing list^ untuk porting^ Linux/68k -- kirim e-mail ke
+   <majordomo@phil.uni-sb.de> dengan badan e-mail berisikan kata "lists" --
+   tanpa tanda kutip (quote) -- dalam satu baris itu untuk daftar, dan kata
+   "help" pada satu baris untuk instruksi bagaimana untuk berlangganan.
+
+   Ada juga area FTP^ di ftp.phil.uni-sb.de/pub/atari/linux-68k.
+
+   Salah satu halaman proyek Linux-PPC telah dipindahkan baru-baru ini.
+   Lokasinya adalah http://www.linuxppc.org, dan site arsipnya adalah
+   ftp.linuxppc.org/linuxppc.
+
+   Ada halaman yang berisikan dukungan untuk Linux-PPC di
+   www.cs.nmt.edu/~linuxppc. Di sana, anda akan menemukan kernel^ yang di-
+   distribusikan dengan Linux.
+
+   Apple sekarang mendukung pengembangan MkLinux di atas PowerMac, berbasis-
+   kan OSF dan mikrokernel Mach. Lihat http://www.mklinux.apple.com.
+
+   Sebuah penulisan untuk DEC Alpha 64-bit ada di site
+   http://www.azstarnet.com/~axplinux/. Di sana ada mailing list^ di
+   vger.rutgers.edu. (Lihat 'P 2.8  Mailing List^ apa sajakah yang ada ?')
+
+   Ralf Baechle sedang bekerja untuk menulis Linux pada MIPS, pada mulanya
+   untuk R4600 di atas mesin Deskstation Tyne. Site-site FTP^ Linux-MIPS
+   adalah ftp.fnet.fr/linux-mips dan ftp://ftp.linux.sgi.com/pub/mips-
+   linux. Yang tertarik mungkin dapat mengirimkan pertanyaan-pertanyaan
+   mereka melalui e-mail dan menawarkan bantuan ke <linux@waldorf-gmbh.de>
+
+   Ada juga kanal MIPS dalam server mail aktifis Linux dan mailing list^
+   linux-mips. (Lihat 'P 2.8  Mailing List^ apa sajakah yang ada ?')
+
+   Ada penulisan Linux atas keluarga prosesor ARM yang masih aktif; salah
+   satunya adalah atas ARM3 sebagaimana disesuaikan untuk Acorn A5000,
+   dan termasuk driver-driver I/O untuk 82710/11 juga tersedia, dan lainnya
+   adalah atas ARM610 sebagaimana disesuaikan untuk Acorn Risc PC.
+   Penulisan Risc PC saat ini adalah pada tahap permulaan sampai tahap
+   pertengahan, karena kebutuhan untuk menulis ulang banyak hal dari kendali
+   memori. Penulisan atas A5000 ada dalam testing beta yang terlarang;
+   sebuah rilis kelihatannya cukup cepat.
+
+   Untuk informasi yang lebih hangat, perhatikan newsgroup
+   comp.sys.acorn.misc. Ada FAQ-nya dalam site
+   ftp.ecs.soton.ac.uk/pub/armlinux/FAQs/general-faq
+
+   Proyek Linux atas SPARC adalah aktifitas yang tumbuh subur. Ada FAQ yang
+   tersedia dari Jim Mintha's Linux untuk halaman prosesor SPARC, yaitu
+   http://www.geog.ubc.ca/sparclinux.html. Arsip SPARC/Linux ada di
+   vger.rutgers.edu/pub/linux/Sparc.
+
+   ----------------------------------------------------------------------------
+
+P 1.5  Berapa spasi harddisk yang diperlukan oleh Linux ?
+
+   10 MB untuk instalasi yang sangat minimal, cocok untuk mencoba dan tidak
+   untuk yang lainnya.
+
+   Anda dapat 'memeras' instalasi yang lebih komplet termasuk X Window dalam
+   80 MB. Pemasangan hampir semua Debian 0.93R6 memerlukan sekitar 500 MB,
+   termasuk beberapa MB spasi untuk file-file user dan area spool.
+   Pemasangan semua distribusi Caldera OpenLinux(TM) Lite Versi 1.1 bahkan
+   memerlukan sekitar 670 MB untuk sistem dan aplikasinya saja, belum
+   termasuk spasi untuk data anda nantinya.
+
+   ----------------------------------------------------------------------------
+
+P 1.6  Apakah Linux termasuk PD^ ? Hak Ciptanya ?
+
+   Hak Cipta Kernel^ Linux dimiliki oleh Linus Torvalds. Dia telah menempatkan
+   hal itu di bawah GNU General Public License, yang secara mendasar berarti
+   bahwa anda boleh dengan bebas menyalin, mengubah, dan mendistribusikannya
+   tetapi anda tidak boleh menggunakan kesempatan itu untuk mengeluarkan
+   larangan atas distribusi lebih jauh, dan anda harus membuat source code^
+   tersedia.
+
+   Ini tidak sama dengan Public Domain (PD). Lihat FAQ tentang Hak Cipta
+   (Copyright FAQ), rtfm.mit.edu/pub/usenet/news.answers/law/copyright, untuk
+   lebih jelasnya.
+
+   Detil yang lebih lengkap ada di file COPYING dalam sumber kernel^ Linux
+   (kemungkinan dalam /usr/src/linux pada sistem anda).
+
+   Lisensi dari utility^ dan program-program yang datang dengan instalasi
+   adalah berbeda-beda. Banyak kodenya yang berasal dari GNU Project pada Free
+   Software Foundation (FSF), dan juga di bawah GPL.
+
+   Catatan, bahwa diskusi tentang kebaikan atau hal lainnya tentang GPL
+   sebaiknya dikirim ke gnu.misc.discuss dan tidak ke grup comp.os.linux.
+
+   ============================================================================
+
+2. Sumberdaya jaringan dan source^.
+
+P 2.1  Di manakah saya bisa mendapatkan HOWTO dan dokumentasi lainnya ?
+
+   Lihatlah ke tempat-tempat berikut ini, dan ke site-site yang merupakan
+   mirror^ mereka.
+     * http://www.linux.or.id : /howto.html
+     * ftp.funet.fi (128.214.6.100) : /pub/OS/Linux/doc/HOWTO
+     * tsx-11.mit.edu (18.172.1.2) : /pub/linux/docs/HOWTO
+     * sunsite.unc.edu (152.2.22.81) : /pub/Linux/docs/HOWTO
+
+   Untuk daftar yang lebih lengkap dari site-site FTP^ Linux, baca
+   'P 2.5  Di manakah saya mendapatkan [material] Linux dengan FTP^ ?'
+
+   Bila anda tidak mempunyai akses ke FTP^, coba gunakan server FTP-by-mail
+   (FTPMail) di <ftpmail@decwrl.dec.com>, <ftpmail@doc.ic.ac.uk> atau
+   <ftp-mailer@informatik.tu-muenchen.de>.
+   Keterangan cukup lengkap untuk penggunaan FTPMail dalam bahasa Indonesia
+   dapat ditemukan pada site
+   http://www.geocities.com/Athens/Acropolis/8646/ftpmail.html
+
+   Daftar lengkap dari HOWTO dan Mini-HOWTO tersedia dalam file HOWTO.INDEX
+   pada direktori docs/HOWTO di site FTP^, atau dari web pada
+   http://sunsite.unc.edu/pub/Linux/HOWTO/HOWTO-INDEX.html, tetapi berikut ini
+   adalah daftar-daftarnya (mungkin tidaklah lengkap) :
+
+AX25-HOWTO                             Access-HOWTO
+Assembly-HOWTO                         Benchmarking-HOWTO
+BootPrompt-HOWTO                       Bootdisk-HOWTO
+CD-Writing-HOWTO                       CDROM-HOWTO
+Chinese-HOWTO                          Commercial-HOWTO
+Consultants-HOWTO                      Cyrillic-HOWTO
+DNS-HOWTO                              DOS-to-Linux-HOWTO
+DOSEMU-HOWTO                           Danish-HOWTO
+Distribution-HOWTO                     ELF-HOWTO
+Emacspeak-HOWTO                        Ethernet-HOWTO
+Finnish-HOWTO                          Firewall-HOWTO
+Ftape-HOWTO                            GCC-HOWTO
+German-HOWTO                           HAM-HOWTO
+HOWTO-INDEX                            Hardware-HOWTO
+Hebrew-HOWTO                           IPX-HOWTO
+ISP-Hookup-HOWTO                       Installation-HOWTO
+Intranet-Server-HOWTO                  Italian-HOWTO
+Java-CGI-HOWTO                         Kernel-HOWTO
+Keyboard-and-Console-HOWTO             MGR-HOWTO
+MILO-HOWTO                             Mail-HOWTO
+NET-3-HOWTO                            NFS-HOWTO
+NIS-HOWTO                              News-HOWTO
+Optical-Disk-HOWTO                     PCI-HOWTO
+PCMCIA-HOWTO                           PPP-HOWTO
+Pilot-HOWTO                            Polish-HOWTO
+Printing-HOWTO                         Printing-Usage-HOWTO
+RPM-HOWTO                              Reading-List-HOWTO
+SCSI-HOWTO                             SCSI-Programming-HOWTO
+SMB-HOWTO                              Serial-HOWTO
+Serial-Programming-HOWTO               Shadow-Password-HOWTO
+Slovenian-HOWTO                        Sound-HOWTO
+Sound-Playing-HOWTO                    Spanish-HOWTO
+TeTeX-HOWTO                            Thai-HOWTO
+Tips-HOWTO                             UMSDOS-HOWTO
+UPS-HOWTO                              UUCP-HOWTO
+User-Group-HOWTO                       VAR-HOWTO
+VMS-to-Linux-HOWTO                     XFree86-HOWTO
+XFree86-Video-Timings-HOWTO
+3-Button-Mouse
+
+   Mini-HOWTO berikut ini tersedia dari
+   http://sunsite.unc.edu/pub/Linux/HOWTO/mini:
+
+ADSM-Backup                            AI-Alife
+Advocacy                               Backup-With-MSDOS
+Battery-Powered                        Boca
+BogoMips                               Bridge
+Bridge+Firewall                        Clock
+Colour-ls                              Comeau-C++
+DHCPd                                  Dial-On-Demand
+Diald                                  Dip+SLiRP+CSLIP
+Diskless                               Dynamic-IP-Hacks
+Ext2fs-Undeletion                      GTEK-BBS-550
+HTML-Validation                        IO-Port-Programming
+IP-Alias                               IP-Masquerade
+IP-Subnetworking                       JE
+Jaz-Drive                              Kerneld
+Key-Setup                              LBX
+LILO                                   Large-Disk
+Linux+DOS+Win95                        Linux+DOS+Win95+OS2
+Linux+NT-Loader                        Linux+OS2+DOS
+Linux+Win95                            Loadlin+Win95
+Locales                                MIDI+SB
+Mail-Queue                             Mail2News
+Man-Page                               Multiple-Disks-Layout
+Multiple-Ethernet                      NFS-Root
+NFS-Root-Client                        Netscape+Proxy
+Offline-Mailing                        Online-Support
+PLIP                                   PPP-over-minicom
+Pager                                  Partition
+Print2Win                              Process-Accounting
+Proxy-ARP                              Public-Web-Browser
+Qmail+MH                               Quota
+RCS                                    Remote-Boot
+Remote-X-Apps                          SLIP+proxyARP
+SLIP-PPP-Emulator                      Sendmail+UUCP
+Software-Building                      Software-RAID
+Soundblaster-16                        Soundblaster-AWE64
+StarOffice                             Swap-Space
+Term-Firewall                          Tiny-News
+Token-Ring                             Upgrade
+VPN                                    Virtual-wu-ftpd
+Visual-Bell                            Win95+Win+Linux
+Windows-Modem-Sharing                  WordPerfect
+X-Big-Cursor                           XFree86-XInside
+Xterm-Title                            Xterminal
+ZIP-Drive                              ZIP-Install
+
+   Sebagai tambahan, penerjemahan HOWTO tersedia dari
+   sunsite.unc.edu/pub/Linux/docs/HOWTO/translations
+   dan mirror-mirror^nya di seluruh dunia.
+   Terjemahan dalam bahasa berikut ini adalah tersedia :
+
+French (fr)                       German (de)
+Italian (it)                      Japanese (jp)
+Polish (pl)                       Spanish (es)
+Swedish (sv)                      Turkish (tr)
+Indonesia (id)
+
+   HOWTO juga ada di Web, di home page Linux Documentation Project's (LDP)
+   http://sunsite.unc.edu/LDP, dan dikirim bulanan ke newsgroup Usenet^
+   comp.os.linux.answers.
+
+   Banyak dokumen-dokumennya selalu dalam persiapan. Dimohon selalu
+   menghubungi Greg Hankins, <gregh@cc.gatech.edu>, koordinator HOWTO, bila
+   anda tertarik menulis salah satu di antaranya. File sunsite.unc.edu/pub/
+   Linux/HOWTO/HOWTO-INDEX berisikan peraturan penulisan sebuah HOWTO.
+
+   Seri tuntunan yang diproduksi oleh Linux Documentation Project (Proyek
+   Dokumentasi Linux) tersedia dari http://sunsite.unc.edu/LDP. Silakan
+   anda membacanya, bila anda pengguna baru Unix dan Linux.
+   Ini daftar yang tersedia sejauh ini :
+
+     * The Linux Documentation Project Manifesto, oleh Matt Welsh.
+     * Installation and Getting Started Guide, oleh Matt Welsh.
+     * The Linux Kernel, oleh David Rusling.
+     * The Network Administrator's Guide, oleh Olaf Kirch.
+     * The Linux Programmer's Guide, oleh Sven Goldt, Sven van der Meer,
+       Scott Burkett, dan Matt Welsh.
+     * The Linux System Administrator's Guide, Version 0.5, oleh Lars
+       Wirzenius.
+
+   ----------------------------------------------------------------------------
+
+P 2.2  Di manakah seharusnya saya cari di WWW untuk bahan-bahan Linux ?
+
+   Greg Hankins, gregh@cc.gatech.edu, melakukan pemeliharaan Home Page Linux
+   Documentation Project (LDP), di http://sunsite.unc.edu/LDP.
+
+   Halaman ini memberi referensi tentang FAQ dan HOWTO, yang keduanya tersedia
+   dalam HTML (format WWW), dan beberapa di antaranya tidak.
+
+   ----------------------------------------------------------------------------
+
+P 2.3  Newsgroup apakah yang tersedia untuk Linux ?
+
+   Ada sepuluh newsgroup Usenet^ internasional yang dialokasikan untuk Linux.
+
+   comp.os.linux.announce adalah grup pemberitahuan yang bermoderator; anda
+   sebaiknya melihat grup ini bila anda bermaksud menggunakan Linux.
+   Pendaftaran untuk grup tersebut, dikirimkan ke alamat e-mail
+   <linux-announce@news.ornl.gov>.
+
+   comp.os.linux.answers berisikan semua FAQ, HOWTO dan dokumentasi penting
+   lainnya. Anda sebaiknya berlangganan grup ini juga.
+
+   Juga tidak percuma membaca grup-grup lain di hirarki comp.os.linux.* --
+   anda mungkin menemukan bahwa banyak masalah umum terlalu 'baru' untuk
+   ditemukan di FAQ, tetapi terjawab di newsgroup. Grup-grup ini adalah :
+
+comp.os.linux.setup
+comp.os.linux.hardware
+comp.os.linux.networking
+comp.os.linux.x
+comp.os.linux.development.apps
+comp.os.linux.development.system
+comp.os.linux.advocacy
+comp.os.linux.misc
+
+   Ingatlah bahwa karena Linux adalah klone Unix, kebanyakan materi yang
+   ada di grup comp.unix.* dan comp.windows.x.* juga relevan. Terpisah dari
+   pertimbangan perangkat keras, dan beberapa ketidakjelasan atau isu-isu
+   tingkat rendah yang sangat teknis, anda akan menemukan bahwa grup-grup ini
+   adalah tempat yang tepat untuk memulai.
+
+   Silakan baca 'P 12.1 Anda masih belum dapat menjawab pertanyaan saya !'
+   sebelum anda melakukan posting pertanyaan, dan pastikan anda melakukan
+   posting ke newsgroup yang benar -- Lihat `Welcome to the comp.os.linux.*
+   hierarchy' yang dikirim setiap dua minggu ke comp.os.linux.announce,
+   comp.os.linux.answers, dan grup-grup lain.
+
+   Posting silang antara grup-grup comp.os.linux.* yang berbeda kadangkala
+   merupakan ide yang bagus.
+
+   Mungkin juga ada grup Linux lokal di institusi anda atau wilayah anda --
+   ceklah ke sana pertama-tama.
+
+   Pengembangan grup comp.os.linux.development, comp.os.linux.admin, dan grup
+   comp.os.linux.help menggantikan dalam reorganisasi newsgroup yang baru.
+   Anda seharusnya tidak seterusnya menggunakannya.
+
+   Lihat juga 'P 2.7  Saya tak punya akses ke Usenet^. Di manakah saya bisa
+   mendapatkan informasi ?'
+
+   Newsgroup-newsgroup regional dan lokal juga ada -- anda mungkin menemukan
+   'lalu lintas' yang lebih teratur di sana. Newsgroup Linux Prancis adalah
+   fr.comp.os.linux. Jerman mempunyai de.comp.os.linux. Di Australia, cobalah
+   aus.computers.linux. Untuk Kroasia, di sana ada grup yang bermoderator
+   hr.comp.linux.m. Italia, ada grup it.comp.linux.
+
+   ----------------------------------------------------------------------------
+
+P 2.4  Bagaimanakah cara saya menginstall Linux ?
+
+   Ada beberapa paket tersedia yang merilis Linux, termasuk Debian, Red Hat,
+   dan Slackware. Setiap paket berisikan perangkat lunak yang anda butuhkan
+   untuk menjalankan Linux, siap untuk diinstall dan digunakan. Detil lebih
+   jelas, perangkat lunak yang mana yang disertakan dan bagaimana untuk
+   menginstall mereka, berbeda-beda dari rilis ke rilis berikutnya.
+
+   Anda seyogyanya membaca Installation-HOWTO untuk detil yang lebih jelas
+   atas bagaimana menginstall Slackware, Red Hat, dan Debian, ketiga-tiganya
+   baru-baru ini serta bug yang lebih sedikit, dan mempunyai skema instalasi
+   yang mutakhir.
+ 
+   Semua rilis, tersedia lewat FTP^ anonim dari site-site arsip Linux yang
+   bervariasi. Lihat 'P 2.5  Di manakah saya mendapatkan [material] Linux
+   dengan FTP^ ?'. Juga ada sejumlah besar rilis lain yang didistribusikan
+   tidak secara global, dengan 'setelan' persyaratan lokal dan nasional
+   tertentu. (sebagai contoh, dukungan mengglobal yang lebih baik).
+
+   ----------------------------------------------------------------------------
+
+P 2.5  Di manakah saya mendapatkan [material] Linux dengan FTP^ ?
+
+   Ada tiga site arsip utama yang memuat Linux :
+     * ftp.funet.fi (Finlandia, 128.214.6.100) : /pub/OS/Linux
+     * sunsite.unc.edu (US, 152.2.22.81) : /pub/Linux
+     * tsx-11.mit.edu (US, 18.172.1.2) : /pub/linux
+  
+   Tempat terbaik untuk mendapatkan kernel^ Linux adalah
+   ftp.cs.helsinki.fi/pub/Linux_Kernel.
+   Linus Torvalds mengupload^ versi-versi kernel^ terbaru ke site ini.
+
+   Distribusi Debian tersedia di ftp.debian.org/pub/debian, dan distribusi
+   Red Hat di ftp.redhat.com.
+
+   Isi site-site itu dimirror^ oleh sejumlah site lain. Dimohon untuk
+   menggunakan yang terdekat dengan anda -- yang akan menjadi lebih cepat
+   untuk anda dan menjadi lebih mudah untuk jaringannya.
+
+     * ftp.sun.ac.za/pub/linux/sunsite/ (Afrika Selatan)
+     * ftp.is.co.za/linux/sunsite/ (Afrika Selatan)
+     * ftp.cs.cuhk.hk/pub/Linux/ (Hong Kong)
+     * ftp.cs.cuhk.hk/pub/Linux/ (Hong Kong)
+     * ftp.spin.ad.jp/pub/linux/sunsite.unc.edu/ (Jepang)
+     * ftp.nuri.net/pub/Linux/ (Korea)
+     * ftp.jaring.my/pub/Linux/ (Malaysia)
+     * ftp.nus.sg/pub/unix/Linux/ (Singapura)
+     * ftp.nectec.or.th/pub/mirrors/linux/ (Thailand)
+     * ftp.dstc.edu.au/pub/linux/ (Australia)
+     * sunsite.anu.edu.au/pub/linux/ (Australia)
+     * ftp.monash.edu.au/pub/linux/ (Australia)
+     * ftp.sydutech.usyd.edu.au/pub/linux/ (Australia)
+     * ftp.univie.ac.at/systems/linux/sunsite/ (Austria)
+     * ftp.fi.muni.cz/pub/UNIX/linux/ (Republik Ceko)
+     * ftp.funet.fi/pub/Linux/sunsite/ (Finlandia)
+     * ftp.univ-angers.fr/pub/Linux/ (Prancis)
+     * ftp.iut-bm.univ-fcomte.fr (Prancis)
+     * ftp.ibp.fr/pub/linux/sunsite/ (Prancis)
+     * ftp.loria.fr/pub/linux/sunsite/ (Prancis)
+     * ftp.dfv.rwth-aachen.de/pub/linux/sunsite/ (Jerman)
+     * ftp.germany.eu.net/pub/os/Linux/Mirror.SunSITE/ (Jerman)
+     * ftp.tu-dresden.de/pub/Linux/sunsite/ (Jerman)
+     * ftp.uni-erlangen.de/pub/Linux/MIRROR.sunsite/ (Jerman)
+     * ftp.gwdg.de/pub/linux/mirrors/sunsite/ (Jerman)
+     * ftp.rz.uni-karlsruhe.de/pub/linux/mirror.sunsite/ (Jerman)
+     * ftp.ba-mannheim.de/pub/linux/mirror.sunsite/ (Jerman)
+     * ftp.uni-paderborn.de/pub/Mirrors/sunsite.unc.edu/ (Jerman)
+     * ftp.uni-rostock.de/Linux/sunsite/ (Jerman)
+     * tp.rus.uni-stuttgart.de/pub/unix/systems/linux/MIRROR.sunsite/
+       (Jerman)
+     * ftp.uni-tuebingen.de/pub/linux/Mirror.sunsite/ (Jerman)
+     * ftp.rz.uni-ulm.de/pub/mirrors/linux/sunsite/ (Jerman)
+     * ftp.kfki.hu/pub/linux/ (Hungaria)
+     * linux.italnet.it/pub/Linux/ (Italia)
+     * ftp.unina.it/pub/linux/sunsite/ (Italia)
+     * giotto.unipd.it/pub/unix/Linux/ (Italia)
+     * cnuce-arch.cnr.it/pub/Linux/ (Italia)
+     * ftp.flashnet.it/mirror2/sunsite.unc.edu/ (Italia)
+     * ftp.nijenrode.nl/pub/linux/sunsite.unc-mirror/ (Belanda)
+     * ftp.LeidenUniv.nl/pub/linux/sunsite/ (Belanda)
+     * ftp.nvg.unit.no/pub/linux/sunsite/ (Norwegia)
+     * ftp://sunsite.icm.edu.pl/pub/Linux/sunsite.unc.edu/ (Polandia)
+     * ftp.rediris.es/software/os/linux/sunsite/ (Spanyol)
+     * sunsite.rediris.es/software/linux/ (Spanyol)
+     * ftp.cs.us.es/pub/Linux/sunsite-mirror/ (Spanyol)
+     * ftp.etse.urv.es/pub/mirror/linux/ (Spanyol)
+     * ftp.etsimo.uniovi.es/pub/linux/ (Spanyol)
+     * ftp.luna.gui.es/pub/linux.new/ (Spanyol)
+     * ftp.switch.ch/mirror/linux/ (Swiss)
+     * ftp.metu.edu.tr/pub/linux/sunsite/ (Turki)
+     * unix.hensa.ac.uk/mirrors/sunsite/pub/Linux/ (Inggris/UK)
+     * ftp.maths.warwick.ac.uk/mirrors/linux/sunsite.unc-mirror/ (Inggris)
+     * ftp.idiscover.co.uk/pub/Linux/sunsite.unc-mirror/ (Inggris)
+     * sunsite.doc.ic.ac.uk/packages/linux/sunsite.unc-mirror/ (Inggris)
+     * ftp.dungeon.com/pub/linux/sunsite-mirror/ (Inggris)
+     * ftp.io.org/pub/mirrors/linux/sunsite/ (Kanada)
+     * ftp.cc.gatech.edu/pub/linux/ (Amerika Serikat/US)
+     * ftp.cdrom.com/pub/linux/sunsite/ (Amerika Serikat/US)
+     * ftp.siriuscc.com/pub/Linux/Sunsite/ (Amerika Serikat/US)
+     * ftp.engr.uark.edu/pub/linux/sunsite/ (Amerika Serikat/US)
+     * ftp.infomagic.com/pub/mirrors/linux/sunsite/ (Amerika Serikat/US)
+     * linux.if.usp.br/pub/mirror/sunsite.unc.edu/pub/Linux/ (Brasilia)
+     * farofa.ime.usp.br/pub/linux/ (Brasilia)
+     * sunsite.ui.ac.id/pub/Unix/Linux/ (Indonesia)
+
+   Tak semua mirror^ di atas adalah dari site-site source^, dan beberapa
+   di antaranya punya materi yang tak tersedia di site source^.
+
+   ----------------------------------------------------------------------------
+
+P 2.6  Saya tidak punya akses ke FTP^. Di manakah saya bisa mendapatkan
+       Linux ?
+
+   Hal yang termudah, barangkali mencari teman dengan akses FTP^. Bila ada Grup
+   Pengguna Linux yang dekat dengan anda, mereka mungkin bersedia membantu.
+
+   Jikalau koneksi e-mail anda cukup bagus, anda dapat mencoba server FTP-by-
+   mail (FTPMail) di <ftpmail@ftp.sunet.se>, <ftpmail@garbo.uwasa.fi> atau
+   <ftpmail@ftp.uni-stuttgart.de>.
+   Informasi yang cukup memadai tentang FTPMail dalam bahasa Indonesia dapat
+   diperoleh di http://www.geocities.com/Athens/Acropolis/8646/ftpmail.html
+
+   Linux juga tersedia melalui kiriman surat tradisional dalam disket, CD-ROM
+   dan tape. File yang berisikan informasi tentang distribusi jenis ini ada di
+
+   sunsite.unc.edu/pub/Linux/docs/HOWTO/Installation-HOWTO
+   sunsite.unc.edu/pub/Linux/docs/distributions/Distribution-HOWTO
+ 
+   ----------------------------------------------------------------------------
+
+P 2.7  Saya tak punya akses ke Usenet^. Di manakah saya bisa mendapatkan
+       informasi ?
+
+   Ringkasan dari comp.os.linux.announce tersedia melalui cara: anda mengirim-
+   kan kata "subscribe" (tanpa tanda kutip) pada badan e-mail ke
+   <linux-announce-REQUEST@news-digests.mit.edu>. Anda disarankan serta
+   dinasihatkan untuk berlangganan daftar ini, karena informasi yang dibawanya,
+   sangat penting dan berisikan dokumentasi tentang Linux.
+   
+   Ingatlah untuk menggunakan alamat *-REQUEST untuk pendaftaran anda dan pesan
+   unsubscription (berhenti berlangganan); mengirimkan e-mail ke alamat lain
+   adalah dipostingkan ke newsgroup !
+
+   ----------------------------------------------------------------------------
+
+P 2.8  Mailing List^ apa sajakah yang ada ?
+
+   Pengembang Linux sekarang terutama menggunakan server Majordomo di
+   <majordomo@vger.rutgers.edu>. Kirim pesan dengan kata "lists" (tanpa tanda
+   kutip) di badan e-mail untuk mendapatkan daftar dari daftar-daftar mailing
+   list yang ada di sana; tambahkan satu baris dengan kata "help" (tanpa tanda
+   kutip) pada badan e-mail untuk mendapatkan file bantuan standar dari
+   Majordomo yang punya instruksi untuk berlangganan dan berhenti berlangganan.
+
+   Catatan, bahwa kebanyakan daftar ini digunakan oleh pengembang Linux untuk
+   berbicara tentang isu-isu teknis dan pengembangan masa depan. Ini tidak
+   dimaksudkan untuk pertanyaan-pertanyaan pengguna baru.
+
+   Ada juga mailing list^ pengguna Linux baru (linux-newbie) dimana 'tak ada
+   pertanyaan yang terlalu bodoh'; sayang sekali, kelihatannya hanya sedikit
+   pengguna yang berpengalaman membaca kanal (channel) itu. Mailing list^ ini
+   mempunyai volume yang sangat rendah.
+
+   Ada juga mantan server mailing list^ Linux multi-channel di
+   niksula.hut.fi. Server ini ditutup / dimatikan selama musim panas tahun
+   1995.
+
+   Untuk pengguna Linux di Indonesia yang berniat bergabung dalam mailing list^
+   Linux yang berbahasa Indonesia, ada forum mailing list^ yang beralamatkan
+   di <id-linux@indonix.or.id>. Untuk berlangganan mailing list^ ini, kirimkan
+   e-mail berisi kata "subscribe" (tanpa tanda kutip) ke alamat
+   <id-linux-request@indonix.or.id>
+
+   ----------------------------------------------------------------------------
+
+P 2.9  Apakah ada newsgroup yang terarsipkan di suatu tempat ?
+
+   sunsite.unc.edu/pub/Linux/docs/linux-announce.archive berisikan arsip dari
+   comp.os.linux.announce. Ini dimirror^ dari src.doc.ic.ac.uk/usenet, yang
+   juga diarsipkan comp.os.linux, comp.os.linux.development.apps, dan
+   comp.os.linux.development.system.
+
+   ============================================================================
+
+3. Kompatibilitas dengan sistem operasi lain.
+
+P 3.1  Dapatkah Linux menggunakan disk bersama-sama dengan DOS ?
+       OS/2 ? 386BSD ? Win95 ?
+
+   Ya ! Linux memakai skema partisi MS-DOS standar, sehingga Linux dapat
+   menggunakan disk bersama-sama dengan sistem operasi lainnya. Catatan, namun
+   banyak sistem operasi-sistem operasi ini cukup rawan. FDISK.EXE milik DOS
+   dan FORMAT.EXE contohnya, kadangkala dapat melakukan overwrite (tulis ulang
+   secara paksa) data di dalam partisi Linux, karena mereka kadangkala salah
+   dalam menggunakan data partisi dari sektor partisi boot daripada tabel
+   partisi.
+
+   Untuk mencegah hal program seperti itu mengerjakan hal itu, adalah ide
+   yang cemerlang untuk menge-nol-kan -- di bawah Linux -- awal partisi yang
+   anda buat, sebelum anda menggunakan MS-DOS -- atau apa pun -- untuk mem-
+   formatnya. Ketikkan :
+
+$ dd if=/dev/zero of=/dev/hdXY bs=512 count=1
+  
+   dimana hdXY adalah partisi yang relevan; contoh : hda1 untuk partisi
+   pertama di harddisk (IDE) pertama.
+
+   Linux dapat membaca dan menulis file-file di atas partisi DOS dan partisi
+   OS/2 anda serta disket menggunakan baik sistem file DOS yang dibangun
+   dalam kernel^ maupun lewat mtools. Ada dukungan kernel^ untuk sistem file
+   VFAT yang digunakan oleh Windows 95 dan Windows NT.
+
+   'P 1.2  Perangkat Lunak apa saja yang didukung ?' untuk lebih jelasnya dan
+   status dari emulator^ untuk DOS, MS Windows, dan program-program System V.
+
+   Lihat, 'P 3.5  Dapatkah Linux mengakses sistem file Amiga ?', 'P 3.6
+   Dapatkah Linux mengakses BSD, SysV, dll. UFS ?', 'P 3.7  Dapatkah Linux
+   mengakses sistem file SMB ?', 'P 3.8  Dapatkah Linux mengakses sistem file
+   Mac ?'
+  
+   ----------------------------------------------------------------------------
+
+P 3.2  Bagaimanakah saya mengakses file-file di partisi DOS atau disket ?
+
+   Gunakan sistem file DOS; contoh, ketikkan, sebagai contoh :
+
+$ mkdir /dos
+$ mount -t msdos -o conv=text,umask=022,uid=100,gid=100 /dev/hda3 /dos
+
+   Bila medianya adalah disket, jangan lupa untuk melakukan unmount (umount)
+   sebelum mengeluarkannya dari disk drive.
+
+   Anda dapat menggunakan pilihan conv=text/binary/auto, umask=nnn, uid=nnn,
+   dan gid=nnn untuk mengendalikan konversi akhir baris otomatis, permissions
+   (perizinan), dan ownerships (kepemilikan) dari file dalam sistem file DOS
+   sebagaimana mereka terlihat di bawah Linux. Apabila anda melakukan mount
+   sistem file DOS dengan meletakkannya di dalam /etc/fstab, anda dapat
+   merekam pilihan (dibatasi koma) di sana, sebagai ganti dari default.
+
+   Alternatif lain, anda dapat menggunakan mtools, tersedia baik dalam bentuk
+   biner maupun source^ dalam site FTP^ -- 'P 2.5  Di manakah saya mendapatkan
+   [material] Linux dengan FTP^ ?'
+
+   Sebuah patch^ kernel^ (diketahui sebagai fd-patches) tersedia dimana,
+   mengizinkan disket yang tidak mempunyai nomer track dan/atau sektor standar
+   digunakan; patch^ ini termasuk dalam seri kernel^ testing alpha 1.1
+
+   ----------------------------------------------------------------------------
+
+P 3.3  Dapatkah saya menggunakan drive DOS yang ter-Stacker/DBLSPC/dll ?
+
+   Tidak semudah itu. Anda dapat mengakses isi DOS 6.x dari emulator^ DOS 
+   ('P 1.2  Perangkat Lunak apa saja yang didukung ?'), tetapi lebih sukar
+   dibandingkan dengan mengakses isi DOS normal melalui modul kernel^ atau
+   mtools.
+
+   Ada modul tersedia untuk kernel^ Linux yang dapat mengerjakan akses read-
+   only (hanya baca) ke volume termampatkan (terkompres). Lihatlah ke dalam
+   sunsite.unc.edu/pub/Linux/system/filesystems/dosfs untuk paket ini.
+
+   ----------------------------------------------------------------------------
+
+P 3.4  Dapatkah saya mengakses partisi HPFS OS/2 dari Linux ?
+
+   Ya, tetapi akses Linux ke partisi HPFS adalah read-only (hanya baca). Sistem
+   file HPFS tersedia sebagai pilihan sewaktu kompilasi kernel^ atau sebagai
+   modul. Lihatlah file Documentation/filesystems/hpfs.txt dalam distribusi
+   source^ kernel^. 'P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^
+   saya ?'. Lalu anda dapat melakukan mount partisi HPFS, menggunakan, contoh :
+
+$ mkdir /hpfs
+$ mount -t hpfs /dev/hda5 /hpfs
+  
+   ----------------------------------------------------------------------------
+
+P 3.5  Dapatkah Linux mengakses sistem file Amiga ?
+
+   Kernel^ Linux telah mendukung Amiga Fast File System (AFFS) versi 1.3 dan
+   sesudahnya, baik sebagai pilihan waktu kompilasi maupun sebagai modul.
+   File Documentation/filesystems/affs.txt dalam distribusi source^ kernel^
+   mempunyai informasi yang lebih jauh.
+
+   Lihat 'P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?'.
+
+   Linux hanya mendukung partisi hard-drive AFFS saja, meskipun : akses
+   disket tidak didukung, karena inkompatibilitas (ketidaksesuaian) antara
+   pengendali (controller) disket Amiga dan pengendali Workstation PC.
+   Driver AFFS dapat juga me-mount partisi disk yang digunakan oleh Un*x
+   Amiga Emulator^, oleh Bernd Schmidt.
+
+   ----------------------------------------------------------------------------
+
+P 3.6  Dapatkah Linux mengakses BSD, SysV, dll. UFS ?
+
+   Kernel^ terbaru dapat melakukan mount (read-only) sistem file UFS yang 
+   digunakan oleh System V; Coherent; Xenix; BSD dan 'derivativ'-nya seperti
+   SunOS, FreeBSD, NetBSD, dan NeXTstep. Dukungan UFS tersedia sebagai pilihan
+   waktu kompilasi, maupun sebagai modul.
+ 
+   ----------------------------------------------------------------------------
+
+P 3.7  Dapatkah Linux mengakses sistem file SMB ?
+
+   Linux mendukung akses read/write (baca/tulis) dari volume SMB Word for
+   Windows dan Windows NT. Lihatlah file Documentation/filesystems/smbfs.txt
+   yang ada di distribusi source^ kernel^, dan 'P 7.6  Bagaimanakah saya
+   mengupgrade/recompile kernel^ saya ?', dalam FAQ ini.
+
+   Ada juga 'setelan' program yang disebut Samba, yang menyediakan dukungan
+   untuk sistem file jaringan Word for Windows (tersedia untuk TCP/IP).
+   Informasinya ada di file README di
+   sunsite.unc.edu/pub/Linux/system/network/samba.
+
+   Ada juga web site SMB di samba.canberra.edu.au/pub/samba.
+ 
+   ----------------------------------------------------------------------------
+
+P 3.8  Dapatkah Linux mengakses sistem file Mac ?
+
+   Ada program tingkat-pengguna yang melakukan akses baca dan tulis pada
+   Macintosh Hierarchical File System (HFS). Program ini tersedia di
+   sunsite.unc.edu/pub/Linux/utils/disk-management.
+
+   ----------------------------------------------------------------------------
+
+P 3.9  Dapatkah saya menjalankan program-program Microsoft Windows di
+       bawah Linux ?
+
+   Belum. Ada sebuah proyek, diketahui sebagai WINE, untuk membangun emulator^
+   MS Windows untuk Linux, tetapi masih belum siap untuk distribusi umum.
+   Bila anda ingin memberi kontribusi untuk pengembangannya, lihatlah
+   laporan statusnya di newsgroup comp.emulators.ms-windows.wine.
+
+   Komersial paketnya, WABI (Windows Application Binary Interface) dikatakan
+   mampu menyediakan dukungan penuh emulasi^ MS Windows di bawah Linux.
+   WABI tersedia di SunSoft, Inc, dan dari www.caldera.com.
+
+   Ada juga FAQ, yang disusun oleh P. David Gardner, di
+   sunsite.unc.edu/pub/Linux/docs/faqs/Wine-FAQ/.
+
+   Dengan kata lain, saat ini, bila anda menginginkan menjalankan program-
+   program MS Windows, hal yang terbaik adalah -- serius lho... -- melakukan
+   reboot. LILO^, bootloader dari Linux, dapat melakukan booting untuk satu
+   sistem operasi dari beberapa pilihan sistem operasi melalui sebuah menu.
+   Lihat dokumentasi LILO untuk lebih jelasnya.
+    
+   ----------------------------------------------------------------------------
+
+P 3.10 Bagaimanakah saya dapat mem-boot Linux dari Boot Manager OS/2 ?
+
+   1. Buat partisi menggunakan FDISK.EXE-nya OS/2 (bukan fdisk Linux).
+
+   2. Format partisi itu di bawah OS/2, baik dengan FAT ataupun HPFS. Ini
+      dimaksudkan agar OS/2 tahu, partisi apakah yang diformatnya. (Langkah
+      ini tidak diperlukan untuk OS/2 "warp" 3.0)
+
+   3. Tambahkan partisi itu ke Boot Manager.
+
+   4. Bootlah Linux, dan buatlah sistem file di partisi itu menggunakan
+      mkfs -t ext2 atau mke2fs. Di saat ini, mungkin anda, jika suka, memakai
+      fdisk Linux untuk mengganti kode untuk partisi baru ke tipe 83 (Linux
+      Native) -- ini mungkin membantu beberapa script instalasi otomatis
+      menemukan beberapa partisi yang benar untuk digunakan.
+
+   5. Installah Linux di partisi itu.
+
+   6. Pasanglah LILO^ di partisi Linux -- TIDAK di master boot record dari
+      harddisk. Pemasangan ini sebagai tingkat kedua boot loader di partisi
+      Linux itu sendiri, untuk melakukan start-up kernel^ yang ditentukan
+      di dalam file konfigurasi LILO^. Untuk mengerjakan hal ini, anda
+      seharusnya meletakkan :
+
+boot = /dev/hda2
+
+      (dimana /dev/hda2 adalah partisi yang anda inginkan untuk di-boot) dalam
+      file /etc/lilo/config atau file /etc/lilo.conf
+
+   7. Pastikan partisi Boot Manager ditandai aktif, sehingga anda dapat
+      memakai Boot Manager untuk memilih sistem operasi mana yang akan di-boot.
+
+   ----------------------------------------------------------------------------
+
+P 3.11 Bagaimanakah cara saya melakukan share partisi swap antara Linux
+       dan MS Windows ?
+
+   Lihatlah Mini-HOWTO yang berjudul Swap-Space, ditulis oleh H. Peter Anvin
+   <hpa@yggdrasil.com>. Mini-HOWTO itu tersedia di
+   sunsite.unc.edu/pub/Linux/docs/HOWTO/mini/Swap-Space.
+
+   ============================================================================
+
+4. Kendali Linux atas sistem file, disk dan drive.
+
+P 4.1  Bagaimanakah membuat Linux bekerja dengan harddisk yang berkapasitas
+       besar ?
+
+   Bila harddisk anda adalah IDE atau EIDE, anda sebaiknya membaca file
+   /usr/src/linux/drivers/block/README.ide (bagian dari source code^ kernel^
+   Linux). File README ini mungkin berisikan saran-saran yang sangat membantu
+   tentang drive IDE. Banyak pengendali IDE modern mengerjakan translasi
+   antara 'physical' cylinders/heads/sectors dengan 'logical' C/H/S.
+
+   Disk SCSI diakses dengan nomer blok linear. BIOS menemukan beberapa 
+   'logical' cylinders/heads/sectors untuk mendukung DOS.
+
+   DOS pada umumnya tidak akan dapat mengakses partisi yang lebih besar
+   daripada cylinders logika 1024, dan akan membuat booting kernel^ Linux
+   dari partisi itu menggunakan LILO^ menjadi bermasalah.
+
+   Anda dapat menggunakan partisi itu untuk Linux atau sistem operasi lain
+   yang mengakses pengendali (controller) secara langsung.
+
+   Direkomendasikan bahwa anda membuat setidaknya satu partisi Linux
+   di bawah batasan cylinder logika 1024, dan booting dari partisi itu.
+   Partisi lainnya akan baik-baik saja.
+
+   ----------------------------------------------------------------------------
+
+P 4.2  Bagaimanakah saya dapat melakukan Undelete^ files ?
+
+   Secara umum, ini sangat berat dilakukan untuk mesin-mesin Unix, karena sifat
+   multitasking mereka. Fungsi Undelete^ untuk ext2fs sedang dikerjakan, tetapi
+   jangan tahan nafas anda.
+
+   Ada sejumlah paket yang tersedia sebagai ganti fungsi itu untuk membuat
+   perintah baru penghapusan dan penyalinan yang memindahkan file-file terhapus
+   ke sebuah direktori 'wastebasket' (keranjang sampah). File-file itu dapat
+   dipulihkan sampai dibersihkan secara otomatis oleh proses background.
+
+   Alternatif lainnya, anda dapat mencari peralatan raw disk yang menahan
+   sistem file dalam pertanyaan. Ini adalah kerja yang sukar, dan anda akan
+   membutuhkan menjadi root^ untuk mengerjakan hal ini. Bila anda masih ingin
+   melakukan undelete^, coba lihatlah Undeletion mini-HOWTO yang ditulis oleh
+   Aaron Crane's
+ 
+   ----------------------------------------------------------------------------
+
+P 4.3  Apakah ada defragmenter^ untuk ext2fs dll. ?
+
+   Ya. Ada program defragmenter^ untuk Linux, baik untuk sistem file ext2,
+   minix dan sistem file ext lama. Program itu tersedia di
+   sunsite.unc.edu/pub/Linux/system/filesystems/defrag-0.70.tar.gz.
+
+   Pengguna sistem file ext2 mungkin dapat mengerjakannya tanpa defrag, karena
+   ext2 berisikan kode ekstra untuk menjaga fragmentasi dikurangi dalam
+   sistem file yang sangat penuh.
+
+   ----------------------------------------------------------------------------
+
+P 4.4  Bagaimanakah saya memformat dan membuat sistem file di disket ?
+
+   Untuk memformat disket 3,5 inci, menjadi high-density :
+$ fdformat /dev/fd0H1440
+$ mkfs -t ext2 -m 0 /dev/fd0F1440 1440
+
+   Untuk disket 5,25 inci, gunakan fd0h1200 dan 1200. Untuk drive 'B' pakai
+   fd1 sebagai ganti fd0.
+
+   Pilihan -m 0 membuat mkfs.ext2 tidak menyediakan spasi apa pun untuk
+   superuser -- pada umumnya 10 % terakhir disediakan untuk root^.
+
+   Perintah pertama adalah melakukan format low-level (tingkat rendah). Yang
+   kedua membuat sistem file kosong. Anda dapat melakukan mount disket, seperti
+   partisi harddisk dan dengan mudah melakukan cp dan mv pada file-filenya, dll
+
+   Konvensi penamaan alat pada umumnya sama untuk mesin-mesin Unix lainnya.
+   Mereka dapat dijumpai Matt Welsh's Installation and Getting Started Guide.
+   (Lihat 'P 2.1  Di manakah saya bisa mendapatkan HOWTO dan dokumentasi
+   lainnya ?'). Gambaran yang lebih detil dan teknis adalah Linux Allocated
+   Devices oleh H. Peter Anvin, <hpa@zytor.com>, yang ditulis dalam bentuk
+   LaTeX dan bentuk ASCII dalam distribusi source^ kernel^ (kemungkinan ada di
+   /usr/src/kernel/Documentation), yaitu file devices.tex dan devices.txt.
+
+   ----------------------------------------------------------------------------
+
+P 4.5  Saya memperoleh pesan yang 'menakutkan' tentang inodes^, blocks,
+       dan sejenisnya.
+
+   Mungkin anda memiliki sistem file yang terkorupsi, kemungkinan disebabkan
+   oleh tidak tuntasnya proses shutting down ('pematian') Linux, sebelum
+   melakukan pemencetan tombol Off atau tombol Reset. Anda membutuhkan program
+   shutdown baru untuk mengerjakan hal ini -- sebagai contoh, salah satunya
+   berada di paket utility^ Linux, tersedia di sunsite dan tsx-11.
+
+   Jikalau anda beruntung, program fsck (atau e2fsck atau xfsck sebagaimana
+   disediakan, bila anda tidak mempunyai program fsck otomatis mutakhir) akan
+   dapat memperbaiki kembali (repair) sistem file anda; bila anda naas, sistem
+   filenya 'dibuang' dan anda harus melakukan inisialisasi terhadapnya dengan
+   mkfs (atau mke2fs, mkxfs, dll) dan merestorenya (memulihkannya) dari backup
+   (cadangan) anda.
+
+   NB : Jangan mencoba melakukan cek sistem file yang sedang di-mount read-
+   write - ini termasuk partisi root^, bila anda tidak melihat :
+
+   VFS: mounted root ... read-only
+
+   sewaktu boot.
+
+   ----------------------------------------------------------------------------
+
+P 4.6  Area swap saya tidak bekerja.
+
+   Saat anda melakukan booting (atau mengaktifkan swapping secara manual) anda
+   seharusnya melihat
+        Adding Swap: NNNNk swap-space
+
+   Bila anda tidak melihat pesan apa pun, mungkin anda kehilangan swapon -av
+   (perintah untuk mengaktifkan swapping) di file /etc/rc.local atau
+   /etc/rc.d/* (script start-up sistem) anda, atau melupakan masukan yang
+   benar di file /etc/fstab :
+
+        /dev/hda2       none          swap        sw
+
+   sebagai contoh.
+
+   Bila anda melihat
+        Unable to find swap-space signature
+
+   Anda mungkin lupa menjalankan mkswap. Lihat halaman manual (manpage) untuk
+   lebih jelasnya; mkswap bekerja kira-kira seperti mkfs.
+
+   Cek dalam Installation-HOWTO untuk instruksi yang lebih detil tentang
+   bagaimana menyiapkan area swap.
+
+   ----------------------------------------------------------------------------
+
+P 4.7  Bagaimanakah menghapus LILO^, sehingga sistem saya mem-boot DOS
+       lagi ?
+
+   Menggunakan DOS (MS-DOS 5.0 atau lebih baru, atau OS/2), ketikkan
+   FDISK /MBR (yang tidak terdokumentasi). Ini akan memulihkan Master Boot
+   Record standar DOS. Bila anda punya DR-DOS 6.0, pergilah ke FDISK dengan
+   jalan biasa dan kemudian pilih pada pilihan 'Re-write Master Boot Record'
+   (Tulis ulang MBR).
+
+   Bila anda tak punya DOS 5 atau DR-DOS, anda memerlukan boot sector yang
+   disimpan oleh LILO^, saat pertama kali memasang LILO^. Anda menyimpan file
+   itu bukan ? Mungkin file itu bernama boot.0301 atau sebangsanya. Ketikkan :
+
+   dd if=boot.0301 of=/dev/hda bs=445 count=1
+
+   (atau sda, bila anda memakai harddisk SCSI). Ini berarti juga akan menghapus
+   tabel partisi, karena itu waspadalah ! Apabila anda putus asa, anda dapat
+   menggunakan :
+
+   dd if=/dev/zero of=/dev/hda bs=512 count=1
+
+   Perintah ini akan menghapus tabel partisi anda serta boot sectornya; anda
+   lalu dapat melakukan reformat harddisk anda memakai perangkat lunak yang
+   menjadi favorit anda. Tetapi ini akan menjadikan isi harddisk anda tak
+   dapat diakses -- anda akan kehilangan itu semua, kecuali anda seorang
+   yang ahli.
+
+   Catatan, bahwa MBR DOS akan melakukan booting, jikalau partisi (tunggal!)
+   ditandai sebagai 'active' (aktif). Anda mungkin butuh fdisk untuk mengeset
+   dan menghapus flag (tanda/bendera) yang aktif di partisi itu.
+
+   ----------------------------------------------------------------------------
+
+P 4.8  Mengapakah saya tak dapat memakai fdformat, kecuali login
+       sebagai root^ ?
+
+   Call (panggilan) sistem untuk memformat disket mungkin hanya bisa dikerjakan
+   bila login sebagai root^, tanpa memperhatikan permission (perizinan)
+   dari /dev/fd0*. Bila anda ingin pengguna mana pun dapat memformat disket,
+   coba ambil program fdformat2. Ini bekerja di sekitar masalah dengan
+   melakukan setuid ke root^.
+
+   ----------------------------------------------------------------------------
+
+P 4.9  Apakah ada sesuatu semacam Stacker atau Doublespace untuk Linux ?
+
+   Saat ini, tak ada sistem file Linux yang dapat mengerjakan kompresi dalam
+   sistem filenya.
+
+   Ada program yang bernama Zlibc yang mengizinkan aplikasi yang ada untuk
+   membaca file termampatkan (terkompres) (GNU zipped) sebagaimana mereka tak
+   terkompres. Sesudah memasangnya, anda dapat mengkompres file menggunakan
+   gzip dan program akan masih menemukan mereka, tanpa harus merubah program.
+   Lihatlah di sunsite.unc.edu/pub/Linux/libs. Penciptanya adalah
+   <Alain.Knaff@imag.fr>
+
+   Ada pengendali alat blok termampatkan (compressing block device driver)
+   yang dapat menyediakan sistem file berdiri sendiri, kompresi disk on-the-fly
+   dalam kernel^. Pengendali itu dinamakan 'DouBle'. Ada distribusi source-only
+   (hanya berbentuk source code^) di sunsite.unc.edu di direktori
+   /pub/Linux/kernel/patches/diskdrives; penciptanya adalah Jean-Marc
+   Verbavatz <jmv@receptor.mgh.harvard.edu>. Catatan, semenjak inode^
+   terkompres ini (informasi administratif) dan direktori-direktori sebaimana
+   isi filenya juga, maka korupsi apa pun kelihatannya menjadi permasalahan
+   yang serius.
+
+   Ada juga paket yang tersedia, bernama tcx (Transparently Compressed
+   Executables), yang mengizinkan anda untuk menggunakan file executable^
+   terkompres secara tidak tetap dan hanya melakukan unkompres terhadap mereka
+   secara temporer saat anda menggunakannya saja. Anda dapat menemukannya di
+   sunsite.unc.edu/pub/Linux/utils/compress
+
+   Catatan : ini tidak sama dengan gzexe, yang adalah lebih rendah derajat
+   implementasinya dari konsep yang sama.
+
+   ----------------------------------------------------------------------------
+
+P 4.10 Partisi ext2fs saya dicek setiap kali saya reboot.
+
+   Lihat 'P 9.12 EXT2-fs: warning: mounting unchecked filesystem.'
+   
+   ----------------------------------------------------------------------------
+
+P 4.11 Sistem file root saya read-only !
+
+   Lakukan remount. Bila file /etc/fstab sudah benar, anda dapat dengan mudah
+   mengetik mount -n -o remount /. Bila /etc/fstab keliru, anda harus memberi
+   nama device (alat) dan mungkin tipenya juga; contoh
+   mount -n -o remount -t ext2 /dev/hda2 /. Untuk memahami bagaimana anda
+   dapat masuk ke keadaan ini, lihat 'P 9.12 EXT2-fs: warning: mounting
+   unchecked filesystem.'
+
+   ----------------------------------------------------------------------------
+
+P 4.12 Saya punya file /proc/kcore yang besar ! Dapatkah saya hapus ?
+
+   Tak sebuah file pun di /proc adalah benar-benar di sana -- mereka semua
+   adalah file 'pura-pura/semu' yang dibuat oleh kernel^, untuk memberi anda
+   informasi tentang sistem, dan tidak mengambil spasi apa pun dari harddisk.
+
+   /proc/kcore adalah seperti 'alias' untuk ingatan (memori) di komputer anda;
+   ukurannya sama dengan jumlah RAM yang anda punya, dan bila anda membacanya
+   sebagai file, kernel^ mengerjakannya dengan membaca memori.
+
+   ----------------------------------------------------------------------------
+
+P 4.13 AHA1542C saya tidak bekerja dengan Linux.
+
+   Pilihan untuk mengizinkan harddisk dengan cylinder lebih banyak daripada
+   1024 hanya disyaratkan bila digunakan untuk bekerja di DOS dan sebaiknya
+   di-*off*-kan di bawah Linux. Untuk kernel^ Linux yang lebih lama, anda
+   harus meng-off-kan kebanyakan dari pilihan "advanced BIOS" -- semua kecuali
+   yang melacak (scanning) bus^ untuk alat yang dapat di-booting (bootable
+   devices).
+
+   ============================================================================
+
+5. Porting^, compiling^, dan tempat memperoleh program-program.
+
+P 5.1  Bagaimanakah saya melakukan porting^ XXX ke Linux ?
+
+   Secara umum, program-program Unix membutuhkan porting^ yang sangat sedikit.
+   Secara sederhana, ikuti instruksi instalasinya. Bila anda tidak tahu -- dan
+   tidak tahu bagaimana menemukannya -- jawaban-jawaban untuk beberapa
+   pertanyaan yang diminta selama prosedur instalasi, anda dapat menebak, namun
+   kecenderungan ini menghasilkan program yang ber-'bug'. Dalam kasus ini,
+   anda mungkin lebih baik menanyakan kepada seseorang untuk mengerjakan
+   porting^ ini.
+
+   Jikalau anda mempunyai program ber"rasa" BSD, anda sebaiknya mencoba
+   menggunakan -I/usr/include/bsd dan -1bsd di bagian tertentu dari baris
+   kompilasi.
+
+   ----------------------------------------------------------------------------
+
+P 5.2  Apakah ld.so itu dan di manakah saya memperolehnya ?
+
+   ld.so adalah pemuat kepustakaan dinamis (dynamic library loader). Setiap
+   file biner menggunakan shared library (kepustakaan yang digunakan bersama-
+   sama) yang memiliki sekitar 3 KB dari kode start-up untuk menemukan dan
+   memuat shared library. Sekarang kode itu telah diletakkan dalam kepustakaan
+   shared yang istimewa, /lib/ld.so, dimana semua file biner dapat mencarinya,
+   sehingga hanya membuang sedikit spasi harddisk, dan dapat diupgrade lebih
+   mudah.
+
+   ld.so dapat diperoleh dari tsx-11.mit.edu/pub/linux/packages/GCC dan site-
+   site mirror^nya. File untuk versi terakhir di saat ini : ld.so.1.9.5.tar.gz
+
+   /lib/ld-linux.so.1 adalah hal yang sama untuk ELF (Lihat 'P 7.13 Apakah ELF
+   dan sebangsanya itu ?') dan datang di paket yang sama sebagai pemuat a.out.
+
+   ----------------------------------------------------------------------------
+
+P 5.3  Apakah ada orang yang melakukan porting^ / kompilasi / penulisan
+       XXX untuk Linux ?
+
+   Pertama, lihatlah di Software Map (Peta Perangkat Lunak) -- ada di
+   sunsite.unc.edu/pub/Linux/docs/linux-software-map, dan di site FTP^ lain.
+   Sebuah mesin pencari (search engine) tersedia di World Wide Web (WWW)
+   di http://www.boutell.com/lsm/.
+
+   Cek site FTP^ ('P 2.5  Di manakah saya mendapatkan [material] Linux dengan
+   FTP^ ?') untuk pertama kalinya -- carilah ls-lR atau file INDEX untuk string
+   yang cocok.
+
+   Juga lihatlah Linux Projects Map (Peta Proyek Linux),
+   ftp.ix.de/pub/ix/Linux/docs/Projects-Map.gz.
+
+   Bila anda tidak menemukan apa pun, anda dapat mendownload baik source^
+   maupun programnya dan mengkompilasinya. Lihat 'P 5.1  Bagaimanakah saya
+   melakukan porting^ XXX ke Linux ?'. Jika itu adalah paket yang besar, yang
+   perlu beberapa porting^, kirimkan pesan ke comp.os.linux.development.apps.
+
+   Bila anda mengkompilasi program yang besar, silakan mengupload^nya ke satu
+   atau lebih site FTP^, dan mengirim pesan ke comp.os.linux.announce (kirim
+   kiriman anda ke <linux-announce@news.ornl.gov>).
+
+   Apabila anda mencari sebuah program aplikasi, kesempatannya adalah bahwa
+   seseorang {mungkin} telah menulis versi yang free (bebas). FAQ dari
+   comp.sources.wanted mempunyai instruksi untuk menemukan source code^nya.
+   
+   ----------------------------------------------------------------------------
+
+P 5.4  Dapatkah saya menggunakan kode atau sebuah kompiler terkompilasi
+       untuk 486 di atas 386 saya ?
+
+   Ya, kecuali kernel^nya.
+
+   Pilihan -m486 di GCC, yang digunakan untuk mengkompilasi biner untuk mesin 
+   x486, hanya pergantian memastikan optimalisasi. Ini membuat agak lebih baik
+   untuk file biner besar yang dijalankan agak lebih cepat di atas sebuah 
+   mesin 486. Mereka masih bekerja dengan baik di 386, meski dengan hit unjuk
+   kerja (performance) yang kecil.
+
+   Namun, dari versi kernel^ 1.3.35 akan menggunakan 486 atau instruksi
+   spesifik Pentium bila dikonfigurasi untuk 486 atau Pentium, dengan demikian
+   membuatnya tak dapat digunakan di atas 386.
+
+   GCC (GNU C Compiler) dapat dikonfigurasi untuk 386 atau 486; perbedaannya
+   hanyalah bahwa mengkonfigurasi untuk 386 menjadikan -m386 sebagai standar
+   dan membuat konfigurasi untuk 486, memerlukan -m486 sebagai standar;
+   dalam kedua kasus di atas, dapat diabaikan di basis tiap kompilasi
+   dengan menyunting file /usr/lib/gcc-lib/i*-linux/n.n.n/specs.
+
+   Ada GCC versi Alpha yang tahu bagaimana mengerjakan optimalisasi dengan
+   baik untuk 586, tetapi masih cukup tidak handal, teristimewa di setting
+   optimalisasi tinggi. GCC untuk Pentium dapat diperoleh di tsx-11.mit.edu
+   dalam direktori /pub/linux/ALPHA/pentium-gcc. Saya merekomendasikan
+   menggunakan GCC umum untuk 486 sebagai gantinya.
+
+   ----------------------------------------------------------------------------
+
+P 5.5  Apakah yang gcc -O6 kerjakan ?
+
+   Sebenarnya itu sama dengan -O2 (GCC 2.5) atau -O3 (GCC 2.6, 2.7); nomer apa
+   pun yang lebih besar daripada itu, mengerjakan hal yang sama. File Makefile
+   dari kernel^ terbaru menggunakan -O2, dan sebaiknya anda mungkin memakai
+   cara yang sama.
+
+   ----------------------------------------------------------------------------
+
+P 5.6  Di manakah linux/*.h dan asm/*.h berada ?
+
+   Mereka ada di direktori /usr/include/linux dan /usr/include/asm. Namun,
+   mereka seharusnya menjadi tujuan symbolic links ke source^ kernel^ anda di
+   /usr/src/linux, bukan direktori sebenarnya.
+
+   Jika anda tidak mempunyai source^ kernel^, downloadlah -- lihat, 'P 7.6
+   Bagaimanakah saya mengupgrade/recompile kernel^ saya ?'.
+
+   Setelah itu, gunakan rm untuk menghilangkan sampah, dan ln untuk membuat
+   link (kaitan) :
+   rm -rf /usr/include/linux /usr/include/asm
+   ln -sf /usr/src/linux/include/linux /usr/include/linux
+   ln -sf /usr/src/linux/include/asm /usr/include/asm
+
+   /usr/src/linux/include/asm adalah symbolic link ke direktori berisikan
+   arsitekture spesifik -- bila anda mempunyai unpacked kernel^ source tree
+   (pohon sumber kernel^ yang tak terpaket) baru, anda harus memakai make
+   symlinks. Anda juga akan menemukan bahwa anda mungkin harus mengerjakan
+   make config dalam sebuah source tree kernel^ baru yang tak terpaket, untuk
+   membuat <linux/autoconf.h>.
+
+   ----------------------------------------------------------------------------
+
+P 5.7  Saya mendapatkan pesan kesalahan (error) saat saya mencoba
+       mengkompilasi kernel.
+
+   Lihatlah pertanyaan sebelumnya tentang file header.
+
+   Ingat bahwa saat anda mengaplikasikan sebuah patch^ ke kernel^, anda harus
+   menggunakan pilihan (option) -p0 atau -p1: bila tidak, patch^nya
+   tidak akan diaplikasikan (diterapkan). Lihat halaman manual tentang patch^
+   untuk lebih jelasnya.
+
+   Bila anda melakukan patching ke sebuah kernel^ lebih baru daripada 1.1.44,
+   anda sebaiknya menemukan bahwa ada direktori baru
+   /usr/src/linux/include/asm-i386. Direktori asm itu seharusnya dihapus.
+   Tujuan symlinks dari Makefile membuat symbolic links ke asm-i386 dan
+   /arch/i386/boot, secara berturut-turut. Jalan paling mudah untuk memastikan
+   semua itu telah dikerjakan adalah tidak dengan mencoba mem-patch^ 1.1.44
+   untuk membuat 1.1.45, tetapi mendownload linux-1.1.45.tar.gz sebagai
+   gantinya.
+
+   ld: unrecognized option '-qmagic' berarti bahwa anda harus mendapatkan
+   linker (pengait) yang lebih baru, dari
+   ftp://tsx-11.mit.edu/pub/linux/packages/GCC, di file
+   binutils-2.8.1.0.1.bin.tar.gz.
+
+   ----------------------------------------------------------------------------
+
+P 5.8  Bagaimanakah saya membuat shared library ?
+
+   Untuk ELF,
+   gcc -fPIC -c *.c
+   gcc -shared -Wl,-soname,libfoo.so.1 -o libfoo.so.1.0 *.o
+
+   Untuk a.out, ambilah tools-n.nn.tar.gz dari tsx-11.mit.edu, di direktori
+   /pub/Linux/packages/GCC/src. File itu datang dengan dokumentasi yang akan
+   menuntun anda tentang apa yang harus anda kerjakan. Catatan, bahwa
+   kepustakaan shared milik a.out adalah bisnis yang penuh tipu daya.
+   Pertimbangkan untuk mengupgrade kepustakaan anda ke kepustakaan shared
+   milik ELF.
+   Lihatlah ELF HOWTO, di sunsite.unc.edu/pub/Linux/docs/HOWTO/
+
+   ----------------------------------------------------------------------------
+
+P 5.9  File executable^ saya sangat besar.
+
+   Dengan kompiler ELF (Lihat 'P 7.13 Apakah ELF dan sebangsanya itu ?') lihat
+   bahwa penyebab umum yang menyebabkan file executable^ yang besar adalah
+   kekurangan peruntukan link (kaitan) kepustakaan .so untuk salah satu
+   kepustakaan yang anda pakai. Seharusnya ada link seperti libc.so untuk
+   setiap kepustakaan seperti libc.so.5.2.18.
+
+   Dengan kompiler a.out, penyebab umum dari file executable^ yang besar adalah
+   tanda -g linker (kompiler). Ini memproduksi (sebagaimana men-debug informasi
+   di file output) sebuah program yang secara statik terkait, sebagai contoh
+   yang termasuk sebuah salinan dari kepustakaan C sebagai ganti dari
+   salinan kaitan secara dinamis.
+
+   Investigasi lain yang bernilai adalah -O dan -O2 yang mengaktifkan 
+   optimalisasi (cek dokumentasi GCC) dan -s (atau perintah strip) yang akan
+   membuka (strip) informasi simbol dari biner yang dihasilkan. (melakukan
+   debug padanya adalah hal yang sangat mustahil).
+
+   Anda boleh menginginkan untuk memakai -N di atas file executable^ yang
+   sangat kecil (lebih kecil daripada 8 KB dengan -N), tetapi anda tidak
+   seharusnya mengerjakan ini, kecuali anda memahami implikasi unjuk kerjanya,
+   dan pasti tidak akan pernah dilakukan dengan daemon.
+ 
+   ----------------------------------------------------------------------------
+
+P 5.10 Apakah Linux mendukung 'thread' atau proses 'lightweight' ?
+
+   Sebagaimana model multiprocessing Unix melibatkan proses heavyweight, yang
+   merupakan bagian standar dari kernel^ Linux, ada beberapa implementasi dari
+   proses lightweight atau threads, kebanyakan di antaranya adalah paket umum
+   untuk Unix apa pun :
+     * Di sipb.mit.edu:/pub/pthread atau
+       ftp.ibp.fr:/pub/unix/threads/pthreads. Dokumentasinya tidak berada dalam
+       paketnya, tetapi tersedia di World Wide Web di
+       http://www.mit.edu:8001/people/proven/home_page.html. libcs Linux yang
+       lebih baru berisi source^ pthreads; Compiler GNU Ada ada pada site
+       sunsite.unc.edu di direktori
+       /pub/Linux/devel/lang/ada/gnat-3.01-linux+elf.tar.gz berisikan
+       file biner yang dibuat dari source code^ itu.
+     * Di ftp.cs.washington.edu:/pub/qt-001.tar.Z adalah QuickThreads.
+       Informasi lebih lanjut dapat ditemukan di laporan teknis, tersedia di
+       site yang sama sebagai /tr/1993/05/UW-CSE-93-05-06.PS.Z.
+     * Di gummo.doc.ic.ac.uk:/rex adalah lwp, implementasi yang sangat minimal.
+     * Di ftp.cs.fsu.edu:/pub/PART, sebuah implementasi dari Ada. Ini berguna
+       terutama karena mempunyai banyak 'papers' berformat PostScript yang
+       akan anda temukan berguna untuk mempelajari lebih banyak tentang
+       threads. Ini tidak langsung dapat digunakan di bawah Linux.
+
+   Silakan melakukan kontak dengan pencipta paket di pertanyaan anda untuk
+   hal yang lebih detil.
+
+   Kernel^ versi 1.3.35 berisi beberapa dukungan untuk kernel^ threads, namun
+   kode ini belum pernah ditest secara baik.
+
+   ----------------------------------------------------------------------------
+
+P 5.11 Di manakah saya dapatkan 'lint' untuk Linux ?
+
+   Kurang lebih fungsi yang setara dibangun di dalam GNU C Compiler (gcc) yang
+   digunakan oleh sistem Linux. Pakai pilihan -Wall untuk meng-on-kan 
+   peringatan ekstra secara umum yang sangat berguna. Cek manual GCC untuk
+   penjelasan yang lebih lanjut (ketik Ctrl-h diikuti dengan i di Emacs dan
+   pilih entry untuk GCC)
+
+   Ada program yang tersedia secara free dinamakan 'lclint' yang mengerjakan
+   lebih baik sesuatu yang sama dengan lint tradisional. Pemberitahuan dan
+   source code^ tersedia di larch.lcs.mit.edu di direktori
+   /pub/Larch/lclint; di WWW, lihatlah site
+   http://larch-www.lcs.mit.edu:8001/larch/lclint.html.
+
+   ----------------------------------------------------------------------------
+
+P 5.12 Di manakah dapat saya temukan 'kermit' untuk Linux ?
+
+   Kermit didistribusikan di bawah hak cipta non-GPL yang membuat syarat-syarat
+   distribusinya berbeda. Source^ dan beberapa file biner-nya tersedia di
+   kermit.columbia.edu sebagai
+
+kermit/archives/ckermit-6.0.192-7.i386.rpm         # RedHat
+kermit/archives/ckermit-6.0.192-7.sparc.rpm
+kermit/archives/ckermit-6.0.192-7.alpha.rpm
+kermit/archives/ckermit-6.0.192-7.src.rpm
+kermit/archives/cku192.debian.tar                  # Debian
+kermit/archives/cku192.slackware-i386.tgz          # Slackware
+
+   Biner Linux lainnya tersedia di
+kermit/bin/ckuker.linux-2.0-alpha
+kermit/bin/ckuker.linux-2.0.27-sparc
+kermit/bin/ckuker.linux-2.0.28-mklinux-mach3.0-ppc
+kermit/bin/ckuker.linux-1.2.13-i386-elf
+kermit/bin/ckuker.linux-2.1.13-i386-elf
+
+   File /kermit/READ.ME dan /kermit/c-kermit/READ.ME menjelaskan lebih lanjut
+   tentang protokol ini.
+
+   Home Page WWW proyek Kermit milik Columbia University ada di
+   http://www.columbia.edu/kermit
+
+   ----------------------------------------------------------------------------
+
+P 5.13 Di manakah Java Developer's Kit untuk Linux ?
+
+   Ada di http://substance.blackdown.org/java-linux.html. Versi terakhir
+   sebagaimana dilaporkan adalah 1.1.5 dan dilaporkan pula, sangat stabil.
+
+   ----------------------------------------------------------------------------
+
+P 5.14 Di manakah saya bisa mendapatkan browser^ Netscape untuk X-Window ?
+
+   Anda bisa mendapatkan Netscape Communicator untuk Linux di
+
+ftp://ftp.netscape.com/pub/communicator/4.04/shipping/english/unix/linux20
+   
+   Ingatlah, bahwa Netscape ini bukanlah freeware.
+
+   ============================================================================
+
+6. Pemecahan masalah untuk masalah umum lainnya.
+
+P 6.1  free dumps core.
+
+   Dalam Linux 1,3,57 dan selanjutnya, format dari /proc/meminfo telah dirubah
+   karena implementasi bebasnya tidak dapat dipahami.
+
+   Ambillah versi terbaru, dari sunsite.unc.edu di
+   /pub/Linux/system/Status/ps/procps-0.99.tgz.
+
+   ----------------------------------------------------------------------------
+
+P 6.2  Clock (waktu) saya adalah 'sangat' salah.
+
+   Ada dua 'clock' di komputer anda. 'Clock' dari CMOS yang berjalan bahkan
+   saat komputernya off dan digunakan oleh sistem yang start-up dan oleh DOS
+   (bila anda memakainya :-)). Sistem pewaktu yang biasa, ditunjukkan dan
+   diset dengan tanggal, dikendalikan oleh kernel^ pada saat Linux berjalan.
+
+   Anda dapat menunjukkan waktu CMOS, atau mengesetnya dari lainnya, dengan
+   program /sbin/clock - lihatlah halaman manualnya.
+
+   Ada beberapa program yang bervariasi yang dapat mengkoreksi waktu untuk
+   aliran sistematik atau mentransfer time melalui network. Beberapa di
+   antaranya mungkin dapat dipasang di sistem anda. Cobalah melihat 
+   adjtimex (pengkoreksi untuk aliran), netdate dan getdate (dengan mudah
+   mengambil waktu dari network (jaringan komputer) atau xntp (accurate
+   fully-featured network time daemon / daemon untuk pewaktu jaringan yang
+   akurat).
+
+   ----------------------------------------------------------------------------
+
+P 6.3  Script setuid tidak terlihat bekerja.
+
+   Benar. Kemampuan ini lambat laun dinonaktifkan dalam kernel^ Linux, karena
+   script setuid adalah selalu menjadikan masalah lubang keamanan. Bila anda
+   ingin tahu mengapa, baca FAQ comp.unix.questions.
+
+   ----------------------------------------------------------------------------
+
+P 6.4  Memori yang bebas seperti yang dilaporkan terus menyusut.
+
+   Harga 'free' yang dicetak oleh free tidak termasuk memori yang digunakan
+   sebagai cache buffer harddisk - ditunjukkan oleh kolom buffer. Jika anda
+   ingin tahu bagaimana memori yang benar-benar free (bebas), tambahan
+   jumlah di buffer ke 'free' - versi terbaru dari free, mencetak baris ekstra
+   dengan info ini.
+
+   Cache buffer harddisk cenderung bertambah sesudah menjalankan Linux,
+   sebagaimana anda menjalankan lebih banyak program dan menggunakan lebih
+   banyak file dan isinya dimasukkan ke dalam cache. Cache buffer harddisk
+   akan seimbang setelah beberapa saat.
+
+   ----------------------------------------------------------------------------
+
+P 6.5  Saat saya menambahkan memori lebih, komputer melambat dan merangkak.
+
+   Ini adalah gejala-gejala akibat kegagalan melakukan pen-cache-an memori
+   tambahan. Masalah yang pasti bergantung kepada motherboard anda.
+
+   Kadangkala anda harus mengaktifkan caching dari area tertentu di setup
+   BIOS anda. Coba lihat ke dalam setup CMOS dan lihatlah apakah ada pilihan
+   untuk mengaktifkan cache memori tambahan yang biasanya di-set off. Ini
+   tampaknya umum di 486.
+
+   Kadangkala RAM perlu ditempatkan di soket yang pas untuk dapat di-cache.
+
+   Kadangkala anda harus mengeset jumper untuk mengaktifkan caching.
+
+   Beberapa motherboard tidak melakukan cache ke semua RAM, bila anda memiliki
+   RAM lebih dari jumlah cache yang mereka izinkan. Pada umumnya cache sebesar
+   256 KB penuh akan mengatasi masalah ini.
+
+   Bila anda ragu-ragu, ceklah buku manual motherboard anda. Bila anda masih
+   tidak mendapatkannya karena dokumentasinya tidak memenuhi syarat, anda
+   mungkin harus mengirim pesan ke comp.os.linux.hardware dan menyertakan
+   semua detilnya - pembuatan, nomer modelnya, kode tanggalnya, dll, sehingga
+   pengguna Linux lainnya dapat memberi saran yang tepat.
+
+   ----------------------------------------------------------------------------
+
+P 6.6  Beberapa program (contoh : xdm) tidak mengizinkan saya masuk.
+
+   Anda mungkin menggunakan program password-non-shadow, tetapi anda memakai
+   password shadow.
+
+   Bila itu yang terjadi, anda mungkin harus melakukan kompilasi terhadap
+   versi password shadow dari program yang ada di pertanyaan anda. Setelan
+   password shadow dapat ditemukan di (di antara tempat lainnya) :
+   tsx-11.mit.edu/pub/linux/sources/usr.bin/shadow-*
+   Ini adalah source code^nya yang mungkin anda temukan file binernya di 
+   ..../Linux/binaries/usr.bin.
+
+   ----------------------------------------------------------------------------
+
+P 6.7  Beberapa program mengizinkan saya masuk tanpa password.
+
+   Anda mungkin mempunyai masalah yang sama dengan 'P 6.6  Beberapa program
+   (contoh : xdm) tidak mengizinkan saya masuk.', dengan tambahan pernik-
+   perniknya:
+
+   Jikalau anda menggunakan password shadow, anda sebaiknya meletakkan sebuah
+   huruf x atau sebuah asterik di field password dari /etc/passwd untuk setiap
+   account, sehingga bilamana sebuah program tidak tahu tentang password
+   shadow, di tidak akan 'berpikir' ini adalah account tanpa password dan
+   membiarkan setiap orang memasukinya.
+
+   ----------------------------------------------------------------------------
+
+P 6.8  Mesin saya berjalan sangat lambat saat saya menjalankan GCC atau
+       X atau ...
+
+   Anda mungkin tidak mempunyai spasi swap yang diaktifkan. Anda perlu
+   mengaktifkan swapping untuk mengizinkan Linux melakukan 'penyimpanan'
+   bit-bit data dari program yang tidak sedang digunakan ke harddisk, untuk
+   membuat ruangan yang lebih banyak untuk program lain dan data lain. Bila
+   anda tidak mengizinkan Linux melakukan 'pembuangan' data dari memori ke
+   harddisk (ke spasi swap itu), akan lebih sedikit kesempatan menjalankan
+   program di Linux serta semuanya berjalan (me)lambat.
+
+   Lihatlah Installation-HOWTO dan Installation and Getting Started Guide
+   (Lihatlah 'P 2.1  Di manakah saya bisa mendapatkan HOWTO dan dokumentasi
+   lainnya ?') untuk lebih jelasnya dari bagaimana menyediakan partisi swap
+   atau file swap; lihat juga 'P 4.6  Area swap saya tidak bekerja.'.
+
+   Kemungkinan lainnya, anda mungkin punya memori 'real' yang sangat sedikit.
+   Jika anda punya RAM sedikit dibandingkan dengan semua program yang anda
+   jalankan pada satu saat, Linux akan memakai harddisk sebagai gantinya dan
+   memicu kejengkelan anda. Solusi dalam kasus ini adalah tidak menjalankan
+   terlalu banyak program pada saat bersamaan atau membeli kit RAM yang lebih
+   banyak. Anda dapat juga melakukan 'reklaim' memori dengan melakukan
+   kompilasi dan menggunakan kernel^ dengan konfigurasi 'option' yang lebih
+   sedikit. Lihatlah 'P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^
+   saya ?'.
+
+   Anda dapat mengetahui berapakah memori dan/atau swap yang anda gunakan
+   dengan memakai perintah free, atau dengan mengetikkan :
+
+   cat /proc/meminfo
+
+   Apabila kernel^ anda dikonfigurasi dengan ramdisk, ini mungkin membuang
+   spasi dan akan menyebabkan lainnya berjalan lambat. Pakai LILO^ atau rdev
+   untuk 'memerintahkan' kernel^ untuk tidak mengalokasikan ramdisk. (lihat
+   dokumentasi LILO^ atau ketikkan man rdev).
+  
+   ----------------------------------------------------------------------------
+
+P 6.9  Saya hanya dapat login sebagai root^.
+
+   Barangkali anda mempunyai beberapa masalah permission (perizinan), atau
+   anda mempunyai file /etc/nologin.
+
+   Bila yang terjadi adalah yang terakhir, letakkan rm -f /etc/nologin di
+   file /etc/rc.local atau script /etc/rc.d/*.
+
+   Jalan lainnya, ceklah permission (perizinan) untuk diri anda sendiri, dan
+   nama file apa pun yang timbul di pesan kesalahaan, dan juga direktori
+   yang berisikan file-file ini, dari bawah sampai ke direktori root.
+
+   ----------------------------------------------------------------------------
+
+P 6.10 Layar saya hanya terpenuhi oleh karakter-karakter aneh, bukan
+       karakter-karakter normal.
+
+   Anda mungkin mengirimkan data biner ke layar monitor karena tidak sengaja.
+   Ketikkan echo '\033c' untuk memperbaikinya. Banyak distribusi Linux punya
+   perintah 'reset' untuk mengatasi hal ini.
+
+   ----------------------------------------------------------------------------
+
+P 6.11 Saya telah 'mengubah' sistem saya dan tak dapat login untuk
+       memperbaikinya.
+
+   Lakukan booting ulang dari disket emergency (darurat) atau disket pair,
+   sebagai contoh disket booting Slackware - dan rootdisk pair (di direktori
+   install dari mirror^ Slackware) atau disket booting instalasi MCC Linux.
+   Ada juga paket pembuatan disket 'rescue' 'do-it-yourself' berjumlah dua di
+   sunsite.unc.edu/pub/Linux/system/Recovery. Ini lebih baik, karena mereka
+   mempunyai kernel^ sendiri di dalamnya, sehingga anda tidak menjalankan
+   Linux dengan resiko missing devices (alat yang tidak dikenal), sistem file,
+   dan selanjutnya.
+
+   Lanjutkan booting sampai prompt shell dan mount-lah harddisk anda dengan
+   sesuatu seperti ini :
+
+>  mount -t ext2 /dev/hda1 /mnt
+
+   Kemudian sistem file anda tersedia di bawah direktori /mnt serta anda dapat
+   memperbaiki masalahnya. Ingatlah untuk melakukan unmount harddisk anda,
+   sebelum melakukan booting ulang (lakukan cd ke / pertama kali, jika tidak
+   Linux akan mengatakan it's busy (sedang sibuk)).
+
+   ----------------------------------------------------------------------------
+
+P 6.12 Saya telah menemukan lubang keamanan besar di rm !
+
+   Tidaklah demikian. Kelihatan dengan jelas, anda pemakai Unix baru dan
+   perlu lebih banyak membaca buku yang baik untuk menemukan bagaimana segala
+   sesuatu bekerja. Tanda: kemampuan untuk menghapus file-file di bawah Unix
+   bergantung dari permission (perizinan) untuk melakukan 'write'
+   (penulisan) ke direktori yang ada.
+
+   ----------------------------------------------------------------------------
+
+P 6.13 lpr(1) dan/atau lpd(8) tidak bekerja.
+
+   Pertama-tama, pastikan bahwa port /dev/lp* anda dikonfigurasi dengan benar.
+   Alamat IRQ dan alamat portnya perlu dipaskan dengan setting yang ada di
+   board anda. Anda seharusnya dapat melakukan 'dump' sebuah file secara
+   langsung ke printer (pencetak); contoh
+
+$ cat file_itu > /dev/lp1
+
+   Bila lpr memberikan pesan seperti "myname@host: host not found", mungkin
+   berarti bahwa antarmuka TCP/IP loopback, lo, tidak bekerja dengan wajar.
+   Dukungan loopback dikompilasi dalam kebanyakan distribusi kernel^. Periksa
+   bahwa antarmukanya dikonfigurasi dengan perintah ifconfig. Dengan konvensi
+   Internet, nomer networknya adalah 127.0.0.0, dan alamat host lokalnya adalah
+   127.0.0.1. Bila segala sesuatunya dikonfigurasi dengan benar, anda
+   seharusnya dapat melakukan telnet^ ke mesin anda sendiri dan mendapatkan
+   prompt login.
+
+   Jikalau mesin anda mempunyai network-aware lpd, seperti salah satu di
+   antaranya yang dapat dengan LPRng, pastikan bahwa file lpd.perms dikonfi-
+   gurasi dengan benar.
+
+   Lihat juga Printing-HOWTO. ('P 2.1  Di manakah saya bisa mendapatkan HOWTO
+   dan dokumentasi lainnya ?').
+ 
+   ----------------------------------------------------------------------------
+
+P 6.14 Timestamp^ file pada partisi msdos diset tidak benar.
+
+   Ada bug di program clock (seringkali ditemukan di /sbin) -- clock salah
+   menghitung offset zona waktu, mengacaukan detik dengan menit atau
+   sejenisnya. Ambillah versi terbaru darinya.
+
+   ----------------------------------------------------------------------------
+
+P 6.15 Bagaimanakah mengeset LILO^ untuk mem-boot file vmlinux ?
+
+   Di kernel^ versi 1.1.80 dan yang lebih baru, image (citra) kernel^ yang
+   termampatkan (compressed kernel^), yang LILO^ perlu temukan, telah dipindah
+   ke arch/i386/boot/zImage. File vmlinux yang ada di direktori root^, adalah
+   kernel^ yang tidak termampatkan, dan anda tidak seharusnya mencoba
+   melakukan boot melaluinya.
+
+   Pergantian ini membuatnya lebih mudah untuk membangun versi dari beberapa
+   prosesor yang berbeda dari pohon sumber (source tree) yang sama.
+ 
+   ----------------------------------------------------------------------------
+
+P 6.16 Saya tak sengaja meng-uninstall ld.so saya, bagaimana memasangnya ?
+
+   Ini mungkin terjadi karena anda melakukan rpm -e ld.so yang berakibat semua
+   kepustakaan shared anda lenyap. Bila memang ini yang terjadi, mesin Linux
+   anda akan lumpuh, sehingga tidak dapat lagi di-booting melalui disket.
+   Pemecahan masalah ini adalah dengan membuat sistem Linux mini lainnya, untuk
+   'menolong' sistem Linux anda yang 'besar'. 
+
+   Buatlah satu partisi kecil, kira-kira sebesar 32 - 80 MB pada harddisk anda,
+   lalu install sistem minimum Linux di dalamnya. Kemudian lakukan mount
+   partisi utama dimana terletak file ld.so yang terhapus pada direktori,
+   misalnya /asli. Setelah itu, lakukan penyalinan file ld.so dari direktori
+   /lib ke direktori /asli/lib.
+   Cobalah untuk booting ulang dengan mengembalikan root^ ke partisi utama.
+   Catatan : Anda dapat menggunakan partisi swap yang untuk 'sementara' diubah
+   menjadi partisi Linux Native buat menginstall sistem 'emergency' itu, lalu
+   setelah berhasil, partisinya dikembalikan lagi menjadi partisi swap.
+
+   ----------------------------------------------------------------------------
+
+P 6.17 Tolong, tulisan LILO keluar terus-menerus saat booting !
+
+   Hal ini umumnya terjadi karena ada masalah dengan kernel^nya. Untuk
+   mengatasinya, gunakan disket boot (bootdisk) anda, lalu saat keluar prompt
+   boot: ketikkan mount root=/dev/hda2 (diasumsikan Linux anda terletak pada
+   Primary Master Harddisk, partisi kedua), baru setelah itu anda dapat 
+   memperbaiki masalah pada kernel^ anda.
+
+   ----------------------------------------------------------------------------
+
+P 6.18 Deteksi CD-ROM Drive saya lama sekali, saat booting.
+
+   Misalnya CD-ROM Drive anda adalah Sound Blaster dan beralamatkan di 220h,
+   tambahkan baris append = "sbpcd=0x220,SoundBlaster" pada file
+   /etc/lilo.conf.
+
+   ----------------------------------------------------------------------------
+
+P 6.19 Saya ingin agar penginstallan file .tgz tercatat, sehingga
+       memudahkan bagi saya nantinya untuk menguninstall.
+
+   Gunakan saja paket penginstallan dari distribusi Slackware, yaitu 
+   installpkg atau explodepkg, dan untuk melakukan uninstallnya, anda pakai
+   removepkg.
+
+   Semua script itu biasanya terdapat di bawah direktori /source/a/hdsetup
+   yang termampatkan dalam file _hdsetup.tar (sistem 8+3) atau file
+   _hdsetup.tar.gz (sistem nama file panjang) pada CD-ROM Linux distribusi
+   Slackware.
+
+   Lakukan penyalinan file itu pada direktori /tmp, setelah itu, masih di
+   bawah direktori yang sama, ketikkan :
+
+   tar -zxf _hdsetup.tar    (untuk sistem nama file 8+3)
+   tar -zxf _hdsetup.tar.gz (untuk sistem nama file panjang)
+
+   Dari direktori /tmp/sbin, pindahkan file installpkg, explodepkg,
+   removepkg, dan file lainnya bilamana perlu, ke direktori /sbin.
+   Setelah semuanya selesai, anda dapat melakukan penginstallan seperti ini :
+
+   installpkg namafile.tgz, atau explodepkg namafile.tgz
+
+   Jangan lupa untuk membersihkan direktori /tmp anda lagi !
+
+   ============================================================================
+
+7. Bagaimakah mengerjakan ini atau mencari tahu .... ?
+
+P 7.1  Bagaimanakah saya mendapatkan scrollback pada mode teks ?
+
+   Dengan pemetaan kunci (keymap) standar US, anda dapat menggunakan Shift
+   plus PageUp dan Shift+PageDown. (NB : Harus tombol yang abu-abu, bukan
+   tombol PageUp/Down yang putih di numeric keypad). Untuk keymap yang lain,
+   silakan mengecek di /usr/lib/keytables; anda dapat memetakan ulang kunci
+   ScrollUp/Down ke apa pun yang anda suka -- sebagai contoh, agar mereka
+   dipetakan ke kunci yang ada di keyboard AT 84 kunci.
+
+   Anda tidak dapat meningkatkan jumlah scrollback (gulung ulang layar),
+   karena itu diimplementasikan memakai memori video yang digunakan untuk
+   menyimpan teks scrollback, meski demikian anda boleh memiliki lebih banyak
+   scrollback dalam setiap virtual console^ (VC), dengan mengurangi jumlah
+   total dari VC^ -- lihat <linux/tty.h>
+
+   ----------------------------------------------------------------------------
+
+P 7.2  Bagaimanakah menukar virtual console^ ? Bagaimanakah
+       memfungsikannya ?
+
+   Dalam mode teks, tekan Alt kiri + F1 ke Alt kiri + F12 untuk memilih
+   console tty1 sampai dengan tty12; Alt kanan + F1 memberikan tty13 dan
+   selanjutnya. Untuk memindahkannya di X Window, anda harus menekan Ctrl+
+   Alt+F1, dsb;
+
+   Jika anda ingin menggunakan VC^ untuk login secara biasa, anda harus
+   mendaftarkannya dalam /etc/inittab, yang mengendalikan terminal dan VC^
+   untuk mempunyai prompt login. NB : X membutuhkan setidaknya satu VC^ yang
+   bebas untuk menjalankannya.
+
+   Kernel^ yang lebih awal dibandingkan dengan 1.1.59 mempunyai batasan
+   jumlah console yang terkompilasi di dalamnya, yang standarnya adalah 8.
+   Lihatlah NR_CONSOLES dalam linux/include/linux/tty.h. Kernel^ yang lebih
+   baru mengalokasikan mereka secara dinamis, sampai maksimal sejumlah 63.
+
+   ----------------------------------------------------------------------------
+
+P 7.3  Bagaimanakah saya mengeset time zone (zona waktu) ?
+
+   Pindah ke direktori /usr/lib/zoneinfo; ambillah paket timezone package bila
+   anda tidak mempunyai direktori ini. Source^nya tersedia di
+   sunsite.unc.edu/pub/Linux/system/admin/time/timesrc-1.2.tar.gz.
+
+   Lalu buatlah symbolic link bernama localtime yang menuju ke salah satu file
+   dalam direktori (atau subdirektori), dan panggil posixrules menunjuk ke
+   localtime. Sebagai contoh :
+
+   ln -sf US/Mountain localtime
+   ln -sf localtime posixrules
+
+   Pergantian ini akan aktif sesegera mungkin -- coba date(1)
+
+   Jangan mencoba menggunakan variabel TZ -- tinggalkanlah tanpa diset.
+
+   Anda seharusnya juga memastikan bahwa clock (waktu) kernel^ Linux anda
+   diset ke waktu GMT yang tepat -- ketikkan date -u dan ceklah bahwa waktu
+   universal yang benar ditampilkan.
+
+   ----------------------------------------------------------------------------
+
+P 7.4  Versi Linux apa dan apa nama mesin yang saya pakai ?
+
+   Ketikkan :
+   uname -a
+
+   Jangan terkecoh dengan tulisan awal di layar prompt login. Tulisan itu
+   terdapat pada file /etc/motd atau /etc/issue. Biasanya file ini dipergunakan
+   pembuat distribusi Linux untuk menuliskan versi distribusinya, namun tulisan
+   ini dapat dirubah sesuka hati anda. 
+
+   ----------------------------------------------------------------------------
+
+P 7.5  Bagaimanakah saya mengaktif/non-aktifkan core dumps ?
+
+   Sekarang Linux telah menonaktifkan file core untuk semua proses.
+
+   Anda dapat meng-on-kan atau menonaktifkannya dengan menggunakan perintah
+   unlimit(1) di bash(1), perintah limit(1) di tcsh(1), atau dengan perintah
+   rlimit di ksh(1) (tanpa menuliskan angka '1'). Lihat halaman manual untuk
+   keterangan lebih lanjut.
+
+   Setting ini berefek terhadap semua program yang dijalankan dari shell itu
+   (langsung atau tidak langsung), tidak untuk seluruh sistem.
+
+   Jika anda ingin untuk meng-enable/disable-kan coredumping untuk semua
+   proses dalam keadaan standar, anda dapat merubah setting standar di
+   <linux/sched.h> -- lihat definisi dari INIT_TASK, dan lihat juga ke dalam
+   <linux/resource.h>.
+
+   Versi 1.2.13 dari kernel^ akan memproduksi a.out core dumps. 'P 7.13 Apakah
+   ELF dan sebangsanya itu ?'.
+  
+   ----------------------------------------------------------------------------
+
+P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?
+
+   Lihatlah Kernel-HOWTO atau README yang datang dengan rilis kernel^ di
+   ftp.cs.helsinki.fi, dalam /pub/Software/Linux/Kernel dan mirror-mirror^nya
+   juga. ('P 2.5  Di manakah saya mendapatkan [material] Linux dengan FTP^ ?').
+   Anda mungkin punya versi source code^ kernel^ terinstall di sistem anda,
+   tetapi bila anda mengambilnya sebagai bagian dari distribusi standar,
+   kelihatan sepertinya telah kadaluwarsa (out of date) (ini tidak menjadi
+   masalah, bila anda hanya ingin kernel^ yang dapat dikonfigurasi sesuai
+   selera anda, tetapi mungkin menjadi masalah, bila anda ingin meng-
+   upgradenya.)
+  
+   Ingatlah bahwa untuk membuat boot kernel^ yang baru anda harus menjalankan
+   LILO^ sesudah menyalin kernel^ ke partisi root^ anda -- Makefile di kernel^
+   yang baru, mempunyai target zlilo spesial untuk hal ini; coba make zlilo.
+
+   Nomor versi kernel^ dengan versi minor ganjil (contoh 1.1.x, 1.3.x) adalah
+   rilis testing; produksi kernel^ yang stabil mempunyai versi minor genap
+   (1.0.x, 1.2.x). Bila anda ingin mencoba kernel^ testing, anda mungkin
+   harus melakukan subscribe ke mailing list^ linux-kernel^. Lihatlah 'P 2.8
+   Mailing List^ apa sajakah yang ada ?').
+  
+   ----------------------------------------------------------------------------
+
+P 7.7  Dapatkah saya memiliki lebih dari 3 port serial dengan
+       melakukan sharing interrupt ?
+
+   Ya, tetapi anda tidak akan dapat menggunakannya secara simultan dua port
+   biasa yang melakukan share interrupt (tanpa trik tertentu). Ini adalah
+   batasan dari arsitektur bus^ ISA.
+
+   Lihatlah Serial-HOWTO untuk informasi tentang solusi yang mungkin ditemukan
+   dan apa pun seputar masalah itu.
+
+   ----------------------------------------------------------------------------
+
+P 7.8  Bagaimanakah saya membuat disket boot ?
+
+   Buatlah sistem file di dalam disket itu, dengan direktori bin, etc, lib, dan
+   dev -- serta apa pun yang mungkin anda perlukan. Pasanglah kernel^ di
+   dalamnya dan susunlah agar LILO^ mem-boot disket itu (lihatlah LILO
+   documentation, di lilo.u.*.ps).
+
+   Jika anda membangun kernel^ (atau memerintahkan LILO^ untuk memerintah
+   kernel^) untuk mempunyai sebuah ramdisk, yang punya ukuran sama dengan
+   disket, ramdisk akan dimuat saat booting dan di-mount sebagai root^ di
+   tempat disket.
+
+   Lihatlah Bootdisk-HOWTO.
+
+   ----------------------------------------------------------------------------
+
+P 7.9  Bagaimanakah saya memetakan ulang keyboard saya ke United Kingdom,
+       Prancis, dll ?
+
+   Untuk kernel^ yang baru, ambillah file kbd-0.90.tar.gz di direktori
+   /pub/Linux/system/Keyboards dari sunsite.unc.edu. Pastikan bahwa anda 
+   mengambil versi yang sesuai; anda harus menggunakan paket keyboard-mapping
+   yang tepat untuk dijalankan dengan versi kernel^ anda. 0.90 seharusnya
+   berjalan dengan kernel^ versi dari 1.0.
+
+   Untuk kernel^ yang lebih lama, anda harus menyunting top-level kernel^
+   Makefile, di /usr/src/linux.
+
+   Barangkali anda menemukan informasi yang sangat membantu di The Linux
+   Keystroke and Console HOWTO, ditulis oleh Andries Brouwer, di
+   sunsite.unc.edu/pub/Linux/docs/HOWTO.
+
+   ----------------------------------------------------------------------------
+
+P 7.10 Bagaimanakah menyalakan NUM LOCK secara default (standar) ?
+
+   Gunakan program setleds, sebagai contoh (dalam /etc/rc.local atau salah satu
+   dari file /etc/rc.d/* files):
+
+   for t in 1 2 3 4 5 6 7 8
+   do
+        setleds +num < /dev/tty$t > /dev/null
+   done
+
+   setleds adalah bagian dari paket kbd. Lihatlah 'P 7.9  Bagaimanakah saya
+   memetakan ulang keyboard saya ke United Kingdom, Prancis, dll ?'.
+
+   Alternatif lain, tamballah kernel^ anda. Anda membutuhkan untuk
+   menyusun KBD_DEFLEDS untuk didefinisikan ke (1
+
+   ----------------------------------------------------------------------------
+
+P 7.11 Bagaimanakah saya mempunyai spasi swap lebih dari 128 MB ?
+
+   Gunakan beberapa partisi swap atau file swap (swapfiles) -- Linux mendukung
+   sampai dengan 16 area swap, setiap swap-nya sampai dengan 128 MB.
+
+   Kernel^ yang sangat lama hanya mendukung area swap berukuran sampai 16 MB.
+
+   ----------------------------------------------------------------------------
+
+P 7.12 Bagaimanakah saya memprogram XYZ di bawah Linux ?
+
+   Bacalah manual, atau buku yang baik bertema Unix. Halaman Manual (ketikkan
+   man man) adalah sumber informasi referensi yang cukup baik atas bagaimana
+   menggunakan suatu perintah atau fungsi.
+
+   Ada juga dokumentasi GNU Info yang sangat banyak, yang seringkali lebih
+   berguna sebagai tutorial. Jalankan Emacs dan ketikkan C-h i, atau ketikkan
+   info info jika anda tidak mempunyai atau tidak menyukai Emacs. Catatan,
+   bahwa node libc Emacs tidak secara tepat menggambarkan libc Linux (yang
+   lebih seperti libc Unix tradisional, tidak mempunyai beberapa 'keanehan'
+   GNU), tetapi cukup dekat untuk membuat tutorial yang cukup di pemrograman
+   C Unix.
+
+   Rilis terakhir dari Linux manpages dan sebuah koleksi dari dokumentasi GNU
+   Info yang berguna bervariasi, selain informasi yang terkait sampai ke
+   pemrograman, dapat ditemukan di sunsite.unc.edu dalam direktori
+   /pub/Linux/docs/man-pages.
+
+   ----------------------------------------------------------------------------
+
+P 7.13 Apakah ELF dan sebangsanya itu ?
+
+   Lihatlah ELF HOWTO yang ditulis Daniel Barlow -- catatan, ini bukan file
+   (untuk mempengaruhi pembaca) move-to-elf, yang merupakan blow-by-blow
+   account atas bagaimana meng-upgrade ke ELF secara manual.
+
+   Linux mempunyai dua format executable^, file obyek dan kepustakaan kode
+   obyek yang berbeda, dinamakan ELF (format yang lama dinamakan 'a.out').
+   Ini akan mempunyai banyak keuntungan, termasuk dukungan yang lebih baik
+   untuk kepustakaan shared dan dynamic linking (kaitan secara dinamis).
+
+   Baik biner a.out maupun ELF dapat berada dalam satu sistem. Namun, mereka
+   menggunakan kepustakaan shared C yang berbeda, keduanya harus diinstal
+   untuk mengerjakan hal ini.
+
+   Jika anda ingin menemukan apakah sistem anda dapat menjalankan file biner
+   ELF, lihatlah ke dalam /lib untuk sebuah nama file libc.so.x. Bila ada,
+   mungkin dapat. Bila anda ingin tahu kalau-kalau instalasi anda secara
+   aktual *adalah* ELF, anda dapat mengambil sebuah program yang
+   representatif, seperti ls dan menjalankan perintah file atasnya.
+   
+   -chiark:~> file /bin/ls
+   /bin/ls: Linux/i386 impure executable (OMAGIC) - stripped
+
+   valour:~> file /bin/ls
+   /bin/ls: ELF 32-bit LSB executable, Intel 80386, version 1, stripped
+
+   Ada sebuah patch^ untuk mendapatkan 1.2.x untuk melakukan 
+   kompilasi menggunakan kompiler ELF, dan memproduksi ELF coredumps, di
+   tsx-11.mit.edu dalam /pub/packages/GCC. Anda tidak memerlukan patch^, jika
+   hanya menjalankan biner ELF. 1.3.x dan sesudahnya tidak memerlukan patch^
+   ini.
+
+   ----------------------------------------------------------------------------
+
+P 7.14 Apakah file .gz itu ? Dan .tgz ? dan .... ?
+
+   File .gz (dan .z) adalah file yang dimampatkan (dikompres) menggunakan
+   gzip-nya GNU. Anda perlu menggunakan gunzip (yang merupakan symlink ke
+   perintah gzip yang datang dengan instalasi Linux secara umum) untuk
+   membongkar (unpack) file itu.
+
+   .taz dan .tz adalah file tar (dibuat dengan tar-nya Unix), dimampatkan
+   dengan peng-kompres standar Unix.
+
+   .tgz (atau .tpz) adalah file tar yang dimampatkan dengan gzip.
+
+   .lsm adalah isian Linux Software Map (Peta Perangkat Lunak Linux),
+   dalam sebuah bentuk singkat dari file teks. Info lebih lanjut tentang
+   LSM dan sebagainya tersedia di subdirektori docs di sunsite.unc.edu
+
+   .deb adalah Debian Binary Package (Paket Biner Debian) - format paket biner
+   digunakan oleh distribusi Linux/GNU Debian. File ini dimanipulasi memakai
+   dpkg dan dpkg-deb (tersedia di sistem Debian dan dari ftp.debian.org).
+ 
+   .rpm adalah Red Hat RPM Package, yang digunakan dalam distribusi Linux
+   Red Hat dan Caldera OpenLinux. File ini dapat ditemukan di ftp.redhat.com.
+   Untuk mengetahui lebih lanjut, silakan melihat ID-RPM-HOWTO.
+
+   Perintah 'file' dapat seringkali menunjukkan pada anda, file apakah itu.
+
+   Jikalau anda menemukan bahwa gzip melakukan complain (keluhan) manakala
+   anda mencoba melakukan uncompress sebuah file yang 'gzipped' (ter-gzip),
+   anda mungkin mendownloadnya dalam mode ASCII secara tak sengaja. Anda harus
+   mendownload sebagian besar hal dalam mode biner -- ingatlah untuk
+   mengetikkan binary sebagai perintah dalam FTP^ sebelum menggunakan get untuk
+   mendapatkan salinan file itu.
+   
+   ----------------------------------------------------------------------------
+
+P 7.15 Kepanjangan dari apakah VFS itu ?
+
+   Virtual File System. Ini adalah layer (lapisan) abstraksi di antara pengguna
+   dan sistem file 'real' seperti ext2, minix, dan msdos. Di antara hal
+   lainnya, pekerjaannya adalah melakukan 'flush' (mencurahkan/mengosongkan)
+   buffer read (baca) saat mendeteksi pergantian disket di disk drive :
+
+   VFS: Disk change detected on device 2/0
+
+   ----------------------------------------------------------------------------
+
+P 7.16 Apakah BogoMIPS itu ?
+
+   'BogoMips' adalah kependekan dari 'Bogus MIPS'. MIPS berasal dari 
+   (tergantung siapa yang anda dengarkan) Millions of Instructions per Second
+   (Juta Instruksi Per Detik) atau Meaningless Indication of Processor Speed
+   (Indikasi Kecepatan Prosesor yang Tak Berarti).
+
+   Nomer yang dicetak sewaktu booting adalah hasil kalibrasi pewaktuan kernel^,
+   digunakan untuk perulangan tunda yang sangat singkat oleh beberapa
+   pengendali alat (device drivers).
+
+   Cara menghitung BogoMips secara kasar, kira-kira demikian :
+     386SX              clock * 0.14
+     386DX              clock * 0.18
+     486Cyrix/IBM       clock * 0.33
+     486SX/DX/DX2       clock * 0.50
+     586                clock * 0.39
+
+   Apabila nomer yang anda sedang lihat sangat rendah dibanding dengan yang
+   seharusnya, mungkin tombol Turbo atau setting kecepatan CPU tidak tepat,
+   atau punya beberapa masalah 'caching' (seperti yang dijelaskan dalam
+   'P 6.5  Saat saya menambahkan memori lebih, komputer melambat dan
+   merangkak.'
+
+   Untuk harga BogoMIPSnya, dapat dilihat di BogoMips Mini-HOWTO, pada
+   sunsite.unc.edu dalam /pub/Linux/docs/howto/mini/BogoMips.
+
+   ----------------------------------------------------------------------------
+
+P 7.17 Apakah Linux Journal itu dan di manakah saya mendapatkannya ?
+
+   Linux Journal adalah majalah bulanan (dicetak di atas kertas) yang tersedia
+   di stan berita dan melalui pendaftaran di seluruh dunia. Kirim e-mail ke
+   <linux@ssc.com> untuk lebih jelasnya. URL mereka adalah http://www.ssc.com/.
+ 
+   ----------------------------------------------------------------------------
+
+P 7.18 Berapa banyak orang yang menggunakan Linux ?
+
+   Linux tersedia secara bebas, dan tak seorang pun disyaratkan untuk
+   mendaftarkan salinan mereka dengan otoritas pusat mana pun, sehingga sulit
+   diketahui. Beberapa subyek bisnis sekarang menjual dan mendukung Linux, dan
+   sangat sedikit pengguna Linux yang menggunakan subyek bisnis itu, bila
+   berbicara secara relatif. Newsgroup Linux adalah beberapa yang banyak
+   dibaca di Net, sehingga jumlahnya adalah sekitar ratusan ribu, tetapi
+   jumlah yang tepat sukar untuk diketahui.
+
+   Namun, Harald T. Alvestrand <Harald.T.Alvestrand@uninett.no>, telah
+   memutuskan untuk mencoba, dan meminta bahwa bila anda menggunakan Linux,
+   diharapkan anda mengirim pesan ke <linux-counter@uninett.no> dengan salah
+   satu subyek berikut ini : Subject : 'I use Linux at home', Subject : 'I use
+   Linux at work', atau Subject : 'I use Linux at home and at work'. Dia juga
+   akan menerima registrasi 'third-party' -- tanyakan padanya untuk hal yang
+   lebih detil.
+
+   Alternatif lain, anda dapat melakukan register menggunakan form (formulir)
+   WWW yang ditemukan di : http://counter.li.org/
+
+   Dia mengirim hitungannya ke comp.os.linux.misc setiap bulan; alternatif
+   lainnya lagi, lihatlah ke dalam aun.uninett.no di direktori
+   /pub/misc/linux-counter.
+
+   ----------------------------------------------------------------------------
+
+P 7.19 Bagaimanakah seharusnya saya mengucapkan Linux ?
+
+   Tentu saja ini adalah materi debat religius !
+
+   Bila anda ingin mendengar Linus sendiri mengatakan bagaimana di mengucapkan
+   Linux, downloadlah english.au atau swedish.au dari ftp.funet.fi (dalam
+   direktori /pub/OS/Linux/PEOPLE/Linus/SillySounds). Jika anda punya
+   pengendali (driver) kartu suara (sound card) atau speaker PC, anda dapat
+   mendengarnya dengan mengetikkan :
+
+   cat english.au > /dev/audio
+
+   Perbedaannya bukan pada pengucapan Linux-nya tetapi dalam bahasa yang Linus
+   gunakan untuk mengucapkan hello. Versi Inggris-nya diparodikan sangat bagus
+   oleh Jin Choi sebagai "Hi, my name is Leenoos Torvahlds and I pronounce
+   Leenooks as Leenooks."
+
+   Faedah dari anda yang tidak punya peralatan : Linus mengucapkan Linux
+   kira-kira sebagai Leenus, di mana ee-nya adalah sebagaimana di feet, tetapi
+   lebih singkat dan u-nya seperti much versi lebih pendek dari French eu
+   sound in peur (bila diucapkan sebagai u dalam put mungkin dapat dilewati).
+
+   Saat berbicara dalam bahasa Inggris, saya mengucapkannya Lie-nucks (u
+   seperti bucket) --- ini adalah pengucapan berbasis anglikan atas analogi
+   nama Linus, yang di Inggris pada umumnya diucapkan Lie-nus (u seperti put).
+   Tentu saja lebih dapat diterima dan umum untuk memodifikasi pengucapan
+   dari kata benda yang wajar saat berganti bahasa.
+
+   Saya pikir, saya dapat dengan aman mengatakan bahwa pengucapan Linnucks
+   (i pendek sebagaimana di pit, u pendek seperti bucket) adalah salah dalam
+   bahasa Inggris, sebagaimana itu bukan pengucapan bahasa Swedia asli, bukan
+   jawaban yang arif langsung meng-angklikan-kan-nya, dan tidak berdasarkan
+   dari versi anglikan dari nama Linus.
+
+   ----------------------------------------------------------------------------
+
+P 7.20 Bagaimana menghubungkan Linux dengan Windows 95 dengan null cable ?
+
+   Bisa saja, gunakan null modem cable, lalu gunakan program aplikasi modem
+   untuk login ke Linux. Dapat juga dijalankan slip/ppp daemon di Linux,
+   kemudian Windows 95-nya 'dial' ke Linux untuk menjalankan ppp-nya.
+
+   ----------------------------------------------------------------------------
+
+P 7.21 Bagaimanakah agar Linux mengenali RAM sampai dengan 128 MB ?
+
+   Dari prompt Linux, ketikkan mem=128M, namun bila anda menginginkan tidak
+   perlu harus mengetikkan itu setiap kali login, tambahkan baris
+   append = "mem=128M" pada file /etc/lilo.conf.
+
+   ----------------------------------------------------------------------------
+
+P 7.22 Apakah yang harus saya lakukan untuk membatasi login seseorang ?
+
+   Ada program bernama idle daemon (ftp.cs.hope.edu/pub/idled/) yang dapat
+   melakukan hal tersebut. Idle daemon akan mengecek setiap pengguna yang
+   login, berapa lama ia login, serta mengecek apakah ia melakukan multiple
+   login, dan juga melakukan logout pada user yang memenuhi kriteria pada
+   file konfigurasinya, yaitu idled.cf
+
+   ----------------------------------------------------------------------------
+
+P 7.23 Apakah saya dapat membuat zona waktu untuk WIB, WITA, WIT sendiri ?
+
+   Ya ! Dapat. Pertama-tama anda buat file teks dengan isi kira-kira sebagai
+   berikut :
+
+   Zone Indonesia/Barat 7:00 - WIB
+   Zone Indonesia/Tengah 8:00 - WITA
+   Zone Indonesia/Timur 9:00 - WIT
+
+   Kita asumsikan file tersebut bernama waktu.id, maka selanjutnya anda
+   tinggal mengetikkan :
+
+   /usr/sbin/zic waktu.id
+
+   Linux akan mengeset sebuah direktori /usr/lib/zoneinfo/Indonesia, dan
+   jikalau akan berpindah ke WIB, misalnya, anda mengetik :
+
+   /usr/sbin/zic -l Indonesia/Barat
+
+   Untuk mengetahui jam berapakah di Indonesia Timur, misalnya, anda akan
+   mengetikkan :
+
+   zdump Indonesia/Timur
+ 
+   ============================================================================
+
+8. Masalah seputar jaringan komputer.
+
+P 8.1  Telnet^ ke Linux dari komputer lain harus menunggu cukup lama sebelum
+       tersambung.
+
+   Hal ini terjadi karena mesin (baca : server) Linux melakukan reverse lookup
+   lewat DNS, dan akan 'menyerah' setelah jangka waktu itu. Untuk mengatasi
+   hal ini isikan alamat IP dan nama-nama komputer dari komputer-komputer yang
+   tersambung dengan server Linux pada file /etc/hosts, setelah itu ubahlah
+   order dari resloving hostnya pada file /etc/host.conf
+   Cara kedua adalah, bila anda mempunyai komputer yang bertugas sebagai
+   name server, arahkan file /etc/resolv.conf pada name server (server DNS)
+   anda.
+
+   ----------------------------------------------------------------------------
+
+P 8.2  Linux saya bengong setelah saya mengubah file /etc/HOSTNAME.
+
+   Barangkali anda menjalankan sendmail saat komputer tidak terkoneksi ke suatu
+   jaringan, sehingga sendmail tidak tahu ke mana harus mencari rute.
+   Sebenarnya kalau anda mau sabar menunggu, Linux akan meneruskan proses
+   booting setelah sendmail 'menyerah', tetapi ada cara lain untuk
+   mengatasinya, tanpa mematikan sendmail, yaitu dengan mengisikan alamat IP
+   untuk mesin anda pada file /etc/hosts. Bila komputer anda tersambung dengan
+   pengalamatan IP secara dinamik, isikan 127.0.0.1 localhost pada file itu.
+
+   Sebagai tambahan, file /etc/HOSTNAME hendaknya diisi pula dengan nama
+   domain, meski sebenarnya nama host saja bisa, dengan resiko sendmail akan
+   melakukan 'complain' (keluhan).
+  
+   Untuk Linux yang berbasiskan distribusi RedHat, anda dapat mengisikan
+   HOSTNAME=hostanda.domainanda pada file /etc/sysconfig/network juga.
+
+   ----------------------------------------------------------------------------
+
+P 8.3  Bagaimana mengkonfigurasi dua atau lebih kartu Ethernet ?
+
+   Tambahkan tulisan append="ether=irq,IObaseaddr,interface0 ether=irq,
+   IObaseaddr,interface1 ether= ... dst" pada file /etc/lilo.conf.
+
+   Misalnya Kartu Ethernet Pertama anda ber-IRQ 12, ber-I/O Base Addresskan
+   0x300, diset pada interface eth0, serta Kartu Ethernet Kedua anda ber-IRQ
+   15, I/O Base Addressnya 0x340, diset pada interface eth1, maka tulisan
+   di atas akan menjadi :
+   
+   append="ether=12,0x300,eth0 ether=15,0x340,eth1"
+
+   ----------------------------------------------------------------------------
+
+P 8.4  Saya menginginkan satu mesin Linux saya punya dua alamat IP.
+
+   Kemampuan mempunyai dua atau lebih alamat IP ada di Linux. Untuk keperluan
+   ini, kernel anda harus dikompilasi mendukung IP-Alias. Lihat 'P 7.6
+   Bagaimanakah saya mengupgrade/recompile kernel^ saya ?'. Segala sesuatu
+   tentang IP Alias, dapat ditemukan pada IP-Alias-mini-HOWTO ('P 2.1  Di
+   manakah saya bisa mendapatkan HOWTO dan dokumentasi lainnya ?').
+  
+   Jikalau anda membuat IP Alias sebagai modul dalam kernel, anda harus
+   memuatnya sebelum hal itu dapat bekerja, dengan perintah sebagai berikut :
+  
+   /sbin/insmod /lib/modules/(versi kernel anda)/ipv4/ip_alias.o
+
+   Kemudian anda melakukan setup interface anda dengan mengetikkan :
+
+   ifconfig lo 127.0.0.0
+   ifconfig eth0 up
+   ifconfig eth0 (nomer IP privat #1)
+   ifconfig eth0:0 (nomer IP privat #2)
+   ifconfig eth0:1 (nomer IP privat #3)
+
+   Setelah itu, aturlah route di mesin Linux anda dengan perintah :
+
+   route add -net 127.0.0.0
+   route add -net (nomer IP privat #0) dev eth0
+   route add -host (nomer IP privat #1) dev eth0
+   route add -host (nomer IP privat #2) dev eth0:0
+   route add -host (nomer IP privat #3) dev eth0:1
+   route add default gw (nomer IP gateway anda)
+
+   Anda dapat mengganti interface eth anda itu dengan ppp, plip, slip, dsb,
+   sedangkan untuk IP privat, anda dapat membaca dokumen RFC 1918.
+
+   ============================================================================
+ 
+9. Pesan kesalahan yang acapkali dijumpai.
+
+P 9.1  Unknown terminal type linux and similar.
+
+   Dalam kernel^ awal 1.3.x, tipe terminal console standar telah dirubah dari
+   console ke Linux. Anda harus menyunting /etc/termcap untuk mengganti baris
+   terbaca :
+
+   console|con80x25:\
+
+   ke
+   
+   linux|console|con80x25:\
+
+   (mungkin ada tambahan saran-saran di sana -- bila ada seharusnya dihapus.)
+
+   Agar mendapatkan penyunting untuk bekerja anda mungkin memerlukan 'berkata'
+   TERM=console (untuk bash dan ksh) atau setenv TERM console (csh, tcsh)
+   pertama kali.
+
+   Beberapa program menggunakan /usr/lib/terminfo sebagai ganti dari
+   /etc/termcap. Untuk program-program ini, anda sebaiknya mengupgrade terminfo
+   anda, yang merupakan bagian dari ncurses.
+
+   ----------------------------------------------------------------------------
+
+P 9.2  Selama proses linking saya memperoleh simbol mcount yang tidak
+       terdefinisi. (Undefined symbol).
+
+   Secara umum, ini terjadi karena interaksi yang buruk antara 'brokenness'
+   pada SLS dan catatan rilis kepustakaan C. libc.a anda telah diganti dengan
+   kepustakaan 'profiling'. Anda seyogyanya menghapus libc.a, libg.a, dan
+   libc_p.a dan sekali lagi menginstall kepustakaan baru (mengikuti catatan
+   rilisnya, tentu saja).
+
+   ----------------------------------------------------------------------------
+
+P 9.3  lp1 on fire
+
+   Ini adalah pesan kesalahan tradisional/lawakan yang mengindikasikan bahwa
+   beberapa urutan dari kesalahan dilaporkan oleh pencetak anda, tetapi bahwa
+   status kesalahan bukanlah salah satu diantaranya yang syah. Mungkin bahwa
+   anda mempunyai beberapa jenis dari I/O atau konflik IRQ - ceklah setting
+   kartu anda. Beberapa orang melaporkan bahwa mereka mendapat pesan ini saat
+   pencetak mereka dimatikan. Dengan penuh harapan ini tidak benar-benar
+   terbakar ...
+
+   Dalam kernel^ yang lebih baru, pesan ini membaca status kesalahan invalid
+   yang dilaporkan oleh lp1.
+
+   ----------------------------------------------------------------------------
+
+P 9.4  INET: Warning: old style ioctl... called!
+
+   Anda sedang mencoba untuk menggunakan utility^ pengkonfigurasi network lama; yang baru daoat ditemukan pada
+   ftp.linux.org.uk/pub/linux/Networking/PROGRAMS/NetTools (hanya source^).
+
+   Catatan, bahwa mereka tak dapat digunakan hanya seperti program bergaya
+   lama; lihatlah NET-2 HOWTO untuk instruksi tentang bagaimana mengeset
+   networking secara benar.
+
+   ----------------------------------------------------------------------------
+
+P 9.5  ld: unrecognized option '-m486'
+
+   Anda mempunyai versi lama dari ld. Pasanglah paket binutils yang lebih baru
+   -- ini akan berisikan ld yang diperbaharui. Lihatlah pada tsx-11.mit.edu
+   pada direktori /pub/linux/packages/GCC, yaitu file
+   binutils-2.6.0.2.bin.tar.gz.
+
+   ----------------------------------------------------------------------------
+
+P 9.6  GCC says Internal compiler error.
+
+   Bila kegagalannya 'dapat' terulang (sebagai contoh, selalu terjadi di tempat
+   dan file yang sama -- bahkan sesudah di-reboot dan coba lagi, menggunakan
+   kernel^ yang stabil) anda telah menemukan sebuah bug di GCC. Lihatlah
+   dokumentasi GCC Info (ketikkan Ctrl-h i di Emacs, dan pilih GCC dari menu)
+   untuk lebih jelasnya atas bagaimana melaporkan hal ini -- pastikan anda
+   punya versi yang paling akhir.
+
+   Catatan, bahwa ini mungkin bukan masalah spesifik Linux; kecuali anda telah
+   melakukan kompilasi sebuah program yang banyak pengguna Linux juga
+   melakukannya, anda tidak seharusnya mengirim laporan bug anda ke grup apa
+   pun dari comp.os.linux.
+
+   Jikalau masalah tidak terulang, anda sangat mungkin mengalami korupsi
+   memori -- lihat 'P 9.7  make says Error 139'.
+
+   ----------------------------------------------------------------------------
+
+P 9.7  make says Error 139
+
+   Pengendali kompiler anda (gcc) mengeluarkan coredump. Anda mungkin mempunyai
+   sebuah versi lama GCC yang ber-bug atau terkorupsi -- ambilah rilis yang
+   terbaru. Alternatif lain anda mungkin kehabisan spasi swap -- lihatlah
+   'P 6.8  Mesin saya berjalan sangat lambat saat saya menjalankan GCC atau
+   X atau ...' untuk info lebih lanjut.
+
+   Jika ini tidak memecahkan masalahnya, anda mungkin mempunyai masalah dengan
+   memori atau harddisk yang terkorupsi. Ceklah bahwa 'clock rate', 'wait
+   states' (keadaan tunda) dan 'refresh timing' (pewaktu refresh) untuk SIMM
+   anda dan cachenya telah benar (manual perangkat keras kadangkala salah
+   juga). Apabila itu yang terjadi, anda mungkin mempunyai beberapa modul SIM
+   yang tidak beres atau motherboard yang cacat atau harddisknya atau
+   pengendalinya (controllernya).
+
+   Linux, seperti Unix yang lain, adalah tester memori yang sangat bagus --
+   (jauh) lebih baik daripada program tester memori berbasiskan DOS.
+
+   Dilaporkan beberapa clone mathcoprocessor (koprosesor matematis) x87 dapat
+   menyebabkan masalah; coba lakukan kompilasi kernel^ dengan emulasi^ math,
+   lihat 'P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?'; anda
+   mungkin perlu memakai flag perintah baris kernel^ no387 di prompt LILO^
+   untuk 'memaksa' kernel^ menggunakannya, atau ini mungkin dapat bekerja dan
+   masih memakai 387, dengan emulasi^ math, terkompilasi dengannya tetapi
+   (terutama) tidak digunakan.
+
+   Informasi yang lebih lanjut tentang masalah ini tersedia pada WWW di
+   http://einstein.et.tudelft.nl/&nbspwolff/sig11/.
+
+   ----------------------------------------------------------------------------
+
+P 9.8  shell-init: permission denied saat saya login.
+
+   Direktori root anda dan semua direktori sampai ke direktori home anda,
+   harus dapat dibaca dan dieksekusi oleh semua orang. Lihatlah manpage untuk
+   chmod atau sebuah buku Unix tentang bagaimana mengatasi masalah itu.
+
+   ----------------------------------------------------------------------------
+
+P 9.9  No utmp entry. You must exec ... saat saya login.
+
+   File /var/run/utmp hilang. Anda seharusnya mempunyai
+ 
+   > /var/run/utmp
+
+   dalam file /etc/rc.local atau /etc/rc.d/* anda. Lihatlah 'P 6.11 Saya telah
+   'mengubah' sistem saya dan tak dapat login untuk memperbaikinya.' agar tahu
+   bagaimana dapat mengerjakan hal ini. Catatan bahwa utmp mungkin juga 
+   ditemukan di /var/adm/utmp atau /etc/utmp dalam beberapa sistem yang
+   lebih lama.
+  
+   ----------------------------------------------------------------------------
+
+P 9.10 Warning -- bdflush not running.
+
+   Kernel^ modern menggunakan strategi yang lebih baik untuk menulis blok hard-
+   disk yang ter-cache. Tambahan ke perubahan kernel^, ini melibatkan perganti-
+   an program update lama yang dipakai untuk menulis apa pun setiap 30 detik
+   dengan daemon subtle yang lebih banyak (sebenarnya sepasang), diketahui
+   sebagai bdflush.
+
+   dapatkan bdflush-n.n.tar.gz dari tempat yang sama dengan source code^
+   kernel^ ('P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?')
+   dan mengkompilasi serta menginstallnya; seharusnya dijalankan sebelum sistem
+   file boot-time yang biasa mengeceknya. bdflush akan bekerja baik dengan
+   kernel^ yang lebih lama, sehingga tidak dibutuhkan untuk tetap menyimpan
+   update yang lama.
+  
+   ----------------------------------------------------------------------------
+
+P 9.11 Warning: obsolete routing request made.
+
+   Ini tidak perlu dikhawatirkan; ini hanya berarti bahwa versi rute yang anda
+   punyai sedikit kadaluwarsa bila dibandingkan dengan kernel^. Anda dapat
+   membuat pesan itu 'lenyap' dengan mengambil versi terbaru dari route dari
+   tempat yang sama dengan source code^ kernel^. ('P 7.6  Bagaimanakah saya
+   mengupgrade/recompile kernel^ saya ?').
+   
+   ----------------------------------------------------------------------------
+
+P 9.12 EXT2-fs: warning: mounting unchecked filesystem.
+
+   Anda perlu menjalankan e2fsck (atau fsck -t ext2 bila anda punya program
+   fsck yang 'front-end') dengan pilihan -a untuk mendapatkannya membersihkan
+   flag (tanda) yang 'kotor', dan kemudian secara bersih melakukan unmount
+   partisi selama tiap proses shutdown (pematian komputer).
+
+   Jalan termudah untuk mengerjakan hal ini adalah mengambil fsck terbaru,
+   perintah umount dan shutdown, tersedia di Rik Faith's util-linux package
+   ('P 2.5  Di manakah saya mendapatkan [material] Linux dengan FTP^ ?'). Anda
+   harus memastikan bahwa script /etc/rc* anda menggunakannya secara benar.
+
+   NB : Jangan mencoba mengecek sistem file yang sedang di'mount' read-write
+   (modus baca tulis) -- ini termasuk partisi root^ bila anda tidak melihat :
+
+   VFS: mounted root ... read-only
+
+   di waktu booting. Anda harus menyusun agar mount memount sistem file
+   read-only (hanya baca) saat start, cek bila perlu, dan kemudian melakukan
+   remount read-write. Baca dokumentasi yang datang dengan util-linux untuk
+   menemukan bagaimana mengerjakan hal ini.
+
+   Catatan bahwa anda memerlukan untuk menyertakan pilihan -n untuk 'memaksa'
+   mount melaksanakannya, bila tidak mencoba mengupdate /etc/mtab, semenjak
+   sistem file masih read-only dan ini akan menyebabkan efek samping gagal.
+      
+   ----------------------------------------------------------------------------
+
+P 9.13 EXT2-fs warning: maximal count reached.
+
+   Pesan ini diisukan oleh kernel^ saat dia me-mount sebuah sistem file yang
+   ditandai sebagai clean (bersih), tetapi yang memiliki nomer mount sejak
+   counter (penghitung) cek telah mencapai harga yang telah didefinisikan.
+   Pemecahan masalahnya adalah dengan mengambil versi terakhir dari utility-
+   utility^ ext2fs (e2fsprogs-0.5b.tar.gz di waktu penulisan FAQ ini) dari
+   site yang umum. ('P 2.5  Di manakah saya mendapatkan [material] Linux dengan
+   FTP^ ?').
+
+   Harga nomer maksimal dari mount dapat diuji dan diganti menggunakan program
+   tune2fs dari paket ini.
+  
+   ----------------------------------------------------------------------------
+
+P 9.14 EXT2-fs warning: checktime reached.
+
+   Kernel^ dari 1.0 ke depan mendukung sistem cek sistem file berbasiskan waktu
+   yang telah terlampaui sejak cek terakhir sebaik jumlah dari mount. Ambil
+   versi terakhir dari utility^ ext2fs (lihat 'P 9.13 EXT2-fs warning: maximal
+   count reached.').
+
+   ----------------------------------------------------------------------------
+
+P 9.15 df says Cannot read table of mounted filesystems.
+
+   Mungkin ada sesuatu yang salah dengan file /etc/mtab atau /etc/fstab anda.
+   Bilamana anda mempunyai versi terbaru dari mount yang pantas, /etc/mtab
+   sebaiknya dikosongkan atau dihapus saat booting (dalam /etc/rc.local atau
+   /etc/rc.d/*), menggunakan sesuatu seperti :
+   
+   rm -f /etc/mtab*
+
+   Beberapa versi dari SLS mempunyai isian untuk partisi root^ di file
+   /etc/mtab/ yang dibuat di /etc/rc* dengan memakai rdev. Ini tidak benar --
+   versi mount terbaru mengerjakan hal ini secara otomatis.
+
+   Versi SLS yang lain mempunyai sebuah baris di /etc/fstab yang kelihatan
+   seperti :
+    /dev/sdb1      /root          ext2      defaults
+
+   Ini salah. Direktori /root seharusnya dibuat menjadi direktori / saja.
+ 
+   ----------------------------------------------------------------------------
+
+P 9.16 fdisk says Partition X has different physical/logical ...
+
+   Bila nomer partisi (X, di atas) adalah 1 ini masalah yang sama seperti
+   'P 9.17 fdisk: Partition 1 does not start on cylinder boundary'.
+
+   Bila partisi bermula dan berakhir di cylinder bernomor di atas 1024, ini
+   dikarenakan format informasi geometri harddisk DOS standar dalam tabel
+   partisi tidak dapat mengatasi kesulitan nomer cylinder yang lebih besar
+   daripada 10 bit. Anda sebaiknya melihat 'P 4.1  Bagaimanakah membuat Linux
+   bekerja dengan harddisk yang berkapasitas besar ?').
+ 
+   ----------------------------------------------------------------------------
+
+P 9.17 fdisk: Partition 1 does not start on cylinder boundary
+
+   Versi fdisk yang datang dengan banyak sistem Linux membuat partisi yang
+   menggagalkan pengecekan validitasnya sendiri. Sayang sekali, bila anda sudah
+   menginstall sistem anda, tak banyak yang dapat anda lakukan, selain menyalin
+   data dari partisi ini, menghapusnya dan membuatnya ulang, lalu menyalin
+   data kembali ke partisi ini.
+
+   Anda bisa menghindari masalah dengan mengambil versi terakhir dari fdisk,
+   dari Rik Faith's util-linux package (tersedia di semua FTP^ site yang bagus).
+   Alternatif lainnya, jika anda sedang membuat partisi baru 1 yang dimulai
+   dari cylinder pertama, anda dapat mengerjakan langkah-langkah berikut untuk
+   mendapatkan sebuah partisi yang fdisk 'sukai'.
+
+   1. Buat partisi 1 dengan jalan normal. Ketikan p akan mengeluarkan keluhan
+   mismatch (tidak tepat).
+   
+   2. Ketik u untuk mengeset mode sector dan ketikkan p lagi. Salinlah nomer
+   di kolom "End".
+
+   3. Hapuslah partisi 1.
+
+   4. Pada saat masih mode sector, buat ulang partisi 1. Set-lah sector 
+   pertama ke nomer sector yang tepat dari sector per track. Ini adalah nomer
+   sector yang berada di baris pertama dari keluaran p. Set-lah sector
+   terakhir ke harga, seperti yang tercatat pada No. 2 di atas.
+
+   5. Ketikkan u untuk me-reset mode cylinder dan dilanjutkan dengan partisi
+   lainnya.
+
+   Abaikan pesan tentang sector yang tidak teralokasikan (unallocated sectors)
+   - mereka mengacu kepada sector di track pertama berseberangan dengan 
+   Master Boot Record (MBR), yang tidak digunakan, jika anda memulai dari
+   partisi di track 2.
+
+   ----------------------------------------------------------------------------
+
+P 9.18 fdisk says partition n has an odd number of sectors.
+
+   Skema partisi harddisk PC bekerja dalam 512-byte sectors, tetapi Linux
+   menggunakan blok 1 KB. Jika anda mempunyai partisi dengan sebuah nomer
+   ganjil dari sektor, sektor terakhirnya dibuang. Abaikan pesan itu.
+   
+   ----------------------------------------------------------------------------
+
+P 9.19 mtools says cannot initialise drive XYZ
+
+   Ini berarti bahwa mtools sedang mengalami masalah pengaksesan drive. Ini
+   dapat terjadi karena beberapa hal.
+
+   Seringkali ini terjadi karena masalah permission (perizinan) di peralatan
+   floppy disk (/dev/fd0* dan /dev/fd1*) yang tidak tepat -- pengguna yang
+   menjalankan mtools harus mempunyai akses yang wajar. Lihat halaman manual
+   dari chmod untuk lebih jelasnya.
+
+   Banyak versi mtools didistribusikan dengan sistem Linux (bukan dengan
+   versi GNU standar) menggunakan isi dari file /etc/mtools untuk menemukan
+   device (peralatan) dan densities (kerapatan) yang mana, yang harus
+   digunakan. Kesalahan di file ini sering menyebabkan persoalan. Tak ada
+   dokumentasi tentang hal ini.
+
+   Sebagai jalan termudah untuk mengakses sistem file DOS anda (khususnya
+   yang ada di partisi harddisk) lihat 'P 3.2  Bagaimanakah saya mengakses
+   file-file di partisi DOS atau disket ?'. 
+   Catatan -- anda sebaiknya jangan pernah memakai mtools untuk mengakses
+   file-file di partisi msdos yang dimounted baik di harddisk atau disket !
+
+   ----------------------------------------------------------------------------
+
+P 9.20 At the start of booting: Memory tight
+
+   Ini berarti bahwa anda mempunyai kernel^ yang ekstra besar yang berarti juga
+   Linux harus mengerjakan beberapa keajaiban pengaturan memori secara khusus,
+   agar dapat menempatkan dirinya sebagai root^ dari BIOS. Ini tidak berkaitan
+   dengan jumlah memori fisik dari mesin anda. Abaikan pesan ini, atau lakukan
+   kompilasi kernel^ yang berisikan pengendali dan feature yang hanya anda
+   perlukan. ('P 7.6  Bagaimanakah saya mengupgrade/recompile kernel^ saya ?').
+ 
+   ----------------------------------------------------------------------------
+
+P 9.21 You don't exist. Go away.
+
+   Ini bukanlah infeksi oleh virus :-). Ini datang dari program-program yang
+   bervariasi seperti write, talk dan wall, bila anda 'memanggil' uid yang
+   tidak mempunyai korespondensi ke pengguna yang valid (syah) (mungkin
+   karena file /etc/passwd terkorupsi), atau bila session (pseudoterminal /
+   terminal 'maya', specifically) yang sedang anda gunakan tidak diregistrasi
+   secara benar di file utmp (kemungkinan karena anda 'memanggilnya' dengan
+   jalan yang 'lucu').
+
+   ============================================================================
+
+10. Sistem X Window.
+
+P 10.1 Apakah Linux mendukung X Window ?
+
+   Ya. Linux menggunakan XFree86 (versi saat ini adalah 3.3.2, yang berdasarkan
+   atas X11R6). Anda memerlukan video card (kartu video) yang didukung oleh
+   XFree86. Lihatlah Linux XFree86 HOWTO untuk lebih jelasnya.
+
+   Kebanyakan distribusi Linux sekarang, datang dengan sebuah instalasi X.
+
+   Namun, anda dapat menginstall atau mengupgrade sendiri, dari
+   /pub/Linux/X11/XFree86-* di sunsite.unc.edu dan site-site mirror^nya.
+   Bacalah XFree86 HOWTO ntuk instruksi instalasinya.
+
+   ----------------------------------------------------------------------------
+
+P 10.2 Di manakah saya mendapatkan XF86Config untuk sistem saya ?
+
+   Lihatlah Linux XFree86 HOWTO.
+
+   Anda akan membutuhkan untuk meletakkan bersama-sama file XF86Config anda
+   sendiri, karena bergantung kepada kombinasi yang tepat dari video card dan
+   monitor yang anda punyai. Ini tidak susah -- bacalah instruksi yang datang
+   dengan XFree86, dalam /usr/X11R6/lib/X11/etc. File yang mungkin perlu anda
+   lihat adalah README.Config.
+
+   Anda *tidak* seharusnya menggunakan file contoh XF86Config.eg yang
+   disertakan dengan versi terbaru dari XFree86 persis kata demi kata, karena
+   setting clock (waktu) video yang salah, dapat merusak monitor anda.
+
+   Untuk permulaan yang cepat, anda dapat menjalankan program xf86config.
+   Catatan, bahwa ConfigXF86 sekarang ketinggalan zaman (usang) dan sebaiknya
+   anda tidak menggunakannya.
+
+   Dimohon tidak mengirimkan posting ke comp.os.linux.x untuk permintaan
+   program XF86Config, dan dimohon tidak menjawab permintaan seperti itu.
+
+   ----------------------------------------------------------------------------
+
+P 10.3 Login xterm menunjukkan keanehan pada who, finger.
+
+   Program xterm yang datang dengan XFree86 2.1 dan lebih awal tidak benar-
+   benar memahami format yang digunakan Linux untuk file /var/adm/utmp, dimana
+   sistem merekam siapa yang telah login. Oleh sebab itu, semua informasinya
+   tidak ditulis secara benar.
+
+   XFree 3.1 memperbaiki masalah ini.
+
+   ----------------------------------------------------------------------------
+
+P 10.4 Saya tidak dapat menjalankan X Window dengan benar.
+
+   Bacalah XFree86 HOWTO -- catatan, bacalah bagian pertanyaan dan jawaban.
+
+   Cobalah untuk membaca comp.windows.x.i386unix -- secara spesifik, bacalah
+   FAQ untuk grup itu.
+
+   Dimohon tidak mengirimkan pertanyaan yang berkaitan dengan X Window atau
+   XFree86 ke comp.os.linux.x, kecuali mereka berkaitan secara spesifik dengan
+   Linux.
+
+   ----------------------------------------------------------------------------
+
+P 10.5 Bagaimana cara meng-capture (menangkap) gambar di X-Window ?
+
+   Bila anda mempunyai aplikasi xv, anda dapat melakukannya dengan memilih
+   pilihan Grab. Setelah Grab diaktifkan, klik kiri mouse akan membuat seluruh
+   layar anda akan "dipotret", klik kanan mouse akan membatalkan operasi,
+   sedangkan klik tengah mouse + drag mouse akan membuat area pilihan tertentu
+   saja berbentuk segiempat yang "dipotret".
+
+   ----------------------------------------------------------------------------
+
+P 10.6 Bagaimanakah cara menyalin blok teks dengan mouse ?
+
+   Pasanglah program gpm. Kemudian pada saat aplikasi pengolah kata di
+   X-Window dijalankan, buatlah blok dengan melakukan drag^ mouse untuk teks
+   yang akan disalin. Lalu arahkan pointer mouse ke aplikasi lainnya,
+   kemudian lakukan klik tombol tengah mouse. Teks akan tersalin pada 
+   aplikasi pengolah kata yang baru.
+
+   Jikalau mouse anda hanya mempunyai dua tombol, penekanan tombol tengah
+   mouse dapat diwakili dengan penekanan tombol kiri dan tombol kanan mouse
+   secara bersamaan, dengan catatan fasilitas Emulate 3 Button saat anda
+   mengkonfigurasi X-Window, anda aktifkan.
+
+   ----------------------------------------------------------------------------
+
+P 10.7 Apa yang harus saya lakukan, agar resolusi dapat berubah manakala
+       saya menjalankan X-Window ?
+
+   Anda dapat menekan tombol Ctrl bersamaan dengan Alt dan + atau tombol Ctrl
+   bersamaan dengan Alt dan - untuk menukar-nukar resolusi, saat anda
+   menjalankan X-Window. Saya mengasumsikan, anda mengeset file XF86Config
+   untuk mendukung lebih dari satu resolusi layar, dan video card serta
+   monitor anda juga mendukung lebih dari satu resolusi layar.
+
+   HATI-HATI, bila saat anda melakukan hal itu, tiba-tiba monitor menjadi
+   gelap dan terdengar bunyi mendenging berfrekuensi tinggi, segeralah
+   pindah lagi ke resolusi yang dapat dilihat.
+   Bila anda terlalu lama membiarkan hal tersebut, monitor anda dapat rusak.
+   Untuk menjagai agar hal tersebut tidak terjadi lagi, batasi item-item
+   yang tidak didukung video card dan terutama monitor anda di file
+   XF86Config.
+
+   Pengujian untuk menentukan resolusi-resolusi dan kedalaman warna mana saja
+   yang dapat diterima perangkat keras anda, dapat dilihat pada 'P 10.9
+   Bagaimana cara menguji apakah file konfigurasi X-Window saya sudah tepat ?'
+
+   ----------------------------------------------------------------------------
+
+P 10.8 Adakah program yang dapat menghitung waktu akses internet dial-up ?
+
+   Untuk menghitung akumulasi waktu akses internet anda yang tersambung ke
+   ISP^ melalui dial-up, ada program semacam ezppp, yang dapat membantu anda
+   menghitung lama koneksi per bulan. ezppp sebenarnya merupakan program
+   dial-up, sekaligus pengaktif protokol PPP saat koneksi terjadi, sementara
+   kemampuan menghitung akumulasi waktu adalah kelebihannya.
+
+   Ezppp dapat diperoleh di http://www.serv.net/~cameron/ezppp/index.html,
+   atau dari ftp.a42.com/pub/jay.
+
+   Ezppp juga mendukung multi account, sehingga anda dapat memilih ISP^ yang
+   mana, di mana anda akan terkoneksi.
+
+   ----------------------------------------------------------------------------
+ 
+P 10.9 Bagaimana cara menguji apakah file konfigurasi X-Window saya
+       sudah tepat ?
+
+   Anda dapat menjalankan X-Window dengan mengetikkan startx .... :-) Bila
+   antarmuka grafisnya sudah tampil, berarti X-Window dapat menerima item-item
+   yang tercantum dalam file XF86Config anda. Jika belum, berarti mungkin
+   setting video card anda tidak cocok.
+
+   Ada juga cara pengujian, tanpa harus masuk ke antarmuka grafisnya, yaitu
+   dengan mengetikkan :
+
+   X -probeonly > /tmp/hasilprobing 2>&1
+
+   Jika deteksi sudah selesai, anda dapat melihat isi file /tmp/hasilprobing
+   dengan cat atau apa pun. Jika anda melihat tanda (**) di sebelah kiri
+   item tertentu, maka item itu berarti cocok dengan perangkat keras anda,
+   namun jika anda melihat tanda (--), maka itu berarti item yang bersangkutan
+   diuji, tetapi tidak didukung oleh perangkat keras anda.
+ 
+   ============================================================================
+
+11. Pertanyaan-pertanyaan yang dapat dipergunakan untuk perangkat lunak
+    yang sudah sangat kadaluwarsa (out-of-date).
+
+   Pertanyaan-pertanyaan di bagian ini hanya relevan dengan pengguna dari
+   perangkat lunak yang berumur setidak-tidaknya tiga bulan yang lalu.
+
+   ----------------------------------------------------------------------------
+  
+P 11.1 Emacs hanya mengeluarkan dumps core.
+
+   Anda kemungkinan mempunyai versi Emacs yang dikompilasi untuk bekerja dengan
+   X11; ini mensyaratkan kepustakaan X11 untuk bekerja. Bila anda sedang
+   memakai Slackware, anda dapat mengganti symbolic link /usr/bin/emacs menuju
+   ke emacs-19.29-no-x11 sebagai gantinya (lihatlah man ln). Ini ada di file
+   emac_nox.tgz di disket Slackware 3.0
+
+   ----------------------------------------------------------------------------
+
+P 11.2 fdisk 'mengatakan' tak dapat menggunakan sektor nnn dari partisi
+       ini.
+
+   Aslinya, Linux hanya mendukung sistem file minix, yang tak dapat menggunakan
+   lebih dari 64 MB per partisinya. Batasan ini tidak ada lagi di sistem file
+   yang lebih baru, seperti yang tersedia sekarang, seperti ext2fs (versi kedua
+   dari Sistem File Extended, sistem file 'standar' Linux).
+
+   Jika anda bermaksud memakai ext2fs, anda dapat mengabaikan pesan itu.
+
+   ----------------------------------------------------------------------------
+
+P 11.3 GCC kadangkala menggunakan virtual memory dalam jumlah besar dan
+       'thrashes'.
+
+   Versi yang lebih lama dari GCC mempunyai bug yang membuatnya menggunakan
+   banyak memori, bila anda mencoba mengkompilasi sebuah program yang memakai
+   tabel data statik yang besar di dalamnya.
+
+   Anda dapat melakukan, baik upgrade versi GCC anda ke setidaknya versi 2.5
+   maupun menambah lebih banyak spasi swap jika diperlukan dan tersenyum serta
+   tabahkanlah hati anda; dia akan bekerja pada akhirnya.
+
+   ----------------------------------------------------------------------------
+
+P 11.4 Keyboard saya menjadi 'lucu' sesudah saya memindahkan VC^.
+
+   Ini adalah bug di versi kernel^ sebelum 0.99pl14-alpha-n. Kadangkala Linux
+   kehilangan jejak dari kunci-kunci modifier apakah (Shift, Alt, Ctrl, dll)
+   yang ditekan atau tidak, dan percaya bahwa satu atau lebih telah ditekan,
+   padahal tidak. Pemecahan masalah ini adalah menekan dan melepaskan setiap
+   kunci-kunci modifier (tanpa menekan kunci yang lain) -- ini akan memastikan
+   bahwa Linux tahu, keadaan mana dari keyboard yang sedang terjadi secara
+   aktual.
+
+   ============================================================================
+
+12. Bagaimanakah mendapatkan bantuan yang lebih lanjut.
+
+P 12.1 Anda masih belum dapat menjawab pertanyaan saya !
+
+   Dimohon untuk membaca semua jawaban di sini, sebelum mengirimkan pertanyaan.
+   Saya tahu, ini memerlukan waktu yang lama, tetapi anda mungkin dapat
+   menghindarkan diri anda dari 'membodohkan anda sendiri' di depan puluhan
+   ribu orang dan membuang berjam-jam dari waktu mereka. Tidakkah anda berpikir
+   lebih berharga untuk menghabiskan sebagian waktu anda untuk membaca dan
+   mengikuti instruksi-instruksi di sini ?
+
+   Jika anda berpikir sebuah jawaban di sini tidak lengkap dan tidak akurat,
+   silakan hubungi Julian Adhi Nugroho <adhi@semarang.wasantara.net.id> atau
+   Muhammad Isnaini <isnaini@technologist.com> melalui japri^.
+
+   Bacalah buku Linux Documentation Project yang tepat -- lihat 'P 2.1  Di
+   manakah saya bisa mendapatkan HOWTO dan dokumentasi lainnya ?'
+
+   Jikalau anda adalah 'newbie' (pengguna baru) Unix, bacalah FAQ dari
+   comp.unix.questions, dan lainnya dari grup-grup comp.unix.* yang lain,
+   yang barangkali relevan.
+
+   Linux adalah 'clone' Unix, jadi hampir semua yang anda baca di sana akan
+   dapat diterapkan di Linux. FAQ-FAQ di sana dapat, seperti semua FAQ yang
+   dapat ditemukan di rtfm.mit.edu di direktori /pub/usenet/news.answers
+   (alamat e-mail <mail-server@rtfm.mit.edu> dapat mengirimi anda file-file
+   ini, jika anda tidak mempunyai akses ke FTP^). Ada juga mirror-mirror^
+   dari arsip FAQ rtfm di site-site lainnya -- silakan mengecek Introduction
+   to *.answers posting yang dikirimkan, atau lihatlah di direktori
+   news-answers/introduction.
+
+   Ceklah HOWTO yang relevan untuk subyek pertanyaan anda, bila ada, atau
+   dokumentasi sub-FAQ gaya-lama yang agak cocok. Ceklah ke site FTP^.
+
+   Cobalah untuk melakukan eksperimen sendiri -- ini adalah jalan yang terbaik
+   untuk memahami Unix dan Linux.
+
+   Bacalah dokumentasinya. Ceklah halaman manual (manpages) (ketikkan man man,
+   bilamana anda tidak tahu tentang manpages. Cobalah man -k <subyek> -- 
+   manpages akan mengeluarkan daftar yang berguna dan manpages yang relevan.
+
+   Ceklah dokumentasi Info (ketikkan C-h i, sebagai contoh Ctrl+H, diikuti
+   oleh i dalam Emacs) -- NB : ini tidak hanya untuk Emacs; sebagai contoh
+   dokumentasi GCC ada di sini.
+
+   Juga seringkali ada file README dengan sebuah paket yang akan memberikan
+   instruksi penggunaan dan instalasinya.
+
+   Pastikan bahwa anda tidak mempunyai salinan program yang terkorupsi atau
+   kadaluwarsa (out-of-date) di pertanyaan anda. Bila mungkin, downloadlah
+   lagi dan install ulanglah -- mungkin anda membuat sebuah kesalahan saat
+   yang pertama kali.
+
+   Bacalah comp.os.linux.announce -- ini seringkali berisikan informasi yang
+   sangat berguna untuk semua pengguna Linux.
+
+   Pertanyaan-pertanyaan X-Window yang umum ada di comp.windows.x.i386unix,
+   bukan di comp.os.linux.x. Namun bacalah grupnya terlebih dulu (termasuk
+   FAQ-nya), sebelum anda mengirim posting.
+
+   Hanya jika anda telah mengerjakan semua hal di sini dan anda masih 'gagal
+   dan bingung', barulah anda mengirim posting ke grup yang cocok dari
+   comp.os.linux.*. Pastikan anda membaca pertanyaan berikut, 'P 12.2 Apakah
+   yang perlu diletakkan dalam permintaan bantuan.', terlebih dulu.
+
+   ----------------------------------------------------------------------------
+
+P 12.2 Apakah yang perlu diletakkan dalam permintaan bantuan.
+
+   Dimohon membaca secara hati-hati nasihat berikut ini, tentang bagaimana
+   menulis posting atau e-mail anda. Dengan mengindahkan hal ini akan sangat
+   meningkatkan kesempatan bagi seorang pakar dan/atau rekan-rekan senasib
+   untuk (mau) membacanya dan punya informasi yang cukup serta motivasi yang
+   tinggi untuk membalasnya.
+
+   Nasihat ini diterapkan baik untuk pertanyaan yang diposting dan untuk
+   surat pribadi yang dikirimkan ke pakar-pakar atau rekan-rekan 'senasib'.
+
+   Pastikan anda memberikan detil yang lengkap dari masalah anda, termasuk :
+     * Program apa, tepatnya, yang sedang bermasalah, termasuk nomer versi-
+       nya, bila diketahui dan mengatakan di mana anda mendapatnya. Banyak
+       perintah standar menunjukkan pada anda nomer versi mereka, bila
+       anda memberi mereka pilihan --version.
+     * Rilis Linux yang mana yang sedang anda gunakan (MCC, Slackware,
+       Debian, atau apa pun) dan versi berapakah rilis itu.
+     * Pesan kesalahan apa pun yang *lengkap* dan *tepat*.
+     * Tindakan apa yang anda harapkan, dan secara tepat tindakan apakah yang
+       anda amati. Salinan dari contoh session adalah jalan yang bagus untuk
+       menunjukkan hal ini.
+     * Isi dari file konfigurasi apa pun yang digunakan oleh program yang ada
+       dalam pertanyaan anda dan program yang berkaitan dengannya.
+     * Kernel^ versi berapa yang anda pakai dan kepustakaan shared versi berapa
+       yang anda pakai. Versi kernel^ dapat ditemukan dengan mengetik uname -a,
+       dan versi kepustakaan shared diketahui dengan mengetikkan
+       ls -l /lib/libc.so.x. (dimana x diisi 1,2,3,4,5 dst)
+     * Hal yang rinci dari perangkat keras anda, bila kelihatannya diperlukan.
+
+   Berbahaya jika posting anda terlalu panjang, kecuali anda menyertakan
+   potongan source code^ yang besar atau file ter-uucode^, sehingga kesalahan
+   di sisi itu adalah memberi terlalu banyak informasi.
+
+   Pakailah baris Subject yang bersih dan rinci. Jangan menaruh yang seperti
+   ini : 'tidak bekerja','Linux','tolong','tanya',dsb -- kami telah tahu bahwa
+   anda minta tolong ! Hematlah spasi untuk nama program, kutipan dari pesan
+   kesalahan, rangkuman dari tindakan yang tidak umum, dsb.
+
+   Jikalau anda melaporkan sebuah pesan 'tidak dapat mengendalikan kernel^
+   paging request', ikuti instruksi dalam file README di source^ kernel^ Linux
+   untuk mengubah nomer ke sesuatu yang lebih berarti. Jika anda tidak
+   melakukan ini, tak seorang pun yang membaca posting anda akan dapat
+   mengerjakannya pada anda, sebagaimana pemetaan dari nomer ke fungsi nama
+   bervariasi dari satu kernel^ ke lainnya.
+
+   Letakkan sebuah paragraf ringkasan di atas posting anda.
+
+   Di halaman bawah, mintalah tanggapan dengan e-mail dan katakan anda akan
+   mempostingkan ringkasannya. Kembalikanlah dengan Followup-To: pengirim.
+   Lalu, kerjakanlah mengirim ringkasan dalam beberapa hari atau seminggu
+   mendatang. Jangan hanya menggabungkan balasan yang anda terima --
+   ringkaslah. Tulislah kata RINGKASAN di baris Subject ringkasan anda juga
+   sebuah ide yang bagus, dengan mempertimbangkan pendaftaran ringkasan
+   ke comp.os.linux.announce.
+
+   Pastikan posting anda tidak memiliki baris header referensi yang tidak
+   wajar. Tanda ini berarti artikel anda sebagai bagian dari 'thread' dari
+   artikel yang direferensikan, yang akan seringkali menjadikannya sebagai
+   'sampah' oleh pembaca yang ingin 'lepas dari kebosanan'.
+
+   Anda mungkin suka mengatakan dalam posting anda, bahwa anda TELAH membaca
+   FAQ ini dan HOWTO yang berkaitan -- ini membuat orang menjadi enggan untuk
+   melewati posting anda, dan mencoba untuk ikut memecahkan masalah anda.
+
+   Ingatlah, bahwa anda tidak sebaiknya melakukan posting e-mail yang
+   dikirimkan kepada anda secara personal (kepada orang lain), tanpa izin
+   dari pengirimnya.
+ 
+   ----------------------------------------------------------------------------
+
+P 12.3 Saya ingin mengirim surat ke 'seseorang' tentang masalah saya.
+
+   Cobalah untuk menemukan pencipta dari pengembang program apa pun atau
+   komponen apa pun yang menyebabkan anda kesulitan. Jika anda mempunyai
+   kontak point untuk distribusi Linux anda, anda sebaiknya memakainya.
+
+   Dimohon untuk meletakkan segala sesuatu yang sekiranya diperlukan di e-mail
+   anda untuk permintaan bantuan.
+
+   Yang terakhir, ingatlah meskipun dalam fakta banyak komunitas pengguna Linux
+   sangat (mau) membantu dan menanggapi untuk mengirim e-mail balasan, anda
+   dibantu oleh sukarelawan yang tidak dibayar, sehingga anda tidak mempunyai
+   hak untuk mengharapkan jawaban.
+
+   ============================================================================
+
+13. Informasi yang administratif dan acknowledgements (pengakuan).
+
+P 13.1 Umpan balik untuk dokumen ini, diharapkan.
+
+   Silakan mengirimkan komentar anda atas FAQ ini pada kami.
+
+   Kami menerima 'perbaikan' atas FAQ ini dalam berbagai format; Semua
+   kontribusi, komentar, dan koreksi diterima dengan tangan terbuka.
+
+   Jika anda ingin mereferensikan (sebuah) pertanyaan di FAQ, akan sangat
+   berguna bagi kami, bila anda mengerjakannya dengan mengetikkan judul
+   pertanyaan dibandingkan dengan nomer saja, sebagaimana diketahui bahwa nomer
+   pertanyaan bisa saja berubah-ubah.
+
+   ----------------------------------------------------------------------------
+
+P 13.2 Format apa sajakah yang tersedia untuk FAQ ini.
+
+   Sementara ini FAQ baru tersedia dalam bentuk teks ASCII.
+
+   ----------------------------------------------------------------------------
+
+P 13.3 Sumber dan acknowledgements.
+
+   Terima kasih kami ucapkan kepada Matt Welsh, yang memoderatori grup
+   comp.os.linux.announce dan comp.os.linux.answers, digunakan untuk 
+   mengkoordinasikan HOWTO dalam bahasa Inggris. Greg Hankins, yang memimpin
+   koordinasi HOWTO (bhs. Inggris), kepada Lars Wirzenius, yang menjadi
+   moderator comp.os.linux.announce.
+
+   Juga kepada Marc-Michel Corsini, yang menulis FAQ Linux asli dalam bahasa
+   Inggris, Ian Jackson, 'pemelihara' FAQ Linux bahasa Inggris selanjutnya,
+   serta Robert Kiesling, yang merupakan penulis FAQ dimana sebagian besar
+   FAQ ini bersumber.
+
+   Terima kasih kami ucapkan kepada Bung Bahari .I.P <Bahari@dnet.net.id> yang
+   telah merintis 'embrio' FAQ Linux pertama di forum mailing list^
+   PAU-Mikro-ITB.
+
+   Tak lupa pula, terima kasih kepada pengelola Mailing List^ PAU-Mikro-ITB,
+   Dr. Budi Rahardjo (dulu) <rahard@dma.paume.itb.ac.id> dan Paulus Suryono
+   Adisoemarta (sekarang) <paulus@nextover.pe.utexas.edu>, di mana sebagian
+   permasalahan dari FAQ ini ditanyakan dan juga dipecahkan.
+   Serta kepada Syafrudin <haydin@caplin.cs.ui.ac.id> atas sumbangan Mailing
+   List^ id-linux serta id-linux-announce-nya.
+
+   Kepada Wim Pranata <d2@cathena.com>, yang merelakan sitenya untuk menjadi
+   mirror^ Linux Indonesia, kami juga berterima kasih.
+
+   Bagi para Linuxerz yang tergabung dalam Linux Indonesia, serta yang
+   menjadi pelanggan setia Mailing List^ id-linux, kami juga mengucapkan
+   terima kasih atas motivasi dan semua bantuan yang diberikan.
+
+   Terima kasih juga kepada para netters yang (akan) mengirimkan komentar
+   dan saran. Kontribusi anda semua sangat berharga.
+
+   Yang terakhir, terima kasih kepada Linus Torvalds dan kontributor Linux
+   lainnya yang memberikan kepada kami sesuatu untuk ditulis ! 
+
+   ----------------------------------------------------------------------------
+
+P 13.4 Disclaimer dan Hak Cipta.
+
+   Catatan, bahwa dokumen ini disediakan sebagai 'as is'. Informasi di
+   dalamnya *tidak dijamin* seluruhnya benar. Gunakanlah dengan resiko yang
+   anda ambil sendiri.
+
+   Pertanyaan yang sering ditanyakan (Frequently Asked Questions) Sistem
+   Operasi Linux dengan Jawabannya merupakan Hak Cipta dari Organisasi Linux
+   Indonesia tahun 1998.
+
+   Pertanyaan yang sering ditanyakan (Frequently Asked Questions) Sistem
+   Operasi Linux dengan Jawabannya boleh direproduksi dan didistribusikan
+   secara luas (termasuk P 13.3 dan P 13.4), disediakan secara gratis, dan
+   tidak boleh memungut ongkos apa pun untuk keperluan reproduksi dokumen ini,
+   tanpa persetujuan penciptanya. Bagian-bagiannya boleh direproduksi untuk
+   keperluan tertentu, misal sebagai review, pengiklanan, translate, dengan
+   persetujuan penciptanya.
+
+   Catatan, bahwa pembatasan ini tidak dimaksudkan untuk melarang pembiayaan
+   layanan pencetakan atau penyalinan dokumen yang disediakan oleh langganan
+   anda.
+ 
+   Perkecualian dari peraturan ini mungkin dikabulkan. Pembatasan-pembatasan
+   di sini diadakan untuk melindungi para kontributor, tidak untuk membatasi
+   anda sebagai pendidik dan orang yang mempelajari Linux.
+
+===============================================================================
+
+KAMUS [PADANAN] KATA
+
+Porting       = Penulisan aplikasi di atas platform dan / atau sistem operasi
+                lain.
+PD            = Public Domain.
+Undelete      = Pemanggilan ulang direktori atau file yang terhapus.
+Defragmenter  = Aplikasi atau program yang berfungsi untuk memperkecil atau
+                meniadakan fragmentasi (perpecahan) file.
+Inode(s)      = Sebuah nomer yang unik yang dialokasikan oleh Linux. Dalam
+                setiap inode berisi informasi tentang sebuah file, termasuk
+                alamat di disk dan tipe filenya.
+Root          = Account yang dimiliki oleh superuser(s), di mana dia
+                bertanggung jawab sebagai administrator sistem. (Padanan di
+                Windows NT adalah account administrator).
+Compiling     = Proses menerjemahkan bahasa tingkat (aras) tinggi ke bahasa
+                aras rendah yang dimengerti oleh komputer.
+Kompilasi     = Lihat Compiling.
+Login         = Proses identifikasi pengguna atas account tertentu.
+Kernel        = Inti sistem operasi.
+FTP           = File Transfer Protocol. Protokol yang digunakan untuk
+                mentransfer file antar komputer serta berkonsep client-server.
+Usenet        = Merupakan kependekan dari Users_Net, yaitu gabungan dari
+                newsgroup-newsgroup yang ada di Internet.
+Shared Lib.   = Kepustakaan shared, yaitu kepustakaan aplikasi atau program
+                yang digunakan secara bersama-sama oleh aplikasi atau program
+                di bawah suatu sistem operasi. Berguna untuk menghemat tempat.
+Executable    = File yang mendapatkan hak execute (dijalankan), atau yang
+                mempunyai permission x (istilah Linux), atau
+                File biner yang dapat dijalankan (istilah MS-DOS).
+Browser       = Aplikasi yang digunakan untuk melihat halaman Hypertext atau
+                Hypermedia.
+Timestamp     = Waktu yang direkam oleh Linux saat suatu file mengalami
+                pembuatan, modifikasi terakhir, dan pengaksesan terakhir.
+LILO          = Bootloader (pemuat booting) dari Linux. Bisa digunakan untuk
+                memuat sistem operasi selain Linux juga.
+Telnet        = Protokol yang digunakan untuk mengadakan koneksi terminal
+                remote (dari jarak jauh).
+Virtual Cons. = Layar 'semu' pada Linux, biasanya digunakan untuk multi login
+                dalam satu mikrokomputer.
+VC            = Lihat Virtual Console.
+Hacker        = Orang yang mempelajari semua yang harus diketahui tentang
+                sebuah sistem, terlibat secara dalam ke arah sistem yang
+                mengganggu, sehingga menjadi dapat memperbaiki sistem tersebut,
+                bila tak dapat bekerja dengan baik. Hacker ingin tahu bagaimana
+                sebuah sistem yang mereka temukan bekerja dengan baik. Mereka
+                tidak tertarik mencari uang atau balas dendam, meski hacker-
+                hacker tertentu 'berkhianat' terhadap ketentuan itu, dan
+                membentuk suatu komunitas dengan apa yang dinamakan cracker.
+                (Tackett Jack Jr. Special Edition Using Linux 3rd Edition,
+                Que Corporation, Indianapolis, 1997)
+POSIX         = Portable Operating System Interface - Antarmuka Sistem Operasi
+                Portable.
+Mailing List  = Arti secara harafiah adalah daftar e-mail. Mailing list adalah
+                forum 'diskusi' melalui e-mail, di mana setiap e-mail yang
+                masuk dan memenuhi syarat tertentu, seperti yang disyaratkan
+                oleh moderator (kalau ada) akan digandakan dan dikirimkan
+                kepada alamat-alamat e-mail yang terdaftar dalam Mailing list.
+Utility       = Program yang biasanya berfungsi untuk mempermudah pengguna
+                melakukan pekerjaan tertentu. Sering dinamakan dengan program
+                bantu.
+Emulasi       = Proses penyediaan lingkungan tertentu, sehingga program atau
+                aplikasi yang dibuat di atas lingkungan itu akan dapat berjalan
+                di atas lingkungan lain, seolah-olah seperti pada lingkungan
+                aslinya.
+Emulator      = Pembuat proses emulasi.
+Bus           = Lebar jalur.
+Source        = Secara harafiah adalah program sumber. Artinya, program yang
+                belum dikompilasi untuk arsitektur tertentu.
+Source Code   = Secara harafiah berarti kode sumber.
+Mirror [Site] = Site yang melakukan proses penduplikasian direktori dan file
+                tertentu dari satu site, dan dilakukan setiap waktu tertentu.
+Upload        = Proses pemuatan informasi dari komputer lokal ke komputer
+                remote.
+Patch         = Program yang berfungsi untuk 'menambal' program atau aplikasi
+                tertentu, sehingga kelemahannya dapat ditutupi, serta bug-bug
+                yang ditemukan dapat dihilangkan, dan mungkin juga ada
+                penambahan fasilitas dan fungsi-fungsi baru.
+Japri         = Jaringan Pribadi, artinya lewat alamat e-mail masing-masing
+                personal.
+UUCode        = Pengkonversian data biner dari/ke format ASCII 7-bit, sehingga
+                suatu file/data biner dapat dikirim dengan aman melalui
+                e-mail. Konversi ke ASCII dinamakan UUEncode, konversi dari
+                ASCII ke biner lagi, dinamakan UUDecode.
+Drag          = Operasi penekanan tombol kiri mouse, ditahan, lalu menyeret
+                mouse sampai tempat tertentu, lalu tombol dilepaskan.
+ISP           = Internet Service Provide, Penyedia (Jasa) Layanan Internet.
+
+================================Akhir ada disini===============================

@@ -1,0 +1,1452 @@
+  The Linux Intranet Server HOWTO
+  Pramod Karnad, karnad@indiamail.com diterjemahkan oleh Ronny
+  Haryanto giant@technologist.com
+  v2.11, 7 Agustus 1997 diterjemahkan 12 Desember 1997
+
+  Dokumen ini menjelaskan cara mendirikan Intranet dengan menggunakan
+  Linux sebagai server yang menghubungkan Unix, Netware, NT dan Windows
+  secara bersamaan. Maka Anda memiliki akses transparan ke semua jenis
+  platform hanya dengan membuat koneksi ke mesin Linux. Penjelasan
+  mendetil di dokumen ini ialah mengenai cara memasang HTTP menggunakan
+  server NCSA dan membuat koneksi ke server tersebut menggunakan client
+  TCP/IP dari Novell, Microsoft melalui Windows3.1, WFWG, Win95 dan
+  WinNT dan MacTCP di Apple PowerMac.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  1. Pendahuluan
+
+     1.1 Apa yang dibutuhkan?
+     1.2 Versi terbaru dari dokumen ini
+     1.3 Tanggapan
+
+  2. Memasang server HTTP
+
+     2.1 Persiapan sebelum men-download
+        2.1.1 Sistem Operasi (OS)
+        2.1.2 Tipe proses (ServerType)
+        2.1.3 Binding Port (Port)
+        2.1.4 Identitas pengguna server (User)
+        2.1.5 Identitas grup server (Group)
+        2.1.6 Alamat email administrator server (ServerAdmin)
+        2.1.7 Lokasi direktori dari server (ServerRoot)
+        2.1.8 Lokasi berkas-berkas HTML (DocumentRoot)
+     2.2 Meng-compile HTTPd
+
+  3. Mencoba HTTPd
+
+  4. Membuat koneksi ke server Linux
+
+     4.1 Setup server Linux
+     4.2 Setup server Netware
+     4.3 Setup client Netware Client
+        4.3.1 Windows 3.x
+        4.3.2 Windows 95
+     4.4 Setup client Microsoft
+        4.4.1 Windows for Workgroups
+        4.4.2 Windows 95
+        4.4.3 Windows NT
+     4.5 Setup TCP/IP di Macintosh
+        4.5.1 MacTCP
+
+  5. Mendirikan Intranet
+
+     5.1 NCPFS
+        5.1.1 Pemasangan
+        5.1.2 Menggunakan NCPFS (mounting)
+     5.2 SMBFS
+        5.2.1 Pemasangan
+        5.2.2 Menggunakan SMBFS (mount)
+     5.3 NFS
+
+  6. Mengakses Web
+
+     6.1 Mengakses filesystem-filesystem yang sudah di-mount
+     6.2 Menghubungkan dengan Internet
+     6.3 Kegunaan lain
+
+  7. Hal-hal lain yang bisa dikerjakan
+
+  8. Ucapan terima kasih dan hal-hal yang diatur secara hukum
+
+     8.1 Terima kasih
+     8.2 Hak cipta
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+  Secara gampangnya, Intranet adalah istilah yang digunakan untuk
+  implementasi teknologi Internet di dalam sebuah organisasi atau
+  perusahaan, bukannya sebagai koneksi ke luar (Internet). Implementasi
+  ini dilakukan sedemikian rupa sehingga dapat mengantarkan informasi
+  dalam jumlah besar secara transparan ke masing-masing desktop individu
+  dalam suatu organisasi dengan biaya, waktu dan usaha yang minimal.
+  Dokumen ini mencoba menjelaskan, dalam bahasa yang mudah dimengerti,
+  cara mendirikan Intranet dengan menggunakan alat-alat yang sudah
+  tersedia dan pada umumnya dengan sedikit atau tanpa biaya.
+
+  Penulis beranggapan bahwa Anda mengerti cara memasang TCP/IP di server
+  Linux Anda dan menghubungkannya secara fisik ke LAN Anda menggunakan
+  Ethernet Network Card. Penulis juga beranggapan Anda memiliki
+  pengetahuan dasar tentang sistem Netware, WinNT dan Mac. Konfigurasi
+  server Netware ditunjukkan melalui versi 3.1x sebagai dasarnya. Anda
+  dapat juga menggunakan INETCFG untuk mendapatkan hasil yang sama. Di
+  sisi client, akan didiskusikan tentang Windows 3.1x, Windows for
+  Workgroups dan Win95, WinNT dan Apple PowerMac.
+
+  Penulis menggunakan alamat-alamat private network (RFC-1918)
+  172.16.0.0 dan 172.17.0.0 hanya sebagai contoh. Anda bisa menggunakan
+  alamat yang lebih cocok sesuai dengan konfigurasi Anda.
+
+
+
+              Linux       Netware      WFWG/WinNT
+              Server      Server       Server
+             172.16.0.1   172.16.0.2   172.16.0.3
+                |           |           |    172.16.0.0
+          ------+-----+-----+--------+--+--------------
+                      |              | 172.16.0.254
+                    W/S 1          Router
+                  172.16.0.5         | 172.17.0.254
+                                     |
+                           ----------+-------+--------
+                      172.17.0.0             |
+                                           W/S 2
+                                         172.17.0.5
+
+
+
+
+
+  1.1.  Apa yang dibutuhkan?
+
+  Anda akan membutuhkan software berikut ini sebelum melangkah lebih
+  lanjut:
+
+  o  Software server HTTP yang bisa didapat dari OneStep NCSA HTTPd
+     Downloader di http://hoohoo.ncsa.uiuc.edu/docs/setup/OneStep.html.
+
+  o  Novell Netware Client bisa didapat dari HTTP://support.novell.com/
+     (The TCP/IP files are included with the client).
+
+  o  Microsoft TCP/IP client bisa didapat dari HTTP://www.microsoft.com/
+
+  o  Apple MacTCP client bisa didapat dari HTTP://www.apple.com/
+
+  o  WWW Browser seperti Netscape di HTTP://home.netscape.com/ atau MS
+     Internet Explorer di HTTP://www.microsoft.com/ atau NCSA Mosaic
+     dari
+     http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/NCSAMosaicHome.html
+
+
+  1.2.  Versi terbaru dari dokumen ini
+
+  Versi-versi baru dari Linux Intranet Server HOWTO akan diumumkan
+  secara berkala di comp.os.linux.announce dan comp.os.linux.help.
+  Selain itu juga akan dimuat di berbagai lokasi FTP Linux, termasuk
+  sunsite.unc.edu.
+
+  Versi terbaru dari dokumen ini tersedia dalam format HTML di
+  http://www.inet.co.th/cyberclub/karnadp/http.html
+
+
+  1.3.  Tanggapan
+
+  Jika Anda mempunyai pertanyaan atau komentar mengenai dokumen ini,
+  silakan berkirim email ke Pramod Karnad, karnad@indiamail.com.  Saran,
+  kritik dan email akan sangat dihargai. Jika Anda menemukan kesalahan
+  di dokumen ini, mohon memberi tahu penulis supaya bisa dikoreksi di
+  versi mendatang. Terima kasih.
+
+  (Catatan Penerjemah: Untuk koreksi dan tanggapan mengenai terjemahan
+  HOWTO ini, silahkan kirim mail ke Ronny
+  Haryantogiant@technologist.com.
+
+
+  2.  Memasang server HTTP
+
+  Ketika men-download program server, Anda memiliki dua pilihan:
+  mendapatkan source-nya kemudian meng-compile sendiri, atau
+  mendapatkannya dalam bentuk biner yang sudah di-compile terlebih
+  dahulu. Format biner untuk Linux (ELF) bisa didapatkan di NCSA tetapi
+  tidak untuk yang versi lama.
+
+
+  2.1.  Persiapan sebelum men-download
+
+  Server NCSA akan membimbing Anda langkah demi langkah untuk
+  konfigurasi dan menyiapkan berbagai berkas untuk Anda. Tetapi sebelum
+  Anda men-download HTTPd, persiapkanlah jawaban dari pertanyaan-
+  pertanyaan berikut ini:
+
+
+  2.1.1.  Sistem Operasi (OS)
+
+  Pertama-tama, tentukanlah versi software yang akan di-download, source
+  atau biner. Jika sistem Anda tidak ditampilakn di menu, maka Anda
+  harus mengambil source dan kemudian meng-compile sendiri.
+
+  Untuk mengetahui versi Linux Anda, jalankan perintah berikut di baris
+  perintah (command line):
+
+
+         linux:~$  uname -a
+
+
+
+
+  yang akan memberikan keluaran kira-kira seperti ini
+
+
+          linux:~$  uname -a
+          Linux linux 2.0.29 #4 Tue Sep 13 04:05:51 CDT 1994 i586
+          linux:~$
+
+
+
+
+  Maka versi Linux tersebut adalah 2.0.29.
+
+  Parameter-parameter selanjutnya bisa ditentukan sebelum men-download
+  atau setelahnya dengan mengubah berkas srm.conf di direktori
+  /usr/local/etc/httpd/conf. Nama-nama perintah langsung yang muncul
+  dalam berkas httpd.conf ditunjukkan dalam tanda kurung.  Satu-satunya
+  pengecualian ialah perintah langsung DocumentRoot yang muncul di
+  berkas srm.conf
+
+
+  2.1.2.  Tipe proses (ServerType)
+
+  Menentukan bagaimana mesin Anda menjalankan server HTTPd. Cara yang
+  dianjurkan ialah "standalone". Cara ini membuat daemon HTTP berjalan
+  secara konstan. Jika Anda memilih untuk menjalankan HTTPd dengan cara
+  "inetd", biner dari server akan dimuat ulang ke dalam memori untuk
+  setiap permintaan, sehingga membuat server menjadi lambat.
+
+
+  2.1.3.  Binding Port (Port)
+
+  Menentukan port di mesin Anda yang akan digunakan oleh HTTPd daemon
+  untuk mendengar (bind and listen). Jika Anda bisa login sebagai
+  "root", gunakan defaultnya yaitu 80.  Jika tidak pilihlah port antara
+  1025 dan 65535.
+
+
+  2.1.4.  Identitas pengguna server (User)
+
+  Menentukan userid yang akan digunakan oleh server ketika menanggapi
+  permintaan dan memroses berkas. Pertanyaan ini hanya perlu dijawab
+  jika Anda menjalankan server dengan cara "standalone".  Jika Anda
+  tidak memiliki akses root, gunakanlah nama login Anda sendiri.  Jika
+  Anda seorang administrator sistem, sebaiknya dibuatkan pengguna khusus
+  sehingga Anda dapat mengatur ijin-ijin terhadap berkas (file
+  permissions).
+
+
+  2.1.5.  Identitas grup server (Group)
+
+  Menentukan groupid yang akan digunakan oleh server ketika menanggapi
+  permintaan dan memroses berkas. Pertanyaan ini serupa dengan identitas
+  pengguna server dan hanya berlaku jika menjalankan server sebagai
+  standalone.
+
+  Jika Anda tidak memiliki akses root, gunakanlah nama grup yang utama.
+  Anda bisa mengetahui grup Anda dengan mengetikkan groups di baris
+  perintah Linux.
+
+
+  2.1.6.  Alamat email administrator server (ServerAdmin)
+
+  Menentukan alamat email ke mana pengguna harus mengirimkan pesan/email
+  ketika melaporkan masalah dengan server. Anda dapat menggunakan alamat
+  email pribadi Anda.
+
+
+  2.1.7.  Lokasi direktori dari server (ServerRoot)
+
+  Menentukan letak server di sistem Anda. Jika Anda memiliki akses root,
+  gunakanlah lokasi yang dianjurkan: /usr/local/etc/httpd, jika tidak,
+  pergunakanlah subdirektori di bawah direktori home Anda. Anda bisa
+  mengetahui letak direktori home Anda dengan perintah pwd.
+
+
+  2.1.8.  Lokasi berkas-berkas HTML (DocumentRoot)
+
+  Menentukan letak berkas-berkas HTML yang akan disajikan. Lokasi
+  default adalah /usr/local/etc/httpd/htdocs. Bagaimanapun Anda dapat
+  mengubahnya ke direktori home dari pengguna khusus yang anda pilih di
+  identitas pengguna server, atau sebuah subdirektori di direktori home
+  Anda jika Anda tidak memiliki akses root.
+
+  Jika Anda ragu-ragu, pergunakanlah setting default yang diberikan.
+  Sekarang Anda sudah memiliki jawaban dari pertanyaan-pertanyaan di
+  atas, maka Anda bisa men-download NCSA HTTPd di
+  http://hoohoo.ncsa.uiuc.edu/docs/setup/OneStep.html.  Sebaiknya Anda
+  membaca dokumentasi dari HTTPd di http://hoohoo.ncsa.uiuc.edu/docs/
+  sebelum memasangnya. Jika Anda berencana untuk meng-compile sumbernya
+  maka Anda perlu mengubah berkas-berkas makefile di masing-masing
+  direktori yaitu support, src, cgi-src. Jika versi Linux Anda didukung
+  maka Anda hanya perlu mengetikkan make linux di direktori tingkat atas
+  (yaitu /usr/local/etc/httpd)
+
+
+  2.2.  Meng-compile HTTPd
+
+  Meng-compile sebenarnya mudah, ketikkan saja make linux di baris
+  perintah di direktori induk server (server root dir).  Catatan:
+  Pengguna Linux versi sebelum ELF harus menghilangkan tanda komentar
+  dari #define NO_PASS di berkas portability.h dan mengeset DBM_LIBS=
+  -ldbm di dalam Makefile sebelum meng-compile HTTPd.
+
+
+  3.  Mencoba HTTPd
+
+  Setelah memasang HTTPd, loginlah sebagai root dan jalankanlah HTTPd
+  dengan perintah httpd & . (dengan anggapan Anda menggunakan cara
+  standalone). Seharusnya Anda sekarang bisa melihatnya di daftar yang
+  dihasilkan oleh ps. Cara paling mudah untuk mencoba HTTPd ialah
+  melalui Telnet. Di baris perintah ketikkan:
+
+
+          linux:~$  telnet 172.16.0.1 80
+
+
+
+
+  di mana 80 adalah port yang digunakan untuk HTTP. Jika Anda telah
+  menentukan "Port" selain dari 80 ketikkanlah angka tersebut. Anda akan
+  mendapat keluaran kira-kira sebagai berikut:
+
+
+          Trying 172.16.0.1...
+          Connected to linux.domain_gue.
+          Escape character is '^]'.
+
+
+
+
+  Sekarang jika Anda menekan sembarang karakter yang diikuti dengan
+  Enter, Anda akan mendapatkan keluaran yang serupa dengan yang di bawah
+  ini.
+
+
+          HTTP/1.0 400 Bad Request
+          Date: Wed, 10 Jan 1996 10:24:37 GMT
+          Server: NCSA/1.5
+          Content-type: text/html
+
+          <HEAD><TITLE>400 Bad Request < /TITLE> < /HEAD>
+          <BODY><H1>400 Bad Request < /H1>
+          Your client sent a query that this server could
+          not understand.<P>
+          Reason: Invalid or unsupported method.<P>
+          < /BODY>
+
+  Sekarang kita telah siap untuk membuat koneksi ke server ini dengan
+  menggunakan PC lain dan sebuah WWW Browser.
+
+
+  4.  Membuat koneksi ke server Linux
+
+  Penulis menggunakan diagram yang ditunjukkan di bagian ``Pendahuluan''
+  sebagai acuan untuk skema penggunaan alamat. Workstation 1 (W/S1) ada
+  di jaringan 172.16.0.0 dan dapat mengakses server Linux secara
+  langsung sedangkan Workstation 2 (W/S2) ada di jaringan 172.17.0.0 dan
+  membutuhkan jembatan/gateway (router) 172.17.0.254 untuk mengakses
+  mesin Linux.  Informasi tentang jembatan/gateway ini perlu diberikan
+  ketika mengkonfigurasi client-client di W/S2 saja. Di Netware
+  digunakan istilah 'ip_router' sebagai gateway tersebut.
+
+  Penulis menggunakan W/S2 untuk menggambarkan konfigurasi client. Untuk
+  mengkonfigurasi W/S1 cukup mengubah alamat 172.17.0.5 ke 172.16.0.5
+  dan abaikan gateway/router.
+
+  Jika Anda tidak memiliki sebuah router Anda bisa melompati langkah
+  yang berikut dan melanjutkan ke
+
+  o  ``Setup Server Server'' jika anda menggunakan server Netware.
+
+  o  ``Setup Client MS Windows'' jika anda menggunakan client Microsoft.
+
+
+  4.1.  Setup server Linux
+
+  Anda bisa melewati bagian ini jika tidak memiliki router.
+
+  Anda harus mengkonfigurasi server Linux untuk mengenali router
+  sehingga memperbolehkan Workstation 2 untuk mebuat hubungan ke Web
+  server. Untuk setup server Linux Anda harus login sebagai root. Di
+  prompt server ketikkan yang berikut:
+
+
+          route add gw default 172.16.0.254
+
+
+
+
+  Untuk menggunakan gateway ini setiap kali boot server suntinglah
+  berkas /etc/rc.d/rc.inet1 dan ubahlah baris yang mengandung definisi
+  gateway sebagai berikut GATEWAY = "172.16.0.254". Perhatikan bahwa
+  baris tidak dibuat sebagai komentar.
+
+  ALTERNATIF: Anda dapat menambahkan jalur-jalur ke jaringan di sisi
+  lain dari router. Hal ini dilakukan dengan cara
+
+
+          route add -net 172.17.0.0 gw 172.16.0.254
+
+
+
+
+  Untuk menambahkan jalur ini setiap kali Anda boot Linux tambahkanlah
+  di berkas /etc/rc.d/rc.local.
+
+
+
+  4.2.  Setup server Netware
+
+  Agar dapat men-setup server Netware, Anda sebaiknya memiliki akses
+  Supervisor atau minimal akses Console operator. Jika Anda tidak
+  memilikinya, coba minta administrator network untuk membantu Anda
+  dengan setup.  Di sisi server aktifkan Ethernet_II frame type di LAN
+  dengan mengetikkan perintah berikut atau masukkan di dalam berkas
+  AUTOEXEC.ncf
+
+
+          load NE2000 frame=Ethernet_II name=IPNET
+          load TCPIP
+          bind IP to IPNET addr=172.16.0.2 mask=FF.FF.FF.0
+
+
+
+
+  Anda mungkin harus memberitahukan nomor slot atau nomor papan (board)
+  ketika memuat driver NE2000, tergantung konfigurasi mesin Anda.
+  (misal: load NE2000 slot=3 frame=.....)
+
+
+  4.3.  Setup client Netware Client
+
+  Di PC Anda memiliki pilhan Win3.1, WFWG atau Win95. Prosedur
+  pemasangan berbeda-beda antara Win95 dan Windows versi-versi lama jika
+  Anda menggunakan client 32-bit dari Microsoft atau Novell. Jika Anda
+  akan menggunakan client 16-bit, maka prosedurnya sama dan Anda dapt
+  menggunakan petunjuk pemasangan untuk Windows 3.x. Untuk memasang
+  client 32-bit untuk Win95 lanjutkan ke ``Pemasangan untuk Windows
+  95''.
+
+
+  4.3.1.  Windows 3.x
+
+  Jika Anda menggunakan Win3.1 atau WFWG Anda dapat memasang Netware
+  Client (VLM) dan beberapa berkas tambahan yang disediakan di disket
+  TCP/IP, yaitu
+
+  TCPIP.exe, VTCPIP.386, WINSOCK.dll and WLIBSOCK.dll
+
+  Perhatikan bahwa berkas WINSOCK.dll berbeda dengan yang disediakan
+  oleh Win95 dan Trumpet. Pasang client Netware dengan dukungan untuk
+  windows (support for windows). Copy VTCPIP.386, WINSOCK.dll dan
+  WLIBSOCK.dll ke direktori SYSTEM dan TCPIP.exe ke direktori NWCLIENT.
+  Sekarang ubahlah STARTNET.bat di dalam direktori NWCLIENT menjadi
+
+
+          lsl
+          ne2000     ---> driver network card Anda
+          c:\windows\odihlp.exe     ---->jika menggunakan WFWG
+          ipxodi
+          tcpip        ---> tambahkan jika_
+          nwip         ---> menggunakan Netware/IP
+          vlm
+
+
+
+
+  Buatlah sebuah subdirektori, katakanlah \NET\TCP dan copy berkas-
+  berkas HOSTS, NETWORKS, PROTOCOLS dan SERVICES dari /etc di server
+  Linux atau direktori SYS:ETC di server Netware. Suntinglah salinan
+  dari berkas HOSTS untuk menambahkan baris untuk server Linux Anda yang
+  baru. Hal ini memperbolehkan Anda untuk mengacu server Linux Anda
+  sebagai http://linux.mydomain/ daripada http://172.16.0.1/ dari WWW
+  browser
+
+
+          127.0.0.1      localhost
+          172.16.0.1      linux.mydomain
+
+  Suntinglah berkas NET.cfg di direktori NWCLIENT
+
+
+          Link Driver NE2000
+              port 300
+              int 3
+              MEM D0000
+              FRAME Ethernet_802.2
+
+       ; ---- tambahkan baris-baris berikut ----
+
+             FRAME Ethernet_II
+
+          Protocol TCPIP
+             PATH TCP_CFG C:\NET\TCP
+             ip_address  172.17.0.5
+             ip_netmask  255.255.255.0
+             ip_router   172.17.0.254     ---> tambahkan alamat gateway hanya jika
+                                         ---> Anda harus menggunakan gateway tersebut
+                                         ---> untuk menjangkau server HTTP
+
+          Link Support
+             MemPool 6192       ---> minimal 1024. Cobalah dengan berbagai nilai
+             Buffers 10 1580    ---> ini juga bisa diatur
+
+       ;---------------------------------
+       ;Anda mungkin harus menambahkan baris-baris berikut jika menggunakan Netware/IP
+       ;
+          NWIP
+             NWIP_DOMAIN_NAME  domain_gue
+             NSQ_BROADCAST   ON
+             NWIP1_1 COMPATIBILITY   OFF
+             AUTORETRIES     1
+             AUTORETRY SECS  10
+
+
+
+
+
+  Suntinglah berkas SYSTEM.ini di direktori WINDOWS dan tambahkan yang
+  berikut untuk VTCPIP.386
+
+
+          [386Enh]
+          .....
+          network=*vnetbios, vipx.386, vnetware.386, VTCPIP.386
+          .....
+
+
+
+
+  Boot ulang PC Anda, jalankan STARTNET.bat dan sekarang Anda bisa
+  menggunakan WWW browser favorit Anda untuk mengakses halaman Web Anda.
+  Anda tidak perlu login ke Netware dan Anda tidak perlu menjalankan
+  TCPMAN (jika menggunakan Trumpet Winsock).
+
+
+  4.3.2.  Windows 95
+
+  Bagian ini menjelaskan cara setup client 32-bit untuk Win95. Pertama-
+  tama Anda harus memasang yang berikut
+
+
+
+
+
+     Client for Netware Networks (dari Microsoft or Novell)
+     Microsoft TCP/IP Protocol
+     Network Adapter
+
+
+
+
+  Untuk memasangnya, klik di My Computer, Control Panel, Networks. Klik
+  Add.  Sekarang Anda ada di window yang menampilkan Client, Adapter,
+  Protocol dan Service.  Untuk memasang Client for Netware Networks:
+
+
+         1. DoubleClick Client
+         2. Klik Microsoft atau Novell
+         3. DoubleClick Client for Netware Networks
+
+
+
+
+  Untuk memasang protokol TCP/IP:
+
+
+         1. DoubleClick Protocol
+         2. Klik Microsoft
+         3. DoubleClick TCP/IP
+
+
+
+
+  Windows 95 secara default memasang beberapa protokol lain secara
+  otomatis.  Hilangkan protokol-protokol tersebut dengan klik kemudian
+  tekan tombol Remove. Biasanya Win95 memasang protokol Microsoft
+  NetBEUI, dan protokol yang kompatibel dengan IPX/SPX. Anda dapat
+  menghapus protokol NetBEUI, tapi Anda akan membutuhkan protokol
+  IPX/SPX jika Anda ingin login ke server Netware.
+
+  Untuk setup TCP/IP klik TCP/IP, klik Properties, klik di tab IP
+  address
+
+
+         Masukkan alamat IP 172.17.0.5 di kotak "Specify an IP address "
+         Di kotak Subnet Mask masukkan 255.255.255.0
+
+
+
+
+  pilih tab Gateway
+
+
+         Masukkan alamat gateway (router) Anda 172.17.0.254 di kotak New gateway
+         Klik tombol Add
+
+
+
+
+  Alamat gateway seharusnya sekarang muncul di bawah kotak gateway yang
+  terpasang (installed gateways). Klik OK.
+
+  Anda akan mendapat pesan untuk boot ulang, lakukanlah. Setelah itu
+  semestinya Anda bisa menggunakan WWW browser untuk membuat koneksi ke
+  server HTTP Anda.
+
+
+
+
+
+  4.4.  Setup client Microsoft
+
+  Jika Anda menggunakan Microsoft Client untuk mengakses jaringan Anda,
+  maka bab ini menjelaskan secara mendetil cara memasang  TCP/IP untuk
+
+  o  ``Windows for Workgroups (WFWG)''
+
+  o  ``Windows 95''
+
+  o  ``Windows NT 4.0''
+
+     Catatan: Untuk memperbolehkan Anda mencagu server Linux sebagai
+     http://linux.mydomain/ daripada http://172.16.0.1/ di WWW browser
+     dan semua perintah intranet, Anda harus menyunting berkas hosts.
+     Anda bisa menambahkan masukan-masukan untuk masing-masing host Anda
+     yang lain (Netware, Unix, WinNT) juga. Keluarga Windows menyimpan
+     berkas HOSTS di \WINDOWS atau di \WINDOWS\SYSTEM tergantung dari
+     versinya. Suntinglah berkas ini dan tambahkan baris untuk server
+     Linux sebagai berikut:
+
+
+          127.0.0.1      localhost
+          172.16.0.1     linux.domain_gue
+
+          172.16.0.2     netware.domain_gue
+          172.16.0.3     winNT.domain_gue
+          172.16.0.5     ws_1
+
+
+
+
+
+  4.4.1.  Windows for Workgroups
+
+  Bab ini menjelaskan cara memasang client 32-bit di WFWG. Pertama-tama
+  Anda harus men-download driver-driver TCP/IP untuk Windows dari
+  Microsoft. Versi terakhir adalah 3.11b dan bisa didapat dari
+  ftp://ftp.microsoft.com atau situs lain sebagai tcp32b.exe. Perhatikan
+  bahwa Anda harus memuat (load) Win32s sebelum memuat driver
+  TCP/IP-32bit.
+
+  Setelah memindahkan (melalui proses expand/uncompress) berkas-berkas
+  TCP/IP ke suatu direktori sementara, katakanlah C:\TEMP), carilah
+  berkas-berkas salinan/copy dari OEMSETUP.INF di direktori
+  \WINDOWS\SYSTEM. Jika ada, ubahlah namanya. Sekarang copy OEMSETUP.INF
+  file dari direktori sementara TEMP ke \WINDOWS\SYSTEM. Jika Anda telah
+  memuat TCP/IP stacks lain-lain di sistem Anda, hilangkanlah dari
+  memori sebelum melanjutkan.
+
+  Jalankan Network Setup atau Windows Setup/Change Network settings
+
+
+           Klik tombol Networks
+           Klik Install Microsoft Windows Network.
+             Pilih support for additional networks (dukungan untuk jaringan tambahan),
+             jika diperlukan
+           Klik OK
+
+
+
+
+  Anda akan ditanyai jenis network adapter - pilih yang sesuai.  Jika
+  tidak ditanyai maka
+
+
+
+       Klik tombol Adapter
+           pilih adapter (katakanlah NE2000)
+           Klik OK
+       Klik tombol Protocol
+           pilih MS TCP/IP-32 protocol
+           Klik OK
+
+
+
+
+  Anda akan diminta untuk mengkonfigurasi TCP/IP protocol stack. Anda
+  dapat mengkonfigurasi ulang kapan pun dengan menyorot TCP/IP protocol
+  yang ditunjukkan di kotak Adapters dan klik di tombol Setup.
+
+
+          Di kotak IP adress masukkan 172.17.0.5
+          Di kotak Subnet Mask masukkan 255.255.255.0
+          Di kotak default gateway masukkan alamat gateway (router) 172.17.0.254
+
+
+
+
+  Klik OK. Anda akan diminta untuk boot ulang, lakukanlah. Seharusnya
+  Anda sudah bisa membuat koneksi ke HTTP server dengan menggunakan WWW
+  browser.
+
+
+  4.4.2.  Windows 95
+
+  Bab ini menjelaskan cara memasang client 32-bit dari Microsoft di
+  Win95.  Pertama-tama Anda harus memasang yang berikut ini
+
+
+          Client for Microsoft Networks
+          Microsoft TCP/IP Protocol
+          Network Adapter
+
+
+
+
+  Untuk memasang yang disebut di atas, klik My Computer, Control Panel,
+  Networks. Klik Add. Kemudian akan muncul window yang menampilkan
+  Client, Adapter, Protocol and Service.  Untuk memasang Client for
+  Microsoft Networks:
+
+
+         1. DoubleClick Client
+         2. Klik Microsoft
+         3. DoubleClick Client for Microsoft Networks
+
+
+
+
+  Untuk memasang Protokol TCP/IP:
+
+
+         1. DoubleClick Protocol
+         2. Klik Microsoft
+         3. DoubleClick TCP/IP
+
+
+
+
+  Windows 95 secara default memasang beberapa protokol lain secara
+  otomatis.  Hilangkan protokol-protokol tersebut dengan klik kemudian
+  tekan tombol Remove. Biasanya Win95 memasang protokol Microsoft
+  NetBEUI.
+
+  Untuk memasang TCP/IP klik di TCP/IP, klik Properties, kemudian klik
+  tab IP address
+
+
+         Masukkan alamat IP Anda 172.17.0.5 di kotak "Specify an IP address "
+         Masukkan 255.255.255.0 di kotak Subnet Mask
+
+
+
+
+  pindah ke tab Gateway
+
+
+         Masukkan alamat gateway (router) 172.17.0.254 di kotak New gateway
+         Klik tombol Add
+
+
+
+
+  Alamat gateway seharusnya sekarang muncul di bawah kotak gateway yang
+  terpasang (installed gateways). Klik OK.
+
+  Anda akan mendapat pesan untuk boot ulang, lakukanlah. Setelah itu
+  semestinya Anda bisa menggunakan WWW browser untuk membuat koneksi ke
+  server HTTP Anda.
+
+
+  4.4.3.  Windows NT
+
+  Bab ini menjelaskan cara memasang client TCP/IP untuk WinNT 4.0.
+  Masuklah ke Control Panel/ Network
+
+
+           Pilih tab Adapter.
+               Klik Add untuk menambahkan adapter baru (kalau belum tercantum)
+
+
+
+
+  Anda akan diminta memilih network adapter - pilih satu yang sesuai.
+  Untuk menambahkan protokol
+
+
+           pilih tab Protocols
+               Klik Add
+               Pilih protokol TCP/IP
+               Klik OK
+
+
+
+
+  Anda akan diminta untuk mengkonfigurasi TCP/IP protocol stack. Anda
+  dapat mengkonfigurasi ulang kapan pun dengan menyorot TCP/IP protocol
+  yang ditunjukkan di kotak Adapters dan klik di tombol Properties.
+
+
+          pilih tab IP Address
+             Tandailah checkbox 'Specify an IP address'
+             Di kotak IP address masukkan 172.17.0.5
+             Di kotak Subnet Mask masukkan 255.255.255.0
+             Masukkan alamat gateway (router) 172.17.0.254 di kotak Default Gateway
+
+
+
+  Klik OK. Anda akan diminta untuk boot ulang. Setelah itu Anda sudah
+  bisa menggunakan Browser untuk membuat koneksi ke server HTTP.
+
+
+  4.5.  Setup TCP/IP di Macintosh
+
+  Jika Anda menggunakan Macintosh untuk mengakses jaringan, maka bab ini
+  menjelaskan secara detil cara memasang MacTCP untuk PowerMac.
+
+  Catatan: Supaya Anda tetap bisa mengacu ke server Linux sebagai
+  http://linux.mydomain/ daripada http://172.16.0.1/ lewat WWW browser
+  dan semua perintah intranet Anda perlu menyunting berkas hosts. Format
+  dari berkas hosts ini lain dari yang digunakan di Unix. Berkas hosts
+  dari Mac adalah berdasarkan RFC-1035. Anda bisa juga menambahkan
+  beberapa masukan untuk masing-masing host Anda yang lain (Netware,
+  Unix, WinNT). MacOS menyimpan berkas HOSTS di Preferences folder di
+  dalam System folder. Suntinglah berkas ini dan tambahkan baris untuk
+  server Linux Anda sebagai berikut:
+
+
+         linux.domain_gue    A  172.16.0.1
+
+         netware.domain_gue  A  172.16.0.2
+         winNT.domain_gue    A  172.16.0.3
+         ws_1                A  172.16.0.5
+
+
+
+
+
+  4.5.1.  MacTCP
+
+  Bab ini menjelaskan cara memasang MacTCP. Pertama-tama Anda harus men-
+  download berkas-berkas MacTCP dari Apple atau memasangnya dari CD
+  Internet Connection.  Untuk melakukan konfigurasi MacTCP, klik Apple
+  Menu/ Control Panels/ TCP/IP.  Ubahlah setting untuk 'Connect via:' ke
+  'Ethernet'
+
+  Ubahlah setting 'Configure' ke 'Manually'
+
+
+         Di kotak IP address masukkan 172.17.0.5
+         Di kotak Subnet Mask masukkan 255.255.255.0
+         Masukkan alamat gateway (router) 172.17.0.254 di kotak Router address
+
+
+
+
+  Klik OK. Seharusnya Anda sekarang sudah bisa membuat koneksi ke server
+  HTTP dengan menggunakan Browser.
+
+
+
+  5.  Mendirikan Intranet
+
+  Sebuah Intranet tidaklah lengkap tanpa adanya penggunaan sumber daya
+  (resources) secara bersamaan melalui beberapa platform yang berbeda-
+  beda.  Anda perlu dukungan untuk filesystem-filesystem lain, sehingga
+  Anda dapat mengakses data-data di filesystem-filesystem lain tersebut.
+  Dokumen ini memberi petunjuk untuk menghubungkan Linux dan beberapa
+  filesystem yang populer di bawah ini.
+
+  o  ``NCP filesystem untuk Netware''
+
+  o  ``SMB filesystem untuk Windows''
+
+  o  ``NFS filesystem untuk Unix''
+
+  Filesystem-filesystem tersebut dapat di-compile ke dalam kernel Linux
+  atau ditambahkan sebagai module-module, tergantung dari versi Linux
+  Anda. Untuk keterangan lebih lanjut mengenai cara meng-compile kernel
+  Anda dapat membaca Kernel HOWTO di
+  http://sunsite.unc.edu/mdw/HOWTO/Kernel-HOWTO.html dan juga Module
+  HOWTO http://sunsite.unc.edu/mdw/HOWTO/Module-HOWTO.html untuk meng-
+  compile kernel dengan module.
+
+
+
+  5.1.  NCPFS
+
+  Untuk menggunakan secara bersamaan berkas-berkas di server Netware
+  Anda membutuhkan dukungan untuk NCP (ncpfs). NCPFS bisa dikenali
+  dengan baik oleh kernel versi 1.2.x dan 1.3.71 ke atas, tetapi tidak
+  dengan kernel versi 1.3.x awal. NCPFS tidak dapat mengakses NDS
+  database di Netware 4.x, tetapi dapat menggunakan bindery. Jika Anda
+  menggunakan Netware 4.x Anda dapat menggunakan dukungan untuk bindery
+  untuk container tertentu menggunakan perintah Set Bindery Context di
+  console sebagai berikut:
+
+
+
+         set Bindery Context = CORP.MYDOM;WEBUSER.MYDOM
+
+
+
+
+  Pada kedua contoh di atas digunakan dukungan bindery untuk dua con-
+  tainer.
+
+  Anda perlu men-download utilitas filesystem NCP di
+  ftp://sunsite.unc.edu/pub/Linux/system/filesystems/ncpfs/ncpfs.tgz
+  (yang terbaru ncpfs-2.0.10) dari Sunsite.
+
+
+  5.1.1.  Pemasangan
+
+  Untuk memasang utilitas untuk ncpfs ketikkan
+
+
+          zcat ncpfs.tgz | tar xvf -
+
+
+
+
+  untuk meng-uncompress berkas-berkas ke direktorinya masing-masing.
+  Dalam hal ini akan menghasilkan direktori ncpfs-2.0.10. Masuklah ke
+  direktori ncpfs ini. Bacalah berkas README dan suntinglah Makefile
+  bila perlu.
+
+  Pemasangan ncpfs bergantung pada versi kernel yang Anda gunakan. Untuk
+  kernel 1.2, Anda cukup mengetikkan 'make'. Kemudian dengan mengetikkan
+
+  Jika Anda menggunakan kernel 1.3.71 ke atas, kemungkinan Anda harus
+  meng-compile ulang kernel. Dengan versi-versi ini, bagian kernel dari
+  ncpfs sudah termasuk di dalam direktori (atau subdirektorinya) source.
+  Untuk mengetahui apakah kernel perlu di-compile ulang, ketikkan
+
+
+          cat /proc/filesystems
+
+
+
+  Seharusnya ada baris yang memberi tahu bahwa kernel mengenali ncpfs.
+
+  Jika tidak ada ncpfs, Anda bisa meng-compile ulang kernel atau
+  menambahkan ncpfs sebagai module. Jika meng-compile ulang kernel Anda
+  seharusnya mengetikkan 'make config' dan ketika ditanya tentang
+
+  The IPX protocol (CONFIG_IPX) [N/y/?]
+
+  jawab 'y'. Mungkin Anda belum membutuhkan jaringan internal secara
+  penuh setelah ini. Sesudah kernel terpasang dengan baik, lakukan
+  reboot, periksalah /proc/filesystems dan jika semua OK lanjutkan
+  dengan pemasangan utilitas ncpfs. Pindahlah ke direktori ncpfs yang
+  tadi Anda buat (melalui expand/uncompress), dan ketikkan 'make'.
+  Setelah proses compile selesai ketikkan 'make install' untuk memasang
+  utilitas dan manual (man).
+
+
+  5.1.2.  Menggunakan NCPFS (mounting)
+
+  Untuk memeriksa pemasangan ketikkan
+
+
+          ipx_configure --auto_interface=on --auto_primary=on
+
+       ....tunggu 10 detik kemudian ketikkan
+
+          slist
+
+
+
+
+  Seharusnya Anda sudah bisa melihat daftar dari server-server Netware
+  Anda.  Sekarang kita sudah bisa menggunakan berkas-berkas dari server
+  Netware.
+
+  Misalkan kita perlu mengakses berkas-berkas HTML dari direktori
+  \home\htmldocs di volum VOL1: di server MYDOM_NW, penulis menyarankan
+  agar Anda membuat pengguna (user) baru di server ini, katakanlah
+  'EXPORT' dengan password 'EXP123' yang Anda beri hak akses yang sesuai
+  ke direktori tersebut dengan menggunakan SYSCON atau NWADMIN.
+
+  Di mesin Linux buatlah sebuah direktori baru /mnt/MYDOM_NW.  Sekarang
+  ketikkan perintah
+
+
+          ncpmount -S MYDOM_NW -U EXPORT -P EXP123 /mnt/MYDOM_NW
+
+
+
+
+  untuk dapat menggunakan filesystem netware (mount). Dengan mengetikkan
+
+
+          ls /mnt/MYDOM_NW/vol1/home/htmldocs
+
+
+
+
+  akan ditunjukkan daftar semua berkas di MYDOM_NW/VOL1:\HOME\HTMLDOCS
+  (menggunakan notasi berkas Netware). Jika Anda menemui masalah silakan
+  baca IPX HOWTO di http://sunsite.unc.edu/mdw/HOWTO/IPX-HOWTO.html
+  untuk informasi lebih lanjut mengenai sistem IPX.
+
+
+
+
+  5.2.  SMBFS
+
+  Untuk dapat menggunakan secara bersamaan berkas-berkas di server
+  Windows Anda membutuhkan dukungan SMB (smbfs).
+
+  Anda perlu men-download utilitas filesystem SMB di
+  ftp://sunsite.unc.edu/pub/Linux/system/filesystems/smbfs/smbfs.tgz
+  (yang terbaru smbfs-2.0.1) dari Sunsite.
+
+
+  5.2.1.  Pemasangan
+
+  Untuk memasang utilitas smbfs, ketikkan
+
+
+          zcat smbfs.tgz | tar xvf -
+
+
+
+
+  untuk meng-uncompress berkas-berkasnya ke masing-masing direktorinya.
+  Anda akan mendapatkan direktori smbfs-2.0.1 dalam hal ini.  Pindahlah
+  ke direktori ini. Bacalah berkas README dan suntinglah Makefile bila
+  perlu.
+
+  Pemasangan smbfs bergantung pada versi kernel yang Anda gunakan. Untuk
+  kernel 1.2, Anda cukup mengetikkan 'make'. Kemudian mengetikkan
+
+  Jika Anda menggunakan kernel 2.0 ke atas, kemungkinan Anda harus meng-
+  compile ulang kernel. Dalam versi-versi tersebut, bagian kernel dari
+  smbfs sudah termasuk di dalam direktori (atau subdirektorinya) source.
+  Untuk mengetahui apakah kernel perlu di-compile ulang ketikkan
+
+
+          cat /proc/filesystems
+
+
+
+
+  Seharusnya ada baris yang memberi tahu bahwa kernel mengenali smbfs.
+
+  Jika tidak ada smbfs, Anda dapat meng-compile ulang kernel atau
+  menambahkan smbfs sebagai module. Jika meng-compile ulang, Anda
+  seharusnya mengetikkan SMB jawab ya. Sesudah kernel terpasang dengan
+  baik, lakukan reboot, periksalah /proc/filesystems dan jika semua OK
+  lanjutkan dengan pemasangan utilitas smbfs. Pindahlah ke direktori
+  smbfs yang tadi Anda buat (melalui expand/uncompress), dan ketikkan
+  'make'. Setelah proses compile selesai ketikkan 'make install' untuk
+  memasang berbagai utilitas dan manualnya (man).
+
+
+  5.2.2.  Menggunakan SMBFS (mount)
+
+  Pada contoh berikut dimisalkan bahwa server WinNT diberi nama
+  'MYDOM_NT' dan menggunakan direktori C:\PUB\HTMLDOCS secara bersamaan
+  dengan nama share 'HTMLDOCS' tanpa password. Di mesin Linux buatlah
+  sebuah direktori baru /mnt/MYDOM_NT. Sekarang ketikkan perintah
+
+
+          smbmount //MYDOM_NT/HTMLDOCS /mnt/MYDOM_NT -n
+
+
+
+
+  untuk melakukan mount filesystem SMB (windows share). Jika yang di
+  atas tidak bisa, cobalah
+          smbmount //MYDOM_NT/COMMON /mnt/MYDOM_NT -n -I 172.16.0.3
+
+
+
+
+  Mengetikkan perintah
+
+
+          ls /mnt/MYDOM_NT
+
+
+
+
+  akan menunjukkan daftar semua berkas di bsol;bsol;MYDOM_NT\PUB\HTML-
+  DOCS (menggunakan notasi berkas Windows).
+
+
+
+  5.3.  NFS
+
+  Pertama-tama Anda membutuhkan kernel dengan filesystem NFS yang ter-
+  compile atau sebagai module.
+
+  Misalkan Anda memiliki sebuah host Unix yang menggunakan NFS dengan
+  nama MYDOM_UNIX dan alamat IP 172.16.0.4. Anda bisa mengetahui
+  direktori-direktori mana yang diekspor (shared/digunakan bersamaan)
+  oleh host ini dengan perintah
+
+
+
+          showmount -e 172.16.0.4
+
+
+
+
+  Sesudah mengetahui direktori yang diekspor, Anda dapat melakukan mount
+  terhadapnya dengan cara memberikan perintah mount yang sesuai. Penulis
+  menyarankan untuk membuat sebuah subdirektori di bawah '/mnt' katakan-
+  lah
+
+
+
+          mount -o rsize=1024,wsize=1024 172.16.0.4:/pub/htmldocs /mnt/MYDOM_UNIX
+
+
+
+
+  Argumen rsize dan wsize mungkin harus diubah sesuai dengan lingkungan
+  Anda.
+
+  Jika Anda menemui masalah silakan baca NFS HOWTO di
+  http://sunsite.unc.edu/mdw/HOWTO/NFS-HOWTO.html untuk informasi lebih
+  lanjut mengenai sistem NFS.
+
+
+
+  6.  Mengakses Web
+
+  Sekarang setelah server HTTP, client-client dan server Linux yang
+  terhubung dengan server-server lain terpasang, kita perlu membuat
+  sedikit perubahan di server Linux supaya dapat mengakses filesystem-
+  filesystem yang sudah di-mount, melalui Web Browser.
+
+
+
+
+  6.1.  Mengakses filesystem-filesystem yang sudah di-mount
+
+  Untuk mengakses direktori yang sudah di-mount dalam halaman HTML, bisa
+  digunakan dua cara:
+
+  o  Buat sebuah link di DocumentRoot (/usr/local/etc/httpd/htdocs)
+     untuk mengacu ke direktori yang sudah di-mount sebagai berikut
+
+
+          ln -s /mnt/MYDOM_NW/vol1/home/htmldocs netware
+                            atau
+
+          ln -s /mnt/MYDOM_NT    winNT
+                            atau
+
+          ln -s /mnt/MYDOM_UNIX    unix
+
+
+
+
+  o  Sunting berkas srm.conf dalam direktori /usr/local/etc/httpd/conf
+     dan tambahkan sebuah alias baru.
+
+
+
+         # Alias nama_palsu nama_asli
+         Alias /icons/     /usr/local/etc/httpd/icons/
+
+         # alias untuk server netware
+         Alias /netware/   /mnt/MYDOM_NW/vol1/home/htmldocs/
+         Alias /winNT/     /mnt/MYDOM_NT/
+         Alias /unix/      /mnt/MYDOM_UNIX
+
+
+
+
+  Dan jalankan kembali HTTPd. Anda dapat mengakses dokumen-dokumen di
+  server netware dengan cara mengacunya sebagai http://linux.mydo-
+  main/netware/index.htm untuk berkas-berkas netware dan juga untuk yang
+  lain dengan notasi yang serupa.
+
+
+  6.2.  Menghubungkan dengan Internet
+
+  Akhirnya Anda dapat menghubungkan Intranet Anda dengan Internet untuk
+  mengakses E-Mail dan semua informasi yang terdapat di dalamnya.
+  Penulis berencana untuk memberikan pembahasan singkat mengenai hal ini
+  di revisi mendatang. Penjelasan mendetil dapat dibaca di ISP Hookup
+  HOWTO dari http://sunsite.unc.edu/mdw/HOWTO/ISP-Hookup-HOWTO.html dan
+  Diald mini-HOWTO di http://sunsite.unc.edu/mdw/HOWTO/mini/Diald untuk
+  membuat koneksi semacam ini.
+
+
+  6.3.  Kegunaan lain
+
+  Server HTTP bisa digunakan di kantor untuk memberikan akses transparan
+  ke informasi yang berada di server-server lain, di beberapa lokasi dan
+  direktori.  Data bisa berupa dokumen sederhana seperti Word,
+  spreadsheet Lotus, ataupun database yang kompleks.
+
+  Penerapan teknologi ini umumnya dengan cara berikut:
+
+
+  o  Menerbitkan dokumen perusahaan
+
+     Dapat berupa warta-berita, laporan tahunan, peta, fasilitas
+     perusahaan, daftar harga, literatur informasi produk, dan dokumen
+     lain yang dianggap penting dalam suatu perusahaan.
+
+  o  Akses ke direktori, di mana bisa dilakukan pencarian (search)
+
+     Akses yang cepat ke buku telepon perusahaan dan sejenisnya. Data
+     ini bisa dibuat salinannya (mirror) di sebuah situs Web atau,
+     melalui skrip-skrip CGI, Web server bisa bertindak sebagai jembatan
+     (gateway) antara aplikasi-aplikasi yang sudah ada ataupun yang
+     baru. Hal ini berarti bahwa, dengan menggunakan mekanisme akses
+     yang standar, informasi dapat dibuat lebih terjangkau lebih luas
+     dan dalam cara yang lebih sederhana.  Hal ini berarti pula bahwa
+     server bisa digunakan untuk membuat semacam tampilan (interface)
+     dari RDBMS seperti ORACLE dan SYBASE untuk memberikan informasi
+     secara langsung (real-time). Berikut ini daftar link ke situs-situs
+     seperti demikian:
+
+     - Web Access -
+     http://cscsun1.larc.nasa.gov/~beowulf/db/web_access.html - CGI
+     gateways - HTTP://www.w3.org/hypertext/WWW/RDBGate/Overview.html
+
+
+  o  Halaman-halaman perusahaan/departemen/individu
+
+     Dengan adanya perubahan budaya di dalam organisasi ke suatu titik
+     hingga bahkan setiap departemen memiliki pernyataan misi individu
+     sendiri, teknologi Intranet merupakan medium yang ideal untuk
+     komunikasi dan berbagi informasi antar departmen atau individu.
+     Adanya mesin-mesin pencari (search engines) adalah cara untuk
+     seseorang menemukan suatu grup atau individu yang bisa menjawab
+     pertanyaan-pertanyaan yang sering muncul dalam kehidupan berbisnis
+     sehari-hari.
+
+  o  Aplikasi-aplikasi berbasis grup yang sederhana
+
+     Dengan adanya dukungan untuk formulir HTML (forms), situs bisa
+     menyediakan lembaran-lembaran pendaftaran, survei-survei dan
+     penjadwalan sederhana.
+
+  o  Distribusi perangkat lunak (software)
+
+     Administrator dapat menggunakan Intranet untuk menyediakan
+     perangkat lunak dan update berdasarkan permintaan (on-demand)
+     kepada pengguna-pengguna di seluruh jaringan perusahaan. Hal ini
+     bisa dicapai dengan menggunakan 'Java' yang memungkinkan pembuatan
+     objek-objek dan distribusinya secara transparan berdasarkan
+     permintaan (on-demand), daripada sekedar data atau aplikasi.  Hal
+     ini menjadi lebih mudah dengan adanya versi-versi terbaru Linux
+     yang memiliki dukungan Java secara bawaan.
+
+  o  Surat elektronik (email)
+
+     Dengan semakin banyaknya penggunaan produk intranet email dengan
+     metode-metode standar dan sederhana untuk lampiran (attachments),
+     suara, video dan multimedia, email sudah menjadi 'de facto' dari
+     metode komunikasi. Pada dasarnya email adalah komnukasi antar
+     individu, atau antara individu dan grup kecil. Beberapa utilitas
+     tersedia di platform Linux untuk menggunakan sistem email, misalnya
+     sendmail, pop3d, imapd.
+
+
+  o  Tampilan (User Interface)
+
+     Teknologi Intranet berkembang dengan pesatnya sehingga alat-alat
+     yang tersedia, khususnya HTML, bisa digunakan untuk mengubah
+     tampilan supaya menjadi lebih menarik. Dengan HTML Anda bisa
+     membuat tampilan yang hanya dibatasi oleh imajinasi pembuatnya.
+     Bagian yang menarik dari teknologi intranet adalah bahwa intranet
+     itu sangat sederhana. Mengikuti sebuah hyperlink dari HTML bisa
+     membawa Anda ke halaman lain, bisa membunyikan sebuah alarm,
+     menjalankan prosedur akhir tahun atau apapun yang bisa dilakukan
+     oleh program komputer.
+
+
+  7.  Hal-hal lain yang bisa dikerjakan
+
+  Berikut ini adalah daftar dari hal-hal yang menarik yang bisa Anda
+  lakukan dengan server intranet Linux Anda. Semua pernagkat lunak yang
+  disebut di bawah ini adalah gratis (freeware) atau shareware.
+
+  o  Anda bisa melihat-lihat (browse) server Linux server dengan
+     menggunakan Network Neighborhood di Win95/ NT; dirikanlah sebuah
+     server NBT semacam WINS.  Silakan lihat SAMBA Webpage di
+     http://lake.canberra.edu.au/pub/samba/samba.html
+
+  o  Implementasikan sebuah search engine dalam Intranet Anda. Silakan
+     lihat ht://Dig di http://htdig.sdsu.edu/
+
+  o  Gunakan CUSeeMe dengan mendirikan reflektor lokal. Silakan lihat
+     informasi lebih lanjut di Cornell http://cu-seeme.cornell.edu/
+
+  o  Pasanglah 'Web Conferencing'. Gunakan COW dari
+     http://thecity.sfsu.edu/COW/
+
+  o  Pasanglah SQL database. Silakan lihat mSQL Homepage di
+     http://Hughes.com.au/
+
+  o  Pasanglah server-server FTP, Gopher, Finger, Bootp di server
+     Netware. Dapatkan di http://mft.ucs.ed.ac.uk/
+
+  o  Emulasikan sebuah server Netware. Silakan lihat NCP Utilities di
+     ftp://sunsite.unc.edu/pub/Linux/system/filesystems/ncpfs/
+
+     Jika Anda menemukan hal-hal menarik lain yang bisa dilakukan dengan
+     server intranet Linux Anda, silakan berkirim email kepada penulis.
+
+
+  8.  Ucapan terima kasih dan hal-hal yang diatur secara hukum
+
+
+
+  8.1.  Terima kasih
+
+  Terima kasih kepada rekan-rekan di NCSA karena telah menyediakan
+  dokumentasi yang sangat baik, kepada David Anderson dan rekan-rekan
+  lain yang telah mencoba HOWTO ini dan memberikan komentar. Penjelasan
+  detil masalah Netware/IP adalah dari Romel Flores
+  (rom@mnl.sequel.net).
+
+
+
+  8.2.  Hak cipta
+
+  Hak cipta dokumen ini (C) 1996,1997 oleh Pramod Karnad. Dokumen ini
+  didistribusikan dengan syarat-syarat berikut:
+
+
+  o  Dokumen-dokumen Linux HOWTO boleh diproduksi ulang dan
+     didistribusikan secara keseluruhan ataupun sebagian, di medium
+     apapun, fisik atau elektronik, selama dicantumkan informasi hak
+     cipta ini di semua salinan. Distribusi secara komersial
+     diperbolehkan dan dianjurkan; namun demikian, diminta
+     menginformasikan penulis.
+
+  o  Semua terjemahan, pekerjaan turunan atau kumpulan yang mengandung
+     dokumen-dokumen Linux HOWTO harus di bawah informasi hak cipta ini.
+     Yaitu, jika Anda membuat sebuah turunan/bentuk lain dari HOWTO,
+     Anda dilarang menerapkan larangan-larangan tambahan untuk
+     distribusinya.  Pengecualian dipertimbangkan dalam kondisi-kondisi
+     tertentu; silakan menghubungi koordinator Linux HOWTO di alamat
+     berikut.
+
+  o  Jika Anda mempunyai pertanyaan, silakan menghubungi Greg Hankins,
+     koordinator Linux HOWTO, di gregh@sunsite.unc.edu.  Gunakan
+     'finger' untuk mendapatkan nomor telepon dan alamat darat.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

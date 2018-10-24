@@ -1,0 +1,1518 @@
+  The Linux Installation HOWTO
+  by Eric S. Raymond diterjemahkan oleh Mohammad DAMT
+  v4.9, 22 October 1997 terjemahan tgl 22 Nopember 1997
+
+  Dokumen ini menjelaskan bagaimana memperoleh dan menginstall software
+  Linux.  Ini adalah dokumen yang sebaiknya dibaca oleh pendatang baru
+  di dunia Linux
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Pendahuluan
+
+     1.1 Tujuan dokumen ini
+     1.2 Sumber Informasi lain
+     1.3 Versi baru dokumen ini
+     1.4 Tanggapan dan Koreksi
+
+  2. Perubahan Terakhir
+
+  3. Sebelum dimulai
+
+     3.1 Persyaratan Hardware
+     3.2 Spasi yang dibutuhkan dan Keberadaan dengan Sistem Lain
+     3.3 Memilih distribusi Linux
+
+  4. Tinjauan Instalasi
+
+     4.1 Tahapan Instalasi Dasar
+     4.2 Komponen Dasar dari Kit Instalasi Linux
+
+  5. Detil Instalasi
+
+     5.1 Persiapan Instalasi
+     5.2 Membuat disket boot dan root
+     5.3 Mempartisi ulang drive DOS/Windows Anda
+     5.4 Membuat partisi Linux
+        5.4.1 Dasar-Dasar Partisi
+        5.4.2 Merubah ukuran partisi
+     5.5 Memboot disk instalasi
+     5.6 Menggunakan rootdisk
+        5.6.1 Memilih instalasi EGA atau X
+        5.6.2 Menggunakan program
+        5.6.3 Tahapan setelah pembuatan Partisi
+     5.7 Menginstall paket software
+     5.8 Setelah instalasi paket software
+        5.8.1 LILO, the LInux LOader
+        5.8.2 Membuat boot disk (pilihan)
+        5.8.3 Konfigurasi sistem yang lainnya
+
+  6. Memboot Sistem Baru
+
+  7. Setelah boot pertama kali
+
+     7.1 Memulai Administrasi Sistem
+     7.2 Konfigurasi LILO Sesuai dengan Keinginan
+
+  8. Administrivia
+
+     8.1 Aturan Penggunaan
+     8.2 Ucapan Terima Kasih
+
+
+  ______________________________________________________________________
+
+  1.  Pendahuluan
+
+
+
+  1.1.  Tujuan dokumen ini
+
+
+  Linux adalah implementasi UNIX yang disebarkan bebas untuk komputer
+  pribadi (dulu dikembangkan pada mesin 386, dan sekarang telah
+  mendukung 486, 586, Pentium, PowerPC, Sun Sparc dan DEC Alpha). Linux
+  mendukung banyak software, termasuk X Windows, Emacs, jaringan TCP/IP
+  (termasuk SLIP), dan banyak aplikasi lainnya.
+
+  Dokumen ini mengasumsikan bahwa Anda telah mendengar dan tahu tentang
+  Linux, dan ingin menginstallnya. Dokumen ini menitik beratkan pada
+  Linux untuk versi Intel sebagai mesin yang sering digunakan, tetapi
+  sebagian besar isi dokumen ini juga bisa diterapkan pada PowerPC,
+  Sparc dan Alpha.
+
+
+  1.2.  Sumber Informasi lain
+
+  Bila Anda adalah pendatang baru di dunia Linux, ada banyak sumber
+  informasi dasar tentang sistem ini. Tempat terbaik untuk menemukan
+  sumber-sumber ini adalah di Linux Documentation Project di
+  <http://sunsite.unc.edu/LDP/linux.html>. Di sini Anda dapat menemukan
+  dokumen ini dengan versi yang paling baru dengan alamat
+  <http://sunsite.unc.edu/LDP/HOWTO/installation-HOWTO.html>.
+
+  Anda dapat memulai membaca sumber informasi ini dengan mengunjungi
+  General Linux Information, yaitu the Linux INFO-SHEET dengan alamat
+  <http://sunsite.unc.edu/LDP/HOWTO/INFO-SHEET.html> dan Linux Meta-FAQ
+  <http://sunsite.unc.edu/LDP/HOWTO/META-FAQ>. Dokumen (sekaligus
+  jawabannya) yang umum dikemukakan oleh para pendatang baru di Linux,
+  karena itu Anda HARUS WAJIB KUDU membacanya.
+
+  Atau Anda dapat mencari solusi masalah Anda di newsgroup USENET dengan
+  alamat comp.os.linux.help dan comp.os.linux.announce.
+
+  The Linux Documentation Project adalah kegiatan menuliskan manual dan
+  buku tentang Linux, yang semuanya bebas disebarkan di internet dan
+  tersedia dari homepage LDP.
+
+  Buku ``Linux Installation and Getting Started'' adalah buku yang
+  isinya lengkap tentang cara memperoleh dan menginstall Linux, dan juga
+  berisi bagaimana menggunakan Linux pada saat selesai menginstall
+  pertama kali. Buku ini berisi tutorial lengkap dalam menggunakan
+  sistem Linux, dan jauh lebih lengkap dari apa yang disajikan di sini.
+  Anda dapat membrowsenya, mendownload atau mengcopy dari homepage LDP.
+
+
+  1.3.  Versi baru dokumen ini
+
+  Versi baru dari The Linux Installation HOWTO akan secara berkala
+  dipost ke comp.os.linux.help dan  dan news.answers <news:answers>.
+  Dokumen ini juga akan diupload ke berbagai site WWW dan FTP Linux
+  termasuk ke homepage LDP.
+
+  Anda juga dapat membaca versi baru dari dokumen ini di World Wide Web
+  lewat URL  <http://sunsite.unc.edu/LDP/HOWTO/Installation-HOWTO.html>.
+
+  (Catatan Penerjemah: Versi baru dokumen ini dalam Bahasa Indonesia
+  bisa didapat di URL  <http://www.linux.or.id>.)
+
+
+
+  1.4.  Tanggapan dan Koreksi
+
+  Bila Anda mempunyai pertanyaan atau komentar tentang dokumen ini,
+  silakan mengirim mail ke Eric S. Raymond di esr@thyrsus.com. Penulis
+  sangat mengharapkan saran dan kritik. Bila Anda menemukan kesalahan
+  dalam dokumen ini silahkan menghubungi penulis agar dapat diperbaiki
+  pada versi berikutnya. Terima kasih.
+
+  (penterjemah: Untuk tanggapan dan pertanyaan tentang terjemahan
+  dokumen ini silahkan mail ke Mohammad DAMT di mdamt@nusanet.com.
+  Demikian juga bila ada kesalahan dalam dokumen terjemahan ini,
+  silahkan hubungi saya)
+
+  Mohon untuk tidak mengirim mail berisi pertanyaan tentang bagaimana
+  mengatasi masalah hardware pada saat instalasi. Silahkan baca ``Linux
+  Installation and Getting Started'', hubungi vendor Anda, atau hubungi
+  newsgroup Linux comp.os.linux.setup. HOWTO ini dikhususkan untuk
+  instalasi yang cepat dan mudah.  -- HOWTO lain sedang disiapkan untuk
+  masalah hardware dan diagnosa persiapan instalasi.
+
+
+
+  2.  Perubahan Terakhir
+
+
+  o  Cheklist untuk pre-instalasi telah ditambahkan.
+
+  o  Telah ditambahkan catatan tentang masalah LILO dan BIOS pada bagian
+     pembuatan partisi.
+
+  o  Telah ditambahkan berbagai referensi silang ke HOWTOs dan Mini-
+     HOWTOs lainnya.
+
+
+  3.  Sebelum dimulai
+
+  Sebelum Anda memulai instalasi Linux, Anda harus yakin terlebih dahulu
+  apakah mesin Anda mampu menjalankan Linux atau tidak.
+
+
+  3.1.  Persyaratan Hardware
+
+  Hardware yang dibutuhkan oleh Linux dapat berubah secara berkala.
+  HOWTO The Linux Hardware-HOWTO,
+  <http://sunsite.unc.edu/LDP/HOWTO/Hardware-HOWTO.html>, memberikan
+  daftar lengkap dari hardware yang didukung oleh Linux. Linux INFO-
+  SHEET, <http://sunsite.unc.edu/LDP/HOWTO-INFO-SHEET.html>, memberikan
+  daftar yang lain.
+
+  Untuk versi Intel, konfigurasi hardware yang didukung kira-kira
+  sebagai berikut:
+
+  Mesin ISA,EISA, VESA Local Bus atau PCI 80386, 80486, Pentium atau
+  P-6.  Arsitektur MCA (pada PS/2) didukung pada versi baru Linux (mulai
+  2.1.x), tetapi belum cukup bagus. Semua CPU mulai dari 386SX hingga ke
+  P-6 akan bekerja dengan baik. Mikroprosesor tidak diperlukan walaupun
+  lebih baik kalau ada.
+
+  Dibutuhkan setidaknya 4 megabyte memori. Secara teknis, Linux akan
+  berjalan dengan normal pada memori sebanyak 2 MB saja, tapi biasanya
+  instalasi dan software yang ada membutuhkan paling sedikit 4 MB.
+  Semakin banyak memori yang tersedia semakin bagus. Disarankan untuk
+  menggunakan 8 atau 16 MB bila ingin memasang X-Windows.
+
+  Juga Anda perlu menyediakan hard disk dan kontroler AT-standard. Semua
+  tipe MFM, RLL, dan IDE beserta kontrolernya dapat digunakan. Biasanya
+  tipe SCSI juga didukung; baca Linux SCSI-HOWTO yang berisi informasi
+  tentang SCSI. Bila Anda merakit sendiri sistem Anda, kalau bisa
+  gunakan SCSI karena kinerja dan kehandalannya.
+
+  Floppy disk 3.5" juga dibutuhkan.  Walaupun disket 5.25" juga bisa
+  dipakai, tetapi jenis ini jarang dipakai dan jangan harap beberapa
+  format image bisa muat di floppy jenis ini.  (Linux 'versi hemat'
+  sebenarnya bisa jalan pada satu buah floppy saja, tapi biasanya
+  digunakan pada instalasi dan troubleshooting saja)
+
+  Juga dibutuhkan sebuah video card MDA, Hercules, CGA, EGA, VGA atau
+  Super VGA serta monitornya. Biasanya, bila video card dan monitor Anda
+  bisa dipakai di MS-DOS, maka bisa juga dipakai di Linux. Tetapi bila
+  Anda ingin menjalankan X Windows, ada beberapa batasan dalam dukungan
+  hardware video. The Linux XFree86-HOWTO yang ada di
+  <http://sunsite.unc.edu/LDP/HOWTO/XFree86-HOWTO.html> berisi
+  penjelasan lebih lanjut tentang bagaimana menjalankan X dan apa saja
+  yang diperlukan untuk keperluan itu.
+
+  Anda juga butuh sebuah CD-ROM drive. Jika tipenya ATAPI, SCASI, atau
+  IDE seharusnya tidak ada masalah (namun hati-hati bila Anda membeli
+  drive yang bertuliskan "IDE", padahal sebenarnya tidak murni IDE).
+  Jika CD-ROM anda menggunakan sebuah card lagi, maka ada kemungkinan
+  bahwa kernel yang Anda pakai untuk boot dari floppy tidak akan
+  mengenali drive itu. Juga CD-ROM yang dipasang pada port pararel tidak
+  akan bisa dipakai.  Bila Anda ragu-ragu tentang CD-ROM yang Anda
+  miliki, silahkan baca The Linux CD-ROM HOWTO di
+  <http://sunsite.unc.edu/LDP/HOWTO/CD-ROM-HOWTO.html> untuk melihat
+  daftar dan detil hardware yang bisa dipakai.
+
+  Selain itu, card-card yang bertipe "Plug'n'Play" juga bisa jadi
+  masalah.  Dukungan terhadap hardware jenis ini sedang dikembangkan,
+  tapi belum ada pada kernel 2.0.25. Untungnya, masalah pada card jenis
+  ini biasanya hanya dijumpai pada sound card atau Ethernet card.
+
+  Bila Anda menjalankan Linux ini pada box (komputer) yang menggunakan
+  prosesor Motorola 68K (misalnya Amiga, Atari, atau VMEbus), silahkan
+  baca FAQ Linux/m68k di
+  <http://www.clark.net/pub/lawrencc/linux/faq/faq.html> untuk informasi
+  tentang konfigurasi minimum yang harud dipenuhi pada tipe mesin ini.
+  Dari FAQ ini diperoleh informasi bahwa sekarang Linux sudah stabil dan
+  bisa digunakan selayak pada versi Intel.
+
+
+  3.2.  Spasi yang dibutuhkan dan Keberadaan dengan Sistem Lain
+
+  Jumlah spasi pada hard disk yang diperlukan bergantung dari berapa
+  banyak software yang ingin Anda install. Biasanya instalasi
+  membutuhkan sekitar 200MB sampai 500MB. Ini termasuk spasi untuk
+  software, swap (digunakan sebagai virtual RAM pada mesin Anda), dan
+  sisanya untuk user, dan sebagainya.
+
+  Minimal, Linux dapat dijalankan pada ruangan sebesar 80 MB atau kurang
+  (hal ini digunakan pada distribusi Linux yang berukuran kecil), dan
+  juga dapat digunakan lebih dari 500mB atau lebih untuk seluruh
+  software Linux Anda. Jumlah ini bervariasi yang bergantung pada
+  seberapa besar software yang Anda install dan berapa banyak spasi yang
+  Anda butuhkan. Hal ini akan dibahas lebih lanjut nanti.
+
+  Linux bisa diinstall pada sistem yang sama dengan sistem operasi lain,
+  seperti MS-DOS, Microsoft Windows, atau OS/2. (Bahkan Anda dapat
+  mengakses file-file MS-DOS Anda dan menjalankan beberapa aplikasi
+  tersebut dari Linux.) Dengan kata lain, bila Linux diinstall pada
+  suatu partisi, MS-DOS atau OS/2 juga ada pada partisi lain, maka Linux
+  akan berdiri sendiri. Kita akan segera membahas sistem yang disebut
+  "dual-boot" nanti.  Linux will co-exist with other operating systems,
+  such as MS-DOS,
+
+  Ada TIDAK perlu menjalankan MS-DOS, OS/2, atau sistem operasi lain
+  untuk menggunakan Linux. Linux secara total adalah sistem operasi yang
+  berbeda, mandiri dan tidak bergantung dengan sistem operasi lain untuk
+  instalasi dan penggunaannya.
+
+  Secara keseluruhan, setup minimal untuk Linux tidak lebih banyak dari
+  apa yang diminta setup MS-DOS atau Windows 3.1 (dan bahkan lebih
+  sedikit dari Windows 95!). Bila Anda memiliki sebuah 386 atau 486
+  dengan paling tidak 4 MB RAM, maka Anda akan dengan berbahagia  dalam
+  menjalankan Linux. Linux tidak membutuhkan banyak ruang pada disk,
+  memori, atau kecepatan prosesor. Matt Welsh, penulis pertama HOWTO
+  ini, dulu menggunakan Linux pada 386/16 MHz (itu adalah mesin yang
+  paling lambat yang dapat Anda miliki) dengan memori sebesar 4 MB dan
+  beliau merasa senang. Lebih banyak yang Anda ingin kerjakan dengan
+  Linux, maka lebih banyak memori (dan lebih cepat prosesor) yang Anda
+  juga butuhkan. Menurut pengalaman penulis dengan 486 dan RAM 16 MB
+  mengalahkan kinerja beberapa tipe workstation yang mahal harganya.
+
+
+  3.3.  Memilih distribusi Linux
+
+  Sebelum menginstall Linux, Anda harus memutuskan ``distribusi'' mana
+  yang akan dipilih. Tidak ada satu pun rilis Linux yang standar --
+  karena ada banyak rilis Linux yang tersedia. Setiap rilis mempunyai
+  dokumentasi dan instruksi instalasi sendiri-sendiri.
+
+  Distribusi Linux dapat diperoleh baik lewat FTP anonim atau melalui
+  pemesanan lewat surat berupa disket, tape, dan CD-ROM. Linux
+  Distribution HOWTO,  <http://sunsite.unc.edu/LDP/HOWTO/Distribution-
+  HOWTO.html>, berisi keterangan tentang distribusi Linux yang ada dan
+  tersedia lewat FTP dan pemesanan lewat surat.
+
+  Dulu sewaktu HOWTO ini pertama kali dituliskan (1992-1993), hampir
+  tiap orang memperoleh Linux dengan cara mendownload dari Internet atau
+  BBS ke mesin DOS, kemudian mentransfer file hasil download ke banyak
+  disket.  Kemudian salah satu disket ini digunakan untuk boot disk dan
+  menginstall disk yang lainnya. Akhirnya dengan keberuntungan di tangan
+  (tidak ada disk yang rusak misalnya) instalasi dapat dikerjakan dengan
+  tuntas setelah berjam-jam lamanya. Kadang-kadang berlaku sebaliknya.
+
+  Karena path ini masih ada (dan Anda juga dapat mendownloadnya dari
+  berbagai distribusi dari
+  <http://sunsite.unc.edu/pub/Linux/distributions/INDEX.html>), kini
+  masih ada jalan lain yang lebih mudah. Cara termudah adalah dengan
+  membeli salah satu distribusi komersil Linux yang dijual dalam bentuk
+  CD-ROM, seperti Red Hat, Craftworks, Linux Pro, atau WGS. Distribusi
+  ini biasanya dapat dibeli dengan harga kurang dari 50$ di toko-toko
+  buku atau komputer, dan akan menghemat waktu Anda.
+
+  (penerjemah: Untuk di Indonesia, Anda dapat memesannya ke Linux
+  Indonesia  <http://www.linux.or.id>)
+
+  Anda juga dapat membeli CD-ROM paket seperti InfoMagic Linux
+  Developer's Resource set. Distribusi semacam ini biasanya memuat
+  beberapa distribusi Linux dan berbagai koleksi archive dari berbagai
+  site, seperti sunsite atau tsx-11.
+
+  Pada akhir HOWTO ini, kita akan memfokuskan pembicaraan tentang
+  bagaimana menginstall dari CD-ROM paket, atau dari distribusi Linux
+  komersil lainnya yang tidak menyertakan manual instalasi dalam bentuk
+  cetakan. Jika pada Linux Anda juga menyertakan instalasi manualnya,
+  maka HOWTO ini dapat digunakan sebagai bahan bacaan tambahan, dan Anda
+  sebaiknya membaca manual tersebut sebagai bahan bacaan utama.
+
+  4.  Tinjauan Instalasi
+
+
+
+  4.1.  Tahapan Instalasi Dasar
+
+  Gambaran singkat instalasi Linux mudah sekali, yaitu:
+
+
+  1. Catat konfigurasi hardware Anda.
+
+  2. Buat disket instalasi.
+
+  3. Jika Anda ingin menggunakan sistem "dual-boot" (yaitu dapat
+     menjalankan DOS atau Windows dengan Linux), maka aturlah partisi
+     Anda untuk menyediakan tempat bagi Linux.
+
+  4. Boot disket mini-Linux untuk instalasi agar bisa memperoleh akses
+     dari CD-ROM.
+
+  5. Siapkan filesystem Linux. (Jika Anda tidak mengedit partisi pada
+     langkah selanjutnya, maka Anda harus melakukannya pada tahap ini.
+
+  6. Install komponen dasar Linux dari CD-ROM.
+
+  7. Boot Linux dari hard disk.
+
+  8. (Pilihan) Install lagi paket-paket Linux lain dari CD-ROM.
+
+
+  4.2.  Komponen Dasar dari Kit Instalasi Linux
+
+  Berikut adalah komponen dasar yang tersedia:
+
+
+  1. File-file README dan FAQ. File ini biasanya ada di top-level
+     direktori pada CD-ROM dan dapat dibaca setelah hard disk dimount
+     pada Linux. (Bergantung dari format CD-ROM, biasanya file ini juga
+     dapat dibaca dari DOS/Windows.) Sebaiknya Anda membaca file ini
+     sesegera mungkin, agar dapat mengetahui update atau perubahan apa
+     saja yang telah dilakukan.
+
+  2. Sejumlah bootdisk (biasanya pada subdirektori). Salah satu dari
+     disk ini adalah file yang akan Anda tuliskan pada disket untuk
+     membuat boot disk, yang bergantung dari konfigurasi mesin Anda.
+
+     Driver hardware yang terpasang kadang saling konflik, oleh karena
+     itu, daripada mencari letak kesalahan pada driver, lebih baik untuk
+     menggunakan boot disk hanya dengan driver-driver yang perlu saja.
+     (Hal ini juga membuat ukuran kernel lebih kecil.)
+
+  o  Sebuah (atau mungkin juga dua) disket root. Ini adalah file yang
+     akan dituliskan pada disket untuk membuat disket instalasi.  Kini,
+     root disk dipilih sesuai hardware yang ada dan mengasumsikan bahwa
+     tipe layar Anda adalah EGA berwarna atau layar yang lebih baik.
+
+  o  Sebuah disket rescue. Disket ini berisi kernel dasar dan peralatan
+     untuk memulihkan sistem dari kerusakan bila ada kesalahan pada
+     suatu tahap instalasi pada kernel, atau bila terjadi hang pada saat
+     boot dari hard disk.
+
+  o  RAWRITE.EXE. Ini adalah program yang jalan di MS-DOS yang akan
+     menuliskan isi dari suatu file (misalnya boot disk atau root disk)
+     langsung ke disket, tanpa melihat format disk itu terlebih dahulu.
+
+
+  Anda hanya butuh RAWRITE.EXE jika Anda merencanakan untuk membuat
+  disket boot dan root dari sistem MS-DOS. Jika Anda menginstallnya dari
+  workstation UNIX dengan disket, Anda dapat membuat disket instalasi
+  langsung dari UNIX dengan menggunakan perintah `dd' atau perintah lain
+  yang disediakan oleh vendor. Silahkan baca man page untuk dd(1) dan
+  tanyakan kepada master UNIX di tempat Anda.
+
+
+  o  CD-ROM. Tujuan dari pembuatan boot disk adalah untuk mempersiapkan
+     mesin Anda untuk meload disket root atau instalasi, yang merupakan
+     suatu alat untuk menyiapkan hard disk dan menkopi sebagian dari CD-
+     ROM ke hard-disk.
+
+
+  5.  Detil Instalasi
+
+  5.1.  Persiapan Instalasi
+
+  Linux membuat PC Anda lebih efektif dibandingkan apa yang dilakukan
+  oleh MS-DOS, Windows atau NT, dan lebih fleksibel bila terjadi
+  kesalahan konfigurasi hardware. Ada beberapa tahap yang bisa Anda
+  kerjakan untuk menghindari kesalahan.
+
+  Pertama, kumpulkan semua manual yang Anda miliki pada hardware --
+  motherboard, video card, monitor, modem, dan lain-lain. -- dan
+  simpanlah di tempat yang mudah Anda cari.
+
+  Kedua, kumpulkan semua informasi detil tentang konfigurasi mesin Anda.
+  Caranya, bila Anda menggunakan MS-DOS 5.0 atau yang lebih baru,
+  cetaklah laporan dari utility Microsoft diagnostic MSD.EXE (Anda boleh
+  menghiraukan informasi tentang TSR, driver, memory-map, environtment-
+  strings dan informasi-informasi yang berkenaan dengan sistem operasi).
+  Dengan mencatat konfigurasi mesin ini, maka dijamin Anda akan secara
+  tepat dan benar mengisikan informasi hardware yang Anda miliki kelak
+  pada saat menginstall X Windows.
+
+  Ketiga, periksa mesin Anda dari segala masalah konfigurasi yang
+  mungkin timbul dari hardware yang bisa saja mengakibatkan lockup pada
+  saat instalasi Linux.
+
+
+  o  DOS/Windows dapat menggunakan hard disk IDE dan CD-ROM dengan
+     konfigurasi yang asal-asalan (salah konfigurasi jumper master/slave
+     misalnya). Linux TIDAK !!!. Jika ragu, periksa lagi jumper hard
+     disk dan CD-ROM Anda !!!
+
+  o  Periksa apakah hardware Anda dirancang dengan konfigurasi
+     menggunakan jumper atau ROM? Jika benar, maka mungkin perlu
+     inisialisasi pada saat boot melalui utiliti di MS-DOS, dan mungkin
+     juga sulit diakses dari Linux. CD-ROM, sound card, Ethernet card
+     dan beberapa tipe tape drive yang Anda miliki mungkin akan menemui
+     masalah seperti ini. Jika ya, maka Anda mungkin dapat mengatasinya
+     dengan cara memberikan parameter tambahan pada prompt boot;
+     silahkan baca the Linux Boot Prompt HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/BootPrompt-HOWTO.html> untuk
+     lebih jelasnya.
+
+  o  Beberapa sistem operasi mengizinkan bus mouse untuk melakukan share
+     pada IRQ dengan device lain. Linux tidak mendukung ini; bila Anda
+     nekat melakukannya, maka mesin Anda akan beku. Jika Anda
+     menggunakan bus mouse silahkan baca the Linux Bus Mouse HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/Busmouse-HOWTO.html>.
+
+  Sedapat mungkin, carilah nomor telepon seseorang yang jago Linux yang
+  dapat Anda hubungi dalam keadaan darurat. Kira-kira 90% peluang Anda
+  tidak membutuhkannya, tapi kalau punya, apa salahnya?
+  Lama waktu instalasi. Kira-kira akan makan waktu sekitar satu jam
+  untuk mempersiapkan Linux pada mesin yang baru diinstall. Atau akan
+  makan waktu sampai sekitar tiga jam untuk menginstallnya pada sistem
+  dual-boot (nantinya akan banyak terjadi kesalahan yang tak disengaja
+  pada saat start, juga akan banyak terjadi hang pada mesin Anda bila
+  kesalahan ini terjadi).
+
+
+  5.2.  Membuat disket boot dan root
+
+  CD-ROM Linux yang Anda miliki mungkin menyertakan software untuk
+  menginstall yang menjelaskan tahapan membuat disket boot, root, dan
+  rescue dengan secara interaktif. Software ini biasanya jalan di MS-DOS
+  atau berupa skrip UNIX, atau dua-duanya.
+
+  Bila Anda mempunyai program semacam ini dan bisa menggunakannya, Anda
+  dapat membaca bagian ini sebagai tambahan informasi saja.  Jalankan
+  program tersebut untuk melakukan instalasi sebenarnya -- Pembuat
+  software tersebut tentu lebih tahu tentang distribusi yang menyertakan
+  program itu dari pada penulis, dan dengan menjalankannya Anda akan
+  banyak terhindar dari kesalahan-kesalahan.
+
+  Informasi lebih detil pada membuat disket boot dan root, silahkan baca
+  the Linux Bootdisk HOWTO di
+  <http://sunsite.unc.edu/LDP/HOWTO/Bootdisk-HOWTO.html>.
+
+  Pertama-tama, Anda harus memilih boot-disk yang sesuai dengan hardware
+  Anda. Anda harus memilihnya tanpa bantuan program, dan dapat Anda cari
+  dengan cara (a) image boot disk di CD-ROM diberi nama sedemikian
+  sehingga Anda dapat memilihnya dengan tepat atau (b) Ada file berisi
+  indeks yang menjelaskan tiap-tiap image.
+
+  Selanjutnya Anda harus membuat disket dari image bootdisk yang telah
+  Anda pilih, juga disket dari image root dan rescue. Pada tahap ini
+  program MS-DOS yang bernama RAWRITE.EXE mulai dipakai.
+
+  Lalu Anda harus mempersiapkan dua atau tiga high-density disket MS-DOS
+  yang telah diformats. (Tipe disketnya harus sesuai, artinya, jika Anda
+  memboot disket dengan drive 3.5", maka kedua disket lainnya harus juga
+  berupa disket 3.5" high-density).  Kemudian Anda gunakan RAWRITE.EXE
+  untuk menuliskan image boot dan rootdisk ke disket.
+
+  Panggil RAWRITE.EXE tanpa parameter seperti ini:
+
+
+       C:\> RAWRITE
+
+
+  Jawab pertanyaan tentang nama file yang akan dituliskan dan disket
+  yang dituju (seperti A:). RAWRITE kemudian akan menyalin file itu,
+  blok-per-blok, langsung ke disket. Juga gunakan RAWRITE untuk image
+  root disk (misalnya COLOR144). Setelah selesai, maka Anda akan
+  mempunyai dua disket: satu berisi boot disk, dan yang satunya lagi
+  berisi root disk. Perhatikan bahwa kedua disket ini tidak dapat lagi
+  dibaca dari MS-DOS (kedua disket tersebut sekarang memiliki ``format
+  Linux'').
+
+  Selain itu, Anda juga dapat menggunakan perintah dd(1) bila Anda ingin
+  membuat boot disk dan root disk dari sistem UNIX. (Tentu saja untuk
+  melakukan ini Anda harus berada pada workstation UNIX dengan sebuah
+  floppy drive.) Misalnya, pada workstation Sun, dengan floppy drive di
+  device /dev/rfd0, Anda dapat menggunakan perintah berikut:
+
+
+
+
+  $ dd if=bare of=/dev/rfd0 obs=18k
+
+
+
+
+  Anda harus menyertakan ukuran blok output pada parameter (yaitu
+  parameter `obs') pada beberapa tipe workstation (misalnya Sun) atau
+  proses ini akan gagal. Jika Anda menemui kesulitan semacam ini,
+  silahkan baca man page untuk dd(1).
+
+  Perhatikan bahwa Anda sebaiknya menggunakan disket baru dan bebas
+  error. Disket tersebut tidak boleh memiliki bad blok.
+
+  Juga perhatikan lagi, bahwa Anda tidak harus mengunakan Linux atau MS-
+  DOS untuk menginstall Linux. Tetapi, dengan menggunakan Linux atau MS-
+  DOS akan lebih memudahkan untuk membuat disket boot dan root dari CD-
+  ROM. Jika Anda belum memiliki sistem operasi pada mesin Anda, Anda
+  dapat meminjam sistem Linux atau MS-DOS teman Anda untuk membuat
+  disket tersebut.
+
+
+  5.3.  Mempartisi ulang drive DOS/Windows Anda
+
+  Biasanya pada beberapa sistem operasi, partisi hard disk sudah
+  disiapkan untuk dapat digunakan pada MS-DOS, OS/2, dan sebagainya.
+  Sekarang Anda harus merubah ukuran partisi agar bisa digunakan untuk
+  sistem Linux Anda. Jika Anda hendak menggunakan sistem dual-boot, maka
+  hendaknya membaca terlebih dahulu mini-HOWTO berikut yang menjelaskan
+  tentang berbagai konfigurasi sistem dual-boot.
+
+
+  o  The Linux+DOS+Win95 mini-HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/mini/Linux+DOS+Win95>.
+
+  o  The Linux+OS2+DOS mini-HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/mini/Linux+OS2+DOS>.
+
+  o  The DOS-Win95-OS2-Linux mini-HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/mini/Linux+DOS+Win95+OS2>.
+
+  o  The Linux+Win95 mini-HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/mini/Linux+Win95>
+
+  o  The Linux+WinNT-Loader mini-HOWTO,
+     <http://sunsite.unc.edu/LDP/HOWTO/mini/Linux+WinNT-Loader>
+
+  Walaupun apabila dokumentasi di atas tidak begitu cocok dengan sistem
+  Anda, dokumentasi di atas membantu Anda dalam memahami permasalahan
+  sekitar sistem dual-boot.
+
+  PERHATIAN: Ada distribusi Linux yang dapat menginstall ke direktori
+  dalam partisi MS-DOS. (Hal ini berbeda pengertiannya dengan
+  menginstall DARI suatu partisi MS-DOS.) Tetapi, lebih baik untuk
+  menggunakan ``filesystem UMSDOS'', yang mengizinkan Anda untuk
+  menganggap sebuah direktori dari partisi MS-DOS Anda sebagai
+  filesystem Linux. Dengan cara ini, Anda tidak perlu merubah partisi
+  drive Anda.
+
+  Penulis hanya menyarankan Anda untuk menggunakan metode ini bila drive
+  Anda telah mempunyai empat partisi dan bila harus merubah partisi maka
+  akan menambah masalah saja dan tidak sebanding dengan manfaat yang
+  diberikan (UMSDOS akan memperlambat Linux karena harus melakukan
+  beberapa penterjemahan nama file). Atau, bila Anda hendak mencoba
+  Linux sebelum melakukan partisi ulang, maka menggunakan UMSDOS adalah
+  hal yang sangat tepat. Tetapi biasanya Anda seharusnya melakukan
+  partisi ulang seperti yang dijelaskan di sini. Bila Anda hendak
+  menggunakan UMSDOS, maka Anda harus menginstallnya tanpa bantuan HOWTO
+  ini, karena tidak akan dijelaskan secara rinci di sini. Dari sekarang,
+  kami asumsikan bahwa Anda TIDAK menggunakan UMSDOS, dan Anda akan
+  melakukan partisi ulang.
+
+
+  Sebuah partition  adalah bagian dari hard drive yang digunakan oleh
+  beberapa sistem operasi tertentu. Jika Anda hanya memiliki MS-DOS yang
+  sudah terpasang, maka mungkin hard drive Anda hanya memiliki satu
+  partisi saja, yang semuanya digunakan untuk MS-DOS.  Untuk menggunakan
+  Linux, maka Anda harus melakukan partisi ulang pada drive, sehingga
+  Anda nantinya akan memiliki satu partisi untuk MS-DOS dan yang lainnya
+  untuk Linux.
+
+  Partisi ada tiga jenis: primary, extended, dan logical.  Singkatnya,
+  partisi primary adalah salah satu dari keempat partisi yang mungkin
+  dibuat dalam hard disk Anda. Tetapi, bila Anda ingin membuat lebih
+  dari empat pertisi dalam satu drive, maka Anda harus membuat sebuah
+  partisi extended, yang dapat memuat berbagai partisi logical. Anda
+  tidak menyimpan data secara langsung pada partisi extended, partisi
+  jenis ini digunakan sebagai penampung partisi logical saja. Data
+  disimpan kalau tidak di primary, yah di partisi logical.
+
+  Biasanya, orang menggunakan partisi primary saja. Tetapi, jika Anda
+  membutuhkan lebih dari empat partisi dalam sebuah drive, maka Anda
+  harus membuat partisi extended. Partisi logical kemudian dibuat di
+  atas partisi extended, dan selesai lah semuanya-- lebih dari empat
+  partisi per drive.
+
+  Perhatikan bahwa Anda dapat dengan mudah menginstall Linux pada drive
+  kedua pada sistem Anda (dikenali sebagai D: pada MS-DOS).  Anda dengan
+  mudah menentukan nama device yang tepat pada saat membuat partisi
+  Linux. Hal ini akan dijelaskan secara rinci di bawah.
+
+  Kembali ke masalah partisi ulang hard drive Anda: masalah dalam
+  merubah partisi adalah bahwa tidak ada cara (yang mudah) untuk merubah
+  partisi tanpa menghapus data pada partisi yang dirubah ukurannya.
+  Karena itu, Anda sebaiknya melakukan backup total dari sistem Anda
+  sebelum melakukan partisi ulang. Untuk merubah ukuran partisi, hapus
+  saja partisi tersebut, dan buat lagi dengan ukuran yang lebih kecil.
+
+  PERHATIAN: Ada program di MS-DOS yang digunakan untuk melakukan
+  partisi ulang tanpa harus menghapus data, namanya FIPS.  Silahkan
+  lihat di  <http://sunsite.unc.edu/pub/Linux/system/Install>. Dengan
+  program FIPS, disk optimizer (misalnya Norton Speed Disk), dan sedikit
+  keberuntungan, Anda dapat melakukan partisi ulang pada MS-DOS tanpa
+  menghapus data di dalamnya. Tapi sebaiknya Anda tetap melakukan
+  backup, walaupun menggunakan FIPS.
+
+  Namun, bila Anda tidak menggunakan FIPS untuk melakukan partisi ulang,
+  ada cara lama yang dapat dipakai, yaitu dengan menggunakan program
+  FDISK. Misalnya, Anda mempunyai hard disk 80 MB, yang digunakan
+  sepenuhnya untuk MS-DOS. Anda ingin membagi dua hard disk itu, yaitu
+  40 MB untuk MS-DOS dan 40 mega lagi untuk Linux. Untuk melakukan hal
+  ini, jalankan FDISK dari MS-DOS, hapus partisi MS-DOS yang berukuran
+  80 MB tersebut, dan buat lagi partisi MS-DOS berukuran 40 MB. Kemudian
+  formatlah partisi baru tersebut dan install lagi backup yang telah
+  Anda lakukan. Sisa 40 MB pada hard disk biarkan dalam keadaan kosong.
+  Nanti, buatlah partisi Linux pada bagian kosong hard disk itu yang 40
+  MB tadi.
+
+  Singkat kata, lakukan hal berikut untuk melakukan partisi ulang dengan
+  FDISK pada MS-DOS.
+
+  1. Buat backup total sistem Anda.
+
+  2. Buatlah disk boot MS-DOS, yang dapat dilakukan dengan perintah:
+
+       FORMAT /S A:
+
+
+  3. Kopi file FDISK.EXE dan FORMAT.COM ke disket ini, beserta utiliti
+     yang Anda perlukan. (Misalnya untuk merecover backup.)
+
+  4. Boot disket tersebut.
+
+  5. Jalankan FDISK, dengan menyertakan drivenya bila perlu (misalnya C:
+     atau D:).
+
+  6. Gunakan menu pada FDISK untuk menghapus partisi yang ingin Anda
+     rubah ukurannya. Hal ini akan menghapus semua data pada partisi
+     tersebut.
+
+  7. Gunakan menu pada FDISK untuk membuat kembali partisi yang
+     diinginkan dengan ukuran yang lebih kecil.
+
+  8. Keluar dari FDISK dan format ulang partisi yang baru Anda buat
+     dengan perintah FORMAT.
+
+  9. Recover sistem Anda dari backup.
+
+  Perhatikan bahwa program FDISK akan memberikan pilihan apakah akan
+  membuat ``logical DOS drive'' atau tidak. Logical DOS drive adalah
+  partisi logical pada hard disk Anda. Anda dapat menginstall Linux pada
+  partisi tersebut, tetapi jangan buat partisi tersebut dengan FDISK
+  pada MS-DOS. Jadi, bila Anda sekarang menggunakan logical DOS drive,
+  dan ingin menginstall Linux di situ, Anda harus menghapus dulu logical
+  drive itu dengan FDISK pada MS-DOS, dan (kemudian) buat lagi partisi
+  logical pada Linux di situ.
+
+  Mekanisme yang digunakan untuk melakukan partisi ulang pada OS/2 dan
+  sistem operasi lain mirip caranya. Untuk lebih jelasnya, silahkan
+  lihat dokumentasi pada sistem operasi yang Anda gunakan.
+
+
+  5.4.  Membuat partisi Linux
+
+  Setelah partisi ulang drive Anda, buatlah partisi untuk Linux.
+  Sebelum dijelaskan bagaimana caranya, sekarang kita bahas dulu tentang
+  partisi dan filesystem pada Linux.
+
+
+  5.4.1.  Dasar-Dasar Partisi
+
+  Linux memerlukan paling tidak satu partisi, yang digunakan untuk root
+  filesystem, yang akan menampung kernel Linux dan software lainnya.
+
+  Anda dapat membayangkan filesystem sebagai sebuah partisi yang
+  diformat untuk Linux. Filesystem digunakan untuk menampung file.  Tiap
+  sistem harus mempunyai file system root. Tapi kadangkala banyak user
+  yang senang menggunakan banyak filesystem. Misalnya, Anda mungkin
+  ingin membuat file sistem terpisah untuk menampung semua file di
+  direktori /usr. (Perhatikan bahwa pada sistem UNIX, slash digunakan
+  sebagai tanda direktori, bukannya backslash yang digunakan pada MS-
+  DOS.) Dalam hal ini, Anda dapat mempunyai root filesystem, dan sebuah
+  /usr file system.
+
+  Tiap-tiap filesystem membutuhkan partisi sendiri. Jadi, bila Anda
+  menggunakan root dan /usr, maka Anda harus membuat dua buah partisi
+  Linux.
+
+
+  Selain itu, biasanya perlu dibuat sebuah partisi swap, yang biasanya
+  digunakan sebagai RAM virtual. Bila Anda punya memory 4 MB pada mesin
+  Anda, dan partisi swap berukuran 10 MB, maka Linux menganggap Anda
+  mempunyai memori virtual 14 MB.
+
+  Pada saat menggunakan spasi di swap, Linux memindahkan page yang tidak
+  digunakan pada memori ke disk, yang menyebabkan user dapat menjalankan
+  lebih banyak aplikasi secara bersamaan pada sistem.  Tetapi, kadang
+  kala proses swap berlangsung lambat, dan karena itu tidak dapat
+  menggantikan sepenuhnya peranan RAM asli. Tetapi beberapa aplikasi
+  membutuhkan banyak sekali memori (misalnya sistem X Window) yang
+  bergantung pada swap bila Anda tidak punya cukup memori.
+
+  Hampir semua orang yang menggunakan Linux membuat partisi swap.  Bila
+  Anda hanya mempunyai RAM 4 MB atau kurang, maka partisi swap wajib
+  Anda install. Sangatlah dianjurkan untuk mempunyai partisi swap,
+  kecuali Anda punya RAM yang sangaaaaat banyak.
+
+  Ukuran partisi swap bergantung dari berapa banyak virtual memory yang
+  Anda butuhkan. Kadangkala dipakai anggapan bahwa paling tidak Anda
+  harus memiliki virtual memory sebanyak 16 MB. Karena itu, bila Anda
+  punya RAM 8 MB, maka Anda harus membuat lagi partisi swap sebanyak 8
+  MB. Perhatikan bahwa ukuran partisi swap tidak boleh lebih dari 128
+  MB. Karena itu, bila Anda membutuhkan swap lebih dari 128 MB, maka
+  Anda harus membuat lagi partisi swap.  Jumlah partisi swap yang
+  diizinkan adalah 16 buah partisi.
+
+  Anda dapat mencari informasi yang lebih banyak tentang swap dan
+  partisi disk pada the Linux Partition mini-HOWTO (
+  <http://sunsite.unc.edu/LDP/HOWTO/mini/Partition>).
+
+  Perhatian: Partisi swap dapat digunakan (walaupun rumit) untuk Linux
+  dan Windows 95 pada sistem dual-boot. Untuk lebih jelasnya, sudilah
+  kiranya untuk membaca the Linux Swap Space Mini-HOWTO,
+  <http://sunsite.unc.edu/LDP/HOWTO/mini/Swap-Space>.
+
+  Tips #1: Bila Anda memiliki drive EIDE dengan partisi lebih dari
+  504MB, maka BIOS Anda mungkin tidak dapat melakukan boot bila Linux
+  diinstall di situ. Jadi buatlah partisi root Anda berukuran lebih
+  kecil dari 504MB. Hal ini seharusnya tidak menjadi masalah pada
+  kontroler drive SCSI, karena biasanya pada drive SCSI diberikan driver
+  untuk BIOS. Untuk detil teknisnya, silahkan baca the Large Disk Mini-
+  HOWTO,  <http://sunsite.unc.edu/LDP/HOWTO/mini/Large-Disk>.
+
+  Tips #2: Anda mencampurkan drive IDE dan SCSI? Kalau ya maka Anda
+  harus berhati-hati. BIOS Anda mungkin tidak dapat melakukan boot
+  langsung dari drive SCSI.
+
+
+  5.4.2.  Merubah ukuran partisi
+
+  Selain partisi root dan swap, mungkin Anda ingin untuk menginstall
+  lebih dari satu partisi untuk menyimpan software dan home direktori.
+
+  Walaupun secara teori Anda dapat menjalankan apa saja dari sebuah
+  partisi root saja, tetapi banyak orang tidak melakukan hal ini.  Ada
+  beberapa keuntungan dari membuat banyak partisi :
+
+
+  o  Kadang kala mempersingkat waktu pemeriksaan file system pada saat
+     boot.
+
+  o  File tidak dapat membesar ukurannya lebih dari batas partisinya.
+     Karena itu, dengan menggunakan partisi sebagai batas bagi beberapa
+     program (misalnya Usenet news) yang banyak makan spasi hard disk,
+     yang mencegah program itu membuat file raksasa pada partisi root
+     yang dibutuhkan juga oleh kernel dan aplikasi yang lain.
+
+  o  Bila Anda pernah membuat kesalahan pada disk Anda, adalah lebih
+     baik untuk memformat partisi tempat Anda membuat kesalahan dari
+     pada harus memformat seluruh sistem dan melakukan instal ulang.
+
+     Dengan hard disk yang berukuran besar yang biasa didapat saat ini,
+     setuplah root dengan ukuran kurang dari 80MB, kemudian install
+     partisi /usr (lebih dari 300MB) untuk menginstall software, dan
+     partisi /home sebesar sisa hard disk Anda.
+
+  Anda bisa improvisasi di sini. Bila Anda ingin menjalankan Usenet news
+  misalnya, tentu Anda ingin memberikan Usenet sebuah partisi sendiri
+  untuk mengontrol pemakaian disk maksimum. Atau buatlah partisi /var
+  untuk mail, news, dan file-file sementara.  Tapi dengan hard disk
+  besar yang umum dipakai sekarang ini, pembuatan partisi seperti tidak
+  begitu perlu bila Anda baru menginstall Linux. Untuk sekarang, bila
+  Anda baru di dunia Linux, install yang mudah-mudah saja dulu.
+
+
+  5.5.  Memboot disk instalasi
+
+  Tahap pertama adalah memboot disk yang telah Anda buat. Biasanya, Anda
+  dapat dengan mudah memboot; prompt kernel boot akan diisi sendiri
+  setelah 10 detik. Tetapi dengan memberikan parameter tambahan setelah
+  nama kernel, Anda dapat memberikan secara detil berbagai parameter
+  hardware, seperti IRQ dan alamat kontroler SCSCI, atau ukuran drive,
+  sebelum memboot kernel Linux. Hal ini perlu dilakukan bila misalnya
+  Linux tidak dapat mendeteksi kontroler SCSI atau mendeteksi ukuran
+  drive.
+
+  Biasanya, kontroler SCSI tanpa BIOS harus diberikan spesifikasinya
+  yaitu alamat port dan IRQ pada saat boot. Juga misalnya, pada mesin
+  IBM PS/1, ThinkPad, dan ValuePoint tidak menyimpan ukuran drivenya di
+  CMOS, sehingga Anda harus memberikannya pada saat boot.  (Anda dapat
+  mengkonfigurasikan sistem Anda belakangan)
+
+  Perhatikan pesan-pesan pada saat boot. Anda dapat melihat daftar dan
+  keterangan mengenai hardware yang dideteksi oleh Linux. Biasanya, jika
+  Anda memiliki sebuah kontroler SCSI, maka Anda seharusnya dapat
+  melihat daftar host SCSI yang terdeteksi. Bila Anda melihat pesan
+
+
+
+       SCSI: 0 hosts
+
+
+
+
+  maka kontroler SCSI Anda tidak terdeteksi, dan Anda harus mencari tahu
+  bagaimana agar kernel dapat mendeteksinya.
+
+  Sistem juga akan menampilkan informasi tentang partisi dan device yang
+  terdeteksi. Bila ada informasi yang salah atau tidak ditampilkan di
+  sini, maka Anda harus melakukan deteksi hardware.
+
+  Bila tidak terjadi hal-hal yang tidak diinginkan, maka hardware Anda
+  semuanya telah terdeteksi dengan baik, dan Anda dapat melewatkan
+  pembahasan berikut ini, ``Meload root disk''.
+
+  Untuk melakukan deteksi hardware, Anda harus memberikan parameter yang
+  tepat pada saat boot, dengan menggunakan syntax berikut:
+
+
+
+
+  linux <parameters...>
+
+
+
+
+  Ada banyak parameter yang tersedia; kami mendaftarkan beberapa
+  parameter yang biasa dipakai di bawah ini. Boot disk Linux sekarang
+  akan memberikan beberapa pilihan untuk melihat layar help yang
+  menjelaskan parameter kernel sebelum boot.
+
+
+  o  hd=cylinders,heads,sectors menjelaskan ukuran drive. Hal ini
+     dibutuhkan oleh sistem seperti IBM PS/1, ValuePoint, dan ThinkPad.
+     Misalnya bila drive Anda memiliki 683 cylinders, 16 heads, and 32
+     sectors per track, maka tuliskan
+
+
+
+       linux hd=683,16,32
+
+
+
+
+
+  o  tmc8xx=memaddr,irq menjelaskan alamat dan IRQ untuk kontroler SCSI
+     BIOS-less tipe Future Domain TMC-8xx. Misalnya,
+
+
+
+       linux tmc8xx=0xca000,5
+
+
+
+
+
+  Perhatikan bahwa prefix 0x harus dipakai untuk mendefinisikan nilai
+  dalam heksadesimal. Hal ini berlaku untuk pilihan berikut.
+
+  o  st0x=memaddr,irq menjelaskan alamat dan IRQ kontroler SCSI BIOS-
+     less tipe Seagate ST02.
+
+  o  t128=memaddr,irq menjelaskan alamat dan IRQ kontroler BIOS-less
+     Trantor T128B controller.
+
+  o  ncr5380=port,irq,dma Menentukan port, IRQ, dan DMA channel untuk
+     kontroler NCR5380 generik.
+
+  o  aha152x=port,irq,scsi_id,1 Menentukan, IRQ, dan SCSI ID untuk BIOS-
+     less kontroler AIC-626. Ini termasuk tipe Adaptec 1510, 152x, dan
+     kontroler Soundblaster-SCSI.
+
+  Bila Anda memiliki berbagai pertanyaan tentang pilihan pada saat boot
+  ini, silahkan baca the Linux SCSI HOWTO yang harusnya ada pada
+  berbagai situs FTP archive (atau di mana saja Anda mendapatkan dokumen
+  ini). The SCSI HOWTO menjelaskan kompatibilitas Linux SCSI dengan
+  lebih rinci.
+
+
+  5.6.  Menggunakan rootdisk
+
+  Setelah boot dengan boot disk, maka akan muncul prompt untuk
+  memasukkan root disk. Pada tahap ini Anda harus mengganti boot disk
+  pada drive dengan root disk. Kemudian, tekan enter untuk melanjutkan
+  proses boot. Anda mungkin akan menggunakan beberapa disket root.
+
+
+  Yang sebenarnya terjadi saat ini adalah: boot disk menyediakan sistem
+  operasi mini yang (karena hard disk belum disiapkan) menggunakan
+  sebagian RAM sebagai virtual disk (yang disebut `ramdisk').
+
+  Root disk diload ke ramdisk sebagai file-file kecil dan perangkat
+  instalasi yang akan digunakan hard disk Anda dan menginstall Linux
+  dari CD-ROM.
+
+
+  5.6.1.  Memilih instalasi EGA atau X
+
+  Linux versi-versi lama (termasuk Slackware) akan memberikan akses ke
+  shell pada saat ini dan mengharuskan Anda untuk memberikan perintah
+  instalasi dengan urutan tertentu. Saat ini, cara tersebut masih dapat
+  dilakukan tetapi pada Linux versi baru akan segera menjalankan program
+  yang mencoba secara interaktif membantu Anda dalam tahapan ini.
+
+  Anda mungkin akan memperoleh pilihan untuk mengkonfigurasi X segera
+  sehingga program instalasi dapat dalam modus grafik. Bila Anda memilih
+  hal ini, maka program instalasi akan menanyakan Anda tentang mouse dan
+  tipe monitor sebelum menjalankan proses instalasi.  Setelah Linux
+  diinstall, maka setting tadi akan disimpan. Anda akan dapat mengatur
+  kinerja monitor Anda belakangan, jadi pada tahapan ini modus grafik
+  yang digunakan adalah SVGA 640X480.
+
+  Pada tahap instalasi X tidaklah diperlukan, tetapi (diasumsikan bahwa
+  Anda dapat menginstall konfigurasi mouse dan monitor) banyak orang
+  yang mengatakan bahwa lebih mudah menginstall dengan interface grafik.
+  Dan bila Anda juga ingin menjalankan instalasi dengan X, maka hal itu
+  cukup masuk akal.
+
+  Ikuti saja prompt pada program. Dengan demikian Anda akan menjalani
+  tahapan yang benar dalam mempersiapkan disk, membuat account user
+  pertama kali dan menginstall paket software dari CD-ROM.
+
+  Pada subbagian berikut, akan dijelaskan beberapa tahapan yang sedikit
+  sulit bila dilakukan tanpa bantuan program instalasi.  Hal ini juga
+  membantu Anda dalam memahami bagaimana dan kenapa suatu hal dalam
+  instalasi bisa terjadi.
+
+
+  5.6.2.  Menggunakan program fdisk  and cfdisk
+
+  Tahap pertama instalasi setelah root disk diboot adalah membuat atau
+  merubah tabel partisi pada disk. Bahkan jika Anda menggunakan FDISK
+  untuk membuat partisi pada tahap awal, Anda akan harus melihat lagi
+  tabel partisi dan memasukkan informasi spesifik Linux pada tahap ini.
+
+  Untuk membuat atau mengganti partisi Linux, di sini akan menggunakan
+  program fdisk versi Linux, dan versi saudaranya cfdisk.
+
+  Umumnya program instalasi akan mencari tabel partisi yang telah ada,
+  dan menawarkan untuk menjalankan fdisk atau cfdisk.  Program cfdisk
+  mudah untuk digunakan, tetapi versi terakhir juga kurang fleksibel
+  pada tabel partisi yang belum dibuat atau partisi yang rusak.
+
+  Karena itu Anda mungkin (khususnya bila Anda menginstall pada hardware
+  yang sama sekali baru) harus menggunakan fdisk agar bisa diakses dari
+  cfdisk. Jalankanlah fdisk; dan bila ada kesalahan, maka jalankan
+  fdisk. (Bila Anda membangun sistem Linux pada seluruh sistem dan
+  cfdisk rewel, maka gunakanlah fdisk untuk menghapus semua partisi dan
+  baru kemudian cfdisk untuk mengedit tabel tadi.
+
+  Ada beberapa hal yang harus diperhatikan dalam pemakaian fdisk dan
+  cfdisk. Kedua program tersebut mengambil parameter berupa nama drive
+  yang ingin Anda edit partisinya.  Nama device hard drive adalah:
+  o  /dev/hda Drive IDE pertama
+
+  o  /dev/hdb Drive IDE kedua
+
+  o  /dev/sda Drive SCSI pertama
+
+  o  /dev/sdb Drive SCSI kedua
+
+  Misalnya untuk membuat partisi Linux pada drive SCSI pertama maka
+  gunakan (atau program instalasi biasanya akan menampilkan pilihan
+  menu) perintah berikut:
+
+
+       cfdisk /dev/sda
+
+
+  Bila Anda menggunakan fdisk atau cfdisk tanpa argumen, maka akan
+  diasumsikan drive yang digunakan adalah /dev/hda.
+
+  Untuk membuat partisi Linux pada drive kedua, gunakan /dev/hdb (untuk
+  drive IDE) atau /dev/sdb (untuk drive SCSI) bila menjalankan fdisk.
+
+  Paritisi Linux tidak harus pada satu drive yang sama. Anda mungkin
+  ingin membuat filesystem root pada /dev/hda dan partisi swap pada
+  /dev/hdb misalnya. Untuk melakukan hal tersebut jalankan saja fdisk
+  atau cfdisk sekali saja untuk tiap- tiap drive.
+
+  Di Linux, partisi diberi nama berdasarkan pada drive tempat mereka
+  berada. Misalnya partisi pertama pada drive /dev/hda adalah /dev/hda1,
+  tdan partisi kedua adalah /dev/hda2, dan seterusnya. Bila Anda
+  mempunyai partisi logical, maka partisi tersebut akan diberi nomor
+  mulai /dev/hda5, /dev/hda6 dan seterusnya.
+
+  PERHATIAN: Anda seharusnya tidak membuat atau menghapus partisi untuk
+  sistem operasi selain Linux dengan menggunakan program fdisk atau
+  cfdisk milik Linux. Jadi jangan membuat atau menghapus partisi MS-DOS
+  dengan fdisk-nya Linux; tetapi gunakanlah program FDISK milik MS-DOS.
+  Bila Anda nekat, mungkin Linux tidak akan mengenali partisi yang Anda
+  utak-atik tadi dan mungkin tidak bisa memboot lagi.
+
+  Di bawah ini adalah contoh penggunaan fdisk. Di sini, digunakan
+  partisi MS-DOS tunggal sebesar 61693 blok, dan sisanya digunakan untuk
+  Linux. (Di Linux, satu blok adalah 1024 byte, jadi 61693 blok adalah
+  sebesar sekitar 61 MB.)  Di sini akan dibuat dua partisi saja, yaitu
+  root dan swap.  Mungkin Anda akan membuat partisi Linux sebanyak empat
+  partisi seperti yang disarankan di atas: satu untuk swap, satu untuk
+  filesystem root, satu untuk software, dan satu untuk home direktori.
+
+  Pertama-tama, gunakan perintah ``p'' untuk menampilkan tabel partisi
+  saat ini. Seperti yang Anda lihat, /dev/hda1 (partisi pertama ada pada
+  /dev/hda) adalah partisi DOS sebesar 61693 blok.
+
+
+
+       Command (m for help):   p
+       Disk /dev/hda: 16 heads, 38 sectors, 683 cylinders
+       Units = cylinders of 608 * 512 bytes
+
+            Device Boot  Begin   Start     End  Blocks   Id  System
+         /dev/hda1   *       1       1     203   61693    6  DOS 16-bit >=32M
+
+       Command (m for help):
+
+
+
+
+  Lalu, gunakan perintah ``n'' untuk membuat partisi baru.  Partisi
+  Linux diberi ukuran sebesar 80 MB.
+
+
+
+       Command (m for help):  n
+       Command action
+           e   extended
+           p   primary partition (1-4)
+       p
+
+
+
+
+  Pada saat ini akan ditanyakan apakah akan membuat partisi extended
+  ataukah primary. Biasanya partisi yang dibuat adalah partisi primary,
+  kecuali Anda membutuhkan lebih dari empat partisi pada satu drive.
+  Silahkan lihat bagian ``Pembuatan Partisi'' di atas untuk informasi
+  lengkapnya.
+
+
+
+       Partition number (1-4): 2
+       First cylinder (204-683):  204
+       Last cylinder or +size or +sizeM or +sizeK (204-683): +80M
+
+
+
+
+  Silinder pertama seharusnya tepat SETELAH silinder partisi terakhir.
+  Dalam contoh ini, /dev/hda1 berakhir pada silinder 203, jadi partisi
+  baru harus dimulai pada silinder 204.
+
+  Seperti yang Anda lihat, di sini digunakan notasi ``+80M'', yang
+  menjelaskan bahwa partisi itu berukutan 80 MB. Mirip dengan itu,
+  notasi ``+80K menjelaskan bahwa ukuran partisi adalah 80 kilobytes dan
+  ``+80'' berarti ukuran partisi adalah 80 byte.
+
+
+
+       Warning: Linux cannot currently use 33090 sectors of this partition
+
+
+
+
+  Bila Anda melihat peringatan ini, abaikan saja. Peringatan tersebut
+  berasal dari batasan pada masa-masa awal Linux sewaktu filesystem
+  Linux hanya bisa sebesar 64 MB. Tetapi dengan filesystem yang lebih
+  baru, tidak ada lagi batasan, sekarang sebuah partisi bisa berukuran
+  hingga 4 terabyte.
+
+  Selanjutnya, buatlah partisi swap 10 MB, /dev/hda3.
+
+
+
+       Command (m for help): n
+       Command action
+           e   extended
+           p   primary partition (1-4)
+       p
+
+       Partition number (1-4): 3
+       First cylinder (474-683):  474
+       Last cylinder or +size or +sizeM or +sizeK (474-683):  +10M
+
+
+  Sekali lagi, kita tampilkan isi tabel partisi. Jangan lupa untuk
+  mencatat semua informasi di sini, terutama ukuran tiap-tiap partisi
+  dalam satuan blok. Karena informasi ini dibutuhkan kemudian.
+
+
+
+       Command (m for help): p
+       Disk /dev/hda: 16 heads, 38 sectors, 683 cylinders
+       Units = cylinders of 608 * 512 bytes
+
+            Device Boot  Begin   Start     End  Blocks   Id  System
+         /dev/hda1   *       1       1     203   61693    6  DOS 16-bit >=32M
+         /dev/hda2         204     204     473   82080   83  Linux native
+         /dev/hda3         474     474     507   10336   83  Linux native
+
+
+
+
+  Perhatikan bahwa partisi swap Linux (contoh di sini adalah /dev/hda3)
+  mempunyai tipe ``Linux native''. Kita harus mengganti tipe tersebut
+  menjadi tipe partisi swap, yaitu ``Linux swap'' agar program instalasi
+  akan mengenalinya.  Cara melakukannya adalah dengan menggunakan
+  perintah ``t'' pada fdisk:
+
+
+
+       Command (m for help): t
+       Partition number (1-4): 3
+       Hex code (type L to list codes): 82
+
+
+
+
+  Bila Anda gunakan ``L'' untuk melihat daftar kode tipe, maka dapat
+  Anda temukan bahwa 82 adalah tipe untuk partisi swap Linux.
+
+  Untuk keluar dari fdisk dan menyimpan semua perubahan pada tabel
+  partisi, gunakan perintah ``w''. Untuk keluar dari fdisk TANPA
+  menyimpan perubahan, gunakan perintah ``q''.
+
+  Setelah keluar dari fdisk, sistem akan memberitahukan untuk reboot
+  untuk memastikan perubahan terjadi. Secara umum tidak ada guna
+  mereboot setelah menggunakan fdisk --versi modern fdisk dan fdisk
+  sudah cukup pandai untuk mengupdate partisi tanpa reboot.
+
+
+  5.6.3.  Tahapan setelah pembuatan Partisi
+
+  Setelah tabel partisi diedit, maka program instalasi seharusnya
+  mencari partisi tersebut dan menawarkan apakah Anda menginginkan
+  partisi swap. Jawab dengan ya.
+
+  (Hal ini ditanyakan karena mungkin saja user menggunakan sistem dual-
+  boot, dengan salah satu partisi non-Linux akan dilihat seperti suatu
+  partisi swap.)
+
+  Selanjutnya program akan meminta Anda untuk menghubungkan tiap-tiap
+  partisi non-swap dengan nama filesystem Linux (misalnya /, /usr, /var,
+  /tmp, /home, /home2, dsb.).
+
+  Ada satu ketentuan yang ketat. Harus ada filesystem root yang bernama
+  /, dan harus bisa diboot. Anda bisa menamakan partisi Linux yang
+  lainnya dengan nama apa saja. Tetapi ada konvensi tentang penamaan
+  filesystem yang akan memudahkan Anda nantinya.
+
+
+  Sebelumnya penulis menyaraknan setup tiga partisi yang terdiri dari
+  root yang berukuran kecil, partisi software sistem yang berukuran
+  sedang, dan sebuah partisi home direktori yang berukuran besar.
+  Biasanya, partisi-partisi tadi diberi nama /, /usr, dan /home. Nama
+  `/usr' secara historis berasal dari sistem Unix yang dulu berukuran
+  kecil yang menampung sistem software dan home direktori pada sebuah
+  partisi non-root. Ada software yang bergantung pada partisi /usr ini.
+
+  Bila Anda memiliki lebih dari satu home-direktori, secara konvensional
+  berilah nama /home, /home2, /home3 dan sebagainya, Hal ini akan Anda
+  alami bila memiliki dua disk. Pada sistem penulis misalnya, layout
+  sistem adalah seperti ini:
+
+
+
+       Filesystem         1024-blocks  Used Available Capacity Mounted on
+       /dev/sda1              30719   22337     6796     77%   /
+       /dev/sda3             595663  327608   237284     58%   /usr
+       /dev/sda4            1371370    1174  1299336      0%   /home
+       /dev/sdb1            1000949  643108   306130     68%   /home2
+
+
+
+
+  Disk kedua (sdb1) bukanlah seluruhnya melingkupi /home2; partisi swap
+  pada sda dan sdb tidak ditunjukan pada layar ini.  Tetapi Anda dapat
+  melihat bahwa /home adalah area bebas yang besar pada sda dan /home2
+  adalah area user pada sdb.
+
+  Bila Anda ingin membuat partisi untuk scratch, spool, temporary, mail,
+  dan file news, buatlah dengan nama /var. Sebaliknya mungkin Anda ingin
+  membuat /usr/var dan membuat link simbolik yang bernama /var yang
+  menunjuk ke /usr/var (program instalasi mungkin menawarkan pembuatan
+  ini).
+
+
+  5.7.  Menginstall paket software
+
+  Sekali saja Anda melewati tahap pembuatan partisi, maka sisa instalasi
+  seharusnya hampir otomatis. Program instalasi Anda (baik itu berbasis
+  EGA atau X) akan memandu Anda dengan serangkaian menu yang membuat
+  Anda lebih mudah menentukan CD-ROM sebagai sumber instalasi, partisi
+  yang akan digunakan, dan sebagainya.
+
+  Di sini kita tidak akan mendokumentasikan tahapan ini dengan detil.
+  Penginstalan paket software adalah salah satu bagian yang paling
+  beragam pada berbagai distribusi Linux (pembuatnya biasanya berlomba-
+  lomba untuk memberikan nilai tambah di sini), tetapi sekaligus juga
+  bagian yang termudah. Program instalasi ini juga lebih mudah
+  dimengerti dengan layar help yang baik.
+
+
+  5.8.  Setelah instalasi paket software
+
+  Setelah instalasi selesai dan semuanya berjalan lancar, maka program
+  instalasi akan mengantarkan Anda beberapa pilihan untuk
+  mengkonfigurasi sistem sebelum melakukan boot untuk pertama kalinya
+  dari hard disk.
+
+
+  5.8.1.  LILO, the LInux LOader
+
+  LILO (yang merupakan singkatan dari LInux LOader) adalah program yang
+  membuat Anda dapat memboot Linux (dan juga sistem operasi lain,
+  misalnya MS-DOS) dari hard disk.
+
+  Anda mungkin diberikan pilihan dalam menginstall LILO pada hard disk.
+  Lakukanlah instalasi ini, kecuali Anda menjalankan OS/2. OS/2
+  mempunyai beberapa hal yang harus dikerjakan dulu, silahkan baca
+  ``Konfigurasi LILO sesuai dengan  Keinginan'' di bawah.
+
+  Menginstall LILO sebagai loader primer berarti tidak perlu lagi
+  membuat boot disk, karena Anda dapat memberitahu LILO pada saat boot,
+  sistem operasi mana yang akan Anda boot.
+
+
+  5.8.2.  Membuat boot disk (pilihan)
+
+  Anda juga mungkin ditawarkan untuk membuat sebuah ``standard boot
+  disk'', yang dapat Anda gunakan untuk memboot Linux yang baru Anda
+  instal. (Hal ini merupakan cara lama dan tidak begitu nyaman untuk
+  digunakan, karena di sini diasumsikan bahwa Anda biasanya boot ke DOS,
+  karena itu bila ingin boot ke Linux, maka Anda perlu menggunakan boot
+  disk ini.)
+
+  Untuk melakukan hal ini, sediakanlah sebuah disket high-density kosong
+  yang telah diformat pada MS-DOS sesuai dengan tipe drive yang
+  digunakan untuk boot. Masukan disket tersebut ke drive bila diminta
+  dan kemudian boot disk akan dibuat. (Disk ini tidak sama dengan disk
+  instalasi, dan Anda tidak boleh menukar-nukar kegunaan disket-disket
+  ini!)
+
+
+  5.8.3.  Konfigurasi sistem yang lainnya
+
+  Prosedur setelah instalasi juga mungkin diberikan dengan berbagai menu
+  yang mudah digunakan. Cara tersebut juga biasanya menyertakan
+  bagaimana cara menset modem dan mouse, juga time zone. Ikuti saja menu
+  yang disediakan.
+
+  Program juga mungkin menawarkan Anda untuk membuat account user atau
+  membuat password pada account root (administrasi). Prosedur tersebut
+  tidak begitu rumit dan biasanya Anda hanya mengikuti instruksi-
+  instruksi yang diberikan saja.
+
+
+  6.  Memboot Sistem Baru
+
+  Jika segalanya berjalan sesuai rencana, maka Anda sekarang dapat
+  memboot Linux dari hard drive dengan menggunakan LILO. Selain LILO,
+  Anda juga dapat memboot dari disket boot (bukan bootdisk asli, tetapi
+  boot disk yang dibuat setelah menginstall softwarenya).  Setelah boot,
+  loginlah sebagai root, Selamat ! Sekarang Anda memiliki sistem Linux
+  milik Anda sendiri.
+
+  Bila Anda melakukan boot dengan LILO, cobalah untuk menekan tombol
+  shift atau control pada saat boot. Dengan melakukan ini, maka akan
+  muncul prompt boot; tekanlah tab untuk melihat pilihan yang
+  disediakan. Dengan cara ini, Anda dapat memboot Linux, MS-DOS, atau
+  sistem operasi apa saja langsung dari LILO.
+
+
+  7.  Setelah boot pertama kali
+
+  Anda seharusnya sekarang dapat melihat prompt Login Linux, yang baru
+  saja diboot dari hard drive Anda. Selamat Ya !!
+
+
+  7.1.  Memulai Administrasi Sistem
+
+  Anda munkin ingin membuat account, mengganti hostname, atau
+  mengkonfigurasi ulang X pada tahap ini, bergantung dari instalasi apa
+  yang telah Anda lakukan. Ada banyak cara untuk melakukan setup dan
+  konfigurasi termasuk cara mengkonfigurasi device backup, sambungan
+  SLIP/PPP ke Internet Service Provider, dan lain-lain.
+
+  Silahkan cari buku yang membahas tentang administrasi sistem UNIX.
+  (Penulis menyarankan buku Essential Systems Administration dari
+  penerbit O'Reilly and Associates.)  Anda nantinya juga akan menjalani
+  hal ini selama menggunakan Linux. Anda juga sebaiknya membaca HOWTO
+  Linux yang lainnya, seperti NET-2-HOWTO dan Printing-HOWTO, untuk
+  memperoleh informasi tentang konfigurasi yang lainnya.
+
+
+  7.2.  Konfigurasi LILO Sesuai dengan Keinginan
+
+  LILO adalah loader boot, yang dapat digunakan untuk memilih Linux, MS-
+  DOS atau sistem operasi lain pada saat boot. Biasanya distribusi Anda
+  secara otomatis mengkonfigurasi LILO pada suatu tahapan instalasi
+  (kecuali bila Anda menggunakan OS/2, ini adalah hal yang Anda harus
+  lakukan). Bila tidak, Anda dapat melewati bagian ini.
+
+  Bila Anda menginstall LILO sebagai boot loader primer, maka LILO akan
+  menangani proses booting tahap pertama untuk semua sistem operasi pada
+  drive Anda. Hal ini bekerja baik bila MS-DOS adalah satu-satunya
+  sistem operasi yang Anda install. Tetapi Anda mungkin memiliki OS/2
+  pada drive itu, yang mempunyai Boot Manager sendiri. Dalam kasus ini,
+  gunakananlah Boot Manager OS/2 sebagai boot loader primer dan gunakan
+  LILO hanya untuk memboot Linux (sebagai boot loader sekunder).
+
+  Ada hal yang perlu diperhatikan bagi Anda yang menggunakan sistem
+  EIDE: karena keterbasan BIOS, maka boot sector pada sistem operasi
+  harus berada pada salah satu dari dua disk yang pertama. Kalau tidak
+  maka LILO akan hang sesaat setelah menuliskan "LI", tidak peduli dari
+  mana Anda menjalankannya.
+
+  Bila Anda harus mengkonfigurasikan LILO secara manual, maka proses ini
+  dilakukan dengan menyunting file /etc/lilo.conf.  Di bawah ini
+  dijelaskan contoh dari suatu konfigurasi LILO, yang partisi Linuxnya
+  ada pada /dev/hda2, dan MS-DOS dipasang pada /dev/hdb1 (pada hard disk
+  kedua).
+
+
+
+       # Beritahu LILO untuk menginstall dirinya pada boot loader utama pada
+       # /dev/hda
+       boot = /dev/hda
+       # nama boot image yang diinstall; sebaiknya jangan dirubah
+       install = /boot/boot.b
+
+       # Entri untuk memboot Linux
+       image = /vmlinuz       # Kernelnya adalah /vmlinuz
+         label = linux        # Beri nama "linux"
+         root = /dev/hda2     # Gunakan /dev/hda2 sebagai filesystem root
+         vga = ask            # Tanyakan user mode VGA
+         append = "aha152x=0x340,11,7,1"  # Tambahkan ini sebagai pilihan boot,
+                                          # untuk mendeteksi kontroler SCSI
+
+       # Entri untuk boot MS-DOS
+       other = /dev/hdb1      # Ini adalah partisi MS-DOS
+         label = msdos        # Beri nama "msdos"
+         table = /dev/hdb     # Tabel partisi ada pada drive kedua
+
+
+
+
+  Setelah menyunting file /etc/lilo.conf, jalankanlah file /sbin/lilo
+  dalam account root.Program ini akan menginstall LILO pada drive Anda.
+  Perhatikan bahwa Anda harus menjalankan lagi /sbin/lilo setelah
+  mengkompilasi kernel agar boot loadernya diset dengan benar (Jangan
+  terlalu memikirkan hal ini, tapi ingat-ingat saja).
+
+  Perhatikan bagaimana cara menggunakan pilihan append pada file
+  /etc/lilo.conf untuk menentukan parameter boot sebagaimana kita
+  lakukan pada boot disk.
+
+  Sekarang Anda dapat mereboot sistem. Secara default, LILO akan memboot
+  sistem operasi yang terdaftar pertama kali pada file konfigurasi, yang
+  dalam contoh di atas adalah Linux. Cara untuk menampilkan menu boot
+  (misalnya untuk memilih sistem operasi lain) adalah dengan cara
+  menekan tombol shift atau ctrl pada saat boot; kemudian Anda akan
+  melihat prompt seperti ini:
+
+       Boot:
+
+
+  Kemudian tuliskanlah nama sistem operasi yang ingin diboot (yang
+  diberikan pada baris label pada file konfigurasi; yang dalam contoh di
+  atas adalah linux atau msdos, atau tekan saja tombol tab untuk melihat
+  daftar sistem yang tersedia.
+
+  Kemudian sekarang anggap saja Anda ingin menggunakan LILO sebagai boot
+  loader sekunder; misalnya jika Anda ingin memboot Linux dari Boot
+  Manager milik OS/2. Untuk melakukan boot partisi Linux dari Boot
+  Manager OS/2, sayangnya, Anda harus membuat partisi dengan menggunakan
+  FDISK milik OS/2, dan format partisi itu sebagai FAT atau HPFS agar
+  OS/2 bisa mengenalinya. (Itulah IBM untuk Anda.)
+
+  Untuk membuat LILO memboot Linux dari Boot Manager OS/2, maka install
+  saja LILO pada file system root Linux (dalam contoh di atas adalah
+  /dev/hda2). Dalam kasus ini, file konfigurasi Anda akan terlihat
+  semacam ini:
+
+
+
+       boot = /dev/hda2
+       install = /boot/boot.b
+       compact
+
+       image = /vmlinuz
+         label = linux
+         root = /dev/hda2
+         vga = ask
+
+
+
+
+  Perhatikan perubahan pada baris boot. Setelah menjalankan /sbin/lilo
+  maka seharusnya Anda dapat menambahkan partisi Linux ke Boot Manager.
+  Mekanisme ini juga seharusnya bisa bekerja untuk boot loader yang
+  digunakan pada sistem operasi yang lain.
+
+
+  8.  Administrivia
+
+
+  8.1.  Aturan Penggunaan
+
+  Dokumentasi ini merupakan hak cipta 1996 oleh Eric S. Raymond.  Anda
+  boleh menggunakannya dan menggandakannya secara bebas, asalkan:
+
+
+  o  Tidak menghilangkan atau mengganti bagian hak cipta ini.
+
+  o  Tidak menghilangkan atau mengganti nomer versi dan tanggal.
+
+  o  Tidak menghilangkan atau mengganti pointer ke versi WWW.
+
+  o  Secara jelas mencantumkan hal-hal yang ditekankan, diganti atau
+     berubah.
+
+  Batasn ini ditujukan untuk melindungi pembaca dari dokumen yang sudah
+  basi atau rusak. Bila Anda menginginkan pengecualian dari hal-hal yang
+  disebutkan diatas, silahkan hubungi penulis.
+
+
+  8.2.  Ucapan Terima Kasih
+
+  Penulis mengucapkan terima kasih kepada Matt D. Welsh, yang memulai
+  menulis HOWTO ini. Penulis menghilangkan bagian-bagian yang spesifik
+  pada distribusi Slackware dan memusatkan perhatian pada instalasi dari
+  CD-ROM, tetapi bagian-bagian lain yang penting masih merupakan karya
+  beliau.
+
+  Versi 4.1 dikembangkan dengan bantuan saran dari David Shao
+  <dshao@best.com>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

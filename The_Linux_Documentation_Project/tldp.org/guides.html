@@ -1,0 +1,1871 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<!-- Mirrored from tldp.org/guides.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 21:08:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD>
+<TITLE>The Linux Documentation Project: Guides</TITLE>
+<META NAME="description" CONTENT="Linux Documentation Project: Guides">
+<style TYPE="text/css" MEDIA=screen>
+<!--
+  td { font-family: "sans-serif",Helvetica,Arial }
+  p  { font-family: "sans-serif",Helvetica,Arial }
+  h4 { font-family: "sans-serif",Helvetica,Arial }
+-->
+</style>
+</HEAD>
+
+<BODY bgcolor="#AAAAAA" LINK="#003355" ALINK="#003355" VLINK="#003355">
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="4" CELLSPACING="0">
+  <TR>
+  <TD ALIGN="center" VALIGN="top"><A HREF="index-2.html"><IMG SRC="images/ldp.gif" WIDTH="300" HEIGHT="120" ALIGN="absmiddle" BORDER="0" ALT="The Linux Documentation Project"></A>
+  </TR>
+
+  <TR BGCOLOR="#AAAAAA">
+  <TD ALIGN="center"><font face="arial,helvetica" color="#ffffff"><B>
+  <A HREF="index-2.html"><font face="arial,helvetica" color="#ffffff">
+  home</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#howto"><font face="arial,helvetica" color="#ffffff">
+  HOWTOs</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="guides.html"><font face="arial,helvetica" color="#ffffff">
+  Guides</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#faq"><font face="arial,helvetica" color="#ffffff">
+  FAQs</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#man"><font face="arial,helvetica" color="#ffffff">
+  man pages</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#lg"><font face="arial,helvetica" color="#ffffff">
+  Linux Gazette</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#lf"><font face="arial,helvetica" color="#ffffff">
+  LinuxFocus</font></A>
+  </B></font></TD>
+  </TR>
+
+  <TR BGCOLOR="#BBCCEE">
+  <TD ALIGN="center" VALIGN="center"><BR>
+  <H3><FONT FACE="arial,helvetica">
+  &nbsp;Linux Documentation Project Guides&nbsp;</FONT></H3>
+  </TD></TR>
+
+<TR><TD BGCOLOR="#FFFFFF">
+<P><BR>
+The Linux Documentation Project (LDP) is working on developing good,
+reliable documentation for the Linux operating system. The overall
+goal of the LDP is to collaborate in taking care of all of the issues
+of Linux documentation, ranging from online documentation (man pages,
+HTML, and so on) to printed manuals covering topics such as
+installing, using, and running Linux. Here is the Linux Documentation
+Project <a href="LDP-Manifesto.html"> Manifesto</a> and 
+<a href="LDP-COPYRIGHT.html">Copyright License</a> for LDP works.
+</P>
+
+<p><strong>Translations of LDP works</strong> (languages other than
+English) can be found on the &quot;<a href="links/nenglish.html">Non-English
+Linux Info</a>&quot; links page. </p>
+
+<p>
+A subset of <a href="#debian"><strong>Debian manuals</strong></a> are
+now available.
+</p>
+
+<p><STRONG>Additional documentation</STRONG> (HOWTOs, FAQs, etc) can
+be found <a href="docs.html">here</a>. </p>
+
+<p><STRONG>Older and unmaintained (but still pertinent)
+guides</STRONG> can be found <A HREF="#older">here</A>. </p>
+
+<p><STRONG>Search the LDP documents</STRONG> from 
+our <a href="search.html">search page</a>. </p>
+
+<p><br></p>
+
+<a name="guides"></a>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr align="left" valign="top">
+    <td width="99%" bgcolor="#BBCCEE" height="2">
+      <font face="Arial, Helvetica, sans-serif">
+      <b>Current / Maintained Guides</b>
+    </td>
+  </tr>
+</table>
+
+<!-- Guides --> 
+<ul>
+
+<li><p>
+  <A NAME="abs"></A>
+  <b>Advanced Bash-Scripting Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>10</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Mendel Cooper</b>,
+       &lt;<A href="mailto:thegrendel.abs@gmail.com_NOSPAM">thegrendel.abs(at)gmail.com</A>&gt;<br>
+   </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Mar 2014</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:</td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/abs/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/abs/html/abs-guide.html">HTML</a> (read online, single file, 2.3M)</li>
+        <li><a href="LDP/abs/abs-guide.html.tar.gz">HTML</a> (tarred and gzipped package, 674K)</li>
+        <li><a href="LDP/abs/abs-guide.pdf">PDF</a> (2.7M)</li>
+        <li><a href="LDP/abs/abs-guide.ps.gz">PostScript</a> (1.4M)</li>
+        <li><a href="LDP/abs/abs-guide.txt.gz">text</a> (510K)</li>
+        <li><a href="LDP/abs/abs-guide.sgml.gz">SGML</a> (327K)</li>
+        <li><a href="LDP/abs/abs-guide.pdb">PluckerDB</a> (690K)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This document is both a tutorial and a reference on shell scripting
+  with Bash. It assumes no previous knowledge of scripting or programming,
+  but progresses rapidly toward an intermediate/advanced level of instruction . . . all
+  the while sneaking in little nuggets of UNIX&reg; wisdom and lore. It serves
+  as a textbook, a manual for self-study, and as a reference and source of
+  knowledge on shell scripting techniques. The exercises and heavily-commented
+  examples invite active reader participation, under the premise that the only
+  way to really learn scripting is to write scripts.
+  <br/><br/>
+  This book is suitable for classroom use as a general introduction to programming concepts.
+  </p>
+</p>
+
+<li><p>
+  <A NAME="lmg"></A>
+  <b>Linux on the Road<br>
+  Linux with Laptops, Notebooks, PDAs, Mobile Phones and Other Portable Devices</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>3.22</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Werner Heuser</b>,
+       &lt;<A href="mailto:wehe@tuxmobil.org_NOSPAM">wehe(at)tuxmobil.org</A>&gt;<br>
+   </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Dec 2011</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:</td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/Mobile-Guide/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Mobile-Guide/html/Mobile-Guide.html">HTML</a>
+        (read online, single file, 580K)</li>
+        <li><a href="LDP/Mobile-Guide/Mobile-Guide.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 820K)</li>
+        <li><a href="LDP/Mobile-Guide/Mobile-Guide.pdf">PDF</a> (1.4M)</li>
+        <li><a href="LDP/Mobile-Guide/Mobile-Guide.ps.gz">PostScript</a> (977K)</li>
+        <li><a href="LDP/Mobile-Guide/Mobile-Guide.txt">text</a> (448K)</li>
+        <li><a href="LDP/Mobile-Guide/Mobile-Guide.pdb">PluckerDB</a> (248k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+Though there are laptop, notebook, PDA and mobile phone related HOWTOs available already, this guide contains a concise survey of documents related to mobile computer devices. Also Linux features, such as installation methods for laptops, notebooks and PDAs as well as configurations for different (network) environments are described.
+</p><p>
+Although there are some caveats, Linux is a better choice for mobile computer devices than most other operating systems. Because it supports numerous installation methods, works in many heterogenoues environments and needs smaller resources.
+  </p>
+</li>
+
+<a name="winbsdlinux"></a>
+ <li><p>
+    <b>Windows+OpenSolaris+CentOS Installation Guide</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+      <tr>
+        <td valign="top">version: </td>
+        <td valign="top"><b>1.2</b></td>
+      </tr>
+      <tr>
+        <td valign="top">author:</td>
+        <td valign="top"><b>Subhasish Ghosh</b>,
+        &lt;<A href="mailto:subhasish_ghosh@linuxwaves.com.NOSPAM">subhasish_ghosh(at)linuxwaves.com&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top"><b>Jun 2009</b></td>
+      </tr>
+      <tr>
+        <td valign="top">available formats: </td>
+      <td valign="top">
+         <ol>
+            <li><a href="LDP/Win%2bOpenSolaris%2bCentOS-Install/html/index.html">HTML</a>
+            (read online)</li>
+            <li><a href="LDP/Win%2bOpenSolaris%2bCentOS-Install/Win%2bOpenSolaris%2bCentOS-Install.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 41k)</li>
+            <li><a href="LDP/Win%2bOpenSolaris%2bCentOS-Install/Win%2bOpenSolaris%2bCentOS-Install.pdf">PDF</a>
+            (535K)</li>
+         </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+Explains how three different operating systems can be installed and
+configured on a single hard disk. The reader may choose from: Microsoft
+Windows NT/2K/XP + OpenSolaris 2008.11 + CentOS 5.2. Only x86 & x86-compatible
+architecture multi-booting is discussed and GNU GRUB is the boot loader of choice.
+  </p>
+</li>
+
+<li><p>
+  <A NAME="bbg"></A>
+  <b>Bash Guide for Beginners</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.11</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Machtelt Garrels</b>,
+       &lt;<A href="mailto:tille wants no spam at xalasys dot com">tille</A>&gt;<br>
+   </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Dec 2008</b></td>
+    </tr>
+    <tr>
+      <td valign="top">ISBN: </td>
+      <td valign="top"><b>0-9744339-4-2</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:</td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/Bash-Beginners-Guide/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html">HTML</a>
+        (read online, single file, 530k)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 514K)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf">PDF</a> (1.2M)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.ps.gz">PostScript</a> (1.0M)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.txt.gz">text</a> (110k)</li>
+        <li><a href="LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdb">PluckerDB</a> (165k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+The Bash Guide for Beginners gets you started with Bash scripting and
+bridges the gap between the Bash HOWTO and the Advanced Bash Scripting
+Guide. Everybody who wants to make life easier on themselves, power users
+and sysadmins alike, can benefit from reading this practical course. The
+guide contains lots of examples and exercises at the end of each chapter,
+demonstrating the theory and helping you practice. Bash is available on
+a wide variety of UNIX, Linux, MS Windows and other systems.
+</p>
+</li>
+
+
+<li><p>
+  <A NAME="intro-linux"></A>
+  <b>Introduction to Linux - A Hands on Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.27</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+      <b>Machtelt Garrels</b>,
+       &lt;<A href="mailto:tille wants no spam at xalasys dot com">tille</A>&gt;</td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Jun 2008</b></td>
+    </tr>
+    <tr>
+      <td valign="top">ISBN: </td>
+      <td valign="top"><b>1596821124</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+          <ol>
+        <li><a href="LDP/intro-linux/html/index.html">HTML</a>
+         (read online)</li>
+        <li><a href="LDP/intro-linux/html/intro-linux.html">HTML</a>
+        (read online, single file, 800k)</li>
+        <li><a href="LDP/intro-linux/intro-linux.html.tar.gz">HTML</a>
+         (tarred and gzipped package, 1.1M)</li>
+        <li><a href="LDP/intro-linux/intro-linux.pdf">PDF</a> (1.6M)</li>
+        <li><a href="LDP/intro-linux/intro-linux.ps.gz">PostScript</a> (1.4M)</li>
+        <li><a href="LDP/intro-linux/intro-linux.txt.gz">text</a> (187k)</li>
+        <li><a href="LDP/intro-linux/intro-linux.pdb">PluckerDB</a> (254k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+<p>
+This guide was created as an overview of the Linux Operating System,
+geared toward new users as an exploration tour and getting started
+guide, with exercises at the end of each chapter. For more advanced
+trainees it can be a desktop reference, and a collection of the base
+knowledge needed to proceed with system and network administration.
+This book contains many real life examples derived from the author's
+experience as a Linux system and network administrator, trainer and
+consultant. We hope these examples will help you to get a better
+understanding of the Linux system and that you feel encouraged to try
+out things on your own.
+</p>
+</li>
+
+
+<li><p>
+  <A NAME="gnu-tools"></A>
+  <b>GNU/Linux Command-Line Tools Summary</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.2</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+      <b>Gareth Anderson</b>,
+       &lt;<A href="mailto:somecsstudent(at)gmail.com">somecsstudent(at)gmail.com</A>&gt;</td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Apr 2006</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+          <ol>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/html/index.html">HTML</a>
+         (read online)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/html/GNU-Linux-Tools-Summary.html">HTML</a>
+        (read online, single file, 559k)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.html.tar.gz">HTML</a>
+         (tarred and gzipped package, 317k)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.pdf">PDF</a> (682k)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.ps.gz">PostScript</a> (584k)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.txt.gz">text</a> (gzipped, 88k)</li>
+        <li><a href="LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.pdb">PluckerDB</a> (238k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+<p>
+This document is an attempt to provide a summary of useful command-line
+tools available to a GNU/Linux based operating system, the tools listed
+are designed to benefit the majority of users and have being chosen at
+the authors discretion. This document is not a comprehensive list of every
+existent tool available to a GNU/Linux based system, nor does it have in-depth
+explanations of how things work. It is a summary which can be used to learn
+about and how to use many of the tools available to a GNU/Linux-based
+operating system.
+</p>
+</li>
+
+
+ <li><p>
+  <A NAME="ldp_author"></A>
+  <b>LDP Author Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>4.8</b></td>
+    </tr>
+    <tr>
+      <td valign="top">authors: </td>
+      <td valign="top">
+       <b>Mark F. Komarinski</b>,
+       &lt;<A href="mailto:mkomarinski@wayga.org_SPAMno">mkomarinski(at)wayga.org</A>&gt;<br>
+       <b>Jorge Godoy</b>,
+       &lt;<A href="mailto:godoy@metalab.unc.edu_SPAMno">godoy(at)metalab.unc.edu</A>&gt;<br>
+       <b>David C. Merrill</b>,
+       &lt;<A href="mailto:dcmerrill@mindspring.com_SPAMno">dcmerrill(at)mindspring.com</A>&gt;<br>
+       <b>Emma Jane Hogbin</b><br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Apr 2006</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/LDP-Author-Guide/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/LDP-Author-Guide/html/LDP-Author-Guide.html">HTML</a>
+        (read online, single file, 337k)</li>
+        <li><a href="LDP/LDP-Author-Guide/LDP-Author-Guide.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 640k)</li>
+        <li><a href="LDP/LDP-Author-Guide/LDP-Author-Guide.pdf">PDF</a> (1.4M)</li>
+        <li><a href="LDP/LDP-Author-Guide/LDP-Author-Guide.ps.gz">PostScript</a> (1.5M)</li>
+        <li><a href="LDP/LDP-Author-Guide/LDP-Author-Guide.txt">text</a> (248k)</li>
+        <li><a href="LDP/LDP-Author-Guide/LDP-Author-Guide.pdb">PluckerDB</a> (114k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+ This guide describes the process of submitting and publishing a document with
+ The Linux Documentation Project (TLDP). It includes information about the tools,
+ toolchains and formats used by TLDP. The document's primary audience is new TLDP
+ authors, but it also contains information for seasoned documentation authors.
+  </p>
+</li>
+
+
+<li><p>
+    <a name="lkmpg"></a>
+    <b>The Linux Kernel Module Programming Guide</b>
+    <p>
+    <table cellpadding=1 cellspacing=1>
+      <tr>
+        <td valign="top">available versions: </td>
+        <td valign="top"><b>2.4</b> and <b>2.6</b></td>
+      </tr>
+      <tr>
+        <td valign="top">authors: </td>
+        <td valign="top"><b>Peter Jay Salzman, Michael Burian, Ori Pomerantz</b></td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top">
+		<b>May 2007 (<b>kernel version 2.6</b>)</b><br/>
+		<b>Jul 2004 (<b>kernel version 2.4</b>)</b>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">available formats<br>(<b>kernel version 2.6</b>): </td>
+        <td valign="top">
+        <ol>
+        <li><a href="LDP/lkmpg/2.6/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/lkmpg/2.6/html/lkmpg.html">HTML</a>
+        (read online, single file, 214k)</li>
+        <li><a href="LDP/lkmpg/2.6/lkmpg.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 122k)</li>
+        <li><a href="LDP/lkmpg/2.6/lkmpg.pdf">PDF</a> (539k)</li>
+        <li><a href="LDP/lkmpg/2.6/lkmpg.pdb">PluckerDB</a> (155k)</li>
+        <li><a href="LDP/lkmpg/2.6/lkmpg.ps.gz">PostScript</a> (497k)</li>
+        <li><a href="LDP/lkmpg/2.6/lkmpg.txt.gz">text</a> (gzipped, 62k)</li>
+        </ol>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">available formats<br>(<b>kernel version 2.4</b>): </td>
+        <td valign="top">
+        <ol>
+        <li><a href="LDP/lkmpg/2.4/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/lkmpg/2.4/html/lkmpg.html">HTML</a>
+        (read online, single file, 208k)</li>
+        <li><a href="LDP/lkmpg/2.4/lkmpg.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 114k)</li>
+        <li><a href="LDP/lkmpg/2.4/lkmpg.pdf">PDF</a> (153k)</li>
+        <li><a href="LDP/lkmpg/2.4/lkmpg.ps.gz">PostScript</a> (65k)</li>
+        <li><a href="LDP/lkmpg/2.4/lkmpg.txt.gz">text</a> (gzipped, 57k)</li>
+        </ol>
+        </td>
+      </tr>
+    </table>
+    <p>
+    A guide to programming Linux kernel modules.
+  </p>
+</li>
+
+
+<li><p>
+   <a name="sag"></a>
+    <b>The Linux System Administrators' Guide</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+      <tr>
+        <td valign="top">version: </td>
+        <td valign="top"><b>0.9</b></td>
+      </tr>
+      <tr>
+        <td valign="top">authors: </td>
+        <td valign="top"><b>Lars Wirzenius, Joanna Oja,
+        Stephen Stafford, and Alex Weeks</b></td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top"><b>July 2005</b></td>
+      </tr>
+      <tr>
+        <td valign="top">available formats: </td>
+        <td valign="top">
+          <ol>
+        <li><a href="LDP/sag/html/index.html">HTML</a>
+         (read online)</li>
+        <li><a href="LDP/sag/html/sag.html">HTML</a>
+        (read online, single file, 436K)</li>
+        <li><a href="LDP/sag/sag.html.tar.gz">HTML</a>
+         (tarred and gzipped package, 178K)</li>
+        <li><a href="LDP/sag/sag.pdf">PDF</a> (849K)</li>
+        <li><a href="LDP/sag/sag.ps.gz">PostScript</a> (657K)</li>
+        <li><a href="LDP/sag/sag.txt">text</a> (375K)</li>
+        <li><a href="LDP/sag/sag.pdb">PluckerDB</a> (170K)</li>
+        <li><a href="pub/Linux/docs/ldp-archived/system-admin-guide/translations/index.html">various
+         (non-English) translations</a></li>
+          </ol>
+          </td>
+      </tr>
+    </table>
+    <p>
+    This is the third book in the main LDP series, and assumes
+    knowledge of everything in the Installation and Users' Guides. It
+    will cover all of the aspects of keeping the system running,
+    handling user accounts, backups, configuration of the system,
+    installing and upgrading software, and more.  Whereas some of
+    this information is in the Installation Guide (just to get the
+    system off the ground) this book should be much more complete.
+    <br><br>
+    Also visit the <a href="http://www.draxeman.com/sag.html">Linux System
+    Administrators Guide Homepage</a>.
+    </p>
+</li>
+
+
+<li><p>
+  <A NAME="pocket"></A>
+  <b>Pocket Linux Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>3.1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+       <b>David Horton</b>, &lt;<a href="mailto:dhorton@member.fsf.org_NOSPAM">dhorton(at)member.fsf.org</a>&gt;</td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Apr 2005</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/Pocket-Linux-Guide/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/html/Pocket-Linux-Guide.html">HTML</a>
+            (read online, single file, 194k)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/Pocket-Linux-Guide.html.tar.gz">HTML</a>        (tarred and gzipped package, 59k)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/Pocket-Linux-Guide.pdf">PDF</a> (576k)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/Pocket-Linux-Guide.ps.gz">PostScript</a> (487k)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/Pocket-Linux-Guide.txt">text</a> (171k)</li>
+        <li><a href="LDP/Pocket-Linux-Guide/Pocket-Linux-Guide.pdb">PluckerDB</a> (75k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+The Pocket Linux Guide is for anyone interested in learning the
+techniques of building a GNU/Linux system from source code. The guide
+is structured as a project that builds a small diskette-based
+GNU/Linux system called Pocket Linux. Each chapter explores a small
+piece of the overall system explaining how it works, why it is needed
+and how to build it. After completing the Pocket Linux project,
+readers should possess an enhanced knowledge of what makes GNU/Linux
+systems work as well as the confidence to explore larger, more
+complex source-code-only projects.
+  </p>
+</li>
+
+<li><p>
+  <A NAME="lmg"></A>
+  <b>Guide to Managing Media and Public Relations in the Linux Community</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>The Linux Professional Institute</b><br>
+       <b>Sheldon Rose</b>
+   </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Apr 2005</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:</td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/Linux-Media-Guide/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Linux-Media-Guide/html/Linux-Media-Guide.html">HTML</a>
+        (read online, single file, 129k)</li>
+        <li><a href="LDP/Linux-Media-Guide/Linux-Media-Guide.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 52k)</li>
+        <li><a href="LDP/Linux-Media-Guide/Linux-Media-Guide.pdf">PDF</a> (398k)</li>
+        <li><a href="LDP/Linux-Media-Guide/Linux-Media-Guide.ps.gz">PostScript</a> (367k)</li>
+        <li><a href="LDP/Linux-Media-Guide/Linux-Media-Guide.txt">text</a> (113k)</li>
+        <li><a href="LDP/Linux-Media-Guide/Linux-Media-Guide.pdb">PluckerDB</a> (62k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+This guide provides useful information on how to generate positive public
+relations and news media coverage for Linux.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="EVMSUG"></A>
+  <b>EVMS User Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>2.4.0</b></td>
+    </tr>
+    <tr>
+      <td valign="top">authors: </td>
+      <td valign="top">
+       <b>Christine Lorenz</b>, IBM<br>
+       <b>Joy Goodreau</b>, IBM<br>
+       <b>Kylie Smith</b>, IBM</td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>September, 2004</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/EVMSUG/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/EVMSUG/html/EVMSUG.html">HTML</a>
+            (read online, single file, 370k)</li>
+        <li><a href="LDP/EVMSUG/EVMSUG.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 205k)</li>
+        <li><a href="LDP/EVMSUG/EVMSUG.pdf">PDF</a> (423k)</li>
+        <li><a href="LDP/EVMSUG/EVMSUG.ps.gz">PostScript</a> (210k)</li>
+        <li><a href="LDP/EVMSUG/EVMSUG.txt">text</a> (290k)</li>
+        <li><a href="LDP/EVMSUG/EVMSUG.pdb">PluckerDB</a> (142k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+This book is designed to address user's questions about Enterprise
+Volume Management System (EVMS) and provide a context for using EVMS.
+For additional information about EVMS or to ask questions specific
+to your distribution, the EVMS
+mailing lists are an excellent resource. You can view the list
+archives or subscribe to the lists from the
+<a href="http://evms.sourceforge.net/mailinglists.html">EVMS Project web site</a>.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="linux-dictionary"></A>
+  <b>Linux Dictionary</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>0.18</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+      <b>Binh Nguyen</b>,
+       &lt;<A href="mailto:linuxfilesystem@yahoo.com.au.NOSPAM">linuxfilesystem(at)yahoo(dot)com(dot)au&gt;
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>April 2005</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+      <ol>
+        <li><a href="LDP/Linux-Dictionary/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Linux-Dictionary/html/Linux-Dictionary.html">HTML</a>
+        (read online, single file, 7.9M)</li>
+        <li><a href="LDP/Linux-Dictionary/Linux-Dictionary.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 1.5M)</li>
+        <li><a href="LDP/Linux-Dictionary/Linux-Dictionary.pdf">PDF</a> (8.0M)</li>
+        <li><a href="LDP/Linux-Dictionary/Linux-Dictionary.ps.gz">PostScript</a> (1.7M)</li>
+        <li><a href="LDP/Linux-Dictionary/Linux-Dictionary.txt.gz">text</a>
+        (gzipped, 1.6M)</li>
+        <li><a href="LDP/Linux-Dictionary/Linux-Dictionary.pdb">PluckerDB</a> (1.8M)</li>
+	<li><a href="LDP/Linux-Dictionary/index.html">directory listing</a> (contains .deb and .rpm packages)</li>
+      </ol>
+      </td>
+    </tr>
+  </table>
+ </p></li>
+
+
+ <li><p>
+  <A NAME="fhs"></A>
+  <b>Linux Filesystem Hierarchy</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>0.65</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+        <b>Binh Nguyen</b>, &lt;<a href="mailto:linuxfilesystem@yahoo.com.au.NOSPAM">linuxfilesystem(at)yahoo.com.au</a>&gt;
+</td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>July 2004</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/html/Linux-Filesystem-Hierarchy.html">HTML</a>
+        (read online, single file, 354k)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/Linux-Filesystem-Hierarchy.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 119k)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/Linux-Filesystem-Hierarchy.pdf">PDF</a> (601k)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/Linux-Filesystem-Hierarchy.ps.gz">PostScript</a> (556k)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/Linux-Filesystem-Hierarchy.txt">text</a>
+(399k)</li>
+        <li><a href="LDP/Linux-Filesystem-Hierarchy/Linux-Filesystem-Hierarchy.pdb">PluckerDB</a> (133k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+This document outlines the set of requirements and guidelines for
+file and directory placement under the Linux operating system
+according to those of the FSSTND v2.3 final (January 29, 2004) and also
+its actual implementation on an arbitrary system. It is meant to be
+accessible to all members of the Linux community, be distribution
+independent and is intended discuss the impact of the FSSTND and how
+it has managed to increase the efficiency of support interoperability
+of applications, system administration tools, development tools, and
+scripts as well as greater uniformity of documentation for these
+systems.
+  </p>
+ </li>
+
+
+<li><p>
+  <A NAME="cpg"></A>
+  <b>Custom Linux: A Porting Guide - Porting LinuxPPC to a Custom SBC</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>2.1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Shie Erlich</b>,
+       &lt;<A href="mailto:erlich@users.sourceforge.net_NOSPAM">erlich(at)users.sourceforge.net</A>&gt;<br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Mar 2004</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:
+      </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/cpg/html/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/cpg/html/Custom-Porting-Guide.html">HTML</a>
+            (read online, single file, 60k)</li>
+        <li><a href="LDP/cpg/Custom-Porting-Guide.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 25k)</li>
+        <li><a href="LDP/cpg/Custom-Porting-Guide.pdf">PDF</a> (60k)</li>
+        <li><a href="LDP/cpg/Custom-Porting-Guide.ps.gz">PostScript</a> (26k)</li>
+        <li><a href="LDP/cpg/Custom-Porting-Guide.txt">text</a> (56k)</li>
+        <li><a href="LDP/cpg/Custom-Porting-Guide.pdb">PluckerDB</a> (32k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+This guide describes a work in progress, to port Linux to a custom 
+PowerPC-based board. This means making
+the operating system work on unfamiliar hardware. Anyone, 
+who is on the same track might benefit from
+reading this paper, as it highlights the pitfalls and problematic 
+points along the way.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="lfs"></A>
+  <b>Linux From Scratch</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>6.1.1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Gerard Beekmans</b>,
+       &lt;<A href="mailto:gerard@linuxfromscratch.org">gerard(at)linuxfromscratch.org</A>&gt;<br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>Nov 2005</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:
+      </td>
+      <td valign="top">
+         <ol>
+            <li><a href="LDP/lfs/LFS-BOOK-6.1.1-HTML/index.html">HTML</a> (read online) (<a href="LDP/lfs/LFS-BOOK-6.1.1-HTML.tar.bz2">HTML.tar.bz2</a>)</li>
+            <li><a href="LDP/lfs/LFS-BOOK-6.1.1-NOCHUNKS.html">HTML</a>
+            (read online, single file) (<a href="LDP/lfs/LFS-BOOK-6.1.1-NOCHUNKS.html.bz2">HTML.bz2</a>)</li>
+            <li><a href="LDP/lfs/LFS-BOOK-6.1.1-HTML.tar.bz2">HTML</a>
+            (tarred and bzipped package)</li>
+            <li><a href="LDP/lfs/LFS-BOOK-6.1.1.pdf">PDF</a> (<a href="LDP/lfs/LFS-BOOK-6.1.1.pdf.bz2">PDF.bz2</a>)</li>
+            <li><a href="LDP/lfs/LFS-BOOK-6.1.1.txt">text</a> (<a href="LDP/lfs/LFS-BOOK-6.1.1.txt.bz2">txt.bz2</a>)</li>
+            <li><a href="http://www.tldp.org/LDP/lfs/LFS-BOOK-6.1.1-XML/">text</a> (<a href="LDP/lfs/LFS-BOOK-6.1.1-XML.tar.bz2">XML.tar.bz2</a>)</li>
+         </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  Derived from the popular <i>Linux-From-Scratch-HOWTO</i>, this book
+  describes the process of creating your own Linux system from
+  scratch from an already installed Linux distribution, using nothing
+  but the sources of software that are needed.
+  </p>
+  <p>
+  More information can be found at
+  <a href="http://www.linuxfromscratch.org/">http://www.linuxfromscratch.org</a>.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="bugzilla"></A>
+  <b>The Bugzilla Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>2.16.3</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Matthew P. Barnson</b>,
+       &lt;<A href="mailto:mbarnson@sisna.com">mbarnson@sisna.com</A>&gt;<br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>April 2003</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+         <ol>
+            <li><a href="LDP/bugzilla/Bugzilla-Guide/index.html">HTML</a> (read
+online)</li>
+            <li><a href="LDP/bugzilla/Bugzilla-Guide.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 261k)</li>
+            <li><a href="LDP/bugzilla/Bugzilla-Guide.pdf">PDF</a> (465k)</li>
+         </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+ This document is intended to be the comprehensive guide to the
+ installation, administration, maintenance, and use of the Bugzilla
+ bug-tracking system.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="lki"></A>
+  <b>Linux Kernel 2.4 Internals</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+       <b>Tigran Aivazian</b>,
+       &lt;<A href="mailto:tigran@veritas.com">tigran@veritas.com</A>&gt;<br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>August 2002</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/lki/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/lki.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 80k)</li>
+        <li><a href="LDP/lki/lki.pdf">PDF</a> (256k)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  An introduction to the Linux 2.4 kernel.  The author is working as
+  senior Linux kernel engineer at VERITAS Software Ltd and wrote this
+  book for the purpose of supporting the short training course/lectures
+  he gave on this subject, internally at VERITAS.
+  </p>
+ </li>
+
+
+ <li><p>
+  <A NAME="securing_linux"></A>
+  <b>Securing &amp; Optimizing Linux: The Ultimate Solution</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>2.0</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+       <b>Gerhard Mourani</b>,
+       &lt;<A href="mailto:gmourani@openna.com">gmourani@openna.com</A>&gt;
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>July 2002</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/solrhe/Securing-Optimizing-Linux-The-Ultimate-Solution-v2.0.pdf">PDF</a> (6.2MB)
+        </li>
+        <li>
+             Example <a href="LDP/solrhe/floppy-2.0.gz">server configuration
+             files</a> (tar file; described in book as &quot;floppy.tgz&quot;).
+        </li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  Mastering security with Linux and getting the maximum out 
+  of your system have never been easier. <b>Securing &amp; Optimizing Linux:
+  The Ultimate Solution (v2.0)</b> has been written and achieved with
+  tightening security to an incomparable level in mind. One of 
+  its main features is the easy path from
+  beginning to end in a smooth manner, step by step for beginners 
+  as well as for experts. 
+<p>
+More information (and updates) available from: <a href="http://www.openna.com/products/books.php">
+http://www.openna.com/products/books.php</a>.
+</p>
+  </p>
+
+  <b><font color=darkred><i>older version:</i></font>
+   Securing and Optimizing Linux Red Hat Edition - A Hands on Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.3</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top">
+       <b>Gerhard Mourani</b>,
+       &lt;<A href="mailto:gmourani@openna.com">gmourani@openna.com</A>&gt;
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>August 2000</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+        <li><a href="LDP/solrhe/Securing-Optimizing-Linux-RH-Edition-v1.3/index.html">HTML</a> (read online)</li>
+        <li><a href="LDP/solrhe/Securing-Optimizing-Linux-RH-Edition-v1.3.html.tar.gz">HTML</a>
+        (tarred and gzipped package, 1.5MB)</li>
+        <li><a href="LDP/solrhe/Securing-Optimizing-Linux-RH-Edition-v1.3.pdf">PDF</a> (4.9MB)</li>
+        <li>
+             Example <a href="LDP/solrhe/floppy.gz">server configuration
+             files</a> (tar file; described in book as &quot;floppy.tgz&quot;).
+        </li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  </p>
+ </li>
+
+ <li><p>
+  <A NAME="espk"></A>
+  <b>Emacspeak User's Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.3</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author:</td>
+      <td valign="top">
+       <b>Jennifer Jobst</b>,
+       &lt;<A href="mailto:jobst@us.ibm.com">jobst@us.ibm.com</A>&gt;<br>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>July 2002</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats:</td>
+      <td valign="top">
+         <ol>
+            <li><a href="LDP/espk-ug/html/index.html">HTML</a> (read online)</li>
+            <li><a href="LDP/espk-ug/espk-ug.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 23k)</li>
+            <li><a href="LDP/espk-ug/espk-ug.pdf">PDF</a> (89k)</li>
+         </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+   This document helps Emacspeak users become familiar with Emacs as
+   an audio desktop and provides tutorials on many common tasks and
+   the Emacs applications available to perform those tasks.
+  </p>
+ </li>
+
+ <li><p>
+    <a name="cookbook"></a>
+    <b>The Linux Cookbook: Tips and Techniques for Everyday Use</b>
+    <p><i><font color="darkred">Removed at the author's request.</font></i></p>
+ </p></li>
+
+ <li><p>
+    <a name="nag2"></a>
+    <b>The Linux Network Administrator's Guide, Second Edition</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">authors:</td>
+      <td valign="top"><b>Olaf Kirch and Terry Dawson</b></td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>March 2000</b></td>
+    </tr>
+    <tr>
+      <td valign="top">ISBN: </td>
+      <td valign="top"><b>1-56592-400-2</b></td>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="LDP/nag2/index.html">HTML</a> (read online)</li>
+          <li><a href="LDP/nag-2.0.html.tar.gz">HTML</a> (tarred
+           and gzipped package, 690k)</li>
+         <li><a href="LDP/nag2/nag2.pdf">PDF</a> (1.5MB)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This book was written to provide a single reference for network
+  administration in a Linux environment. Beginners and experienced
+  users alike should find the information they need to cover nearly all
+  important administration activities required to manage a Linux
+  network configuration. The possible range of topics to cover is
+  nearly limitless, so of course it has been impossible to include
+  everything there is to say on all subjects. We've tried to cover the
+  most important and common ones. We've found that beginners to Linux
+  networking, even those with no prior exposure to Unix-like operating
+  systems, have found this book good enough to help them successfully
+  get their Linux network configurations up and running and get them
+  ready to learn more.
+  </p>
+ </li>
+
+
+<li><p>
+  <a name="lasg"></a>
+  <b>Linux Administrator's Security Guide</b>
+  <p>
+  Removed at the request of the author (book is now more
+  &quot;dynamic&quot;). Please access
+  the <i>Linux Administrator's Security Guide</i> at the 
+  following location:
+  <a target="ldpwnd" href="http://www.seifried.org/lasg/">http://www.seifried.org/lasg/</a>
+  </p>
+ </li>
+
+
+ <li><p>
+  <a name="lame"></a>
+  <b>Linux System Administration Made Easy</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.06</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top"><b>Steve Frampton</b></td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>November 1999</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="LDP/lame/LAME/linux-admin-made-easy/index.html">HTML</a>
+            (read online)</li>
+          <li><a href="LDP/lame/lame.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 99k)</li>
+          <li><a href="LDP/lame/index.html">other</a>
+            : PDF, PostScript, text, and SGML source</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <P>
+  The Linux Administration Made Easy (LAME) guide attempts to
+  describe day-to-day administration and maintenance issues commonly
+  faced by Linux system administrators.
+  </P>
+  <P>
+  <I>This book can be purchased from bookstores, 
+  <A href="links/p_books.html#admin_basics">more information can be found
+  here.</A></I>
+  </P>
+ </li>
+
+</ul>
+
+
+<!-- older guides -->
+
+<p><br></p>
+<a name="older"></a>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr align="left" valign="top">
+    <td width="99%" bgcolor="#BBCCEE" height="2">
+      <font face="Arial, Helvetica, sans-serif">
+      <b>Older / Unmaintained (but still pertinent) Guides</b>
+    </td>
+  </tr>
+</table>
+
+<p>
+<ul>
+
+<li><p>
+    <a name="nag"></a>
+    <b>The Linux Network Administrators' Guide</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.0</b> </td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top"><b>Olaf Kirch</b></td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>March 1996</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="LDP/nag/nag.html">HTML</a> (read online)</li>
+          <li><a href="LDP/nag.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 332k)</li>
+          <li><a href="pub/Linux/docs/ldp-archived/network-guide/index.html">other</a>
+            : plain text, DVI, LaTeX source, PDF, and PostScript.</li>
+          <li><a href="pub/Linux/docs/ldp-archived/network-guide/translations/index.html">various
+            (non-English) translations</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+    This guide supplements the System Administrators' Guide and cover
+    all of the diverse issues of networking under Linux, from UUCP to
+    serial connections to TCP/IP. Many Linux users won't have access
+    to such a network, so this information is in a separate manual.
+    It contains an intro to TCP/IP and UUCP (for those who have never
+    used such networks before, lots of background information),
+    TCP/IP, UUCP, SLIP, and DNS configuration, configuration of mail
+    systems such as sendmail and Smail, setting up NNTP and news, and
+    NFS.
+  </p>
+</li>
+
+
+<li><p>
+  <a name="lpg"></a>
+  <b>The Linux Programmer's Guide</b>
+  <p>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>0.4</b> </td>
+    </tr>
+    <tr>
+      <td valign="top">authors: </td>
+      <td valign="top"> <b>B. Scott
+        Burkett, Sven Goldt, John D. Harper, Sven van der Meer and Matt Welsh</b>
+        </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>March 1996</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="LDP/lpg-0.4.pdf">PDF</a> <em>(recommended format)</em></li>
+          <li><a href="LDP/lpg/index.html">HTML</a> (read online)</li>
+          <li><a href="LDP/lpg-0.4.html.tar.gz">HTML</a>
+            (tarred and gzipped package, 140k)</li>
+          <li><a href="pub/Linux/docs/ldp-archived/programmers-guide/index.html">other</a>
+            : DVI, LaTeX source, PDF and PostScript.</li>
+          <li>Example <a href="pub/Linux/docs/ldp-archived/programmers-guide/index.html">source
+            code</a> is also available.</li>
+          <li><a href="pub/Linux/docs/ldp-archived/programmers-guide/translations/index.html">various
+            (non-English) translations</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+    The Linux Programmer's Guide is meant to do what the name implies
+    -- It is to help Linux programmers understand the peculiarities
+    of Linux. By its nature, this also means that it should be useful
+    when porting programs from other operating systems to Linux.
+    Therefore, this guide must describe the system calls and the
+    major kernel changes which have effects on older programs like
+    serial I/O and networking.
+  </p>
+</li>
+
+
+<li><p>
+  <a name="lug"></a>
+  <b>The Linux Users' Guide</b>
+  <p>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>beta-1</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author: </td>
+      <td valign="top"><b>Larry Greenfield</b></td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>December 1996</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="pub/Linux/docs/ldp-archived/users-guide/index.html">other</a>
+            : DVI, PDF (gzipped / zipped), PostScript (gzipped / zipped), and
+            LaTeX source</li>
+          <li><a href="pub/Linux/docs/ldp-archived/users-guide/translations/index.html">various
+            (non-English) translations</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+    This book covers all of the user-end aspects of Linux, from
+    sitting down at the first login session to using complex tools
+    such as gcc, emacs, and so on. It assumes no previous Unix
+    experience, so not only will it serve as an introduction to
+    Linux, but to Unix in general as well. This manual won't cover
+    system administrator tasks (i.e. anything that needs to be done
+    as root) - it's for the J. Random User who has a working Linux
+    system sitting in front of them.
+  </p>
+</li>
+
+
+<li><p>
+    <a name="lkhg"></a>
+    <b>The Linux Kernel Hackers' Guide</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+      <tr>
+        <td valign="top">version: </td>
+        <td valign="top"><b>not available</b></td>
+      </tr>
+      <tr>
+        <td valign="top">author: </td>
+        <td valign="top"><b>Michael K. Johnson</b> </td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top"><b>August 1998</b></td>
+      </tr>
+      <tr>
+        <td valign="top">available formats: </td>
+        <td valign="top">
+          <ol>
+            <li><A HREF="LDP/khg/HyperNews/get/khg.html">HTML</A>
+              (read online)</li>
+            <li><a href="LDP/khg.html.tar.gz">HTML</a>
+              (tarred and gzipped package, 468k)</li>
+          </ol>
+          </td>
+      </tr>
+    </table>
+    <p>
+    This is an older, archived instance; complete with discussion threads
+    (no posting or replying however).
+    </p>
+</li>
+
+<li><p>
+    <a name="install-guide"></a>
+    <b>Installation and Getting Started Guide</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+      <tr>
+        <td valign="top">version: </td>
+        <td valign="top"><b>3.2</b></td>
+      </tr>
+      <tr>
+        <td valign="top">authors: </td>
+        <td valign="top"> <b>Matt Welsh and others</b></td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top"><b>March 1998</b></td>
+      </tr>
+      <tr>
+        <td valign="top">available formats: </td>
+        <td valign="top">
+          <ol>
+            <li><a href="LDP/gs/gs.html">HTML</a> (read online)</li>
+            <li><a href="LDP/gs.html.tar.gz">HTML</a>
+              (tarred and gzipped package, 836k)</li>
+          </ol>
+          </td>
+      </tr>
+    </table>
+    <p>
+    This book is for personal computer users who want to install and
+    use Linux.  The book assumes that you have basic knowledge about
+    personal computers and operating systems like MS-DOS, but no
+    previous knowledge of Linux or UNIX.
+    </p>
+</li>
+
+
+<li><p>
+    <a name="tlk"></a>
+    <b>The Linux Kernel</b>
+    <p>
+    <table cellpadding=0 cellspacing=1>
+      <tr>
+        <td valign="top">version: </td>
+        <td valign="top"><b>0.8-3</b></td>
+      </tr>
+      <tr>
+        <td valign="top">author: </td>
+        <td valign="top"><b>David A. Rusling</b></td>
+      </tr>
+      <tr>
+        <td valign="top">last update: </td>
+        <td valign="top"><b>January 1998</b></td>
+      </tr>
+      <tr>
+        <td valign="top">available formats: </td>
+        <td valign="top">
+          <ol>
+            <li><a href="LDP/tlk/tlk.html">HTML</a> (read online)</li>
+            <li><a href="LDP/tlk.html.tar.gz">HTML</a>
+              (tarred and gzipped package, 376k)</li>
+          </ol>
+          </td>
+      </tr>
+    </table>
+    <p>
+    The kernel is at the heart of the operating system. This book is a guide
+    to how the kernel fits together, how it works; a tour of the kernel.
+    </p>
+</li>
+
+</ul>
+
+</ul>
+
+
+<!-- translated guides -->
+
+<p><br></p>
+<a name="translated"></a>
+<a name="translations"></a>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr align="left" valign="top">
+    <td width="99%" bgcolor="#BBCCEE" height="2">
+      <font face="Arial, Helvetica, sans-serif">
+      <b>Translated Guides</b>
+    </td>
+  </tr>
+</table>
+
+<P>
+Below is a table of translated guides that are available from
+<A href="pub/Linux/docs/ldp-archived/index.html">pub/Linux/docs/ldp-archived/</a>. &nbsp;&nbsp;
+Additional translations of LDP works and translated
+documentation not listed here may be found on the
+&quot;<a href="links/nenglish.html">Non-English Linux Info</a>&quot; page.
+</P>
+
+<CENTER>
+<table cellpadding="2" cellspacing="2" border="1">
+   <tr>
+     <td valign="top"></td>
+     <td valign="top"><b>de</b></td>
+     <td valign="top"><b>en</b></td>
+     <td valign="top"><b>es</b></td>
+     <td valign="top"><b>fr</b></td>
+     <td valign="top"><b>it</b></td>
+     <td valign="top"><b>ja</b></td>
+     <td valign="top"><b>pl</b></td>
+     <td valign="top"><b>pt</b></td>
+     <td valign="top"><b>ru</b></td>
+     <td valign="top"><b>sl</b></td>
+   </tr>
+   <tr>
+     <td valign="top">
+       <font face="Arial, Helvetica, sans-serif" size="-1">
+        <b>Kernel Hackers Guide</b>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/kernel-hackers-guide/index.html">en</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+   </tr>
+   <tr>
+     <td valign="top">
+       <font face="Arial, Helvetica, sans-serif" size="-1">
+       <b>Network Guide</b>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/network-guide/index.html">en</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/network-guide/translations/es/index.html">es</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+   </tr>
+   <tr>
+     <td valign="top">
+       <font face="Arial, Helvetica, sans-serif" size="-1">
+       <b>Programmers Guide</b>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/programmers-guide/index.html">en</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/programmers-guide/translations/es/index.html">es</a>
+     </td>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+   </tr>
+   <tr>
+     <td valign="top">
+       <font face="Arial, Helvetica, sans-serif" size="-1">
+       <b>System Administration Guide</b>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/system-admin-guide/index.html">en</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/system-admin-guide/translations/es/index.html">es</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/system-admin-guide/translations/fr/index.html">fr</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/system-admin-guide/translations/it/index.html">it</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/system-admin-guide/translations/pt/index.html">pt</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+   </tr>
+   <tr>
+     <td valign="top">
+       <font face="Arial, Helvetica, sans-serif" size="-1">
+       <b>Users Guide</b>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/users-guide/index.html">en</a>
+     </td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/users-guide/translations/es/index.html">es</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">
+      <a href="pub/Linux/docs/ldp-archived/users-guide/translations/it/index.html">it</a>
+     </td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+     <td valign="top">&nbsp;</td>
+   </tr>
+   <tr>
+     <td valign="top" colspan="11">
+     <P><BR>
+     <dl>
+       <dt>&nbsp;<b>legend: </b></dt>
+       <dd>
+         de = German, en = English, es = Spanish, fr = French, it = Italian,
+         ja = Japanese,<br>
+         pl = Polish, pt = Portuguese, ru = Russian, sl = Slovenian
+       </dd>
+     </dl>
+     </P>
+     </td> 
+   </tr> 
+
+  </table>
+  </CENTER>
+<br>
+</P>
+
+<!-- debian -->
+    
+<p><br></p>
+<a name="debian"></a>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr align="left" valign="top">
+    <td width="99%" bgcolor="#BBCCEE" height="2">
+      <font face="Arial, Helvetica, sans-serif">
+      <b>Debian Manuals and Guides</b>
+      <br/><i>(updated nightly)</i>
+    </td>
+  </tr>
+</table>
+<p>&quot;An important part of any operating system is documentation, the technical manuals that describe the operation and use of programs. As part of its efforts to create a high-quality free operating system, the Debian Project is making every effort to provide all of its users with proper documentation in an easily accessible form.&quot;
+<i>&nbsp;&nbsp;-- from <a href="http://www.debian.org/doc/">Debian Documentation home page</a></i>
+</p>
+<ul>
+<li><p><a href="LDP/www.debian.org/doc/manuals/apt-howto/index.html"><strong>APT HOWTO</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/debian-euro-support/index.html"><strong>Debian Euro HOWTO</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/debian-faq/index.html"><strong>The Debian GNU/Linux FAQ</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/debian-java-faq/index.html"><strong>Debian GNU/Linux Java FAQ</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/debian-reference/index.html"><strong>Debian Reference</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/debian-tutorial/index.html"><strong>Debian Tutorial</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/developers-reference/index.html"><strong>Debian Developer's Reference</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/network-administrator/index.html"><strong>Debian GNU/Linux Network Administrator's Manual</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/securing-debian-howto/index.html"><strong>Securing Debian Manual</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/system-administrator/index.html"><strong>Debian GNU/Linux System Administrator's Manual</strong></a></p></li>
+<li><p><a href="LDP/www.debian.org/doc/manuals/user/index.html"><strong>Debian User Reference Manual</strong></a></p></li>
+</ul>
+
+<!-- other -->
+
+<p><br></p>
+<a name="REF"></a>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr align="left" valign="top">
+    <td width="99%" bgcolor="#BBCCEE" height="2">
+      <font face="Arial, Helvetica, sans-serif">
+      <b>Additional Guides of Interest</b>
+    </td>
+  </tr>
+</table>
+
+<ul>
+ <li><p>
+  <A NAME="palmdevqs"></A>
+  <b>Linux Palm Developer's Quick Start Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">version: </td>
+      <td valign="top"><b>1.0</b></td>
+    </tr>
+    <tr>
+      <td valign="top">author(s): </td>
+      <td valign="top">
+       <b>Jim Weller</b>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>February 2001</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li><a href="REF/palmdevqs/index.html">HTML</a> (read online)</li>
+          <li><a href="REF/palmdevqs/palmdevqs.pdf">PDF</a> (72K)</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This guide is intended to help those new to palm programming get
+  started. It assumes a fair knowledge of linux and gnu tools. It takes you
+  from clueless to able to compile a HelloWorld type application.
+  </p>
+ </li>
+
+ <li><p>
+  <A NAME="trinityos"></A>
+  <b>TrinityOS: A Guide to Configuring Your Linux Server
+      for Performance, Security, and Managability</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">author(s): </td>
+      <td valign="top">
+       <b>David A. Ranch</b>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+          <li>Various formats available from another
+          <a href="http://www.ecst.csuchico.edu/~dranch/LINUX/index-linux.html#trinityos">website</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+TrinityOS and its associated archive scripts guide the Linux user in
+a step-by-step fashion using a common example throughout to configure
+over 50+ Internet services. The main focus of TrinityOS is to do this
+in a secure fashion while keeping both performance and managability
+in mind. The documents also guide the user in other advanced topics
+such as aquiring their own Internet domain(s), moving DNS servers,
+confirming if you've been hacked, fighting SPAM email, and fixing
+various Linux file system, partition, LILO, and data recovery
+problems.
+  </p>
+ </li>
+
+ <li><p>
+  <A NAME="video_lan"></A>
+  <b>VideoLAN Quickstart</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">author(s): </td>
+      <td valign="top">
+       <b>the VideoLAN project</b>
+       </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>September 2003</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+<li><a href="REF/VideoLAN-Quickstart/index.html">HTML</a> (read online)</li>
+<li><a href="REF/VideoLAN-Quickstart/VideoLAN-Quickstart.html.tar.gz">tarred/gzipped</a> (106K)</li>
+<li><a href="REF/VideoLAN-Quickstart/VideoLAN-Quickstart.pdf">PDF</a> (440K)</li>
+<li><a href="REF/VideoLAN-Quickstart/VideoLAN-Quickstart.txt">text</a></li>
+      (8.5M)
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This document describes how to start using VideoLAN quickly.
+  </p>
+ </li>
+
+ <li><p>
+  <b>VLC (VideoLAN Client) User Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">author(s): </td>
+      <td valign="top">
+      <b>the VideoLAN project</b>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>September 2003</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+<li><a href="REF/VLC-User-Guide/index.html">HTML</a> (read online)</li>
+<li><a href="REF/VLC-User-Guide/VLC-User-Guide.html.tar.gz">tarred/gzipped</a> (118K)</li>
+<li><a href="REF/VLC-User-Guide/VLC-User-Guide.pdf">PDF</a> (506K)</li>
+<li><a href="REF/VLC-User-Guide/VLC-User-Guide.txt">text</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This document is the complete user guide of VLC, the VideoLAN Client.
+  </p>
+ </li>
+
+ <li><p>
+  <b>VLS (VideoLAN Server) User Guide</b>
+  <P>
+  <table cellpadding=0 cellspacing=1>
+    <tr>
+      <td valign="top">author(s): </td>
+      <td valign="top">
+      <b>the VideoLAN project</b>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">last update: </td>
+      <td valign="top"><b>September 2003</b></td>
+    </tr>
+    <tr>
+      <td valign="top">available formats: </td>
+      <td valign="top">
+        <ol>
+<li><a href="REF/VLS-User-Guide/index.html">HTML</a> (read online)</li>
+<li><a href="REF/VLS-User-Guide/VLS-User-Guide.html.tar.gz">tarred/gzipped</a> (123K)</li>
+<li><a href="REF/VLS-User-Guide/VLS-User-Guide.pdf">PDF</a> (471K)</li>
+<li><a href="REF/VLS-User-Guide/VLS-User-Guide.txt">text</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <p>
+  This document is the complete user guide of VLS, the VideoLAN Server.
+  </p>
+ </li>
+</ul>
+                                                                          
+</TD></TR>
+
+<TR BGCOLOR="#AAAAAA">
+  <TD ALIGN="center"><font face="arial,helvetica" color="#ffffff"><B>
+  <A HREF="index-2.html"><font face="arial,helvetica" color="#ffffff">
+  home</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#howto"><font face="arial,helvetica" color="#ffffff">
+  HOWTOs</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="guides.html"><font face="arial,helvetica" color="#ffffff">
+  Guides</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#faq"><font face="arial,helvetica" color="#ffffff">
+  FAQs</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#man"><font face="arial,helvetica" color="#ffffff">
+  man pages</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#lg"><font face="arial,helvetica" color="#ffffff">
+  Linux Gazette</font></A>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <A HREF="docs.html#lf"><font face="arial,helvetica" color="#ffffff">
+  LinuxFocus</font></A>
+  </B></font></TD>
+</TR>
+
+<TR BGCOLOR="#AAAAAA">
+  <TD ALIGN="center"><font face="arial,helvetica" size="-1">
+  Last Modified: 2014-03-06&nbsp;|&nbsp;
+  <a href="mailto:feedback@en.tldp.org.NOSPAM">feedback@en.tldp.org</a></font></TD>
+</TR>
+</TABLE>
+
+</BODY>
+
+<!-- Mirrored from tldp.org/guides.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 22:00:12 GMT -->
+</HTML>

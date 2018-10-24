@@ -1,0 +1,180 @@
+
+Euro karaktertámogatás mini-HOGYANAri Mäkelä
+
+   hauva@arska.org
+
+   Verziótörténet
+   Verzió: v1.0.2 2002.04.06 Átdolgozta: am
+   Inormáció hozzáadása az emacs támogatásról, az emacs támogatás
+   mûködésére vonatkozó kérdés törlése.
+   Verzió: v1.0.1 2002.03.03 Átdolgozta: am
+   Megjegyzés arról, hogy a centet általában nem használják. Több, az
+   euro karakterrel kapcsolatos honlap. Információ a KDE-rõl és a
+   Gnome-ról.
+   Verzió: v1.0.0 2001.09.29 Átdolgozta: am
+   Eredeti kiadás
+
+   Leírás
+
+   A dokumentum leírja, hogyan használható az Euro karakter GNU/Linux
+   alatt. A finn felhasználókat érdekelheti a finn nyelven írt
+   Finnish-HOWTO.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [1]Szerzõi jog és köszönetnyilvánítás
+   2. [2]Az Euro karakter
+   3. [3]Az Euro karakter és a helyi beállítások
+   4. [4]Euro karakter a konzolon
+   5. [5]Euro karakter az X Window System alatt
+
+        5.1. [6]KDE
+        5.2. [7]GTK és Gnome
+
+   6. [8]Emacs
+   7. [9]Euro karakterrel kapcsolatos honlapok
+   8. [10]Magyar fordítás
+
+1. Szerzõi jog és köszönetnyilvánítás
+
+A dokumentum a GNU Free Documentation License 1.1-es verziója szerint
+másolható.
+
+Köszönetet mondok számos Usenet felhasználónak, akik tanácsaikkal
+segítettek.
+     _________________________________________________________________
+
+2. Az Euro karakter
+
+Az új ISO-8859-15 karakterkészlet, amit latin9-nek (és a maximális
+zavarkeltés végett latin0-nak) is hívnak azért készült, hogy leváltsa az
+ISO-8859-1 (latin1) kódlapot. Ez már tartalmazza az Euro karaktert.
+
+Az Euro karaktert az AltGr-E billentyûhöz rendelték, a centet pedig (ha
+használják) az AltGr-Shift-E billentyûhöz X alatt. Konzolon az AltGr-C
+billentyûkombinációval használható.
+
+Ez a dokumentum egy Debian rendszeren íródott, és a beállítások Debian 3.0
+(a dokumentum írásakor tesztverzió) alatt mûködnek.
+     _________________________________________________________________
+
+3. Az Euro karakter és a helyi beállítások
+
+A glibc 2.2 és az újabb változatai támogatják az Euro karaktert. Megfelelõ
+helyi beállítás például a fi_FI@euro (magyarul talán hu_HU@euro -dacas).
+     _________________________________________________________________
+
+4. Euro karakter a konzolon
+
+Ellenõrizd, hogy a |/usr/share/keymaps/include/euro.inc.gz| állomány
+tartalmazza az alábbi sorokat:
+
+altgr keycode  18 = currency
+altgr keycode  46 = cent
+
+   Egy olyan karakterkészletet is be kell tölteni a konzolon történõ
+   használathoz, amely támogatja az Euro karaktert. A RedHat a
+   *setfon**/t/*, a Debian a *consolechars* parancsot használja erre.
+
+   Debian alatt a |/etc/consoletools/config| állománynak tartalmaznia
+   kell az ISO-8859-15 karakterkészletet:
+          SCREEN_FONT=lat0-16
+
+   RedHat alatt a |/etc/sysconfig/i18n| állományban benne kell lennie a
+   következõnek:
+   SYSFONT=lat0-16
+   SYSFONTACM=iso15
+     _________________________________________________________________
+
+5. Euro karakter az X Window System alatt
+
+Az alapbeállításban az AltGr-E (akinek nincs ilyen, a jobb oldali Alt) adja
+az általános pénznem-szimbólumot, ami úgy néz ki, mint egy négylábú pók.
+Amikor a program betûkészletét SO-8859-15-re változtatjuk, a szimbólum
+Euro-ra változik. A Debian alatt ezt elérhetjük a
+
+     .XTerm.VT100.font: -jmk-neep alt-medium-r-*-*-*-120-*-*-*-*-iso8859-15
+
+   sor hozzáadásával a /etc/X11/app-defaults/XTerm állományba. Az
+   elérhetõ betûkészletek összeállításonként és telepítésenként
+   változhatnak.
+
+   Ha az AltGr-E nem mûködik, add hozzá a
+      keycode 26 = e E EuroSign
+
+   sort a /etc/X11/Xmodmap állományhoz.
+     _________________________________________________________________
+
+5.1. KDE
+
+Változtasd meg a betûkészletet a KControl-ban ISO-8859-15-re.
+     _________________________________________________________________
+
+5.2. GTK és Gnome
+
+Változtasd meg a betûkészletet a Gnome Control Centerben ISO-8859-15-re.
+
+Erre egy jobb módszer a rendszerszintû GTK+ beállítás megváltoztatása a
+következõ parancsokkal:
+
+cd /etc/gtk
+ln -s gtkrc.iso-8859-15 gtkrc
+     _________________________________________________________________
+
+6. Emacs
+
+Az Emacsen 21 és újabbak azt állítják, hogy támogatják az Eurot. A
+következõ elisp parancsnak mûködni kéne:
+
+ (set-face-font
+      'default '"-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-15")
+
+   Azonban én csak "EuroSign not defined" üzenetet kapok. Valaki tudja a
+   megoldást?
+     _________________________________________________________________
+
+7. Euro karakterrel kapcsolatos honlapok
+
+[11]KWord Euro oldal .
+
+[12]Debian Euro HOWTO .
+
+[13]Euro Character support mini-HOWTO 
+
+[14]Guylhem Aznar Euro karakter csomagja 
+
+[15]Euro Pack Linux Journal README 
+
+[16]Linux Journal on the Euro Pack 
+     _________________________________________________________________
+
+8. Magyar fordítás
+
+A magyar fordítást [17]Szijjártó László készítette (2002.08.07). Bármilyen
+fordítással kapcsolatos észrevételt a [18]linuxhowto@sch.bme.hu címre
+küldjetek. A lektorálást [19]Abrudán Attila végezte el (2002.09.11). A
+dokumentum legfrissebb változata megtalálható a [20]Magyar Linux
+Dokumentációs Projekt honlapján.
+
+References
+
+   1. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN29
+   2. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN34
+   3. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN45
+   4. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN50
+   5. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN59
+   6. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN71
+   7. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN74
+   8. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN79
+   9. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN84
+  10. file://localhost/home/dacas/temp/Euro-Char-Support-hu.html#AEN98
+  11. http://www.koffice.org/kword/euro.phtml
+  12. http://www.debian.org/doc/manuals/debian-euro-support/
+  13. http://garbo.uwasa.fi/ldp/HOWTO/mini/Euro-Char-Support/index.html
+  14. http://www.ibiblio.org/guylhem/programmes/EURO-2.tgz
+  15. http://lwn.net/1998/1119/a/euro-readme.html
+  16. http://www.linuxjournal.com/article.php?sid=3200
+  17. mailto:laca@janus.gimsz.sulinet.hu_NO_SPAM
+  18. mailto:linuxhowto@sch.bme.hu_NO_SPAM
+  19. mailto:abrudana@freemail.hu_NO_SPAM
+  20. http://tldp.fsf.hu/index.html

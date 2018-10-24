@@ -1,0 +1,858 @@
+  Linux Information Sheet
+  Michael K. Johnson <johnsonm@redhat.com> diterjemahkan oleh
+  Utari Wijayanti <oet@bogor.wasantara.net.id>
+  v4.13, 24 October 1997 diterjemahkan tanggal 9 April 1998
+
+  Dokumen ini berisi informasi dasar tentang sistem operasi Linux, ter-
+  masuk penjelasan tentang Linux, fasilitas yang tersedia pada Linux,
+  hal-hal yang diperlukan pada sistem Linux, dan sumber-sumber informasi
+  lain.
+  ______________________________________________________________________
+
+  Table of Contents
+
+
+  1. Perkenalan Linux
+
+  2. Fasilitas Linux
+
+  3. Isu-Isu Hardware
+
+     3.1 Konfigurasi Minimimal
+     3.2 Konfigurasi
+     3.3 Pendukung hardware
+
+  4. Daftar-Program-dan-Software (Tidak Lengkap)
+
+  5. Siapa saja yang menggunakan Linux?
+
+  6. Cara Memperoleh Linux
+
+     6.1 Anonymous FTP
+     6.2 CDROM
+     6.3 Metode lainnya untuk mendapatkan Linux
+
+  7. Mulai dengan Linux
+
+  8. Status Hukum Linux
+
+  9. Berita Tentang Linux
+
+  10. Masa Depan Linux
+
+  11. Tentang Dokumen ini
+
+  12. Merk dagang
+
+
+
+  ______________________________________________________________________
+
+  1.  Perkenalan Linux
+
+  Linux merupakan reimplementasi spesifikasi POSIX yang benar-benar
+  gratis, berekstensi SYSV dan BSD (yang berarti terlihat seperti Unix,
+  tetapi tidak berasal dari dasar source code yang sama), yang tersedia
+  b aik dalam bentuk source code maupun biner.  Hak ciptanya dimiliki
+  oleh Linus Torvalds  <mailtotorvalds@transmeta.com> beserta
+  kontributor-kontributor lainnya, dan bebas untuk diredistribusi di
+  bawah term GNU General Public License (GPL).  Salinan GPL termasuk
+  dalam Linux source; Anda juga bisa mendapatkan salinannya dari
+  <ftp://prep.ai.mit.edu/pub/gnu/COPYING>.
+
+  Linux bukan public domain maupun shareware. Linux merupakan software
+  gratis, yang biasa disebut freeware, dan Anda bisa menjual atau
+  memberi salinannya, namun Anda  harus memasukkan source code atau
+  lakukanlah sebagaimana biasanya Anda menjual atau memberi kode biner
+  yang lain.  Jika Anda mendistribusikan hasil modifikasi, maka Anda
+  dibatasi secara legal untuk mendistribusikan source modifikasi tsb.
+  Untuk lengkapnya, lihatlah GNU General Public License.
+
+  Linux tetap gratis hingga versi 2.0, dan akan terus gratis.  Karena
+  hal itu merupakan sifat dasar GPL di mana Linux sebagai subyeknya, dan
+  menjadikan Linux tidak gratis merupakan tindakan ilegal.  Perhatikan
+  dengan baik: 'gratis' lebih ditekankan pada akses source code dari
+  pada tentang uang; memasang tarif untuk pendistribusian Linux
+  merupakan tindakan yang sangat legal, sejauh source codenya juga Anda
+  distribusikan.  Penjelasan ini cukup umum; jika ingin lebih jelas,
+  bacalah GPL.
+
+  Linux bisa dijalankan pada mesin 386/486/Pentium dengan bus ISA, EISA,
+  PCI dan VLB. MCA (bus milik IBM) pada versi 2.0.0 dan versi-versi yang
+  lebih awal tidak bisa digunakan, tetapi kini telah mulai dikembangkan
+  untuk MCA, yaitu kernel versi 2.1.x.  Jika Anda tertarik, lihatlah
+  <http://glycerine.itsmm.uni.edu/mca>.
+
+  Ada yang mengerjakan porting Linux ke berbagai platform Motorola 680x0
+  (yang sekarang dipakai pada beberapa mesin Amigas, Ataris, dan VME),
+  dan berjalan dengan cukup baik. Untuk port ini, diperlukan sebuah
+  68020 dengan MMU, 68030, 68040, atau 68060, dan diperlukan juga sebuah
+  FPU.  Networking dan X sekarang sudah bisa berfungsi pada port ini.
+  Lihatlah  <news:comp.os.linux.m68k>.
+
+  Linux berjalan dengan baik pada CPU DEC's Alpha, yang saat ini bisa
+  digunakan pada "Jensen", "NoName", "Cabriolet","Universal Desktop Box"
+  (yang lebih dikenal sebagai Multia), dan banyak platform lainnya.
+  Untuk informasi lebih lanjut, lihat
+  <http://www.azstarnet.com/~axplinux/FAQ.html>
+
+  Linux bekerja dengan baik pada SUN SPARCs; sekarang Linux banyak
+  dipakai pada mesin sun4c dan sun4m, yang mendukung perkembangan aktif
+  sun4 dan sun4u.  Red Hat Linux merupakan (pada saat info ini ditulis)
+  satu-satunya distribusi Linux yang tersedia untuk SPARCs; lihatlah
+  <http://www.redhat.com/support/docs/rhl-sparc/>
+
+  Linux kini sedang aktif dikembangkan untuk dapat diport ke asitektur
+  PowerPC, termasuk mesin Power Mac (Nubus dan PCI), Motorola, IBM, dan
+  Be. Lihatlah  <http://www.cs.nmt.edu/~linuxppc/> dan
+  <http://www.linuxppc.org/>
+
+  Port ke mesin-mesin yang lain, termasuk MIPS dan ARM, sedang
+  dikerjakan dan sudah mulai memperlihatkan hasil.  Tak perlu menahan
+  nafas, tapi bila Anda tertarik dan bisa membantu, Anda mungkin bisa
+  mencari pengembang lain yang ingin bekerja sama dengan Anda.
+
+  Linux tidak lagi dianggap dalam testing beta, sebagaimana versi 1.0
+  yang dilepas pada 14 Maret 1994.  Masih ada bug dalam sistem Linux,
+  dan bug-bug tersebut secara perlahan akan diperbaiki sebagaimana
+  berlalunya waktu. Linux menganut "sistem pengembangan terbuka", karena
+  itu semua versi baru akan dirilis ke publik, dan semuanya dianggap
+  sebagai "produk berkualitas". Berikut adalah skema konvensi pemberian
+  nomor versi pada Linux, yang dari nomor tersebut bisa diketahui apakah
+  versi tersebut merupakan versi stabil atau bukan : Versi 1.x.y, dimana
+  bila x merupakan angka genap, merupakan versi yang stabil, dan hanya
+  ada perbaikan bug bila nilai y bertambah.  Sehingga dari versi 1.2.2
+  hingga 1.2.3, hanya ada perbaikan bug, dan tidak ada penambahan
+  fasilitas.  Versi 1.x.y, dimana x merupakan angka ganjil, merupakan
+  rilis dengan kulitas beta yang hanya untuk para developer, dan bisa
+  jadi tidak stabil dan bisa terjadi crash, serta memiliki fasilitas-
+  fasilitas baru yang ditambahkan. Sejalan dengan waktu, pada suatu
+  pengembangan kernel akan dicapai suatu waktu di mana kernel tersebut
+  mulai stabil, dan kemudian akan diberikan cap kernel '`stabil'' dan
+  pengembangan dilanjutkan kepada versi kernel berikutnya.
+  Versi stabil saat ini adalah 2.0.33 (Nomor ini akan terus berubah
+  sejalan dengan ditambahkannya device driver baru dan berbagai
+  pembenahan bug), dan versi development saat ini adalah kernel 2.1.xx.
+  Jika Anda merasa bahwa kernel 2.0.x terlalu baru bagi Anda, silahkan
+  pakai kernel 1.2.13.  Meskipun demikian, rilis terakhir dari 2.0
+  terbukti cukup stabil.  Perhatikan bahwa dalam meng'upgrade' dari 1.2
+  ke 2.0, Anda perlu mengupgrade beberapa utiliti juga; Anda mungkin
+  ingin meng'upgrade' versi terakhir dari distribusi Linux milik Anda
+  untuk memperoleh utiliti tersebut. Source code kernel Linux juga
+  menyertakan file Documentation/Changes, yang berisi rangkaian
+  perubahan yang terjadi pada kernel.
+
+  Biasanya pada semua kernel Linux, baik beta maupun bukan, adalah
+  kernel yang cukup stabil, dan Anda tetap dapat menggunakannya bila
+  kernel tersebut memang mengerjakan apa yang Anda butuhkan dan Anda
+  tidak terlalu menginginkan kernel yang paling baru. Ada sebuah site
+  yang memiliki komputer yang menjalankan kernel versi 0.97p1 (mulai
+  musim panas 1992) selama 136 hari lebih tanpa kesalahan ataupun crash.
+  (Seharusnya akan lebih lama bila sang operator tidak keliru menukar
+  transformer main power ke dumpster ...)  Sementara ada site lainnya
+  yang beberapa kali diberitakan menjalankan kernel tersebut lebih dari
+  setahun.  Sebuah site ada yang masih memiliki sebuah komputer yang
+  menjalankan Linux 0.99p15s selama 600 hari lebih dalam laporan
+  terakhirnya.
+
+  Satu hal yang perlu diperhatikan adalah Linux dikembangkan dengan
+  menggunakan model terbuka dan tersebar, bukan tertutup dan terpusat
+  sebagaimana kebanyakan software lainnya.  Hal ini berarti versi
+  pengembangan selalu public (dengan waktu penundaan seminggu atau dua
+  minggu) sedemikian sehingga setiap orang dapat menggunakannya.
+  Hasilnya adalah ketika ada sebuah versi dirilis dengan fungsi baru,
+  hampir selalu ada bug nya, namun juga menghasilkan pengembangan yang
+  sangat cepat sedemikian sehingga bug-bug itu cepat ditemukan dan
+  diperbaiki, bahkan kadang-kadang dalam hitungan jam, karena ada banyak
+  orang yang berupaya memperbaikinya.
+
+  Sementara, model tertutup dan terpusat berarti hanya ada satu orang
+  atau sebuah tim yang bekerja dalam proyek tersebut, dan mereka hanya
+  merilis software yang mereka pikir bekerja dengan baik. Sering kali
+  hal ini mengakibatkan interval yang panjang antar rilis, waktu tunggu
+  yang lama untuk perbaikan bug, dan pengembangan yang lebih lambat.
+  Rilis terakhir dari software seperti itu ke publik kadang-kadang
+  kualitasnya lebih tinggi, namun kecepatan pengembangan umumnya lebih
+  lambat.
+
+  Pada tanggal 24 Oktober 1997, versi Linux yang stabil saat itu adalah
+  2.0.31, dan versi pengembangan terakhirnya adalah 2.1.59.2.
+
+
+  2.  Fasilitas Linux
+
+
+  o  multitasking: beberapa program berjalan sekaligus.
+
+  o  multiuser: beberapa pemakai pada mesin yang sama sekaligus (dan
+     tanpa lisensi dua-pemakai!).
+
+  o  multiplatform: berjalan pada berbagai CPU yang berbeda, tidak hanya
+     Intel.
+
+  o  multiprocessor: dukungan SMP tersedia pada platform Intel dan SPARX
+     (saat ini sedang dalam proses agar bekerja pada platform-platform
+     lainnya), dan Linux yang digunakan dalam beberapa aplikasi loosely-
+     coupled MP, termasuk sistem Beowulf ( lihat
+     <http://cesdis.gsfc.nasa.gov/linux- web/beowulf/beowulf.html>) dan
+     the Fujitsu AP1000+ SPARC-based superkomputer.
+  o  berjalan dalam protected mode di 386.
+
+  o  memiliki proteksi memori antar proses, sedemikian sehingga sebuah
+     program tidak dapat menyebabkan seluruh sistem down.
+
+  o  permintaan menge-load executable: Linux membaca dari disket hanya
+     bagian-bagian dari sebuah program yang memang benar-benar
+     digunakan.
+
+  o  copy-on-write pages yang dishared antar executable. Artinya
+     beberapa proses dapat menggunakan memori yang sama untuk berjalan.
+     Ketika seseorang mencoba menulis ke memori tsb, page tsb (bagian
+     4KB dari memory) disalin ke tempat lainnya.  Copy-on-write memiliki
+     dua keuntungan: menambah kecepatan dan mengurangi penggunaan
+     memori.
+
+  o  virtual memory menggunakan paging (bukan men-swapping semua proses)
+     ke disk: ke sebuah partisi yang terpisah atau ke sebuah file dalam
+     filesystem, atau keduanya, dengan kemungkinan menambah lagi area
+     swapping selama runtime (yap, mereka tetap disebut area swapping).
+     16 dari 128 MB swapping area dapat digunakan sekaligus, secara
+     teoritis ada 2 GB swap space dapat digunakan. Mudah menambahkannya
+     bila diperlukan, dengan merubah sedikit baris dari source code.
+
+  o  memory pool yang seragam untuk pemakai program dan disk cache,
+     sedemikian sehingga semua free memory dapat digunakan untuk
+     caching, dan penggunaan chace dapat dikurangi ketika menjalankan
+     program yang besar.
+
+  o  dinamically linked shared libraries (DLL), dan juga static library.
+
+  o  core dumps untuk analisis post-mortem, memungkinkan pemakaian
+     debugger tidak hanya ketika sedang menjalankan program namun juga
+     setelah mengalami crashed.
+
+  o  umumnya kompatibel dengan POSIX, System V, dan BSD pada source
+     level.
+
+  o  dengan modul emulasi compliant-iBCS2, kebanyakan kompatibel dengan
+     SCO, SVR3, dan SVR4 pada tingkat biner (binary level).
+
+  o  semua source code tersedia, termasuk seluruh kernel dan driver-
+     drivernya, pengembangan tools dan semua program pemakai; dan
+     semuanya didistribusikan secara gratis. Banyak program komersil
+     yang disediakan untuk Linux tanpa source, tetapi semua yang asalnya
+     gratis, termasuk seluruh sistem operasi dasar, tetap saja gratis.
+
+  o  POSIX job control.
+
+  o  pseudoterminals (pty's).
+
+  o  emulasi 387 pada kernel sedemikian sehingga program tidak perlu
+     melakukan emulasi matematikanya sendiri.  Setiap komputer yang
+     menjalankan Linux sepertinya memiliki math coprocessor.  Tentu saja
+     jika komputer Anda telah memiliki FPU, akan lebih baik digunakan
+     daripada melakukan emulasi, dan bahkan Anda dapat mengkompilasi
+     sendiri kernel Anda dan menghilangkan bagian emulasi matematika,
+     sehingga menambah keuntungan sejumlah kecil memori.
+
+  o  dapat digunakan untuk banyak keyboard nasional ataupun yang umum,
+     dan dengan mudah bisa menambah lagi secara dinamis.
+
+  o  multiple virtual consoles: bebas melakukan login melalui konsol,
+     Anda berpindah antar session dengan menekan kombinasi tombol (tanpa
+     perlu tergantung pada video hardware).  Semuanya dialokasikan
+     secara dinamis, sehingga Anda bisa menggunakan hingga 64.
+  o  Mendukung beberapa sistem file yang umum, termasuk minix, Xenix,
+     dan semua sistem V filesystems yang umum, dan memiliki sistem-file-
+     nya sendiri yang telah dikembangkan, dan menawarkan ukuran sistem
+     file hingga 4 TB, serta penamaan dengan panjang hingga 255
+     karakter.
+
+  o  akses ke partisi MS-DOS (atau partisi OS/2 FAT) yang transparan
+     melalui sistem file yang khusus: Anda tidak perlu menggunakan
+     perintah yang khusus untuk menggunakan partisi MS-DOS, tampak
+     sebagaimana sistem file Unix pada umumnya (kecuali untuk pembatasan
+     nama file yang aneh, perijinan, dsb). Partisi MS-DOS 6 yang
+     terkompres saat ini tidak berfungsi bila tanpa patch (dmsdosfs).
+     VFAT (WNT, Windows 95) juga bisa digunakan pada Linux 2.0.
+
+  o  sistem file yang khusus dan disebut UMSDOS memungkinkan Linux di
+     instal pada sistem file DOS.
+
+  o  HPFS-2 yang read-only mendukung OS/2 2.1
+
+  o  Pendukung sistem file HFS (Macintosh) tersedia secara terpisah
+     sebagai modul.
+
+  o  sistem file CD-ROM yang membaca semua standar format pada CD-ROMs.
+
+  o  protokol jaringan TCP/IP, termasuk ftp, telnet, NFS, dsb.
+
+  o  Appletalk server
+
+  o  client dan server pada Netware
+
+  o  client dan server Lan Manager (SMB)
+
+  o  Banyak protokol jaringan: protokol-protokol dasar yang tersedia
+     pada pengembangan kernel yang terakhir termasuk TCP, Ipv4, Ipv6,
+     AX.25, X.25, IPX, DDP (Appletalk), NetBEUI, Netrom, dsb.  Protokol-
+     protokol jaringan stabil yang diikutkan dalam kernel dan saat ini
+     dianggap stabil adalah TCP, Ipv4, IPX, DDP, dan AX.25.
+
+
+  3.  Isu-Isu Hardware
+
+  3.1.  Konfigurasi Minimimal
+
+  Berikut ini merupakan konfigurasi terminimal di mana Linux mungkin
+  berjalan: 386SX/16, 1 MB RAM, floppy 1.44 MB atau 1.2 MB, sembarang
+  video card (+ keyboard, monitor, dsb).  Seharusnya ini memungkinkan
+  Anda melakukan boot-ing dan menguji apakah semuanya berjalan pada
+  semua mesin, tetapi Anda tidak akan dapat melakukan hal-hal yang
+  bermanfaat.  Lihatlah <http://rsphyl.anu.edu.au/~gpg109/mem.html>
+  untuk konfigurasi Linux yang minimal.
+
+  Agar bisa mengerjakan sesuatu, Anda akan memerlukan juga sejumlah
+  space harddisk, seharusnya 5 hingga 10 MB cukup untuk setup yang
+  sangat minim (hanya dengan perintah-perintah yang terpenting dan
+  mungkin satu atau dua aplikasi kecil terinstal, misalnya, seperti
+  program terminal). Ini masih sangat, sangat terbatas, dan sangat tidak
+  nyaman, karena tidak meninggalkan ruang yang cukup untuk sekedar
+  melakukan sesuatu, kecuali jika aplikasi Anda sangat kecil.  Umumnya
+  tidak disarankan untuk mengerjakan apapun kecuali untuk menguji apakah
+  bisa bekerja, dan tentu juga bisa untuk memamerkan keperluan resource
+  yang kecil.
+
+
+
+
+
+  3.2.  Konfigurasi
+
+  Jika Anda akan menjalankan program-program komputasi secara intensif,
+  seperti gcc, X, dan TeX, mungkin Anda akan menginginkan prosesor yang
+  lebih cepat daripada 386SX/16, tetapi sebenarnya itu juga sudah cukup
+  bila Anda sabar.
+
+  Pada prakteknya, minimal Anda memerlukan RAM 4 MB bila tidak memakai
+  X, dan 8 MB jika memakainya.  Bila Anda juga menginginkan beberapa
+  pemakai pada saat yang sama, atau menjalankan beberapa program yang
+  besar (misalnya kompilasi) sekaligus, Anda akan memerlukan memori
+  lebih dari 4 MB. Dengan ukuran memori yang lebih kecil bisa saja
+  berjalan (bahkan hanya dengan 2 MB) namun dengan memanfaatkan virtual
+  memory (menggunakan harddisk sebagai memori yang lambat) dan akan
+  bekerja demikian lambat hingga nyaris tak berfungsi. Jika Anda
+  menggunakan banyak program sekaligus, 16 MB akan mengurangi banyaknya
+  swapping.  Jika Anda tidak menginginkan swap dalam kondisi normal, 32
+  MB mungkin cukup.  Tapi aplikasi yang Anda jalankan rakus memori, Anda
+  akan memerlukan lebih.
+
+  Ukuran hard disk yang Anda perlukan tergantung pada software yang Anda
+  instal.  Kumpulan utiliti, shell, dan program administrasi Unix yang
+  normal seharusnya cukup dengan hard disk kurang dari 10 MB, di mana
+  sebuah ruang bit digunakan untuk berbagi antar file pemakai.  Untuk
+  sistem yang lebih lengkap, dapatkan Red Hat, Debian, atau distribusi
+  yang lainnya, dan anggaplah bahwa Anda akan memerlukan antara 60
+  hingga 300 MB, tergantung pada apa yang akan Anda instal dan
+  distribusi apa yang Anda peroleh.  Tambahkan space sebanyak yang Anda
+  inginkan untuk menyimpan file-file pemakai.  Dengan harga hard disk
+  yang ada sekarang, bila Anda membeli sebuah sistem yang baru, tidak
+  masuk akal membeli drive yang terlalu kecil.  Dapatkan yang minimal
+  berukuran 500 MB, lebih baik bila 1 GB atau lebih, dan Anda tidak akan
+  menyesalinya.
+
+  Tambahkan memori, harddisk, prosesor yang lebih cepat, dan sebagainya
+  sesuai dengan kebutuhan, harapan, dan anggaran Anda agar melampaui
+  pemakaian-pemakaian yang biasa. Satu perbedaan besar antara DOS dengan
+  Linux: penambahkan memori akan menghasilkan perbedaan yang besar,
+  sementara pada DOS, ekstra memori tidak menghasilkan banyak perbedaan.
+  Tentu saja hal ini berkaitan dengan keterbatasan DOS 640 KB, yang
+  jelas-jelas tak ada pada Linux.
+
+
+  3.3.  Pendukung hardware
+
+
+     CPU:
+        Segala sesuatu yang berjalan pada program 386 protected mode
+        (semua model 386, 486, 586, dan 686 seharusnya berjalan.  Untuk
+        286 dan yang dibawahnya, suatu saat mungkin akan ada sebuah
+        kernel yang bisa dijalankan dan berukuran yang lebih kecil dan
+        disebut ELKS (Embeddable Linux Kernel Subset), tetapi jangan
+        mengharapkan kemampuan yang sama.
+
+        Versi untuk CPU 686xO (untuk x = 2 dengan MMU eksternal, 3, 4,
+        dan 6) yang bisa dijalankan pada Amigas dan Ataris dapat
+        diperoleh di tsx-11.mit.edu di direktori 680x).  Banyak mesin
+        DEC Alpha, SPARCs, dan PowerPC yang didukung.  Port juga
+        disiapkan untuk arsitektur ARM, StrongARM, dan MIPS. Lebih
+        rincinya bisa diperoleh di tempat lain.
+
+
+     Arsitektur:
+        bus ISA atau EIS. Dukungan MCA (yang dipakai pada IBM PS/2)
+        belum lengkap tetapi sedang dikembangkan (lihat atas).  Bus-bus
+        lokal (VLB dan PCI) bekerja.  Linux memerlukan hardware yang
+        lebih dibandingkan DOS, Windows, dan bahkan kebanyakan sistem
+        operasi.  Ini berarti beberapa hardware yang minim yang bisa
+        digunakan pada sistem operasi yang keperluannya lebih sedikit
+        bisa jadi gagal ketika dijalankan pada Linux.  Linux adalah
+        penguji memori yang sempurna ....
+
+
+     RAM:
+        Hingga 1 GB pada Intel; lebih banyak pada platform 64-bit.
+        Beberapa orang (termasuk Linus) telah mencatat bahwa menambah
+        memori tanpa penambahan cache pada waktu yang sama telah
+        memperlambat mesin mereka secara ekstrim, sehingga bila Anda
+        menambah memori dan mendapatkan mesin Anda menjadi lebih lambat,
+        cobalah menambahkan cache lagi.  Beberapa mesih hanya dapat
+        menampung sejumlah tertentu memori tanpa peduli berapapun
+        besarnya RAM yang terinstal (chipset yang dapat menyangga 64 MB
+        adalah paling populer).  Memori yang lebih dari 64 MB akan
+        memerlukan sebuah paramater untuk boot-time, karena BIOS tidak
+        dapat melaporkan lebih dari 64 MB, karena "telah cacat saat
+        didisain."
+
+
+     Penyimpan data:
+        drive Generic AT (EIDE, IDE, kontroler HD 16 MB dengan MFM atau
+        RLL, atau ESI) didukung sebagaimana hard disk SCSI dan CD-ROM,
+        dengan sebuah adaptor pendukung SCSI. Kontroler Generic XT
+        (kontroler 8 bit dengan MFM atau RLL) juga didukung.  Adaptor
+        pendukung SCSI: seri Advansys, Adaptec 1542, 1522, 1740, 27xx,
+        dan 29xx (dengan beberapa pengecualian), Buslogic MultiMaster
+        dan Flashpoint, kontroler NCR53c8xx-based, kontroler DPT,
+        kontroler Qlogic ISP dan FAS, Seagate ST-01 dan ST-02, seri
+        Future Domain TMC-88x (atau sembarang board yang berdasar pada
+        Chip TMC950) dan TMC1660/1680, Ultrastor 14F, 24F dan 34F,
+        Western Digital wd7000, dan sebagainya.  SCSI, QIC-02, dan
+        beberapa tape QIC-80 juga didukung.  Beberapa drive CD-ROM juga
+        didukung, termasuk Matsushita/Panasonic, Mitsumi, Sony,
+        Soundblaster, Toshiba, ATAPI (EIDE), SCSI, dsb.  Untuk model
+        yang tepat, lihatlah HOWTO tentang kompatibilitas hardware.
+
+
+     Video:
+        VGA, EGA, CGA, atau Hercules (dan yang kompatibel) berjalan pada
+        text mode.  Untuk grafik dan X, ada juga pendukung untuk VGA
+        normal, beberapa card super-vga (kebanyakan card-card tersebut
+        berbasiskan ET3000, ET4000, Paradise, dan beberapa chipset
+        Trident, S3, 8514/A, ATI MACH8/32/64, dan hercules.  (Linux
+        memakai server Xfree86 X, sehingga menentukan card-card yang
+        didukung.  Daftar penuh pendukung chipset sendiri menghabiskan
+        sehalaman.)
+
+
+     Jaringan:
+        pendukung untuk Ethernet termasuk 3COM 503/509/579/589/595/905
+        (501/505/507 didukung namun tidak disarankan), AT&T GIS (nee
+        NCR) WaveLan, kebanyakan card yang berbasis WD8390, kebanyakan
+        card yang berbasis WD80x3, NE1000/2000 dan mayoritas klon,
+        AC3200, Apricot 82596, AT1700, ATP, DE425/434/435/500, D-Link
+        DE-600/620, DEPCA, DE100/101, DE200/201/202 Turbo, DE210, DE422,
+        Cabletron E2100 (tidak disarankan), Intel EtherExpress (tidak
+        disarankan), DEC EherWORKS 3, HP, LAN, HP PCLAN/plus, mayoritas
+        card-card yang berbasis AMD LANCE, NI5210, ni6510, SMC Ultra,
+        DEC 21040 (tulip), Zenith Z-Note ethernet, semua card Zircom dan
+        semua card Cabletron selain dari E2100 tidak didukung, sesuai
+        dengan ketidaksediaan produsen melepas informasi pemrograman
+        secara gratis.
+
+        Pendukung FDDI akhir-akhir ini termasuk card DEFxx dari DEC.
+
+        Pendukung Jaringan point-to-point termasuk PPP, SLIP, CSLIP, dan
+        PLIP.
+
+        Pendukung Limited Token Ring juga tersedia.
+
+
+     Serial:
+        Kebanyakan board yang berbasis 16450 dan 1650 UART, termasuk AST
+        Fourport, the Usenet Serial Card II, dsb.  Dukungan untuk
+        Intelligent boards termasuk seri Cyclades Cyclom (didukung oleh
+        produsen), seri Comtrol Rocketport (didukung oleh sang
+        produsen), Stallion (untuk kebanyakan board; didukung oleh
+        produsen), dan Digi (beberapa board; yang disupport oleh
+        produsen).  Beberapa hardware untuk ISDN, frame relay, dan
+        leased line didukung.
+
+
+     Hardware yang lain:
+        SoundBlaster, ProAudion Spectrum 16, Gravis Ultrasound,
+        mayoritas dari sound card-sound card yang lain, banyak (atau
+        semua?) jenis bus untuk mouse (Microsoft, Logitech, PS/2), dsb.
+
+
+  4.  Daftar-Program-dan-Software (Tidak Lengkap)
+
+  Kebanyakan tool-tool Unix dan program-program yang umum telah
+  dibuatkan versi Linux-nya, termasuk hampir semua software GNU dan
+  banyak X client dari berbagai sumber.  Sebenarnya, porting merupakan
+  istilah yang terlalu berat, karena banyak program yang dikompilasi
+  diluar konteks tanpa modifikasi, atau hanya dengan sedikit modifikasi,
+  karena track Linux POSIX yang cukup mirip.  Sayang sekali, tidak ada
+  banyak aplikasi untuk end-user sebagaimana yang kita inginkan, tapi
+  hal ini akan segera berubah dengan cepat.  Hubungi vendor untuk
+  aplikasi Unix komersial kesayangan Anda dan tanyakan apakah mereka
+  telah membuatkan versi Linux-nya.  Berikut ini merupakan daftar tidak
+  lengkap dari software-software yang diketahui berjalan pada Linux:
+
+     Perintah-perintah dasar pada Unix:
+        ls, tr, sed, awk, dsb (sebutkan saja semuanya, di Linux hampir
+        semuanya ada kok).
+
+     Tool-tool pengembang
+        : gcc, gdb, make, bison, flex, perl, rcs, cvs, prof.
+
+     Language dan Environmentment-nya:
+        C, C++, Objective-C, Java, Modula-3, Modula-2, Oberon, Ada95,
+        Pascal, Fortran, ML, scheme, Tcl/tk, Perl, Python, Common Lisp,
+        dan banyak lagi yang lainnya.
+
+     Graphical environments:
+        X11R5 (Xfree86 2.x), X11R6 (Xfree86 3.x) , MGR.
+
+     Editor:
+        GNU Emacs, Xemacs, MicroEmacs, jove, ez, epoch, elvis (GNU vi),
+        vim, vile, joe, pico, jed, dsb.
+
+     Shell:
+        bash (POSIX sh-compatible), zsh (termasuk ksh compatibility
+        mode), pdksh, tcsh, csh, rc, es, ash (kebanyakan sh- shell yang
+        kompatibel digunakan sebagai /bin/sh oleh BSD), dan banyak lagi.
+
+     Telekomunikasi:
+        Taylor (BNU-compatible) UUCP, SLIP, CSLIP, PPP, kermit, szrz,
+        minicom, pcomm, xcomm, term (menjalankan banyak shell,
+        mengarahkan kembali aktivitas jaringan, dan memungkingkan
+        pengendalian X, semuanya melalui sebuah line modem), Seyon
+        (program komunikasi X-windows yang populer), dan tersedia
+        beberapa paket fax dan voice-mail (menggunakan ZyXEL dan modem-
+        modem yang lainnya).  Tentu saja remote serial login juga
+        didukung.
+
+     News and mail:
+        C-news, innd, trn, nn, tin, smail, elm, mh, pine, dsb.
+
+     Textprocessing:
+        TeX, groff, doc, ez, LyX, Lout, Linuxdoc-SGML, dsb.
+
+     Game:
+        Nethack, beberapa game Muds and X, dan banyak lagi yang lainnya.
+        Salah satu dari game-game tersebut yang mewakili semua game
+        tersebut tersedia di tsx-11 dan sunsite.
+
+     Suites:
+        AUIS, Andrew User Interface System. ez merupakan bagian dari
+        suite ini. Semua program ini (dan bahkan bukan yang ke seratus
+        dari apa yang tersedia) tersedia dengan gratis.  Software
+        komersial mulai tersedia luas; tanyakan vendor software-software
+        komersial favorit anda jika mereka menyediakan Linux.
+
+
+  5.  Siapa saja yang menggunakan Linux?
+
+  Linux didistribusikan secara gratis, dan tidak ada yang perlu
+  mendaftarkan kopi-an mereka ke suatu pusat hak cipta, sehingga sulit
+  untuk mengetahui berapa banyak orang yang menggunakan Linux.  Beberapa
+  perusahaan bisnis sekarang benar-benar bertahan dengan menjual dan
+  menyediakan Linux (dan relatif sedikit pengguna-pengguna Linux yang
+  membeli produk dari bisnis-bisnis tersebut), dan Linux newsgroup
+  merupakan salah satu fasilitas internet yang memiliki pembaca
+  terbanyak, sehingga jumlahnya mungkin jutaan, namun angka yang tepat
+  sulit diperoleh.  Bagaimanapun, seseorang dengan beraninya, Harald T.
+  Alvestrand <mailto:Harald.T.Alvestrand@uninett.no>, telah memutuskan
+  untuk mencoba menghitungnya.  Jika anda ingin dihitung sebagai
+  pengguna Linux, silakan gunakan web form yang tersedia di
+  <http://counter.li.org/> Atau, anda bisa mengirim pesan ke  <linux-
+  counter@uninett.no> dengan subyek berikut: atuseLinux atuseLinux
+
+  Dia mengirimkan hasil hitungannya ke  <news:comp.os.linux.misc> tiap
+  bulan; tersedia juga di  <http://counter.li.org>.
+
+
+  6.  Cara Memperoleh Linux
+
+  6.1.  Anonymous FTP
+
+  Untuk dokumentasi Linux yang di-redistribusi secara gratis, lihatlah
+  Linux Documentation Project Sites di
+  <ftp://sunsite.unc.edu/pub/Linux/docs/LDP/> dan
+  <http://sunsite.unc.edu/LDP/>  Tetaplah ikuti newsgroup
+  <news:comp.os.linux.announce> untuk pengembangan yang lebih jauh.
+  Minimal site-site anonymous ftp berikut memiliki Linux.
+
+
+
+
+
+
+
+
+
+  Textual name                   Numeric address  Linux directory
+  =============================  ===============  ===============
+  tsx-11.mit.edu                 18.172.1.2       /pub/linux
+  sunsite.unc.edu                152.2.22.81      /pub/Linux
+  ftp.funet.fi                   128.214.248.6    /pub/Linux
+  net.tamu.edu                   128.194.177.1    /pub/linux
+  ftp.mcc.ac.uk                  130.88.203.12    /pub/linux
+  src.doc.ic.ac.uk               146.169.2.1      /packages/linux
+  fgb1.fgb.mw.tu-muenchen.de     129.187.200.1    /pub/linux
+  ftp.informatik.tu-muenchen.de  131.159.0.110    /pub/comp/os/linux
+  ftp.dfv.rwth-aachen.de         137.226.4.111    /pub/linux
+  ftp.informatik.rwth-aachen.de  137.226.225.3    /pub/Linux
+  ftp.Germany.EU.net             192.76.144.75    /pub/os/Linux
+  ftp.ibp.fr                     132.227.60.2     /pub/linux
+  ftp.uu.net                     137.39.1.9       /systems/unix/linux
+  wuarchive.wustl.edu            128.252.135.4    mirrors/linux
+  ftp.win.tue.nl                 131.155.70.100   /pub/linux
+  ftp.stack.urc.tue.nl           131.155.2.71     /pub/linux
+  srawgw.sra.co.jp               133.137.4.3      /pub/os/linux
+  cair.kaist.ac.kr                                /pub/Linux
+  ftp.denet.dk                   129.142.6.74     /pub/OS/linux
+  NCTUCCCA.edu.tw                140.111.1.10     /Operating-Systems/Linux
+  nic.switch.ch                  130.59.1.40      /mirror/linux
+  sunsite.cnlab-switch.ch        193.5.24.1       /mirror/linux
+  cnuce_arch.cnr.it              131.114.1.10     /pub/Linux
+  ftp.monash.edu.au              130.194.11.8     /pub/linux
+  ftp.dstc.edu.au                130.102.181.31   /pub/linux
+  ftp.sydutech.usyd.edu.au       129.78.192.2     /pub/linux
+
+
+
+
+  Beberapa site merupakan mirror dari site-site yang lain.  Silakan
+  gunakan site yang terdekat (secara network tentunya) ke Anda bilamana
+  mungkin.  sunsite.unc.edu dan ftp.informatik.tu-muenchen.de menawarkan
+  pelayanan ftpmail.  Kirimlah e-mail ke <ftpmail@sunsite.unc.edu> atau
+  <ftp@informatik.tu-muenchen.de> untuk memperoleh panduan dalam
+  mendownload Linux.  Bila masih bingung, coba lihatlah ke
+  <ftp://sunsite.unc.edu/pub/Linux/distributions/>, tempat beberapa
+  distribusi ditawarkan.  Red Hat Linux dan Debian tampaknya menjadi
+  distribusi yang paling populer saat ini, minimal di U.S.
+
+
+  6.2.  CDROM
+
+  Banyak orang-orang yang sekarang menginstal Linux dari CDROM.
+  Distribusi-distribusi software Linux telah berkembang hingga ratusan
+  MBs, sehingga mendownload dengan modem 28.8 membutuhkan waktu yang
+  lama.  Pada dasarnya ada dua cara untuk memperoleh distribusi Linux
+  pada CDROM: sebagai bagian dari salinan site FTP, atau langsung dari
+  produsen.  Jika anda memilih yang salinan, anda selalu akan memperoleh
+  distribusi-distribusi yang nyaris berbeda untuk dipilih, tetapi
+  biasanya support tidak diikutkan.
+
+  Ketika anda membeli sebuah distribusi langsung dari vendor, anda
+  biasanya akan memperoleh satu distribusi, namun anda biasanya
+  mendapatkan beberapa macam support, biasanya support untuk menginstal.
+
+  (
+
+     Catatan penterjemah:
+        Linux Indonesia juga menyediakan CD Linux, infonya dapat dilihat
+        di <http://www.linux.or.id>
+  )
+
+
+  6.3.  Metode lainnya untuk mendapatkan Linux
+
+  Ada banyak BBS's yang memiliki file Linux. Daftar BBS ini kadang-
+  kadang dikirimkan ke comp.os.linux.announce.  Tanyakan ke teman dan
+  user group, atau beli saja distribusi komersil.  Daftar ini tercantum
+  dalam distribusi Linux HOWTO, yang tersedia di
+  <ftp://sunsite.unc.edu/pub/Linux/docs/HOWTO/distribution-HOWTO>, dan
+  dikirimkan secara teratur ke  <news:comp.os.linux.annouce> newsgroup.
+
+
+  7.  Mulai dengan Linux
+
+  Sebagaimana yang telah disebutkan pada bagian awal, Linux tidak diatur
+  secara terpusat.  Karenanya, tidak ada ''kantor'' dimana kita bisa
+  menunjuknya, dan menyebutnya ''Itu Linux.''  Malahan, ada banyak
+  dikonfigurasi dan dipaket sedemikian sehingga dapat digunakan untuk
+  menginstal sistem Linux.
+
+  Hal pertama yang perlu Anda lakukan adalah mencari dan membaca daftar
+  FAQ (Frequently Asked Questions, Pertanyaan-pertanyaan yang sering
+  kali ditanyakan) dari salah satu site FTP, atau menggunakan salinan
+  Usenet FAQ yang biasa dipakai(yakni rtfm.mit.edu).  Dokumen ini
+  memiliki banyak instruksi yang harus dilakukan ketika mulai, file-file
+  yang anda perlukan, dan bagaimana memecahkan kebanyakan masalah-
+  masalah yang umum (selama instalasi atau yang lainnya).
+
+  (
+
+     Catatan penterjemah:
+        FAQ dalam bahasa Indonesia tersedia di
+        <http://www.linux.or.id/faq>
+  )
+
+
+  8.  Status Hukum Linux
+
+  Meskipun Linux disuplai dengan source code yang lengkap, ia merupakan
+  software yang memiliki hak cipta, bukan public domain.  Namun,
+  tersedia secara gratis dibawah GNU General Public License, yang
+  kadang-kadang diistilahkan sebagai "copyleft".  Lihatlah GPL untuk
+  informasi lebih lanjut.  Program yang berjalan pada Linux masing-
+  masing memiliki hak ciptanya masing-masing, meskipun biasanya
+  menggunakan GPL.  X menggunakan hak cipta MIT X, dan beberapa utiliti
+  di bawah hak cipta BSD.  Dalam banyak hal, semua software pada site
+  FTP didistribusikan secara gratis (jika tidak maka seharusnya tidak
+  ada di sana).
+
+
+  9.  Berita Tentang Linux
+
+  Sebuah majalah bulanan, disebut Linux Journal, telah diluncurkan lebih
+  dari tiga tahun yang lalu.  Didalamnya termasuk artikel-artikel yang
+  ditujukan untuk kebanyak level yang terlatih, dan ditujukan untuk
+  membantu semua pemakai Linux.  Biaya pendaftaran untuk satu tahun
+  adalah $22 di U.S., $27 di Canada dan Mexico, dan $32 di tempat
+  lainnya, dibayar dalam mata uang US.  Formulir pendaftaran dapat
+  dikirimkan melalui emai ke subs@ssc.com, atau di-fax ke
+  +1-206-782-7191, atau menelepon ke +1-206-782-7733, atau dikirimkan ke
+
+
+       Linux Journal,
+       PO BOX 85867,
+       Seattle,
+       WA 98145-1867 USA.
+
+
+  SSC memiliki PGP public key yang disediakan untuk mengenkripsi e-mail
+  anda untuk mengamankan nomor credit card Anda; tunjuklah info@ssc.com
+  untuk mendapatkan key tersebut.
+
+  Ada beberapa Usenet newsgroups untuk diskusi Linuz, dan juga beberapa
+  mailing list.  Lihatlah Linux FAQ untuk informasi lebih lanjut tentang
+  mailing list atau pada site FTP).
+
+  Newsgroup  <news:comp.os.linux.announce> merupakan newsgroup yang
+  memiliki seorang moderator untuk pengumuman seputar Linux (program
+  baru, perbaikan bug, dsb).
+
+  Newsgroup  <news:comp.os.linux.answer> merupakan newsgroup yang
+  memiliki seorang moderator ke mana FAQ, dokumen HOWTO, dan dokumentasi
+  Linux yang lainnya  dikirimkan.
+
+  Newsgroup  <news:comp.os.linux.admin> merupakan newsgroup tanpa
+  moderator untuk diskusi tentang administrasi sistem Linux.
+
+  Newsgroup  <news:comp.os.linux.development.system> merupakan newsgroup
+  tanpa moderator yang spesifik untuk diskesi tentang pengembangan
+  kernel Linux.  Pertanyaan hanya tentang pengembangan yang seharusnya
+  didiskusikan di sini hanya yang sangat berkaitan erat dengan kernel.
+  Pertanyaan-pertanyaan pengembangan lainnya mungkin membangkitkan
+  pertanyaan-pertanyaan pengembangan  Unix dan seharusnya malah
+  diarahkan ke group comp.unix, kecuali jika merupakan pertanyaan
+  aplikasi yang sangat spesifik Linux, dimana seharusnya diarahkan ke
+  comp.os.linux.development.apps.
+
+  Newsgroup  <news:comp.os.linux.development.apps> merupakan newsgroup
+  tanpa moderator yang dikhususkan untuk diskusi tentang hal-hal yang
+  berkaitan dengan pengembangan aplikasi.  Newgroup ini bukan untuk
+  diskusi tentang dimana mendapatkan aplikasi Linux, ataupun forum
+  diskusi untuk orang-orang yang berminat melihat aplikasi-aplikasi
+  Linux.
+
+  Newsgroup  <news:comp.os.linux.hardware> adalah untuk pertanyaan-
+  pertanyaan Linux khusus hardware.
+
+  Newsgroup  <news:comp.os.linux.networking> untuk pertanyaan-pertanyaan
+  Linux yang khusus tentang pengembangan dan setup jaringan.
+
+  Newsgroup  <news:comp.os.linux.x> adalah untuk pertanyaan-pertanyaan
+  Linux khusus tentang X Windows.
+
+  Newsgroup  <news:comp.os.linux.misc> merupakan pengganti
+  comp.os.linux, dan berarti artinya untuk sembarang diskusi yang tidak
+  termasuk dimana-mana.  Secara umum, jangan tertukar antar newsgroup
+  Linux.  Pertukaran berita yang mungkin hanyalah pengiriman yang hanya
+  kadang-kadang saja antar group yang tidak bermoderator dengan
+  <news:comp.os.linux.announce>.  Maksud dari pemecahan group yang lama
+  comp.os.linux menjadi banyak group adalah untuk mengurangi lalu lintas
+  dalam tiap group.  Yang tidak mengikuti aturan ini akan disalahkan
+  tanpa maaf ... Linux di web pada URL <http://sunsite.unc.edu/LDP>.
+
+  (
+
+     Catatan penterjemah:
+        Linux Indonesia ada di  <http://www.linux.or.id>
+  )
+
+
+  10.  Masa Depan Linux
+
+  Setelah peluncuran Linux 1.0, pekerjaan dilakukan pada beberapa
+  pengembangan.  Linux 1.2 termasuk pemercepat pengakses disk, perbaikan
+  TTY, pengembangan virtual memory, pendukung beberapa platform, quotas,
+  dan lain-lain.
+
+  Linux 2.0, versi stabil yang sedang paling baru, bahkan memiliki
+  beberapa tambahan, termasuk banyak perbaikan performa, beberapa
+  protokol jaringan baru, implementasi TCP/IP yang tercepat di dunia,
+  dan lebih, bahkan lebih lagi. Semakin tinggi performanya, lebih banyak
+  protokol jaringannya, dan lebih banyak device driver yang akan
+  tersedia pada Linux 2.2.  Bahkan dengan lebih dari 3/4 juta baris kode
+  dalam kernel, ada banyak kode yang belum tertulis, apalagi
+  dokumentasi.
+
+  Bergabunglah dengan milis  <mailto:linux-doc@vger.rutgers.edu> jika
+  anda berminat memberi kontribusi pada dokumentasi.  Kirimlah e-mail ke
+  majordomo@vger.rutgers.edu yang berisi sebaris tunggal kata "help"
+  pada tubuh (bukan pada subyek) pesan.
+
+
+  11.  Tentang Dokumen ini
+
+  Dokumen ini disusun oleh Michael K. Johnson
+  <mailto:johnsonm@redhat.com>.  Silahkan kirimkan email ke penulis
+  dengan komentar, betapapun kecilnya.  Penulis tidak mungkin bekerja
+  memperbaiki dokumen ini dengan baik tanpa pertolongan Anda.  Lebih
+  kurangnya salinan dari dokumen ini selalu dapat diperoleh pada
+  <http://sunsite.unc.edu/LDP/>
+
+  (
+
+     Catatan penterjemah:
+        Dokumen ini diterjemahkan oleh Utari Wijayanti <
+        <mailto:oet@bogor.wasantara.net.id>, bila terdapat kesalahan
+        penerjemahan mohon menghubungi penterjemah.
+  )
+
+
+  12.  Merk dagang
+
+  Semua merk yang disebutkan dalam dokumen ini dimiliki oleh pemiliknya.
+  Tidak ada jaminan tentang informasi dalam dokumen ini.  Gunakan dan
+  distribusikan dengan risiko anda sendiri.  Isi dari dokumen ini
+  termasuk public domain, tetapi bila Anda mengutip dari dokumen ini
+  mohon untuk menyebutkan sumbernya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

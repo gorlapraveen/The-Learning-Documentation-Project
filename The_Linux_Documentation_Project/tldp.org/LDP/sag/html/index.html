@@ -1,0 +1,991 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+>
+<!-- Mirrored from tldp.org/LDP/sag/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:49:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<HEAD
+><TITLE
+>The Linux System Administrator's Guide</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="About This Book"
+HREF="preface.html"><META
+NAME="KEYWORD"
+CONTENT="Linux Documentation"><META
+NAME="KEYWORD"
+CONTENT="GFDL"><META
+NAME="KEYWORD"
+CONTENT="Linux Documentation Project"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="INDEX"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN3"
+></A
+>The Linux System Administrator's Guide</H1
+><H2
+CLASS="SUBTITLE"
+>Version 0.9</H2
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN11"
+></A
+>Lars Wirzenius</H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<TT
+CLASS="EMAIL"
+>&#60;<A
+HREF="mailto:Email address removed by request"
+>Email address removed by request</A
+>&#62;</TT
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P
+></DIV
+></DIV
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN17"
+></A
+>Joanna Oja</H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<TT
+CLASS="EMAIL"
+>&#60;<A
+HREF="mailto:Current email address unknown"
+>Current email address unknown</A
+>&#62;</TT
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P
+></DIV
+></DIV
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN23"
+></A
+>Stephen Stafford</H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<TT
+CLASS="EMAIL"
+>&#60;<A
+HREF="mailto:stephen@clothcat.demon.co.uk.NOSPAM"
+>stephen@clothcat.demon.co.uk.NOSPAM</A
+>&#62;</TT
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P
+></DIV
+></DIV
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN29"
+></A
+>Alex Weeks</H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<TT
+CLASS="EMAIL"
+>&#60;<A
+HREF="mailto:draxeman@gmail.com.NOSPAM"
+>draxeman@gmail.com.NOSPAM</A
+>&#62;</TT
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P
+></DIV
+></DIV
+><DIV
+><DIV
+CLASS="ABSTRACT"
+><A
+NAME="AEN35"
+></A
+><P
+></P
+><P
+>An introduction to system administration of a
+Linux system for novices.</P
+><P
+></P
+></DIV
+></DIV
+><A
+HREF="LEGAL-NOTICE.html"
+>Legal Notice</A
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="preface.html"
+>About This Book</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="acknowledgements.html"
+>Acknowledgments</A
+></DT
+><DT
+>2. <A
+HREF="revision-hist.html"
+>Revision History</A
+></DT
+><DT
+>3. <A
+HREF="available-versions.html"
+>Source and pre-formatted versions available</A
+></DT
+><DT
+>4. <A
+HREF="typo-conventions.html"
+>Typographical Conventions</A
+></DT
+></DL
+></DD
+><DT
+>1. <A
+HREF="intro.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="gnu-or-not.html"
+>Linux or GNU/Linux, that is the question.</A
+></DT
+><DT
+>1.2. <A
+HREF="x186.html"
+>Trademarks</A
+></DT
+></DL
+></DD
+><DT
+>2. <A
+HREF="overview.html"
+>Overview of a Linux System</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="various-parts.html"
+>Various parts of an operating system</A
+></DT
+><DT
+>2.2. <A
+HREF="kernel-parts.html"
+>Important parts of the kernel</A
+></DT
+><DT
+>2.3. <A
+HREF="major-services.html"
+>Major services in a UNIX system</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="dir-tree-overview.html"
+>Overview of the Directory Tree</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="fs-background.html"
+>Background</A
+></DT
+><DT
+>3.2. <A
+HREF="root-fs.html"
+>The root filesystem</A
+></DT
+><DT
+>3.3. <A
+HREF="etc-fs.html"
+>The <TT
+CLASS="FILENAME"
+>/etc</TT
+> directory</A
+></DT
+><DT
+>3.4. <A
+HREF="dev-fs.html"
+>The <TT
+CLASS="FILENAME"
+>/dev</TT
+> directory</A
+></DT
+><DT
+>3.5. <A
+HREF="usr-fs.html"
+>The <TT
+CLASS="FILENAME"
+>/usr</TT
+> filesystem.</A
+></DT
+><DT
+>3.6. <A
+HREF="var-fs.html"
+>The <TT
+CLASS="FILENAME"
+>/var</TT
+> filesystem</A
+></DT
+><DT
+>3.7. <A
+HREF="proc-fs.html"
+>The <TT
+CLASS="FILENAME"
+>/proc</TT
+> filesystem</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="device-list.html"
+>Hardware, Devices, and Tools</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="hwutils.html"
+>Hardware Utilities</A
+></DT
+><DT
+>4.2. <A
+HREF="x1926.html"
+>Kernel Modules</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="disk-usage.html"
+>Using Disks and Other Storage Media</A
+></DT
+><DD
+><DL
+><DT
+>5.1. <A
+HREF="block-char-dev.html"
+>Two kinds of devices</A
+></DT
+><DT
+>5.2. <A
+HREF="hard-disk.html"
+>Hard disks</A
+></DT
+><DT
+>5.3. <A
+HREF="san.html"
+>Storage Area Networks - Draft</A
+></DT
+><DT
+>5.4. <A
+HREF="net-attached.html"
+>Network Attached Storage - Draft</A
+></DT
+><DT
+>5.5. <A
+HREF="floppies.html"
+>Floppies</A
+></DT
+><DT
+>5.6. <A
+HREF="cdrom.html"
+>CD-ROMs</A
+></DT
+><DT
+>5.7. <A
+HREF="tapes.html"
+>Tapes</A
+></DT
+><DT
+>5.8. <A
+HREF="formatting.html"
+>Formatting</A
+></DT
+><DT
+>5.9. <A
+HREF="partitions.html"
+>Partitions</A
+></DT
+><DT
+>5.10. <A
+HREF="filesystems.html"
+>Filesystems</A
+></DT
+><DT
+>5.11. <A
+HREF="disk-no-fs.html"
+>Disks without filesystems</A
+></DT
+><DT
+>5.12. <A
+HREF="alloc-disk.html"
+>Allocating disk space</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="memory-management.html"
+>Memory Management</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="vm-intro.html"
+>What is virtual memory?</A
+></DT
+><DT
+>6.2. <A
+HREF="swap-space.html"
+>Creating a swap space</A
+></DT
+><DT
+>6.3. <A
+HREF="using-swap.html"
+>Using a swap space</A
+></DT
+><DT
+>6.4. <A
+HREF="sharing-swap.html"
+>Sharing swap spaces with other operating systems</A
+></DT
+><DT
+>6.5. <A
+HREF="swap-allocation.html"
+>Allocating swap space</A
+></DT
+><DT
+>6.6. <A
+HREF="buffer-cache.html"
+>The buffer cache</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="system-monitoring.html"
+>System Monitoring</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="system-resources.html"
+>System Resources</A
+></DT
+><DT
+>7.2. <A
+HREF="fs-usage.html"
+>Filesystem Usage</A
+></DT
+><DT
+>7.3. <A
+HREF="monitoring-users.html"
+>Monitoring Users</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="boots-and-shutdowns.html"
+>Boots And Shutdowns</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="boot-overview.html"
+>An overview of boots and shutdowns</A
+></DT
+><DT
+>8.2. <A
+HREF="boot-process.html"
+>The boot process in closer look</A
+></DT
+><DT
+>8.3. <A
+HREF="shutdown.html"
+>More about shutdowns</A
+></DT
+><DT
+>8.4. <A
+HREF="rebooting.html"
+>Rebooting</A
+></DT
+><DT
+>8.5. <A
+HREF="single-user.html"
+>Single user mode</A
+></DT
+><DT
+>8.6. <A
+HREF="emerg-boot-floppy.html"
+>Emergency boot floppies</A
+></DT
+></DL
+></DD
+><DT
+>9. <A
+HREF="init-intro.html"
+><B
+CLASS="COMMAND"
+>init</B
+></A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="init-process.html"
+><B
+CLASS="COMMAND"
+>init</B
+> comes first</A
+></DT
+><DT
+>9.2. <A
+HREF="config-init.html"
+>Configuring <B
+CLASS="COMMAND"
+>init</B
+> to start 
+<B
+CLASS="COMMAND"
+>getty</B
+>: the 
+<TT
+CLASS="FILENAME"
+>/etc/inittab</TT
+> file</A
+></DT
+><DT
+>9.3. <A
+HREF="run-levels-intro.html"
+>Run levels</A
+></DT
+><DT
+>9.4. <A
+HREF="inittab.html"
+>Special configuration in 
+<TT
+CLASS="FILENAME"
+>/etc/inittab</TT
+></A
+></DT
+><DT
+>9.5. <A
+HREF="boot-single-user.html"
+>Booting in single user mode</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="log-in-and-out.html"
+>Logging In And Out</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="login-via-terminal.html"
+>Logins via terminals</A
+></DT
+><DT
+>10.2. <A
+HREF="login-via-network.html"
+>Logins via the network</A
+></DT
+><DT
+>10.3. <A
+HREF="what-login-does.html"
+>What <B
+CLASS="COMMAND"
+>login</B
+> does</A
+></DT
+><DT
+>10.4. <A
+HREF="x-xdm.html"
+>X and xdm</A
+></DT
+><DT
+>10.5. <A
+HREF="access-control.html"
+>Access control</A
+></DT
+><DT
+>10.6. <A
+HREF="shell-startup.html"
+>Shell startup</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="managing-users.html"
+>Managing user accounts</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="account.html"
+>What's an account?</A
+></DT
+><DT
+>11.2. <A
+HREF="adduser.html"
+>Creating a user</A
+></DT
+><DT
+>11.3. <A
+HREF="user-properties.html"
+>Changing user properties</A
+></DT
+><DT
+>11.4. <A
+HREF="deluser.html"
+>Removing a user</A
+></DT
+><DT
+>11.5. <A
+HREF="disable-user.html"
+>Disabling a user temporarily</A
+></DT
+></DL
+></DD
+><DT
+>12. <A
+HREF="backups-intro.html"
+>Backups</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="backups.html"
+>On the importance of being backed up</A
+></DT
+><DT
+>12.2. <A
+HREF="backup-media.html"
+>Selecting the backup medium</A
+></DT
+><DT
+>12.3. <A
+HREF="backup-tools.html"
+>Selecting the backup tool</A
+></DT
+><DT
+>12.4. <A
+HREF="simple-backups.html"
+>Simple backups</A
+></DT
+><DT
+>12.5. <A
+HREF="multi-level-backups.html"
+>Multilevel backups</A
+></DT
+><DT
+>12.6. <A
+HREF="what-to-backup.html"
+>What to back up</A
+></DT
+><DT
+>12.7. <A
+HREF="compressed-backups.html"
+>Compressed backups</A
+></DT
+></DL
+></DD
+><DT
+>13. <A
+HREF="task-automation.html"
+>Task Automation --To Be Added</A
+></DT
+><DT
+>14. <A
+HREF="keeping-time.html"
+>Keeping Time</A
+></DT
+><DD
+><DL
+><DT
+>14.1. <A
+HREF="localtime.html"
+>The concept of localtime</A
+></DT
+><DT
+>14.2. <A
+HREF="hw-sw-clocks.html"
+>The hardware and software clocks</A
+></DT
+><DT
+>14.3. <A
+HREF="showing-setting-time.html"
+>Showing and setting time</A
+></DT
+><DT
+>14.4. <A
+HREF="clock-wrong.html"
+>When the clock is wrong</A
+></DT
+><DT
+>14.5. <A
+HREF="ntp.html"
+>NTP - Network Time Protocol</A
+></DT
+><DT
+>14.6. <A
+HREF="basic-ntp-config.html"
+>Basic NTP configuration</A
+></DT
+><DT
+>14.7. <A
+HREF="ntp-toolkit.html"
+>NTP Toolkit</A
+></DT
+><DT
+>14.8. <A
+HREF="ntp-servers.html"
+>Some known NTP servers</A
+></DT
+><DT
+>14.9. <A
+HREF="ntp-links.html"
+>NTP Links</A
+></DT
+></DL
+></DD
+><DT
+>15. <A
+HREF="system-logs.html"
+>System Logs --To Be Added</A
+></DT
+><DT
+>16. <A
+HREF="system-updates.html"
+>System Updates --To Be Added</A
+></DT
+><DT
+>17. <A
+HREF="kernel.html"
+>The Linux Kernel Source</A
+></DT
+><DT
+>18. <A
+HREF="finding-help.html"
+>Finding Help</A
+></DT
+><DD
+><DL
+><DT
+>18.1. <A
+HREF="newsgroups-mailling-lists.html"
+>Newsgroups and Mailing Lists</A
+></DT
+><DT
+>18.2. <A
+HREF="irc.html"
+>IRC</A
+></DT
+></DL
+></DD
+><DT
+>A. <A
+HREF="gfdl1.2.html"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="gfdl-0.html"
+>PREAMBLE</A
+></DT
+><DT
+>A.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>A.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>A.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>A.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>A.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>A.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>A.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>A.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>A.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>A.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>A.12. <A
+HREF="gfdl-addendum.html"
+>ADDENDUM: How to use this License for
+  your documents</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="glossary.html"
+>Glossary (DRAFT, but not for long hopefully)</A
+></DT
+><DT
+><A
+HREF="bookindex.html"
+>Index-Draft</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>5-1. <A
+HREF="filesystems.html#AEN2790"
+>Comparing Filesystem Features</A
+></DT
+><DT
+>5-2. <A
+HREF="filesystems.html#AEN2949"
+>Sizes</A
+></DT
+><DT
+>5-3. <A
+HREF="alloc-disk.html#AEN3270"
+>My Partitions</A
+></DT
+><DT
+>9-1. <A
+HREF="run-levels-intro.html#RUN-LEVELS-TABLE"
+>Run level numbers</A
+></DT
+><DT
+>12-1. <A
+HREF="multi-level-backups.html#EFFICIENT-BACKUP-LEVELS"
+>Efficient backup scheme using many backup levels</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Figures</B
+></DT
+><DT
+>2-1. <A
+HREF="kernel-parts.html#KERNELOVERVIEW"
+>Some of the more important parts of the Linux kernel</A
+></DT
+><DT
+>3-1. <A
+HREF="fs-background.html#FSTREE"
+>Parts of a Unix
+		directory tree. Dashed lines indicate partition 
+		limits.</A
+></DT
+><DT
+>5-1. <A
+HREF="hard-disk.html#HD-SCHEMATIC"
+>A schematic picture of a hard disk.</A
+></DT
+><DT
+>5-2. <A
+HREF="partitions.html#HARD-DISK-LAYOUT"
+>A sample hard disk partitioning.</A
+></DT
+><DT
+>5-3. <A
+HREF="filesystems.html#HD-MOUNT-ROOT"
+>Three separate filesystems.</A
+></DT
+><DT
+>5-4. <A
+HREF="filesystems.html#HD-MOUNT-ALL"
+><TT
+CLASS="FILENAME"
+>/home</TT
+> and <TT
+CLASS="FILENAME"
+>/usr</TT
+> 
+		have been 
+		mounted.</A
+></DT
+><DT
+>10-1. <A
+HREF="login-via-terminal.html#TERMINAL-LOGINS-TABLE"
+>Logins via terminals: the interaction of 
+<B
+CLASS="COMMAND"
+>init</B
+>, 
+<B
+CLASS="COMMAND"
+>getty</B
+>, <B
+CLASS="COMMAND"
+>login</B
+>, and the 
+shell.</A
+></DT
+><DT
+>12-1. <A
+HREF="multi-level-backups.html#BACKUP-HISTORY-TIMELINE"
+>A sample multilevel backup schedule.</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="preface.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>About This Book</TD
+></TR
+></TABLE
+></DIV
+></BODY
+>
+<!-- Mirrored from tldp.org/LDP/sag/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 23:50:34 GMT -->
+</HTML
+>

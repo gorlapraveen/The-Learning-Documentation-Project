@@ -1,0 +1,555 @@
+AUTHOR: Leslie Polzer <leslie.polzer@gmx.net>
+AUTHOR: Marc Heerdink <marc@koelkast.net>
+
+DATE: 2005-01-08
+
+LICENSE: GNU Free Documentation License Version 1.2
+
+SYNOPSIS: Setting up LFS with BSD/Slackware style init.
+
+DESCRIPTION:
+The BSD style is often perceived as a more simple (in contrast to SysVInit) way
+of booting your system and controlling runlevels.
+
+PREREQUISITES:
+LFS 2.4 or higher.
+
+HINT:
+
+Contents
+--------
+1 Preface
+2 Preparations
+	2.1 Runlevel planning
+	2.2 Directory layout
+	2.3 Setting up /etc/inittab
+3 Creating the boot scripts
+	3.1 Creating essential scripts
+	3.2 Creating extra scripts
+4 Final words
+
+
+1 Preface
+=========
+
+   Since LFS uses SYSV init scripts by default, about everybody who has an LFS
+ system uses this kind of init. But a few days ago, I read about someone on the
+ mailing list who wanted to setup BSD style init. Since I was using this since
+ the beginning i decided to write a hint for everybody who wants to use BSD
+ style init (or just wants to try it).
+
+   BSD init uses the normal SYSV init program, but a different inittab and has
+ the boot scripts arranged different. BSD boots your system in a much less
+ complicated way, so the scripts are easier to maintain. I think one should
+ read this hint before installing either init, because the decision should
+ preferably be made before the first boot.
+
+   This hint will never be complete, comments can be sent to
+ me <leslie.polzer@gmx.net>.
+
+
+2 Preparations
+==============
+
+2.1 Runlevel planning
+---------------------
+
+   Runlevels are a convenient way of changing a system's current purpose
+ on the fly by terminating and starting a bulk of running programs at once.
+ If you are not confident with runlevels and init, I suggest you get yourself
+ some information on it now. Search for primers on the web and read init(8). 
+
+   You'll have to choose what runlevels you want to use before you begin,
+ too. Somewhat default runlevels are thus:
+
+
+ RUNLEVEL: | DESCRIPTION:
+ ----------+----------------------
+         0 | Power down
+         S | Single user mode
+         1 | Alias for S
+         2 | Multi user runlevel with console login
+         3 | Alias for 2
+         4 | Alias for 2
+         5 | Multi user runlevel with graphical login
+         6 | Reboot
+ ----------+----------------------
+
+   I don't recommend changing the purpose of runlevels 0, 6 and S because
+ they should be configured like this for many programs - we'll stick with
+ their function in this hint. Because I use only 3 modes for booting
+ (Single User, Console Multi User and Graphical Multi User) runlevels 4 and 5
+ are aliases (realised with symlinks) for runlevel 2 (default). You can change
+ their purpose to whatever you like, but I suggest you'll do that after you
+ finished this hint.
+
+
+2.2 Directory layout
+--------------------
+
+   To give you an idea of how BSD init works, I'll show you the final directory
+ layout:
+ 
+ /etc/rc.d
+    + rc.sysinit	# system initialization
+    + rc.0		# shutdown
+    + rc.1		# single user
+    + rc.2		# multi user
+    + rc.3		# linked to rc.2
+    + rc.4		# linked to rc.2
+    + rc.5		# multi user with graphical login
+    + rc.6		# reboot, linked to rc.0
+    + rc.local		# local extensions of rc.sysinit
+
+ ...and maybe later, to your liking, these and more:
+    + rc.firewall
+    + rc.daemons
+    + rc.netdaemons
+    + rc.nfs
+    + rc.nis
+
+ I suggest you create the directory and basic files (the first list) now.
+
+    In the following section I will give you the contents of each of those
+ files; these are resembling my own - but the parts that may not be applicable
+ to anyone are commented out shell-style with a '#'. Please take a close look
+ at these lines and decide whether you need them.
+
+
+2.3 Setting up the inittab
+--------------------------
+
+   The inittab resides in /etc and configures your init. Before you start
+ writing it, you should realize that a wrong inittab will probably result (in
+ the worst case) in a kernel panic, but at least a lot of trouble booting your
+ system. 
+
+   Now let's get down to business! Put this in your /etc/inittab:
+
+
+-------------------------------/etc/inittab----------------------------------
+id:2:initdefault:
+
+si:S:sysinit:/etc/rc.d/rc.sysinit
+
+l0:0:wait:/etc/rc.d/rc.0
+l1:1:wait:/etc/rc.d/rc.1
+l2:2:wait:/etc/rc.d/rc.2
+l3:3:wait:/etc/rc.d/rc.3
+l4:4:wait:/etc/rc.d/rc.4
+l5:5:wait:/etc/rc.d/rc.5
+l6:6:wait:/etc/rc.d/rc.6
+
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -r now
+
+su:S1:respawn:/sbin/sulogin
+
+c1:2345:respawn:/sbin/agetty tty1 38400 linux
+c2:2345:respawn:/sbin/agetty tty2 38400 linux
+c3:2345:respawn:/sbin/agetty tty3 38400 linux
+c4:2345:respawn:/sbin/agetty tty4 38400 linux
+c5:2345:respawn:/sbin/agetty tty5 38400 linux
+c6:2345:respawn:/sbin/agetty tty6 38400 linux
+----------------------------end of /etc/inittab------------------------------
+
+   This is a pretty basic configuration but should do for about everybody. As
+ you can see, init first starts /etc/rc.d/rc.sysinit and then loads the needed
+ file for the default runlevel (/etc/rc.d/rc.2).
+
+
+3 Creating the boot scripts
+===========================
+
+3.1 Creating essential scripts
+------------------------------
+
+   Let's create /etc/rc.d/rc.sysinit first:
+
+
+-----------------------------/etc/rc.d/rc.sysinit----------------------------
+#!/bin/sh
+echo "Mounting root device read-only..."
+/bin/mount -n -o remount,ro /
+
+### this would be a good spot for hdparm, because
+### the whole boot process will benefit from it!
+
+echo "Initializing swap partitions..."
+/sbin/swapon -a
+
+/sbin/fsck -A -a -C
+if [ $? -gt 1 ]; then
+   echo
+   echo "ERROR:"
+   echo "Your filesystem has been severely damaged. You can probably correct this"
+   echo "problem by running e2fsck manually (eg. with the -v and -y options). After"
+   echo "you logout, the system will reboot."
+   echo
+   PS1="(Repair filesystem)# "
+   export PS1
+   /sbin/sulogin
+   /bin/umount -a -r
+   /sbin/reboot -f
+fi
+
+echo "Remounting root device read-write..."
+/bin/mount -n -v -o remount,rw /
+
+echo "" >/etc/mtab
+/bin/mount -f -o remount,rw /
+
+echo "Mounting other local filesystems..."
+/bin/mount -a -v -tnonfs
+
+echo "Setting up hostname..."
+/bin/hostname `cat /etc/HOSTNAME |cut -d . -f1`
+/bin/domainname `cat /etc/HOSTNAME |cut -d . -f2-`
+
+if [ -f "/etc/random-seed" ]; then
+  echo "Initializing random number generator..."
+  /bin/cat /etc/random-seed >/dev/urandom
+  rm -f /etc/random-seed
+fi
+
+### removing stale PID files is good, too
+# echo "Removing stale PID files..."
+# /bin/rm /var/run/*.pid
+# /bin/rm /etc/dhcpc/*.pid
+
+echo "Loading keymap..."
+/usr/bin/loadkeys -d
+
+### I also suggest setting keyboard repeat rate and delay here:
+# echo "Setting keyboard rate (30) and delay (250)..."
+# /usr/bin/kbdrate -r 30 -d 250
+
+### And the console font as well:
+# echo "Setting console font..."
+# /usr/bin/setfont lat9u-12.psfu.g
+
+### And if you like to have numlock on:
+# echo "Setting numlock on VTs 1-12 to on..."
+# for tty in /dev/tty{1,2,3,4,5,6,7,8,9,10,11,12}; do
+# 	/usr/bin/setleds +num < $tty
+# done
+
+### mplayer likes this...
+# echo "Configuring RTC..."
+# echo 1024 > /proc/sys/dev/rtc/max-user-freq
+
+echo "Setting system time from hardware clock..."
+/sbin/hwclock --hctosys --utc
+
+echo "Starting system and kernel log daemons...."
+/usr/sbin/syslogd
+/usr/sbin/klogd -c3
+
+### Use modules? If yes, uncomment this:
+# echo "Updating module dependencies..."
+# /sbin/depmod -a
+
+### You may find this useful when you have some (non-networking) daemons
+### and an extra .rc-file for them:
+# echo "Starting daemons..."
+# if [ -x /etc/rc.d/rc.daemons ]; then
+# 	/etc/rc.d/rc.daemons
+# fi
+-------------------------end of /etc/rc.d/rc.sysinit-------------------------
+
+
+   To make the hostname lines work as expected, create a file /etc/HOSTNAME
+ which holds your FQDN (Full Qualified Domain Name). That is, for example,
+ foo.bar.com or gimli.gimli.org. A last note on the hwclock command: if your system
+ clock isn't configured for using UTC (that means you're using local time) you
+ should drop the --utc options from that line. Read the 'time' hint for more
+ information.
+
+   Now let's create the script for the single user runlevel. Since this
+ runlevel won't be used very often to boot in, but instead to fall back to if
+ something happens to the system, all running programs will be killed so you're
+ in a very clean environment when running in single user mode.
+ 
+
+--------------------------------/etc/rc.d/rc.1-------------------------------
+#!/bin/sh
+echo "Unmounting remote filesystems..."
+/bin/umount -a -tnfs
+
+# insert a line for each network card you use here. This is an example for
+#  a single network card set-up (configured as eth0):
+#
+# echo "Bringing down network interface eth0..."
+# /sbin/ifconfig eth0 down
+
+echo "Sending all processes the TERM signal..."
+/sbin/killall5 -15
+sleep 1
+
+echo "Sending all processes the KILL signal..."
+/sbin/killall5 -9
+----------------------------end of /etc/rc.d/rc.1----------------------------
+
+
+   If this script has run, no daemons have been left except the kernel daemons
+ and init. After it has finished sulogin will be started (that's what the line
+ "su:S1:respawn:/sbin/sulogin" is for :) so only root can use the system. All
+ virtual consoles will be disabled.
+
+   Let's get on to the next script, /etc/rc.d/rc.2. This file has many common
+ options in it, eg. to set up networking and start network daemons. Remove
+ every line you won't use, but don't add anything before you read chapter 4.
+
+
+--------------------------------/etc/rc.d/rc.2-------------------------------
+#!/bin/sh
+# In this example, the network card is configured with 192.168.0.2 as ip
+#  address and a netmask of 255.255.255.0. This network card uses 192.168.0.1
+#  as the default gateway. This is the set up you would use if the box
+#  192.168.0.1 would be the gateway.
+
+### You may wish to add some commands changing sysctl states here, for example:
+# echo 1 > /proc/sys/net/ipv4/ip_forward	# enable IP forwarding
+# echo 1 > /proc/sys/net/ipv4/tcp_syncookies	# defend against SYN flood
+
+echo "Setting up loopback networking..."
+/sbin/ifconfig lo 127.0.0.1
+/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 lo
+
+echo "Setting up eth0..."
+/sbin/ifconfig eth0 192.168.0.1 broadcast 192.168.0.255 netmask 255.255.255.0
+/sbin/route add -net default gw 192.168.0.1 netmask 0.0.0.0
+
+echo "Mounting remote filesystems..."
+/bin/mount -a -v -tnfs
+
+### you can create additional scripts for specific (networking) tasks,
+### for example NFS, which needs a lot of daemons to work (see 3.2)
+### or your firewall script:
+
+# if [ -x /etc/rc.d/rc.firewall ]; then
+#	echo "Restoring firewall rules..."
+#	/etc/rc.d/rc.firewall
+# fi
+
+# if [ -x /etc/rc.d/rc.netdaemons ]; then
+#	echo "Starting network daemons..."
+#	/etc/rc.d/rc.netdaemons
+# fi
+
+
+if [ -x /etc/rc.d/rc.local ]; then
+	/etc/rc.d/rc.local
+fi
+----------------------------end of /etc/rc.d/rc.2----------------------------
+
+
+   Now copy /etc/rc.d/rc.2 to /etc/rc.d/rc.5 and link the
+   aliases for runlevel 2:
+ 	ln -sf /etc/rc.d/rc.2 /etc/rc.d/rc.3
+	ln -sf /etc/rc.d/rc.2 /etc/rc.d/rc.4
+	cp /etc/rc.d/rc.2 /etc/rc.d/rc.5
+
+    and add the following to the
+ bottom of the file /etc/rc.d/rc.5:
+
+
+------------------------------------snip-------------------------------------
+echo "Starting graphical login manager..."
+
+if [ -x /opt/kde/bin/kdm ]; then
+	/opt/kde/bin/kdm -nodaemon
+elif [ -x /usr/bin/gdm ]; then
+	/usr/bin/gdm -nodaemon
+elif [ -x /usr/X11R6/bin/xdm ]; then
+	/usr/X11R6/bin/xdm -nodaemon
+else
+	echo "You chose to start graphical login mode, but you don't have either KDM or"
+	echo "GDM or XDM installed. This script looks for these display managers in the"
+	echo "following locations:"
+	echo
+	echo "   KDM      /opt/kde/bin/kdm"
+	echo "   GDM      /usr/bin/gdm"
+	echo "   XDM      /usr/X11R6/bin/xdm"
+	echo
+	echo "This message will go away in 10 seconds, and after that you will be dropped"
+	echo "in runlevel 2."
+	sleep 10
+	/sbin/telinit 2 
+fi
+----------------------------end of /etc/rc.d/rc.5----------------------------
+
+
+   The script is pretty self-explaining. It looks for the most commonly used
+ display managers in their default locations. If none of them is found, a
+ warning will be displayed and the system will change to runlevel 2 with a
+ normal console login screen. If you have a specific display manager you
+ can leave out the 'if' and the others, of course.
+
+   Now we have created all bootscripts except /etc/rc.d/rc.0 and
+ /etc/rc.d/rc.6. Since they both perform pretty much the same function, we'll
+ create it only once:
+
+
+--------------------------------/etc/rc.d/rc.0-------------------------------
+#!/bin/sh
+echo "Sending all processes the TERM signal..."
+/sbin/killall5 -15
+sleep 1
+
+echo "Sending all processes the KILL signal..."
+/sbin/killall5 -9
+sleep 1
+
+echo "Deactivating swap partitions..."
+/sbin/swapoff -a
+
+echo "Saving random seed to a temporary file..."
+/bin/dd if=/dev/urandom of=/etc/random-seed count=1 bs=512 2>/dev/null
+
+echo "Saving the system time to hardware clock..."
+/sbin/hwclock --systohc --utc
+
+echo "Unmounting remote filesystems..."
+/bin/umount -a -f -tnfs
+
+case "$0" in
+	*6)
+		/sbin/reboot -w
+	;;
+	
+	*0)
+		/sbin/halt -w
+	;;
+esac
+
+echo "Remounting root filesystem read-only..."
+/bin/mount -n -o remount,ro /
+
+echo "Flushing filesystem buffers..."
+/bin/sync
+
+echo "Unmounting local filesystems..."
+/bin/umount -a -tnonfs
+
+case "$0" in
+	*6)
+		echo "Please stand by while rebooting..."
+		/sbin/reboot -d -f -i
+	;;
+	
+	*0)
+		echo "Bye..."
+		/sbin/halt -d -f -p
+	;;
+esac
+----------------------------end of /etc/rc.d/rc.0----------------------------
+
+
+   Some notes on this file: the hwclock should be configured like the one in
+ /etc/rc.d/rc.sysinit (no --utc if your hardware clock uses local time). The
+ construction
+
+  case "$0" in
+	*6)
+		/sbin/reboot -w
+	;;
+	
+	*0)
+		/sbin/halt -w
+	;;
+  esac
+
+ writes some status information to /etc/wtmp. It's a good idea to do this,
+ but you can safely remove it. At about two-third of the file, I call
+ /bin/sync. This program flushes the filesystem buffers so you won't lose any
+ data. Like the construct above this is optional but I recommend it.
+
+   Now that we have created all the required files, some changes have to made to
+ make them work. Run the following commands to do this:
+
+	chmod 754 /etc/rc.d/rc.0 /etc/rc.d/rc.1 /etc/rc.d/rc.2
+	chmod 754 /etc/rc.d/rc.3 /etc/rc.d/rc.sysinit
+	ln -s /etc/rc.d/rc.2 /etc/rc.d/rc.4
+	ln -s /etc/rc.d/rc.0 /etc/rc.d/rc.6
+
+   You're done! Take a deep breath, type (as root) "reboot" and watch
+ your system boot with BSD style init scripts! If you have troubles using
+ these scripts, drop me a line: leslie.polzer@gmx.net.
+
+
+3.2 Creating extra scripts
+--------------------------
+
+   As you probably know, it is common to have a /etc/rc.d/rc.local file where
+ you put commands in that will be executed at the very end of the boot process.
+ You can use it to create up-to-date issue files or to pick a random
+ message of the day. But since you created all bootscripts yourself,
+ you can change them as much as you like, and you probably won't need this
+ script. So what's it going to be?
+
+   I personally recommend you create this script, for the purpose of
+ portability. Many daemons write one or two lines to this file, and it saves
+ you trouble if it's already present. This is how you create one:
+
+   Put this in a file /etc/rc.d/rc.local:
+
+-------------------------------/etc/rc.d/rc.local----------------------------
+#!/bin/sh
+-----------------------------end /etc/rc.d/rc.local--------------------------
+
+  And make it executable:
+
+	chmod 754 /etc/rc.d/rc.local
+
+   It is very easy for you to disable /etc/rc.d/rc.local; just remove
+ the executable flag from the script and it will be skipped at boot time.
+
+ When I showed you the synopsis of rc.d/, I also told you that you can
+ create extra files. You might put your iptables/ipchains lines for your
+ firewall into rc.firewall and call it from rc.{2,3}, or you may stuff
+ all daemons essential to NFS into rc.nfs and call that from another
+ script called rc.netdaemons, in which you start all networking daemons.
+ 
+     Do what you like best - BSD init is IMHO closer to human thinking
+ than SysVInit.
+ 
+   As a final tip in this section, I would like to point out to you that I
+ have often had a multi-user environment without networking. It would be a
+ good practice for you to set up this environment on, for example, runlevel 5
+ and set it up in a secure way. This implies you have to decide whether you
+ really need a service or not, to avoid any damage that may be caused by your
+ ignorance.
+
+
+4 Final Words
+=============
+   I hope you learnt from this hint how a BSD style init works. Although this
+ setup is not the same as Slackware's or BSD's setup, the idea is basically the
+ same. If you have comments on this hint, be they positive or negative,
+ please mail me at leslie.polzer@gmx.net.
+   I would like to thank all the people who emailed me so far, fixing bugs
+ in the hint.
+
+
+CHANGELOG:
+[2005-02-16]
+ * runlevel organization fixes
+
+[2005-01-08]
+ * changed permissions from 755 to 754 (thanks to Randy McMurchy)
+ * removed linking from rc.2 to rc.5 - these are different files
+   (thanks to George Boudreau from DIY Linux)
+ * moved syncing before umounting (thanks to Noturno)
+
+[2004-09-10]
+ * changed /tmp/random-seed to /etc/random-seed in case
+   /tmp is mounted as tmpfs (thanks to C. T. Waley)
+
+[2004-06-05]
+ * corrected a typo
+ * corrected a mistake where runlevel 3 would be 5
+
+[2003-10-02]
+ * New maintainer 
+ * Conversion to new hint format
+ 

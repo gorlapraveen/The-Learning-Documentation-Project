@@ -1,0 +1,578 @@
+The Linux BLFAQ
+Neil Zanella <nzanella@ganymede.cs.mun.ca>
+v0.2.1, Jun 4 1999
+
+Copyright Notice:
+--------------------------------------------------------------------------------
+Copyright (c) 1998-1999 by Neil Zanella. This document may be distributed under
+the terms set forth in the LDP license at
+<http://www.linuxdoc.org/COPYRIGHT.html>
+
+Intro:
+--------------------------------------------------------------------------------
+Welcome to the Brief Linux FAQ (BLFAQ)!
+
+This document contains a list of some frequently asked Linux questions and their
+answers. It is meant to provide general help to Linux users, especially newbies.
+I invite you to modify and add to this list but if you do so please be sure to 
+mail me so that I can include your changes in future releases. Finally, I hope
+that this document will prove helpful to all Linux users, newbies especially.
+Current releases of this document can be found at:
+<ftp://metalab.unc.edu/pub/Linux/docs/faqs/BLFAQ>
+
+FAQs:
+--------------------------------------------------------------------------------
+Q: I am trying to use the text based ftp program to download some stuff via 
+   anonymous ftp from an ftp site. I have never done this before and the ftp 
+   server doesn't seem to be letting me log in. Do I need a special user name 
+   and password to do this?
+
+A: To use anonymous ftp services log in with user name "anonymous" without
+   quotations and your full e-mail address as your password.
+   Some ftp sites will also accept the words "ftp" or "guest" instead of the 
+   word "anonymous" as user name.
+
+--------------------------------------------------------------------------------
+Q: I plan to use the FIPS program to shrink a FAT32 partition (such as one used 
+   by MS-Windows 95/98) and hence create space for my Linux operating system.
+   Can this be done?
+
+A: Yes, but in order to do so you will need a version of FIPS at least as recent
+   as FIPS 1.5c. You can get the latest version of FIPS by anonymous ftp from
+   the official FIPS web site at <http://www.igd.fhg.de/~aschaefe/fips/>.
+
+--------------------------------------------------------------------------------
+Q: I am using the DOS Fdisk utility to destructively repartition my hard drive.
+   How should I deal with the question pertaining to whether or not I should
+   "enable large disk support"?
+
+A: That question really has to do with whether you want to use a FAT32 or a
+   FAT16 file system with your DOS/Windows partition. Linux will coexist equally
+   well with both file systems except that in order to see a FAT32 file system
+   from your Linux partition you will need a version of the kernel at least
+   as recent as 2.0.35 .
+ 
+--------------------------------------------------------------------------------
+Q: I have upgraded to kernel 2.0.35 or later but still can't see my FAT32
+   partition. What went wrong?
+
+A: You must ensure that you have an entry for your DOS partition in your 
+   /etc/fstab file resembling the line:
+
+   /dev/hda1  /dos  vfat  auto,user,rw  0 0
+
+   Once the line is there you can just issue the command "umount -a;mount -a"
+   to mount your DOS partition under the /dos directory.
+
+--------------------------------------------------------------------------------
+Q: I am trying to install Linux via CD-ROM. I have made space for Linux on my 
+   hard drive but inserting the Linux CD into the CD-ROM drive and rebooting 
+   has no effect.
+
+A: You might have to tell your BIOS (Basic I/O System) to enable booting 
+   from CD-ROM by changing the default BIOS settings. On most systems you may
+   access the BIOS settings by pressing the <del> key on your keyboard shortly 
+   after rebooting. If implemented by the BIOS as a separate feature you may
+   also have to change the BIOS's boot sequence.
+
+--------------------------------------------------------------------------------
+Q: I have completed the installation process but upon reboot I get a LI
+   prompt or a bunch of zeros and ones.
+
+A: If your machine is somewhat old and you have an IDE (or EIDE) hard drive then
+   you must install your root partition completely below cylinder 1023
+   which means below 512 MB of disk space. On SCSI drives this means
+   your root partition must be contained within approximately one GB.
+   If your machine is fairly new and your BIOS supports it you may be able to
+   get around this problem by enabling LBA mode in the BIOS settings.
+
+--------------------------------------------------------------------------------
+Q: I can log in and out of my system but how do I shut it down / reboot it?
+
+A: There are various ways. The most popular ones are logging in as root and 
+   issuing the command "/sbin/shutdown -h now" or "/sbin/halt" to shut it
+   down or "/sbin/shutdown -r now" or "/sbin/reboot" to reboot.
+   On most systems while using a text based console pressing the <ctrl>, <alt>
+   and <del> keys simultaneously will also reboot the system.
+
+--------------------------------------------------------------------------------
+Q: I have shut down my system with the "halt" command and gotten to a message
+   saying "System Halted" but why is my computer still on?
+
+A: If you want it to power off on shutdown then you must recompile the kernel to
+   enable support for that feature by selecting the appropriate entry in the
+   APM options.
+
+--------------------------------------------------------------------------------
+Q: My new video card is listed at <http://www.linux.org/> as a card which the
+   X Window System supports under Linux but I cannot get it to work.
+
+A: Make sure that you have the newest version of XFree86 and that you installed 
+   the right X Server. If all else fails you might want to try selecting the 
+   generic SVGA server as your X Server.
+
+--------------------------------------------------------------------------------
+Q: I have successfully installed the X Window System and use the startx
+   command to run it from a text based virtual console. How can I have the X
+   Window System run at all times so that I don't have to use the startx 
+   command?
+
+A: If you are running Red Hat then you can edit the file /etc/inittab on 
+   your system and replace the entry
+
+   id:3:initdefault:
+ 
+   with the entry
+ 
+   id:5:initdefault:
+
+   and reboot. 
+   On other systems you might have to change the number 5 (the run level) to 
+   another number like 4. How to choose the correct run level should be clear 
+   by reading the comments in the file /etc/inittab . Alternatively, you might 
+   have to change a link in /etc/rc[2345].d . Run levels 2-5 don't have really 
+   strong conventions behind them like 0, 1, and 6 do. It depends on the 
+   distribution.
+
+--------------------------------------------------------------------------------
+Q: When I use the X Window system and open multiple windows I find that my
+   screen size is insufficient. How can I use more virtual screen space?
+
+A: Most window managers running under X Window have a built in feature known as
+   a pager which allows you to have more virtual screen space.
+
+--------------------------------------------------------------------------------
+Q: I would like to have xdm run multiple local displays on my system and switch 
+   back and forth by pressing <ctrl><alt><F*> where * is a number between 
+   1 and 12.
+
+A: If you wanted to run 6 virtual consoles accessible by pressing the keys
+   <ctrl><alt><F7> through <ctrl><alt><F12> then you could put the following
+   entries in the file /usr/X11R6/lib/X11/xdm/Xservers
+
+   :0 local /usr/X11R6/bin/X vt07 :0
+   :1 local /usr/X11R6/bin/X vt08 :1
+   :2 local /usr/X11R6/bin/X vt09 :2
+   :3 local /usr/X11R6/bin/X vt10 :3
+   :4 local /usr/X11R6/bin/X vt11 :4
+   :5 local /usr/X11R6/bin/X vt12 :5
+
+   I would limit myself to only a few of these though as X seems to eat up
+   quite a lot of memory when multiple displays are running.
+
+--------------------------------------------------------------------------------
+Q: I hate the sound of the bell. I would prefer to disable it perhaps enabling
+   the visual bell as an alternative.
+
+A: If you are running X then you can simply type "xset -b" without quotation 
+   marks at the command prompt. Alternatively, if you are running the bash 
+   shell then you can add the command "xset -b 2> /dev/null" without quotation 
+   marks at the end of your .bash_profile file in your home directory to have 
+   the audible bell disabled each time you log in.
+   For more information see the Visual-Bell-mini-HOWTO at
+   <http://www.linux.org/>
+
+--------------------------------------------------------------------------------
+Q: I have access to a remote Unix machine that has some commercial software that
+   uses X which I would like to run remotely on my display. How do I do it?
+
+A: First connect to the remote machine using dip or whatever you use. If the 
+   remote machine is called grasshopper.uvw.edu and your machine is called
+   kiwi.fruit.org then first type 
+
+   xhost +grasshopper.uvw.edu
+
+   from your own machine's shell prompt while running X. If you telnet to the
+   remote machine and you're using a modem to connect then your machine name
+   on the Internet may be different from your actual machine name at home
+   so be sure to use the finger command on the remote machine with your remote 
+   user name as an argument to find out what your machine name is on the 
+   Internet. Assuming your machine name has not changed you must type 
+
+   export DISPLAY=kiwi.fruit.org:0.0
+
+   on the remote machine if it uses the Korn shell or the equivalent if it uses
+   another shell. You should be now ready to fire up the remote application 
+   from your machine.
+
+--------------------------------------------------------------------------------
+Q: I am sick of having to type in my password interactively each time I want to
+   start a shell on a remote server. Is there a way to avoid this.
+
+A: Surprisingly yes. Simply replace the words "remote-host", "username", and
+   "password" in the following expect script and do a "chmod +x name-of-script".
+   You can then simply invoke the script to log into the remote host.
+
+   #!/usr/bin/expect
+   eval spawn telnet remote-host
+   set timeout 20
+   expect ogin:
+   send "username\r"
+   expect assword:
+   send "password\r"
+   sleep 2
+   interact
+
+   Alternatively you can try out the ktelnet program.
+
+--------------------------------------------------------------------------------
+Q: Is it possible to make recursive downloads to mirror ftp or web sites or
+   just download a file, perhaps while not even logged in?
+
+A: Yes, use the wget program. See <ftp://sunsite.auc.dk/pub/infosystems/wget/>
+   for the latest version of the software.
+
+--------------------------------------------------------------------------------
+Q: I use the lp or lpr programs to print ASCII files and man pages. Is there 
+   any way that I can get more text on one page, hence less pages of output?
+
+A: Yes. If you have a printer which can print postscript files you could
+   try the a2ps program. Make sure you specify the -M option for the paper's
+   size and the -m option in case you're printing man pages. 
+
+--------------------------------------------------------------------------------
+Q: I have more than 64 MB of RAM but when I use the "free" command to check
+   the amount of available memory on my system only slightly less than 64MB 
+   show up. How do I get Linux to recognize the additional RAM?
+
+A: Linux uses the BIOS to detect the amount of available RAM. At the present 
+   time there are two separate function calls available to do the job. Any 
+   version of Linux prior to 2.1.x uses the old call which is limited to 64M.
+   The newer call (used by 95/NT and Linux 2.1.x) can return more than 64M.
+   This problem should be fixed in the next stable release of the Linux kernel
+   (release 2.2.0). For now it is possible to have Linux detect all of your 
+   RAM by adding the line:
+
+   append = "mem=128M"
+
+   to the file /etc/lilo.conf if you use LILO or to the end of the respective
+   LOADLIN file if you use LOADLIN. This will enable 128MB of RAM, for example. 
+   You will need to rerun LILO for the changes to take effect. The next time you
+   boot up, Linux will see all of your memory.
+
+--------------------------------------------------------------------------------
+Q: I have used the rm command to delete a file. Is it possible to undelete the
+   file and hence recover its contents?
+
+A: In theory there is a way to undelete a file if you are using the ext2fs
+   file system (most common). In practice, it is rarely possible. To prevent
+   significant loss of data in this manner you must ensure that your system 
+   is backed up regularly. Alternatively if you had installed the program
+   midnight commander before deleting and compiled a version with undelf
+   then you could use cd undel:/dev/hda8 to see your deleted files (without 
+   names).  Alternatively, some users like to have a shell script that moves 
+   a file to a directory like /tmp each time it is removed or just before
+   it is overwritten. If you are really desperate, read the Ext2fs-Undeletion
+   mini-HOWTO, which might work.
+
+--------------------------------------------------------------------------------
+Q: I am trying to run a script file named script or test but I am getting some
+   unexpected results.
+
+A: The names script and test are names of executable programs on your system so
+   you should not use them for your own executables. If you got unexpected 
+   it's because the system binaries got to be executed before your own binaries.
+
+--------------------------------------------------------------------------------
+Q: I (re/)installed windows on the same hard drive as Linux but now I no longer
+   get the LILO prompt and can't boot into Linux. What should I do?
+
+A: Most likely windows overwrote the MBR (Master Boot Record) hence deleting
+   LILO. If you manually installed the kernel and used "make zdisk" then you
+   can boot from the floppy, otherwise you can download a boot/root floppy
+   distribution of Linux like the one at <http://www.toms.net/rb/> or some
+   other one. Once you get to your hard drive don't forget to rerun /sbin/lilo
+   so that you won't have to boot from the floppy again. If you are using a
+   floppy that boots its own file system then you must first mount your hard
+   drive with something like "mount /dev/hda1 /mnt" and change to the hard
+   drive with "chroot /mnt /bin/sh" before rerunning "/sbin/lilo".
+
+--------------------------------------------------------------------------------
+Q: I removed Linux from my system, but now DOS won't boot because LILO is still 
+   there. How do I remove LILO?
+
+A: If you have a version of DOS at least as recent as DOS 5.0 then you can 
+   insert your DOS boot diskette and boot from it. At the DOS prompt, type
+
+   fdisk /mbr
+
+   to remove LILO from the Master Boot Record (MBR).
+
+--------------------------------------------------------------------------------
+Q: I want to add '.' to root's PATH, to allow me to not have to put ./ in
+   front of every local command I type. But I hear this is a bad thing. Why?
+
+A: Adding '.' to root's PATH would be a security risk. Imagine the case where a 
+   malicious user creates a file called /tmp/ls containing a command sequence 
+   such as
+
+   # Caution: This script removes everything from the Linux file system.
+   cat /tmp/ls
+   rm -Rf /
+
+   and you as root wander into temp and want to see what files are there. If
+   the . occurs in root's path before /bin then typing ls at the shell prompt
+   will execute the malicious command instead. Alternatively, the malicious
+   command could be named mroe, ls-l, caat, lss, or similar in which case a
+   typo on root's behalf would cause it to be executed even if . is the last 
+   entry in root's path. Finally, the malicious command may be set to copy 
+   /bin/bash to a hidden spot and change permissions of the copy to 
+   suid ( -rws---r-x ) so that anyone executing the hidden copy would have 
+   root permissions.
+
+--------------------------------------------------------------------------------
+Q: I can't execute my script/program. I can list the file with ls -l and
+   it is there with the correct permissions:
+
+   ls -l mumble
+   -rwxrw-r--   1 me      user          104 Feb 14 15:46 mumble
+
+   but when I type mumble at the command prompt I get the response:
+
+   bash: mumble: command not found
+
+A: Most probably the current directory (CWD) is not in your path. The best
+   thing to do in such situations is probably to type the full path to the
+   script/program followed by the name of the script/program .
+   If you are work in a directory that you alone use and which is not shared
+   then you might want to take the risk of editing your PATH variable to
+   contain CWD. Alternatively you could keep all your executables in a directory
+   called ~/bin and put it in your path. You can look at your path by typing
+   echo $PATH at the shell prompt.
+
+   echo $PATH
+   /usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/home/me/bin
+
+--------------------------------------------------------------------------------
+Q: Why can't I telnet or rsh in to my Linux system as Root?
+
+A: This is a security feature meant to protect you. Malicious users must
+   know a valid user password, as well as the root password in order to
+   get in to the system and do anything as root. Log in as a user, and
+   use the su command to then become root. Better still is to use the ssh
+   command (if installed) which encrypts your session to prevent anyone
+   from seeing the root password.
+   If your network is totally local (you have only a terminal connected
+   to a serial port), you can edit /etc/securetty to add that port as one
+   considered secure enough for root to log in.
+
+--------------------------------------------------------------------------------
+Q: Why can't I ftp as root?
+
+A: This is a security feature meant to protect you. No user listed in
+   /etc/ftpuser is allowed to use ftp. Always ftp as a regular user.
+
+--------------------------------------------------------------------------------
+Q: I've tried to create a shell script and made it setuid root so the users
+   can execute it. But no matter what I do, it doesn't execute with root
+   privilege. Why?
+
+A: Shell scripts are a notorious security hole. To protect you, the kernel
+   purposely ignores setuid and setgid in scripts. Create a C or Pearl
+   program to do the task.
+
+--------------------------------------------------------------------------------
+Q: Why should I create ordinary user accounts. I'm the only user on this
+   machine. Why not just work as root?
+
+A: Root, commonly called the super-user, is for system administration tasks
+   only. The normal protection mechanisms are eliminated for this account
+   (indeed for any user with UID or GID equal to 0). So if you make any
+   little mistake (for example the classic "rm  * myfile" -- note the
+   space between the wild-card and myfile) the system will do _exactly_
+   what you told it to do, not what you meant it to do. In the classic mistake 
+   above, the system will remove all files in the current directory, then 
+   complain because it can't remove 'myfile' which doesn't exist.
+
+--------------------------------------------------------------------------------
+Q: I am able to establish a dial up connection but when I use telnet to
+   connect to remote hosts telnet understands IP address but not host names.
+   What can I do to have telnet and other programs understand host names?
+
+A: You should be able to get rid of this problem by adding an entry for a
+   name server in the file /etc/resolv.conf . If you have more than one name
+   server then you should put your primary dns first as nameserver entries 
+   get read from top to bottom. The 'search' or 'domain' line should have 
+   your isp's domain name. Your /etc/resolv.conf should look something like:
+
+   search virtual-impact.com
+   domain virtual-impact.com
+   nameserver 205.162.94.51
+   nameserver 205.162.88.33
+   nameserver 134.153.2.90
+
+--------------------------------------------------------------------------------
+Q: I don't like having to type the full host name when using telnet. 
+   How can I resolve this problem?
+
+A: Edit the file /etc/hosts and add entries like the following:
+
+   127.0.0.1       localhost       localhost.localdomain
+   134.153.1.200   riemann         riemann.math.mun.ca
+   134.153.39.1    ganymede        ganymede.cs.mun.ca
+   134.153.1.1     garfield        garfield.cs.mun.ca
+   134.153.2.151   plato           plato.ucs.mun.ca
+   129.128.88.12   vega            vega.math.ualberta.ca
+
+--------------------------------------------------------------------------------
+Q: I am logged into a host. I would like to find out its IP address
+   and a few other ones. How can I do this?
+   
+A: You could use the hosts command as follows:
+   
+   ganymede $ host ganymede.cs.mun.ca
+   ganymede.cs.mun.ca has address 134.153.39.1
+   ganymede.cs.mun.ca mail is handled (pri=5) by garfield.cs.mun.ca
+   ganymede $
+
+   The programs nslookup and /sbin/ifconfig can also be used for this
+   purpose.
+
+--------------------------------------------------------------------------------
+Q: How can I have the "useradd" or "adduser" command automatically place some
+   default files in a user's directory when that user is added to the system?
+
+A: Edit the contents of the files located under /etc/skel to suit your needs.
+   These files will be added to a user's home directory each time that user
+   is added.
+
+--------------------------------------------------------------------------------
+Q: I am trying to build a new kernel. Why is it that "make menuconfig" does not
+   display any colors when running under an xterm?
+
+A: You could either use "make xconfig" or if you have the terminfo library 
+   installed you could say "export TERM=xterm-color" or something similar.
+   Look at the entries in the terminfo library to chooses an appropriate value
+   for the TERM environment variable.
+
+--------------------------------------------------------------------------------
+Q: I am trying to get X to read my window manager's configuration file but with
+   no success.
+
+A: If you start X with "startx" or "xinit" then you need a "~/.xinitrc" file
+   containing a command to execute your window manager and make the file 
+   executable with "chmod u+x .xsession". If you start your session with xdm
+   though, your file will have to be named "~/.xsession" instead of
+   "~/.xinitrc".
+   
+--------------------------------------------------------------------------------
+Q: Are the modules part of the Linux kernel or are they distributed separately?
+
+A: They come with the kernel. There used to be an old package called
+   modules-x.y.z.tar.gz that you could download. This did not consist of the
+   modules themselves but the module utilities needed to handle modules.
+   For obvious reasons this package was renamed to modutils-x.y.z.tar.gz.
+
+--------------------------------------------------------------------------------
+Q: What is the quickest and safest way to recompile the kernel?
+
+A: In short, as root issue the following commands after downloading a kernel:
+
+   # mv linux-x.y.z.tar.gz /usr/src; cd /usr/src
+   # tar zxpvf linux-x.y.z.tar.gz
+   # cd linux-x.y.z
+   # make menuconfig
+   # make dep
+   # make clean
+   # make bzImage (or better, insert a floppy and do a "make zdisk").
+   # make zlilo (or if this doesn't work,
+                 cp /usr/src/linux-2.0.x/arch/i386/boot/zImage /boot/vmlinuz
+                 Edit /etc/lilo.conf and change the image label to point to
+                 /boot/vmlinuz-x.y.z and rerun /sbin/lilo)
+   reboot (here you may use the disk you made if something goes wrong)
+   # cd /usr/src/linux-x.y.z
+   # make modules; make modules_install
+
+   ... and your kernel and modules should be all done.
+   
+--------------------------------------------------------------------------------
+Q: I am trying to set up a home page. How do I go about doing that and where
+   should I put my web files to view them on my Linux box?
+
+A: If you are running the Apache web server then look in
+   /etc/httpd/conf/srm.conf . There you should see lines like:
+
+   UserDir public_html
+   DirectoryIndex index.html index.shtml index.cgi
+
+   This means that your web files should be stored under a directory called
+   ~/public_html and the first file to be read when a user accesses your web
+   site with http://x1.x2.x3.x4/~<your-username> must be one of ~/index.html ,
+   ~/index.shtml , or ~/index.cgi . If you have an entry like:
+
+   127.0.0.1               localhost
+
+   in your /etc/hosts directory (ie. you have loopback enabled) than you can
+   make sure everything is OK by pointing your browser to
+   http://127.0.0.1/~<your-username> . Of course all files must have the right
+   permissions, in particular you probably want to do 
+   a "chmod a+x ~/public_html" and a "chmod a+r index.html".
+   If you are not on the Internet this enables you to edit a whole web site on
+   a Linux box without having to be dialed up to your ISP. You can later upload
+   the pages to the Internet. This method will pay off in browser speed when
+   editing your web page.
+
+--------------------------------------------------------------------------------
+Q: I would like to have more lines and/or columns displayed when I use the text
+   consoles. Is there a way I can do this?
+
+A: Yes. If you are using LILO to boot your system then you can do it by
+   inserting the vga option in your /etc/lilo.conf file. For example a line
+   saying "vga=ask" will let you choose the text mode at boot time (type
+   "man lilo.conf" for more details). Don't forget to rerun /sbin/lilo after
+   you modify /etc/lilo.conf .
+   Alternatively you could get the SVGATextMode program by anonymous ftp from
+   <ftp://metalab.unc.edu/pub/linux/utils/console/>.
+
+--------------------------------------------------------------------------------
+Q: I have two Linux boxes but they're not networked. What's a good way to
+   transfer data from one to another.
+
+A: Get a bunch of floppies (one might be enough) and use:
+
+   $ tar cvMf /dev/fd0 <file/directory to be archived>
+
+   move the floppies to the other PC's floppy drive and do a:
+
+   $ tar xvMf /dev/fd0
+
+   Alternatively you can use the "split" command to split your file into many
+   files of a particular size with the "-b" option, copy them to a floppy
+   with a DOS file system with "mcopy", move the floppies to the other PC, copy
+   them to the hard drive and redirect the output of "cat" to merge them.
+   
+--------------------------------------------------------------------------------
+Q: What's the cheapest way to network two Linux boxes?
+
+A: Probably your best bet is to get an Interlink/Laplink/Bi-Directional cable
+   to connect the parallel ports. This method makes use of the PLIP protocol.
+   This will allow your PCs to communicate at a speed of approximately 47kB
+   per second. This is of course somewhat slower than a connection that makes
+   use of Ethernet cards. See the relevant HOWTOs and mini HOWTOs for more
+   detail.
+
+--------------------------------------------------------------------------------
+Q: I am running X. What's an easy way to put an image file in the background.
+
+A: If you have "xv" installed then you may want to use:
+
+   xv -root -max -quit <absolute-path-to-image-file/image-file>
+
+--------------------------------------------------------------------------------
+Q: I have read the Brief Linux FAQ (BLFAQ) but could not find what I was
+   looking for. Where else should I look?
+
+A: Other places include links under <http://www.linux.org/> including the Linux
+   FAQ (LFAQ) and the various HOWTOs and mini-HOWTOs. Other sites of interest
+   might include <http://www.xfree86.org/> for X related things and 
+   <ftp://metalab.unc.edu/> if you're looking for interesting applications to
+   run under Linux.
+
+--------------------------------------------------------------------------------
+
+A big thank you to all those people who contributed to this FAQ.
+Send me e-mail for corrections and enhancements.
+
+--
+maintained by: Neil Zanella
+e-mail: nzanella@ganymede.cs.mun.ca

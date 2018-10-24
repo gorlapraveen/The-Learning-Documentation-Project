@@ -1,0 +1,397 @@
+
+                 KDE grafikus bejelentkezés beállítása HOGYAN
+
+John P. Meshkoff,II [1]johnm@sivakalpa.org
+
+   v1.03 2003.04.13 ikon megjegyzés és kde 3.1 kézikönyv megjegyzés
+   frissítése
+     _________________________________________________________________
+
+   Ez a HOGYAN bemutatja a grafikus bejelentkezõ (GUI login) képernyõ
+   beállítását. A következõ témákat öleli fel: Ablakkezelõ hozzáadása a
+   lenyíló listához; a felhasználó ikonjának engedélyezése a
+   bejelentkezõ ablakban; root hozzáférés szükségességének a beállítása
+   a rendszer leállításához.
+     _________________________________________________________________
+
+1. Szerzõi jog
+
+   Szerzõi jog (c) 2002 John Meshkoff
+
+   Ez a dokumentum szabadon másolható és terjeszthetõ bármilyen
+   formátumban. Az esetleges módosításokat és/vagy megjegyzéseket kéretik
+   a dokumentum karbantartójának továbbítani. Származtatott munka
+   létrehozható és közzétehetõ belõle, a következõ feltételekkel:
+
+   1. Elküldöd a származtatott munkádat (megfelelõ fájlformátumban,
+   például sgml) az LDP-nek (Linux Documentation Project) vagy ehhez
+   hasonlónak az Interneten. Ha nem az LDP-nek küldöd, tudasd az LDP-vel,
+   hol lesz elérhetõ a fájl.
+
+   2. A származtatott munkát azonos licensszel tedd közzé, vagy használd
+   a GPL-t. A szövegbe legyen szerzõi jogi nyilatkozat és legalább
+   figyelmeztetés a licensz használatáról.
+
+   3. Tedd közzé az elõzõ szerzõk és fõbb közremûködõk névsorát.
+
+   Ha a fordításon kívül másfajta származtatott munkát is tervezel,
+   kérlek, tudasd terveidet a dokumentum jelenlegi fenntartójával.
+
+1.1 Magyar fordítás
+
+   A magyar fordítást [2]Soponyai György készítette (2004.06.14). A
+   lektorálást [3]Daczi László végezte el (2004.06.17). A dokumentum
+   legfrissebb változata megtalálható a [4]Magyar Linux Dokumentációs
+   Projekt honlapján. A dokumentum fordítása a [5]Szegedi Tudományegyetem
+   [6]nyílt forráskódú szoftverfejlesztés speciálkollégiumának
+   segítségével valósult meg.
+
+2. Bevezetés
+
+   Ez a leírás a RedHat 6.1 alapértelmezett KDE Workstation telepítésen
+   alapul. Ha más disztribúciót, más RedHat verziót vagy eltérõ
+   Workstation telepítõt használsz, szükséges lehet némi kutatómunka.
+   Remélhetõleg ez a leírás segít majd a vizsgálódás elkezdésében. Ez a
+   HOGYAN annak eredményeképpen született meg, hogy kíváncsi voltam,
+   miként adható meg más ablakkezelõ (window manager) vagy asztali
+   környezet (desktop environment) a grafikus bejelentkezõ ablak
+   legördülõ listájában; a vizsgálódások további beállítási
+   lehetõségeket tártak fel.
+
+   A saját vizsgálódásomat akkor kezdtem, amikor egy RedHat List-en
+   találtam egy hivatkozást az /etc/inittab fájlról és a
+   rendszerindításban betöltött szerepérõl. Az /etc/inittab fájlban a
+   következõ bejegyzéseket találtam, amik az X Window rendszerindítási
+   tulajdonságait határozzák meg az én disztribúcióm és verzióm esetén:
+       ______________________________________________________________
+
+# xdm runlevel 5-ben fut
+# xdm most egy elkülönült alkalmazás
+x:5:respawn:/etc/X11/prefdm -nodaemon
+       ______________________________________________________________
+
+   A prefdm fájl a következõ:
+       ______________________________________________________________
+
+#!/bin/sh
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/X11R6/bin
+
+# A kedvenc X képernyõkezelõ futtatása
+preferred=
+if [ -f /etc/sysconfig/desktop ]; then
+        if grep -q GNOME /etc/sysconfig/desktop 2>/dev/null; then
+                preferred=gdm
+        elif grep -q KDE /etc/sysconfig/desktop 2> /dev/null; then
+                preferred=kdm
+        elif grep -q AnotherLevel /etc/sysconfig/desktop 2> /dev/null; then
+                preferred=xdm
+        fi
+fi
+if [ -z ":$preferred" ]; then
+        if which gdm >/dev/null 2>&1; then
+                preferred=gdm
+        elif which kdm >/dev/null 2>&1; then
+                preferred=kdm
+        elif which xdm >/dev/null 2>&1; then
+                preferred=xdm
+        fi
+fi
+if [ -n "$preferred" ] && which $preferred >/dev/null 2>&1; then
+        exec `which $preferred` $*
+fi
+exit 1
+       ______________________________________________________________
+
+   Nem szükséges a prefdm fájlt módosítanunk; azt határozza meg, melyik
+   képernyõkezelõ (display manager) lesz a rendszerben az
+   alapértelmezett, és melyik fusson a grafikus bejelentkezés alatt. A
+   rendszerindítás során a prefdm megvizsgálja az /etc/sysconfig/desktop
+   fájlt, és kiválasztja az ott meghatározott képernyõkezelõt; az én
+   KDE Workstation telepítésem esetében ez a kdm (KDE Display Manager).
+   Figyelembe véve, hogy a gdm (Gnome Display Manager) nincs telepítve a
+   rendszeremben, az xdm (X Display Manager) az alapértelmezés az X
+   Window rendszer részeként, amit nyilvánvalóan a RedHat régebbi verziói
+   használtak.
+
+3. Képernyõkezelõ felvétele a legördülõ listába
+
+   FIGYELMEZTETÉS: Ebben a HOGYANban kifejtett eljárások maguk után
+   vonják a rendszerbeállító fájlok módosítását; ha nem vagy gyakorlott
+   ilyen módosítások elvégzésében, nem árt némi óvatosság. Ezekben a
+   fájlokban elkövetett hibák labilissé tehetik a rendszeredet akár annak
+   összeomlását okozva. A HOGYAN eljárásai mind teszteltek, kipróbáltak
+   és helyes használat esetén nem okozhatnak problémákat.
+
+   Ha KDE 2.2 -t vagy késõbbi verziót használsz és kényelmetlen a
+   rendszerfájlok kézi szerkesztése, nyithatunk egy terminál ablakot
+   (xterm vagy konsole) a felhasználói képernyõbõl (NEM a root
+   képernyõbõl), majd írjuk be a következõket a belépéshez:
+       ______________________________________________________________
+
+su -c 'kcontrol'
+       ______________________________________________________________
+
+   Írjuk be a root jelszót és hajtsuk végre a KDE Control Centerben a
+   következõ módosításokat: menjünk az Applications ==> Login
+   Manager-be. Válasszuk ki a megfelelõ beállító fület; itt könnyen
+   beállítható a bejelentkezõ ablak összes tulajdonsága. A KDE korábbi
+   verzióiban a kcontrol módosíthatta a kdmrc fájlt, de nem módosíthatta
+   az xsession fájlt, amelyet ezek a verziók használnak. Olvasd el a
+   megjegyzéseket a KDE 2.2 óta bevezetett módosításokról.
+
+   A beállítófájlok kézi szerkesztéséhez és mûködésük megértéséhez az
+   alábbiak szerint haladjunk:
+
+   (Vigyázat: Néhány beállítófájl megváltozott az általam használt kdm
+   verzió óta, különösen a KDE > 2.0 óta:
+
+   Idézet a [7]the FreeBSD Handbook-X11 leírásból:
+
+   "Megjegyzés: A KDE 2.2 verzióban a következõ módosítások történtek:
+   kdm most már saját konfigurációs fájljait használja. A részletekrõl
+   lásd a KDE 2.2 dokumentációját.")
+
+   Megjegyzés: A KDE 3.1 rendelkezik hozzáadott kdm dokumentációval,
+   olvasd a [8]The kdm Handbook (Kdm kézikönyv) leírást.
+
+   Ezen új kézikönyv sok anyagot használ fel a régebbi verziókból; de
+   leír új tulajdonságok is benne.
+
+   Ellenõrizzük a saját változatunk dokumentációját az érvényes
+   beállítófájlok meghatározásához, ha kézzel módosítani akarjuk õket,
+   vagy egyszerûen látni akarjuk mûködésüket.
+
+   Ne használjunk szövegszerkesztõ (word-processor; ez képes a
+   különbözõ betûkészletek kezelésére egy dokumentumon belül, és egyedi
+   formátumban tárolja a dokumentumokat - a lektor) (például
+   OpenOffice.org - a ford.) programot a rendszer beállítófájljainak
+   szerkesztéséhez; ezek a programok speciális formázó karaktereket
+   szúrnak be a fájlokba, amik elrontják azt. Használjunk "egyszerû"
+   szerkesztõt (editor; ez sima szövegként kezeli a dokumentumokat, de
+   szintaktikai kiemelés lehet benne - a lektor), különösen olyat, ami
+   tudja kezelni a hosszú sorokat anélkül, hogy extra sorvége vagy
+   soremelés karaktereket szúrna be a szerkesztett kódba. Ilyen alkalmas
+   szerkesztõk a vim (a vi továbbfejlesztése), vi és az emacs (vagy a
+   [9]jEdit, ez lin/win alatt is használható - a lektor). Bár léteznek
+   mások is, de Linux munkaállomások telepítésénél leggyakrabban ezek az
+   alapértelmezettek; ezeknek mind megfelelõek számítógépes forráskódok
+   írásához és szerkesztéséhez. További információkért lásd a
+   bibliográfia fejezetet a HOGYAN végén.
+
+   FONTOS: Mielõtt módosítanánk bármilyen beállítófájlt, készítsünk
+   másolatot az eredetirõl, így komoly hibák esetén visszaállíthatjuk
+   azokat!
+
+   A következõkben az /usr/share/config/kdmrc fájlt fogjuk módosítani,
+   ahol megadhatjuk a bejelentkezõ-képernyõ legördülõ listájában
+   kiválasztható elemeket; valamint az /etc/X11/xdm/Xsession fájlt, ahol
+   az elemekhez rendelt futtatható fájlok elérési útjai adhatók meg (ha
+   eltérõ disztribúciót használsz, ezen fájlok elérési útjai
+   különbözhetnek; egyszerûen írjuk be a "locate kdmrc" és "locate
+   Xsession" sorokat a shell-be [azaz egy terminálablakba, mint például
+   az xterm vagy a KDE konsole emulátorába], hogy megtaláljuk ezeket).
+
+   A kdmrc alapértelmezett sora a következõ:
+       ______________________________________________________________
+
+SessionTypes=kde;gnome;anotherlevel;default;failsafe;
+       ______________________________________________________________
+
+   Miután két új ablakkezelõ kiválasztó címkéjét, a windowmakert és a
+   blackboxot hozzáadtuk, az adott sor a következõ lesz:
+       ______________________________________________________________
+
+SessionTypes=kde;gnome;windowmaker;blackbox;anotherlevel;default;failsafe;
+       ______________________________________________________________
+
+   Figyeljük meg a pozíciót, hová írtam az új ablakkezelõk címkéit:
+   minden bejegyzés ugyanolyan sorrendben jelenik meg a legördülõ
+   listában, ahogy a SessionTypes listában szerepelnek. Ezután az
+   /etc/X11/xdm/Xsession fájlban játszódik le az aktuális elemekhez
+   hozzárendelt programok kiválasztása. Itt látható az xsession
+   megfelelõ része az új bejegyzések hozzáadása elõtt:
+       ______________________________________________________________
+
+# most látjuk, ha az xdm/gdm/kdm egy sajátos környezetet kér
+#
+case $# in
+1)
+    case $1 in
+    failsafe)
+        exec xterm -geometry 80x24-0-0
+        ;;
+    gnome)
+        exec gnome-session
+        ;;
+    kde)
+        exec startkde
+        ;;
+    anotherlevel)
+        # feltételezzük, hogy a kapcsolótábla (switchdesk) telepítve van.
+        exec /usr/share/apps/switchdesk/Xclients.anotherlevel
+        ;;
+    esac
+esac
+       ______________________________________________________________
+
+   Itt láthatjuk az xsession megfelelõ részét az új bejegyzések
+   hozzáadása után (VEGYÜK FIGYELEMBE, hogy a menüpontoknak (selection
+   labels) pontosan ugyanolyannak kell lenniük az xsession és a prefdm
+   fájlokban, azaz a helyesírásnak betû szerint (kisbetû/nagybetû) meg
+   kell egyeznie):
+       ______________________________________________________________
+
+# most látjuk, ha az xdm/gdm/kdm egy sajátos környezetet kér
+#
+case $# in
+1)
+    case $1 in
+    failsafe)
+        exec xterm -geometry 80x24-0-0
+        ;;
+    gnome)
+        exec gnome-session
+        ;;
+    kde)
+        exec startkde
+        ;;
+    windowmaker)
+        exec wmaker
+        ;;
+    blackbox)
+        exec blackbox
+        ;;
+    anotherlevel)
+        # feltételezzük, hogy a kapcsolótábla (switchdesk) telepítve van..
+        exec /usr/share/apps/switchdesk/Xclients.anotherlevel
+        ;;
+    esac
+esac
+       ______________________________________________________________
+
+   Vegyük figyelembe, hogy amikor a futtatható fájlokat az alábbi elérési
+   utak valamelyikére telepítjük, csak az fájl nevét szükséges az "exec"
+   után írni; egyébként a teljes elérési utat le kell írni, amint az a
+   fenti "xclients.anotherlevel" bejegyzésnél látható:
+
+   /usr/bin/
+
+   /usr/local/bin/
+
+   /usr/X11R6/bin/
+
+   /usr/bin/X11/
+
+   Ezeknek a példáknak elegendõnek kell lenni, hogy a kedvenc
+   ablakkezelõ(i)d hozzáadd a KDE grafikus bejelentkezõ ablakához, vagy
+   kiindulási pontot ad, hogy kitaláld, hogy teheted meg ugyanezt az
+   egyéni telepítésed esetében.
+
+4. Felhasználókiválasztó ikonok engedélyeztetése a bejelentkezõ ablakban
+
+   A RedHat 6.1 változatában az alapértelmezett KDE bejelentkezõ ablak
+   egy dialógusablakból áll, a felhasználónév és jelszó beírásához;
+   valamint egy legördülõ lista a ablakkezelõ/asztali környezet
+   kiválasztásához. Az /usr/share/config/kdmrc következõ módosításaival
+   felhasználói ikonok jeleníthetõk meg a bejelentkezõ ablak tetején.
+   Alább láthatjuk a kdmrc alapértelmezett sorait, amik a felhasználói
+   ikonok megjelenítését határozzák meg (vannak egyéb sorok is az alább
+   látható kettõ között, amik itt nem láthatók és "..." jelöléssel
+   helyettesítettek):
+       ______________________________________________________________
+
+#Users=root;johndoe
+...
+UserView=false
+       ______________________________________________________________
+
+   Itt láthatóak ugyanezen sorok a szerkesztés után. Töröljük a
+   kettõskereszt karaktert ("#") az "Users=..." elejérõl és
+   változtassuk "johndoe"-t a saját felhasználónevünkre (ha több
+   felhasználó fér hozzá a rendszerünkhöz, hozzáadhatjuk az Õ
+   felhasználói neveiket is pontosvesszõkkel elválasztva). Írjuk át az
+   "UserView=false" sort "UserView=true" -ra, amint az itt is látható:
+       ______________________________________________________________
+
+Users=root;johnpipe
+...
+UserView=true
+       ______________________________________________________________
+
+   Ezután ha be akarunk lépni a rendszerbe, elég az egérrel egy ikonra
+   kattintani a felhasználói név beírása helyett; így csak a jelszót kell
+   beírni.
+
+   Az alapértelmezett ikonok helyett saját ikonokat is használhatunk.
+   Tegyük saját ikonjainkat az /usr/share/apps/kdm/pics/users/
+   könyvtárba. A kdm kézikönyv szerint 64 x 64 -es méretûnek kell
+   lenniük; KDE 1.x verzióban az alapértelmezett ikonok 62 x 63
+   pixelesek, az új felhasználói ikonok pedig 60 x 60 méretûek, úgyhogy
+   ha az ikonok mérete elég közel van a meghatározott 64 x 64 -es
+   mérethez, akkor rendben fognak mûködni. A kézikönyv szerint "a kdm
+   képes különbözõ méretû ikonokat kezelni, de a végeredmény
+   torzulhat.", így nyilvánvalóan található itt némi eltérés. Az
+   ikonjainkat "felhasznalonev.xpm" módon kell elnevezni, például ha az
+   én felhasználónevem "johnpipe", akkor az új ikonom neve "johnpipe.xpm"
+   lesz.
+
+   MEGJEGYZÉS: A KDE 1.x óta némely verzióban az ikonformátum ".xpm"-rõl
+   (XPixMap) ".png"-re (Portable Network Graphic) változott.
+
+5. Rendszergazdai engedély megkövetelése a rendszer leállításához
+
+   Alapértelmezésben a bejelentkezõ ablakban lévõ leállítás gomb
+   mindenkinek lehetõvé teszi a rendszer leállítását. A következõ,
+   /usr/share/config/kdmrc fájlban található rész, amely meghatározza
+   azt, hogy ki használhatja ezt a gombot:
+       ______________________________________________________________
+
+#ShutdownButton=RootOnly
+ShutdownButton=ConsoleOnly
+       ______________________________________________________________
+
+   Ha azt akarjuk, hogy csak a rendszergazda állíthassa le a rendszert,
+   módosítsuk a sorokat a következõ módon
+       ______________________________________________________________
+
+ShutdownButton=RootOnly
+#ShutdownButton=ConsoleOnly
+       ______________________________________________________________
+
+   Így a leállítás gombra kattintva még be kell írni a root jelszót is,
+   mielõtt a rendszer leállna.
+
+6. Bibliográfia
+
+   Ha még több HOGYANt akarsz olvasni, látogass el a [10]The Linux
+   Documentation Project ( [11]Magyar Linux Dokumentációs Projekt)
+   webhelyére.
+
+   Ajánlott irodalom:
+
+     * [12]XWindow-User-HOWTO
+     * [13]Emacs Beginner's HOWTO
+     * [14]Vim Color Editor HOW-TO (Vi Improved with syntax color
+       highlighting)
+
+   A Te Linux disztribúciódtól és verziódtól függõen, a fenti HOGYANok
+   már telepítve lehetnek a rendszeredben. Ha nincsenek, a telepítõ CD-n
+   megtalálhatók.
+
+References
+
+   1. mailto:johnm@sivakalpa.org
+   2. mailto:   Soponyai.Gyorgy[kukac]stud.u-szeged[pont]hu
+   3. mailto: dacas[kukac]freemail[pont]hu
+   4. http://tldp.fsf.hu/
+   5. http://www.u-szeged.hu/
+   6. http://www.inf.u-szeged.hu/~havasi/opensource/
+   7. http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x11-wm.html
+   8. http://docs.kde.org/en/3.1/kdebase/kdm/
+   9. http://www.jedit.org/
+  10. http://www.tldp.org/
+  11. http://tldp.fsf.hu/
+  12. http://www.tldp.org/HOWTO/XWindow-User-HOWTO/
+  13. http://www.tldp.org/HOWTO/Emacs-Beginner-HOWTO.html
+  14. http://www.tldp.org/HOWTO/Vim-HOWTO.html

@@ -1,0 +1,533 @@
+
+X terminálok összekapcsolása Linuxszal mini-HOGYANSalvador J. Peralta
+
+   speralta@willamette dot edu
+
+   Verziótörténet
+   Verzió: 1.2 2003.05.20 Átdolgozta: sjp
+   Hozzáadva további információ az XFS és XDM beállításáról.
+   Verzió: 1.0 2002.12.21 Átdolgozta: sjp
+   Elsõ hivatalos kiadás. Régi bejegyzések törölve.
+
+   Ez a mini-HOGYAN elmagyarázza, hogyan kapcsolhatunk az nfs, xfs, xdm
+   és az xdmcp segítségével X terminálokat egy Linux gazdagéphez (host).
+   Ezen kívül beállítási javaslatokkal is foglalkozik, melyek segítenek a
+   Linux gazdagép optimalizálásában, kis teljesítményû klienseket
+   kiszolgáló hálózat esetén. A dokumentum legfrissebb változata [1]itt
+   érhetõ el.
+     _________________________________________________________________
+
+   Tartalomjegyzék
+   1. [2]Szerzõi jog
+   2. [3]Bevezetés
+
+        2.1. [4]Mi az XFree86
+        2.2. [5]Mi az X terminál?
+        2.3. [6]Szerkezeti áttekintés
+
+   3. [7]Gazdagép környezet
+
+        3.1. [8]Hardver
+        3.2. [9]Szoftver
+
+   4. [10]Alapvetõ gazdagép beállítások
+
+        4.1. [11]Az NFS beállítása
+        4.2. [12]Az XDM beállítása
+        4.3. [13]Az Xaccess beállítása
+        4.4. [14]A gazdagép hozzáféréseinek beállítása
+        4.5. [15]Az X Font Server beállítása
+        4.6. [16]Az X munkafolyamat beállítása
+
+   5. [17]Haladó gazdagép-beállítás
+
+        5.1. [18]Felhasználói- és csoport-korlátozások beállítása
+        5.2. [19]További korlátozások
+
+   6. [20]Kliens beállítások
+
+        6.1. [21]A rendszerbetöltési folyamat
+
+   7. [22]További források
+
+        7.1. [23]Linux HOGYANok
+        7.2. [24]Kézikönyv oldalak
+        7.3. [25]Linux kézikönyvek
+        7.4. [26]Könyvek
+
+   8. [27]Hibajegyzék
+
+        8.1. [28]Rendszer verziók
+        8.2. [29]A felelõsség teljes elhárítása
+        8.3. [30]Visszajelzés
+        8.4. [31]Készítõk
+        8.5. [32]Magyar fordítás
+
+1. Szerzõi jog
+
+Copyright (c) 2002-2003 Salvador Peralta
+
+Eme dokumentum vagy késõbb közzétett változatainak másolása, terjesztése
+és/vagy módosítása engedélyezett a Free Software Foundation (Szabad Szoftver
+Alapítvány) által közzétett GNU Free Documentation License szerint; állandó
+fejezetek, elõoldali és hátoldali szövegek nélkül.
+     _________________________________________________________________
+
+2. Bevezetés
+
+Ez a rész egy rövid bevezetõ az X Window System, az X terminálok
+kliens-szerver modelljének és azok Linux-alapú kiszolgáló rendszerének
+témaköréhez.
+     _________________________________________________________________
+
+2.1. Mi az XFree86
+
+Az XFree86 egy nyílt forráskódú (Open Source) megvalósítása az X Windows
+System (X) rendszernek. Az X egy kliens-szerver interfészt biztosít az egér,
+a billentyûzet, a képmegjelenítés és egy ablakokból álló desktop környezet
+között. Mivel az X hálózati szempontból átlátszó, nem szükséges, hogy a
+kliens programok a X szervert futtató gépen fussanak.
+
+Az XFree86 programcsomag sok alkalmazást tartalmaz, például terminál
+emulátort, órákat és egy levelezõ interfészt. Ez a dokumentum az
+XFree86-nak kizárólag azon részeire koncentrál, amelyek egy X terminál és
+egy Linux gazdagép közötti X munkafolyamat-kezeléséhez szükséges. Ezek az X
+Display Manager (xdm), hozzáférést szabályozó program és az X Font Server
+(xfs).
+     _________________________________________________________________
+
+2.2. Mi az X terminál?
+
+Az X terminál lemezes egységgel nem rendelkezõ hálózatba kötött
+mikroszámítógép. Általában egérbõl, monitorból, billentyûzetbõl, RAM-ból,
+elemmel mûködtetett NVRAM-ból áll, és olyan perifériák csatlakoztatására
+alkalmas portokkal van felszerelve, mint a nyomtató vagy a vonalkódolvasó.
+Mivel az X terminálok nem tartalmaznak lemezes meghajtót, ezért az operációs
+rendszert, a beállítási információkat és a karakterkészleteket egy nfs-t
+vagy tftp-t és xfs-t futtató gazdagéprõl töltik be a memóriájukba.
+
+Az X terminál operációs rendszere alapvetõ adminisztrációs interfészt
+biztosít olyan konfigurációs paraméterek beállításához, mint mint a tcp, az
+xdmcp, a karakterkészlet elérési út, rendszerbetöltési útvonal és egyéb,
+gazdagéppel kapcsolatos beállítások. Elsõdleges feladata azonban az, hogy X
+szerverként mûködjön, amely az egérrel, a billentyûzettel és más,
+megjelenítéssel kapcsolatos információkat cserél a távoli gazdagépen futó
+kliens alkalmazásokkal.
+     _________________________________________________________________
+
+2.3. Szerkezeti áttekintés
+
+Egy IP-alapú hálózatban X terminálok beállításának a legegyszerûbb módja a
+Bootstrap protokoll (bootp) használata, amely kiosztja a kliensek és a
+gazdagép(ek) IP címeit, valamint egy betölthetõ rendszerlenyomatot
+(bootable image) biztosít az operációs rendszer indításához. A kliensek
+ezeket az információkat a saját NVRAM memóriájukban is tárolhatják,
+csökkentve ezzel a hálózati forgalmat. A rendszerlenyomat és a
+karakterkészletnek a kliens számítógép memóriájába töltéséhez az NFS-t és a
+TFTP-t használhatjuk . Az XDM a megjelenítési folyamat IP-alapú
+hitelesítését és kezelését biztosítja az XDMCP segítségével. A
+kliens-szerver párbeszédhez általában a TCP-t használják szállítási
+rétegként.
+     _________________________________________________________________
+
+3. Gazdagép környezet
+
+X környezetben a gazdagép egy olyan rendszer, amely erõforrásokat biztosít
+egy X szervernek. Lemezegység nélküli munkaállomásos környezetben a gazdagép
+által biztosított szolgáltatások általában az xauth és az xhost
+felhasználásával történõ munkafolyamat-hitelesítést, az xdm-mel történõ
+munkafolyamat-kezelést, ablakokat használó kliens alkalmazásokat (például
+Mozilla, OpenOffice.org) és olyan fájl átviteli szolgáltatásokat jelentenek,
+mint az nfs és a tftp, melyek az X terminálok számára karakterkészleteket és
+rendszerlenyomatot biztosítanak.
+     _________________________________________________________________
+
+3.1. Hardver
+
+A mi hardver környezetünk 25 lemezegység nélküli munkaállomásból áll,
+melybõl 15 munkaállomás Mozilla-t, 6 munkaállomás Java-ban írt saját
+grafikus alkalmazást, 4 pedig terminál emulátor alatt futó alkalmazást
+futtat. A 6 Java alapú munkaállomás Desktop környezetként Gnome-ot használ.
+A többi 19 munkaállomás pedig FVWM2-t. Ezen környezet kiszolgálásához két
+dual processzoros pentium 3-as gépet használunk. Az egyik 1GB a másik 500MB
+memóriával van felszerelve. Azt tapasztaltuk, hogy a Gnome-ot és Java-t
+futtató munkaállomások jóval több memóriát és processzor teljesítmény
+használnak fel mint a Mozilla-t futtató munkaállomások.
+     _________________________________________________________________
+
+3.2. Szoftver
+
+Ahhoz, hogy Linuxot használhassunk a gazdagépen kis teljesítményû kliens
+munkaállomások hálózatában, be kell szereznünk az XFree86 X Windows System,
+az FVWM2 és az nfs-utils legfrissebb változatát. Ha RPM-alapú disztribúciót
+használsz, akkor a következõ csomagokra lesz szükséged: Xfree86-font-utils,
+Xfree86-libs, Xfree86-devel, Xfree86, Xfree86-truetype-font, Xfree86-xdm,
+Xfree86-base-fonts, nfs-utils, fvwm2, fvwm2-icons. Egy olyan rpm-alapú
+rendszeren, mint a Redhat, az "rpm -qa | grep (csomagnév)" parancsot
+használhatjuk annak ellenõrzésére, hogy egy csomag telepítve van-e. Ezen
+csomagok telepítéséhez vagy frissítéséhez egyszerûen töltsd le õket
+karbantartójuk honlapjáról, vagy a telepítésre használt adathordozóról az
+"rpm -Uvh (csomagnév)" paranccsal. A szükséges csomagok kezeléséhez grafikus
+alkalmazást is használhatsz, például a gnoRPM-et. Ha Debian-alapú rendszert
+vagy Gentoo-t használsz, olvasd el a rendszerdokumentációt az "apt-get"-tel
+és a "portage"-vel kapcsolatban.
+     _________________________________________________________________
+
+4. Alapvetõ gazdagép beállítások
+
+Ha a szükséges programokat már telepítettük, be kell állítanunk a
+következõket: az NFS-t a karakterkészletek és a rendszerlenyomat eléréséhez
+a kliens munkaállomások számára, az XFree86-ot távoli megjelenítés
+támogatásához (remote display access), és az X munkafolyamatot, hogy a
+klienseinknek megadja a kiválasztott ablakkezelõt.
+     _________________________________________________________________
+
+4.1. Az NFS beállítása
+
+A beállítási információk, a rendszer-karakterkészlet és a
+rendszerlenyomatnak a gazdagéprõl NFS-sel történõ betöltéséhez, olvasási
+jogot kell adnunk az adatokat tároló alkönyvtár(ak)ra. Ehhez az /etc/exports
+állományt kell szerkesztenünk.
+
+Az /etc/exports állomány egy hozzáférést szabályozó lista, mely minden olyan
+alkönyvtár esetén tartalmaz egy bejegyzést, amelyet az exportfs paranccsal
+elérhetõvé lehet tenni egy NFS kliens számára. Az /etc/exports állomány
+beállítása egyszerû.
+
+Ha minden olyan rendszer számára olvasási jogot szeretnénk biztosítani,
+melyek az /home/ncbridge állományban szereplõ erõforrásokra irányuló
+igényüket jelzik, akkor az /etc/exports állományba beírhatjuk a következõ
+sort:
+
+/home/ncbridge *(ro)
+
+   A nagyobb biztonság érdekében az egyes kliensek hozzáférését
+   külön-külön is megadhatjuk. Ehhez egyszerûen adjuk meg a
+   következõket:
+/home/ncbridge client1.yourdomain.com (ro)
+/home/ncbridge client2.yourdomain.com (ro)
+/home/ncbridge client3.yourdomain.com (ro)
+
+   Az /etc/exports állomány további lehetõségeket is biztosít, például a
+   klienseket csoportba gyûjthetjük, például a nevük alapján. A hasonló
+   nevû klienseknek kizárólag olvasási jogot így biztosíthatunk:
+   /home/ncbridge client*.yourdomain.com (ro)
+     _________________________________________________________________
+
+4.2. Az XDM beállítása
+
+Az X Display Manager egy olyan program, amely egy X szerver számára
+munkafolyamatokat hitelesít, engedélyez és kezel. Az X Konzorcium által
+meghatározott szabványos beállítások megfelelõek az X terminálok
+használatához. Ennek ellenére ezt az állományt módosítanunk kell, hogy ne a
+display :0-t használjuk alapértelmezett konzolként, és az XDM-et be kell
+állítanunk, hogy figyelje az XDMCP kéréseket.
+
+Az /etc/X11/xdm/xdm-config állományban végezzük el a következõ beállítási
+változtatásokat: tegyünk megjegyzésjelet a display :0-át konzolnak beállító
+sorok elé:
+
+! A következõ három bejegyzés állítja be konzolnak a display :0-t .
+!DisplayManager._0.setup:       /etc/X11/xdm/Xsetup_0
+!DisplayManager._0.startup:     /etc/X11/xdm/GiveConsole
+!DisplayManager._0.reset:       /etc/X11/xdm/TakeConsole
+
+   Tegyünk megjegyzésjelet azon sorok elé, amelyek a display manager
+   requestPort-ja számára :0 értéket adnak meg.
+   !DisplayManager.requestPort:    0
+     _________________________________________________________________
+
+4.3. Az Xaccess beállítása
+
+Az Xaccess egy olyan állomány, melyet az XDM olvas be, hogy megállapítsa,
+mely X terminálok jelentkezhetnek be és férhetnek hozzá a gazdagépen futó
+programokhoz. Az X terminál egy kérést küld az XDM-nek, mely erre válaszként
+az Xsetup szkriptet futtatja, ami beállítja a bejelentkezési képernyõt, és
+megjeleníti az xlogin eszközt. Ez kezeli a hitelesítést, és jogos igény
+esetén munkafolyamatot épít ki a gazdagépen futó kliens alkalmazások és az X
+terminál között.
+
+Ezen a ponton általában szükségesek a következõ beállítási módosítások: a
+hozzáférési jogok beállítása, az X szerverhez való hozzáférés megszorítása
+érdekében, és saját hitelesítést használó gazdagépek felvétele IP cím
+alapján. Ha több kliens bejelentkezését is engedélyezzük, a beállításoknak
+ilyenformán kell kinézniük:
+
+#*               # Bármely X szerver kaphat bejelentkezési ablakot
+158.100.5.121    # Csak bizonyos rendszerek jelentkezhetnek be
+158.100.5.122
+158.100.5.123
+158.100.5.124
+158.100.5.125
+!*               # A többi rendszer nem használhatja az XDM-et
+     _________________________________________________________________
+
+4.4. A gazdagép hozzáféréseinek beállítása
+
+Ha a terminálokat nem DNS szerverrel futtatjuk és/vagy az IP címeket nem
+DHCP-vel osztjuk ki, minden X terminál esetén hozzá kell adnunk egy
+bejegyzést az /etc/hosts állományhoz a linuxos gazdagépen.
+
+158.100.5.121   # Egy rendszert adunk meg soronként
+158.100.5.122   # az lprhost-nak és az loghost-nak szóló opcionális paraméterek
+kel
+158.100.5.123
+158.100.5.124
+158.100.5.125
+     _________________________________________________________________
+
+4.5. Az X Font Server beállítása
+
+Az X Font Server (xfs) rendszer-karakterkészletet biztosít X megjelenítõ
+szerverek számára. A legtöbb X terminál esetén ez az egyetlen módja, hogy
+olyan élsimított (anti-aliased) karakterkészletet biztosítsunk számára, mint
+a freetype.
+
+A legtöbb Linux rendszer esetén az xfs-t egy /etc/init.d könyvtárbeli
+szkript indítja, és/vagy rendszerindításkor egy /etc/rc.d/init.d vagy
+valamelyik /etc/rc[0-6].d könyvtárbeli futási szintet inicializáló szkript.
+A legfontosabb dolog amit ellenõriznünk kell, hogy az X terminál és az X
+gazdagép (host) ugyanazon a porton küldi és veszi az üzeneteket. Néhány X
+terminál az alapértelmezett xfs portot (7100) más szolgáltatásokhoz
+használja, ezért az xfs-t egy másik, szabad porthoz kell hozzárendelni
+(például a 7102-es porthoz), a konfliktusok elkerüléséhez.
+
+A legtöbb rendszeren az XFS beállításai az /etc/X11/fs/config állományban
+vannak. Az XFS távoli hozzáférésének engedélyezéséhez tegyünk
+megjegyzésjelet a no-listen = tcp direktíva elé a konfigurációs állományban.
+Gyõzõdjünk meg arról, hogy a kliensek maximális számát pontosan annyira,
+vagy nagyobbra állítottuk, mint ahány klienst kis szeretnénk szolgálni.
+     _________________________________________________________________
+
+4.6. Az X munkafolyamat beállítása
+
+Az Xsession állomány kezeli az egyes gazdagépek X környezetére vonatkozó
+információk zömét. Ebben az állományban beállítható többek között a
+naplózás, az hogy melyik desktop manager-t futtassuk, és hogy milyen
+billentyûzetkiosztást használunk. Ezek a beállítások erõsen függnek a
+használt környezettõl, és ezért ebben a dokumentumban nem szerepelnek.
+Elegendõ annyit elmondani, hogy el kell döntenünk, felhasználó szintû vagy
+globális beállításokat használunk a desktop környezetünkhöz, és hogy ezeket
+a beállítási módosításokat ebben az állományban, vagy a felhasználó saját
+könyvtárának .session állományban kell-e megtenni.
+     _________________________________________________________________
+
+5. Haladó gazdagép-beállítás
+
+Ez a rész néhány olyan opcionális beállítási lehetõség leírását célozza
+meg, melyekkel javíthatjuk egy linuxos gazdagép teljesítményét.
+     _________________________________________________________________
+
+5.1. Felhasználói- és csoport-korlátozások beállítása
+
+A kis teljesítményû klienseken alapuló modell egyik veszélye, hogy egy
+elszabaduló folyamat felemésztheti a gazdagép összes rendszermemóriáját
+és/vagy processzoridejét. Ha ez bekövetkezik, a rendszer teljesítménye
+olyannyira lecsökkenhet, hogy ebbõl fakadóan a rendszer válaszidejének
+drasztikus növekedését, fagyást és egyéb nem kívánt következményeket
+tapasztalhatunk..
+
+Szerencsére a Linux több eszközzel is rendelkezik az ilyen típusú problémák
+kezelésére. Az elsõ ezek közül amit megnézünk, a limits.conf állomány az
+/etc/security könyvtárban. A limits.conf állomány segítségével felhasználó
+és csoport szintû korlátozásokat adhatunk meg bizonyos típusú rendszer
+erõforrásokra, mint amilyen a memória. Ebben az állományban a korlátozások
+beállítása történhet adott felhasználóra vagy csoportra. Bár ebben az
+állományban sokféle korlátozást be lehet állítani, itt csak néhányat nézünk
+meg.
+
+A limits.conf állomány formáját tekintve különálló sorokból áll, a sorok
+pedig a következõ típusú értékeket tartalmazzák: (tartomány) (típus)
+(egység) (érték), ahol a tartomány lehet felhasználó vagy csoport, a típus
+hard (erõs) vagy soft (gyenge) megszorításra, az egység a korlátozni kívánt
+erõforrásra utal, az érték pedig a beállítandó megszorításhoz tartozó
+értékre. Például beállítva a következõ értéket:
+
+guest           hard     priority        19
+
+   egy erõs (hard) megszorítást helyezünk el az ütemezési sorrendiségen
+   (priority), mely segítségével a guest nevû felhasználó feladatait
+   ütemezi a rendszer. Ebben az esetben a guest felhasználó feladatai a
+   legkisebb prioritással rendelkeznek.
+
+   Másik példaként a guest nevû felhasználó maximális processzor idõ
+   felhasználását 10 perc idõtartamra korlátozhatjuk a következõ érték
+   beállításával:
+   guest           hard     cpu             10
+
+   Utolsó példaként a guest nevû csoport sikertelen bejelentkezési
+   kísérleteinek számát háromra csökkentjük, ha beállítjuk a következõ
+   értéket:
+   @guest  hard    maxlogins       3
+     _________________________________________________________________
+
+5.2. További korlátozások
+
+Az elszabaduló folyamatok esetleges hatásainak csökkentésének máik módja, ha
+folyamatokra vonatkozó korlátozásokat állítunk be. Ezt elérhetjük, ha
+beírjuk az ulimit parancsot az /etc/profile állományba.
+
+Ha egy adott folyamat számára elérhetõ maximális memória mennyiségét soft
+(gyenge) megszorítással akarjuk korlátozni, hogy a folyamat ne igényelhessen
+több memóriát mint amennyi a rendszer összes memória kapacitása, akkor egy 1
+GB fizikai és 500 MB virtuális memóriával rendelkezõ rendszer esetén a
+következõ értékeknek az /etc/profile állományban történõ beállítása
+megfelelõ lehet:
+
+ulimit -S -m 1000000
+ulimit -S -v  500000
+
+   Ezen beállítás mellett a rendszer kilõ minden olyan folyamatot, amely
+   a megadott korlátnál több erõforrást próbál meg lefoglalni.
+     _________________________________________________________________
+
+6. Kliens beállítások
+
+Ez a rész az általánosság szintjén foglalkozik azzal, hogy milyen
+beállítások szükségesek egy átlagos X terminál, és egy gazdagép
+összekapcsolásához.
+     _________________________________________________________________
+
+6.1. A rendszerbetöltési folyamat
+
+Ha az X terminál egy hálózati gazdagéprõl végzi a rendszerbetöltést, a
+saját IP- valamint a gazdagép címének meghatározásához a bootp vagy a rarp
+protokollt használhatja, esetleg tárolhatja is ezeket az értékeket saját
+NVRAM memóriájában. A bootp protokoll használatának elõnye, hogy a gazdagép
+adatait és az IP-címeket központosítva, egy helyen tárolhatjuk. Az értékek
+kliensen történõ, helyi tárolásának elõnye, hogy kifinomultabb TCP/IP és
+gazdagép-adat kezelést tesz lehetõvé.
+
+Ha az X terminál gazdagép és IP-cím információit megfelelõen beállítottuk,
+az X terminál rendszerbetöltési folyamatának második lépése, az operációs
+rendszer és alapértelmezett karakterkészlet betöltése. Ehhez a kliensnek
+tudnia kell a rendszerlenyomat, a rendszerbeállítások és a karakterkészlet
+teljes útvonalnevét. Ezen fájlok letöltéséhez szükséges még a
+rendszerbetöltési eljárás megadása. A legtöbb rendszer esetén ez a tftp vagy
+az nfs. Végül az X terminálnak tudnia kell, hogy melyik gép felelõs az
+XDMCP kommunikációért (azaz melyik gép szolgáltatja a kliens
+alkalmazásokat). Az összes ilyen információt az X terminál NVRAM
+memóriájában tároljuk.
+
+A rendszerbetöltés folyamatának harmadik lépésére akkor kerül sor, amikor az
+X terminál kapcsolódik a kliens géphez. A legtöbb X terminál képes arra,
+hogy direkt vagy indirekt kéréssel megszólítsa a hálózat egyik xdmcp
+munkafolyamat-kezelõjét. Indirekt kérés esetén minden elérhetõ xdmcp
+munkafolyamat-kezelõ válaszol, és megjeleníti a választható gazdagépek
+listáját. Direkt kérés esetén a gazdagép xdm programja elindítja az Xsetup
+szkriptet, amely beállítja a megjelenítõ eszközt a bejelentkezõ
+képernyõhöz, és elindítja az xlogin eszközt, amely csak érvényes
+felhasználói azonosító és jelszó megadás után engedélyezi a belépést,
+valamint az xdcmp munkafolyamat indítását.
+     _________________________________________________________________
+
+7. További források
+
+7.1. Linux HOGYANok
+
+Ez a dokumentum a már nem karbantartott X terminál HOGYANt hivatott
+kiegészíteni és helyettesíteni. A következõ mini-HOGYANokat találhatjuk meg
+a témában a Linux Dokumentációs Projekt www.tldp.org honlapján:
+XWindow-Overview-HOWTO, XWindow-User-HOWTO, XDM-Xterm mini-HOWTO, NCD X
+terminal mini-HOWTO.
+     _________________________________________________________________
+
+7.2. Kézikönyv oldalak
+
+A Linux Dokumentációs Projekt, az XFree86 projekt és a GNU egy sor azonnal
+olvasható (on-line) leírást tesz közzé, melyek leírják az ezen
+mini-HOGYANban tárgyalt szolgáltatásokat. Ezen dokumentumhoz kapcsolódó
+kézikönyv oldalak: az xdm, az nfs, az exports, az X és az ulimit kézikönyv
+oldalai.
+     _________________________________________________________________
+
+7.3. Linux kézikönyvek
+
+A Linux Dokumentációs Projekt Hálózati Adminisztrátorok Kézikönyvének
+(Network Administrator's Guide,(NAG)) 14. fejezetében hasznos információkat
+találhatunk a linuxos NFS használatáról.
+     _________________________________________________________________
+
+7.4. Könyvek
+
+Ajánljuk O'Reilly and Associates: "X Windows System Administrator's Guide"
+címû könyvét.
+     _________________________________________________________________
+
+8. Hibajegyzék
+
+8.1. Rendszer verziók
+
+A mini-HOGYANban áttekintett módszerek felhasználták Redhat 7.3, 7.1, 6.3 és
+6.1-es verzióit, valamint az XFree86 3.2 és 4.2 közötti változatait. A
+használt X terminálok a Network Computing Devices (NCD) Network Computer
+termináljainak nc900, nc500 és nc350-es változatai.
+     _________________________________________________________________
+
+8.2. A felelõsség teljes elhárítása
+
+Ez a dokumentum úgy használható "ahogy van". Sem a szerzõ, sem a
+terjesztõk nem vállalnak semmilyen felelõsséget fizikai, pénzügyi vagy
+bármely más típusú kárért, amit a szövegben ajánlott dolgok követése
+okozott.
+     _________________________________________________________________
+
+8.3. Visszajelzés
+
+Ha a dokumentummal kapcsolatban javaslataid vannak, vagy bármely részét
+hasznosnak találtad, küldj e-mailt a dokumentum karbantartójának: speralta
+[at] willamette [dot] edu.
+     _________________________________________________________________
+
+8.4. Készítõk
+
+Köszönetet szeretnék mondani a Willamette Egyetemnek, hogy ott dolgozva
+lehetõségem volt a dokumentumban szereplõ Linux-alapú rendszerek
+összeállítására és karbantartására, és Michael Spalti-nak, aki segített
+nekem a technológia megismerésében, és az említett rendszerek
+fejlesztésében.
+     _________________________________________________________________
+
+8.5. Magyar fordítás
+
+A magyar fordítást [33]Mócza Zsolt készítette (2004.01.20). A lektorálást
+[34]Daczi László végezte el (2004.01.27). Eme dokumentum legfrissebb
+változata megtalálható a [35]Magyar Linux Dokumentációs Projekt honlapján.
+
+References
+
+   1. http://www.willamette.edu/~speralta/tldp/xterm
+   2. file://localhost/home/dacas/convert/Xterminals.html#COPYRIGHT
+   3. file://localhost/home/dacas/convert/Xterminals.html#BACKGROUND
+   4. file://localhost/home/dacas/convert/Xterminals.html#XFREE86
+   5. file://localhost/home/dacas/convert/Xterminals.html#AEN36
+   6. file://localhost/home/dacas/convert/Xterminals.html#INFRASTRUCTURE
+   7. file://localhost/home/dacas/convert/Xterminals.html#SECTION2
+   8. file://localhost/home/dacas/convert/Xterminals.html#HARDWARE
+   9. file://localhost/home/dacas/convert/Xterminals.html#SOFTWARE
+  10. file://localhost/home/dacas/convert/Xterminals.html#CONFIGURATION
+  11. file://localhost/home/dacas/convert/Xterminals.html#NFS
+  12. file://localhost/home/dacas/convert/Xterminals.html#XDM
+  13. file://localhost/home/dacas/convert/Xterminals.html#XACCESS
+  14. file://localhost/home/dacas/convert/Xterminals.html#HOST
+  15. file://localhost/home/dacas/convert/Xterminals.html#XFS
+  16. file://localhost/home/dacas/convert/Xterminals.html#XSESSION
+  17. file://localhost/home/dacas/convert/Xterminals.html#ADVANCED
+  18. file://localhost/home/dacas/convert/Xterminals.html#LIMITSCONF
+  19. file://localhost/home/dacas/convert/Xterminals.html#MORELIMITS
+  20. file://localhost/home/dacas/convert/Xterminals.html#CLIENT
+  21. file://localhost/home/dacas/convert/Xterminals.html#BOOT
+  22. file://localhost/home/dacas/convert/Xterminals.html#INFO
+  23. file://localhost/home/dacas/convert/Xterminals.html#LINUXDOCS
+  24. file://localhost/home/dacas/convert/Xterminals.html#MANPAGES
+  25. file://localhost/home/dacas/convert/Xterminals.html#GUIDES
+  26. file://localhost/home/dacas/convert/Xterminals.html#AEN144
+  27. file://localhost/home/dacas/convert/Xterminals.html#ERRATA
+  28. file://localhost/home/dacas/convert/Xterminals.html#VERSION
+  29. file://localhost/home/dacas/convert/Xterminals.html#DISCLAIMER
+  30. file://localhost/home/dacas/convert/Xterminals.html#FEEDBACK
+  31. file://localhost/home/dacas/convert/Xterminals.html#CREDITS
+  32. file://localhost/home/dacas/convert/Xterminals.html#AEN161
+  33. mailto:moczaz@freemail.hu_NO_SPAM
+  34. mailto:dacas@freemail.hu_NO_SPAM
+  35. http://tldp.fsf.hu/index.html
