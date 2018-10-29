@@ -25,7 +25,7 @@ For generating, show existing list, shh-add etc..
 
 
 
-** Adding SSH-Agent to (GIT Kind of) Local repository **
+**Adding SSH-Agent to (GIT Kind of) Local repository:**
 
 This makes you not to enter `ssh-agent` password every time you push or pull the remote repository.
 
