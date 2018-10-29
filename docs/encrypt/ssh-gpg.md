@@ -23,6 +23,21 @@ For generating, show existing list, shh-add etc..
      - * If you are working in git directory and if you want to add ssh access, you need to past your ssh publice keys in your git server and initiate ssh authentication in your local repo by simply issuing command in local repo as `ssh-add` or `ssh-add agent_id_number`
      `
 
+
+
+** Adding SSH-Agent to (GIT Kind of) Local repository **
+
+This makes you not to enter `ssh-agent` password every time you push or pull the remote repository.
+
+  * Once you have started the SSH agent with: `eval $(ssh-agent)`
+
+   *    You have to add your private key to it: `ssh-add` 
+   This will ask you your passphrase just once, and then you should be allowed to push, provided that you uploaded the public key to Github.
+
+   *  To save key permanently: `ssh-add -k`  This will persist it after you close and re-open it by storing it in user's keychain.
+   * for more vist ` https://stackoverflow.com/questions/10032461/git-keeps-asking-me-for-my-ssh-key-passphrase#10032655`
+
+
 For more vist https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
  and 
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
