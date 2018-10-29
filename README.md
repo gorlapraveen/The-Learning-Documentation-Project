@@ -146,7 +146,15 @@ The intent of this manual is to explain how you can create and sign a GPG key.
 
 Find more at https://keyring.debian.org/creating-key.html
 
+
+>> This next part of documentation continues in this repositiry at [Here](/docs/encrypt/ssh-gpg.md)
+
   ----------------------------------------------------------------------------------------------
+>>
+
+
+
+>>
 
 
 
