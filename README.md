@@ -39,6 +39,7 @@ Version 1.3, 3 November 2008 and [Software - Code (including Open Hardware desig
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
 | Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
 | Encrypt a File :[GPG Encryption](/docs/encrypt/EncryptAFile.md) | and send to other person |
+| GPG : [Revocation Certificates](/docs/encrypt/generate-gpg-revocation-certificate.md) | Generation, and using them to revoke your keys|
 | Research Resources : [Arxiv Research](/docs/ResearchResources/arxiv) | List of Updated research abstracts and links form varius domains ex: `Software`, `Processors`, `Networks`, `Cloud`, `Agriculture`, `Medical`, `GNUradio`, `Cryptography`, `Surveillance`, `Dental`, `Arts` , etc.. It also contains Research papers on Localization of  `Spoken Languages` such as `Chinese`, `Japanese`, `English` and [60 Indian](https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers_in_India#List_of_mother_tongues_by_number_of_speakers) Languages.  It includes more than `150` research categories |
 
 
@@ -148,7 +149,7 @@ The intent of this manual is to explain how you can create and sign a GPG key.
 Find more at https://keyring.debian.org/creating-key.html
 
 
->> This next part of documentation continues in this repositiry at [Here](/docs/encrypt/ssh-gpg.md)
+>> This next part of documentation continues in this repositiry at [Here](/docs/encrypt/)
 
   ----------------------------------------------------------------------------------------------
 >>
