@@ -1,0 +1,667 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Comparison of U-net-based Convolutional Neural Networks for Liver Segmentation in CT (Hans Meine - 9 October, 2018)
+Using a set of 219 liver CT datasets with reference segmentations from liver surgery planning, we evaluate the performance of several neural network classifiers based on 2D and 3D U-net architectures. An interesting observation is that slice-wise approaches perform surprisingly well, with mean and median Dice coefficients above 0.97, and may be preferable over 3D approaches given current hardware and software limitations.
+Link: https://arxiv.org/abs/1810.04017
+====================================================
+Reconstruction and Registration of Large-Scale Medical Scene Using Point Clouds Data from Different Modalities (Ke Wang - 5 September, 2018)
+So, in this regard, a monitor platform which can obtain the accurate location information of the surgery room is desperately needed. As for commodity RGBD sensors, such as Kinect, can accurately capture denser data, but limited to a small range from 0.5 to 4.5m
+Link: https://arxiv.org/abs/1809.01318
+====================================================
+Towards Robotic Eye Surgery: Marker-free, Online Hand-eye Calibration using Optical Coherence Tomography Images (Mingchuan Zhou - 17 August, 2018)
+Image guided robot-assisted surgery (RAS) is a promising solution that brings significant improvements in outcomes and reduces the physical limitations of human surgeons. In all experiments, our method showed a small difference from the marker based method, with a mean calibration error of 9.2 $Î¼$m and 7.0 $Î¼$m, respectively
+Link: https://arxiv.org/abs/1808.05805
+====================================================
+Learning to See Forces: Surgical Force Prediction with RGB-Point Cloud Temporal Convolutional Networks (Cong Gao - 31 July, 2018)
+Robotic surgery has been proven to offer clear advantages during surgical procedures, however, one of the major limitations is obtaining haptic feedback. Our method results in a mean absolute error of 0.814 N in the ex vivo study, suggesting that it may be a promising alternative to hardware based surgical force feedback in endoscopic procedures.
+Link: https://arxiv.org/abs/1808.00057
+====================================================
+DeepPhase: Surgical Phase Recognition in CATARACTS Videos (Odysseas Zisimopoulos - 17 July, 2018)
+In this work, we adopt a deep learning paradigm to detect surgical instruments in cataract surgery videos which in turn feed a surgical phase inference recurrent network that encodes temporal aspects of phase steps within the phase classification. Our models present comparable to state-of-the-art results for surgical tool detection and phase recognition with accuracies of 99 and 78% respectively.
+Link: https://arxiv.org/abs/1807.10565
+====================================================
+Surgical Phase Recognition of Short Video Shots Based on Temporal Modeling of Deep Features (Constantinos Loukas - 6 September, 2018)
+Recognizing the phases of a laparoscopic surgery (LS) operation form its video constitutes a fundamental step for efficient content representation, indexing and retrieval in surgical video databases. Most importantly, we investigate the role of 'elapsed time' (from the beginning of the operation), and we show that inclusion of this feature can increase performance dramatically (69% vs. 75% mean accuracy). Finally, a long short-term memory (LSTM) network was trained for video shot classification based on the fusion of CNN features with 'elapsed time', increasing the accuracy to 86%
+Link: https://arxiv.org/abs/1807.07853
+====================================================
+Medical Technologies and Challenges of Robot Assisted Minimally Invasive Intervention and Diagnostics (Nabil Simaan - 10 July, 2018)
+Robotics for natural orifice and single port access surgery, capsule and magnetically actuated robotics and microrobotics are discussed with the aim of elucidating the state of the art
+Link: https://arxiv.org/abs/1807.03731
+====================================================
+Simultaneous Segmentation and Classification of Bone Surfaces from Ultrasound Using a Multi-feature Guided CNN (Puyang Wang - 25 June, 2018)
+Various imaging artifacts, low signal-to-noise ratio, and bone surfaces appearing several millimeters in thickness have hindered the success of ultrasound (US) guided computer assisted orthopedic surgery procedures. The proposed method was validated on 650 in vivo US scans collected using two US machines, by scanning knee, femur, distal radius and tibia bones
+Link: https://arxiv.org/abs/1806.09766
+====================================================
+Augmented Reality-based Feedback for Technician-in-the-loop C-arm Repositioning (Mathias Unberath - 22 June, 2018)
+We conduct experiments in a setting simulating orthopedic trauma surgery. Our proof-of-principle findings indicate that the proposed system can decrease the 2.76 X-ray images required per desired view down to zero, suggesting substantial reductions of radiation dose during C-arm repositioning
+Link: https://arxiv.org/abs/1806.08814
+====================================================
+Temporal coherence-based self-supervised learning for laparoscopic workflow analysis (Isabel Funke - 7 September, 2018)
+In order to provide the right type of assistance at the right time, computer-assisted surgery systems need context awareness. We evaluate our pretrained networks on Cholec80, a publicly available dataset for surgical phase segmentation, on which a maximum F1 score of 84.6 was reached. Furthermore, we were able to achieve an increase of the F1 score of up to 10 points when compared to a non-pretrained neural network.
+Link: https://arxiv.org/abs/1806.06811
+====================================================
+SATR-DL: Improving Surgical Skill Assessment and Task Recognition in Robot-assisted Surgery with Deep Neural Networks (Ziheng Wang - 14 June, 2018)
+Purpose: This paper focuses on an automated analysis of surgical motion profiles for objective skill assessment and task recognition in robot-assisted surgery. Meanwhile, we explore the use of ensemble in classification at the trial level, where the SATR-DL outperforms state-of-the-art performance by achieving accuracies of 0.960 and 1.000 in skill assessment and task recognition, respectively
+Link: https://arxiv.org/abs/1806.05798
+====================================================
+Deep Learning with Convolutional Neural Network for Objective Skill Evaluation in Robot-assisted Surgery (Ziheng Wang - 14 June, 2018)
+With the advent of robot-assisted surgery, the role of data-driven approaches to integrate statistics and machine learning is growing rapidly with prominent interests in objective surgical skill assessment. Our proposed learning model achieved a competitive accuracy of 94.1%, 90.3%, and 86.8%, in the standard training tasks: Suturing, Needle-passing, and Knot-tying, respectively
+Link: https://arxiv.org/abs/1806.05796
+====================================================
+Accurate Detection of Inner Ears in Head CTs Using a Deep Volume-to-Volume Regression Network with False Positive Suppression and a Shape-Based Constraint (Dongqing Zhang - 12 June, 2018)
+After surgery, CIs need to be programmed. We achieve a labeling accuracy of 98.59% and a localization error of 2.45mm
+Link: https://arxiv.org/abs/1806.04725
+====================================================
+Evaluating surgical skills from kinematic data using convolutional neural networks (Hassan Ismail Fawaz - 7 June, 2018)
+In this paper, we designed a Convolutional Neural Network (CNN) to evaluate surgeon skills by extracting patterns in the surgeon motions performed in robotic surgery. The proposed method is validated on the JIGSAWS dataset and achieved very competitive results with 100% accuracy on the suturing and needle passing tasks
+Link: https://arxiv.org/abs/1806.02750
+====================================================
+Spatiotemporal Manifold Prediction Model for Anterior Vertebral Body Growth Modulation Surgery in Idiopathic Scoliosis (William Mandel - 6 June, 2018)
+However the selection of potential surgical patients is currently based on clinical judgment and would be facilitated by the identification of patients responding to AVBGM prior to surgery. The model was trained on 438 reconstructions and tested on 56 subjects using 3D spine reconstructions from follow-up exams, with the probabilistic framework yielding accurate results with differences of 2.1 +/- 0.6deg in main curve angulation, and generating models similar to biomechanical simulations.
+Link: https://arxiv.org/abs/1806.02285
+====================================================
+A multi-scale pyramid of 3D fully convolutional networks for abdominal multi-organ segmentation (Holger R. Roth - 6 June, 2018)
+We train and validate our models on a dataset of manually annotated abdominal organs and vessels from 377 clinical CT images used in gastric surgery, and achieve promising results with close to 90% Dice score on average
+Link: https://arxiv.org/abs/1806.02237
+====================================================
+Real-time Surgical Tools Recognition in Total Knee Arthroplasty Using Deep Neural Networks (Moazzem Hossain - 6 June, 2018)
+Surgeons wearing smart glasses can see essential information about tools during surgery that may reduce the complication of the procedures. We achieved 87.6% mAP which is better in comparison to the existing methods
+Link: https://arxiv.org/abs/1806.02031
+====================================================
+Surgical Activity Recognition in Robot-Assisted Radical Prostatectomy using Deep Learning (Aneeq Zia - 1 June, 2018)
+In this paper, we propose several approaches to recognize surgical activities in robot-assisted minimally invasive surgery using deep learning. We collected a clinical dataset of 100 robot-assisted radical prostatectomies (RARP) with 12 tasks each and propose `RP-Net', a modified version of InceptionV3 model, for image based surgical activity recognition. We achieve an average precision of 80.9% and average recall of 76.7% across all tasks using RP-Net which out-performs all other RNN and CNN based models explored in this paper
+Link: https://arxiv.org/abs/1806.00466
+====================================================
+Less is More: Surgical Phase Recognition with Less Annotations through Self-Supervised Pre-training of CNN-LSTM Networks (Gaurav Yengera - 22 May, 2018)
+In this work, we propose a new self-supervised pre-training approach based on the prediction of remaining surgery duration (RSD) from laparoscopic videos. Additionally, we present EndoN2N, an end-to-end trained CNN-LSTM model for surgical phase recognition and evaluate the performance of our approach on a dataset of 120 Cholecystectomy laparoscopic videos (Cholec120)
+Link: https://arxiv.org/abs/1805.08569
+====================================================
+Multi-label Classification of Surgical Tools with Convolutional Neural Networks (Jonas Prellberg - 15 May, 2018)
+Using the successful residual network architecture, a system that can distinguish 21 different tools in cataract surgery videos is created. The videos are provided as part of the 2017 CATARACTS challenge and pose difficulties found in many real-world datasets, for example a strong class imbalance
+Link: https://arxiv.org/abs/1805.05760
+====================================================
+Improved Predictive Models for Acute Kidney Injury with IDEAs: Intraoperative Data Embedded Analytics (Lasith Adhikari - 11 May, 2018)
+We used machine learning and statistical analysis techniques to develop perioperative models to predict the risk of AKI (risk during the first 3 days, 7 days, and until the discharge day) before and after the surgery. For AKI-7day outcome: The AUC was 0.86 (accuracy was 0.78) in the proposed model, while the preoperative AUC was 0.84 (accuracy 0.76)
+Link: https://arxiv.org/abs/1805.05452
+====================================================
+Combo Loss: Handling Input and Output Imbalance in Multi-Organ Segmentation (Saeid Asgari Taghanaki - 24 September, 2018)
+Simultaneous segmentation of multiple organs from different medical imaging modalities is a crucial task as it can be utilized for computer-aided diagnosis, computer-assisted surgery, and therapy planning. We evaluated the proposed loss function on three datasets: whole body positron emission tomography (PET) scans with 5 target organs, magnetic resonance imaging (MRI) prostate scans, and ultrasound echocardigraphy images with a single target organ i.e., left ventricular
+Link: https://arxiv.org/abs/1805.02798
+====================================================
+Joint Surgical Gesture and Task Classification with Multi-Task and Multimodal Learning (Duygu Sarikaya - 2 May, 2018)
+We propose a novel multi-modal and multi-task architecture for simultaneous low level gesture and surgical task classification in Robot Assisted Surgery (RAS) videos.Our end-to-end architecture is based on the principles of a long short-term memory network (LSTM) that jointly learns temporal dynamics on rich representations of visual and motion features, while simultaneously classifying activities of low-level gestures and surgical tasks. We train our model on a fixed random set of 1200 gesture video segments and use the rest 422 for testing. For a 6 split experimentation, while the conventional approach reaches an Average Precision (AP) of only 29% (29.13%), our architecture reaches an AP of 51% (50.83%) for 3 tasks and 14 possible gesture labels, resulting in an improvement of 22% (21.7%)
+Link: https://arxiv.org/abs/1805.00721
+====================================================
+Abdominal multi-organ segmentation with organ-attention networks and statistical fusion (Yan Wang - 23 April, 2018)
+Accurate and robust segmentation of abdominal organs on CT is essential for many clinical applications such as computer-aided diagnosis and computer-aided surgery. To train the network and evaluate results, 13 structures were manually annotated by four human raters and confirmed by a senior expert on 236 normal cases. We tested our algorithm and computed Dice-Sorensen similarity coefficients and surface distances for evaluating our estimates of the 13 structures
+Link: https://arxiv.org/abs/1804.08414
+====================================================
+IMHOTEP - Virtual Reality Framework for Surgical Applications (Micha Pfeiffer - 22 March, 2018)
+Purpose: The data which is available to surgeons before, during and after surgery is steadily increasing in quantity as well as diversity. Results: The framework was evaluated by clinical personnel (77 participants)
+Link: https://arxiv.org/abs/1803.08264
+====================================================
+A Deep Learning Approach for Pose Estimation from Volumetric OCT Data (Nils Gessert - 10 March, 2018)
+Tracking the pose of instruments is a central problem in image-guided surgery. We achieve a mean average error of $\SI{14.89 \pm 9.3}{\micro\metre}$ and $\SI{0.096 \pm 0.072}{\degree}$ for position and orientation learning, respectively.
+Link: https://arxiv.org/abs/1803.03852
+====================================================
+A Quest for the Structure of Intra- and Postoperative Surgical Team Networks: Does the Small World Property Evolve over Time? (Ashkan Ebadi - 8 March, 2018)
+We used de-identified intra- and postoperative data for adult patients, ages >= 21, who received nonambulatory/nonobstetric surgery at Shands at the University of Florida between June 1, 2011 and November 1, 2014
+Link: https://arxiv.org/abs/1803.03359
+====================================================
+Automatic Instrument Segmentation in Robot-Assisted Surgery Using Deep Learning (Alexey Shvets - 19 June, 2018)
+Semantic segmentation of robotic instruments is an important problem for the robot-assisted surgery. In this paper we describe our winning solution for MICCAI 2017 Endoscopic Vision SubChallenge: Robotic Instrument Segmentation
+Link: https://arxiv.org/abs/1803.01207
+====================================================
+i3PosNet: Instrument Pose Estimation from X-Ray (David KÃ¼gler - 26 February, 2018)
+Two challenges render these systems inadequate for minimally invasive bone surgery: the need for instrument positioning with high precision and occluding tissue blocking the line of sight. i3PosNet consistently estimates the pose of surgical instruments better than conventional image registration techniques by a factor of 5 and more achieving in-plane position errors of 0.031 mm +- 0.025 mm and angle errors of 0.031 +- 1.126. Additional factors, such as depth are evaluated to 0.361 mm +- 8.98 mm from single radiographs.
+Link: https://arxiv.org/abs/1802.09575
+====================================================
+Short Block-length Codes for Ultra-Reliable Low-Latency Communications (Mahyar Shirvanimoghaddam - 5 September, 2018)
+The problem is even more challenging for the services beyond the 5G promise, such as tele-surgery and factory automation, which require latencies less than 1ms and failure rate as low as $10^{-9}$
+Link: https://arxiv.org/abs/1802.09166
+====================================================
+RSDNet: Learning to Predict Remaining Surgery Duration from Laparoscopic Videos Without Manual Annotations (Andru Putra Twinanda - 9 February, 2018)
+Results: The experimental results show that the proposed network significantly outperforms the method that is frequently used in surgical facilities for estimating surgery duration. Further, the generalizability of the approach is demonstrated by testing the pipeline on two large datasets containing different types of surgeries, 120 cholecystectomy and 170 gastric bypass videos
+Link: https://arxiv.org/abs/1802.03243
+====================================================
+SegDenseNet: Iris Segmentation for Pre and Post Cataract Surgery (Aditya Lakra - 19 April, 2018)
+India, which hosts the largest biometrics project in the world, has about 8 million people undergoing cataract surgery annually. The experiments on the IIITD Cataract database show that improving the segmentation enhances the identification by up to 25% across different sensors and matchers.
+Link: https://arxiv.org/abs/1801.10100
+====================================================
+Improving utility of brain tumor confocal laser endomicroscopy: objective value assessment and diagnostic frame detection with convolutional neural networks (Mohammadhassan Izadyyazdanabadi - 6 January, 2018)
+Our dataset includes 16,795 images (8572 nondiagnostic and 8223 diagnostic) from 74 CLE-aided brain tumor surgery patients. Average model accuracy on test data was 91% overall (90.79 % accuracy, 90.94 % sensitivity and 90.87 % specificity). To evaluate the model reliability we also performed receiver operating characteristic (ROC) analysis yielding 0.958 average for the area under ROC curve (AUC)
+Link: https://arxiv.org/abs/1801.02101
+====================================================
+PixelBNN: Augmenting the PixelCNN with batch normalization and the presentation of a fast architecture for retinal vessel segmentation (Henry A Leopold - 18 December, 2017)
+Accurate fundus and/or retinal vessel maps give rise to longitudinal studies able to utilize multimedia image registration and disease/condition status measurements, as well as applications in surgery preparation and biometrics. The network was 8.5 times faster than the current state-of-the-art at test time and performed comparatively well, considering a 5 to 19 times reduction in information from resizing images during preprocessing.
+Link: https://arxiv.org/abs/1712.06742
+====================================================
+In-Place Activated BatchNorm for Memory-Optimized Training of DNNs (Samuel Rota BulÃ² - 11 December, 2017)
+Our solution substitutes the conventionally used succession of BatchNorm + Activation layers with a single plugin layer, hence avoiding invasive framework surgery while providing straightforward applicability for existing deep learning frameworks. We obtain memory savings of up to 50% by dropping intermediate results and by recovering required information during the backward pass through the inversion of stored forward results, with only minor increase (0.8-2%) in computation time
+Link: https://arxiv.org/abs/1712.02616
+====================================================
+Dilated FCN for Multi-Agent 2D/3D Medical Image Registration (Shun Miao - 21 November, 2017)
+We demonstrate that the proposed method achieves high robustness on both spine cone beam Computed Tomography data with a low signal-to-noise ratio and data from minimally invasive spine surgery where severe image artifacts and occlusions are presented due to metal screws and guide wires, outperforming other state-of-the-art methods (single agent-based and optimization-based) by a large margin.
+Link: https://arxiv.org/abs/1712.01651
+====================================================
+Automatic Spine Segmentation using Convolutional Neural Network via Redundant Generation of Class Labels for 3D Spine Modeling (Malinda Vania - 29 November, 2017)
+The automatic image segmentation of the spine obtained from a computed tomography (CT) image is important for diagnosing spine conditions and for performing surgery with computer-assisted surgery systems. The spine has a complex anatomy that consists of 33 vertebrae, 23 intervertebral disks, the spinal cord, and connecting ribs. Our comparison was based on 12 measurements: the Dice coefficient (94%), Jaccard index (93%), volumetric similarity (96%), sensitivity (97%), specificity (99%), precision (over segmentation; 8.3 and under segmentation 2.6), accuracy (99%), Matthews correlation coefficient (0.93), mean surface distance (0.16 mm), Hausdorff distance (7.4 mm), and global consistency error (0.02). We experimented with CT images from 32 patients, and the experimental results demonstrated the efficiency of the proposed method.
+Link: https://arxiv.org/abs/1712.01640
+====================================================
+Investigation of Gaze Patterns in Multi View Laparoscopic Surgery (Navaneeth Kamballur Kottayil - 30 November, 2017)
+Multi view LS is the latest development in the field, where the system uses multiple cameras to give the surgeon more information about the surgical site, potentially making the surgery easier. This was done by conducting a user study with 20 university students with varying levels of expertise in Multi-view LS
+Link: https://arxiv.org/abs/1712.00048
+====================================================
+Deformation estimation of an elastic object by partial observation using a neural network (Utako Yamamoto - 28 November, 2017)
+Deformation estimation of elastic object assuming an internal organ is important for the computer navigation of surgery. The average estimation error for the human liver model was 0.041 mm when the object was deformed up to 66.4 mm, from only around 3 % observations
+Link: https://arxiv.org/abs/1711.10157
+====================================================
+Hiding in plain sight: insights about health-care trends gained through open health data (A. Ravishankar Rao - 30 October, 2017)
+Using BOAT we analyzed costs for hip replacement surgery for 168,676 patients is in New York State, and showed that 88% of these patients had surgery costs of less than \$30,000
+Link: https://arxiv.org/abs/1710.11047
+====================================================
+Simultaneous Recognition and Pose Estimation of Instruments in Minimally Invasive Surgery (Thomas Kurmann - 18 October, 2017)
+We show that our approach surpasses state-of-the-art results on in-vivo retinal microsurgery image data, as well as ex-vivo laparoscopic sequences.
+Link: https://arxiv.org/abs/1710.06668
+====================================================
+Monitoring tool usage in surgery videos using boosted convolutional and recurrent neural networks (Hassan Al Hajj - 6 May, 2018)
+Experiments were performed in a dataset of 50 cataract surgery videos and a dataset of 80 cholecystectomy videos. Very good classification performance are achieved in both datasets: tool usage could be labeled with an average area under the ROC curve of $A_z = 0.9961$ and $A_z = 0.9939$, respectively, in offline mode (using past, present and future information), and $A_z = 0.9957$ and $A_z = 0.9936$, respectively, in online mode (using past and present information only).
+Link: https://arxiv.org/abs/1710.01559
+====================================================
+Convolutional Neural Networks: Ensemble Modeling, Fine-Tuning and Unsupervised Semantic Localization for Intraoperative CLE Images (Mohammadhassan Izadyyazdanabadi - 23 October, 2017)
+With the speed and precision of the proposed method (110 images/second; 85% on the gold standard test subset), it has potential to be integrated into the operative workflow in the brain tumor surgery.
+Link: https://arxiv.org/abs/1709.03028
+====================================================
+Seminar Innovation Management - Winter Term 2017 (Gerd HÃ¤usler - 22 August, 2017)
+The 11 ideas are AR/VR Glasses with Medical Applications, Augmented Reality Eye Surgery, Game Diagnosis, Intelligent Adapting Glasses, MD Facebook, Medical Crowd Segmentation, Personalized 3D Model of the Human Eye, Photoacoustic Contact Lens, Power Supply Smart Contact Lens, VR-Cornea and Head Mount for Fundus Imaging
+Link: https://arxiv.org/abs/1708.09706
+====================================================
+An Improved Neural Segmentation Method Based on U-NET (Chenyang Xu - 15 August, 2017)
+Neural segmentation has a great impact on the smooth implementation of local anesthesia surgery. At present, the network for the segmentation includes U-NET [1] and SegNet [2]
+Link: https://arxiv.org/abs/1708.04747
+====================================================
+Neural Network-Based Automatic Liver Tumor Segmentation With Random Forest-Based Candidate Filtering (Grzegorz Chlebus - 27 June, 2017)
+For the organ segmentation, an ensemble of convolutional networks is trained to segment a liver using a set of 179 liver CT datasets from liver surgery planning. Inside of the liver ROI a neural network, trained using 127 challenge training datasets, identifies tumor candidates, which are subsequently filtered with a random forest classifier yielding the final tumor segmentation. The evaluation on the 70 challenge test cases resulted in a mean Dice coefficient of 0.65, ranking our method in the second place.
+Link: https://arxiv.org/abs/1706.00842
+====================================================
+SLAM based Quasi Dense Reconstruction For Minimally Invasive Surgery Scenes (Nader Mahmoud - 25 May, 2017)
+This is based on a state-of-the-art SLAM system, and is exploiting the initial exploration phase that is typically performed by the surgeon at the beginning of the surgery
+Link: https://arxiv.org/abs/1705.09107
+====================================================
+Self-Supervised Siamese Learning on Stereo Image Pairs for Depth Estimation in Robotic Surgery (Menglong Ye - 17 May, 2017)
+Robotic surgery has become a powerful tool for performing minimally invasive procedures, providing advantages in dexterity, precision, and 3D vision, over traditional surgery. More recently, advances in deep learning have enabled depth estimation via Convolutional Neural Networks (CNNs) [3], but training requires a large image dataset with ground truth depths. Inspired by [4], we propose a deep learning framework for surgical scene depth estimation using self-supervision for scalable data acquisition
+Link: https://arxiv.org/abs/1705.08260
+====================================================
+Feedback Techniques in Computer-Based Simulation Training: A Survey (Sudanthi Wijewickrema - 12 May, 2017)
+Computer-based simulation training (CBST) is gaining popularity in a vast range of applications such as surgery, rehabilitation therapy, military applications, and driver/pilot training, as it offers a low-cost, easily-accessible and effective training environment. Typically, CBST systems comprise of two essential components: 1) a simulation environment that provides an immersive and interactive learning experience, and 2) a feedback intervention system that supports knowledge/skill acquisition and decision making. Here, we explore the provision of feedback in CBST from three perspectives: 1) types of feedback to be provided, 2) presentation modalities of feedback, and 3) methods for feedback extraction/learning
+Link: https://arxiv.org/abs/1705.04683
+====================================================
+Communication Modalities for Supervised Teleoperation in Highly Dexterous Tasks - Does one size fit all? (Tian Zhou - 17 April, 2017)
+This study tries to explain the connection between communication modalities and levels of supervision in teleoperation during a dexterous task, like surgery. More specifically, in the peg transfer task, the combination of speech modality and action level supervision achieves shorter task completion time (77.1 +- 3.4 s) with fewer mistakes (0.20 +- 0.17 pegs dropped).
+Link: https://arxiv.org/abs/1704.05090
+====================================================
+Who's Better? Who's Best? Pairwise Deep Ranking for Skill Determination (Hazel Doughty - 29 March, 2018)
+We present a method for assessing skill from video, applicable to a variety of tasks, ranging from surgery to drawing and rolling pizza dough. Results demonstrate our method is applicable across tasks, with the percentage of correctly ordered pairs of videos ranging from 70% to 83% for four datasets
+Link: https://arxiv.org/abs/1703.09913
+====================================================
+Quantitative Characterization of Components of Computer Assisted Interventions (Asli Okur - 2 February, 2017)
+Purpose: We propose a mathematical framework for quantitative analysis weighting the impact of heterogeneous components of a surgery. Results: We conducted surveys with 4 surgeons to determine the importance of roles, phases and their combinations within a laparoscopic cholecystectomy
+Link: https://arxiv.org/abs/1702.00582
+====================================================
+Machine Learning Approach for Skill Evaluation in Robotic-Assisted Surgery (Mahtab J. Fard - 15 November, 2016)
+Recently, with technological advances such as robotic-assisted minimally invasive surgery (RMIS), new opportunities for objective and automated assessment frameworks have arisen. The experimental results show that the proposed framework can classify surgical skill level with relatively high accuracy of 85.7%
+Link: https://arxiv.org/abs/1611.05136
+====================================================
+Toward Personalized Training and Skill Assessment in Robotic Minimally Invasive Surgery (Mahtab J. Fard - 13 November, 2016)
+Our work has addressed main aspects of skill evaluation; develop gesture recognition model directly on temporal kinematic signal of robotic-assisted surgery, and build automated personalized RMIS gesture training framework which . We showed that our method, with an average accuracy of 82% for suturing, 70% for needle passing and 85% for knot tying, performs better or equal than the state-of-the-art methods, while simultaneously needs minimum pre-processing, parameter tuning and provides surgeons with online feedback for their performance during training.
+Link: https://arxiv.org/abs/1610.07245
+====================================================
+Real-time analysis of cataract surgery videos using statistical models (Katia CharriÃ¨re - 18 October, 2016)
+For this project, a dataset of 30 cataract surgery videos was collected at Brest University hospital. Promising results were obtained using either the presence of surgical tools ($A_z$ = 0.983) or motion analysis ($A_z$ = 0.759)
+Link: https://arxiv.org/abs/1610.05465
+====================================================
+Coarse-to-fine Surgical Instrument Detection for Cataract Surgery Monitoring (Hassan Al Hajj - 19 September, 2016)
+To this end, the proposed solution is divided into two main parts: one to detect the instruments at the beginning of the surgery and one to update the list of instruments every time a change is detected in the scene. Experiments on a dataset of 36 cataract surgeries validate the good performance of the proposed solution.
+Link: https://arxiv.org/abs/1609.05619
+====================================================
+Dynamic Network Surgery for Efficient DNNs (Yiwen Guo - 9 November, 2016)
+In this paper, we propose a novel network compression method called dynamic network surgery, which can remarkably reduce the network complexity by making on-the-fly connection pruning. Without any accuracy loss, our method can efficiently compress the number of parameters in LeNet-5 and AlexNet by a factor of $\bm{108}\times$ and $\bm{17.7}\times$ respectively, proving that it outperforms the recent pruning method by considerable margins
+Link: https://arxiv.org/abs/1608.04493
+====================================================
+Relation Schema Induction using Tensor Factorization with Side Information (Madhav Nimishakavi - 15 November, 2016)
+Given a set of documents from a specific domain (e.g., medical research journals), how do we automatically build a Knowledge Graph (KG) for that domain? Automatic identification of relations and their schemas, i.e., type signature of arguments of relations (e.g., undergo(Patient, Surgery)), is an important first step towards this goal. Through extensive experiments on multiple real-world datasets, we find that SICTF is not only more accurate than state-of-the-art baselines, but also significantly faster (about 14x faster).
+Link: https://arxiv.org/abs/1605.04227
+====================================================
+Automatic 3D liver location and segmentation via convolutional neural networks and graph cut (Fang Lu - 10 May, 2016)
+Purpose Segmentation of the liver from abdominal computed tomography (CT) image is an essential step in some computer assisted clinical interventions, such as surgery planning for living donor liver transplant (LDLT), radiotherapy and volume measurement. For the MICCAI-Sliver07 test set, the calculated mean ratios of volumetric overlap error (VOE), relative volume difference (RVD), average symmetric surface distance (ASD), root mean square symmetric surface distance (RMSD) and maximum symmetric surface distance (MSD) are 5.9%, 2.7%, 0.91%, 1.88 mm, and 18.94 mm, respectively. In the case of 20 3Dircadb data, the calculated mean ratios of VOE, RVD, ASD, RMSD and MSD are 9.36%, 0.97%, 1.89%, 4.15 mm and 33.14 mm, respectively
+Link: https://arxiv.org/abs/1605.03012
+====================================================
+Adverse Events in Robotic Surgery: A Retrospective Study of 14 Years of FDA Data (Homa Alemzadeh - 20 July, 2015)
+We analyzed the adverse events data related to robotic systems and instruments used in minimally invasive surgery, reported to the U.S. FDA MAUDE database from January 2000 to December 2013. During the study period, 144 deaths (1.4% of the 10,624 reports), 1,391 patient injuries (13.1%), and 8,061 device malfunctions (75.9%) were reported. The numbers of injury and death events per procedure have stayed relatively constant since 2007 (mean = 83.4, 95% CI, 74.2-92.7). Surgical specialties, for which robots are extensively used, such as gynecology and urology, had lower number of injuries, deaths, and conversions per procedure than more complex surgeries, such as cardiothoracic and head and neck (106.3 vs. 232.9, Risk Ratio = 2.2, 95% CI, 1.9-2.6). Device and instrument malfunctions, such as falling of burnt/broken pieces of instruments into the patient (14.7%), electrical arcing of instruments (10.5%), unintended operation of instruments (8.6%), system errors (5%), and video/imaging problems (2.6%), constituted a major part of the reports. In 1,104 (10.4%) of the events, the procedure was interrupted to restart the system (3.1%), to convert the procedure to non-robotic techniques (7.3%), or to reschedule it to a later time (2.5%)
+Link: https://arxiv.org/abs/1507.03518
+====================================================
+Performance Evaluation of Machine Learning Algorithms in Post-operative Life Expectancy in the Lung Cancer Patients (Kwetishe Joro Danjuma - 17 April, 2015)
+Multilayer Perceptron, J48, and the Naive Bayes algorithms were used to train and test models on Thoracic Surgery datasets obtained from the University of California Irvine machine learning repository. The comparative analysis shows that multilayer perceptron performed best with classification accuracy of 82.3%, J48 came out second with classification accuracy of 81.8%, and Naive Bayes came out the worst with classification accuracy of 74.4%
+Link: https://arxiv.org/abs/1504.04646
+====================================================
+Robotic Arm for Remote Surgery (Steven Dinger - 22 July, 2013)
+The investigation and testing of remote surgery using a robotic arm is presented. The actuation system, or robotic arm, is based on a lead screw mechanism which can obtain a maximum speed of 0.28 m/s with a 1.5 degree/step for the end-effector. The infrared detection and encoder resolutions are below 0.6 mm/pixel and 0.4 mm respectively, which ensures the robotic arm can operate precisely. The control design results in a rise time of less than 0.5 s, a steady-state error of less than 1 mm and settling time of less than 1.4 s. The system accumulates, over an extended period of time, an error of approximately 4 mm due to inertial effects of the robotic arm
+Link: https://arxiv.org/abs/1307.5641
+====================================================
+First Clinical Experience in Urologic Surgery with a Novel Robotic Lightweight Laparoscope Holder (Jean-Alexandre Long - 31 August, 2012)
+Materials and methods: From March 2010 to September 2010, 20 patients were enrolled prospectively to undergo a laparoscopic surgery using an innovative robotic endoscope holder. Two surgeons performed 6 adrenalectomies, 4 sacrocolpopexies, 5 pyeloplasties, 4 radical prostatectomies and 1 radical nephrectomy. Postoperative clinical outcomes were reviewed at day 1 and 1 month postoperatively. Results: The per-protocol analysis was performed on 17 patients for whom the robot was effectively used for surgery. Median age was 63 years, 10 patients were female (59%). Median BMI was 26.8. Surgical procedures were completed with the robot in 12 cases (71 %). Median number of surgical assistant was 0. Overall set-up time with the robot was 19 min, operative time was 130 min) during which the robot was used 71% of the time. Mean hospital stay was 6.94 days $\pm$ 2.3. Median score regarding the easiness of use was 7. Median pain level was 1.5/10 at day 1 and 0 at 1 month postoperatively. Open conversion was needed in 1 case (6 %) and 4 minor complications occurred in 2 patients (12%)
+Link: https://arxiv.org/abs/1208.6388
+====================================================
+Automaton based detection of affected cells in three dimensional biological system (Jitesh Dundas - 30 June, 2011)
+The best method to import AIA into the body without surgery or injection is to insert small pill like automata, carrying material viz drugs or leukocytes that is needed to correct the infection. The existing nanomedicine models such as obstacle avoidance algorithm based models (Hla K H S et al 2008) and the framework in this model were tested in different simulation based experiments
+Link: https://arxiv.org/abs/1107.0015
+====================================================
+An Effective Method of Image Retrieval using Image Mining Techniques (A. Kannan - 1 December, 2010)
+Especially, [13]Mining Image data is the one of the essential features in this present scenario since image data plays vital role in every aspect of the system such as business for marketing, hospital for surgery, engineering for construction, Web for publication and so on. The index is created by describing the images according to their color characteristics, with compact feature vectors, that represent typical color distributions [12].
+Link: https://arxiv.org/abs/1012.0223
+====================================================
+Assessment of a percutaneous iliosacral screw insertion simulator (J. Tonetti - 12 October, 2009)
+BACKGROUND: Navigational simulator use for specialized training purposes is rather uncommon in orthopaedic and trauma surgery. MATERIALS AND METHODS: We evaluated 23 surgeons' accuracy inserting a guide-wire in a human cadaver experiment, following a pre-established procedure. RESULTS: An average number of 13 X-rays was required for wire implantation by the G1 group. G2 group, assisted by the simulator use, required an average of 10 X-rays. A substantial difference was especially observed within the novice sub-group (N), with an average of 12.75 X-rays for the G1 category and an average of 8.5 X-rays for the G2 category
+Link: https://arxiv.org/abs/0910.2154
+====================================================
+Development of miniaturized light endoscope-holder robot for laparoscopic surgery (Jean-Alexandre Long - 30 November, 2007)
+PURPOSE: We have conducted experiments with an innovatively designed robot endoscope holder for laparoscopic surgery that is small and low cost. The range of vision is 360 degrees with an angle of 160 degrees . The ease of installation of the robot, which takes only 5 minutes, and the easy handling made it possible for 21 of the 23 procedures to be performed without an assistant
+Link: https://arxiv.org/abs/0711.4944
+====================================================
+Forbidden Subgraphs in Connected Graphs (Vlady Ravelomanana - 25 November, 2004)
+We give methods on how to solve this nonlinear recurrence for the first few values of $k$ by means of graph surgery. Limiting distributions are derived for sparse connected $Î¾$-free components that are present when a random graph on $n$ nodes has approximately $\frac{n}{2}$ edges
+Link: https://arxiv.org/abs/cs/0411093
+====================================================
+A Survey on Periocular Biometrics Research (Fernando Alonso-Fernandez - 8 October, 2018)
+A number of aspects are described, including: i) existing databases, ii) algorithms for periocular detection and/or segmentation, iii) features employed for recognition, iv) identification of the most discriminative regions of the periocular area, v) comparison with iris and face modalities, vi) soft-biometrics (gender/ethnicity classification), and vii) impact of gender transformation and plastic surgery on the recognition accuracy. This work is expected to provide an insight of the most relevant issues in periocular biometrics, giving a comprehensive coverage of the existing literature and current state of the art.
+Link: https://arxiv.org/abs/1810.03360
+====================================================
+Patient-Specific 3D Volumetric Reconstruction of Bioresorbable Stents: A Method to Generate 3D Geometries for Computational Analysis of Coronaries Treated with Bioresorbable Stents (Boyi Yang - 8 October, 2018)
+As experts continue to debate the optimal surgery practice for coronary disease - percutaneous coronary intervention (PCI) or coronary aortic bypass graft (CABG) - computational tools may provide a quantitative assessment of each option
+Link: https://arxiv.org/abs/1810.03270
+====================================================
+Unsupervised Trajectory Segmentation and Promoting of Multi-Modal Surgical Demonstrations (Zhenzhou Shao - 1 October, 2018)
+To improve the efficiency of surgical trajectory segmentation for robot learning in robot-assisted minimally invasive surgery, this paper presents a fast unsupervised method using video and kinematic data, followed by a promoting procedure to address the over-segmentation issue. Extensive experiments on a public dataset JIGSAWS show that our method achieves much higher accuracy of segmentation than state-of-the-art methods in the shorter time.
+Link: https://arxiv.org/abs/1810.00599
+====================================================
+Tangent: Automatic differentiation using source-code transformation for dynamically typed array programming (Bart van MerriÃ«nboer - 26 September, 2018)
+These include source-code transformation (SCT), flexible gradient surgery, efficient in-place array operations, higher-order derivatives as well as mixing of forward and reverse mode AD
+Link: https://arxiv.org/abs/1809.09569
+====================================================
+Modern Convex Optimization to Medical Image Analysis (Jing Yuan - 23 September, 2018)
+Over the past two decade, it has been recognized that advanced image processing techniques provide valuable information to physicians for diagnosis, image guided therapy and surgery, and monitoring of the treated organ to the therapy. Many researchers and companies have invested significant efforts in the developments of advanced medical image analysis methods; especially in the two core studies of medical image segmentation and registration, segmentations of organs and lesions are used to quantify volumes and shapes used in diagnosis and monitoring treatment; registration of multimodality images of organs improves detection, diagnosis and staging of diseases as well as image-guided surgery and therapy, registration of images obtained from the same modality are used to monitor progression of therapy
+Link: https://arxiv.org/abs/1809.08734
+====================================================
+A Unified Framework for the Teleoperation of Surgical Robots in Constrained Workspaces (Murilo M. Marinho - 20 September, 2018)
+Many robots and robot control techniques have been developed to aid in more challenging scenarios, such as pediatric surgery and microsurgery. Experiments with two robotic systems, one redundant and one non-redundant, show that smooth teleoperation can be achieved in adult laparoscopy and infant surgery.
+Link: https://arxiv.org/abs/1809.07907
+====================================================
+A Novel Tactile Force Probe for Tissue Stiffness Classification (Behafarid Darvish - 8 August, 2018)
+Thus, this sensor could be used in robot hands and minimally invasive surgery tools to improve their operation.
+Link: https://arxiv.org/abs/1808.02862
+====================================================
+Metal Artifact Reduction in Cone-Beam X-Ray CT via Ray Profile Correction (Sungsoo Ha - 6 August, 2018)
+We describe a data-driven metal artifact reduction (MAR) algorithm for image-guided spine surgery that applies to scenarios in which a prior CT scan of the patient is available. We tested the proposed method with two clinical datasets that were both obtained during spine surgery
+Link: https://arxiv.org/abs/1808.01853
+====================================================
+Principles of perceptual grouping: implications for image-guided surgery (Birgitta Dresp-Langley - 5 August, 2018)
+Visual interfaces for image-guided surgery illustrate the criticality of these two types of perceptual processes for reliable decision making and action
+Link: https://arxiv.org/abs/1808.01640
+====================================================
+Real-time image-based instrument classification for laparoscopic surgery (Sebastian Bodenstedt - 1 August, 2018)
+During laparoscopic surgery, context-aware assistance systems aim to alleviate some of the difficulties the surgeon faces
+Link: https://arxiv.org/abs/1808.00178
+====================================================
+A multi-contrast MRI approach to thalamus segmentation (Veronica Corona - 27 July, 2018)
+Routine interventions to improve symptom severity in movement disorders, for example, often consist of surgery or deep brain stimulation to diencephalic nuclei
+Link: https://arxiv.org/abs/1807.10757
+====================================================
+Affordable Mobile-based Simulator for Robotic Surgery (Piyamate Wisanuvej - 20 July, 2018)
+Robotic surgery and novel surgical instrumentation present great potentials towards safer, more accurate and consistent minimally invasive surgery. All these technological and financial barriers for surgeons and hospitals hinder the adoption of robotic surgery
+Link: https://arxiv.org/abs/1807.08057
+====================================================
+A Dataset of Laryngeal Endoscopic Images with Comparative Study on Convolution Neural Network Based Semantic Segmentation (Max-Heinrich Laves - 18 September, 2018)
+The segmentation can be used for active constraints or autonomous control in robot-assisted laser surgery
+Link: https://arxiv.org/abs/1807.06081
+====================================================
+Deep Reinforcement Learning for Surgical Gesture Segmentation and Classification (Daochang Liu - 21 June, 2018)
+Recognition of surgical gesture is crucial for surgical skill assessment and efficient surgery training. Experiments on JIGSAWS dataset demonstrate that the proposed method performs better than state-of-the-art methods in terms of the edit score and on par in frame-wise accuracy
+Link: https://arxiv.org/abs/1806.08089
+====================================================
+Higher Order of Motion Magnification for Vessel Localisation in Surgical Video (Mirek Janatka - 13 June, 2018)
+Locating vessels during surgery is critical for avoiding inadvertent damage, yet vasculature can be difficult to identify
+Link: https://arxiv.org/abs/1806.04955
+====================================================
+A Recurrent Convolutional Neural Network Approach for Sensorless Force Estimation in Robotic Surgery (Arturo Marban - 22 May, 2018)
+Providing force feedback as relevant information in current Robot-Assisted Minimally Invasive Surgery systems constitutes a technological challenge due to the constraints imposed by the surgical environment
+Link: https://arxiv.org/abs/1805.08545
+====================================================
+Comparative evaluation of instrument segmentation and tracking methods in minimally invasive surgery (Sebastian Bodenstedt - 7 May, 2018)
+The paper presents a comparative validation study of different vision-based methods for instrument segmentation and tracking in the context of robotic as well as conventional laparoscopic surgery. On the other hand, the results of the instrument tracking task show that this is still an open challenge, especially during challenging scenarios in conventional laparoscopic surgery.
+Link: https://arxiv.org/abs/1805.02475
+====================================================
+Dynamic Active Constraints for Surgical Robots using Vector Field Inequalities (Murilo M. Marinho - 30 April, 2018)
+Robotic assistance allows surgeons to perform dexterous and tremor-free procedures, but robotic aid is still underrepresented in procedures with constrained workspaces, such as deep brain neurosurgery and endonasal surgery
+Link: https://arxiv.org/abs/1804.11270
+====================================================
+A generalizable approach for multi-view 3D human pose regression (Abdolrahim Kadkhodamohammadi - 27 April, 2018)
+Our evaluation results show that our approach achieves competitive results on the Human3.6M dataset and significantly improves results on a MV clinical dataset that is the first MV dataset generated from live surgery recordings.
+Link: https://arxiv.org/abs/1804.10462
+====================================================
+Prospects for Theranostics in Neurosurgical Imaging: Empowering Confocal Laser Endomicroscopy Diagnostics via Deep Learning (Mohammadhassan Izadyyazdanabadi - 18 August, 2018)
+Confocal laser endomicroscopy (CLE) is an advanced optical fluorescence imaging technology that has the potential to increase intraoperative precision, extend resection, and tailor surgery for malignant invasive brain tumors because of its subcellular dimension resolution. Significant advances in speed and precision of automated diagnostic frame selection would augment the diagnostic potential of CLE, improve operative workflow and integration into brain tumor surgery
+Link: https://arxiv.org/abs/1804.09873
+====================================================
+Weakly-Supervised Learning-Based Feature Localization in Confocal Laser Endomicroscopy Glioma Images (Mohammadhassan Izadyyazdanabadi - 18 August, 2018)
+This system can improve accuracy and efficiency in characterization of CLE images of glioma tissue during surgery, augment intraoperative decision-making process regarding tumor margin and affect resection rates.
+Link: https://arxiv.org/abs/1804.09428
+====================================================
+Design and implementation of a wireless instrument adapter (Kaori V. Laino - 17 April, 2018)
+The evaluation of new methods for control and manipulation in minimally invasive robotic surgery requires a realistic setup
+Link: https://arxiv.org/abs/1804.05772
+====================================================
+Active Constraints using Vector Field Inequalities for Surgical Robots (Murilo M. Marinho - 11 April, 2018)
+Robotic assistance allows surgeons to perform dexterous and tremor-free procedures, but is still underrepresented in deep brain neurosurgery and endonasal surgery where the workspace is constrained. The proposed method is evaluated in simulations featuring two eight degrees-of-freedom manipulators that were custom-designed for deep neurosurgery
+Link: https://arxiv.org/abs/1804.03883
+====================================================
+Abdominal Aortic Aneurysm Segmentation with a Small Number of Training Subjects (Jian-Qing Zheng - 9 April, 2018)
+The PLZ, DLZ and aortic branches are all reconstructed reasonably, which will facilitate stent graft customization and help shape instantiation for intra-operative surgery navigation in FEVAR.
+Link: https://arxiv.org/abs/1804.02943
+====================================================
+Scalable Integrated Task and Motion Planning from Signal Temporal Logic Specifications (Rafael Rodrigues da Silva - 29 March, 2018)
+It is a problem of practical importance because many safety-critical applications in robotics (e.g., navigation, manipulation, and surgery) and autonomous systems (e.g., unmanned aircraft and self-driving cars) require a correct-by-construction design for complex missions
+Link: https://arxiv.org/abs/1803.11247
+====================================================
+POKs Based Low Energy Authentication Scheme for Implantable Medical Devices (Chenglong Fu - 27 March, 2018)
+Implantable medical devices (IMDs), including pacemakers, implanted cardiac defibrillators and neurostimulator are medical devices implanted into patients' bodies via surgery and are capable of monitoring patient's conditions and delivering therapy
+Link: https://arxiv.org/abs/1803.09890
+====================================================
+A Smoke Removal Method for Laparoscopic Images (Congcong Wang - 22 March, 2018)
+In laparoscopic surgery, image quality can be severely degraded by surgical smoke, which not only introduces error for the image processing (used in image guided surgery), but also reduces the visibility of the surgeons
+Link: https://arxiv.org/abs/1803.08410
+====================================================
+A Feature-Driven Active Framework for Ultrasound-Based Brain Shift Compensation (Jie Luo - 20 March, 2018)
+A reliable Ultrasound (US)-to-US registration method to compensate for brain shift would substantially improve Image-Guided Neurological Surgery. We retrospectively demonstrate our registration framework as a robust and accurate brain shift compensation solution on clinical data acquired during neurosurgery.
+Link: https://arxiv.org/abs/1803.07682
+====================================================
+MIS-SLAM: Real-time Large Scale Dense Deformable SLAM System in Minimal Invasive Surgery Based on Heterogeneous Computing (Jingwei Song - 27 March, 2018)
+In this paper, we propose MIS-SLAM: a complete real-time large scale dense deformable SLAM system with stereoscope in Minimal Invasive Surgery based on heterogeneous computing by making full use of CPU and GPU
+Link: https://arxiv.org/abs/1803.02009
+====================================================
+Low complexity convolutional neural network for vessel segmentation in portable retinal diagnostic devices (M. Hajabdollahi - 21 February, 2018)
+Retinal vessel segmentation provides useful information about vessels and can be used by physicians during intraocular surgery and retinal diagnostic operations
+Link: https://arxiv.org/abs/1802.07804
+====================================================
+Medical Volume Reconstruction Techniques (Wenhui Zhang - 21 February, 2018)
+Medical visualization is the use of computers to create 3D images from medical imaging data sets, almost all surgery and cancer treatment in the developed world relies on it.Volume visualization techniques includes iso-surface visualization, mesh visualization and point cloud visualization techniques, these techniques have revolutionized medicine
+Link: https://arxiv.org/abs/1802.07710
+====================================================
+Planning Nonlinear Access Paths for Temporal Bone Surgery (Johannes Fauser - 21 February, 2018)
+Methods: We define a specific motion planning problem in SE(3) = R3 x SO(3) with notable constraints in computation time and goal pose that reflect the requirements of temporal bone surgery.We then present k-RRT-Connect: two suitable motion planners based on bidirectional Rapidly-exploring Random Trees (RRT) to solve this problem efficiently. We also show that these new algorithms outperform state of the art methods based on circular arcs or Bezier-Splines when applied to this specific problem
+Link: https://arxiv.org/abs/1802.07546
+====================================================
+A cable-driven parallel manipulator with force sensing capabilities for high-accuracy tissue endomicroscopy (Kiyoteru Miyashita - 9 December, 2017)
+The combination of the offered qualities can be advantageous in several ways, with possible applications including: large area endomicroscopy and multi-spectral imaging, micro-surgery, tissue palpation, safe energy-based and conventional tissue resection
+Link: https://arxiv.org/abs/1712.03374
+====================================================
+Multi-stage Suture Detection for Robot Assisted Anastomosis based on Deep Learning (Yang Hu - 8 November, 2017)
+In robotic surgery, task automation and learning from demonstration combined with human supervision is an emerging trend for many new surgical robot platforms
+Link: https://arxiv.org/abs/1711.03179
+====================================================
+Human-centered transparency of grasping via a robot-assisted minimally invasive surgery system (Amit Milstein - 15 May, 2018)
+We investigate grasping of rigid objects in unilateral robot-assisted minimally invasive surgery (RAMIS) in this paper
+Link: https://arxiv.org/abs/1710.05319
+====================================================
+Intelligent Perioperative System: Towards Real-time Big Data Analytics in Surgery Risk Assessment (Zheng Feng - 28 September, 2017)
+Surgery risk assessment is an effective tool for physicians to manage the treatment of patients, but most current research projects fall short in providing a comprehensive platform to evaluate the patients' surgery risk in terms of different complications. The recent evolution of big data analysis techniques makes it possible to develop a real-time platform to dynamically analyze the surgery risk from large-scale patients information
+Link: https://arxiv.org/abs/1709.10192
+====================================================
+Automatic Tool Landmark Detection for Stereo Vision in Robot-Assisted Retinal Surgery (Thomas Probst - 20 November, 2017)
+One such application is robot-assisted retinal microsurgery. In this paper, we solve this problem for the first time using a single pipeline, starting from uncalibrated cameras to reach metric 3D reconstruction and registration, in retinal microsurgery
+Link: https://arxiv.org/abs/1709.05665
+====================================================
+Real-time Geometry-Aware Augmented Reality in Minimally Invasive Surgery (Long Chen - 3 August, 2017)
+In this paper, we present a novel real-time AR framework for MIS that achieves interactive geometric aware augmented reality in endoscopic surgery with stereo views. With the geometric information available, our proposed AR framework is able to interactively add annotations, localisation of tumours and vessels, and measurement labelling with greater precision and accuracy compared with the state of the art approaches.
+Link: https://arxiv.org/abs/1708.01234
+====================================================
+A New Classification Approach for Robotic Surgical Tasks Recognition (Mehrdad J. Bani - 11 July, 2017)
+The proposed technique integrates state-of-the-art data mining and time series analysis methods. Our results demonstrate the strength of the proposed framework in recognizing fundamental robotic surgery tasks.
+Link: https://arxiv.org/abs/1707.09849
+====================================================
+RAIL: Risk-Averse Imitation Learning (Anirban Santara - 29 November, 2017)
+This makes the reliability of GAIL-agents questionable when it comes to deployment in risk-sensitive applications like robotic surgery and autonomous driving
+Link: https://arxiv.org/abs/1707.06658
+====================================================
+Robot Autonomy for Surgery (Michael Yip - 10 July, 2017)
+Autonomous surgery involves having surgical tasks performed by a robot operating under its own will, with partial or no human involvement. There are several important advantages of automation in surgery, which include increasing precision of care due to sub-millimeter robot control, real-time utilization of biosignals for interventional care, improvements to surgical efficiency and execution, and computer-aided guidance under various medical imaging and sensing modalities
+Link: https://arxiv.org/abs/1707.03080
+====================================================
+Providing Effective Real-time Feedback in Simulation-based Surgical Training (Xingjun Ma - 30 June, 2017)
+Experimental results in a temporal bone surgery simulation show that the proposed method is able to extract highly effective feedback at a high level of efficiency.
+Link: https://arxiv.org/abs/1706.10036
+====================================================
+Scalable multimodal convolutional networks for brain tumour segmentation (Lucas Fidon - 25 June, 2017)
+Brain tumour segmentation plays a key role in computer-assisted surgery
+Link: https://arxiv.org/abs/1706.08124
+====================================================
+Computer-aided implant design for the restoration of cranial defects (Xiaojun Chen - 23 June, 2017)
+Patient-specific cranial implants are important and necessary in the surgery of cranial defect restoration
+Link: https://arxiv.org/abs/1706.07649
+====================================================
+Fast Estimation of Haemoglobin Concentration in Tissue Via Wavelet Decomposition (Geoffrey Jones - 22 June, 2017)
+Tissue oxygenation and perfusion can be an indicator for organ viability during minimally invasive surgery, for example allowing real-time assessment of tissue perfusion and oxygen saturation
+Link: https://arxiv.org/abs/1706.07263
+====================================================
+Automatic Localization of Deep Stimulation Electrodes Using Trajectory-based Segmentation Approach (Roger Gomez Nieto - 13 June, 2017)
+In patients suffering from advanced stages of PD, Deep Brain Stimulation neurosurgery (DBS) is the best alternative to medical treatment, especially when they become tolerant to the drugs. This surgery produces a neuronal activity, a result from electrical stimulation, whose quantification is known as Volume of Tissue Activated (VTA)
+Link: https://arxiv.org/abs/1706.04254
+====================================================
+Steering a Particle Swarm Using Global Inputs and Swarm Statistics (Shiva Shahrokhi - 6 June, 2017)
+Microrobotics has the potential to revolutionize many applications including targeted material delivery, assembly, and surgery
+Link: https://arxiv.org/abs/1706.02162
+====================================================
+Expressing Facial Structure and Appearance Information in Frequency Domain for Face Recognition (Chollette C. Olisah - 28 April, 2017)
+The proposed descriptor-based face recognition method is evaluated on three databases: Plastic surgery, LFW, and GT face databases. Through experiments, using a base classifier, the efficacy of the proposed method is demonstrated, especially in the case of plastic surgery database
+Link: https://arxiv.org/abs/1704.08949
+====================================================
+Airway segmentation from 3D chest CT volumes based on volume of interest using gradient vector flow (Qier Meng - 26 April, 2017)
+Although airway segmentation from chest CT volumes is an important task in the computer-aided diagnosis and surgery assistance systems for the chest, complete 3-D airway structure segmentation is a quite challenging task due to its complex tree-like structure
+Link: https://arxiv.org/abs/1704.08030
+====================================================
+Fast PET reconstruction using Multi-scale Fully Convolutional Neural Networks (Jieqing Jiao - 24 April, 2017)
+The proposed msfCNN model can be applied to other dense prediction tasks, and fast msfCNN-based PET reconstruction could facilitate the potential use of molecular imaging in interventional/surgical procedures, where cancer surgery can particularly benefit.
+Link: https://arxiv.org/abs/1704.07244
+====================================================
+Deep Residual Learning for Instrument Segmentation in Robotic Surgery (Daniil Pakhomov - 24 March, 2017)
+Detection, tracking, and pose estimation of surgical instruments are crucial tasks for computer assistance during minimally invasive robotic surgery
+Link: https://arxiv.org/abs/1703.08580
+====================================================
+Augmented Reality for Depth Cues in Monocular Minimally Invasive Surgery (Long Chen - 1 March, 2017)
+One of the major challenges in Minimally Invasive Surgery (MIS) such as laparoscopy is the lack of depth perception. First, we adopt a state-of-the-art visual simultaneous localization and mapping (SLAM) framework - ORB-SLAM - and extend the algorithm for use in MIS scenes for reliable endoscopic camera tracking and salient point mapping
+Link: https://arxiv.org/abs/1703.01243
+====================================================
+Unsupervised temporal context learning using convolutional neural networks for laparoscopic workflow analysis (Sebastian Bodenstedt - 13 February, 2017)
+Computer-assisted surgery (CAS) aims to provide the surgeon with the right type of assistance at the right moment. Such assistance systems are especially relevant in laparoscopic surgery, where CAS can alleviate some of the drawbacks that surgeons incur
+Link: https://arxiv.org/abs/1702.03684
+====================================================
+Stochastic Optimal Control for Modeling Reaching Movements in the Presence of Obstacles: Theory and Simulation (Arun Kumar Singh - 26 March, 2018)
+In many human-in-the-loop robotic applications such as robot-assisted surgery and remote teleoperation, predicting the intended motion of the human operator may be useful for successful implementation of shared control, guidance virtual fixtures, and predictive control. The proposed framework can benefit a variety of applications that require teleoperation in cluttered spaces, including robot-assisted surgery
+Link: https://arxiv.org/abs/1701.01547
+====================================================
+Tinkering Under the Hood: Interactive Zero-Shot Learning with Net Surgery (Vivek Krishnan - 14 December, 2016)
+We consider the task of visual net surgery, in which a CNN can be reconfigured without extra data to recognize novel concepts that may be omitted from the training set
+Link: https://arxiv.org/abs/1612.04901
+====================================================
+Spectral video construction from RGB video: Application to Image Guided Neurosurgery (Md. Abul Hasnat - 14 December, 2016)
+A database of neurosurgery spectral images is used to collect training data and evaluate the estimation accuracy. Although this framework is established for neurosurgery spectral video generation, however, the methodology outlined here would also be applicable to other similar research.
+Link: https://arxiv.org/abs/1612.04809
+====================================================
+Hand Gesture Recognition for Contactless Device Control in Operating Rooms (Ebrahim Nasr-Esfahani - 13 November, 2016)
+There is a great interest for commanding electronic equipment in surgery rooms by hand gesture for reducing the time of surgery and the potential for infection
+Link: https://arxiv.org/abs/1611.04138
+====================================================
+A Markov Decision Process Model to Guide Treatment of Abdominal Aortic Aneurysms (Robert Mattila - 7 November, 2016)
+In particular, the policy suggests that young patients with small aneurysms should undergo surgery
+Link: https://arxiv.org/abs/1611.02177
+====================================================
+Anatomically Constrained Video-CT Registration via the V-IMLOP Algorithm (Seth D. Billings - 25 October, 2016)
+Functional endoscopic sinus surgery (FESS) is a surgical procedure used to treat acute cases of sinusitis and other sinus diseases
+Link: https://arxiv.org/abs/1610.07931
+====================================================
+Experimental Characterization of In Vivo Wireless Communication Channels (A. Fatih Demir - 9 September, 2016)
+In vivo wireless medical devices have a critical role in healthcare technologies due to their continuous health monitoring and noninvasive surgery capabilities
+Link: https://arxiv.org/abs/1610.01516
+====================================================
+Toward a Science of Autonomy for Physical Systems: Service (Peter Allen - 19 September, 2016)
+From robotic vacuums, bomb retrievers, exoskeletons and drones, to robots used in surgery, space exploration, agriculture, home assistance and construction, service robots are building a formidable resume
+Link: https://arxiv.org/abs/1609.05818
+====================================================
+Exploring Differences in Interpretation of Words Essential in Medical Expert-Patient Communication (Javier Navarro - 21 July, 2016)
+In the context of cancer treatment and surgery, quality of life assessment is a crucial part of determining treatment success and viability
+Link: https://arxiv.org/abs/1607.06187
+====================================================
+Inference of Haemoglobin Concentration From Stereo RGB (Geoffrey Jones - 22 June, 2017)
+Multispectral imaging (MSI) can provide information about tissue oxygenation, perfusion and potentially function during surgery
+Link: https://arxiv.org/abs/1607.02936
+====================================================
+Gambler's Ruin Bandit Problem (Nima Akbarzadeh - 28 September, 2016)
+A potential application of the GRBP is optimal medical treatment assignment, in which the continuation action corresponds to a conservative treatment and the terminal action corresponds to a risky treatment such as surgery.
+Link: https://arxiv.org/abs/1605.06651
+====================================================
+Real-time 3D Tracking of Articulated Tools for Robotic Surgery (Menglong Ye - 30 October, 2016)
+In this paper, we propose a real-time 3D tracking method for articulated tools in robotic surgery. The results derived clearly demonstrate the performance advantage of the proposed method when compared to the state-of-the-art.
+Link: https://arxiv.org/abs/1605.03483
+====================================================
+Autonomous Scanning for Endomicroscopic Mosaicing and 3D Fusion (Lin Zhang - 21 October, 2016)
+Robotic-assisted Minimally Invasive Surgery (RMIS) can benefit from the automation of common, repetitive or well-defined but ergonomically difficult tasks
+Link: https://arxiv.org/abs/1604.04137
+====================================================
+Interactive Volumetry Of Liver Ablation Zones (Jan Egger - 21 October, 2015)
+Amongst others, this can enable the treatment of patients who are not eligible for an open surgery
+Link: https://arxiv.org/abs/1512.04582
+====================================================
+A Social Network Framework to Explore Healthcare Collaboration (Uma Srinivasan - 23 September, 2015)
+The framework uses illustrative examples drawn from a data set of patients undergoing hip replacement surgery.
+Link: https://arxiv.org/abs/1509.07578
+====================================================
+Using Bayesian Optimization to Guide Probing of a Flexible Environment for Simultaneous Registration and Stiffness Mapping (Elif Ayvali - 18 September, 2015)
+One of the goals of computer-aided surgery is to match intraoperative data to preoperative images of the anatomy and add complementary information that can facilitate the task of surgical navigation
+Link: https://arxiv.org/abs/1509.05830
+====================================================
+ViSpec: A graphical tool for elicitation of MTL requirements (Bardh Hoxha - 3 August, 2015)
+Finally, we present applications of our tool for defining specifications for operation of robotic surgery and autonomous quadcopter safe operation.
+Link: https://arxiv.org/abs/1508.00618
+====================================================
+Improving Fiber Alignment in HARDI by Combining Contextual PDE Flow with Constrained Spherical Deconvolution (J. M. Portegies - 23 June, 2015)
+This is shown in a clinical application: the reconstruction of the optic radiation for epilepsy surgery planning.
+Link: https://arxiv.org/abs/1506.07062
+====================================================
+Using complex networks towards information retrieval and diagnostics in multidimensional imaging (Soumya Jyoti Banerjee - 1 December, 2015)
+Remarkably, network analyses of thermal imaging time series of contact lens users and patients upon whom Laser-Assisted in situ Keratomileusis (Lasik) surgery has been conducted, exhibit pronounced similarity with results obtained from ADDE patients
+Link: https://arxiv.org/abs/1506.02602
+====================================================
+Visual Information Retrieval in Endoscopic Video Archives (Jennifer Roldan-Carlos - 29 April, 2015)
+A main source for documentation of procedures are still frames from the video, identified and taken during the surgery
+Link: https://arxiv.org/abs/1504.07874
+====================================================
+Systems-theoretic Safety Assessment of Robotic Telesurgical Systems (Homa Alemzadeh - 8 July, 2015)
+Representative hazard scenarios from real robotic surgery incidents reported to the U.S
+Link: https://arxiv.org/abs/1504.07135
+====================================================
+To Make a Robot Secure: An Experimental Analysis of Cyber Security Threats Against Teleoperated Surgical Robots (Tamara Bonaci - 12 May, 2015)
+But rapidly growing applications of teleoperated surgery raise the question; what if the computer systems for these robots are attacked, taken over and even turned into weapons? Our work seeks to answer this question by systematically analyzing possible cyber security attacks against Raven II, an advanced teleoperated robotic surgery system. We anticipate that the majority of attacks against telerobotic surgery will also be relevant to other teleoperated robotic and co-robotic systems.
+Link: https://arxiv.org/abs/1504.04339
+====================================================
+Design method for an anthropomorphic hand able to gesture and grasp (Giulio Cerruti - 5 April, 2015)
+Moreover, a surgery test and the workspace analysis of the whole hand are used to find the best thumb position and orientation according to the hand kinematics and structure
+Link: https://arxiv.org/abs/1504.01151
+====================================================
+Infinite Object Coating in the Amoebot Model (Zahra Derakhshandeh - 10 November, 2014)
+This has many applications like smart materials, autonomous monitoring and repair, and minimal invasive surgery
+Link: https://arxiv.org/abs/1411.2356
+====================================================
+Deep Recurrent Neural Networks for Time Series Prediction (Sharat C. Prasad - 18 December, 2014)
+Extraction of manually engineered complex features and prediction employing them has not allowed small low-power implementations as, to avoid possibility of surgery, extraction of any features that may be required has to be included
+Link: https://arxiv.org/abs/1407.5949
+====================================================
+NUROA: A Numerical Roadmap Algorithm (Reza Iraji - 25 June, 2014)
+Can the best of both worlds be ever achieved, particularly for mission critical applications such as robotic surgery, space explorations, and handling hazardous material? In this paper, we answer affirmatively to that question
+Link: https://arxiv.org/abs/1403.5384
+====================================================
+Crowdsourcing Swarm Manipulation Experiments: A Massive Online User Study with Large Swarms of Simple Robots (Aaron Becker - 15 February, 2014)
+Micro- and nanorobotics have the potential to revolutionize many applications including targeted material delivery, assembly, and surgery
+Link: https://arxiv.org/abs/1402.3653
+====================================================
+A Spline-based Volumetric Data Modeling Framework and Its Applications (Bo Li - 4 August, 2013)
+These properties make our techniques highly preferable in many physically-based applications including mechanical analysis, shape deformation and editing, virtual surgery training, etc.
+Link: https://arxiv.org/abs/1308.0869
+====================================================
+Toward Recovering Complete SRS for Softbody Simulation System and a Sample Application -- a Team 9a SOEN6481 W13 Project Report (Mahin Abbasipour - 26 July, 2013)
+This system has different applications ranging from computer games to surgery training which facilitates the creation and visualization of a certain softbody object
+Link: https://arxiv.org/abs/1307.7096
+====================================================
+Ameba-inspired Self-organizing Particle Systems (Shlomi Dolev - 16 July, 2013)
+Self-organizing particle systems have many interesting applications like coating objects for monitoring and repair purposes and the formation of nano-scale devices for surgery and molecular-scale electronic structures
+Link: https://arxiv.org/abs/1307.4259
+====================================================
+Extending UML for Conceptual Modeling of Annotation of Medical Images (Mouhamed Gaith Ayadi - 3 July, 2013)
+Physicians and radiologists feel better while using annotation techniques for faster remedy in surgery and medicine due to the following reasons: giving details to the patients, searching the present and past records from the larger databases, and giving solutions to them in a faster and more accurate way
+Link: https://arxiv.org/abs/1307.0937
+====================================================
+The $abc$-problem for Gabor systems (Xin-Rong Dai - 29 April, 2013)
+By performing holes-removal surgery for maximal invariant sets to shrink and augmentation operation for a line with marks to expand, we finally parameterize those triples $(a, b, c)$ for which maximal invariant sets are trivial
+Link: https://arxiv.org/abs/1304.7750
+====================================================
+A bird's-eye view of scientific trading: Dependency relations among fields of science (Erjia Yan - 25 November, 2012)
+We find that: (i) the Scientific Trading Impact and Dynamics of Materials Science And Transportation Science have increased; (ii) Biomedical Disciplines, Physics, And Mathematics are significant knowledge exporters, as is Statistics & Probability; (iii) in the social sciences, Economics, Business, Psychology, Management, And Sociology are important knowledge exporters; (iv) Discipline Self-dependence is associated with specialized domains which have ties to professional practice (e.g., Law, Ophthalmology, Dentistry, Oral Surgery & Medicine, Psychology, Psychoanalysis, Veterinary Sciences, And Nursing).
+Link: https://arxiv.org/abs/1211.5820
+====================================================
+Hardware-Accelerated Raycasting: Towards an Effective Brain MRI Visualization (A. M. Adeshina - 21 November, 2012)
+However, in medical diagnosis, finding the exact location of brain tumor or diseases is an important step of surgery / disease management
+Link: https://arxiv.org/abs/1211.5595
+====================================================
+Square-Cut: A Segmentation Algorithm on the Basis of a Rectangle Shape (Jan Egger - 13 March, 2012)
+The ground truth of the vertebrae boundaries were manually extracted by two clinical experts (neurological surgeons) with several years of experience in spine surgery and afterwards compared with the automatic segmentation results of the proposed scheme yielding an average Dice Similarity Coefficient (DSC) of 90.97\pm62.2%.
+Link: https://arxiv.org/abs/1203.2839
+====================================================
+Using a smart phone for information rendering in Computer-Aided Surgery (Le Bellego Gael - 3 May, 2011)
+Computer-aided surgery intensively uses the concept of navigation: after having collected CT data from a patient and transferred them to the operating room coordinate system, the surgical instrument (a puncture needle for instance) is localized and its position is visualized with respect to the patient organs which are not directly visible
+Link: https://arxiv.org/abs/1105.0491
+====================================================
+A Semi-Automatic Graph-Based Approach for Determining the Boundary of Eloquent Fiber Bundles in the Human Brain (Miriam H. A. Bauer - 8 March, 2011)
+To minimize the risk of neural deficits during brain surgery as tumor resection (e.g
+Link: https://arxiv.org/abs/1103.1475
+====================================================
+Application Of Fuzzy System In Segmentation Of MRI Brain Tumor (Mrigank Rajya - 24 May, 2010)
+It becomes more important whi le typically dealing with medical images where presurgery and post surgery decisions are required for the purpose of initiating and speeding up the recovery process
+Link: https://arxiv.org/abs/1005.4292
+====================================================
+Urologic robots and future directions (Pierre Mozer - 12 December, 2008)
+PURPOSE OF REVIEW: Robot-assisted laparoscopic surgery in urology has gained immense popularity with the daVinci system, but a lot of research teams are working on new robots. It is expected that improvements for a remote system could be augmented in reality, with haptic feedback, size reduction, and development of new tools for natural orifice translumenal endoscopic surgery
+Link: https://arxiv.org/abs/0812.2313
+====================================================
+3D/4D ultrasound registration of bone (Jonathan Schers - 18 January, 2008)
+This paper presents a method to reduce the invasiveness of Computer Assisted Orthopaedic Surgery (CAOS) using ultrasound
+Link: https://arxiv.org/abs/0801.2823
+====================================================
+Medical image computing and computer-aided medical interventions applied to soft tissues. Work in progress in urology (Jocelyne Troccaz - 13 December, 2007)
+Mini-invasive digestive surgery was probably one of the first fields where soft tissues were handled through the development of simulators, tracking of anatomical structures and specific assistance robots. Indeed, laparoscopic surgery, new tumour destruction techniques (e.g
+Link: https://arxiv.org/abs/0712.2100
+====================================================
+Fluoroscopy-based navigation system in spine surgery (Philippe Merloz - 28 November, 2007)
+The fluoroscopy-based (two-dimensional) navigation system for pedicle screw insertion is a safe and reliable procedure for surgery in the lower thoracic and lumbar spine.
+Link: https://arxiv.org/abs/0711.4516
+====================================================
+Mise en place de scÃ©narios pour la conception d'outils en Chirurgie Minimalement Invasive (Guillaume Thomann - 14 November, 2007)
+Nowadays, more and more surgical interventions are carried out in Minimally Invasive Surgery, to make the post-operative constraints less painful for the patient
+Link: https://arxiv.org/abs/0711.2239
+====================================================
+Robotic Applications in Cardiac Surgery (Alan P. Kypson - 11 December, 2004)
+Initially, long instruments without pivot points were used, however, more recent robotic telemanipulation systems have been applied that allow for improved dexterity, enabling the surgeon to perform cardiac surgery from a distance not previously possible. In this rapidly evolving field, we review the recent history and clinical results of using robotics in cardiac surgery.
+Link: https://arxiv.org/abs/cs/0412055
+====================================================

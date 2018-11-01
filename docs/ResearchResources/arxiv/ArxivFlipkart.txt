@@ -1,0 +1,39 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Did We Get It Right? Predicting Query Performance in E-commerce Search (Rohan Kumar - 1 August, 2018)
+We study large-scale user interaction logs from Flipkart's search engine, analyze behavioral patterns and build models to classify queries based on user behavior signals. Our classifier is able to achieve an average AUC of 0.75 on a held-out test set.
+Link: https://arxiv.org/abs/1808.00239
+====================================================
+MRNet-Product2Vec: A Multi-task Recurrent Neural Network for Product Embeddings (Arijit Biswas - 21 September, 2017)
+E-commerce websites such as Amazon, Alibaba, Flipkart, and Walmart sell billions of products. We demonstrate that they are almost as good as sparse and extremely high-dimensional TF-IDF representation in spite of having less than 3% of the TF-IDF dimension
+Link: https://arxiv.org/abs/1709.07534
+====================================================
+FairJudge: Trustworthy User Prediction in Rating Platforms (Srijan Kumar - 30 March, 2017)
+We reported the 100 most unfair users in the Flipkart network to their review fraud investigators, and 80 users were correctly identified (80% accuracy)
+Link: https://arxiv.org/abs/1703.10545
+====================================================
+BIRDNEST: Bayesian Inference for Ratings-Fraud Detection (Bryan Hooi - 7 March, 2016)
+Experiments on real data show that BIRDNEST successfully spots review fraud in large, real-world graphs: the 50 most suspicious users of the Flipkart platform flagged by our algorithm were investigated and all identified as fraudulent by domain experts at Flipkart.
+Link: https://arxiv.org/abs/1511.06030
+====================================================
+EdgeCentric: Anomaly Detection in Edge-Attributed Networks (Neil Shah - 18 November, 2015)
+Our work has a number of notable contributions, including (a) formulation: while most other graph-based anomaly detection works use structural graph connectivity or node information, we focus on the new problem of leveraging edge information, (b) methodology: we introduce EdgeCentric, an intuitive and scalable compression-based approach for detecting edge-attributed graph anomalies, and (c) practicality: we show that EdgeCentric successfully spots numerous such anomalies in several large, edge-attributed real-world graphs, including the Flipkart e-commerce graph with over 3 million product reviews between 1.1 million users and 545 thousand products, where it achieved 0.87 precision over the top 100 results.
+Link: https://arxiv.org/abs/1510.05544
+====================================================
+ARMDN: Associative and Recurrent Mixture Density Networks for eRetail Demand Forecasting (Srayanta Mukherjee - 16 March, 2018)
+We experiment on a dataset of an year's worth of data over tens-of-thousands of products from Flipkart
+Link: https://arxiv.org/abs/1803.03800
+====================================================
+eCommerceGAN : A Generative Adversarial Network for E-commerce (Ashutosh Kumar - 10 January, 2018)
+E-commerce companies such as Amazon, Alibaba and Flipkart process billions of orders every year
+Link: https://arxiv.org/abs/1801.03244
+====================================================
+Deep Learning based Large Scale Visual Recommendation and Search for E-Commerce (Devashish Shankar - 7 March, 2017)
+We then share the design decisions and trade-offs made while deploying the model to power Visual Recommendations across a catalog of 50M products, supporting 2K queries a second at Flipkart, India's largest e-commerce company
+Link: https://arxiv.org/abs/1703.02344
+====================================================

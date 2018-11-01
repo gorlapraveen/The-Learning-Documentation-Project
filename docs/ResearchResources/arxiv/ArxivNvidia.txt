@@ -1,0 +1,1595 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+FermiNets: Learning generative machines to generate efficient neural networks via generative synthesis (Alexander Wong - 16 September, 2018)
+Experimental results for image classification, semantic segmentation, and object detection tasks illustrate the efficacy of generative synthesis in producing generators that automatically generate highly efficient deep neural networks (which we nickname FermiNets) with higher model efficiency and lower computational costs (reaching >10x more efficient and fewer multiply-accumulate operations than several tested state-of-the-art networks), as well as higher energy efficiency (reaching >4x improvements in image inferences per joule consumed on a Nvidia Tegra X2 mobile processor)
+Link: https://arxiv.org/abs/1809.05989
+====================================================
+DAC-SDC Low Power Object Detection Challenge for UAV Applications (Xiaowei Xu - 31 August, 2018)
+The dataset includes 95 categories and 150k images, and the hardware platforms include Nvidia's TX2 and Xilinx's PYNQ Z1. DAC-SDC'18 attracted more than 110 entries from 12 countries
+Link: https://arxiv.org/abs/1809.00110
+====================================================
+Implementing Strassen's Algorithm with CUTLASS on NVIDIA Volta GPUs (Jianyu Huang - 23 August, 2018)
+Overall, our 1-level Strassen can achieve up to 1.11x speedup with a crossover point as small as 1,536 compared to cublasSgemm on a NVIDIA Tesla V100 GPU. With additional workspace, our 2-level Strassen can achieve 1.19x speedup with a crossover point at 7,680.
+Link: https://arxiv.org/abs/1808.07984
+====================================================
+libhclooc: Software Library Facilitating Out-of-core Implementations of Accelerator Kernels on Hybrid Computing Platforms (Daniel Hanlon - 15 August, 2018)
+We show that it suffers from a maximum overhead of 10%, 4%, and 8% (due to abstraction) compared to the state-of-the-art optimised implementations for Nvidia K40c GPU, Nvidia P100 PCIe GPU, and Intel Xeon Phi 3120P respectively. We also show that using libhclooc API reduces the number of lines of code (LOC) by 75% thereby drastically improving programmer productivity.
+Link: https://arxiv.org/abs/1808.05056
+====================================================
+Large Scale Language Modeling: Converging on 40GB of Text in Four Hours (Raul Puri - 10 August, 2018)
+By utilizing mixed precision arithmetic and a 32k batch size distributed across 128 NVIDIA Tesla V100 GPUs, we are able to train a character-level 4096-dimension multiplicative LSTM (mLSTM) for unsupervised text reconstruction over 3 epochs of the 40 GB Amazon Reviews dataset in four hours. Since our model converges over the Amazon Reviews dataset in hours, and our compute requirement of 128 Tesla V100 GPUs, while substantial, is commercially available, this work opens up large scale unsupervised NLP training to most commercial applications and deep learning researchers
+Link: https://arxiv.org/abs/1808.01371
+====================================================
+BiSeNet: Bilateral Segmentation Network for Real-time Semantic Segmentation (Changqian Yu - 2 August, 2018)
+Specifically, for a 2048x1024 input, we achieve 68.4% Mean IOU on the Cityscapes test dataset with speed of 105 FPS on one NVIDIA Titan XP card, which is significantly faster than the existing methods with comparable performance.
+Link: https://arxiv.org/abs/1808.00897
+====================================================
+Energy-based Tuning of Convolutional Neural Networks on Multi-GPUs (Francisco M. Castro - 1 August, 2018)
+In most of the real scenarios, the roadmap to improve results relies on CNN settings involving brute force computation, and researchers have lately proven Nvidia GPUs to be one of the best hardware counterparts for acceleration. We evaluate energy consumption on four different networks based on the two most popular ones (ResNet/AlexNet): ResNet (167 layers), a 2D CNN (15 layers), a CaffeNet (25 layers) and a ResNetIm (94 layers) using batch sizes of 64, 128 and 256, and then correlate those with speed-up and accuracy to determine optimal settings. Experimental results on a multi-GPU server endowed with twin Maxwell and twin Pascal Titan X GPUs demonstrate that energy correlates with performance and that Pascal may have up to 40% gains versus Maxwell
+Link: https://arxiv.org/abs/1808.00286
+====================================================
+CRUM: Checkpoint-Restart Support for CUDA's Unified Memory (Rohan Garg - 31 July, 2018)
+Therefore, checkpointing of UVM will become increasingly important, especially as NVIDIA CUDA continues to gain wider popularity: 87 of the top 500 supercomputers in the latest listings are GPU-accelerated, with a current trend of ten additional GPU-based supercomputers each year.
+Link: https://arxiv.org/abs/1808.00117
+====================================================
+StereoNet: Guided Hierarchical Refinement for Real-Time Edge-Aware Depth Prediction (Sameh Khamis - 23 July, 2018)
+This paper presents StereoNet, the first end-to-end deep architecture for real-time stereo matching that runs at 60 fps on an NVidia Titan X, producing high-quality, edge-preserved, quantization-free disparity maps
+Link: https://arxiv.org/abs/1807.08865
+====================================================
+Real-Time Stereo Vision for Road Surface 3-D Reconstruction (Rui Fan - 28 August, 2018)
+The proposed algorithm is implemented on an NVIDIA GTX 1080 GPU for the real-time purpose. The experimental results illustrate that the reconstruction accuracy is around 3 mm.
+Link: https://arxiv.org/abs/1807.07433
+====================================================
+A Dataset of Laryngeal Endoscopic Images with Comparative Study on Convolution Neural Network Based Semantic Segmentation (Max-Heinrich Laves - 18 September, 2018)
+The highest efficiency is achieved by ENet with a mean inference time of 9.22 ms per image on an NVIDIA GeForce GTX 1080 Ti GPU
+Link: https://arxiv.org/abs/1807.06081
+====================================================
+Numerical calculation of high-order QED contributions to the electron anomalous magnetic moment (Sergey Volkov - 13 July, 2018)
+A realization of the method on the graphics accelerator NVidia Tesla K80 is described. A comparison of the contributions of 6 gauge invariant 4-loop graph classes with known analytical values is presented. Moreover, the contributions of 78 sets of 4-loop graphs for comparison with the direct subtraction on the mass shell are presented
+Link: https://arxiv.org/abs/1807.05281
+====================================================
+Real-time stereo vision-based lane detection system (Rui Fan - 8 July, 2018)
+The proposed system is implemented on a heterogeneous system which consists of an Intel Core i7-4720HQ CPU and a NVIDIA GTX 970M GPU. A processing speed of 143 fps has been achieved, which is over 38 times faster than our previous work. Also, in order to evaluate the detection precision, we tested 2495 frames with 5361 lanes from the KITTI database (1637 lanes more than our previous experiment). It is shown that the overall successful detection rate is improved from 98.7% to 99.5%.
+Link: https://arxiv.org/abs/1807.02752
+====================================================
+LPRNet: License Plate Recognition via Deep Neural Networks (Sergey Zherzdev - 27 June, 2018)
+Our approach is inspired by recent breakthroughs in Deep Neural Networks, and works in real-time with recognition accuracy up to 95% for Chinese license plates: 3 ms/plate on nVIDIA GeForce GTX 1080 and 1.3 ms/plate on Intel Core i7-6700K CPU
+Link: https://arxiv.org/abs/1806.10447
+====================================================
+Improving tasks throughput on accelerators using OpenCL command concurrency (A. J. LÃ¡zaro-MuÃ±oz - 1 July, 2018)
+The execution model has been validated in AMD, NVIDIA, and Xeon Phi devices using synthetic benchmarks. Concretely, our heuristic obtains, on average for all the devices, between 84\% and 96\% of the improvement achieved by the best execution order.
+Link: https://arxiv.org/abs/1806.10113
+====================================================
+A model-driven approach for a new generation of adaptive libraries (Marco Cianfriglia - 19 June, 2018)
+We present experimental results for two GPU architectures and show significant performance gains of up to 3x (on a high-end NVIDIA Pascal GPU) and 2.5x (on an embedded ARM Mali GPU) when compared to a traditionally optimized library.
+Link: https://arxiv.org/abs/1806.07060
+====================================================
+EcoRNN: Fused LSTM RNN Implementation with Data Layout Optimization (Bojian Zheng - 22 May, 2018)
+Although cuDNN, NVIDIA's deep learning library, can accelerate performance by around 2x, it is closed-source and inflexible, hampering further research and performance improvements in frameworks, such as PyTorch, that use cuDNN as their backend. We show that (1) fusing tiny GPU kernels and (2) applying data layout optimization can give us a maximum performance boost of 3x over MXNet default and 1.5x over cuDNN implementations
+Link: https://arxiv.org/abs/1805.08899
+====================================================
+Streaming MANN: A Streaming-Based Inference for Energy-Efficient Memory-Augmented Neural Networks (Seongsik Park - 21 May, 2018)
+The experimental results showed that the performance efficiency per energy (FLOPS/kJ) of the Streaming MANN increased by a factor of up to about 126 compared to the results of NVIDIA TITAN V, and up to 140 if inference thresholding is applied.
+Link: https://arxiv.org/abs/1805.07978
+====================================================
+RLFC: Random Access Light Field Compression using Key Views and Bounded Integer Encoding (Srihari Pratapa - 12 July, 2018)
+The decompression times for decoding the blocks of LFI are 1 - 3 microseconds per channel on NVIDIA GTX-960 and we can render the LFIs at 100 fps
+Link: https://arxiv.org/abs/1805.06019
+====================================================
+Motion Fused Frames: Data Level Fusion Strategy for Hand Gesture Recognition (Okan KÃ¶pÃ¼klÃ¼ - 26 April, 2018)
+Our approach obtains very competitive performance on Jester and ChaLearn benchmarks with the classification accuracies of 96.28% and 57.4%, respectively, while achieving state-of-the-art performance with 84.7% accuracy on NVIDIA benchmark.
+Link: https://arxiv.org/abs/1804.07187
+====================================================
+Are FPGAs Suitable for Edge Computing? (Saman Biookaghazadeh - 17 April, 2018)
+This goal is accomplished by conducting comparison experiments on an Intel Arria 10 GX1150 FPGA and an Nvidia Tesla K40m GPU. The experiment results imply that the key advantages of adopting FPGAs for edge computing over GPUs are three-fold: 1) FPGAs can provide a consistent throughput invariant to the size of application workload, which is critical to aggregating individual service requests from various IoT sensors; (2) FPGAs offer both spatial and temporal parallelism at a fine granularity and a massive scale, which guarantees a consistently high performance for accelerating both high-concurrency and high-dependency algorithms; and (3) FPGAs feature 3-4 times lower power consumption and up to 30.7 times better energy efficiency, offering better thermal stability and lower energy cost per functionality.
+Link: https://arxiv.org/abs/1804.06404
+====================================================
+A GPU implementation of the Correlation Technique for Real-time Fourier Domain Pulsar Acceleration Searches (Sofia Dimoudi - 15 April, 2018)
+Two approaches are compared: the first uses the NVIDIA cuFFT library for applying Fast Fourier Transforms (FFTs) on the GPU, and the second contains a custom FFT implementation in GPU shared memory. We find that the FFT shared memory implementation performs between 1.5 and 3.2 times faster than our cuFFT-based application for smaller but sufficient filter sizes. It is also 4 to 6 times faster than the existing GPU and OpenMP implementations of FDAS
+Link: https://arxiv.org/abs/1804.05335
+====================================================
+Î¼-cuDNN: Accelerating Deep Learning Frameworks with Micro-Batching (Yosuke Oyama - 13 April, 2018)
+NVIDIA cuDNN is a low-level library that provides GPU kernels frequently used in deep learning. We demonstrate the effectiveness of Î¼-cuDNN over two frameworks, Caffe and TensorFlow, achieving speedups of 1.63x for AlexNet and 1.21x for ResNet-18 on P100-SXM2 GPU
+Link: https://arxiv.org/abs/1804.04806
+====================================================
+Fine-Grained Energy and Performance Profiling framework for Deep Convolutional Neural Networks (Crefeda Faviola Rodrigues - 14 May, 2018)
+In this work, we introduce a benchmarking framework called "SyNERGY" to measure the energy and time of 11 representative Deep Convolutional Neural Networks on embedded platforms such as NVidia Jetson TX1. In addition, we build an initial multi-variable linear regression model to predict energy consumption of unseen neural network models based on the number of SIMD instructions executed and main memory accesses of the CPU cores of the TX1 with an average relative test error rate of 8.04 +/- 5.96 %. Our predicted results demonstrate 7.08 +/- 6.0 % average relative error over actual energy measurements of all 11 networks tested, except MobileNet. By including MobileNet the average relative test error increases to 17.33 +/- 12.2 %.
+Link: https://arxiv.org/abs/1803.11151
+====================================================
+Regain Sliding super point from distributed edge routers by GPU (Jie Xu - 29 March, 2018)
+A real world core network traffic is used to evaluate the performance of this sliding super point detection algorithm on a cheap GPU, Nvidia GTX950 with 4 GB graphic memory
+Link: https://arxiv.org/abs/1803.11036
+====================================================
+SRLA: A real time sliding time window super point cardinality estimation algorithm for high speed network based on GPU (Jie Xu - 4 July, 2018)
+Experiments on real world traffics which have 40 GB/s bandwidth show that SRLA successfully estimates super point's cardinality within 100 milliseconds under sliding time window when running on a low cost Nvidia GPU, GTX650 with 1 GB memory. The estimating time of SRLA is much smaller than that of other algorithms which consumes more than 2000 milliseconds under discrete time window.
+Link: https://arxiv.org/abs/1803.10369
+====================================================
+Face Recognition with Hybrid Efficient Convolution Algorithms on FPGAs (Chuanhao Zhuge - 23 March, 2018)
+Our implementation on a Xilinx Ultrascale device achieves 3.75x latency speedup compared to a high-end NVIDIA GPU and surpasses previous FPGA results significantly.
+Link: https://arxiv.org/abs/1803.09004
+====================================================
+GossipGraD: Scalable Deep Learning using Gossip Communication based Asynchronous Gradient Descent (Jeff Daily - 15 March, 2018)
+Specifically, for ResNet50, GossipGraD is able to achieve ~100% compute efficiency using 128 NVIDIA Pascal P100 GPUs - while matching the top-1 classification accuracy published in literature.
+Link: https://arxiv.org/abs/1803.05880
+====================================================
+NVIDIA Tensor Core Programmability, Performance & Precision (Stefano Markidis - 11 March, 2018)
+The NVIDIA Tesla V100 accelerator, featuring the Volta microarchitecture, provides 640 Tensor Cores with a theoretical peak performance of 125 Tflops/s in mixed precision
+Link: https://arxiv.org/abs/1803.04014
+====================================================
+ShuffleSeg: Real-time Semantic Segmentation Network (Mostafa Gamal - 15 March, 2018)
+ShuffleSeg runs at 15.7 frames per second on NVIDIA Jetson TX2, which makes it of great potential for real-time applications.
+Link: https://arxiv.org/abs/1803.03816
+====================================================
+Driving Scene Perception Network: Real-time Joint Detection, Depth Estimation and Semantic Segmentation (Liangfu Chen - 10 March, 2018)
+Hence, the resulting network model uses less than 850 MiB of GPU memory and achieves 14.0 fps on NVIDIA GeForce GTX 1080 with a 1024x512 input image, and both precision and efficiency have been improved over combination of single tasks.
+Link: https://arxiv.org/abs/1803.03778
+====================================================
+CNN-Based Automatic Urinary Particles Recognition (Rui Kang - 5 March, 2018)
+We comprehensively evaluate these methods on a dataset consisting of 5,376 annotated images corresponding to 7 categories of urine particles, i.e., erythrocyte, leukocyte, epithelial cell, crystal, cast, mycete, epithelial nuclei, and obtain a best mAP (mean average precision) of 84.1% while taking only 72 ms per image on a NVIDIA Titan X GPU.
+Link: https://arxiv.org/abs/1803.02699
+====================================================
+Computational Results for the Higgs Boson Equation in the de Sitter Spacetime (Andras Balogh - 3 March, 2018)
+The numerical code for the three space di- mensional equation has been programmed in CUDA Fortran and was performed on NVIDIA Tesla K40c GPU Accelerator. Our numerical studies suggest several previously not known properties of the solution for which theoretical proofs do not exist yet: 1. smooth solution exists for all time if the initial conditions are compactly supported and smooth; 2. under some conditions no bubbles form; 3
+Link: https://arxiv.org/abs/1803.01291
+====================================================
+New features of parallel implementation of N-body problems on GPU (S. S. Khrapov - 3 March, 2018)
+We showed that the double-precision simulations are slower by a factor of~$1.7$ than the single-precision runs performed on Nvidia Tesla K-Series processors. For instance, after $10^4$ integration time steps for the single-precision numbers the total energy, momentum, and angular momentum of a system with $N = 2^{20}$ conserve with accuracy of $10^{-3}$, $10^{-2}$ and $10^{-3}$ respectively, in comparison to the double-precision simulations these values are $10^{-5}$, $10^{-15}$ and $10^{-13}$, respectively
+Link: https://arxiv.org/abs/1803.01190
+====================================================
+CytonMT: an Efficient Neural Machine Translation Open-source Toolkit Implemented in C++ (Xiaolin Wang - 2 June, 2018)
+The toolkit is built from scratch only using C++ and NVIDIA's GPU-accelerated libraries. Benchmarks show that CytonMT accelerates the training speed by 64.5% to 110.8% on neural networks of various sizes, and achieves competitive translation quality.
+Link: https://arxiv.org/abs/1802.07170
+====================================================
+New High Performance GPGPU Code Transformation Framework Applied to Large Production Weather Prediction Code (Michel MÃ¼ller - 16 February, 2018)
+In a full scale production run, using an ASUCA grid with 1581 x 1301 x 58 cells and real world weather data in 2km resolution, 24 NVIDIA Tesla P100 running the Hybrid Fortran based GPU port are shown to replace more than 50 18-core Intel Xeon Broadwell E5-2695 v4 running the reference implementation - an achievement comparable to more invasive GPGPU rewrites of other weather models.
+Link: https://arxiv.org/abs/1802.05839
+====================================================
+Input-Aware Auto-Tuning of Compute-Bound HPC Kernels (Philippe Tillet - 14 February, 2018)
+Numerical experiments on the NVIDIA Maxwell and Pascal architectures show up to 3x performance gains over both cuBLAS and cuDNN after only a few hours of auto-tuning.
+Link: https://arxiv.org/abs/1802.05371
+====================================================
+GPU implementation of algorithm SIMPLE-TS for calculation of unsteady, viscous, compressible and heat-conductive gas flows (Kiril S. Shterev - 12 February, 2018)
+The tests show that overall speedup of AMD Radeon R9 280X is up to 102x compared to Intel Core i5-4690 core and up to 184x compared to Intel Core i7-920 core, while speedup of NVIDIA Tesla M2090 is up to 11x compared to Intel Core i5-4690 core and up to 20x compared to Intel Core i7-920 core. It requires 1[GB] global memory for 5.9 million finite volumes that are two times less compared to C++ CPU code
+Link: https://arxiv.org/abs/1802.04243
+====================================================
+Fusarium Damaged Kernels Detection Using Transfer Learning on Deep Neural Network Architecture (MÃ¡rcio Nicolau - 31 January, 2018)
+The present work shows the application of transfer learning for a pre-trained deep neural network (DNN), using a small image dataset ($\approx$ 12,000) on a single workstation with enabled NVIDIA GPU card that takes up to 1 hour to complete the training task and archive an overall average accuracy of $94.7\%$. The DNN presents a $20\%$ score of misclassification for an external test dataset. The accuracy of the proposed methodology is equivalent to ones using HSI methodology $(81\%-91\%)$ used for the same task, but with the advantage of being independent on special equipment to classify wheat kernel for FHB symptoms.
+Link: https://arxiv.org/abs/1802.00030
+====================================================
+Real-time photoacoustic projection imaging using deep learning (Johannes Schwab - 30 August, 2018)
+As demonstrated by simulation and experiment, the DALnet is capable of producing high-resolution projection images of 3D structures at a frame rate of over 50 images per second on a standard PC with NVIDIA TITAN Xp GPU
+Link: https://arxiv.org/abs/1801.06693
+====================================================
+StressedNets: Efficient Feature Representations via Stress-induced Evolutionary Synthesis of Deep Neural Networks (Mohammad Javad Shafiee - 16 January, 2018)
+Experimental results demonstrate the efficacy of the proposed framework to synthesize StressedNets with significant improvement in network architecture efficiency (e.g., 40x for AlexNet and 33x for YOLOv2) and speed improvements (e.g., 5.5x inference speed-up for YOLOv2 on an Nvidia Tegra X1 mobile processor).
+Link: https://arxiv.org/abs/1801.05387
+====================================================
+Inter-thread Communication in Multithreaded, Reconfigurable Coarse-grain Arrays (Dani Voitsechov - 16 January, 2018)
+Our simulations of Rodinia benchmarks running on the new system show that direct inter-thread communication provides an average speedup of 4.5x (13.5x max) and reduces system power by an average of 7x (33x max), when compared to an equivalent Nvidia GPGPU.
+Link: https://arxiv.org/abs/1801.05178
+====================================================
+DeepPicar: A Low-cost Deep Neural Network-based Autonomous Car (Michael G. Bechtel - 29 July, 2018)
+DeepPicar is a small scale replication of a real self-driving car called DAVE-2 by NVIDIA. DeepPicar uses the same network architecture---9 layers, 27 million connections and 250K parameters---and can drive itself in real-time using a web camera and a Raspberry Pi 3 quad-core platform. Using DeepPicar, we analyze the Pi 3's computing capabilities to support end-to-end deep learning based real-time control of autonomous vehicles. We find that all tested platforms, including the Pi 3, are capable of supporting the CNN-based real-time control, from 20 Hz up to 100 Hz, depending on hardware platform. To protect the CNN workload, we also evaluate state-of-the-art cache partitioning and memory bandwidth throttling techniques on the Pi 3
+Link: https://arxiv.org/abs/1712.08644
+====================================================
+Accelerating the computation of FLAPW methods on heterogeneous architectures (Davor DavidoviÄ - 19 December, 2017)
+Our final code attains over 70\% of the architectures' peak performance, and outperforms Nvidia's and Intel's libraries
+Link: https://arxiv.org/abs/1712.07206
+====================================================
+Detection and Attention: Diagnosing Pulmonary Lung Cancer from CT by Imitating Physicians (Ning Li - 14 December, 2017)
+We evaluated our method in open-source LUNA16 dataset which contains 888 CT scans, and obtained state-of-the-art result (Free-Response Receiver Operating Characteristic score of 0.892) with detection speed (end to end within 20 seconds per patient on a single NVidia GTX 1080) much higher than existing methods.
+Link: https://arxiv.org/abs/1712.05114
+====================================================
+AdaBatch: Adaptive Batch Sizes for Training Deep Neural Networks (Aditya Devarakonda - 13 February, 2018)
+Our results demonstrate that learning with adaptive batch sizes can improve performance by factors of up to 6.25 on 4 NVIDIA Tesla P100 GPUs while changing accuracy by less than 1% relative to training with fixed batch sizes.
+Link: https://arxiv.org/abs/1712.02029
+====================================================
+Towards Practical Verification of Machine Learning: The Case of Computer Vision Systems (Kexin Pei - 15 December, 2017)
+VeriVis is able to find thousands of safety violations in fifteen state-of-the-art computer vision systems including ten Deep Neural Networks (DNNs) such as Inception-v3 and Nvidia's Dave self-driving system with thousands of neurons as well as five commercial third-party vision APIs including Google vision and Clarifai for twelve different safety properties. Furthermore, VeriVis can successfully verify local safety properties, on average, for around 31.7% of the test images. VeriVis finds up to 64.8x more violations than existing gradient-based methods that, unlike VeriVis, cannot ensure non-existence of any violations. Finally, we show that retraining using the safety violations detected by VeriVis can reduce the average number of violations up to 60.2%.
+Link: https://arxiv.org/abs/1712.01785
+====================================================
+FSSD: Feature Fusion Single Shot Multibox Detector (Zuoxin Li - 16 May, 2018)
+On the Pascal VOC 2007 test, our network can achieve 82.7 mAP (mean average precision) at the speed of 65.8 FPS (frame per second) with the input size 300$\times$300 using a single Nvidia 1080Ti GPU
+Link: https://arxiv.org/abs/1712.00960
+====================================================
+Embedded Real-Time Fall Detection Using Deep Learning For Elderly Care (Hyunwoo Lee - 29 November, 2017)
+Our approach achieved 95.5% on the F1-score and operates at 31.25 FPS on NVIDIA Jetson TX1 board.
+Link: https://arxiv.org/abs/1711.11200
+====================================================
+Improved Acceleration of the GPU Fourier Domain Acceleration Search Algorithm (Karel AdÃ¡mek - 29 November, 2017)
+Our new improved convolution code which uses our custom GPU FFT code is between 2.5 and 3.9 times faster the than our cuFFT-based implementation (on an NVIDIA P100) and allows for a wider range of filter sizes then our previous version. By using this new version of our convolution code in FDAS we have achieved 44% performance increase over our previous best implementation. It is also approximately 8 times faster than the existing PRESTO GPU implementation of FDAS (Luo 2013). 2002), a many-core accelerated time-domain signal processing library for radio astronomy.
+Link: https://arxiv.org/abs/1711.10855
+====================================================
+Implementing implicit OpenMP data sharing on GPUs (Gheorghe-Teodor Bercea - 28 November, 2017)
+The evaluation is carried out by offloading to K40 and P100 NVIDIA GPUs. For scalar variables the pressure on shared memory is relatively low, under 26\% of shared memory utilization for the K40, and does not negatively impact occupancy
+Link: https://arxiv.org/abs/1711.10413
+====================================================
+E-PUR: An Energy-Efficient Processing Unit for Recurrent Neural Networks (Franyell Silfa - 20 November, 2017)
+Compared to a modern mobile SoC, an NVIDIA Tegra X1, E-PUR provides an average energy reduction of 92x.
+Link: https://arxiv.org/abs/1711.07480
+====================================================
+SquishedNets: Squishing SqueezeNet further for edge device scenarios via deep evolutionary synthesis (Mohammad Javad Shafiee - 20 November, 2017)
+Furthermore, the SquishedNets are still able to achieve accuracies ranging from 81.2% to 77%, and able to process at speeds of 156 images/sec to as much as 256 images/sec on a Nvidia Jetson TX1 embedded chip
+Link: https://arxiv.org/abs/1711.07459
+====================================================
+Bitmap Filter: Speeding up Exact Set Similarity Joins with Bitwise Operations (Edans F. O. Sandes - 20 November, 2017)
+Using the GPU algorithm, the experiments were able to speedup the original CPU algorithms by up to 577x using an Nvidia Geforce GTX 980 Ti.
+Link: https://arxiv.org/abs/1711.07295
+====================================================
+Comparison of Parallelisation Approaches, Languages, and Compilers for Unstructured Mesh Algorithms on GPUs (G. D. Balogh - 6 November, 2017)
+Results of this work show how clang's CUDA compiler frequently outperform NVIDIA's nvcc, performance issues with directive-based approaches on complex kernels, and OpenMP 4 support maturing in clang and XL; currently around 10% slower than CUDA.
+Link: https://arxiv.org/abs/1711.01845
+====================================================
+Scalable Streaming Tools for Analyzing $N$-body Simulations: Finding Halos and Investigating Excursion Sets in One Pass (Nikita Ivkin - 28 April, 2018)
+Our experiments show that our tool can scale to datasets with up to $\sim 10^{12}$ particles while using less than an hour of running time on a single GPU Nvidia GTX 1080.
+Link: https://arxiv.org/abs/1711.00975
+====================================================
+Efficient Training of Convolutional Neural Nets on Large Distributed Systems (Sameer Kumar - 2 November, 2017)
+We evaluate the performance of our optimizations on a Power 8 Minsky cluster with 32 nodes and 128 NVidia Pascal P100 GPUs. With our optimizations, we are able to train 90 epochs of the ResNet-50 model on the Imagenet-1k dataset using 256 GPUs in just 48 minutes. This significantly improves on the previously best known performance of training 90 epochs of the ResNet-50 model on the same dataset using 256 GPUs in 65 minutes
+Link: https://arxiv.org/abs/1711.00705
+====================================================
+A Dynamic Hash Table for the GPU (Saman Ashkiani - 1 March, 2018)
+On an NVIDIA Tesla K40c GPU, the slab hash performs updates with up to 512 M updates/s and processes search queries with up to 937 M queries/s. SlabAlloc dynamically allocates memory at a rate of 600 M allocations/s, which is up to 37x faster than alternative methods in similar scenarios.
+Link: https://arxiv.org/abs/1710.11246
+====================================================
+Pushing Memory Bandwidth Limitations Through Efficient Implementations of Block-Krylov Space Solvers on GPUs (M. A. Clark - 7 August, 2018)
+We present results for the HISQ discretization, showing a 5x speedup compared to highly-optimized independent Krylov solves on NVIDIA's SaturnV cluster.
+Link: https://arxiv.org/abs/1710.09745
+====================================================
+GooFit 2.0 (Henry Schreiner - 21 October, 2017)
+The GooFit package provides physicists a simple, familiar syntax for manipulating probability density functions and performing fits, and is highly optimized for data analysis on NVIDIA GPUs and multithreaded CPU backends. GooFit was updated to version 2.0, bringing a host of new features
+Link: https://arxiv.org/abs/1710.08826
+====================================================
+Synkhronos: a Multi-GPU Theano Extension for Data Parallelism (Adam Stooke - 11 October, 2017)
+When training ResNet-50, we achieve a near-linear speedup of 7.5x on an NVIDIA DGX-1 using 8 GPUs, relative to Theano-only code running a single GPU in isolation
+Link: https://arxiv.org/abs/1710.04162
+====================================================
+DeepSolarEye: Power Loss Prediction and Weakly Supervised Soiling Localization via Fully Convolutional Networks for Solar Panels (Sachin Mehta - 18 March, 2018)
+Our system has a frame rate of 22 fps (including all steps) on a NVIDIA TitanX GPU
+Link: https://arxiv.org/abs/1710.03811
+====================================================
+RLT2-based Parallel Algorithms for Solving Large Quadratic Assignment Problems on Graphics Processing Unit Clusters (Ketan Date - 10 October, 2017)
+Our parallel architecture is comprised of both multi-core processors and Compute Unified Device Architecture (CUDA) enabled NVIDIA Graphics Processing Units (GPUs) on the Blue Waters Supercomputing Facility at the University of Illinois at Urbana-Champaign. 2016. Parallel Computing 57 52-72]. We embed this accelerated dual ascent algorithm in a parallel branch-and-bound scheme and conduct extensive computational experiments on single and multiple GPUs, using problem instances with up to 42 facilities from the QAPLIB. Our accelerated branch-and-bound scheme is able to comfortably solve Nugent and Taillard instances (up to 30 facilities) from the QAPLIB, using modest number of GPUs.
+Link: https://arxiv.org/abs/1710.03732
+====================================================
+Fast YOLO: A Fast You Only Look Once System for Real-time Embedded Object Detection in Video (Mohammad Javad Shafiee - 18 September, 2017)
+Experimental results show that the proposed Fast YOLO framework can reduce the number of deep inferences by an average of 38.13%, and an average speedup of ~3.3X for objection detection in video compared to the original YOLOv2, leading Fast YOLO to run an average of ~18FPS on a Nvidia Jetson TX1 embedded system.
+Link: https://arxiv.org/abs/1709.05943
+====================================================
+ImageNet Training in Minutes (Yang You - 31 January, 2018)
+Finishing 90-epoch ImageNet-1k training with ResNet-50 on a NVIDIA M40 GPU takes 14 days. On the other hand, the world's current fastest supercomputer can finish 2 * 10^17 single precision operations per second (Dongarra et al 2017, https://www.top500.org/lists/2017/06/). 512) is too small to make efficient use of many processors. The LARS algorithm (You, Gitman, Ginsburg, 2017, arXiv:1708.03888) enables us to scale the batch size to extremely large case (e.g. We finish the 100-epoch ImageNet training with AlexNet in 11 minutes on 1024 CPUs. About three times faster than Facebook's result (Goyal et al 2017, arXiv:1706.02677), we finish the 90-epoch ImageNet training with ResNet-50 in 20 minutes on 2048 KNLs without losing accuracy. State-of-the-art ImageNet training speed with ResNet-50 is 74.9% top-1 test accuracy in 15 minutes. We got 74.9% top-1 test accuracy in 64 epochs, which only needs 14 minutes
+Link: https://arxiv.org/abs/1709.05011
+====================================================
+Beyond 16GB: Out-of-Core Stencil Computations (Istvan Z Reguly - 26 October, 2017)
+Evaluating our work on Intel's Knights Landing Platform as well as NVIDIA P100 GPUs, we demonstrate that it is possible to solve 3 times larger problems than the on-chip memory size with at most 15\% loss in efficiency
+Link: https://arxiv.org/abs/1709.02125
+====================================================
+Multiple-Kernel Based Vehicle Tracking Using 3D Deformable Model and Camera Self-Calibration (Zheng Tang - 22 August, 2017)
+For object detection/classification, the state-of-the-art single shot multibox detector (SSD) is adopted to train and test on the NVIDIA AI City Dataset
+Link: https://arxiv.org/abs/1708.06831
+====================================================
+S$^3$FD: Single Shot Scale-invariant Face Detector (Shifeng Zhang - 15 November, 2017)
+As a consequence, our method achieves state-of-the-art detection performance on all the common face detection benchmarks, including the AFW, PASCAL face, FDDB and WIDER FACE datasets, and can run at 36 FPS on a Nvidia Titan X (Pascal) for VGA-resolution images.
+Link: https://arxiv.org/abs/1708.05237
+====================================================
+Performance Characterization of Multi-threaded Graph Processing Applications on Intel Many-Integrated-Core Architecture (Xu Liu - 15 August, 2017)
+In this paper, we empirically evaluate various computing platforms including an Intel Xeon E5 CPU, a Nvidia Geforce GTX1070 GPU and an Xeon Phi 7210 processor codenamed Knights Landing (KNL) in the domain of parallel graph processing. We further characterize the impact of KNL architectural enhancements on the performance of a state-of-the art graph framework.We have four key observations: 1 Different graph applications require distinctive numbers of threads to reach the peak performance. 2 Only a few graph applications benefit from the high bandwidth MCDRAM, while others favor the low latency DDR4 DRAM. 3 Vector processing units executing AVX512 SIMD instructions on KNLs are underutilized when running the state-of-the-art graph framework. 4 The sub-NUMA cache clustering mode offering the lowest local memory access latency hurts the performance of graph benchmarks that are lack of NUMA awareness
+Link: https://arxiv.org/abs/1708.04701
+====================================================
+Porting of the DBCSR library for Sparse Matrix-Matrix Multiplications to Intel Xeon Phi systems (Iain Bethune - 21 August, 2017)
+We find that the DBCSR on Cray XC40 KNL-based systems is 11%-14% slower than on a hybrid Cray XC50 with Nvidia P100 cards, at the same number of nodes. When compared to a Cray XC40 system equipped with dual-socket Intel Xeon CPUs, the KNL is up to 24% faster.
+Link: https://arxiv.org/abs/1708.03604
+====================================================
+Scaling Deep Learning on GPU and Knights Landing clusters (Yang You - 9 August, 2017)
+For example, training GoogleNet by ImageNet dataset on one Nvidia K20 GPU needs 21 days
+Link: https://arxiv.org/abs/1708.02983
+====================================================
+ExaGeoStat: A High Performance Unified Software for Geostatistics on Manycore Systems (Sameh Abdulah - 22 June, 2018)
+Using state-of-the-art high performance dense linear algebra libraries associated with various leading edge parallel architectures (Intel KNLs, NVIDIA GPUs, and distributed-memory systems), ExaGeoStat raises the game for statistical applications from climate and environmental science
+Link: https://arxiv.org/abs/1708.02835
+====================================================
+Optimized Broadcast for Deep Learning Workloads on Dense-GPU InfiniBand Clusters: MPI or NCCL? (Ammar Ahmad Awan - 28 July, 2017)
+We present an in-depth performance landscape for the proposed MPI_Bcast schemes along with a comparative analysis of NVIDIA NCCL Broadcast and NCCL-based MPI_Bcast. In addition, the proposed designs provide up to 7% improvement over NCCL-based solutions for data parallel training of the VGG network on 128 GPUs using Microsoft CNTK.
+Link: https://arxiv.org/abs/1707.09414
+====================================================
+Memory-Efficient Implementation of DenseNets (Geoff Pleiss - 21 July, 2017)
+A 264-layer DenseNet (73M parameters), which previously would have been infeasible to train, can now be trained on a single workstation with 8 NVIDIA Tesla M40 GPUs. On the ImageNet ILSVRC classification dataset, this large DenseNet obtains a state-of-the-art single-crop top-1 error of 20.26%.
+Link: https://arxiv.org/abs/1707.06990
+====================================================
+GPU LSM: A Dynamic Dictionary Data Structure for the GPU (Saman Ashkiani - 1 March, 2018)
+Our implementation on an NVIDIA K40c GPU has an average update (insertion or deletion) rate of 225 M elements/s, 13.5x faster than merging items into a sorted array. The GPU LSM supports the retrieval operations of lookup, count, and range query operations with an average rate of 75 M, 32 M and 23 M queries/s respectively
+Link: https://arxiv.org/abs/1707.05354
+====================================================
+LinkNet: Exploiting Encoder Representations for Efficient Semantic Segmentation (Abhishek Chaurasia - 14 June, 2017)
+We also compare our networks processing time on NVIDIA GPU and embedded system device with existing state-of-the-art architectures for different image resolutions.
+Link: https://arxiv.org/abs/1707.03718
+====================================================
+A Linear Algebra Approach to Fast DNA Mixture Analysis Using GPUs (Siddharth Samsi - 3 July, 2017)
+We show that it is possible to compare 2048 unknown DNA samples with 20 million known samples in under 6 seconds using a NVIDIA K80 GPU.
+Link: https://arxiv.org/abs/1707.00516
+====================================================
+Tuning and optimization for a variety of many-core architectures without changing a single line of implementation code using the Alpaka library (Alexander Matthes - 30 June, 2017)
+We specifically test the code for bleeding edge architectures such as Nvidia's Tesla P100, Intel's Knights Landing (KNL) and Haswell architecture as well as IBM's Power8 system. On some of these we are able to reach almost 50\% of the peak floating point operation performance using the aforementioned means. When adding compiler-specific #pragmas we are able to reach 5 TFLOPS/s on a P100 and over 1 TFLOPS/s on a KNL system.
+Link: https://arxiv.org/abs/1706.10086
+====================================================
+Yes-Net: An effective Detector Based on Global Information (Liangzhuang Ma - 30 June, 2017)
+For 416 x 416 input, Yes-Net achieves 79.2% mAP on VOC2007 test at 39 FPS on an Nvidia Titan X Pascal.
+Link: https://arxiv.org/abs/1706.09180
+====================================================
+GPGPU Acceleration of the KAZE Image Feature Extraction Algorithm (Ramkumar B - 21 June, 2017)
+For a 1920 by 1200 sized image our Compute Unified Device Architecture (CUDA) C based GPU version took around 300 milliseconds on a NVIDIA GeForce GTX Titan X (Maxwell Architecture-GM200) card in comparison to nearly 2400 milliseconds for a multithreaded CPU version (16 threaded Intel(R) Xeon(R) CPU E5-2650 processsor). By achieving nearly 8 fold speedup without performance degradation our work expands the applicability of the KAZE algorithm
+Link: https://arxiv.org/abs/1706.06750
+====================================================
+JetsonLEAP: a Framework to Measure Power on a Heterogeneous System-on-a-Chip Device (Tarsila Bessa - 29 March, 2017)
+JetsonLEAP consists of an embedded hardware, in our case, the Nvidia Tegra TK1 System-on-a-chip device, a circuit to control the flow of energy, of our own design, plus a library to instrument program parts. Our entire infrastructure - board, power meter and both circuits - can be reproduced with about $500.00
+Link: https://arxiv.org/abs/1706.03042
+====================================================
+Real-Time Robot Localization, Vision, and Speech Recognition on Nvidia Jetson TX1 (Jie Tang - 31 May, 2017)
+In this paper, we present a case study on integrating real-time localization, vision, and speech recognition services on a mobile SoC, Nvidia Jetson TX1, within about 10 W of power envelope
+Link: https://arxiv.org/abs/1705.10945
+====================================================
+A Unified Optimization Approach for Sparse Tensor Operations on GPUs (Bangtian Liu - 28 May, 2017)
+Compared to state-of-the-art work we improve the performance of SpTTM and SpMTTKRP up to 3.7 and 30.6 times respectively on NVIDIA Titan-X GPUs. We implement a CANDECOMP/PARAFAC (CP) decomposition and achieve up to 14.9 times speedup using the unified method over state-of-the-art libraries on NVIDIA Titan-X GPUs.
+Link: https://arxiv.org/abs/1705.09905
+====================================================
+Enhancement of SSD by concatenating feature maps for object detection (Jisoo Jeong - 26 May, 2017)
+For the Pascal VOC 2007 test set trained with VOC 2007 and VOC 2012 training sets, the proposed network with the input size of 300 x 300 achieved 78.5% mAP (mean average precision) at the speed of 35.0 FPS (frame per second), while the network with a 512 x 512 sized input achieved 80.8% mAP at 16.6 FPS using Nvidia Titan X GPU
+Link: https://arxiv.org/abs/1705.09587
+====================================================
+Block-Parallel IDA* for GPUs (Extended Manuscript) (Satoru Horie - 8 May, 2017)
+On the 15-puzzle, BPIDA* on a NVIDIA GRID K520 with 1536 CUDA cores achieves a speedup of 4.98 compared to a highly optimized sequential IDA* implementation on a Xeon E5-2670 core.
+Link: https://arxiv.org/abs/1705.02843
+====================================================
+cuTT: A High-Performance Tensor Transpose Library for CUDA Compatible GPUs (Antti-Pekka Hynninen - 3 May, 2017)
+We introduce the CUDA Tensor Transpose (cuTT) library that implements high-performance tensor transposes for NVIDIA GPUs with Kepler and above architectures. We evaluate the performance of cuTT on a variety of benchmarks with tensor ranks ranging from 2 to 12 and show that cuTT performance is independent of the tensor rank and that it performs no worse than an approach based on code generation
+Link: https://arxiv.org/abs/1705.01598
+====================================================
+In-Datacenter Performance Analysis of a Tensor Processing Unit (Norman P. Jouppi - 16 April, 2017)
+We compare the TPU to a server-class Intel Haswell CPU and an Nvidia K80 GPU, which are contemporaries deployed in the same datacenters. Our workload, written in the high-level TensorFlow framework, uses production NN applications (MLPs, CNNs, and LSTMs) that represent 95% of our datacenters' NN inference demand
+Link: https://arxiv.org/abs/1704.04760
+====================================================
+Accelerating gravitational microlensing simulations using the Xeon Phi coprocessor (Bin Chen - 28 March, 2017)
+For the selected set of parameters evaluated in our experiment, we find that the speedup by Intel's Knights Corner coprocessor is comparable to that by NVIDIA's Fermi family of GPUs with compute capability 2.0, but less significant than GPUs with higher compute capabilities such as the Kepler. However, the very recently released second generation Xeon Phi, Knights Landing, is about 5.8 times faster than the Knights Corner, and about 2.9 times faster than the Kepler GPU used in our simulations
+Link: https://arxiv.org/abs/1703.09707
+====================================================
+Key Reconciliation with Low-Density Parity-Check Codes for Long-Distance Quantum Cryptography (Mario Milicevic - 16 April, 2017)
+When combined with an 8-dimensional reconciliation scheme, the LDPC decoder achieves a raw decoding throughput of 1.72Mbit/s and an information throughput of 7.16Kbit/s using an NVIDIA GeForce GTX 1080 GPU at a maximum distance of 160km with a secret key rate of 4.10x10^{-7} bits/pulse for a rate 0.02 multi-edge code with block length of 10^6 bits when finite-size effects are considered. This work extends the previous maximum CV-QKD distance of 100km to 160km, while delivering between 1.07x and 8.03x higher decoded information throughput over the upper bound on the secret key rate for a lossy channel. The GPU-based QC-LDPC decoder achieves a 1.29x improvement in throughput over the best existing GPU decoder implementation for a rate 1/10 multi-edge LDPC code with block length of 2^{20} bits
+Link: https://arxiv.org/abs/1702.07740
+====================================================
+Supervised Learning Based Algorithm Selection for Deep Neural Networks (Shaohuai Shi - 16 March, 2017)
+We evaluate the performance of MTNN on two modern GPUs: NVIDIA GTX 1080 and NVIDIA Titan X Pascal. MTNN can achieve 96\% of prediction accuracy with very low computational overhead, which results in an average of 54\% performance improvement on a range of NT operations. Our experimental results show that the revised Caffe can outperform the original one by an average of 28\%
+Link: https://arxiv.org/abs/1702.03192
+====================================================
+MÃ¶bius domain-wall fermions on gradient-flowed dynamical HISQ ensembles (Evan Berkowitz - 21 September, 2017)
+The greater numerical cost of the MÃ¶bius domain-wall inversions is mitigated by the highly efficient QUDA library optimized for NVIDIA GPU accelerated compute nodes. We provide tuned parameters of the action and performance of QUDA using ensembles with the lattice spacings $a \simeq \{0.15, 0.12, 0.09\}$ fm and pion masses $m_Ï\simeq \{310, 220,130\}$ MeV. We have additionally generated two new ensembles with $a\sim0.12$ fm and $m_Ï\sim\{400, 350\}$ MeV. With a fixed flow-time of $t_{gf}=1$ in lattice units, the residual chiral symmetry breaking of the valence fermions is kept below 10\% of the light quark mass on all ensembles, $m_{res} \lesssim 0.1\times m_l$, with moderate values of the fifth dimension $L_5$ and a domain-wall height $M_5 \leq 1.3$
+Link: https://arxiv.org/abs/1701.07559
+====================================================
+An OpenCL(TM) Deep Learning Accelerator on Arria 10 (Utku Aydonat - 12 January, 2017)
+Additionally, 23 img/s/W is competitive against the best publicly known implementation of AlexNet on nVidia's TitanX GPU.
+Link: https://arxiv.org/abs/1701.03534
+====================================================
+GPU-accelerated algorithms for many-particle continuous-time quantum walks (Enrico Piccinini - 2 December, 2016)
+In turn, we have benchmarked 4 NVIDIA GPUs and 3 quad-core Intel CPUs for a 2-particle system over lattices of increasing dimension, showing that the speedup providend by GPU computing, with respect to the OPENMP parallelization, lies in the range between 8x and (more than) 20x, depending on the frequency of post-processing
+Link: https://arxiv.org/abs/1612.00746
+====================================================
+A Real-time Single Pulse Detection Algorithm for GPUs (Karel AdÃ¡mek - 29 November, 2016)
+Our GPU algorithm is approximately 17x faster than our current CPU OpenMP code (NVIDIA Titan XP vs Intel E5-2650v3). This work allows our AstroAccelerate code to perform a single pulse search on SKA-like data 4.3x faster than real-time.
+Link: https://arxiv.org/abs/1611.09704
+====================================================
+GPU-based Pedestrian Detection for Autonomous Driving (Victor Campmany - 5 November, 2016)
+We propose a real-time pedestrian detection system for the embedded Nvidia Tegra X1 GPU-CPU hybrid platform. Results show a 8x speedup in the target Tegra X1 platform and a better performance/watt ratio than desktop CUDA platforms in study.
+Link: https://arxiv.org/abs/1611.01642
+====================================================
+GOTHIC: Gravitational oct-tree code accelerated by hierarchical time step controlling (Yohei Miki - 24 October, 2016)
+Results of performance measurements with realistic particle distribution performed on NVIDIA Tesla M2090, K20X, and GeForce GTX TITAN X, which are representative GPUs of the Fermi, Kepler, and Maxwell generation of GPUs, show that the hierarchical time step achieves a speedup by a factor of around 3--5 times compared to the shared time step. The measured elapsed time per step of \texttt{GOTHIC} is 0.30~s or 0.44~s on GTX TITAN X when the particle distribution represents the Andromeda galaxy or the NFW sphere, respectively, with $2^{24} =$~16,777,216 particles. The averaged performance of the code corresponds to 10--30\% of the theoretical single precision peak performance of the GPU.
+Link: https://arxiv.org/abs/1610.07279
+====================================================
+PVANET: Deep but Lightweight Neural Networks for Real-time Object Detection (Kye-Hyeon Kim - 30 September, 2016)
+We obtained solid results on well-known object detection benchmarks: 83.8% mAP (mean average precision) on VOC2007 and 82.5% mAP on VOC2012 (2nd place), while taking only 750ms/image on Intel i7-6700K CPU with a single core and 46ms/image on NVIDIA Titan X GPU. Theoretically, our network requires only 12.3% of the computational cost compared to ResNet-101, the winner on VOC2012.
+Link: https://arxiv.org/abs/1608.08021
+====================================================
+A Gb/s Parallel Block-based Viterbi Decoder for Convolutional Codes on GPU (Hao Peng - 29 July, 2016)
+Experimental results demonstrate that the proposed decoder achieves high throughput of 598Mbps on NVIDIA GTX580 and 1802Mbps on GTX980 for the 64-state convolutional code, which are 1.5 times speedup compared to the existing fastest works on GPUs.
+Link: https://arxiv.org/abs/1608.00066
+====================================================
+Finite Element Integration with Quadrature on the GPU (Matthew G. Knepley - 14 July, 2016)
+On the NVIDIA GTX580, which has a nominal single precision peak flop rate of 1.5 TF/s and a memory bandwidth of 192 GB/s, we achieve close to 300 GF/s for element integration on first-order discretization of the Laplacian operator with variable coefficients in two dimensions, and over 400 GF/s in three dimensions. From our performance model we find that this corresponds to 90\% of our measured achievable bandwidth peak of 310 GF/s. Further experimental results also match the predicted performance when used with double precision (120 GF/s in two dimensions, 150 GF/s in three dimensions). Results obtained for the linear elasticity equations (220 GF/s and 70 GF/s in two dimensions, 180 GF/s and 60 GF/s in three dimensions) also demonstrate the applicability of our method to vector-valued partial differential equations.
+Link: https://arxiv.org/abs/1607.04245
+====================================================
+TTC: A Tensor Transposition Compiler for Multiple Architectures (Paul Springer - 5 July, 2016)
+TTC exhibits high performance across multiple architectures, including modern AVX-based systems (e.g.,~Intel Haswell, AMD Steamroller), Intel's Knights Corner as well as different CUDA-based GPUs such as NVIDIA's Kepler and Maxwell architectures. We also showcase TTC's support for multiple leading dimensions, making it a suitable candidate for the generation of performance-critical packing functions that are at the core of the ubiquitous BLAS 3 routines.
+Link: https://arxiv.org/abs/1607.01249
+====================================================
+Compiler-Assisted Workload Consolidation For Efficient Dynamic Parallelism on GPU (Hancheng Wu - 27 June, 2016)
+Recently, Nvidia has introduced Dynamic Parallelism (DP) in its GPUs. Our experiments show that our approach significantly reduces runtime overhead and improves GPU utilization, leading to speedup factors from 90x to 3300x over basic DP-based solutions and speedups from 2x to 6x over flat implementations.
+Link: https://arxiv.org/abs/1606.08150
+====================================================
+CNNLab: a Novel Parallel Framework for Neural Networks using GPU and FPGA-a Practical Study with Trade-off Analysis (Maohua Zhu - 20 June, 2016)
+Experimental results on the state-of-the-art Nvidia K40 GPU and Altera DE5 FPGA board demonstrate that the CNNLab can provide a universal framework with efficient support for diverse applications without increasing the burden of the programmers
+Link: https://arxiv.org/abs/1606.06234
+====================================================
+Efficient and High-quality Sparse Graph Coloring on the GPU (Xuhao Chen - 20 June, 2016)
+Our method is evaluated with both synthetic and real-world sparse graphs on the NVIDIA GPU. Experimental results show that our proposed implementation achieves averaged 4.1x (up to 8.9x) speedup over the serial implementation. It also outperforms the existing GPU implementation from the NVIDIA CUSPARSE library (2.2x average speedup), while yielding much better coloring quality than CUSPARSE.
+Link: https://arxiv.org/abs/1606.06025
+====================================================
+The GPU-based Parallel Ant Colony System (RafaÅ Skinderowicz - 5 May, 2017)
+Computational experiments conducted on several Travelling Salesman Problem (TSP) instances of sizes ranging from 198 to 2392 cities showed that the parallel ACS on Nvidia Kepler GK104 GPU (1536 CUDA cores) is able to obtain a speedup up to 24.29x vs the sequential ACS running on a single core of Intel Xeon E5-2670 CPU. The parallel ACS with the selective pheromone memory achieved speedups up to 16.85x, but in most cases the obtained solutions were of significantly better quality than for the sequential ACS.
+Link: https://arxiv.org/abs/1605.02669
+====================================================
+Accelerating Deep Neural Network Training with Inconsistent Stochastic Gradient Descent (Linnan Wang - 28 March, 2017)
+In particular, ISGD trains AlexNet to 56.3% top1 and 80.1% top5 accuracy in 11.5 hours with 4 NVIDIA TITAN X at the batch size of 1536.
+Link: https://arxiv.org/abs/1603.05544
+====================================================
+A portable platform for accelerated PIC codes and its application to GPUs using OpenACC (F. Hariri - 9 March, 2016)
+Using the Cray XC30 system, Piz Daint, at the Swiss National Supercomputing Centre (CSCS), we show that PIC_ENGINE running on an NVIDIA Kepler K20X GPU can outperform the one on an Intel Sandybridge 8-core CPU by a factor of 3.4.
+Link: https://arxiv.org/abs/1603.02886
+====================================================
+vDNN: Virtualized Deep Neural Networks for Scalable, Memory-Efficient Neural Network Design (Minsoo Rhu - 28 July, 2016)
+vDNN enables VGG-16 with batch size 256 (requiring 28 GB of memory) to be trained on a single NVIDIA Titan X GPU card containing 12 GB of memory, with 18% performance loss compared to a hypothetical, oracular GPU with enough memory to hold the entire DNN.
+Link: https://arxiv.org/abs/1602.08124
+====================================================
+GPU performance analysis of a nodal discontinuous Galerkin method for acoustic and elastic models (Axel Modave - 25 February, 2016)
+For higher degrees, a strategy that makes use of the NVIDIA cuBLAS library provides better results, able to reach a net arithmetic throughput 35.7% of the theoretical peak value.
+Link: https://arxiv.org/abs/1602.07997
+====================================================
+Discontinuous Galerkin methods on graphics processing units for nonlinear hyperbolic conservation laws (Martin Fuhry - 28 January, 2016)
+Computed examples for Euler equations over unstructured triangle meshes demonstrate the effectiveness of our implementation on an NVIDIA GTX 580 device
+Link: https://arxiv.org/abs/1601.07944
+====================================================
+CUDA programs for solving the time-dependent dipolar Gross-Pitaevskii equation in an anisotropic trap (Vladimir Loncar - 18 January, 2016)
+New versions of programs were developed using CUDA toolkit and can make use of Nvidia GPU devices. 195, 117 (2015)), which is here implemented as a series of CUDA kernels that compute the solution on the GPU. We present speedup test results obtained using new versions of programs and demonstrate an average speedup of 12 to 25, depending on the program and input size.
+Link: https://arxiv.org/abs/1601.04640
+====================================================
+SSD: Single Shot MultiBox Detector (Wei Liu - 29 December, 2016)
+For $300\times 300$ input, SSD achieves 72.1% mAP on VOC2007 test at 58 FPS on a Nvidia Titan X and for $500\times 500$ input, SSD achieves 75.1% mAP, outperforming a comparable state of the art Faster R-CNN model
+Link: https://arxiv.org/abs/1512.02325
+====================================================
+Improving the performance of the linear systems solvers using CUDA (Bogdan Oancea - 23 November, 2015)
+Since the first idea of using GPU for general purpose computing, things have evolved and now there are several approaches to GPU programming: CUDA from NVIDIA and Stream from AMD. We present the results of performance tests and show that using GPU one can obtain speedups of about of approximately 80 times comparing with a CPU implementation.
+Link: https://arxiv.org/abs/1511.07207
+====================================================
+A polyphase filter for many-core architectures (Karel AdÃ¡mek - 21 April, 2016)
+We describe in detail our implementation of the polyphase filter algorithm and its behaviour on three generations of NVIDIA GPU cards, on dual Intel Xeon CPUs and the Intel Xeon Phi (Knights Corner) platforms. We show that our Xeon Phi implementation has a performance that is 1.47x to 1.95x greater than our CPU implementation, however is not insufficient to compete with the performance of GPUs
+Link: https://arxiv.org/abs/1511.03599
+====================================================
+Exact diagonalization of quantum lattice models on coprocessors (Topi Siro - 24 May, 2016)
+We implement the Lanczos algorithm on an Intel Xeon Phi coprocessor and compare its performance to a multi-core Intel Xeon CPU and an NVIDIA graphics processor. We study two quantum lattice models with different particle numbers, and conclude that for small systems, the multi-core CPU is the fastest platform, while for large systems, the graphics processor is the clear winner, reaching speedups of up to 7.6 compared to the CPU. The Xeon Phi outperforms the CPU with sufficiently large particle number, reaching a speedup of 2.5.
+Link: https://arxiv.org/abs/1511.00863
+====================================================
+Modern Gyrokinetic Particle-In-Cell Simulation of Fusion Plasmas on Top Supercomputers (Bei Wang - 19 October, 2015)
+This particularly includes implementations on heterogeneous systems using NVIDIA GPU accelerators and Intel Xeon Phi (MIC) co-processors and performance comparisons with state-of-the-art homogeneous HPC systems such as Blue Gene/Q
+Link: https://arxiv.org/abs/1510.05546
+====================================================
+Sapporo2: A versatile direct $N$-body library (Jeroen BÃ©dorf - 14 October, 2015)
+Astrophysical direct $N$-body methods have been one of the first production algorithms to be implemented using NVIDIA's CUDA architecture. We show how to tune these codes for different GPU architectures and present how to continue utilizing the GPU optimal even when only a small number of particles ($N < 100$) is integrated
+Link: https://arxiv.org/abs/1510.04068
+====================================================
+A Parallel Algorithm to Test Chordality of Graphs (Agnieszka Lupinska - 25 August, 2015)
+The algorithm is implemented in CUDA 4.2 and it has been tested on Nvidia GeForce GTX 560 Ti of compute capability 2.1
+Link: https://arxiv.org/abs/1508.06329
+====================================================
+Bufferless NOC Simulation of Large Multicore System on GPU Hardware (Navin Kumar - 12 August, 2015)
+We have simulated target large chip multicore with up to 43,000 cores and achieved up to 25 times speedup on NVIDIA GeForce GTX 690 GPU over serial simulation.
+Link: https://arxiv.org/abs/1508.03235
+====================================================
+Practical Algorithms for Finding Extremal Sets (Martin Marinov - 7 August, 2015)
+We find that on synthetic input datasets when executed using $16$ CPU cores of a $32$-core machine, our multi-threaded program executes about as fast as the state of the art parallel GPU-based program using an NVIDIA GTX 580 graphics processing unit.
+Link: https://arxiv.org/abs/1508.01753
+====================================================
+Compact Convolutional Neural Network Cascade for Face Detection (Ilya Kalinovskii - 23 November, 2015)
+Because of high computational efficiency, our detector can processing 4K Ultra HD video stream in real time (up to 27 fps) on mobile platforms (Intel Ivy Bridge CPUs and Nvidia Kepler GPUs) in searching objects with the dimension 60x60 pixels or higher
+Link: https://arxiv.org/abs/1508.01292
+====================================================
+Machine Learning Based Auto-tuning for Enhanced OpenCL Performance Portability (Thomas L. Falch - 2 June, 2015)
+We evaluate our method with different benchmarks, on several devices, including an Intel i7 3770 CPU, an Nvidia K40 GPU and an AMD Radeon HD 7970 GPU. Our model achieves a mean relative error as low as 6.1%, and is able to find configurations as little as 1.3% worse than the global minimum.
+Link: https://arxiv.org/abs/1506.00842
+====================================================
+Genetically Improved BarraCUDA (W. B. Langdon - 28 May, 2015)
+BarraCUDA is a C program which uses the BWA algorithm in parallel with nVidia CUDA to align short next generation DNA sequences against a reference genome. The genetically improved (GI) code is up to three times faster on short paired end reads from The 1000 Genomes Project and 60percent more accurate on a short BioPlanet.com GCAT alignment benchmark. GPGPU Barracuda running on a single K80 Tesla GPU can align short paired end nextgen sequences up to ten times faster than bwa on a 12 core CPU.
+Link: https://arxiv.org/abs/1505.07855
+====================================================
+Using Butterfly-Patterned Partial Sums to Optimize GPU Memory Accesses for Drawing from Discrete Distributions (Guy L. Steele Jr. - 14 May, 2015)
+Measurements using an NVIDIA Titan Black GPU show that for a sufficiently large number of clusters or topics (K > 200), this technique alone more than doubles the speed of a latent Dirichlet allocation (LDA) application already highly tuned for GPU execution.
+Link: https://arxiv.org/abs/1505.03851
+====================================================
+Bilinear CNNs for Fine-grained Visual Recognition (Tsung-Yu Lin - 1 June, 2017)
+Our most accurate model obtains 84.1%, 79.4%, 86.9% and 91.3% per-image accuracy on the Caltech-UCSD birds [67], NABirds [64], FGVC aircraft [42], and Stanford cars [33] dataset respectively and runs at 30 frames-per-second on a NVIDIA Titan X GPU
+Link: https://arxiv.org/abs/1504.07889
+====================================================
+Speculative Segmented Sum for Sparse Matrix-Vector Multiplication on Heterogeneous Processors (Weifeng Liu - 14 September, 2015)
+On three heterogeneous processors from Intel, AMD and nVidia, using 20 sparse matrices as a benchmark suite, the experimental results show that our method obtains significant performance improvement over the best existing CSR-based SpMV algorithms
+Link: https://arxiv.org/abs/1504.06474
+====================================================
+NBODY6++GPU: Ready for the gravitational million-body problem (Long Wang - 21 May, 2015)
+For million-body simulations, NBODY6++GPU is $400-2000$ times faster than NBODY6 with 320 CPU cores and 32 NVIDIA K20X GPUs
+Link: https://arxiv.org/abs/1504.03687
+====================================================
+CSR5: An Efficient Storage Format for Cross-Platform Sparse Matrix-Vector Multiplication (Weifeng Liu - 9 April, 2015)
+For the 10 irregular matrices, the CSR5 obtains average performance improvement of 17.6\%, 28.5\%, 173.0\% and 293.3\% (up to 213.3\%, 153.6\%, 405.1\% and 943.3\%) over the best existing work on dual-socket Intel CPUs, an nVidia GPU, an AMD GPU and an Intel Xeon Phi, respectively
+Link: https://arxiv.org/abs/1503.05032
+====================================================
+HELIOS-K: An Ultrafast, Open-source Opacity Calculator for Radiative Transfer (Simon L. Grimm - 18 June, 2015)
+Using a NVIDIA K20 GPU, HELIOS-K is capable of computing an opacity function with $\sim 10^5$ spectral lines in $\sim 1$ second and is publicly available as part of the Exoclimes Simulation Platform (ESP; www.exoclime.org).
+Link: https://arxiv.org/abs/1503.03806
+====================================================
+Parallel Statistical Multi-resolution Estimation (Jan Lebert - 10 March, 2015)
+We discuss several strategies to implement Dykstra's projection algorithm on NVIDIA's compute unified device architecture (CUDA). 2009). The results are compared in terms of their power spectrum and their Fourier ring correlation (Saxton and Baumeister 1982). The Fourier ring correlation indicates that the resolution for typical second order SOFI images can be improved by about 30 per cent
+Link: https://arxiv.org/abs/1503.03492
+====================================================
+An OpenCL-based Monte Carlo dose calculation engine (oclMC) for coupled photon-electron transport (Zhen Tian - 5 March, 2015)
+Nonetheless, most of the GPU-based MC dose engines were developed in NVidia CUDA environment. To test the accuracy and efficiency of our dose engine oclMC, we compared dose calculation results of oclMC and gDPM, our previously developed GPU-based MC code, for a 15 MeV electron beam and a 6 MV photon beam on a homogenous water phantom, one slab phantom and one half-slab phantom. The average dose differences within 10% isodose line of the maximum dose were 0.48-0.53% for the electron beam cases and 0.15-0.17% for the photon beam cases
+Link: https://arxiv.org/abs/1503.01722
+====================================================
+maxDNN: An Efficient Convolution Kernel for Deep Learning with Maxwell GPUs (Andrew Lavin - 30 January, 2015)
+This paper describes maxDNN, a computationally efficient convolution kernel for deep learning with the NVIDIA Maxwell GPU. maxDNN reaches 96.3% computational efficiency on typical deep learning network architectures
+Link: https://arxiv.org/abs/1501.06633
+====================================================
+Fast Convolutional Nets With fbfft: A GPU Performance Evaluation (Nicolas Vasilache - 10 April, 2015)
+We introduce two new Fast Fourier Transform convolution implementations: one based on NVIDIA's cuFFT library, and another based on a Facebook authored FFT implementation, fbfft, that provides significant speedups over cuFFT (over 1.5x) for whole CNNs. Both of these convolution implementations are available in open source, and are faster than NVIDIA's cuDNN implementation for many common convolutional layers (up to 23.5x for some synthetic kernel configurations)
+Link: https://arxiv.org/abs/1412.7580
+====================================================
+Computationally Efficient Implementation of a Hamming Code Decoder using a Graphics Processing Unit (Shohidul Islam - 21 December, 2014)
+Experimental results using a compute unified device architecture (CUDA)-enabled NVIDIA GeForce GTX 560, including 335 cores, revealed that the proposed approach achieved a 99x speedup versus the equivalent CPU-based implementation.
+Link: https://arxiv.org/abs/1412.6862
+====================================================
+GPU-Powered Coherent Beamforming (Alessio Magro - 16 December, 2014)
+It achieves $\sim$1.3 TFLOPs on an NVIDIA Tesla K20, approximately 10x faster than an optimised, multithreaded CPU implementation
+Link: https://arxiv.org/abs/1412.4907
+====================================================
+Conjugate gradient solvers on Intel Xeon Phi and NVIDIA GPUs (O. Kaczmarek - 17 November, 2014)
+Here we compare the performance of the Intel Xeon Phi to current Kepler-based NVIDIA Tesla GPUs running a conjugate gradient solver. By exposing more parallelism to the accelerator through inverting multiple vectors at the same time, we obtain a performance greater than 300 GFlop/s on both architectures
+Link: https://arxiv.org/abs/1411.4439
+====================================================
+KBLAS: An Optimized Library for Dense Matrix-Vector Multiplication on GPU Accelerators (Ahmad Abdelfattah - 7 October, 2014)
+A subset of KBLAS high performance kernels has been integrated into NVIDIA's standard BLAS implementation (cuBLAS) for larger dissemination, starting version 6.0.
+Link: https://arxiv.org/abs/1410.1726
+====================================================
+A fast GPU-based Monte Carlo simulation of proton transport with detailed modeling of non-elastic interactions (H. Wan Chan Tseung - 29 September, 2014)
+The net calculation time on a NVIDIA GTX680 card, including all data transfers, is $\sim$20 s for $1\times10^7$ proton histories
+Link: https://arxiv.org/abs/1409.8336
+====================================================
+GPU accelerated Monte Carlo simulation of Brownian motors dynamics with CUDA (J. Spiechowicz - 22 April, 2015)
+This work presents an updated and extended guide on methods of a proper acceleration of the Monte Carlo integration of stochastic differential equations with the commonly available NVIDIA Graphics Processing Units using the CUDA programming environment. The measured speedup can be of the astonishing order of about 3000 when compared to a typical CPU
+Link: https://arxiv.org/abs/1409.4923
+====================================================
+HISQ inverter on Intel Xeon Phi and NVIDIA GPUs (O. Kaczmarek - 4 September, 2014)
+In this contribution we compare the performance of the Intel Xeon Phi to current Kepler-based NVIDIA Tesla GPUs running a conjugate gradient solver. By exposing more parallelism to the accelerator through inverting multiple vectors at the same time we obtain a performance 250 GFlop/s on both architectures
+Link: https://arxiv.org/abs/1409.1510
+====================================================
+Heterogeneous Computing on Mixed Unstructured Grids with PyFR (F. D. Witherden - 1 September, 2014)
+Specifically, after benchmarking single-node performance for various platforms, PyFR v0.2.2 is used to undertake simulations of unsteady flow over a circular cylinder at Reynolds number 3 900 using a mixed unstructured grid of prismatic and tetrahedral elements on a desktop workstation containing an Intel Xeon E5-2697 v2 CPU, an NVIDIA Tesla K40c GPU, and an AMD FirePro W9100 GPU
+Link: https://arxiv.org/abs/1409.0405
+====================================================
+OMP2HMPP: HMPP Source Code Generation from Programs with Pragma Extensions (Albert SaÃ -Garriga - 25 July, 2014)
+High-performance computing are based more and more in heterogeneous architectures and GPGPUs have become one of the main integrated blocks in these, as the recently emerged Mali GPU in embedded systems or the NVIDIA GPUs in HPC servers. The generated version rarely will differs from a hand-coded HMPP version, and will provide an important speedup, near 113%, that could be later improved by hand-coded CUDA
+Link: https://arxiv.org/abs/1407.6932
+====================================================
+Preemptive Thread Block Scheduling with Online Structural Runtime Prediction for Concurrent GPGPU Kernels (Sreepathi Pai - 23 June, 2014)
+Recent NVIDIA Graphics Processing Units (GPUs) can execute multiple kernels concurrently. SRTF improves STP by 1.18x and ANTT by 2.25x over FIFO. When compared to MPMax, a state-of-the-art resource allocation policy for concurrent kernels, SRTF improves STP by 1.16x and ANTT by 1.3x. SRTF/Adaptive improves STP by 1.12x, ANTT by 2.23x and Fairness by 2.95x compared to FIFO. Overall, our implementation of SRTF achieves system throughput to within 12.64% of Shortest Job First (SJF, an oracle optimal scheduling policy), bridging 49% of the gap between FIFO and SJF.
+Link: https://arxiv.org/abs/1406.6037
+====================================================
+A Way For Accelerating The DNA Sequence Reconstruction Problem By CUDA (Yukun Zhong - 13 April, 2014)
+The experimental result show the construction of suffix array using GPU is an more efficient approach on Intel(R) Core(TM) i3-3110K quad-core and NVIDIA GeForce 610M GPU, and study show the performance of our method is more than 20 times than that of CPU serial implementation
+Link: https://arxiv.org/abs/1404.3456
+====================================================
+The GENGA Code: Gravitational Encounters in N-body simulations with GPU Acceleration (Simon L. Grimm - 20 September, 2014)
+GENGA is written in CUDA C and runs on all NVIDIA GPUs with compute capability of at least 2.0.
+Link: https://arxiv.org/abs/1404.2324
+====================================================
+Using of GPUs for cluster analysis of large data by K-means method (Natalya Litvinenko - 16 February, 2014)
+This algorithm is implemented as a C++ application in Microsoft Visual Studio 2010 with using the GPU Nvidia GeForce 660. The developed software package for solving clustering problems by the method of K - means with using GPUs allows us to handle up to 2 million records with number of features up to 25. The gain in the computing time is in factor 5
+Link: https://arxiv.org/abs/1402.3788
+====================================================
+PyFR: An Open Source Framework for Solving Advection-Diffusion Type Problems on Streaming Architectures using the Flux Reconstruction Approach (Freddie D Witherden - 7 May, 2014)
+Results are presented for various benchmark flow problems, single-node performance is discussed, and scalability of the code is demonstrated on up to 104 NVIDIA M2090 GPUs
+Link: https://arxiv.org/abs/1312.1638
+====================================================
+Implementation of the twisted mass fermion operator in the QUDA library (Alexei Strelchenko - 18 November, 2013)
+The degenerate twisted mass fermion operator runs at up to 190, 487 and 856 Gflops, for double, single and half precisions respectively on recent NVIDIA Kepler GPUs, while our implementation for the non-degenerate flavor doublet allows to reach 163, 516 and 879 GFlops, respectively
+Link: https://arxiv.org/abs/1311.4462
+====================================================
+Architectural improvements and 28 nm FPGA implementation of the APEnet+ 3D Torus network for hybrid HPC systems (Roberto Ammendola - 14 November, 2013)
+The board implements a Remote Direct Memory Access (RDMA) protocol that leverages upon peer-to-peer (P2P) capabilities of Fermi- and Kepler-class NVIDIA GPUs to obtain real zero-copy, low-latency GPU-to-GPU transfers. Finally, we report on the development activities for 2013 focusing on the adoption of the latest generation 28 nm FPGAs and the preliminary tests performed on this new platform.
+Link: https://arxiv.org/abs/1311.1741
+====================================================
+The Plasma Simulation Code: A modern particle-in-cell code with load-balancing and GPU support (Kai Germaschewski - 12 November, 2015)
+We focus on two distinguishing feature of the code: patch-based load balancing using space-filling curves, and support for Nvidia GPUs, which achieves substantial speed-up of up to more than 6x on the Cray XK7 architecture compared to a CPU-only implementation.
+Link: https://arxiv.org/abs/1310.7866
+====================================================
+First Evaluation of the CPU, GPGPU and MIC Architectures for Real Time Particle Tracking based on Hough Transform at the LHC (V. Halyo - 3 February, 2014)
+In this article, a new tracking algorithm based on the Hough transform will be evaluated for the first time on a multi-core Intel Xeon E5-2697v2 CPU, an NVIDIA Tesla K20c GPU, and an Intel \xphi\ 7120 coprocessor
+Link: https://arxiv.org/abs/1310.7556
+====================================================
+GPU-Framework for Teamwork Action Recognition (Mohamed Elhoseiny - 11 October, 2013)
+The system was tested against UC-Teamwork dataset and speedup of 20X has been achieved on NVidia 9500GT graphics card (32 500MHZ processors).
+Link: https://arxiv.org/abs/1310.3322
+====================================================
+A graphics processor-based intranuclear cascade and evaporation simulation (H. Wan Chan Tseung - 18 February, 2014)
+It takes approximately 2 s to calculate $1\times 10^6$ 200 MeV proton-$^{16}$O interactions on a NVIDIA GTX680 GPU. A speed-up factor of $\sim$20 relative to one Intel i7-3820 core processor thread was achieved.
+Link: https://arxiv.org/abs/1309.7963
+====================================================
+Memory transfer optimization for a lattice Boltzmann solver on Kepler architecture nVidia GPUs (Mark Mawson - 8 September, 2013)
+Detailed results are obtained for a D3Q19 LBM solver, which is benchmarked on nVidia K5000M and K20C GPUs. In the latter case the use of a read-only data cache is explored, and peak performance of over 1036 Million Lattice Updates Per Second (MLUPS) is achieved
+Link: https://arxiv.org/abs/1309.1983
+====================================================
+Improving the GPU space of computation under triangular domain problems (Cristobal A. Navarro - 6 August, 2013)
+Our experimental results on Nvidias Kepler GPU architecture show that g(lambda) is between 12% and 15% faster than the bounding box (BB) strategy
+Link: https://arxiv.org/abs/1308.1419
+====================================================
+Exploiting Data Parallelism in the yConvex Hypergraph Algorithm for Image Representation using GPGPUs (Saurabh Jha - 23 June, 2013)
+In this work, we propose a parallel approach to implement the yCHG model by exploiting massively parallel cores of NVIDIA's Compute Unified Device Architecture (CUDA). We perform our experiments on the MODIS satellite image database by NASA, and based on our analysis we observe that the performance of the serial implementation is better on smaller images, but once the threshold is achieved in terms of image resolution, the parallel implementation outperforms its sequential counterpart by 2 to 10 times (2x-10x)
+Link: https://arxiv.org/abs/1307.2560
+====================================================
+P-HGRMS: A Parallel Hypergraph Based Root Mean Square Algorithm for Image Denoising (Tejaswi Agarwal - 28 June, 2013)
+We test P-HGRMS using standard images from the Berkeley Segmentation dataset on NVIDIAs Compute Unified Device Architecture (CUDA) for noise identification and attenuation. P-HGRMS maintains the noise removal efficiency and outperforms its sequential counterpart by 6 to 18 times (6x - 18x) in computational efficiency.
+Link: https://arxiv.org/abs/1306.5390
+====================================================
+Real-space density functional theory on graphical processing units: computational approach and comparison to Gaussian basis set methods (Xavier Andrade - 30 August, 2013)
+We present results for current-generation GPUs from AMD and Nvidia, which show that our scheme, implemented in the free code Octopus, can reach a sustained performance of up to 90 GFlops for a single GPU, representing a significant speed-up when compared to the CPU version of the code
+Link: https://arxiv.org/abs/1306.2953
+====================================================
+Parallel Chen-Han (PCH) Algorithm for Discrete Geodesics (Xiang Ying - 7 May, 2013)
+We implement the PCH algorithm on modern GPUs (such as Nvidia GTX 580) and analyze the performance in detail
+Link: https://arxiv.org/abs/1305.1293
+====================================================
+Feasibility Analysis of Low Cost Graphical Processing Units for Electromagnetic Field Simulations by Finite Difference Time Domain Method (A V Choudhari - 2 May, 2013)
+In this paper we investigate the feasibility of implementing the FDTD method using the NVIDIA GT 520, a low cost Graphical Processing Unit (GPU), for solving the differential form of Maxwell's equation in time domain
+Link: https://arxiv.org/abs/1305.0483
+====================================================
+Batched Kronecker product for 2-D matrices and 3-D arrays on NVIDIA GPUs (Chetan Jhurani - 25 April, 2013)
+We describe an interface and an implementation for performing Kronecker product actions on NVIDIA GPUs for multiple small 2-D matrices and 3-D arrays processed in parallel as a batch. Any batched GEMM (General Matrix Multiply) implementation, for example ours [1] or the one in cuBLAS, can also be used for performing batched Kronecker products on GPUs. We focus on matrix sizes less than or equal to 16, since these are the typical polynomial degrees in Finite Elements, but the implementation can be easily extended for other sizes. We obtain 143 and 285 GFlop/s for single precision real when processing matrices of size 10 and 16, respectively on NVIDIA Tesla K20c using CUDA 5.0. The corresponding speeds for 3-D array Kronecker products are 126 and 268 GFlop/s, respectively
+Link: https://arxiv.org/abs/1304.7054
+====================================================
+A GEMM interface and implementation on NVIDIA GPUs for multiple small matrices (Chetan Jhurani - 25 April, 2013)
+We present an interface and an implementation of the General Matrix Multiply (GEMM) routine for multiple small matrices processed simultaneously on NVIDIA graphics processing units (GPUs). We focus on matrix sizes under 16. For single precision matrices, our implementation is 30% to 600% faster than the batched cuBLAS implementation distributed in the CUDA Toolkit 5.0 on NVIDIA Tesla K20c. For example, we obtain 104 GFlop/s and 216 GFlop/s when multiplying 100,000 independent matrix pairs of size 10 and 16, respectively
+Link: https://arxiv.org/abs/1304.7053
+====================================================
+A Study of Parallelizing O(N) Green-Function-Based Monte Carlo Method for Many Fermions Coupled with Classical Degrees of Freedom (Shixun Zhang - 24 March, 2013)
+We mainly focus on the implementation of GFMC method using both MPI on a CPU-based cluster and Nvidia's Compute Unified Device Architecture (CUDA) programming techniques on a GPU-based (Graphics Processing Unit based) cluster. The performance evaluation indicates that for a $32^3$ Hamiltonian a single GPU shows higher performance equivalent to more than 30 CPU cores parallelized using MPI.
+Link: https://arxiv.org/abs/1303.6016
+====================================================
+Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling (Jianlong Zhong - 21 March, 2013)
+Our experimental results demonstrate up to 31.1% and 23.4% performance improvement on NVIDIA Tesla C2050 and GTX680 GPUs, respectively.
+Link: https://arxiv.org/abs/1303.5164
+====================================================
+GRay: a Massively Parallel GPU-Based Code for Ray Tracing in Relativistic Spacetimes (Chi-kwan Chan - 20 March, 2013)
+This GPU-based integrator employs the stream processing paradigm, is implemented in CUDA C/C++, and runs on nVidia graphics cards. The peak performance of GRay using single precision floating-point arithmetic on a single GPU exceeds 300 GFLOP (or 1 nanosecond per photon per time step)
+Link: https://arxiv.org/abs/1303.5057
+====================================================
+Ultra-fast Multiple Genome Sequence Matching Using GPU (Gang Liao - 3 May, 2015)
+In this paper, a contrastive evaluation of massively parallel implementations of suffix tree and suffix array to accelerate genome sequence matching are proposed based on Intel Core i7 3770K quad-core and NVIDIA GeForce GTX680 GPU. Besides suffix array only held approximately 20%~30% of the space relative to suffix tree, the coalesced binary search and tile optimization make suffix array clearly outperform suffix tree using GPU. Consequently, the experimental results show that multiple genome sequence matching based on suffix array is more than 99 times speedup than that of CPU serial implementation
+Link: https://arxiv.org/abs/1303.3692
+====================================================
+A GPU-accelerated Direct-sum Boundary Integral Poisson-Boltzmann Solver (Weihua Geng - 24 January, 2013)
+The GPU implementation using one GPU card (Nvidia Tesla M2070) achieves 120-150X speed-up to the implementation using one CPU (Intel L5640 2.27GHz). With our approach, solving PB equations on well-discretized molecular surfaces with up to 300,000 boundary elements will take less than about 10 minutes, hence our approach is particularly suitable for fast electrostatics computations on small to medium biomolecules.
+Link: https://arxiv.org/abs/1301.5885
+====================================================
+Parallel Computing of Discrete Element Method on GPU (Teruyoshi Washizawa - 8 January, 2013)
+A model of contact forces in NVIDIA's code is too simple for practical use. The simulation shows that the practical model obtains the computing speed 6 times faster than the practical one on CPU while 7 times slower than the simple one on GPU
+Link: https://arxiv.org/abs/1301.1714
+====================================================
+Coulomb, Landau and Maximally Abelian Gauge Fixing in Lattice QCD with Multi-GPUs (Mario SchrÃ¶ck - 15 April, 2013)
+Linear scaling using 16 NVIDIA Tesla C2070 devices and a maximum performance of 3.5 Teraflops on lattices of size down to 64^3 x 256 is demonstrated.
+Link: https://arxiv.org/abs/1212.5221
+====================================================
+Comparison of OpenMP & OpenCL Parallel Processing Technologies (Krishnahari Thouti - 8 November, 2012)
+In our simulation, we used Fedora operating system; a system with Intel Xeon Dual core processor having thread count 24 coupled with NVIDIA Quadro FX 3800 as graphical processing unit.
+Link: https://arxiv.org/abs/1211.2038
+====================================================
+Lattice QCD based on OpenCL (Matthias Bach - 26 September, 2012)
+The implementation is platform independent and can be used on AMD or NVIDIA GPUs, as well as on classical CPUs. On the AMD Radeon HD 5870 our double precision dslash implementation performs at 60 GFLOPS over a wide range of lattice sizes
+Link: https://arxiv.org/abs/1209.5942
+====================================================
+Accelerating Iterative SpMV for Discrete Logarithm Problem Using GPUs (Hamza Jeljeli - 4 December, 2014)
+In this work, we investigate the implementation of SpMV kernels on NVIDIA GPUs, for several representations of the sparse matrix in memory. We target linear systems arising when attacking the discrete logarithm problem on groups of size 100 to 1000 bits, which includes the relevant range for current cryptanalytic computations. The proposed SpMV implementation contributed to solving the discrete logarithm problem in GF($2^{619}$) and GF($2^{809}$) using the FFS algorithm.
+Link: https://arxiv.org/abs/1209.5520
+====================================================
+Gauge fixing using overrelaxation and simulated annealing on GPUs (Mario SchrÃ¶ck - 18 September, 2012)
+To obtain our maximum performance of ~300 GFlops on NVIDIA's GTX 580 a very fine grained degree of parallelism is required due to the register limits of NVIDIA's Fermi GPUs: we use eight threads per lattice site, i.e., one thread per SU(3) matrix that is involved in the computation of a site update.
+Link: https://arxiv.org/abs/1209.4008
+====================================================
+A GPU-accelerated Branch-and-Bound Algorithm for the Flow-Shop Scheduling Problem (Melab Nouredine - 20 August, 2012)
+Extensive experiments of the contribution have been carried out on well known FSP benchmarks using an Nvidia Tesla C2050 GPU card. Accelerations up to x100 are achieved for large problem instances.
+Link: https://arxiv.org/abs/1208.3933
+====================================================
+Swarm-NG: a CUDA Library for Parallel n-body Integrations with focus on Simulations of Planetary Systems (Saleh Dindar - 24 September, 2012)
+We present Swarm-NG, a C++ library for the efficient direct integration of many n-body systems using highly-parallel Graphics Processing Unit (GPU), such as NVIDIA's Tesla T10 and M2070 GPUs. While previous studies have demonstrated the benefit of GPUs for n-body simulations with thousands to millions of bodies, Swarm-NG focuses on many few-body systems, e.g., thousands of systems with 3...15 bodies each, as is typical for the study of planetary systems
+Link: https://arxiv.org/abs/1208.1157
+====================================================
+An Adaptative Multi-GPU based Branch-and-Bound. A Case Study: the Flow-Shop Scheduling Problem (Imen Chakroun - 21 June, 2012)
+Extensive experiments have been carried out on well-known FSP benchmarks using an Nvidia Tesla S1070 Computing System equipped with two Tesla T10 GPUs. Compared to a CPU-based execution, accelerations up to 105 are achieved for large problem instances.
+Link: https://arxiv.org/abs/1206.4973
+====================================================
+Pipelining the Fast Multipole Method over a Runtime System (Emmanuel Agullo - 1 June, 2012)
+We compute potentials and forces of 200 million particles in 48.7 seconds on a homogeneous 160 cores SGI Altix UV 100 and of 38 million particles in 13.34 seconds on a heterogeneous 12 cores Intel Nehalem processor enhanced with 3 Nvidia M2090 Fermi GPUs.
+Link: https://arxiv.org/abs/1206.0115
+====================================================
+A Distributed GPU-based Framework for real-time 3D Volume Rendering of Large Astronomical Data Cubes (A. H. Hassan - 1 May, 2012)
+Our performance analyses also compare between using NVIDIA Tesla 1060 and 2050 GPU architectures and the effect of increasing the visualization output resolution on the rendering performance
+Link: https://arxiv.org/abs/1205.0282
+====================================================
+Polymer Field-Theory Simulations on Graphics Processing Units (Kris T. Delaney - 24 April, 2012)
+Running on NVIDIA Tesla T20 series GPUs, we find double-precision speedups of up to 30x compared to single-core serial calculations on a recent reference CPU, while single-precision calculations proceed up to 60x faster than those on the single CPU core. Due to intensive communications overhead, an MPI implementation running on 64 CPU cores remains two times slower than a single GPU.
+Link: https://arxiv.org/abs/1204.5434
+====================================================
+A pilgrimage to gravity on GPUs (Jeroen BÃ©dorf - 13 April, 2012)
+Since the introduction of NVIDIA's Compute Unified Device Architecture (CUDA) in 2007 the GPU has become a valuable tool for N-body simulations and is so popular these days that almost all papers about high precision N-body simulations use methods that are accelerated by GPUs
+Link: https://arxiv.org/abs/1204.3106
+====================================================
+Compressed Multi-Row Storage Format for Sparse Matrices on Graphics Processing Units (Zbigniew Koza - 25 April, 2014)
+Computational performance of two SpMV kernels for the new format is determined for over 130 sparse matrices on Fermi-class and Kepler-class GPUs and compared with that of five existing generic algorithms and industrial implementations, including Nvidia cuSparse CSR and HYB kernels. We found the speedup of up to $\approx 60%$ over the best of the five alternative kernels.
+Link: https://arxiv.org/abs/1203.2946
+====================================================
+Belief Propagation by Message Passing in Junction Trees: Computing Each Message Faster Using GPU Parallelization (Lu Zheng - 14 February, 2012)
+We implement our approach on an NVIDIA GPU and test it using BNs from several applications. We achieve speedups ranging from 0.68 to 9.18 for the BNs studied.
+Link: https://arxiv.org/abs/1202.3777
+====================================================
+An OpenCL implementation for the solution of TDSE on GPU and CPU architectures (Cathal Ã Broin - 31 January, 2012)
+We have applied the code in the case of the Time-Dependent SchrÃ¶dinger Equation of atomic hydrogen in a strong laser field and studied its performance on NVIDIA and AMD GPUs against the serial performance on a CPU. We found excellent scalability and a significant speed-up of the GPU over the CPU device which tended towards a value of about 40 with significant speedups expected against multi-core CPUs.
+Link: https://arxiv.org/abs/1201.6062
+====================================================
+Sparse matrix-vector multiplication on GPGPU clusters: A new storage format and a scalable implementation (Moritz Kreutzer - 29 February, 2012)
+We investigate performance properties of spMVM with matrices of various sparsity patterns on the nVidia "Fermi" class of GPGPUs. In our test scenarios the pJDS format cuts the overall spMVM memory footprint on the GPGPU by up to 70%, and achieves 95% to 130% of the ELLPACK-R performance
+Link: https://arxiv.org/abs/1112.5588
+====================================================
+Efficient and Cryptographically Secure Generation of Chaotic Pseudorandom Numbers on GPU (Jacques M. Bahi - 22 December, 2011)
+Experiments show that this PRNG can generate about 20 billion of random numbers per second on Tesla C1060 and NVidia GTX280 cards
+Link: https://arxiv.org/abs/1112.5239
+====================================================
+Generating SU(Nc) pure gauge lattice QCD configurations on GPUs with CUDA (Nuno Cardoso - 22 October, 2012)
+In this paper we present and explore the performance of CUDA codes for NVIDIA GPUs to generate SU(Nc) lattice QCD pure gauge configurations. We also show a generic SU(Nc) code for Nc$\,\geq 4$ and compare it with the optimized version of SU(4)
+Link: https://arxiv.org/abs/1112.4533
+====================================================
+Performance engineering for the Lattice Boltzmann method on GPGPUs: Architectural requirements and performance results (Johannes Habich - 5 December, 2011)
+Our 3D LBM GPU implementation reaches up to 650 MLUPS in single precision and 290 MLUPS in double precision on an NVIDIA Tesla C2070.
+Link: https://arxiv.org/abs/1112.0850
+====================================================
+An efficient mixed-precision, hybrid CPU-GPU implementation of a fully implicit particle-in-cell algorithm (Guangye Chen - 22 November, 2011)
+The implicit particle mover algorithm is shown to achieve up to 400 GOp/s on a Nvidia GeForce GTX580. This corresponds to 25% absolute GPU efficiency against the peak theoretical performance, and is about 300 times faster than an equivalent serial CPU (Intel Xeon X5460) execution. For the test case chosen, the mixed-precision hybrid CPU-GPU solver is shown to over-perform the DP CPU-only serial version by a factor of \sim 100, without apparent loss of robustness or accuracy in a challenging long-timescale ion acoustic wave simulation.
+Link: https://arxiv.org/abs/1111.5295
+====================================================
+Fast Monte Carlo Simulation for Patient-specific CT/CBCT Imaging Dose Calculation (Xun Jia - 15 November, 2011)
+In response to this problem, we have successfully developed a MC dose calculation package, gCTD, on GPU architecture under the NVIDIA CUDA platform for fast and accurate estimation of the x-ray imaging dose received by a patient during a CT or CBCT scan. As for absolute computation time, imaging dose calculation for the Zubal phantom can be accomplished in ~17 sec with the average relative standard deviation of 0.4%
+Link: https://arxiv.org/abs/1109.3266
+====================================================
+Accelerating Radio Astronomy Cross-Correlation with Graphics Processing Units (M. A. Clark - 1 August, 2011)
+The computational part of the algorithm, the X-engine, is implementated efficiently on Nvidia's Fermi architecture, sustaining up to 79% of the peak single precision floating-point throughput
+Link: https://arxiv.org/abs/1107.4264
+====================================================
+GPU-based fast Monte Carlo simulation for radiotherapy dose calculation (Xun Jia - 18 July, 2011)
+Speed up factors of 69.1 ~ 87.2 have been observed using an NVIDIA Tesla C2050 GPU card against a 2.27GHz Intel Xeon CPU processor. For realistic IMRT and VMAT plans, MC dose calculation can be completed with less than 1% standard deviation in 36.1~39.6 sec using gDPM.
+Link: https://arxiv.org/abs/1107.3355
+====================================================
+3D tumor localization through real-time volumetric x-ray imaging for lung cancer radiotherapy (Ruijiang Li - 8 February, 2011)
+On an NVIDIA Tesla C1060 GPU card, the average computation time for 3D tumor localization from each projection ranges between 0.19 and 0.26 seconds, for both regular and irregular breathing, which is about a 10% improvement over previously reported results. For the physical respiratory phantom, an average tumor localization error below 1 mm was achieved with an average computation time of 0.13 and 0.16 seconds on the same GPU card, for regular and irregular breathing, respectively. For the five lung cancer patients, the average tumor localization error is below 2 mm in both the axial and tangential directions. The average computation time on the same GPU card ranges between 0.26 and 0.34 seconds.
+Link: https://arxiv.org/abs/1102.1712
+====================================================
+GPUMCD: a new GPU-oriented Monte Carlo dose calculation platform (Sami Hissoiny - 6 January, 2011)
+GPUMCD was run on a NVIDIA GTX480 while single threaded implementations of EGSnrc and DPM were run on an Intel Core i7 860. In all but one test case, 98% or more of all significant voxels passed a gamma criteria of 2%-2mm. In terms of execution speed and efficiency, GPUMCD is more than 900 times faster than EGSnrc and more than 200 times faster than DPM, a Monte Carlo package aiming fast executions. Absolute execution times of less than 0.3 s are found for the simulation of 1M electrons and 4M photons in water for monoenergetic beams of 15 MeV, including GPU-CPU memory transfers
+Link: https://arxiv.org/abs/1101.1245
+====================================================
+Exact calculation of disconnected loops (C. Alexandrou - 23 December, 2010)
+We present an implementation of the disconnected diagram contributions to quantities such as the flavor-singlet pseudoscalar meson mass which are accelerated by GPGPU technology utilizing the NVIDIA CUDA platform. To enable the exact evaluation of the disconnected loops we use a $16^3 \times 32$ lattice and $N_f=2$ Wilson fermions simulated by the SESAM Collaboration
+Link: https://arxiv.org/abs/1012.5168
+====================================================
+Large-Scale DNS of Gas-Solid Flow on Mole-8.5 (Qingang Xiong - 11 November, 2010)
+Almost 20-fold speedup is achieved on one Nvidia C2050 GPU over one core of Intel E5520 CPU in double precision, and nearly ideal scalability is maintained when using up to 672 GPUs
+Link: https://arxiv.org/abs/1011.2613
+====================================================
+Parallelizing the QUDA Library for Multi-GPU Calculations in Lattice Quantum Chromodynamics (Ronald Babich - 29 October, 2010)
+The QUDA library provides a package of mixed precision sparse matrix linear solvers for LQCD applications, supporting single GPUs based on NVIDIA's Compute Unified Device Architecture (CUDA). We report on both weak and strong scaling for up to 32 GPUs interconnected by InfiniBand, on which we sustain in excess of 4 Tflops.
+Link: https://arxiv.org/abs/1011.0024
+====================================================
+Multi GPU Performance of Conjugate Gradient Algorithm with Staggered Fermions (Hyung-Jin Kim - 28 October, 2010)
+We use GPUs of nVIDIA GTX 295 model for the test. When we turn off the MPI communication and use only a single GPU, the performance is 35 giga flops in double precision, which corresponds to 47% of the peak. When we turn on the MPI communication and use multi-GPUs, the performance is reduced down to 12.3 giga flops
+Link: https://arxiv.org/abs/1010.4782
+====================================================
+Lattice SU(2) on GPU's (Nuno Cardoso - 7 October, 2010)
+Using GPU texture memory and minimizing the data transfers between CPU and GPU, we achieve a speedup of $200\times$ using 2 NVIDIA 295 GTX cards relative to a serial CPU, which demonstrates that GPU's can serve as an efficient platform for scientific computing. With multi-GPU's we are able, in one day computation, to generate 1 000 000 gauge configurations in a $48^4$ lattice with $Î²=6.0$ and calculate the mean average plaquette
+Link: https://arxiv.org/abs/1010.1486
+====================================================
+Spherical harmonic transform with GPUs (Ioan O. Hupca - 6 October, 2010)
+In particular we find that use of the latest generation of GPUs, such as NVIDIA GF100 (Fermi), can accelerate the spherical harmonic transforms by as much as 18 times with respect to S2HAT executed on one core, and by as much as 5.5 with respect to S2HAT on 4 cores, with the overall performance being limited by the Fast Fourier transforms
+Link: https://arxiv.org/abs/1010.1260
+====================================================
+How to obtain efficient GPU kernels: an illustration using FMM & FGT algorithms (Felipe A. Cruz - 1 March, 2011)
+The end result has been gpu kernels that run at over 500 Gigaflops on one nvidia Tesla C1060 card, thereby reaching close to practical peak
+Link: https://arxiv.org/abs/1009.3457
+====================================================
+GPU-based Low-dose 4DCT Reconstruction via Temporal Non-local Means (Zhen Tian - 4 January, 2011)
+The total reconstruction time for all 10 phases of a slice ranges from 90 to 140 seconds on an NVIDIA Tesla C1060 GPU card.
+Link: https://arxiv.org/abs/1009.1351
+====================================================
+Toward large-scale Hybrid Monte Carlo simulations of the Hubbard model on graphics processing units (Kyle A. Wendt - 20 July, 2010)
+We study these operations as implemented for the fermion matrix of the Hubbard model in d+1 space-time dimensions, and report a performance comparison between a 2.66 GHz Intel Xeon E5430 CPU and an NVIDIA Tesla C1060 GPU using double-precision arithmetic. We find speedup factors ranging between 30-350 for d = 1, and in excess of 40 for d = 3
+Link: https://arxiv.org/abs/1007.3432
+====================================================
+Gravitational tree-code on graphics processing units: implementation in CUDA (Evghenii Gaburov - 28 May, 2010)
+We present a new very fast tree-code which runs on massively parallel Graphical Processing Units (GPU) with NVIDIA CUDA architecture. It takes about a second to compute forces on a million particles with an opening angle of $Î¸\approx 0.5$
+Link: https://arxiv.org/abs/1005.5384
+====================================================
+Ultra-fast treatment plan optimization for volumetric modulated arc therapy (VMAT) (Chunhua Men - 24 May, 2010)
+It takes only 5~8 minutes on CPU (MATLAB code on an Intel Xeon 2.27 GHz CPU) and 18~31 seconds on GPU (CUDA code on an NVIDIA Tesla C1060 GPU card) to generate such a plan
+Link: https://arxiv.org/abs/1005.4396
+====================================================
+Magnetohydrodynamics on Heterogeneous architectures: a performance comparison (Bijia Pang - 10 April, 2010)
+We implemented a magneto-hydrodynamic (MHD) simulation code on a variety of  heterogeneous and multi-core  architectures --- multi-core x86, Cell, Nvidia and ATI GPU --- in different languages, FORTRAN, C, Cell, CUDA and OpenCL. We conclude that substantial gains in performance over traditional systems are possible, and in particular that is possible to extract a greater percentage of peak theoretical performance from some systems when compared to x86 architectures.
+Link: https://arxiv.org/abs/1004.1680
+====================================================
+Real-time volumetric image reconstruction and 3D tumor localization based on a single x-ray projection image for lung cancer radiotherapy (Ruijiang Li - 31 March, 2010)
+On an NVIDIA Tesla C1060 GPU card, the average computation time for reconstructing a volumetric image from each projection is 0.24 seconds (range: 0.17 and 0.35 seconds)
+Link: https://arxiv.org/abs/1004.0014
+====================================================
+GPU-based ultra-fast direct aperture optimization for online adaptive radiation therapy (Chunhua Men - 28 March, 2010)
+It takes only 0.7~2.5 seconds for our implementation to generate optimal treatment plans using 50 MLC apertures on an NVIDIA Tesla C1060 GPU card
+Link: https://arxiv.org/abs/1003.5402
+====================================================
+NBSymple, a double parallel, symplectic N-body code running on Graphic Processing Units (R. Capuzzo-Dolcetta - 19 March, 2010)
+The code, NBSymple, has been parallelized twice, by mean of the Computer Unified Device Architecture to make the all-pair force evaluation as fast as possible on high-performance Graphic Processing Units NVIDIA TESLA C 1060, while the O(N) computations are distributed on various CPUs by mean of OpenMP Application Program
+Link: https://arxiv.org/abs/1003.3896
+====================================================
+GPU-based Fast Cone Beam CT Reconstruction from Undersampled and Noisy Projection Data via Total Variation (Xun Jia - 3 March, 2010)
+The reconstruction time ranges from 77 to 130 sec on a NVIDIA Tesla C1060 GPU card, depending on the number of projections used, which is estimated about 100 times faster than similar iterative reconstruction approaches. Moreover, phantom studies indicate that our algorithm enables the CBCT to be reconstructed under a scanning protocol with as low as 0.1 mAs/projection. Comparing with currently widely used full-fan head and neck scanning protocol of ~360 projections with 0.4 mAs/projection, it is estimated that an overall 36~72 times dose reduction has been achieved in our fast CBCT reconstruction algorithm
+Link: https://arxiv.org/abs/1002.3675
+====================================================
+GPU-based Fast Low-dose Cone Beam CT Reconstruction via Total Variation (Xun Jia - 9 April, 2010)
+Moreover, the reconstruction time is about 130 sec on an NVIDIA Tesla C1060 GPU card, which is estimated ~100 times faster than similar iterative reconstruction approaches.
+Link: https://arxiv.org/abs/1001.0599
+====================================================
+Air pollution modelling using a graphics processing unit with CUDA (Ferenc Molnar Jr. - 16 December, 2009)
+In the past years the performance and capabilities of GPUs have increased, and the Compute Unified Device Architecture (CUDA) - a parallel computing architecture - has been developed by NVIDIA to utilize this performance in general purpose computations. Our results show that parallel implementation achieves typical acceleration values in the order of 80-120 times compared to CPU using a single-threaded implementation on a 2.33 GHz desktop computer
+Link: https://arxiv.org/abs/0912.3223
+====================================================
+TWQCD's dynamical DWF project (Ting-Wai Chiu - 24 December, 2009)
+We present an overview of our project of simulation of unquenched lattice QCD with optimal domain-wall quarks, using a GPU cluster currently constituting of 16 units of Nvidia Tesla S1070 plus 64 graphic cards with Nvidia GTX285 (total 128 GPUs with 128 Teraflops peak), attaining sustained computing power of 15.36 Teraflops. The first production run in two-flavor QCD is on-going, using the Iwasaki gauge action on a set of lattices with sizes $ 16^3 \times (32,10,8,6,4) \times (16,32) $ at the lattice spacing $ a \sim 0.1$ fm, with eight sea quark masses down to $ m_Ï\simeq 200 $ MeV
+Link: https://arxiv.org/abs/0911.5029
+====================================================
+Solving Lattice QCD systems of equations using mixed precision solvers on GPUs (M. A. Clark - 21 December, 2009)
+Using NVIDIA's CUDA platform we have implemented a Wilson-Dirac sparse matrix-vector product that performs at up to 40 Gflops, 135 Gflops and 212 Gflops for double, single and half precision respectively on NVIDIA's GeForce GTX 280 GPU. The resulting BiCGstab and CG solvers run in excess of 100 Gflops and, in terms of iterations until convergence, perform better than the usual defect-correction approach for mixed precision.
+Link: https://arxiv.org/abs/0911.3191
+====================================================
+Adaptive Mesh Fluid Simulations on GPU (Peng Wang - 28 October, 2009)
+We describe an implementation of compressible inviscid fluid solvers with block-structured adaptive mesh refinement on Graphics Processing Units using NVIDIA's CUDA. Using the method of lines approach with the second order total variation diminishing Runge-Kutta time integration scheme, piecewise linear reconstruction, and a Harten-Lax-van Leer Riemann solver, we achieve an overall speedup of approximately 10 times faster execution on one graphics card as compared to a single core on the host computer
+Link: https://arxiv.org/abs/0910.5547
+====================================================
+Development of a GPU-based Monte Carlo dose calculation code for coupled electron-photon transport (Xun Jia - 22 March, 2010)
+Speed up factors of about 5.0 ~ 6.6 times have been observed, using an NVIDIA Tesla C1060 GPU card against a 2.27GHz Intel Xeon CPU processor.
+Link: https://arxiv.org/abs/0910.0329
+====================================================
+GPU-based ultra fast IMRT plan optimization (Chunhua Men - 30 August, 2009)
+On an NVIDIA Tesla C1060 GPU card, we have achieved speedup factors of 20-40 without losing accuracy, compared to the results from an Intel Xeon 2.27 GHz CPU. For a specific 9-field prostate IMRT case with 5x5 mm^2 beamlet size and 2.5x2.5x2.5 mm^3 voxel size, our GPU implementation takes only 2.8 seconds to generate an optimal IMRT plan
+Link: https://arxiv.org/abs/0908.4421
+====================================================
+GPU-based ultra fast dose calculation using a finite pencil beam model (Xuejun Gu - 30 August, 2009)
+All testing scenarios achieved speedup ranging from 200~400 times when using a NVIDIA Tesla C1060 card in comparison with a 2.27GHz Intel Xeon CPU. The computational time for calculating dose deposition coefficients for a 9-field prostate IMRT plan with this new framework is less than 1 second
+Link: https://arxiv.org/abs/0908.4417
+====================================================
+Fast calculation of HELAS amplitudes using graphics processing unit (GPU) (K. Hagiwara - 11 October, 2010)
+As our first attempt, we compute $u\bar{u}\to nÎ³$ ($n=2$ to 8) processes in $pp$ collisions at $\sqrt{s} = 14$TeV by transferring the MadGraph generated HELAS amplitudes (FORTRAN) into newly developed HEGET ({\bf H}ELAS {\bf E}valuation with {\bf G}PU {\bf E}nhanced {\bf T}echnology) codes written in CUDA, a C-platform developed by NVIDIA for general purpose computing on the GPU
+Link: https://arxiv.org/abs/0908.4403
+====================================================
+Efficient magnetohydrodynamic simulations on graphics processing units with CUDA (Hon-Cheng Wong - 21 November, 2010)
+Performance measurements of both single and double precision are conducted on both the NVIDIA GeForce GTX 295 (GT200 architecture) and GTX 480 (Fermi architecture) graphics cards
+Link: https://arxiv.org/abs/0908.4362
+====================================================
+Teraflop per second gravitational lensing ray-shooting using graphics processing units (Alexander C. Thompson - 14 May, 2009)
+We also extend our code to multiple-GPU systems, including a 4-GPU NVIDIA S1070 Tesla unit. We achieve sustained processing performance of 182 Gflop/s on a single GPU, and 1.28 Tflop/s using the Tesla unit
+Link: https://arxiv.org/abs/0905.2453
+====================================================
+Accelerator-Oriented Algorithm Transformation for Temporal Data Mining (Debprakash Patnaik - 13 May, 2009)
+The advent of GPU architectures such as Nvidia's GTX 280 offers a cost-effective option to bring these capabilities to the neuroscientist's desktop
+Link: https://arxiv.org/abs/0905.2203
+====================================================
+Accelerating numerical solution of Stochastic Differential Equations with CUDA (M. Januszewski - 12 August, 2009)
+In this paper we present how to accelerate this kind of numerical calculations with popular NVIDIA Graphics Processing Units using the CUDA programming environment. In presented cases the measured speedup can be as high as 675x compared to a typical CPU, which corresponds to several billion integration steps per second
+Link: https://arxiv.org/abs/0903.3852
+====================================================
+SAPPORO: A way to turn your graphics cards into a GRAPE-6 (Evghenii Gaburov - 5 March, 2009)
+We present Sapporo, a library for performing high-precision gravitational N-body simulations on NVIDIA Graphical Processing Units (GPUs). The performance loss of this operation is small (< 20%) compared to the advantage of being able to run at high precision. We measured peak performance of 800 Gflop/s for running with 10^6 particles on a PC with four commercial G92 architecture GPUs (two GeForce 9800GX2). The simulation took 41 days, during which the mean performance was 113 Gflop/s
+Link: https://arxiv.org/abs/0902.4463
+====================================================
+Quantile Mechanics II: Changes of Variables in Monte Carlo methods and GPU-Optimized Normal Quantiles (William T. Shaw - 7 December, 2011)
+Comparisons of new and old forms are made on the Nvidia Quadro 4000, GTX 285 and 480, and Tesla C2050 GPUs. We argue that in single-precision mode, the change-of-variables approach offers performance competitive with the fastest existing scheme while substantially improving precision, and that in double-precision mode, this approach offers the most GPU-optimal Gaussian quantile yet, and without compromise on precision for Monte Carlo applications, working twice as fast as the CUDA 4 library function with increased precision.
+Link: https://arxiv.org/abs/0901.0638
+====================================================
+Parallel Algorithm for Solving Kepler's Equation on Graphics Processing Units: Application to Analysis of Doppler Exoplanet Searches (Eric B. Ford - 16 December, 2008)
+[Abridged] We present the results of a highly parallel Kepler equation solver using the Graphics Processing Unit (GPU) on a commercial nVidia GeForce 280GTX and the "Compute Unified Device Architecture" programming environment. Using all double precision, our GPU code outperforms a similar code using a modern CPU by a factor of over 60. Using mixed-precision, our GPU code provides a speed-up factor of over 600, when evaluating N_sys > 1024 models planetary systems each containing N_pl = 4 planets and assuming N_obs = 256 observations of each system
+Link: https://arxiv.org/abs/0812.2976
+====================================================
+Parallel GPU Implementation of Iterative PCA Algorithms (M. Andrecut - 6 November, 2008)
+The numerical results show that the GPU parallel optimized versions, based on CUBLAS (NVIDIA) are substantially faster (up to 12 times) than the CPU optimized versions based on CBLAS (GNU Scientific Library).
+Link: https://arxiv.org/abs/0811.1081
+====================================================
+Blasting through lattice calculations using CUDA (Kipton Barros - 29 October, 2008)
+Nvidia's CUDA platform, in particular, offers direct access to graphics hardware through a programming language similar to C. Using the CUDA platform we have implemented a Wilson-Dirac operator which runs at an effective 68 Gflops on the Tesla C870. The recently released GeForce GTX 280 runs this same code at 92 Gflops, and we expect further improvement pending code optimization.
+Link: https://arxiv.org/abs/0810.5365
+====================================================
+Fast GPU Implementation of Sparse Signal Recovery from Random Projections (M. Andrecut - 24 January, 2009)
+Here, we discuss a fast GPU implementation of the MP algorithm, based on the recently released NVIDIA CUDA API and CUBLAS library. The results show that the GPU version is substantially faster (up to 31 times) than the highly optimized CPU version based on CBLAS (GNU Scientific Library).
+Link: https://arxiv.org/abs/0809.1833
+====================================================
+Fast k Nearest Neighbor Search using GPU (Vincent Garcia - 9 April, 2008)
+In this paper, we show that the use of the NVIDIA CUDA API accelerates the search for the KNN up to a factor of 120.
+Link: https://arxiv.org/abs/0804.1448
+====================================================
+Harvesting graphics power for MD simulations (J. A. van Meel - 20 September, 2007)
+We tested our code on a modern GPU, the NVIDIA GeForce 8800 GTX. We achieve speedups of up to 80, 40 and 150 fold, respectively
+Link: https://arxiv.org/abs/0709.3225
+====================================================
+Graphic-Card Cluster for Astrophysics (GraCCA) -- Performance Tests (Hsi-Yu Schive - 20 January, 2008)
+It consists of 16 nodes, with each node equipped with 2 modern graphic cards, the NVIDIA GeForce 8800 GTX. This computing cluster provides a theoretical performance of 16.2 TFLOPS. Our system achieves a measured performance of 7.1 TFLOPS and a parallel efficiency of 90% for simulating a globular cluster of 1024K particles
+Link: https://arxiv.org/abs/0707.2991
+====================================================
+Graphic processors to speed-up simulations for the design of high performance solar receptors (Sylvain Collange - 24 May, 2007)
+Our performances on two recent graphics cards (Nvidia 7800GTX and ATI RX1800XL) show some speed-up higher than 400 compared to CPU implementations leaving most of CPU computing resources available
+Link: https://arxiv.org/abs/cs/0703028
+====================================================
+The Chamomile Scheme: An Optimized Algorithm for N-body simulations on Programmable Graphics Processing Units (Tsuyoshi Hamada - 5 March, 2007)
+The scheme is fully optimized for calculating gravitational interactions on the latest programmable Graphics Processing Unit (GPU), NVIDIA GeForce8800GTX, which has (a) small but fast shared memories (16 K Bytes * 16) with no broadcasting mechanism and (b) floating point arithmetic hardware of 500 Gflop/s but only for single precision. Based on this scheme, we have developed a library for gravitational N-body simulations, "CUNBODY-1", whose measured performance reaches to 173 Gflop/s for 2048 particles and 256 Gflop/s for 131072 particles.
+Link: https://arxiv.org/abs/astro-ph/0703100
+====================================================
+High Performance Direct Gravitational N-body Simulations on Graphics Processing Units (Simon Portegies Zwart - 23 February, 2007)
+We present the results of gravitational direct $N$-body simulations using the commercial graphics processing units (GPU) NVIDIA Quadro FX1400 and GeForce 8800GTX, and compare the results with GRAPE-6Af special purpose hardware. For $N\apgt 10^6$ the GeForce 8800GTX was about 20 times faster than the host computer. Though still about an order of magnitude slower than GRAPE, modern GPU's outperform GRAPE in their low cost, long mean time between failure and the much larger onboard memory; the GRAPE-6Af holds at most 256k particles whereas the GeForce 8800GTF can hold 9 million particles in memory.
+Link: https://arxiv.org/abs/cs/0702135
+====================================================
+High Performance Direct Gravitational N-body Simulations on Graphics Processing Unit I: An implementation in Cg (Simon Portegies Zwart - 23 April, 2007)
+We present the results of gravitational direct $N$-body simulations using the commercial graphics processing units (GPU) NVIDIA Quadro FX1400 and GeForce 8800GTX, and compare the results with GRAPE-6Af special purpose hardware. However, smaller time steps allowed more energy accuracy on the grape, around $10^{-11}$, whereas for the GPU machine precision saturates around $10^{-6}$ For $N\apgt 10^6$ the GeForce 8800GTX was about 20 times faster than the host computer. Though still about a factor of a few slower than GRAPE, modern GPUs outperform GRAPE in their low cost, long mean time between failure and the much larger onboard memory; the GRAPE-6Af holds at most 256k particles whereas the GeForce 8800GTX can hold 9 million particles in memory.
+Link: https://arxiv.org/abs/astro-ph/0702058
+====================================================
+AMG based on compatible weighted matching for GPUs (Massimo Bernaschi - 9 October, 2018)
+We describe main issues and design principles of an efficient implementation, tailored to recent generations of Nvidia Graphics Processing Units (GPUs), of an Algebraic Multigrid (AMG) preconditioner previously proposed by one of the authors and already available in the open-source package BootCMatch: Bootstrap algebraic multigrid based on Compatible weighted Matching for standard CPU. We exploit inherent parallelism of modern GPUs in all the kernels involving sparse matrix computations both for the setup of the preconditioner and for its application in a Krylov solver, outperforming preconditioners available in Nvidia AmgX library
+Link: https://arxiv.org/abs/1810.04221
+====================================================
+MyCaffe: A Complete C# Re-Write of Caffe with Reinforcement Learning (David W. Brown - 4 October, 2018)
+In addition, this article discusses how MyCaffe closely follows the C++ Caffe, while talking efficiently to the low level NVIDIA CUDA hardware to offer a high performance, highly programmable deep learning system for Windows .NET programmers.
+Link: https://arxiv.org/abs/1810.02272
+====================================================
+Benchmark Analysis of Representative Deep Neural Network Architectures (Simone Bianco - 1 October, 2018)
+To measure the indices we experiment the use of DNNs on two different computer architectures, a workstation equipped with a NVIDIA Titan X Pascal and an embedded system based on a NVIDIA Jetson TX1 board
+Link: https://arxiv.org/abs/1810.00736
+====================================================
+HSTREAM: A directive-based language extension for heterogeneous stream computing (Suejb Memeti - 25 September, 2018)
+Big data streaming applications require utilization of heterogeneous parallel computing systems, which may comprise multiple multi-core CPUs and many-core accelerating devices such as NVIDIA GPUs and Intel Xeon Phis
+Link: https://arxiv.org/abs/1809.09387
+====================================================
+Software for Sparse Tensor Decomposition on Emerging Computing Architectures (Eric Phipps - 24 September, 2018)
+Performance of our software is measured on several computing platforms, including the Xeon Phi and NVIDIA GPUs. We show that we are competitive with state-of-the-art approaches available in the literature while having the advantage of being able to run on a wider of variety of architectures with a single code.
+Link: https://arxiv.org/abs/1809.09175
+====================================================
+Comparing Computing Platforms for Deep Learning on a Humanoid Robot (Alexander Biddulph - 10 September, 2018)
+One of the platforms is the CPU-centered Intel NUC7i7BNH and the other is a NVIDIA Jetson TX2 system that puts more emphasis on GPU processing
+Link: https://arxiv.org/abs/1809.03668
+====================================================
+Student Cluster Competition 2017, Team University ofTexas at Austin/Texas State University: Reproducing Vectorization of the Tersoff Multi-Body Potential on the Intel Skylake and NVIDIA V100 Architectures (James Sullivan - 21 August, 2018)
+We investigated accuracy, optimization performance, and scaling with our Intel CPU and NVIDIA GPU based cluster.
+Link: https://arxiv.org/abs/1808.07027
+====================================================
+Shared Multi-Task Imitation Learning for Indoor Self-Navigation (Junhong Xu - 13 August, 2018)
+Compared to single or non-shared multi-headed policies, this framework is able to leverage correlated information among tasks to increase performance.We have implemented this framework using a robot based on NVIDIA TX2 and performed extensive experiments in indoor environments with different baseline solutions
+Link: https://arxiv.org/abs/1808.04503
+====================================================
+Deep Learning-Based Multiple Object Visual Tracking on Embedded System for IoT and Mobile Edge Computing Applications (Beatriz Blanco-Filgueira - 31 July, 2018)
+This proposal performs low-power and real time deep learning-based multiple object visual tracking implemented on an NVIDIA Jetson TX2 development kit
+Link: https://arxiv.org/abs/1808.01356
+====================================================
+Embedded Implementation of a Deep Learning Smile Detector (Pedram Ghazi - 10 July, 2018)
+As the use case, we compare the accuracy and speed of neural networks for smile detection using different neural network architectures and their system level implementation on NVidia Jetson embedded platform
+Link: https://arxiv.org/abs/1807.10570
+====================================================
+CReaM: Condensed Real-time Models for Depth Prediction using Convolutional Neural Networks (Andrew Spek - 24 July, 2018)
+To this end, we present a novel real-time structure prediction framework that predicts depth at 30fps on an NVIDIA-TX2
+Link: https://arxiv.org/abs/1807.08931
+====================================================
+Smoothed-Particle Hydrodynamics Models: Implementation Features on GPUs (Sergey Khrapov - 21 July, 2018)
+The parallelization efficiency of the algorithm for various GPUs of the Nvidia Tesla line (K20, K40, K80) is studied in the framework of galactic' gaseous halos collisions models by the SPH-method.
+Link: https://arxiv.org/abs/1807.08116
+====================================================
+cuPentBatch -- A batched pentadiagonal solver for NVIDIA GPUs (Andrew Gloster - 23 July, 2018)
+We introduce cuPentBatch -- our own pentadiagonal solver for NVIDIA GPUs. As such, we demonstrate that cuPentBatch outperforms the NVIDIA standard pentadiagonal batch solver gpsvInterleavedBatch for the class of physically-relevant computational problems encountered herein.
+Link: https://arxiv.org/abs/1807.07382
+====================================================
+SpaceNet: A Remote Sensing Dataset and Challenge Series (Adam Van Etten - 25 September, 2018)
+Accordingly, the SpaceNet partners (CosmiQ Works, Radiant Solutions, and NVIDIA), released a large corpus of labeled satellite imagery on Amazon Web Services (AWS) called SpaceNet
+Link: https://arxiv.org/abs/1807.01232
+====================================================
+A GPU-enabled finite volume solver for large shallow water simulations (Fabrice Zaoui - 28 June, 2018)
+The technology of graphics and central processors is highlighted with a particular emphasis on the CUDA architecture of NVIDIA. Four professional solutions of the NVIDIA Quadro line are tested
+Link: https://arxiv.org/abs/1807.00672
+====================================================
+DPP-Net: Device-aware Progressive Search for Pareto-optimal Neural Architectures (Jin-Dong Dong - 25 July, 2018)
+Experimental results on CIFAR-10 are poised to demonstrate the effectiveness of Pareto-optimal networks found by DPP-Net, for three different devices: (1) a workstation with Titan X GPU, (2) NVIDIA Jetson TX1 embedded system, and (3) mobile phone with ARM Cortex-A53
+Link: https://arxiv.org/abs/1806.08198
+====================================================
+Analysis of DAWNBench, a Time-to-Accuracy Machine Learning Performance Benchmark (Cody Coleman - 4 June, 2018)
+While some of these optimizations perform the same operations faster (e.g., switching from a NVIDIA K80 to P100), many modify the semantics of the training procedure (e.g., large minibatch training, reduced precision), which can impact a model's generalization ability. To address this shortcoming, DAWNBENCH and the upcoming MLPERF benchmarks use time-to-accuracy as the primary metric for evaluation, with the accuracy threshold set close to state-of-the-art and measured on a held-out dataset not used in training; the goal is to train to this accuracy threshold as fast as possible
+Link: https://arxiv.org/abs/1806.01427
+====================================================
+High-Order Computational Fluid Dynamics Simulations of a Spinning Golf Ball (Jacob Crabill - 29 May, 2018)
+The codes implementing these methods have been implemented for NVIDIA Graphical Processing Units (GPUs), enabling large speedups over traditional computer hardware
+Link: https://arxiv.org/abs/1806.00378
+====================================================
+Dwarfs on Accelerators: Enhancing OpenCL Benchmarking for Heterogeneous Computing Architectures (Beau Johnston - 10 May, 2018)
+Preliminary results and analysis are reported for eight benchmark codes on a diverse set of architectures -- three Intel CPUs, five Nvidia GPUs, six AMD GPUs and a Xeon Phi.
+Link: https://arxiv.org/abs/1805.03841
+====================================================
+Detecting Traffic Lights by Single Shot Detection (Julian MÃ¼ller - 11 October, 2018)
+The trained model is real-time capable with ten frames per second on a Nvidia Titan Xp
+Link: https://arxiv.org/abs/1805.02523
+====================================================
+Automatic generation of CUDA code performing tensor manipulations using C++ expression templates (Adam G. M. Lewis - 24 April, 2018)
+These expressions may be run as-is, but may also be used to emit equivalent low-level C or CUDA code, which either performs the operations more quickly on the CPU, or allows them to be rapidly ported to run on NVIDIA GPUs. We then present benchmarks of the expression-template code, the automatically generated C code, and the automatically generated CUDA code running on several generations of NVIDIA GPU.
+Link: https://arxiv.org/abs/1804.10120
+====================================================
+GPU-Accelerated Simulations of Isolated Black Holes (Adam G. M. Lewis - 24 April, 2018)
+We present a port of the numerical relativity code SpEC which is capable of running on NVIDIA GPUs. In this paper we detail the specifics of our port, and present benchmarks of it simulating isolated black hole spacetimes on several generations of NVIDIA GPU.
+Link: https://arxiv.org/abs/1804.09101
+====================================================
+Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking (Zhe Jia - 18 April, 2018)
+To address this dearth of public, microarchitectural-level information on the novel NVIDIA GPUs, independent researchers have resorted to microbenchmarks-based dissection and discovery. In this technical report, we continue this line of research by presenting the microarchitectural details of the NVIDIA Volta architecture, discovered through microbenchmarks and instruction set disassembly
+Link: https://arxiv.org/abs/1804.06826
+====================================================
+CytonRL: an Efficient Reinforcement Learning Open-source Toolkit Implemented in C++ (Xiaolin Wang - 14 April, 2018)
+The toolkit implements four recent advanced deep Q-learning algorithms from scratch using C++ and NVIDIA's GPU-accelerated libraries
+Link: https://arxiv.org/abs/1804.05834
+====================================================
+Sparse Matrix-Matrix Multiplication on Multilevel Memory Architectures : Algorithms and Experiments (Mehmet Deveci - 2 April, 2018)
+This paper investigates the performance of sparse matrix multiplication kernels on two leading high-performance computing architectures -- Intel's Knights Landing processor and NVIDIA's Pascal GPU
+Link: https://arxiv.org/abs/1804.00695
+====================================================
+Accelerated Methods for Deep Reinforcement Learning (Adam Stooke - 7 March, 2018)
+Our results include using an entire NVIDIA DGX-1 to learn successful strategies in Atari games in single-digit minutes, using both synchronous and asynchronous algorithms.
+Link: https://arxiv.org/abs/1803.02811
+====================================================
+Chebyshev Filter Diagonalization on Modern Manycore Processors and GPGPUs (Moritz Kreutzer - 6 March, 2018)
+We focus on the transparent access to the full address space supported by both architectures under consideration: Intel Xeon Phi "Knights Landing" and Nvidia "Pascal."
+Link: https://arxiv.org/abs/1803.02156
+====================================================
+Invertible Autoencoder for domain adaptation (Yunfei Teng - 9 February, 2018)
+We demonstrate that the videos converted with InvAuto have high quality and show that the NVIDIA neural-network-based end-to-end learning system for autonomous driving, known as PilotNet, trained on real road videos performs well when tested on the converted ones.
+Link: https://arxiv.org/abs/1802.06869
+====================================================
+A Closed-form Solution to Photorealistic Image Stylization (Yijun Li - 26 July, 2018)
+Source code and additional results are available at https://github.com/NVIDIA/FastPhotoStyle .
+Link: https://arxiv.org/abs/1802.06474
+====================================================
+Tensor Comprehensions: Framework-Agnostic High-Performance Machine Learning Abstractions (Nicolas Vasilache - 28 June, 2018)
+They operate on a DAG of computational operators, wrapping high-performance libraries such as CUDNN (for NVIDIA GPUs) or NNPACK (for various CPUs), and automate memory allocation, synchronization, distribution
+Link: https://arxiv.org/abs/1802.04730
+====================================================
+Improving Locality of Unstructured Mesh Algorithms on GPUs (AndrÃ¡s Attila Sulyok - 7 May, 2018)
+Using this, we performed measurements on relevant scientific kernels from different applications, such as Airfoil, Volna, Bookleaf, Lulesh and miniAero; using Nvidia Pascal and Volta GPUs
+Link: https://arxiv.org/abs/1802.03749
+====================================================
+Intel nGraph: An Intermediate Representation, Compiler, and Executor for Deep Learning (Scott Cyphers - 29 January, 2018)
+Initial backends are Intel Architecture CPUs (CPU), the Intel(R) Nervana Neural Network Processor(R) (NNP), and NVIDIA GPUs
+Link: https://arxiv.org/abs/1801.08058
+====================================================
+On the Scalability of the GPUexplore Explicit-State Model Checker (Nathan Cassee - 27 December, 2017)
+Furthermore, we investigate the current scalability of GPUexplore, by experimenting both with input models of varying sizes and running the tool on one of the latest GPUs of NVIDIA.
+Link: https://arxiv.org/abs/1801.05857
+====================================================
+Protecting real-time GPU kernels on integrated CPU-GPU SoC platforms (Waqar Ali - 26 April, 2018)
+For example, in the NVIDIA Tegra K1 platform which has the integrated CPU-GPU architecture, we noticed that in the worst case scenario, the GPU kernels can suffer as much as 4X slowdown in the presence of co-running memory intensive CPU applications compared to their solo execution
+Link: https://arxiv.org/abs/1712.08738
+====================================================
+MILC Code Performance on High End CPU and GPU Supercomputer Clusters (Ruizi Li - 30 November, 2017)
+It has been necessary to adapt the MILC code to these new processors starting with NVIDIA GPUs, and more recently, the Intel Xeon Phi processors. We also consider performance on recent NVIDIA GPUs using the QUDA library.
+Link: https://arxiv.org/abs/1712.00143
+====================================================
+A Fast and Generic GPU-Based Parallel Reduction Implementation (Walid Jradi - 19 October, 2017)
+Experiments conducted to evaluate the approach show that the strategy is able to perform efficiently in AMD and NVidia's hardware, as well as in OpenCL and CUDA.
+Link: https://arxiv.org/abs/1710.07358
+====================================================
+Energy efficiency of finite difference algorithms on multicore CPUs, GPUs, and Intel Xeon Phi processors (Satya P. Jammy - 27 September, 2017)
+In the present work, finite difference algorithms of varying computational and memory intensity are evaluated with respect to both energy efficiency and runtime on an Intel Ivy Bridge CPU node, an Intel Xeon Phi Knights Landing processor, and an NVIDIA Tesla K40c GPU
+Link: https://arxiv.org/abs/1709.09713
+====================================================
+GALARIO: a GPU Accelerated Library for Analysing Radio Interferometer Observations (Marco Tazzari - 12 February, 2018)
+Highly modular, easy to use and to adopt in existing code, GALARIO comes as two compiled libraries, one for Nvidia GPUs and one for multicore CPUs, where both have the same functions with identical interfaces
+Link: https://arxiv.org/abs/1709.06999
+====================================================
+Training Deep AutoEncoders for Collaborative Filtering (Oleksii Kuchaiev - 10 October, 2017)
+Our code is available at https://github.com/NVIDIA/DeepRecommender
+Link: https://arxiv.org/abs/1708.01715
+====================================================
+Revisiting Activation Regularization for Language RNNs (Stephen Merity - 3 August, 2017)
+These regularization techniques can be used without any modification on optimized LSTM implementations such as the NVIDIA cuDNN LSTM.
+Link: https://arxiv.org/abs/1708.01009
+====================================================
+Efficient Yet Deep Convolutional Neural Networks for Semantic Segmentation (Sharif Amit Kamran - 28 July, 2018)
+On the other hand our model has a faster inference time and consumes less memory for training and testing on NVIDIA Pascal GPUs, making it more efficient and less memory consuming architecture for pixel-wise segmentation.
+Link: https://arxiv.org/abs/1707.08254
+====================================================
+Self-paced Convolutional Neural Network for Computer Aided Detection in Medical Imaging Analysis (Xiang Li - 19 July, 2017)
+By implementing the framework on high performance computing servers including the NVIDIA DGX1 machine, we obtained the experimental result, showing that the self-pace boosted network consistently outperformed the original network even with very scarce manual labels
+Link: https://arxiv.org/abs/1707.06145
+====================================================
+ECHO: An Adaptive Orchestration Platform for Hybrid Dataflows across Cloud and Edge (Pushkara Ravindra - 4 July, 2017)
+We validate the ECHO platform for executing video analytics and sensor streams for Smart Traffic and Smart Utility applications on Raspberry Pi, NVidia TX1, ARM64 and Azure Cloud VM resources, and present our results.
+Link: https://arxiv.org/abs/1707.00889
+====================================================
+Geometry-Oblivious FMM for Compressing Dense SPD Matrices (Chenhan D. Yu - 1 July, 2017)
+We present results on the Intel Knights Landing and Haswell architectures, and on the NVIDIA Pascal architecture for a variety of matrices.
+Link: https://arxiv.org/abs/1707.00164
+====================================================
+CELES: CUDA-accelerated simulation of electromagnetic scattering by large ensembles of spheres (Amos Egel - 6 June, 2017)
+Aiming at high computational performance, CELES leverages block-diagonal preconditioning, a lookup-table approach to evaluate costly functions and massively parallel execution on NVIDIA graphics processing units using the CUDA computing platform
+Link: https://arxiv.org/abs/1706.02145
+====================================================
+Parallelized Kalman-Filter-Based Reconstruction of Particle Tracks on Many-Core Processors and GPUs (Giuseppe Cerati - 19 June, 2017)
+Here, we discuss our progresses toward the understanding of these processors and the new developments to port Kalman filter to NVIDIA GPUs.
+Link: https://arxiv.org/abs/1705.02876
+====================================================
+Numerical Model of Shallow Water: the Use of NVIDIA CUDA Graphics Processors (Tatyana Dyakonova - 1 May, 2017)
+We consider an approximation of the shallow water equations together with the parallel technologies for NVIDIA CUDA graphics processors
+Link: https://arxiv.org/abs/1705.00614
+====================================================
+Explaining How a Deep Neural Network Trained with End-to-End Learning Steers a Car (Mariusz Bojarski - 25 April, 2017)
+As part of a complete software stack for autonomous driving, NVIDIA has created a neural-network-based system, known as PilotNet, which outputs steering angles given images of the road ahead
+Link: https://arxiv.org/abs/1704.07911
+====================================================
+Acceleration of Linear Finite-Difference Poisson-Boltzmann Methods on Graphics Processing Units (Ruxi Qi - 10 April, 2017)
+Our implementation utilizes standard Nvidia CUDA libraries cuSPARSE, cuBLAS, and CUSP
+Link: https://arxiv.org/abs/1704.02745
+====================================================
+CLTune: A Generic Auto-Tuner for OpenCL Kernels (Cedric Nugteren - 19 March, 2017)
+For matrix-multiplication, we use CLTune to explore a parameter space of more than two-hundred thousand configurations, we show the need for device-specific tuning, and outperform the clBLAS library on NVIDIA, AMD and Intel GPUs.
+Link: https://arxiv.org/abs/1703.06503
+====================================================
+Optimization of Lattice Boltzmann Simulations on Heterogeneous Computers (E. Calore - 14 March, 2017)
+We test the performance of our codes and their scaling properties using as testbeds HPC clusters incorporating different accelerators: Intel Xeon-Phi many-core processors, NVIDIA GPUs and AMD GPUs.
+Link: https://arxiv.org/abs/1703.04594
+====================================================
+Model-independent partial wave analysis using a massively-parallel fitting framework (Liang Sun - 19 February, 2017)
+GooFit uses the Thrust library, with a CUDA backend for NVIDIA GPUs and an OpenMP backend for threads with conventional CPUs
+Link: https://arxiv.org/abs/1703.03284
+====================================================
+Evaluation of DVFS techniques on modern HPC processors and accelerators for energy-aware applications (Enrico Calore - 8 March, 2017)
+We run selected kernels and a full HPC application on two high-end processors widely used in the HPC context, namely an NVIDIA K80 GPU and an Intel Haswell CPU
+Link: https://arxiv.org/abs/1703.02788
+====================================================
+Kalman filter tracking on parallel architectures (Giuseppe Cerati - 21 November, 2017)
+We demonstrate very good performance on Intel Xeon and Xeon Phi architectures, as well as promising first results on Nvidia GPUs.
+Link: https://arxiv.org/abs/1702.06359
+====================================================
+An Analysis of Parallelized Motion Masking Using Dual-Mode Single Gaussian Models (Peter Henderson - 16 February, 2017)
+We implement the technique in Intel's Thread Building Blocks (TBB) and NVIDIA's CUDA libraries
+Link: https://arxiv.org/abs/1702.05156
+====================================================
+Pure gauge QCD flux tubes and their widths at finite temperature (P. Bicudo - 10 October, 2017)
+Our computations are performed in NVIDIA GPUs using the CUDA language.
+Link: https://arxiv.org/abs/1702.03454
+====================================================
+Acceleration of low-latency gravitational wave searches using Maxwell-microarchitecture GPUs (Xiangyu Guo - 7 February, 2017)
+In this paper, we exploit the new \textit{Maxwell} memory access architecture in NVIDIA GPUs, namely the read-only data cache, warp-shuffle, and cross-warp atomic techniques
+Link: https://arxiv.org/abs/1702.02256
+====================================================
+Recurrent Neural Networks for anomaly detection in the Post-Mortem time series of LHC superconducting magnets (Maciej Wielgosz - 2 February, 2017)
+All the experiments were run on GPU Nvidia Tesla K80
+Link: https://arxiv.org/abs/1702.00833
+====================================================
+In situ, steerable, hardware-independent and data-structure agnostic visualization with ISAAC (Alexander Matthes - 28 November, 2016)
+Especially applications using hardware accelerators like Nvidia GPUs cannot save enough data to be analyzed in a later step
+Link: https://arxiv.org/abs/1611.09048
+====================================================
+A Metaprogramming and Autotuning Framework for Deploying Deep Learning Applications (Matthew W. Moskewicz - 21 November, 2016)
+Using our framework, we explore implementing DNN operations on three different hardware targets: NVIDIA, AMD, and Qualcomm GPUs. On NVIDIA GPUs, we show both portability between OpenCL and CUDA as well competitive performance compared to the vendor library
+Link: https://arxiv.org/abs/1611.06945
+====================================================
+Data Acquisition with GPUs: The DAQ for the Muon $g$-$2$ Experiment at Fermilab (W. Gohn - 15 November, 2016)
+The CUDA programming library can be used to effectively write code to parallelize such tasks on Nvidia GPUs, providing a significant upgrade in performance over CPU based acquisition systems.
+Link: https://arxiv.org/abs/1611.04959
+====================================================
+Accelerating BLAS on Custom Architecture through Algorithm-Architecture Co-design (Farhad Merchant - 27 November, 2016)
+Finally, we show performance improvement of 3-140x in PE over commercially available Intel micro-architectures, ClearSpeed CSX700, FPGA, and Nvidia GPGPUs.
+Link: https://arxiv.org/abs/1610.06385
+====================================================
+A Survey and Measurement Study of GPU DVFS on Energy Conservation (Xinxin Mei - 6 October, 2016)
+We also conduct real GPU DVFS experiments on NVIDIA Fermi and Maxwell GPUs
+Link: https://arxiv.org/abs/1610.01784
+====================================================
+A Novel GPU-based Parallel Implementation Scheme and Performance Analysis of Robot Forward Dynamics Algorithms (Yajue Yang - 21 September, 2016)
+We implement the proposed scheme on a Nvidia CUDA GPU platform for the comparative study of three algorithms, namely the hybrid articulated-body inertia algorithm (ABIA), the parallel joint space inertia inversion algorithm (JSIIA) and the constrained force algorithm (CFA), and the performances are analyzed.
+Link: https://arxiv.org/abs/1609.06779
+====================================================
+A Lightweight Approach to Performance Portability with targetDP (Alan Gray - 9 November, 2016)
+Leading HPC systems achieve their status through use of highly parallel devices such as NVIDIA GPUs or Intel Xeon Phi many-core CPUs
+Link: https://arxiv.org/abs/1609.01479
+====================================================
+A survey of sparse matrix-vector multiplication performance on large matrices (Max Grossman - 1 August, 2016)
+(2) NVIDIA GPUs and Intel multi-core CPUs (supported by each software package)
+Link: https://arxiv.org/abs/1608.00636
+====================================================
+cltorch: a Hardware-Agnostic Backend for the Torch Deep Neural Network Library, Based on OpenCL (Hugh Perkins - 15 June, 2016)
+cltorch enables training of deep neural networks on GPUs from diverse hardware vendors, including AMD, NVIDIA, and Intel
+Link: https://arxiv.org/abs/1606.04884
+====================================================
+Performance-Portable Many-Core Plasma Simulations: Porting PIConGPU to OpenPower and Beyond (Erik Zenker - 12 June, 2016)
+We demonstrate how PIConGPU can benefit from the tunable kernel execution strategies of the Alpaka library, achieving portability and performance with single-source kernels on conventional CPUs, Power8 CPUs and NVIDIA GPUs.
+Link: https://arxiv.org/abs/1606.02862
+====================================================
+Development of Krylov and AMG linear solvers for large-scale sparse matrices on GPUs (Bo Yang - 2 June, 2016)
+This research introduce our work on developing Krylov subspace and AMG solvers on NVIDIA GPUs
+Link: https://arxiv.org/abs/1606.00545
+====================================================
+An implementation of hybrid parallel CUDA code for the hyperonic nuclear forces (Hidekatsu Nemura - 27 June, 2016)
+Performances are measured using HA-PACS supercomputer in University of Tsukuba, which includes NVIDIA M2090 and NVIDIA K20X GPUs
+Link: https://arxiv.org/abs/1604.07983
+====================================================
+Relativistic hydrodynamics on graphics processing units (Jan Sikorski - 12 April, 2016)
+In this work, we present an implementation of 3+1D ideal hydrodynamics simulations on the Graphics Processing Unit using Nvidia CUDA framework
+Link: https://arxiv.org/abs/1604.03360
+====================================================
+A smooth particle hydrodynamics code to model collisions between solid, self-gravitating objects (Christoph M. SchÃ¤fer - 12 April, 2016)
+We find an impressive performance gain using NVIDIA consumer devices compared to our existing OpenMP code
+Link: https://arxiv.org/abs/1604.03290
+====================================================
+Optimizing Performance of Recurrent Neural Networks on GPUs (Jeremy Appleyard - 7 April, 2016)
+We describe three stages of optimization that have been incorporated into the fifth release of NVIDIA's cuDNN: firstly optimizing a single cell, secondly a single layer, and thirdly the entire network.
+Link: https://arxiv.org/abs/1604.01946
+====================================================
+dMath: A Scalable Linear Algebra and Math Library for Heterogeneous GP-GPU Architectures (Steven Eliuk - 5 April, 2016)
+These include matrix multiplication, convolutions, and others allowing for rapid development of highly scalable applications, including Deep Neural Networks (DNN), whereas previously one was restricted to libraries that provided effective primitives for only a single GPU, like Nvidia cublas and cudnn or DNN primitives from Nervana neon framework
+Link: https://arxiv.org/abs/1604.01416
+====================================================
+A Reconfigurable Low Power High Throughput Architecture for Deep Network Training (Raqibul Hasan - 14 June, 2016)
+The system level area and power benefits of the specialized architecture is compared with the NVIDIA Telsa K20 GPGPU
+Link: https://arxiv.org/abs/1603.07400
+====================================================
+A mixed precision semi-Lagrangian algorithm and its performance on accelerators (Lukas Einkemmer - 22 March, 2016)
+The performance of this approach is evaluated on a traditional dual socket workstation as well as on a Xeon Phi and an NVIDIA K80
+Link: https://arxiv.org/abs/1603.07008
+====================================================
+Auto-Tuning Dedispersion for Many-Core Accelerators (Alessio Sclocco - 18 January, 2016)
+In this paper, we study the parallelization of the dedispersion algorithm on many-core accelerators, including GPUs from AMD and NVIDIA, and the Intel Xeon Phi
+Link: https://arxiv.org/abs/1601.05052
+====================================================
+Real-Time Dedispersion for Fast Radio Transient Surveys, using Auto Tuning on Many-Core Accelerators (Alessio Sclocco - 6 January, 2016)
+We here present a study of the parallelization of this algorithm on many-core accelerators, including GPUs from AMD and NVIDIA, and the Intel Xeon Phi
+Link: https://arxiv.org/abs/1601.01165
+====================================================
+Comparative Study of Deep Learning Software Frameworks (Soheil Bahrampour - 29 March, 2016)
+The study is performed on several types of deep learning architectures and we evaluate the performance of the above frameworks when employed on a single machine for both (multi-threaded) CPU and GPU (Nvidia Titan X) settings
+Link: https://arxiv.org/abs/1511.06435
+====================================================
+Performance of GTX Titan X GPUs and Code Optimization (Hwancheol Jeong - 31 October, 2015)
+Recently Nvidia has released a new GPU model: GTX Titan X (TX) in a linage of the Maxwell architecture
+Link: https://arxiv.org/abs/1511.00088
+====================================================
+Asynchronous Parallel Computing Algorithm implemented in 1D Heat Equation with CUDA (Kooktae Lee - 1 November, 2015)
+We show that the simulations carried out on nVIDIA GPU device with asynchronous scheme outperforms synchronous parallel computing algorithm
+Link: https://arxiv.org/abs/1510.08982
+====================================================
+Overlap fermions on GPUs (Nigel Cundy - 12 November, 2015)
+We report on our efforts to implement overlap fermions on NVIDIA GPUs using CUDA, commenting on the algorithms used, implemetation details, and the performance of our code.
+Link: https://arxiv.org/abs/1510.06897
+====================================================
+Deep convolutional neural networks for pedestrian detection (Denis TomÃ¨ - 7 March, 2016)
+Finally, we tested the system on an NVIDIA Jetson TK1, a 192-core platform that is envisioned to be a forerunner computational brain of future self-driving cars.
+Link: https://arxiv.org/abs/1510.03608
+====================================================
+The Dynamical Kernel Scheduler - Part 1 (Andreas Adelmann - 8 October, 2015)
+The first DKS version was created using CUDA for the Nvidia GPUs and OpenMP for Intel MIC
+Link: https://arxiv.org/abs/1509.07685
+====================================================
+Dissecting GPU Memory Hierarchy through Microbenchmarking (Xinxin Mei - 14 March, 2016)
+In this paper, we propose a novel fine-grained microbenchmarking approach and apply it to three generations of NVIDIA GPUs, namely Fermi, Kepler and Maxwell, to expose the previously unknown characteristics of their memory hierarchies
+Link: https://arxiv.org/abs/1509.02308
+====================================================
+GHOST: Building blocks for high performance sparse linear algebra on heterogeneous systems (Moritz Kreutzer - 15 February, 2016)
+It implements the "MPI+X" paradigm, has a pure C interface, and provides hybrid-parallel numerical kernels, intelligent resource management, and truly heterogeneous parallelism for multicore CPUs, Nvidia GPUs, and the Intel Xeon Phi
+Link: https://arxiv.org/abs/1507.08101
+====================================================
+GPGPU Based Parallelized Client-Server Framework for Providing High Performance Computation Support (Poorna Banerjee - 21 May, 2015)
+Parallelization of user-submitted tasks on the GPGPU has been achieved using NVIDIA Compute Unified Device Architecture (CUDA).
+Link: https://arxiv.org/abs/1505.05655
+====================================================
+Power, Energy and Speed of Embedded and Server Multi-Cores applied to Distributed Simulation of Spiking Neural Networks: ARM in NVIDIA Tegra vs Intel Xeon quad-cores (Pier Stanislao Paolucci - 12 May, 2015)
+The "embedded platform" is made of NVIDIA Jetson TK1 boards, interconnected by Ethernet, each mounting a Tegra K1 chip including a quad-core ARM Cortex-A15 at 2.3GHz
+Link: https://arxiv.org/abs/1505.03015
+====================================================
+Density Estimations for Approximate Query Processing on SIMD Architectures (Witold Andrzejewski - 8 May, 2015)
+In this paper we investigate the possibility of utilizing two SIMD architectures: SSE CPU extensions and NVIDIA's CUDA architecture to accelerate finding of the bandwidth
+Link: https://arxiv.org/abs/1505.01998
+====================================================
+Benchmarking the cost of thread divergence in CUDA (Piotr Bialas - 7 April, 2015)
+This is especially important in implicit vectorization as in NVIDIA CUDA Single Instruction Multiple Threads (SIMT) model, where the vectorization details are hidden from the programmer
+Link: https://arxiv.org/abs/1504.01650
+====================================================
+Finite element numerical integration for first order approximations on multi-core architectures (Krzysztof BanaÅ - 4 April, 2015)
+The paper presents investigations on the implementation and performance of the finite element numerical integration algorithm for first order approximations and three processor architectures, popular in scientific computing, classical CPU, Intel Xeon Phi and NVIDIA Kepler GPU
+Link: https://arxiv.org/abs/1504.01023
+====================================================
+A Switched Dynamical System Framework for Analysis of Massively Parallel Asynchronous Numerical Algorithms (Kooktae Lee - 13 March, 2015)
+The framework is presented on a one-dimensional heat equation as a case study and the proposed analysis framework is verified by solving the partial differential equation (PDE) in a $\mathtt{nVIDIA\: Tesla^{\scriptsize{TM}}}$ GPU machine, with asynchronous communication between cores.
+Link: https://arxiv.org/abs/1503.03952
+====================================================
+The GPU vs Phi Debate: Risk Analytics Using Many-Core Computing (Blesson Varghese - 26 January, 2015)
+The use of many-core hardware accelerators, such as the Intel Xeon Phi and the NVIDIA Graphics Processing Unit (GPU), are desirable for achieving high-performance risk analytics
+Link: https://arxiv.org/abs/1501.06326
+====================================================
+Software Polarization Spectrometer "PolariS" (Izumi Mizuno - 3 December, 2014)
+The computer is equipped with a graphics processing unit (GPU) to process FFT and cross-correlation using the CUDA (Compute Unified Device Architecture) library developed by NVIDIA
+Link: https://arxiv.org/abs/1412.1256
+====================================================
+Scalability and Optimization Strategies for GPU Enhanced Neural Networks (GeNN) (Naresh Balaji - 1 December, 2014)
+Utilizing the parallel nature of neural network computation algorithms, GeNN (GPU Enhanced Neural Network) provides a simulation environment that performs on General Purpose NVIDIA GPUs with a code generation based approach
+Link: https://arxiv.org/abs/1412.0595
+====================================================
+Grace: a Cross-platform Micromagnetic Simulator On Graphics Processing Units (Ru Zhu - 10 November, 2014)
+It runs on GPU from venders include NVidia, AMD and Intel, which paved the way for fast micromagnetic simulation on both high-end workstations with dedicated graphics cards and low-end personal computers with integrated graphics card
+Link: https://arxiv.org/abs/1411.2565
+====================================================
+A (Somewhat Dated) Comparative Study of Betweenness Centrality Algorithms on GPU (Saad Quader - 27 September, 2014)
+Our program is written in NVIDIA CUDA C and was tested on an NVIDIA Tesla M2050 GPU.
+Link: https://arxiv.org/abs/1409.7764
+====================================================
+Convex Clustering: An Attractive Alternative to Hierarchical Clustering (Gary K. Chen - 6 September, 2014)
+The software is implemented on ATI and nVidia graphics processing units (GPUs) for maximal speed
+Link: https://arxiv.org/abs/1409.2065
+====================================================
+GPGPU Computing (Bogdan Oancea - 29 August, 2014)
+GPU computing practically began with the introduction of CUDA (Compute Unified Device Architecture) by NVIDIA and Stream by AMD. In this paper we will focus on the CUDA parallel computing architecture and programming model introduced by NVIDIA
+Link: https://arxiv.org/abs/1408.6923
+====================================================
+A Framework for Lattice QCD Calculations on GPUs (F. T. Winter - 25 August, 2014)
+This reimplementation was possible due to the availability of a JIT compiler (part of the NVIDIA Linux kernel driver) which translates an assembly-like language (PTX) to GPU code
+Link: https://arxiv.org/abs/1408.5925
+====================================================
+Optimizing performance per watt on GPUs in High Performance Computing: temperature, frequency and voltage effects (D. C. Price - 20 October, 2015)
+We show lowering GPU supply voltage and increasing clock frequency while maintaining a low die temperature increases the power efficiency of an NVIDIA K20 GPU by up to 37-48% over default settings when running xGPU, a compute-bound code used in radio astronomy
+Link: https://arxiv.org/abs/1407.8116
+====================================================
+Suitability of NVIDIA GPUs for SKA1-Low (Alessio Magro - 13 August, 2014)
+In this memo we investigate the applicability of NVIDIA Graphics Processing Units (GPUs) for SKA1-Low station and Central Signal Processing (CSP)-level processing
+Link: https://arxiv.org/abs/1407.4698
+====================================================
+Speedup of Micromagnetic Simulations with C++ AMP On Graphics Processing Units (Ru Zhu - 29 June, 2014)
+This solver is based on C++ AMP and can run on GPUs from various hardware vendors, such as NVIDIA, AMD and Intel, regardless of whether it is dedicated or integrated graphics processor.
+Link: https://arxiv.org/abs/1406.7459
+====================================================
+Scheduling data flow program in xkaapi: A new affinity based Algorithm for Heterogeneous Architectures (RaphaÃ«l Bleuse - 25 April, 2014)
+We ran experiments on a heterogeneous parallel machine with six CPU cores and eight NVIDIA Fermi GPUs
+Link: https://arxiv.org/abs/1402.6601
+====================================================
+GPU acceleration of Newton's method for large systems of polynomial equations in double double and quad double arithmetic (Jan Verschelde - 13 May, 2014)
+In order to compensate for the higher cost of double double and quad double arithmetic when solving large polynomial systems, we investigate the application of NVIDIA Tesla K20C general purpose graphics processing unit
+Link: https://arxiv.org/abs/1402.2626
+====================================================
+Finite difference numerical method for the superlattice Boltzmann transport equation and case comparison of CPU(C) and GPU(CUDA) implementations (Dmitri Priimak - 21 July, 2014)
+The algorithm is implemented both in C language targeted to CPU and in CUDA C language targeted to commodity NVidia GPU
+Link: https://arxiv.org/abs/1401.6047
+====================================================
+Graphics processing units accelerated semiclassical initial value representation molecular dynamics (Dario Tamascelli - 8 May, 2014)
+The computational time scaling of two GPUs (NVIDIA Tesla C2075 and Kepler K20) respectively versus two CPUs (Intel Core i5 and Intel Xeon E5-2687W) and the critical issues related to the GPU implementation are discussed
+Link: https://arxiv.org/abs/1312.4698
+====================================================
+Fast quantum Monte Carlo on a GPU (Y. Lutsyshyn - 19 September, 2014)
+The program was benchmarked on several models of Nvidia GPU, including Fermi GTX560 and M2090, and the latest Kepler architecture K20 GPU
+Link: https://arxiv.org/abs/1312.1282
+====================================================
+Applications of Many-Core Technologies to On-line Event Reconstruction in High Energy Physics Experiments (A. Gianelle - 4 December, 2013)
+We measure performance of different architectures (Intel Xeon Phi and AMD GPUs, in addition to NVidia GPUs) and different software environments (OpenCL, in addition to NVidia CUDA)
+Link: https://arxiv.org/abs/1312.0917
+====================================================
+GPU Enhancement of the Trigger to Extend Physics Reach at the Large Hadron Collider (P. Lujan - 12 November, 2013)
+This paper presents, for the first time, an implementation and preliminary performance results using NVIDIA Tesla C2075 and K20c GPUs.
+Link: https://arxiv.org/abs/1311.2769
+====================================================
+Sailfish: a flexible multi-GPU implementation of the lattice Boltzmann method (Michal Januszewski - 11 November, 2013)
+The paper also presents results of performance benchmarks spanning the last three NVIDIA GPU generations (Tesla, Fermi, Kepler), which we hope will be useful for researchers working with this type of hardware and similar codes.
+Link: https://arxiv.org/abs/1311.2404
+====================================================
+GooFit: A library for massively parallelising maximum-likelihood fits (R. Andreassen - 7 November, 2013)
+We present GooFit, a library and tool for constructing arbitrarily-complex probability density functions (PDFs) to be evaluated on nVidia GPUs or on multicore CPUs using OpenMP
+Link: https://arxiv.org/abs/1311.1753
+====================================================
+Performance of Kepler GTX Titan GPUs and Xeon Phi System (Hwancheol Jeong - 4 November, 2013)
+Apart from other usual GPUs, NVIDIA also released another Kepler 'GeForce' GPU named GTX Titan. A Xeon Phi coprocessor could provide similar performance with NVIDIA Kepler GPUs theoretically but, in reality, it turns out that its performance is significantly inferior to GTX Titan.
+Link: https://arxiv.org/abs/1311.0590
+====================================================
+QCDGPU: open-source package for Monte Carlo lattice simulations on OpenCL-compatible multi-GPU systems (Vadim Demchik - 26 October, 2013)
+The code is implemented in OpenCL, tested on AMD and NVIDIA GPUs, AMD and Intel CPUs and may run on other OpenCL-compatible devices
+Link: https://arxiv.org/abs/1310.7087
+====================================================
+Porting Large HPC Applications to GPU Clusters: The Codes GENE and VERTEX (Tilman Dannert - 5 October, 2013)
+GENE and VERTEX were ported by us to HPC cluster architectures with two NVidia Kepler GPUs mounted in each node in addition to two Intel Xeon CPUs of the Sandy Bridge family
+Link: https://arxiv.org/abs/1310.1485
+====================================================
+A biomolecular electrostatics solver using Python, GPUs and boundary elements that can handle solvent-filled cavities and Stern layers (Christopher D. Cooper - 16 September, 2013)
+The cross-over point for the PyGBe code is in the order of 1-2% error, when running on one GPU card (NVIDIA Tesla C2075), compared with APBS running on six Intel Xeon CPU cores
+Link: https://arxiv.org/abs/1309.4018
+====================================================
+Flux tube widening in compact U (1) lattice gauge theory computed at T < Tc with the multilevel method and GPUs (A. Amado - 16 September, 2013)
+Our code is written in CUDA, and we run it in NVIDIA FERMI generation GPUs, in order to achieve the necessary efficiency for our computations
+Link: https://arxiv.org/abs/1309.3859
+====================================================
+GPU peer-to-peer techniques applied to a cluster interconnect (Roberto Ammendola - 31 July, 2013)
+In this paper we describe the architectural modifications required to implement peer-to-peer access to NVIDIA Fermi- and Kepler-class GPUs on an FPGA-based cluster interconnect
+Link: https://arxiv.org/abs/1307.8276
+====================================================
+A unified sparse matrix data format for efficient general sparse matrix-vector multiply on modern processors with wide SIMD units (Moritz Kreutzer - 5 March, 2014)
+We discuss the advantages of SELL-C-sigma compared to established formats like Compressed Row Storage (CRS) and ELLPACK and show its suitability on a variety of hardware platforms (Intel Sandy Bridge, Intel Xeon Phi and Nvidia Tesla K20) for a wide range of test matrices from different application areas
+Link: https://arxiv.org/abs/1307.6209
+====================================================
+Akceleracja obliczen algebry liniowej z wykorzystaniem masywnie rownoleglych, wielordzeniowych procesorow GPU (Lukasz Swierczewski - 26 June, 2013)
+Performance increase, observed during matrix multiplication on nVidia Tesla C2050, was more than thousandfold compared to ordinary CPU, resulting in drastic reduction of latency for some of the results, thus the cost of obtaining them.
+Link: https://arxiv.org/abs/1306.6192
+====================================================
+A parallel implementation of a derivative pricing model incorporating SABR calibration and probability lookup tables (Qasim Nasar-Ullah - 14 January, 2013)
+Algorithms are implemented on a GPU (graphics processing unit) using Nvidia's Fermi architecture
+Link: https://arxiv.org/abs/1301.3118
+====================================================
+A Comparison of Sequential and GPU Implementations of Iterative Methods to Compute Reachability Probabilities (Elise Cormie-Bowins - 23 October, 2012)
+ The parallel versions have been implemented on the compute unified device architecture (CUDA) so that they can be run on a NVIDIA graphics processing unit (GPU)
+Link: https://arxiv.org/abs/1210.6412
+====================================================
+A structural analysis of the A5/1 state transition graph (Andreas Beckmann - 23 October, 2012)
+Since the number of nodes is still huge an efficient bitslice approach is presented that is implemented with NVIDIA's CUDA framework and executed on several GPUs concurrently
+Link: https://arxiv.org/abs/1210.6411
+====================================================
+Orthogononalization on a general purpose graphics processing unit with double double and quad double arithmetic (Jan Verschelde - 13 January, 2013)
+In previous work we reported good speedups with our implementation to evaluate and differentiate polynomial systems on the NVIDIA Tesla C2050
+Link: https://arxiv.org/abs/1210.0800
+====================================================
+Simulating Lattice Spin Models on Graphics Processing Units (Tal Levy - 3 September, 2012)
+In this work, it is shown how such simulations can be accelerated with the use of NVIDIA graphics processing units (GPUs) using the CUDA programming architecture
+Link: https://arxiv.org/abs/1209.0296
+====================================================
+Numerical Study of Geometric Multigrid Methods on CPU--GPU Heterogeneous Computers (Chunsheng Feng - 11 January, 2013)
+Furthermore, we compare our implementation with an efficient CPU implementation of GMG and with the most popular fast Poisson solver, Fast Fourier Transform, in the cuFFT library developed by NVIDIA.
+Link: https://arxiv.org/abs/1208.4247
+====================================================
+Block-Relaxation Methods for 3D Constant-Coefficient Stencils on GPUs and Multicore CPUs (Manuel Rodriguez Rodriguez - 11 February, 2013)
+Experimental results for NVIDIA Fermi GPUs and AMD multicore systems are presented.
+Link: https://arxiv.org/abs/1208.1975
+====================================================
+Study of compact U(1) flux tubes in 3+1 dimensions in lattice gauge theory using GPU's (AndrÃ© Amado - 8 October, 2012)
+Our code is written in CUDA, and we run it in NVIDIA FERMI generation GPU's, in order to achieve the necessary performance for our computations.
+Link: https://arxiv.org/abs/1208.0166
+====================================================
+Performance of FORTRAN and C GPU Extensions for a Benchmark Suite of Fourier Pseudospectral Algorithms (B. Cloutier - 12 August, 2012)
+A comparison of PGI OpenACC, FORTRAN CUDA, and Nvidia CUDA pseudospectral methods on a single GPU and GCC FORTRAN on single and multiple CPU cores is reported
+Link: https://arxiv.org/abs/1206.3215
+====================================================
+GPGPU Processing in CUDA Architecture (Jayshree Ghorpade - 20 February, 2012)
+CUDA is NVIDIA's parallel computing architecture
+Link: https://arxiv.org/abs/1202.4347
+====================================================
+Four-dimensional Cone Beam CT Reconstruction and Enhancement using a Temporal Non-Local Means Method (Xun Jia - 11 January, 2012)
+The total computation time is ~460 sec for the reconstruction algorithm and ~610 sec for the enhancement algorithm on an NVIDIA Tesla C1060 GPU card.
+Link: https://arxiv.org/abs/1201.2450
+====================================================
+Evaluating polynomials in several variables and their derivatives on a GPU computing processor (Jan Verschelde - 2 January, 2012)
+We report on our implementation of the algorithmic differentiation of products of variables on the NVIDIA Tesla C2050 Computing Processor using the NVIDIA CUDA compiler tools.
+Link: https://arxiv.org/abs/1201.0499
+====================================================
+A GPU-based survey for millisecond radio transients using ARTEMIS (W. Armour - 28 November, 2011)
+The first is a GPU based algorithm, designed to exploit the L1 cache of the NVIDIA Fermi GPU
+Link: https://arxiv.org/abs/1111.6399
+====================================================
+Accelerating QDP++/Chroma on GPUs (Frank Winter - 23 November, 2011)
+Extensions to the C++ implementation of the QCD Data Parallel Interface are provided enabling acceleration of expression evaluation on NVIDIA GPUs
+Link: https://arxiv.org/abs/1111.5596
+====================================================
+Parallel implematation of flow and matching algorithms (Agnieszka ÅupiÅska - 27 October, 2011)
+In our work we present two parallel algorithms and their lock-free implementations using a popular GPU environment Nvidia CUDA
+Link: https://arxiv.org/abs/1110.6231
+====================================================
+Efficient Synchronization Primitives for GPUs (Jeff A. Stuart - 20 October, 2011)
+We create new implementations in CUDA and analyze the performance of spinning on the GPU, as well as a method of sleeping on the GPU, by running a set of memory-system benchmarks on two of the most common GPUs in use, the Tesla- and Fermi-class GPUs from NVIDIA
+Link: https://arxiv.org/abs/1110.4623
+====================================================
+Using Stereoscopic 3D Technologies for the Diagnosis and Treatment of Amblyopia in Children (Angelo Gargantini - 28 September, 2011)
+The 3D4Amb project aims at developing a system based on the stereoscopic 3D techonlogy, like the NVIDIA 3D Vision, for the diagnosis and treatment of amblyopia in young children
+Link: https://arxiv.org/abs/1109.6288
+====================================================
+Large-Scale High-Lundquist Number Reduced MHD Simulations of the Solar Corona Using GPU Accelerated Machines (L. Lin - 27 September, 2011)
+We present here results of a port to Nvidia CUDA (Compute Unified Device Architecture) for hardware acceleration using graphics processing units (GPUs). These include a desktop workstation with commodity hardware, a dedicated research workstation equipped with four Nvidia C2050 GPUs, as well as several large-scale GPU accelerated distributed memory machines: Lincoln/NCSA, Dirac/NERSC, and Keeneland/NICS.
+Link: https://arxiv.org/abs/1109.6038
+====================================================
+E(A+M)PEC - An OpenCL Atomic & Molecular Plasma Emission Code For Interstellar Medium Simulations (Miguel A. de Avillez - 25 September, 2011)
+It is written in OpenCL, runs in NVIDIA Graphics Processor Units and can be coupled to any HD or MHD code to follow the dynamical and thermal evolution of any plasma in, e.g., the interstellar medium (ISM).
+Link: https://arxiv.org/abs/1109.5362
+====================================================
+Calculation of fermion loops for $Î·^\prime$ and nucleon scalar and electromagnetic form factors (C. Alexandrou - 4 February, 2012)
+The exact evaluation of the disconnected diagram contributions to the flavor-singlet pseudoscalar meson mass, the nucleon sigma term and the nucleon electromagnetic form factors, is carried out utilizing GPGPU technology with the NVIDIA CUDA platform
+Link: https://arxiv.org/abs/1108.2473
+====================================================
+Accelerating Lossless Data Compression with GPUs (R. L. Cloud - 21 June, 2011)
+We create implementations of this modified algorithm on a current NVIDIA GPU using the CUDA API as well as on a current Intel chip and the performance results are compared, showing favorable GPU performance for nearly all tests
+Link: https://arxiv.org/abs/1107.1525
+====================================================
+QCD simulations with staggered fermions on GPUs (Claudio Bonati - 28 December, 2011)
+We report on our implementation of the RHMC algorithm for the simulation of lattice QCD with two staggered flavors on Graphics Processing Units, using the NVIDIA CUDA programming language
+Link: https://arxiv.org/abs/1106.5673
+====================================================
+Accelerating QDP++ using GPUs (Frank Winter - 11 May, 2011)
+NVIDIA established CUDA as a parallel computing architecture controlling and making use of the compute power of GPUs
+Link: https://arxiv.org/abs/1105.2279
+====================================================
+Finite temperature lattice QCD with GPUs (Nuno Cardoso - 28 April, 2011)
+The GPUs can be addressed by CUDA which is a NVIDIA's parallel computing architecture
+Link: https://arxiv.org/abs/1104.5432
+====================================================
+Fine-sorting One-dimensional Particle-In-Cell Algorithm with Monte-Carlo Collisions on a Graphics Processing Unit (Philipp Mertmann - 20 April, 2011)
+In this contribution we show a one-dimensional PIC code running on Nvidia GPUs using the CUDA environment
+Link: https://arxiv.org/abs/1104.3998
+====================================================
+High-Throughput Transaction Executions on Graphics Processors (Bingsheng He - 16 March, 2011)
+We evaluate GPUTx on a recent NVIDIA GPU in comparison with its counterpart on a quad-core CPU
+Link: https://arxiv.org/abs/1103.3105
+====================================================
+GPU-Based Conjugate Gradient Solver for Lattice QCD with Domain-Wall Fermions (Ting-Wai Chiu - 2 January, 2011)
+We have designed a CG solver for the general 5-dimensional DWF operator on NVIDIA CUDA architecture with mixed-precision, using the defect correction as well as the reliable updates algorithms. For NVIDIA GeForce GTX 285/480, our CG solver attains 180/233 Gflops (sustained).
+Link: https://arxiv.org/abs/1101.0423
+====================================================
+Parallelization of Weighted Sequence Comparison by using EBWT (Shashank Srikant - 29 January, 2011)
+In this paper, we give a parallel implementation of this algorithm using NVIDIA Compute Unified Device Architecture (CUDA)
+Link: https://arxiv.org/abs/1011.0597
+====================================================
+Fast Histograms using Adaptive CUDA Streams (Sisir Koppaka - 31 October, 2010)
+We also explore the tradeoffs of using the new kernel vis-Ã -vis the stock NVIDIA SDK kernel, and discuss an intelligent kernel switching method for the stream based on a degeneracy criterion that is adaptively computed from the input stream.
+Link: https://arxiv.org/abs/1011.0235
+====================================================
+Staggered fermions simulations on GPUs (Claudio Bonati - 26 October, 2010)
+We present our implementation of the RHMC algorithm for staggered fermions on Graphics Processing Units using the NVIDIA CUDA programming language
+Link: https://arxiv.org/abs/1010.5433
+====================================================
+SU(2) Lattice Gauge Theory Simulations on Fermi GPUs (Nuno Cardoso - 11 March, 2011)
+CUDA, NVIDIA Compute Unified Device Architecture, is a hardware and software architecture developed by NVIDIA for computing on the GPU
+Link: https://arxiv.org/abs/1010.4834
+====================================================
+An Exploration of OpenCL for a Numerical Relativity Application (Niket K. Choudhary - 3 October, 2011)
+Currently there is considerable interest in making use of many-core processor architectures, such as Nvidia and AMD graphics processing units (GPUs) for scientific computing
+Link: https://arxiv.org/abs/1010.3816
+====================================================
+cuInspiral: prototype gravitational waves detection pipeline fully coded on GPU using CUDA (Leone B. Bosi - 16 June, 2010)
+In this paper we report the prototype of the first coalescing binary detection pipeline fully implemented on NVIDIA GPU hardware accelerators
+Link: https://arxiv.org/abs/1006.4644
+====================================================
+High-Precision Numerical Simulations of Rotating Black Holes Accelerated by CUDA (Rakesh Ginjupalli - 3 June, 2010)
+Hardware accelerators (such as Nvidia's CUDA GPUs) have tremendous promise for computational science, because they can deliver large gains in performance at relatively low cost. In this work, we focus on the use of Nvidia's Tesla GPU for high-precision (double, quadruple and octal precision) numerical simulations in the area of black hole physics -- more specifically, solving a partial-differential-equation using finite-differencing
+Link: https://arxiv.org/abs/1006.0663
+====================================================
+A Performance Comparison of CUDA and OpenCL (Kamran Karimi - 16 May, 2011)
+OpenCL is an open standard that can be used to program CPUs, GPUs, and other devices from different vendors, while CUDA is specific to NVIDIA GPUs. We show that when using NVIDIA compiler tools, converting a CUDA kernel to an OpenCL kernel involves minimal modifications
+Link: https://arxiv.org/abs/1005.2581
+====================================================
+Fast calculation of computer-generated-hologram on AMD HD5000 series GPU and OpenCL (Tomoyoshi Shimobaba - 4 February, 2010)
+The calculation speed realizes a speed approximately two times faster than that of a GPU made by NVIDIA.
+Link: https://arxiv.org/abs/1002.0916
+====================================================
+DiVinE-CUDA - A Tool for GPU Accelerated LTL Model Checking (JiÅÃ­ Barnat - 13 December, 2009)
+The tool exploits parallel algorithm MAP adjusted to the NVIDIA CUDA architecture in order to efficiently detect the presence of accepting cycles in a directed graph
+Link: https://arxiv.org/abs/0912.2555
+====================================================
+CUDAEASY - a GPU Accelerated Cosmological Lattice Program (Jani Sainio - 30 November, 2009)
+We present the implementation in NVIDIA's Compute Unified Device Architecture (CUDA) and compare the performance to other similar programs in chaotic inflation models
+Link: https://arxiv.org/abs/0911.5692
+====================================================
+GPU computing for 2-d spin systems: CUDA vs OpenGL (Viola Anselmi - 13 November, 2008)
+CUDA is a hardware and software architecture developed by Nvidia for computing on the GPU
+Link: https://arxiv.org/abs/0811.2111
+====================================================
+Time dependent simulation of the Driven Lid Cavity at High Reynolds Number (N. Cardoso - 20 November, 2009)
+The driven lid cavity problem is solved with a NVIDIA GPU using the CUDA programming environment with double precision.
+Link: https://arxiv.org/abs/0809.3098
+====================================================
+Developing and Deploying Advanced Algorithms to Novel Supercomputing Hardware (Robert J. Brunner - 21 November, 2007)
+By partnering with the Innovative Systems Laboratory at the National Center for Supercomputing, we have obtained access to several novel technologies, including several Field-Programmable Gate Array (FPGA) systems, NVidia Graphics Processing Units (GPUs), and the STI Cell BE platform
+Link: https://arxiv.org/abs/0711.3414
+====================================================
+High Performance Direct Gravitational N-body Simulations on Graphics Processing Units -- II: An implementation in CUDA (Robert G. Belleman - 16 July, 2007)
+We present the results of gravitational direct $N$-body simulations using the Graphics Processing Unit (GPU) on a commercial NVIDIA GeForce 8800GTX designed for gaming computers
+Link: https://arxiv.org/abs/0707.0438
+====================================================
+CaractÃ©ristiques arithmÃ©tiques des processeurs graphiques (Marc Daumas - 18 May, 2006)
+Une des raisons de cet Ã©tat de faits est la pauvretÃ© des documentations techniques fournies par les fabricants (ATI et Nvidia), particuliÃ¨rement en ce qui concerne l'implantation des diffÃ©rents opÃ©rateurs arithmÃ©tiques embarquÃ©s dans les diffÃ©rentes unitÃ©s de traitement. Nous donnons les rÃ©sultats obtenus sur deux cartes graphiques rÃ©centes: la Nvidia 7800GTX et l'ATI RX1800XL.
+Link: https://arxiv.org/abs/cs/0605081
+====================================================

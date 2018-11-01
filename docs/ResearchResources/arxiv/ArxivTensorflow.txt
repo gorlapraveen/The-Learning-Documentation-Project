@@ -1,0 +1,719 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Characterizing Deep-Learning I/O Workloads in TensorFlow (Steven W. D. Chien - 6 October, 2018)
+We find that increasing the number of threads increases TensorFlow bandwidth by a maximum of 2.3x and 7.8x on our benchmark environments. The use of a burst buffer to checkpoint to a fast small capacity storage and copy asynchronously the checkpoints to a slower large capacity storage resulted in a performance improvement of 2.6x with respect to checkpointing directly to slower storage on our benchmark environment.
+Link: https://arxiv.org/abs/1810.03035
+====================================================
+Towards Self-Tuning Parameter Servers (Chris Liu - 6 October, 2018)
+Experiments show that our techniques can reduce the completion times of a variety of long-running TensorFlow jobs from 1.4x to 18x.
+Link: https://arxiv.org/abs/1810.02935
+====================================================
+Deep Learning Approaches for Understanding Simple Speech Commands (Roman A. Solovyev - 4 October, 2018)
+In this paper we consider several approaches to the problem of sound classification that we applied in TensorFlow Speech Recognition Challenge organized by Google Brain team on the Kaggle platform. As a result we achieved good classification accuracy that allowed us to finish the challenge on 8-th place among 1315 teams.
+Link: https://arxiv.org/abs/1810.02364
+====================================================
+Satellite Imagery Multiscale Rapid Detection with Windowed Networks (Adam Van Etten - 24 September, 2018)
+The SIMRDWN pipeline includes a modified version of YOLO (known as YOLT), along with the models of the tensorflow object detection API: SSD, Faster R-CNN, and R-FCN. airplanes versus airports) we find that using two different detectors at different scales is very effective with negligible runtime cost.We evaluate large test images at native resolution and find mAP scores of 0.2 to 0.8 for vehicle localization, with the YOLT architecture achieving both the highest mAP and fastest inference speed.
+Link: https://arxiv.org/abs/1809.09978
+====================================================
+Provably Correct Automatic Subdifferentiation for Qualified Programs (Sham Kakade - 23 September, 2018)
+The current state of affairs is markedly different with regards to computing subderivatives: widely used ML libraries, including TensorFlow and PyTorch, do not correctly compute (generalized) subderivatives even on simple examples. This work considers the question: is there a Cheap Subgradient Principle? Our main result shows that, under certain restrictions on our library of nonsmooth functions (standard in nonlinear programming), provably correct generalized subderivatives can be computed at a computational cost that is within a (dimension-free) factor of $6$ of the cost of computing the scalar function itself.
+Link: https://arxiv.org/abs/1809.08530
+====================================================
+LIFT: Reinforcement Learning in Computer Systems by Learning From Demonstrations (Michael Schaarschmidt - 23 August, 2018)
+We further introduce TensorForce, a TensorFlow library for applied deep reinforcement learning exposing a unified declarative interface to common RL algorithms, thus providing a backend to LIFT. Results show LIFT controllers initialized from demonstrations can outperform human baselines and heuristics across latency metrics and space usage by up to 70%.
+Link: https://arxiv.org/abs/1808.07903
+====================================================
+Constrained-size Tensorflow Models for YouTube-8M Video Understanding Challenge (Tianqi Liu - 12 September, 2018)
+We train the single models separately in tensorflow's default float32 precision, then replace weights with float16 precision and ensemble them in the evaluation and inference stages., achieving 48.5% compression rate without loss of precision. Our best model achieved 88.324% GAP on private leaderboard
+Link: https://arxiv.org/abs/1808.06739
+====================================================
+CosmoFlow: Using Deep Learning to Learn the Universe at Scale (Amrita Mathuriya - 14 August, 2018)
+To handle the considerable computational cost of this problem, we present CosmoFlow: a highly scalable deep learning application built on top of the TensorFlow framework. We demonstrate fully synchronous data-parallel training on 8192 nodes of Cori with 77% parallel efficiency, achieving 3.5 Pflop/s sustained performance
+Link: https://arxiv.org/abs/1808.04728
+====================================================
+Machine learning method for state preparation and gate synthesis on photonic quantum computers (Juan Miguel Arrazola - 27 July, 2018)
+The network is composed of several layers of optical gates with variable parameters that are optimized by applying automatic differentiation using the TensorFlow backend of the Strawberry Fields photonic quantum computer simulator. We routinely obtain high fidelities above 99\% using short-depth circuits, typically consisting of a few hundred gates
+Link: https://arxiv.org/abs/1807.10781
+====================================================
+Scheduling Computation Graphs of Deep Learning Models on Manycore CPUs (Linpeng Tang - 16 July, 2018)
+The training times on four different neural networks with Graphi are 2.1x to 9.5x faster than those with TensorFlow on a 68-core Intel Xeon Phi processor.
+Link: https://arxiv.org/abs/1807.09667
+====================================================
+Interactive Supercomputing on 40,000 Cores for Machine Learning and Data Analysis (Albert Reuther - 20 July, 2018)
+Specifically, this work demonstrates launching 32,000 TensorFlow processes in 4 seconds and launching 262,000 Octave processes in 40 seconds
+Link: https://arxiv.org/abs/1807.07814
+====================================================
+DLA: Compiler and FPGA Overlay for Neural Network Inference Acceleration (Mohamed S. Abdelfattah - 13 July, 2018)
+Additionally, we implement a sophisticated domain specific graph compiler that compiles deep learning languages such as Caffe or Tensorflow to easily target our overlay. We show how our graph compiler performs architecture-driven software optimizations to significantly boost performance of both convolutional and recurrent neural networks (CNNs/RNNs) - we demonstrate a 3x improvement on ResNet-101 and a 12x improvement for long short-term memory (LSTM) cells, compared to naive implementations. Finally, we describe how we can tailor our hardware overlay, and use our graph compiler to achieve ~900 fps on GoogLeNet on an Intel Arria 10 1150 - the fastest ever reported on comparable FPGAs.
+Link: https://arxiv.org/abs/1807.06434
+====================================================
+TFLMS: Large Model Support in TensorFlow by Graph Rewriting (Tung D. Le - 5 July, 2018)
+TFLMS is published as a pull request in the TensorFlow repository for contributing to the TensorFlow community. With TFLMS, we were able to train ResNet-50 and 3DUnet with 4.7x and 2x larger batch size, respectively
+Link: https://arxiv.org/abs/1807.02037
+====================================================
+Calamari - A High-Performance Tensorflow-based Deep Learning Package for Optical Character Recognition (Christoph Wick - 6 August, 2018)
+Calamari is a new open source OCR line recognition software that both uses state-of-the art Deep Neural Networks (DNNs) implemented in Tensorflow and giving native support for techniques such as pretraining and voting. We use two different datasets to compare the performance of Calamari to OCRopy, OCRopus3, and Tesseract 4. Calamari reaches a Character Error Rate (CER) of 0.11% on the UW3 dataset written in modern English and 0.18% on the DTA19 dataset written in German Fraktur, which considerably outperforms the results of the existing softwares.
+Link: https://arxiv.org/abs/1807.02004
+====================================================
+EcoRNN: Fused LSTM RNN Implementation with Data Layout Optimization (Bojian Zheng - 22 May, 2018)
+For example, default implementations in Tensorflow and MXNet invoke many tiny GPU kernels, leading to excessive overhead in launching GPU threads. Although cuDNN, NVIDIA's deep learning library, can accelerate performance by around 2x, it is closed-source and inflexible, hampering further research and performance improvements in frameworks, such as PyTorch, that use cuDNN as their backend. We show that (1) fusing tiny GPU kernels and (2) applying data layout optimization can give us a maximum performance boost of 3x over MXNet default and 1.5x over cuDNN implementations
+Link: https://arxiv.org/abs/1805.08899
+====================================================
+RETURNN as a Generic Flexible Neural Toolkit with Application to Translation and Speech Recognition (Albert Zeyer - 24 May, 2018)
+We compare the fast training and decoding speed of RETURNN of attention models for translation, due to fast CUDA LSTM kernels, and a fast pure TensorFlow beam search decoder. We show that a layer-wise pretraining scheme for recurrent attention models gives over 1% BLEU improvement absolute and it allows to train deeper recurrent encoder networks. We are able to train state-of-the-art models for translation and end-to-end models for speech recognition and show results on WMT 2017 and Switchboard
+Link: https://arxiv.org/abs/1805.05225
+====================================================
+A DAG Model of Synchronous Stochastic Gradient Descent in Distributed Deep Learning (Shaohuai Shi - 25 September, 2018)
+To understand the practical impact of data communications on training performance, we conduct extensive empirical studies on four state-of-the-art distributed deep learning frameworks (i.e., Caffe-MPI, CNTK, MXNet and TensorFlow) over multi-GPU and multi-node environments with different data communication techniques, including PCIe, NVLink, 10GbE, and InfiniBand
+Link: https://arxiv.org/abs/1805.03812
+====================================================
+BrainSlug: Transparent Acceleration of Deep Learning Through Depth-First Parallelism (Nicolas Weber - 23 April, 2018)
+Neural network frameworks such as PyTorch and TensorFlow are the workhorses of numerous machine learning applications ranging from object recognition to machine translation. BrainSlug achieves performance improvements of up to 41.1% on CPUs and 35.7% on GPUs
+Link: https://arxiv.org/abs/1804.08378
+====================================================
+Î¼-cuDNN: Accelerating Deep Learning Frameworks with Micro-Batching (Yosuke Oyama - 13 April, 2018)
+We demonstrate the effectiveness of Î¼-cuDNN over two frameworks, Caffe and TensorFlow, achieving speedups of 1.63x for AlexNet and 1.21x for ResNet-18 on P100-SXM2 GPU
+Link: https://arxiv.org/abs/1804.04806
+====================================================
+Fine-Grained Energy and Performance Profiling framework for Deep Convolutional Neural Networks (Crefeda Faviola Rodrigues - 14 May, 2018)
+However, current benchmarks studies in existing deep learning frameworks (for example, Caffe, Tensorflow, Torch and others) are based on performance of these applications on high-end CPUs and GPUs. In this work, we introduce a benchmarking framework called "SyNERGY" to measure the energy and time of 11 representative Deep Convolutional Neural Networks on embedded platforms such as NVidia Jetson TX1. In addition, we build an initial multi-variable linear regression model to predict energy consumption of unseen neural network models based on the number of SIMD instructions executed and main memory accesses of the CPU cores of the TX1 with an average relative test error rate of 8.04 +/- 5.96 %. Our predicted results demonstrate 7.08 +/- 6.0 % average relative error over actual energy measurements of all 11 networks tested, except MobileNet. By including MobileNet the average relative test error increases to 17.33 +/- 12.2 %.
+Link: https://arxiv.org/abs/1803.11151
+====================================================
+Live Target Detection with Deep Learning Neural Network and Unmanned Aerial Vehicle on Android Mobile Device (Ali Canberk Anar - 22 March, 2018)
+This paper describes the stages faced during the development of an Android program which obtains and decodes live images from DJI Phantom 3 Professional Drone and implements certain features of the TensorFlow Android Camera Demo application. A lake was classified as seashore, breakwater and pier with the proximities of 24.44%, 21.16% and 12.96% respectfully. The joystick of the UAV controller and laptop keyboard was classified with the proximities of 19.10% and 13.96% respectfully. The laptop monitor was classified as screen, monitor and television with the proximities of 18.77%, 14.76% and 14.00% respectfully. The computer used during the development of this study was classified as notebook and laptop with the proximities of 20.04% and 11.68% respectfully. A tractor parked at a parking lot was classified with the proximity of 12.88%. A group of cars in the same parking lot were classified as sports car, racer and convertible with the proximities of 31.75%, 18.64% and 13.45% respectfully at an inference time of 851ms.
+Link: https://arxiv.org/abs/1803.07015
+====================================================
+DeepThin: A Self-Compressing Library for Deep Neural Networks (Matthew Sotoudeh - 19 February, 2018)
+We deploy DeepThin as a plug-gable library integrated with TensorFlow that enables users to seamlessly compress models at different granularities. For TFKaldi, our DeepThin networks show better word error rates (WER) than competing methods at practically all tested compression rates, achieving an average of 60% relative improvement over rank factorization, 57% over pruning, 23% over hand-tuned same-size networks, and 6% over the computationally expensive HashedNets. For DeepSpeech, DeepThin-compressed networks achieve better test loss than all other compression methods, reaching a 28% better result than rank factorization, 27% better than pruning, 20% better than hand-tuned same-size networks, and 12% better than HashedNets
+Link: https://arxiv.org/abs/1802.06944
+====================================================
+End2You -- The Imperial Toolkit for Multimodal Profiling by End-to-End Learning (Panagiotis Tzirakis - 4 February, 2018)
+End2You is an open-source toolkit implemented in Python and is based on Tensorflow. To test our toolkit, we utilise the RECOLA database as was used in the AVEC 2016 challenge
+Link: https://arxiv.org/abs/1802.01115
+====================================================
+Application of TensorFlow to recognition of visualized results of fragment molecular orbital (FMO) calculations (Sona Saitou - 24 January, 2018)
+We have applied Google's TensorFlow deep learning toolkit to recognize the visualized results of the fragment molecular orbital (FMO) calculations. 130 (2007) 1). A thousand of IFIE-map images with labels depending on the existences of alpha-helix and beta-sheet were prepared by employing 18 proteins and 3 non-protein systems and were subjected to training by TensorFlow
+Link: https://arxiv.org/abs/1801.07972
+====================================================
+SuperNeurons: Dynamic GPU Memory Management for Training Deep Neural Networks (Linnan Wang - 12 January, 2018)
+Evaluations against Caffe, Torch, MXNet and TensorFlow have demonstrated that SuperNeurons trains at least 3.2432 deeper network than current ones with the leading performance
+Link: https://arxiv.org/abs/1801.04380
+====================================================
+Scaling GRPC Tensorflow on 512 nodes of Cori Supercomputer (Amrita Mathuriya - 26 December, 2017)
+We explore scaling of the standard distributed Tensorflow with GRPC primitives on up to 512 Intel Xeon Phi (KNL) nodes of Cori supercomputer with synchronous stochastic gradient descent (SGD), and identify causes of scaling inefficiency at higher node counts. We studied scaling of two convolution neural networks - ResNet-50, a state-of-the-art deep network for classification with roughly 25.5 million parameters, and HEP-CNN, a shallow topology with less than 1 million parameters for common scientific usages. For ResNet-50, we achieve >80% scaling efficiency on up to 128 workers, using 32 parameter servers (PS tasks) with a steep decline down to 23% for 512 workers using 64 PS tasks. The HEP-CNN demands less interconnect bandwidth, and shows >80% weak scaling efficiency for up to 256 nodes with only 1 PS task
+Link: https://arxiv.org/abs/1712.09388
+====================================================
+Cavs: A Vertex-centric Programming Interface for Dynamic Neural Networks (Hao Zhang - 11 December, 2017)
+Experiments comparing Cavs to two state-of-the-art frameworks for dynamic NNs (TensorFlow Fold and DyNet) demonstrate the efficacy of this approach: Cavs achieves a near one order of magnitude speedup on training of various dynamic NN architectures, and ablations demonstrate the contribution of our proposed batching and memory management strategies.
+Link: https://arxiv.org/abs/1712.04048
+====================================================
+OSTSC: Over Sampling for Time Series Classification in R (Matthew Dixon - 27 November, 2017)
+Each example applies a TensorFlow implementation of a Long Short-Term Memory (LSTM) classifier - a type of a Recurrent Neural Network (RNN) classifier - to imbalanced time series. In particular, OSTSC is observed to increase the AUC of LSTM from 0.543 to 0.784 on a high frequency trading dataset consisting of 30,000 time series observations.
+Link: https://arxiv.org/abs/1711.09545
+====================================================
+DLTK: State of the Art Reference Implementations for Deep Learning on Medical Images (Nick Pawlowski - 18 November, 2017)
+It builds on top of TensorFlow and its high modularity and easy-to-use examples allow for a low-threshold access to state-of-the-art implementations for typical medical imaging problems. The average test Dice similarity coefficient of $81.5$ exceeds the previously best performing CNN ($75.7$) and the accuracy of the challenge winning method ($79.0$).
+Link: https://arxiv.org/abs/1711.06853
+====================================================
+Performance Modeling and Evaluation of Distributed Deep Learning Frameworks on GPUs (Shaohuai Shi - 20 August, 2018)
+In this study, we evaluate the running performance of four state-of-the-art distributed deep learning frameworks (i.e., Caffe-MPI, CNTK, MXNet, and TensorFlow) over single-GPU, multi-GPU, and multi-node environments
+Link: https://arxiv.org/abs/1711.05979
+====================================================
+The TensorFlow Partitioning and Scheduling Problem: It's the Critical Path! (Ruben Mayer - 6 November, 2017)
+We simulate the performance of the proposed strategies in heterogeneous environments with communication-intensive workloads that are common to TensorFlow. Those strategies provide a speed-up of up to 4 times in comparison to strategies that are agnostic to the critical path, such as hash-based partitioning and FIFO scheduling.
+Link: https://arxiv.org/abs/1711.01912
+====================================================
+Weld: Rethinking the Interface Between Data-Intensive Applications (Shoumik Palkar - 24 October, 2017)
+Weld can be integrated into existing frameworks such as Spark, TensorFlow, Pandas and NumPy without changing their user-facing APIs. We demonstrate that Weld can speed up applications using these frameworks by up to 29x.
+Link: https://arxiv.org/abs/1709.06416
+====================================================
+SECLAF: A Webserver and Deep Neural Network Design Tool for Biological Sequence Classification (Balazs Szalkai - 14 August, 2017)
+Here we introduce SECLAF, an artificial neural-net based biological sequence classifier framework, which uses the Tensorflow library of Google, Inc. By applying SECLAF for residue-sequences, we have reported (Methods (2017), https://doi.org/10.1016/j.ymeth.2017.06.034) the most accurate multi-label protein classifier to date (UniProt --into 698 classes-- AUC 99.99\%; Gene Ontology --into 983 classes-- AUC 99.45\%)
+Link: https://arxiv.org/abs/1708.04103
+====================================================
+TensorFlow Enabled Genetic Programming (Kai Staats - 10 August, 2017)
+Genetic Programming, a kind of evolutionary computation and machine learning algorithm, is shown to benefit significantly from the application of vectorized data and the TensorFlow numerical computation library on both CPU and GPU architectures. The open source, Python Karoo GP is employed for a series of 190 tests across 6 platforms, with real-world datasets ranging from 18 to 5.5M data points. A dataset composed of 90,000 data points demonstrates a single vector/TensorFlow CPU core performing 875x better than 40 scalar/Sympy CPU cores. And a dataset containing 5.5M data points sees GPU configurations out-performing CPU configurations on average by 1.3x.
+Link: https://arxiv.org/abs/1708.03157
+====================================================
+PowerAI DDL (Minsik Cho - 7 August, 2017)
+This library has been integrated into Tensorflow, Caffe, and Torch. We train Resnet-101 on Imagenet 22K with 64 IBM Power8 S822LC servers (256 GPUs) in about 7 hours to an accuracy of 33.8 % validation accuracy. Microsoft's ADAM and Google's DistBelief results did not reach 30 % validation accuracy for Imagenet 22K. Compared to Facebook AI Research's recent paper on 256 GPU training, we use a different communication algorithm, and our combined software and hardware system offers better communication overhead for Resnet-50. A PowerAI DDL enabled version of Torch completed 90 epochs of training on Resnet 50 for 1K classes in 50 minutes using 64 IBM Power8 S822LC servers (256 GPUs).
+Link: https://arxiv.org/abs/1708.02188
+====================================================
+Sensing Urban Land-Use Patterns By Integrating Google Tensorflow And Scene-Classification Models (Yao Yao - 4 August, 2017)
+Using the Google Tensorflow framework, a powerful convolution neural network (CNN) library was created. The proposed method could efficiently obtain acceptable accuracy (OA = 0.794, Kappa = 0.737) for the study area
+Link: https://arxiv.org/abs/1708.01580
+====================================================
+Automated Problem Identification: Regression vs Classification via Evolutionary Deep Networks (Emmanuel Dufourq - 3 July, 2017)
+We propose the Automated Problem Identification (API) algorithm, which uses an evolutionary algorithm interface to TensorFlow to manipulate a deep neural network to decide if a dataset represents a classification or a regression problem. We test API on 16 different classification, regression and sentiment analysis datasets with up to 10,000 features and up to 17,000 unique target values. For example, API successfully identifies classification problems even with 1000 target values
+Link: https://arxiv.org/abs/1707.00703
+====================================================
+An Effective Way to Improve YouTube-8M Classification Accuracy in Google Cloud Platform (Zhenzhen Zhong - 25 June, 2017)
+We built several baseline predictions according to the benchmark paper and public github tensorflow code. Furthermore, we improved global prediction accuracy (GAP) from base level 77% to 80.7% through approaches of ensemble.
+Link: https://arxiv.org/abs/1706.08217
+====================================================
+Poseidon: An Efficient Communication Architecture for Distributed Deep Learning on GPU Clusters (Hao Zhang - 10 June, 2017)
+We show that Poseidon enables Caffe and TensorFlow to achieve 15.5x speed-up on 16 single-GPU machines, even with limited bandwidth (10GbE) and the challenging VGG19-22K network for image classification. Moreover, Poseidon-enabled TensorFlow achieves 31.5x speed-up with 32 single-GPU machines on Inception-V3, a 50% improvement over the open-source TensorFlow (20x speed-up).
+Link: https://arxiv.org/abs/1706.03292
+====================================================
+LCDet: Low-Complexity Fully-Convolutional Neural Networks for Object Detection in Embedded Systems (Subarna Tripathi - 16 May, 2017)
+We design and develop an end-to-end TensorFlow(TF)-based model. Our experimental results show that the proposed method achieves comparative accuracy comparing with state-of-the-art CNN-based face detection methods, while reducing the model size by 3x and memory-BW by ~4x comparing with one of the best real-time CNN-based object detector such as YOLO. TF 8-bit quantized model provides additional 4x memory reduction while keeping the accuracy as good as the floating point model
+Link: https://arxiv.org/abs/1705.05922
+====================================================
+A Design Methodology for Efficient Implementation of Deconvolutional Neural Networks on an FPGA (Xinyu Zhang - 7 May, 2017)
+To verify our FPGA deconvolutional accelerator design methodology we train DCNNs offline on two representative datasets using the generative adversarial network method (GAN) run on Tensorflow, and then map these DCNNs to an FPGA DCNN-plus-accelerator implementation to perform generative inference on a Xilinx Zynq-7000 FPGA. Our DCNN implementation achieves a peak performance density of 0.012 GOPs/DSP.
+Link: https://arxiv.org/abs/1705.02583
+====================================================
+Scalable Planning with Tensorflow for Hybrid Nonlinear Domains (Ga Wu - 4 November, 2017)
+Given recent deep learning results that demonstrate the ability to effectively optimize high-dimensional non-convex functions with gradient descent optimization on GPUs, we ask in this paper whether symbolic gradient optimization tools such as Tensorflow can be effective for planning in hybrid (mixed discrete and continuous) nonlinear domains with high dimensional state and action spaces? To this end, we demonstrate that hybrid planning with Tensorflow and RMSProp gradient descent is competitive with mixed integer linear program (MILP) based optimization on piecewise linear planning domains (where we can compute optimal solutions) and substantially outperforms state-of-the-art interior point methods for nonlinear planning domains. Furthermore, we remark that Tensorflow is highly scalable, converging to a strong plan on a large-scale concurrent domain with a total of 576,000 continuous action parameters distributed over a horizon of 96 time steps and 100 parallel instances in only 4 minutes
+Link: https://arxiv.org/abs/1704.07511
+====================================================
+In-Datacenter Performance Analysis of a Tensor Processing Unit (Norman P. Jouppi - 16 April, 2017)
+Our workload, written in the high-level TensorFlow framework, uses production NN applications (MLPs, CNNs, and LSTMs) that represent 95% of our datacenters' NN inference demand
+Link: https://arxiv.org/abs/1704.04760
+====================================================
+User-transparent Distributed TensorFlow (Abhinav Vishnu - 14 April, 2017)
+Several DL implementations -- primarily limited to a single compute node -- such as Caffe, TensorFlow, Theano and Torch have become readily available. Yet, the adoption of distributed DL implementations faces significant impediments: 1) most implementations require DL analysts to modify their code significantly -- which is a show-stopper, 2) several distributed DL implementations are geared towards cloud computing systems -- which is inadequate for execution on massively parallel systems such as supercomputers.
+Link: https://arxiv.org/abs/1704.04560
+====================================================
+Enabling Embedded Inference Engine with ARM Compute Library: A Case Study (Dawei Sun - 14 April, 2017)
+In addition, by utilizing ACL, we managed to build an inference engine that outperforms TensorFlow by 25%
+Link: https://arxiv.org/abs/1704.03751
+====================================================
+An Implementation of Faster RCNN with Study for Region Sampling (Xinlei Chen - 8 February, 2017)
+We adapted the join-training scheme of Faster RCNN framework from Caffe to TensorFlow as a baseline implementation for object detection. This report documents the simplifications made to the original pipeline, with justifications from ablation analysis on both PASCAL VOC 2007 and COCO 2014
+Link: https://arxiv.org/abs/1702.02138
+====================================================
+DyNet: The Dynamic Neural Network Toolkit (Graham Neubig - 14 January, 2017)
+In the static declaration strategy that is used in toolkits like Theano, CNTK, and TensorFlow, the user first defines a computation graph (a symbolic representation of the computation), and then examples are fed into an engine that executes this computation and computes its derivatives. DyNet is released open-source under the Apache 2.0 license and available at http://github.com/clab/dynet.
+Link: https://arxiv.org/abs/1701.03980
+====================================================
+Deep Probabilistic Programming (Dustin Tran - 7 March, 2017)
+For efficiency, Edward is integrated into TensorFlow, providing significant speedups over existing probabilistic systems. For example, we show on a benchmark logistic regression task that Edward is at least 35x faster than Stan and 6x faster than PyMC3
+Link: https://arxiv.org/abs/1701.03757
+====================================================
+Improving Blind Steganalysis in Spatial Domain using a Criterion to Choose the Appropriate Steganalyzer between CNN and SRM+EC (Jean-Francois Couchot - 9 January, 2017)
+Our approach is studied with three different steganographic spatial domain algorithms: S-UNIWARD, MiPOD, and HILL, using the Tensorflow computing platform, and exhibits detection capabilities better than each method alone. In blind detection, error rates are respectively of 16% for S-UNIWARD, 16% for MiPOD, and 17% for HILL on the BOSSBase with a payload of 0.4 bpp. For 0.1 bpp, the respective corresponding error rates are of 39%, 38%, and 41%, and are always better than the ones provided by SRM+EC.
+Link: https://arxiv.org/abs/1612.08882
+====================================================
+Should I use TensorFlow (Martin Schrimpf - 27 November, 2016)
+Google's Machine Learning framework TensorFlow was open-sourced in November 2015 [1] and has since built a growing community around it
+Link: https://arxiv.org/abs/1611.08903
+====================================================
+A Tour of TensorFlow (Peter Goldsborough - 1 October, 2016)
+In November 2015, Google released $\textit{TensorFlow}$, an open source deep learning software library for defining, training and deploying machine learning models
+Link: https://arxiv.org/abs/1610.01178
+====================================================
+Benchmarking State-of-the-Art Deep Learning Software Tools (Shaohuai Shi - 17 February, 2017)
+In this paper, we aim to make a comparative study of the state-of-the-art GPU-accelerated deep learning software tools, including Caffe, CNTK, MXNet, TensorFlow, and Torch
+Link: https://arxiv.org/abs/1608.07249
+====================================================
+TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems (MartÃ­n Abadi - 16 March, 2016)
+The TensorFlow API and a reference implementation were released as an open-source package under the Apache 2.0 license in November, 2015 and are available at www.tensorflow.org.
+Link: https://arxiv.org/abs/1603.04467
+====================================================
+Chasing Similarity: Distribution-aware Aggregation Scheduling (Extended Version) (Feilong Liu - 30 September, 2018)
+Parallel aggregation is a ubiquitous operation in data analytics that is expressed as GROUP BY in SQL, reduce in Hadoop, or segment in TensorFlow
+Link: https://arxiv.org/abs/1810.00511
+====================================================
+Real Time System for Facial Analysis (Janne Tommola - 14 September, 2018)
+The python code for executing the system uses common libraries--keras/tensorflow, opencv and dlib--and is available for download.
+Link: https://arxiv.org/abs/1809.05474
+====================================================
+Improving the Expressiveness of Deep Learning Frameworks with Recursion (Eunji Jeong - 4 September, 2018)
+However, embedded control flow deep learning frameworks such as TensorFlow, Theano, Caffe2, and MXNet fail to efficiently represent and execute such neural networks, due to lack of support for recursion. We present an implementation on TensorFlow and evaluation results with various recursive neural network models, showing that our recursive implementation not only conveys the recursive nature of recursive neural networks better than other implementations, but also uses given resources more effectively to reduce training and inference time.
+Link: https://arxiv.org/abs/1809.00832
+====================================================
+DeepTracker: Visualizing the Training Process of Convolutional Neural Networks (Dongyu Liu - 26 August, 2018)
+However, current popular training platforms, such as TensorFlow, only provide very little and general information, such as training/validation errors, which is far from enough to serve this purpose. We show that our method can be easily applied to other state-of-the-art "very deep" CNN models.
+Link: https://arxiv.org/abs/1808.08531
+====================================================
+Parallax: Automatic Data-Parallel Training of Deep Neural Networks (Soojeong Kim - 8 August, 2018)
+ML frameworks, such as TensorFlow, MXNet, and Caffe2, have emerged to assist ML researchers to train their models in a distributed fashion. Experiments show that Parallax built atop TensorFlow achieves scalable training throughput on multiple CNN and RNN models, while requiring little effort from its users.
+Link: https://arxiv.org/abs/1808.02621
+====================================================
+Multi-Scale Gradual Integration CNN for False Positive Reduction in Pulmonary Nodule Detection (Bum-Chae Kim - 24 July, 2018)
+Our MGI-CNN is implemented in Python using TensorFlow and the source code is available from 'https://github.com/ku-milab/MGICNN.'
+Link: https://arxiv.org/abs/1807.10581
+====================================================
+Computationally Efficient Measures of Internal Neuron Importance (Avanti Shrikumar - 25 July, 2018)
+Unfortunately, the authors found that calculating conductance in tensorflow required the addition of several custom gradient operators and did not scale well. We provide a scalable implementation of Total Conductance using standard tensorflow gradient operators that we call Neuron Integrated Gradients
+Link: https://arxiv.org/abs/1807.09946
+====================================================
+A framework for remote sensing images processing using deep learning technique (RÃ©mi Cresson - 5 September, 2018)
+Our solution takes roots in two extensively used open-source libraries, the remote sensing image processing library Orfeo ToolBox, and the high performance numerical computation library TensorFlow
+Link: https://arxiv.org/abs/1807.06535
+====================================================
+LeFlow: Enabling Flexible FPGA High-Level Synthesis of Tensorflow Deep Neural Networks (Daniel H. Noronha - 13 July, 2018)
+In this paper, we present an open-source tool-flow that maps numerical computation models written in Tensorflow to synthesizable hardware. Unlike other tools, which are often constrained by a small number of inflexible templates, our flow uses Google's XLA compiler which emits LLVM code directly from a Tensorflow specification
+Link: https://arxiv.org/abs/1807.05317
+====================================================
+The GAN Landscape: Losses, Architectures, Regularization, and Normalization (Karol Kurach - 12 July, 2018)
+We discuss common pitfalls and reproducibility issues, open-source our code on Github, and provide pre-trained models on TensorFlow Hub.
+Link: https://arxiv.org/abs/1807.04720
+====================================================
+NMT-Keras: a Very Flexible Toolkit with a Focus on Interactive NMT and Online Learning (Ãlvaro Peris - 16 August, 2018)
+NMT-Keras is based on an extended version of the popular Keras library, and it runs on Theano and Tensorflow
+Link: https://arxiv.org/abs/1807.03096
+====================================================
+A Variational Time Series Feature Extractor for Action Prediction (Maxime Chaveroche - 26 September, 2018)
+An open-source software implementation of each method with TensorFlow is also provided
+Link: https://arxiv.org/abs/1807.02350
+====================================================
+Adversarial Robustness Toolbox v0.3.0 (Maria-Irina Nicolae - 8 August, 2018)
+The Adversarial Robustness Toolbox supports machine learning models (and deep neural networks (DNNs) specifically) implemented in any of the most popular deep learning frameworks (TensorFlow, Keras, PyTorch and MXNet)
+Link: https://arxiv.org/abs/1807.01069
+====================================================
+In situ TensorView: In situ Visualization of Convolutional Neural Networks (Xinyu Chen - 16 June, 2018)
+Only a small number of lines of codes are injected in TensorFlow framework
+Link: https://arxiv.org/abs/1806.07382
+====================================================
+Self-Attentive Neural Collaborative Filtering (Yi Tay - 19 July, 2018)
+This paper has been withdrawn as we discovered a bug in our tensorflow implementation that involved accidental mixing of vectors across batches
+Link: https://arxiv.org/abs/1806.06446
+====================================================
+Laplacian Smoothing Gradient Descent (Stanley Osher - 22 September, 2018)
+We implement our algorithm into both PyTorch and Tensorflow platforms, which will be made publicly available.
+Link: https://arxiv.org/abs/1806.06317
+====================================================
+Far-HO: A Bilevel Programming Package for Hyperparameter Optimization and Meta-Learning (Luca Franceschi - 13 June, 2018)
+In this work we show how to optimize learning rates, automatically weight the loss of single examples and learn hyper-representations with Far-HO, a software package based on the popular deep learning framework TensorFlow that allows to seamlessly tackle both HO and ML problems.
+Link: https://arxiv.org/abs/1806.04941
+====================================================
+Convolutional Neural Networks for Aircraft Noise Monitoring (Nicholas Heller - 12 June, 2018)
+Our training data and a TensorFlow implementation of our model are available at https://github.com/neheller/aircraftnoise.
+Link: https://arxiv.org/abs/1806.04779
+====================================================
+LSTM Benchmarks for Deep Learning Frameworks (Stefan Braun - 5 June, 2018)
+This study provides benchmarks for different implementations of LSTM units between the deep learning frameworks PyTorch, TensorFlow, Lasagne and Keras
+Link: https://arxiv.org/abs/1806.01818
+====================================================
+Monte Carlo Convolution for Learning on Non-Uniformly Sampled Point Clouds (Pedro Hermosilla - 25 September, 2018)
+To support the direct application of these concepts, we provide a ready-to-use TensorFlow implementation of these layers at https://github.com/viscom-ulm/MCCNN
+Link: https://arxiv.org/abs/1806.01759
+====================================================
+BindsNET: A machine learning-oriented spiking neural networks library in Python (Hananel Hazan - 4 June, 2018)
+The BindsNET framework can be adjusted to meet the needs of other existing computing and hardware environments, e.g., TensorFlow
+Link: https://arxiv.org/abs/1806.01423
+====================================================
+AutoAugment: Learning Augmentation Policies from Data (Ekin D. Cubuk - 9 October, 2018)
+Code to train Wide-ResNet, Shake-Shake and ShakeDrop models with AutoAugment policies can be found at https://github.com/tensorflow/models/tree/master/research/autoaugment
+Link: https://arxiv.org/abs/1805.09501
+====================================================
+geomstats: a Python Package for Riemannian Geometry in Machine Learning (Nina Miolane - 21 May, 2018)
+The operations implemented in geomstats are available with different computing backends such as numpy, tensorflow and keras
+Link: https://arxiv.org/abs/1805.08308
+====================================================
+Market Self-Learning of Signals, Impact and Optimal Trading: Invisible Hand Inference with Free Energy (Igor Halperin - 16 May, 2018)
+Our approach is numerically light, and can be implemented using standard off-the-shelf software such as TensorFlow.
+Link: https://arxiv.org/abs/1805.06126
+====================================================
+Unifying Data, Model and Hybrid Parallelism in Deep Learning via Tensor Tiling (Minjie Wang - 10 May, 2018)
+Current systems like Tensorflow and MXNet focus on one specific parallelization strategy, data parallelism, which requires large training batch sizes in order to scale. We present this automatic tiling in a new system, SoyBean, that can act as a backend for Tensorflow, MXNet, and others.
+Link: https://arxiv.org/abs/1805.04170
+====================================================
+Ariadne: Analysis for Machine Learning Program (Julian Dolby - 10 May, 2018)
+We report on Ariadne: applying a static framework, WALA, to machine learning code that uses TensorFlow. We have created static analysis for Python, a type system for tracking tensors---Tensorflow's core data structures---and a data flow analysis to track their usage
+Link: https://arxiv.org/abs/1805.04058
+====================================================
+Deep Learning for Predicting Asset Returns (Guanhao Feng - 26 April, 2018)
+State-of-the-art algorithms including stochastic gradient descent (SGD), TensorFlow and dropout design provide imple- mentation and efficient factor exploration
+Link: https://arxiv.org/abs/1804.09314
+====================================================
+Deep Learning on Key Performance Indicators for Predictive Maintenance in SAP HANA (Jaekoo Lee - 15 April, 2018)
+We implement a system in SAP HANA integrated with Google TensorFlow
+Link: https://arxiv.org/abs/1804.05497
+====================================================
+OmicsMapNet: Transforming omics data to take advantage of Deep Convolutional Neural Network for discovery (Shiyong Ma - 14 April, 2018)
+Deep Convolutional Neural Networks (CNN) were derived using tools from TensorFlow to learn the grade of TCGA LGG and GBM samples with relatively high accuracy
+Link: https://arxiv.org/abs/1804.05283
+====================================================
+Strawberry Fields: A Software Platform for Photonic Quantum Computing (Nathan Killoran - 9 April, 2018)
+The platform consists of three main components: (i) an API for quantum programming based on an easy-to-use language named Blackbird; (ii) a suite of three virtual quantum computer backends, built in NumPy and Tensorflow, each targeting specialized uses; and (iii) an engine which can compile Blackbird programs on various backends, including the three built-in simulators, and -- in the near future -- photonic quantum information processors
+Link: https://arxiv.org/abs/1804.03159
+====================================================
+Designing a Micro-Benchmark Suite to Evaluate gRPC for TensorFlow: Early Experiences (Rajarshi Biswas - 3 April, 2018)
+Training deep learning models on TensorFlow can take significant time ranging from several minutes to several hours, even several days. To achieve this, we first analyze the characteristics of TensorFlow workload over gRPC by training popular deep learning models
+Link: https://arxiv.org/abs/1804.01138
+====================================================
+Diagonalwise Refactorization: An Efficient Training Method for Depthwise Convolutions (Zheng Qin - 27 March, 2018)
+Evaluation results show that our proposed method gains $15.4\times$ training speedup on Darknet, $8.4\times$ on Caffe, $5.4\times$ on PyTorch, $3.5\times$ on MXNet, and $1.4\times$ on TensorFlow, compared to their original implementations of depthwise convolutions.
+Link: https://arxiv.org/abs/1803.09926
+====================================================
+Latency and Throughput Characterization of Convolutional Neural Networks for Mobile Computer Vision (Jussi Hanhirova - 26 March, 2018)
+On the platform side, we concentrate especially on TensorFlow and TensorRT
+Link: https://arxiv.org/abs/1803.09492
+====================================================
+Online Second Order Methods for Non-Convex Stochastic Optimizations (Xi-Lin Li - 29 April, 2018)
+A software package (https://github.com/lixilinx/psgd_tf) implemented in Tensorflow is provided to compare variations of stochastic gradient descent (SGD) and PSGD with five different preconditioners on a wide range of benchmark problems with commonly used neural network architectures, e.g., convolutional and recurrent neural networks
+Link: https://arxiv.org/abs/1803.09383
+====================================================
+Comparing Fixed and Adaptive Computation Time for Recurrent Neural Networks (Daniel Fojo - 21 March, 2018)
+Source code in TensorFlow and PyTorch is publicly available at https://imatge-upc.github.io/danifojo-2018-repeatrnn/
+Link: https://arxiv.org/abs/1803.08165
+====================================================
+IDEL: In-Database Entity Linking with Neural Embeddings (Torsten Kilias - 13 March, 2018)
+These functions call machine learning libraries for neural text mining, such as TensorFlow
+Link: https://arxiv.org/abs/1803.04884
+====================================================
+Weighted Bayesian Bootstrap for Scalable Bayes (Michael Newton - 12 March, 2018)
+WBB is computationally fast and scalable using only off-theshelf optimization software such as TensorFlow
+Link: https://arxiv.org/abs/1803.04559
+====================================================
+Speech Recognition: Keyword Spotting Through Image Recognition (Sanjay Krishna Gouda - 10 March, 2018)
+The models to be implemented are a CNN recommended by the Tensorflow Speech Recognition tutorial, a low-latency CNN, and an adversarially trained CNN
+Link: https://arxiv.org/abs/1803.03759
+====================================================
+Solving Fourier ptychographic imaging problems via neural network modeling and TensorFlow (Shaowei Jiang - 9 March, 2018)
+We use a popular open-source machine learning library, TensorFlow, for setting up the network and conducting the optimization process
+Link: https://arxiv.org/abs/1803.03434
+====================================================
+Machine Learning Inverse Problem for Topological Photonics (Laura Pilozzi - 7 March, 2018)
+We demonstrate our technique in a realistic topological laser design and by resorting to the widely available open-source TensorFlow library
+Link: https://arxiv.org/abs/1803.02875
+====================================================
+Bonnet: An Open-Source Training and Deployment Framework for Semantic Segmentation in Robotics using CNNs (Andres Milioto - 25 February, 2018)
+The training interface is implemented in Python using TensorFlow and the deployment interface provides a C++ library that can be easily integrated in an existing robotics codebase, a ROS node, and two standalone applications for label prediction in images and videos.
+Link: https://arxiv.org/abs/1802.08960
+====================================================
+Stochastic Gradient Descent on Highly-Parallel Architectures (Yujing Ma - 24 February, 2018)
+Many of these frameworks, e.g., TensorFlow and BIDMach, implement their compute-intensive primitives in two flavors---as multi-thread routines for multi-core CPUs and as highly-parallel kernels executed on GPU. As a reference, our best implementation outperforms TensorFlow and BIDMach consistently
+Link: https://arxiv.org/abs/1802.08800
+====================================================
+Tensor Comprehensions: Framework-Agnostic High-Performance Machine Learning Abstractions (Nicolas Vasilache - 28 June, 2018)
+Competing frameworks for building these networks such as TensorFlow, Chainer, CNTK, Torch/PyTorch, Caffe1/2, MXNet and Theano, explore different tradeoffs between usability and expressiveness, research or production orientation and supported hardware
+Link: https://arxiv.org/abs/1802.04730
+====================================================
+Completely Distributed Power Allocation using Deep Neural Network for Device to Device communication Underlaying LTE (Jeehyeong Kim - 11 February, 2018)
+The proposed scheme, which is implemented model using Tensorflow, can provide same throughput with the conventional method even it operates completely on distributed manner.
+Link: https://arxiv.org/abs/1802.02736
+====================================================
+Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation (Liang-Chieh Chen - 22 August, 2018)
+Our paper is accompanied with a publicly available reference implementation of the proposed models in Tensorflow at \url{https://github.com/tensorflow/models/tree/master/research/deeplab}.
+Link: https://arxiv.org/abs/1802.02611
+====================================================
+Intel nGraph: An Intermediate Representation, Compiler, and Executor for Deep Learning (Scott Cyphers - 29 January, 2018)
+Initially-supported frameworks include TensorFlow, MXNet, and Intel neon framework
+Link: https://arxiv.org/abs/1801.08058
+====================================================
+Seismic Full-Waveform Inversion Using Deep Learning Tools and Techniques (Alan Richardson - 31 January, 2018)
+I demonstrate that the conventional seismic full-waveform inversion algorithm can be constructed as a recurrent neural network and so implemented using deep learning software such as TensorFlow
+Link: https://arxiv.org/abs/1801.07232
+====================================================
+Robust Minutiae Extractor: Integrating Deep Networks and Fingerprint Domain Knowledge (Dinh-Luan Nguyen - 26 December, 2017)
+MinutiaeNet is implemented in Tensorflow: https://github.com/luannd/MinutiaeNet
+Link: https://arxiv.org/abs/1712.09401
+====================================================
+Wolf in Sheep's Clothing - The Downscaling Attack Against Deep Learning Applications (Qixue Xiao - 21 December, 2017)
+To allow deep learning applications to handle a wide range of input data, popular frameworks, such as Caffe, TensorFlow, and Torch, all provide data scaling functions to resize input to the dimensions used by deep learning models
+Link: https://arxiv.org/abs/1712.07805
+====================================================
+Automated flow for compressing convolution neural networks for efficient edge-computation with FPGA (Farhan Shafiq - 18 December, 2017)
+In this paper, we present an automatic flow from trained TensorFlow models to FPGA system on chip implementation of binarized CNN
+Link: https://arxiv.org/abs/1712.06272
+====================================================
+TensorFlow-Serving: Flexible, High-Performance ML Serving (Christopher Olston - 27 December, 2017)
+We describe TensorFlow-Serving, a system to serve machine learning models inside Google which is also available in the cloud and via open-source
+Link: https://arxiv.org/abs/1712.06139
+====================================================
+NSML: A Machine Learning Platform That Enables You to Focus on Your Models (Nako Sung - 15 December, 2017)
+Machine learning libraries such as TensorFlow and PyTorch simplify model implementation
+Link: https://arxiv.org/abs/1712.05902
+====================================================
+DeePMD-kit: A deep learning package for many-body potential energy representation and molecular dynamics (Han Wang - 30 December, 2017)
+DeePMD-kit is interfaced with TensorFlow, one of the most popular deep learning frameworks, making the training process highly automatic and efficient
+Link: https://arxiv.org/abs/1712.03641
+====================================================
+Word Sense Disambiguation with LSTM: Do We Really Need 100 Billion Words? (Minh Le - 16 December, 2017)
+This paper presents the results of a reproduction study of this technique using only openly available datasets (GigaWord, SemCore, OMSTI) and software (TensorFlow). From them, it emerged that state-of-the-art results can be obtained with much less data than hinted by Yuan et al
+Link: https://arxiv.org/abs/1712.03376
+====================================================
+Enabling Cooperative Inference of Deep Learning on Wearables and Smartphones (Mengwei Xu - 1 December, 2017)
+Deployed as a user-space library, CoINF offers developer-friendly APIs that are as simple as those in traditional DL libraries such as TensorFlow, with all complicated offloading details hidden
+Link: https://arxiv.org/abs/1712.03073
+====================================================
+Security Risks in Deep Learning Implementations (Qixue Xiao - 29 November, 2017)
+This paper discloses a set of vulnerabilities in popular deep learning frameworks including Caffe, TensorFlow, and Torch
+Link: https://arxiv.org/abs/1711.11008
+====================================================
+TensorFlow Distributions (Joshua V. Dillon - 28 November, 2017)
+The TensorFlow Distributions library implements a vision of probability theory adapted to the modern deep-learning paradigm of end-to-end differentiable computation. TensorFlow Distributions has proven an important part of the TensorFlow toolkit within Google and in the broader deep learning community.
+Link: https://arxiv.org/abs/1711.10604
+====================================================
+Generalizing Hamiltonian Monte Carlo with Neural Networks (Daniel Levy - 2 March, 2018)
+We release an open source TensorFlow implementation of the algorithm.
+Link: https://arxiv.org/abs/1711.09268
+====================================================
+Towards Accurate Deceptive Opinion Spam Detection based on Word Order-preserving CNN (Siyuan Zhao - 19 March, 2018)
+The TensorFlow-based experiments demonstrate that the detection mechanism proposed in this paper achieve more accurate deceptive opinion detection results.
+Link: https://arxiv.org/abs/1711.09181
+====================================================
+GPflowOpt: A Bayesian Optimization Library using TensorFlow (Nicolas Knudde - 10 November, 2017)
+The package is based on the popular GPflow library for Gaussian processes, leveraging the benefits of TensorFlow including automatic differentiation, parallelization and GPU computations for Bayesian optimization. The current released version of GPflowOpt includes some standard single-objective acquisition functions, the state-of-the-art max-value entropy search, as well as a Bayesian multi-objective approach
+Link: https://arxiv.org/abs/1711.03845
+====================================================
+Feed Forward and Backward Run in Deep Convolution Neural Network (Pushparaja Murugan - 9 November, 2017)
+This has led to the major development in Deep learning frameworks such as Tensorflow, caffe, keras, theno
+Link: https://arxiv.org/abs/1711.03278
+====================================================
+Tangent: Automatic Differentiation Using Source Code Transformation in Python (Bart van MerriÃ«nboer - 7 November, 2017)
+This approach to automatic differentiation is different from existing packages popular in machine learning, such as TensorFlow and Autograd
+Link: https://arxiv.org/abs/1711.02712
+====================================================
+Towards Automatic 3D Shape Instantiation for Deployed Stent Grafts: 2D Multiple-class and Class-imbalance Marker Segmentation with Equally-weighted Focal U-Net (Xiao-Yun Zhou Celia Riga - 31 July, 2018)
+The data, trained models and TensorFlow codes are available on-line.
+Link: https://arxiv.org/abs/1711.01506
+====================================================
+TF Boosted Trees: A scalable TensorFlow based framework for gradient boosting (Natalia Ponomareva - 31 October, 2017)
+It is based on TensorFlow, and its distinguishing features include a novel architecture, automatic loss differentiation, layer-by-layer boosting that results in smaller ensembles and faster prediction, principled multi-class handling, and a number of regularization techniques to prevent overfitting.
+Link: https://arxiv.org/abs/1710.11555
+====================================================
+Compact Multi-Class Boosted Trees (Natalia Ponomareva - 31 October, 2017)
+We have added both improvements to the open-source TensorFlow Boosted trees (TFBT) package, and we demonstrate their efficacy on a variety of multiclass datasets
+Link: https://arxiv.org/abs/1710.11547
+====================================================
+Feature learning of virus genome evolution with the nucleotide skip-gram neural network (Hyunjin Shim - 27 October, 2017)
+Results from the training using a new open-source software TensorFlow show that the learned distributed vectors can be clustered using Principal Component Analysis and Hierarchical Clustering to reveal a list of non-synonymous mutations that arise on the structural protein VP1 in connection to the candidate mutation for disinfectant adaptation
+Link: https://arxiv.org/abs/1710.10229
+====================================================
+Improving Deep Learning by Inverse Square Root Linear Units (ISRLUs) (Brad Carlile - 9 November, 2017)
+In experiments with TensorFlow, ISRLU leads to faster learning and better generalization than ReLU on CNNs
+Link: https://arxiv.org/abs/1710.09967
+====================================================
+Fast and Scalable Distributed Deep Convolutional Autoencoder for fMRI Big Data Analytics (Milad Makkie - 4 March, 2018)
+To implement such a model, we have created an enhanced processing pipeline on the top of Apache Spark and Tensorflow library, leveraging from a very large cluster of GPU machines
+Link: https://arxiv.org/abs/1710.08961
+====================================================
+Auto-Differentiating Linear Algebra (Matthias Seeger - 6 July, 2018)
+Development systems for deep learning (DL), such as Theano, Torch, TensorFlow, or MXNet, are easy-to-use tools for creating complex neural network models
+Link: https://arxiv.org/abs/1710.08717
+====================================================
+Honk: A PyTorch Reimplementation of Convolutional Neural Networks for Keyword Spotting (Raphael Tang - 28 November, 2017)
+We describe Honk, an open-source PyTorch reimplementation of convolutional neural networks for keyword spotting that are included as examples in TensorFlow
+Link: https://arxiv.org/abs/1710.06554
+====================================================
+Fishing for Clickbaits in Social Images and Texts with Linguistically-Infused Neural Network Models (Maria Glenski - 17 October, 2017)
+Nevertheless, this work is the first to present preliminary analysis of objects extracted using Google Tensorflow object detection API from images in clickbait vs
+Link: https://arxiv.org/abs/1710.06390
+====================================================
+TensorQuant - A Simulation Toolbox for Deep Neural Network Quantization (Dominik Marek Loroch - 13 October, 2017)
+In this paper, we present a quantization tool box for the TensorFlow framework
+Link: https://arxiv.org/abs/1710.05758
+====================================================
+Solving differential equations with unknown constitutive relations as recurrent neural networks (Tobias Hagge - 5 October, 2017)
+We extend TensorFlow's recurrent neural network architecture to create a simple but scalable and effective solver for the unknown functions, and apply it to a fedbatch bioreactor simulation problem
+Link: https://arxiv.org/abs/1710.02242
+====================================================
+sgmcmc: An R Package for Stochastic Gradient Markov Chain Monte Carlo (Jack Baker - 13 April, 2018)
+To do this, the package uses the software library TensorFlow, which has a variety of statistical distributions and mathematical operations as standard, meaning a wide class of models can be built using this framework
+Link: https://arxiv.org/abs/1710.00578
+====================================================
+EDEN: Evolutionary Deep Networks for Efficient Machine Learning (Emmanuel Dufourq - 26 September, 2017)
+To address this increasing complexity, we propose Evolutionary DEep Networks (EDEN), a computationally efficient neuro-evolutionary algorithm which interfaces to any deep neural network platform, such as TensorFlow. Evaluation of EDEN across seven image and sentiment classification datasets shows that it reliably finds good networks -- and in three cases achieves state-of-the-art results -- even on a single GPU, in just 6-24 hours
+Link: https://arxiv.org/abs/1709.09161
+====================================================
+Deep Lattice Networks and Partial Monotonic Functions (Seungil You - 19 September, 2017)
+We implement the layers and projections with new computational graph nodes in TensorFlow and use the ADAM optimizer and batched stochastic gradients
+Link: https://arxiv.org/abs/1709.06680
+====================================================
+IBM Deep Learning Service (Bishwaranjan Bhattacharjee - 18 September, 2017)
+DLaaS provides developers the flexibility to use popular deep learning libraries such as Caffe, Torch and TensorFlow, in the cloud in a scalable and resilient manner with minimal effort
+Link: https://arxiv.org/abs/1709.05871
+====================================================
+ZhuSuan: A Library for Bayesian Deep Learning (Jiaxin Shi - 18 September, 2017)
+ZhuSuan is built upon Tensorflow
+Link: https://arxiv.org/abs/1709.05870
+====================================================
+TensorFlow Agents: Efficient Batched Reinforcement Learning in TensorFlow (Danijar Hafner - 8 September, 2017)
+This allows the TensorFlow execution engine to parallelize computation, without the need for manual synchronization. By open sourcing TensorFlow Agents, we hope to provide a flexible starting point for future projects that accelerates future research in the field.
+Link: https://arxiv.org/abs/1709.02878
+====================================================
+Performance Analysis of Open Source Machine Learning Frameworks for Various Parameters in Single-Threaded and Multi-Threaded Modes (Yuriy Kochura - 29 August, 2017)
+The basic features of some of the most versatile and popular open source frameworks for machine learning (TensorFlow, Deep Learning4j, and H2O) are considered and compared
+Link: https://arxiv.org/abs/1708.08670
+====================================================
+Algorithms for Big Data: Graphs and PageRank (Sergio GarcÃ­a Prado - 25 August, 2017)
+Finally, the development of a library for the resolution of graph problems, implemented on the top of the intensive mathematical computation platform known as TensorFlow has been started.
+Link: https://arxiv.org/abs/1708.07829
+====================================================
+DARVIZ: Deep Abstract Representation, Visualization, and Verification of Deep Learning Models (Anush Sankaran - 16 August, 2017)
+Further, for deep learning development there are many libraries in multiple programming languages such as TensorFlow (Python), CAFFE (C++), Theano (Python), Torch (Lua), and Deeplearning4j (Java), driving a huge need for interoperability across libraries.
+Link: https://arxiv.org/abs/1708.04915
+====================================================
+Direct-Manipulation Visualization of Deep Networks (Daniel Smilkov - 12 August, 2017)
+We describe TensorFlow Playground, an interactive, open sourced visualization that allows users to experiment via direct manipulation rather than coding, enabling them to quickly build an intuition about neural nets.
+Link: https://arxiv.org/abs/1708.03788
+====================================================
+Time Series Anomaly Detection; Detection of anomalous drops with limited features and sparse examples in noisy highly periodic data (Dominique T. Shipmon - 11 August, 2017)
+First we used TensorFlow to train our various models including DNNs, RNNs, and LSTMs to perform regression and predict the expected value in the time series
+Link: https://arxiv.org/abs/1708.03665
+====================================================
+TensorLog: Deep Learning Meets Probabilistic DBs (William W. Cohen - 17 July, 2017)
+We present an implementation of a probabilistic first-order logic called TensorLog, in which classes of logical queries are compiled into differentiable functions in a neural-network infrastructure such as Tensorflow or Theano
+Link: https://arxiv.org/abs/1707.05390
+====================================================
+Foolbox: A Python toolbox to benchmark the robustness of machine learning models (Jonas Rauber - 20 March, 2018)
+Additionally, Foolbox interfaces with most popular deep learning frameworks such as PyTorch, Keras, TensorFlow, Theano and MXNet and allows different adversarial criteria such as targeted misclassification and top-k misclassification as well as different distance measures
+Link: https://arxiv.org/abs/1707.04131
+====================================================
+DeepProf: Performance Analysis for Deep Learning Applications via Mining GPU Execution Patterns (Jiazhen Gu - 12 July, 2017)
+We also find out some interesting properties of Tensorflow, which can be used to guide the deep learning system setup.
+Link: https://arxiv.org/abs/1707.03750
+====================================================
+ECHO: An Adaptive Orchestration Platform for Hybrid Dataflows across Cloud and Edge (Pushkara Ravindra - 4 July, 2017)
+ECHO's hybrid dataflow composition can operate on diverse data models -- streams, micro-batches and files, and interface with native runtime engines like TensorFlow and Storm to execute them
+Link: https://arxiv.org/abs/1707.00889
+====================================================
+Developing Bug-Free Machine Learning Systems With Formal Mathematics (Daniel Selsam - 26 June, 2017)
+We train a variational autoencoder using Certigrad and find the performance comparable to training the same model in TensorFlow.
+Link: https://arxiv.org/abs/1706.08605
+====================================================
+Device Placement Optimization with Reinforcement Learning (Azalia Mirhoseini - 25 June, 2017)
+In this paper, we propose a method which learns to optimize device placement for TensorFlow computational graphs. Key to our method is the use of a sequence-to-sequence model to predict which subsets of operations in a TensorFlow graph should run on which of the available devices
+Link: https://arxiv.org/abs/1706.04972
+====================================================
+Deep learning-based numerical methods for high-dimensional parabolic partial differential equations and backward stochastic differential equations (Weinan E - 14 June, 2017)
+Numerical results using TensorFlow illustrate the efficiency and accuracy of the proposed algorithms for several 100-dimensional nonlinear PDEs from physics and finance such as the Allen-Cahn equation, the Hamilton-Jacobi-Bellman equation, and a nonlinear pricing model for financial derivatives.
+Link: https://arxiv.org/abs/1706.04702
+====================================================
+Comparative Analysis of Open Source Frameworks for Machine Learning with Use Case in Single-Threaded and Multi-Threaded Modes (Yuriy Kochura - 7 June, 2017)
+The basic features of some of the most versatile and popular open source frameworks for machine learning (TensorFlow, Deep Learning4j, and H2O) are considered and compared
+Link: https://arxiv.org/abs/1706.02248
+====================================================
+Adversarial-Playground: A Visualization Suite for Adversarial Sample Generation (Andrew Norton - 16 June, 2017)
+We propose a web-based visualization tool, Adversarial-Playground, to demonstrate the efficacy of common adversarial methods against a deep neural network (DNN) model, built on top of the TensorFlow library. To enable Adversarial-Playground to generate quick and accurate responses for users, we use two primary tactics: (1) We propose a faster variant of the state-of-the-art Jacobian saliency map approach that maintains a comparable evasion rate
+Link: https://arxiv.org/abs/1706.01763
+====================================================
+Automatic Differentiation using Constraint Handling Rules in Prolog (Samer Abdallah - 1 June, 2017)
+When applied to a differentiation-based implementation of the inside-outside algorithm for parameter learning in probabilistic grammars, the CHR based implementations outperformed two well-known frameworks for optimising differentiable functions, Theano and TensorFlow, by a large margin.
+Link: https://arxiv.org/abs/1706.00231
+====================================================
+Fast Single-Class Classification and the Principle of Logit Separation (Gil Keren - 17 September, 2018)
+Tensorflow code for optimizing the new batch losses is publicly available at https://github.com/cruvadom/Logit Separation.
+Link: https://arxiv.org/abs/1705.10246
+====================================================
+Can Decentralized Algorithms Outperform Centralized Algorithms? A Case Study for Decentralized Parallel Stochastic Gradient Descent (Xiangru Lian - 11 September, 2017)
+Most distributed machine learning systems nowadays, including TensorFlow and CNTK, are built in a centralized fashion
+Link: https://arxiv.org/abs/1705.09056
+====================================================
+On-the-fly Operation Batching in Dynamic Computation Graphs (Graham Neubig - 22 May, 2017)
+Dynamic neural network toolkits such as PyTorch, DyNet, and Chainer offer more flexibility for implementing models that cope with data of varying dimensions and structure, relative to toolkits that operate on statically declared computations (e.g., TensorFlow, CNTK, and Theano)
+Link: https://arxiv.org/abs/1705.07860
+====================================================
+Atari games and Intel processors (Robert Adamski - 19 May, 2017)
+In this work we present our results on learning strategies in Atari games using a Convolutional Neural Network, the Math Kernel Library and TensorFlow 0.11rc0 machine learning framework
+Link: https://arxiv.org/abs/1705.06936
+====================================================
+Picasso: A Modular Framework for Visualizing the Learning Process of Neural Network Image Classifiers (Ryan Henderson - 11 September, 2017)
+Picasso works with the Tensorflow deep learning framework, and Keras (when the model can be loaded into the Tensorflow backend)
+Link: https://arxiv.org/abs/1705.05627
+====================================================
+A comprehensive study of batch construction strategies for recurrent neural networks in MXNet (Patrick Doetsch - 5 May, 2017)
+While popular implementations like TensorFlow and MXNet suggest a bucketing approach to improve the parallelization capabilities of the recurrent training process, we propose a simple ordering strategy that arranges the training sequences in a stochastic alternatingly sorted way
+Link: https://arxiv.org/abs/1705.02414
+====================================================
+XES Tensorflow - Process Prediction using the Tensorflow Deep-Learning Framework (Joerg Evermann - 3 May, 2017)
+This demo paper describes a software application that applies the Tensorflow deep-learning framework to process prediction
+Link: https://arxiv.org/abs/1705.01507
+====================================================
+Building a Regular Decision Boundary with Deep Networks (Edouard Oyallon - 6 March, 2017)
+All our experiments are reproducible and code is available online, based on TensorFlow.
+Link: https://arxiv.org/abs/1703.01775
+====================================================
+Deep Nonparametric Estimation of Discrete Conditional Distributions via Smoothed Dyadic Partitioning (Wesley Tansey - 28 February, 2017)
+All of our models are implemented in Tensorflow and publicly available at https://github.com/tansey/sdp .
+Link: https://arxiv.org/abs/1702.07398
+====================================================
+Distributed deep learning on edge-devices: feasibility via adaptive compression (Corentin Hardy - 6 November, 2017)
+The leading frameworks (e.g., TensorFlow) are executed on GPUs or on high-end servers in datacenters
+Link: https://arxiv.org/abs/1702.04683
+====================================================
+Entropy Non-increasing Games for the Improvement of Dataflow Programming (Norbert BÃ¡tfai - 14 February, 2017)
+In this article, we introduce a new conception of a family of esport games called Samu Entropy to try to improve dataflow program graphs like the ones that are based on Google's TensorFlow
+Link: https://arxiv.org/abs/1702.04389
+====================================================
+Next-Step Conditioned Deep Convolutional Neural Networks Improve Protein Secondary Structure Prediction (Akosua Busia - 13 February, 2017)
+Our models are implemented using TensorFlow, an open-source machine learning software library available at TensorFlow.org; we aim to release the code for these experiments as part of the TensorFlow repository.
+Link: https://arxiv.org/abs/1702.03865
+====================================================
+DeepDSL: A Compilation-based Domain-Specific Language for Deep Learning (Tian Zhao - 9 January, 2017)
+The state-of-the art tools, such as Caffe, TensorFlow, Torch7, and CNTK, while are successful in their applicable domains, are programming libraries with fixed user interface, internal representation, and execution environment
+Link: https://arxiv.org/abs/1701.02284
+====================================================
+Akid: A Library for Neural Network Research and Production from a Dataism Approach (Shuai Li - 3 January, 2017)
+It provides higher level of abstraction for entities (abstracted as blocks) in nature upon the abstraction done on signals (abstracted as tensors) by Tensorflow, characterizing the dataism observation that all entities in nature processes input and emit out in some ways
+Link: https://arxiv.org/abs/1701.00609
+====================================================
+Large-Scale Image Retrieval with Attentive Deep Local Features (Hyeonwoo Noh - 2 February, 2018)
+Code and dataset can be found at the project webpage: https://github.com/tensorflow/models/tree/master/research/delf .
+Link: https://arxiv.org/abs/1612.06321
+====================================================
+TF.Learn: TensorFlow's High-level Module for Distributed Machine Learning (Yuan Tang - 13 December, 2016)
+TF.Learn is a high-level Python module for distributed machine learning inside TensorFlow. TF.Learn integrates a wide range of state-of-art machine learning algorithms built on top of TensorFlow's low level APIs for small to large-scale supervised and unsupervised problems
+Link: https://arxiv.org/abs/1612.04251
+====================================================
+Comparative Evaluation of Big-Data Systems on Scientific Image Analytics Workloads (Parmita Mehta - 7 December, 2016)
+We evaluate five representative systems (SciDB, Myria, Spark, Dask, and TensorFlow) and find that each of them has shortcomings that complicate implementation or hurt performance
+Link: https://arxiv.org/abs/1612.02485
+====================================================
+Reinforcement Learning through Asynchronous Advantage Actor-Critic on a GPU (Mohammad Babaeizadeh - 2 March, 2017)
+Our hybrid CPU/GPU version of A3C, based on TensorFlow, achieves a significant speed up compared to a CPU implementation; we make it publicly available to other researchers at https://github.com/NVlabs/GA3C .
+Link: https://arxiv.org/abs/1611.06256
+====================================================
+Protein Secondary Structure Prediction Using Deep Multi-scale Convolutional Neural Networks and Next-Step Conditioning (Akosua Busia - 4 November, 2016)
+We aim to release the code for these experiments as part of the TensorFlow repository.
+Link: https://arxiv.org/abs/1611.01503
+====================================================
+Edward: A library for probabilistic modeling, inference, and criticism (Dustin Tran - 31 January, 2017)
+The library builds on top of TensorFlow to support distributed training and hardware such as GPUs
+Link: https://arxiv.org/abs/1610.09787
+====================================================
+TensorLy: Tensor Learning in Python (Jean Kossaifi - 9 May, 2018)
+TensorLy's backend system allows users to perform computations with NumPy, MXNet, PyTorch, TensorFlow and CuPy
+Link: https://arxiv.org/abs/1610.09555
+====================================================
+GPflow: A Gaussian process library using TensorFlow (Alexander G. de G. Matthews - 27 October, 2016)
+GPflow is a Gaussian process library that uses TensorFlow for its core computations and Python for its front end
+Link: https://arxiv.org/abs/1610.08733
+====================================================
+Show and Tell: Lessons learned from the 2015 MSCOCO Image Captioning Challenge (Oriol Vinyals - 21 September, 2016)
+We describe and analyze the various improvements we applied to our own baseline and show the resulting performance in the competition, which we won ex-aequo with a team from Microsoft Research, and provide an open source implementation in TensorFlow.
+Link: https://arxiv.org/abs/1609.06647
+====================================================
+A New Architecture for Optimization Modeling Frameworks (Matt Wytock - 11 October, 2016)
+We propose a new architecture for optimization modeling frameworks in which solvers are expressed as computation graphs in a framework like TensorFlow rather than as standalone programs built on a low-level linear algebra interface. We introduce cvxflow, an open-source convex optimization modeling framework in Python based on the ideas in this paper, and show that it outperforms the state of the art.
+Link: https://arxiv.org/abs/1609.03488
+====================================================
+Wide & Deep Learning for Recommender Systems (Heng-Tze Cheng - 24 June, 2016)
+We have also open-sourced our implementation in TensorFlow.
+Link: https://arxiv.org/abs/1606.07792
+====================================================
+Logic Tensor Networks: Deep Learning and Logical Reasoning from Data and Knowledge (Luciano Serafini - 7 July, 2016)
+We show how Real Logic can be implemented in deep Tensor Neural Networks with the use of Google's tensorflow primitives
+Link: https://arxiv.org/abs/1606.04422
+====================================================
+TensorFlow: A system for large-scale machine learning (MartÃ­n Abadi - 31 May, 2016)
+Several Google services use TensorFlow in production, we have released it as an open-source project, and it has become widely used for machine learning research. In this paper, we describe the TensorFlow dataflow model in contrast to existing systems, and demonstrate the compelling performance that TensorFlow achieves for several real-world applications.
+Link: https://arxiv.org/abs/1605.08695
+====================================================
+DeepLearningKit - an GPU Optimized Deep Learning Framework for Apple's iOS, OS X and tvOS developed in Metal and Swift (Amund Tveit - 15 May, 2016)
+The goal is to support using deep learning models trained with popular frameworks such as Caffe, Torch, TensorFlow, Theano, Pylearn, Deeplearning4J and Mocha
+Link: https://arxiv.org/abs/1605.04614
+====================================================
+DeepSpark: A Spark-Based Distributed Deep Learning Framework for Commodity Clusters (Hanjoo Kim - 30 September, 2016)
+To support parallel operations, DeepSpark automatically distributes workloads and parameters to Caffe/Tensorflow-running nodes using Spark, and iteratively aggregates training results by a novel lock-free asynchronous variant of the popular elastic averaging stochastic gradient descent based update scheme, effectively complementing the synchronized processing capabilities of Spark
+Link: https://arxiv.org/abs/1602.08191
+====================================================
+Convolutional RNN: an Enhanced Model for Extracting Features from Sequential Data (Gil Keren - 20 July, 2017)
+Tensorflow code for the convolutional recurrent layers is publicly available in https://github.com/cruvadom/Convolutional-RNN.
+Link: https://arxiv.org/abs/1602.05875
+====================================================
+Comparative Study of Deep Learning Software Frameworks (Soheil Bahrampour - 29 March, 2016)
+This paper presents a comparative study of five deep learning frameworks, namely Caffe, Neon, TensorFlow, Theano, and Torch, on three aspects: extensibility, hardware utilization, and speed. Finally, TensorFlow is a very flexible framework, similar to Theano, but its performance is currently not competitive compared to the other studied frameworks.
+Link: https://arxiv.org/abs/1511.06435
+====================================================

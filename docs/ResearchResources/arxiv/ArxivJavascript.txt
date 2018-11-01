@@ -1,0 +1,799 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+DRIVESHAFT: Improving Perceived Mobile Web Performance (Ketan Bhardwaj - 24 September, 2018)
+DriveShaft employs (i) crowdsourcing, (ii) on-the-fly JavaScript injection, (iii) privacy preserving desensitization, and (iv) automatic HTML generation to achieve its goals. Experimental evaluations using 200 representative websites on different networks (Wi-Fi and 4G), different devices (high-end and low-end phones) and different browsers, show a reduction of 5x in the time required to see a visually complete website while giving a perception of 5x-6x faster page loading.
+Link: https://arxiv.org/abs/1809.09292
+====================================================
+On the Integrity of Cross-Origin JavaScripts (Jukka Ruohonen - 14 September, 2018)
+Given this background, this paper presents the first empirical study on the temporal integrity of cross-origin JavaScript code. According to the empirical results based on a ten day polling period of over 35 thousand scripts collected from popular websites, (i) temporal integrity changes are relatively common; (ii) the adoption of the subresource integrity standard is still in its infancy; and (iii) it is possible to statistically predict whether a temporal integrity change is likely to occur
+Link: https://arxiv.org/abs/1809.05628
+====================================================
+Context2Name: A Deep Learning-Based Approach to Infer Natural Variable Names from Usage Contexts (Rohan Bavishi - 31 August, 2018)
+We evaluate Context2Name with a large corpus of real-world JavaScript code and show that it successfully predicts 47.5% of all minified identifiers while taking only 2.9 milliseconds on average to predict a name. Moreover, Context2Name complements the state-of-the-art by predicting 5.3% additional identifiers that are missed by both existing tools.
+Link: https://arxiv.org/abs/1809.05193
+====================================================
+End-to-End Analysis of In-Browser Cryptojacking (Muhammad Saad - 6 September, 2018)
+Through code-based analysis, we highlight unique code complexity features of cryptojacking scripts, and use them to detect cryptojacking code among benign and other malicious JavaScript code, with an accuracy of 96.4%
+Link: https://arxiv.org/abs/1809.02152
+====================================================
+Wasabi: A Framework for Dynamically Analyzing WebAssembly (Daniel Lehmann - 31 August, 2018)
+The approach is based on binary instrumentation, which inserts calls to analysis functions written in JavaScript into a WebAssembly binary. Our evaluation on compute-intensive benchmarks and real-world applications shows that Wasabi (i) faithfully preserves the original program behavior, (ii) imposes an overhead that is reasonable for heavyweight dynamic analysis (depending on the program and the analyzed instructions, between 1.02x and 163x), and (iii) makes it straightforward to implement various dynamic analyses, including instruction counting, call graph extraction, memory access tracing, and taint analysis.
+Link: https://arxiv.org/abs/1808.10652
+====================================================
+Web-based Cryptojacking in the Wild (Marius Musch - 28 August, 2018)
+With the introduction of memory-bound cryptocurrencies, such as Monero, the implementation of mining code in browser-based JavaScript has become a worthwhile alternative to dedicated mining rigs. For this, we propose a 3-phase analysis approach, which enables us to identify mining scripts and conduct a large-scale study on the prevalence of cryptojacking in the Alexa 1 million websites. We find that cryptojacking is common, with currently 1 out of 500 sites hosting a mining script
+Link: https://arxiv.org/abs/1808.09474
+====================================================
+Introduction to OXPath (Ruslan R. Fayzrakhmanov - 28 June, 2018)
+They often require the execution of JavaScript in a web browser and can call AJAX requests to dynamically generate the content, reacting to user interaction. Briefly, to obtain data through existing Web interfaces and transform it into structured form, contemporary wrappers should be able to: 1) interact with sophisticated interfaces of web applications; 2) precisely acquire relevant data; 3) scale with the number of crawled web pages or states of web application; 4) have an embeddable programming API for integration with existing web technologies. OXPath integrates Firefox for correct rendering of web pages and extends XPath 1.0 for the DOM node selection, interaction, and extraction
+Link: https://arxiv.org/abs/1806.10899
+====================================================
+o-glasses: Visualizing x86 Code from Binary Using a 1d-CNN (Yuhei Otsubo - 13 June, 2018)
+On the other hand, it is sometimes almost impossible to locate the shellcode when it does not contain any JavaScript or Flash but consists of native x86 code only.
+Link: https://arxiv.org/abs/1806.05328
+====================================================
+Evaluating Maintainability Prejudices with a Large-Scale Study of Open-Source Projects (Tobias Roehm - 12 June, 2018)
+For example, JavaScript is often seen as least elegant language and hence of lowest maintainability. We formulated 10 hypotheses about maintainability based on prejudices and test them in a large set of open-source projects (6,897 GitHub repositories, 402 million lines, 5 programming languages)
+Link: https://arxiv.org/abs/1806.04556
+====================================================
+DeepBugs: A Learning Approach to Name-based Bug Detection (Michael Pradel - 30 April, 2018)
+Applying the approach to a corpus of 150,000 JavaScript files yields bug detectors that have a high accuracy (between 89% and 95%), are very efficient (less than 20 milliseconds per analyzed file), and reveal 102 programming mistakes (with 68% true positive rate) in real-world code.
+Link: https://arxiv.org/abs/1805.11683
+====================================================
+AdGraph: A Machine Learning Approach to Automatic and Effective Adblocking (Umar Iqbal - 21 May, 2018)
+Our approach relies on information obtained from multiple layers of the web stack (HTML, HTTP, and JavaScript) to train a machine learning classifier to block ads and trackers. Our evaluation on Alexa top-10K websites shows that AdGraph automatically and effectively blocks ads and trackers with 97.7% accuracy. Our manual analysis shows that AdGraph has better recall than filter lists, it blocks 16% more ads and trackers with 65% accuracy
+Link: https://arxiv.org/abs/1805.09155
+====================================================
+Neural Classification of Malicious Scripts: A study with JavaScript and VBScript (Jack W. Stokes - 15 May, 2018)
+Evaluating these models on a large corpus of 296,274 JavaScript files indicates that the best performing LaMP model has a 65.9% true positive rate (TPR) at a false positive rate (FPR) of 1.0%. Similarly, the best CPoLS model has a TPR of 45.3% at an FPR of 1.0%. LaMP and CPoLS yield a TPR of 69.3% and 67.9%, respectively, at an FPR of 1.0% on a collection of 240,504 VBScript files.
+Link: https://arxiv.org/abs/1805.05603
+====================================================
+A Deep Learning Approach to Fast, Format-Agnostic Detection of Malicious Web Content (Joshua Saxe - 13 April, 2018)
+While past work on web content detection has relied on syntactic parsing or on emulation of HTML and Javascript to extract features, our approach operates directly on a language-agnostic stream of tokens extracted directly from static HTML files with a simple regular expression. Our proposed architecture achieves a 97.5% detection rate at a 0.1% false positive rate, and classifies small-batched web pages at a rate of over 100 per second on commodity hardware
+Link: https://arxiv.org/abs/1804.05020
+====================================================
+Automated Detecting and Repair of Cross-Site Scripting Vulnerabilities (Mahmoud Mohammadi - 2 April, 2018)
+To balance security and functionality, encoders should be applied to match the web page context, such as HTML body, JavaScript, and style sheets. Evaluation of this approach has been conducted on an open source medical record application with over 200 web pages written in JSP.
+Link: https://arxiv.org/abs/1804.01862
+====================================================
+Fully Automated HTML and Javascript Rewriting for Constructing a Self-healing Web Proxy (Thomas Durieux - 23 March, 2018)
+We evaluate BikiniProxy with a new benchmark of 555 reproducible Javascript errors, DeadClick. To sum up, BikiniProxy is a novel fully-automated self-healing approach that is specific to the web, evaluated on 555 real Javascript errors, and based on original self-healing rewriting strategies for HTML and Javascript.
+Link: https://arxiv.org/abs/1803.08725
+====================================================
+Investigating the Evolvability of Web Page Load Time (Brendan Cody-Kenny - 22 February, 2018)
+By exploring Javascript code changes and exploiting combinations of non-destructive changes, we can optimise page load time by 41% in our benchmark web page.
+Link: https://arxiv.org/abs/1803.01683
+====================================================
+The Need for Speed of AI Applications: Performance Comparison of Native vs. Browser-based Algorithm Implementations (Bernd Malle - 11 February, 2018)
+Consequently, this paper deals with the question of state-of-the-art performance by presenting a comparison study between native code and different browser-based implementations: JavaScript, ASM.js as well as WebAssembly on a representative mix of algorithms
+Link: https://arxiv.org/abs/1802.03707
+====================================================
+EMME: a formal tool for ECMAScript Memory Model Evaluation (Cristian Mattarei - 17 April, 2018)
+The ECMA Technical Committee 39 (TC39) has recently extended the ECMAScript language (i.e., JavaScript) to support shared memory accesses between different threads
+Link: https://arxiv.org/abs/1801.10140
+====================================================
+Real-time Text Analytics Pipeline Using Open-source Big Data Tools (Hassan Nazeer - 12 December, 2017)
+Our proposed data processing pipeline is based on Apache Kafka for data ingestion, Apache Spark for in-memory data processing, Apache Cassandra for storing processed results, and D3 JavaScript library for visualization. Our experimental evaluations show less than a minute latency to process $466,700$ Tweets in $10.7$ minutes when three virtual machines allocated to the proposed pipeline.
+Link: https://arxiv.org/abs/1712.04344
+====================================================
+BabelView: Evaluating the Impact of Code Injection Attacks in Mobile Webviews (Claudio Rizzo - 9 October, 2018)
+Our key idea is that we can make reasoning about JavaScript semantics unnecessary by instrumenting the application with a model of possible attacker behavior -- the BabelView. Taken together, the apps reported as vulnerable have over 835 million installations worldwide. We manually validated a random sample of 66 apps and estimate that our fully automated analysis achieves a precision of 90% at a recall of 66%.
+Link: https://arxiv.org/abs/1709.05690
+====================================================
+Hot-Rodding the Browser Engine: Automatic Configuration of JavaScript Compilers (Chris Fawcett - 11 July, 2017)
+Specifically, we apply a state-of-the-art automated parameter configuration procedure based on cutting-edge machine learning and optimisation techniques to two prominent JavaScript compilers and demonstrate that significant performance improvements, more than 35% in some cases, can be achieved over the default parameter settings on a diverse set of benchmarks.
+Link: https://arxiv.org/abs/1707.04245
+====================================================
+CodeCity for (and by) JavaScript (Marcos Viana - 15 May, 2017)
+We also report our experience on producing visualizations for 40 popular JavaScript systems using JScity.
+Link: https://arxiv.org/abs/1705.05476
+====================================================
+AngularJS Performance: A Survey Study (Miguel Ramos - 6 May, 2017)
+AngularJS is a popular JavaScript MVC-based framework to construct single-page web applications. In this paper, we report the results of a survey with 95 professional developers about performance issues of AngularJS applications
+Link: https://arxiv.org/abs/1705.02506
+====================================================
+RootJS: Node.js Bindings for ROOT 6 (Theo Beffart - 28 March, 2017)
+We present rootJS, an interface making it possible to seamlessly integrate ROOT 6 into applications written for Node.js, the JavaScript runtime platform increasingly commonly used to create high-performance Web applications. Last but not least, our bindings have been designed to platform-independent and should therefore work on all systems supporting both ROOT 6 and Node.js.
+Link: https://arxiv.org/abs/1704.07887
+====================================================
+Refactoring Legacy JavaScript Code to Use Classes: The Good, The Bad and The Ugly (Leonardo Humberto Silva - 5 March, 2017)
+For example, although the language is prototype-based, the latest JavaScript standard, named ECMAScript 6 (ES6), provides native support for implementing classes. Six out of eight systems (75%) contain instances of bad and/or ugly cases
+Link: https://arxiv.org/abs/1703.01690
+====================================================
+Adding educational funcionalities to classic board games (Luis Alvarez - 14 February, 2017)
+To enlarge the number of potential users we have implement the games just using html and javascript and the games can be used in any web browser, in any computer (including tablets) , in any computer arquitecture (Windows, Mac, Linux) and no internet/server conexion is required. Associated software is distributed under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 licence and can be obtained at http://www.ctim.es/SeriousGames
+Link: https://arxiv.org/abs/1702.04270
+====================================================
+Statically Checking Web API Requests in JavaScript (Erik Wittern - 15 February, 2017)
+We evaluated our approach by checking whether web API requests in JavaScript files mined from GitHub are consistent or inconsistent with publicly available API specifications. From the 6575 requests in scope, our approach determined whether the request's URL and HTTP method was consistent or inconsistent with web API specifications with a precision of 96.0%. Our approach also correctly determined whether extracted request data was consistent or inconsistent with the data requirements with a precision of 87.9% for payload data and 99.9% for query data
+Link: https://arxiv.org/abs/1702.03906
+====================================================
+JSForce: A Forced Execution Engine for Malicious JavaScript Detection (Xunchao Hu - 26 January, 2017)
+Experimental results show that by adopting our forced execution engine, the malicious JavaScript detection rate can be substantially boosted by 206.29% using same detection policy without any noticeable false positive increase
+Link: https://arxiv.org/abs/1701.07860
+====================================================
+LigoDV-web: Providing easy, secure and universal access to a large distributed scientific data store for the LIGO Scientific Collaboration (Joseph S Areeda - 3 November, 2016)
+Collaboration members with proper credentials can request data be displayed in any of several general formats from any Internet appliance that supports a modern browser with Javascript and minimal HTML5 support, including personal computers, smartphones, and tablets. To date 634 unique users have visited the LigoDV-web website in a total of 33,861 sessions and generated a total of 139,875 plots. This infrastructure has been helpful in many analyses within the collaboration including follow-up of the data surrounding the first gravitational-wave events observed by LIGO in 2015.
+Link: https://arxiv.org/abs/1611.01089
+====================================================
+AngularJS in the Wild: A Survey with 460 Developers (Miguel Ramos - 27 September, 2016)
+To implement modern web applications, a new family of JavaScript frameworks has emerged, using the MVC pattern. Therefore, this paper reports the results of a survey about AngularJS, including answers from 460 developers
+Link: https://arxiv.org/abs/1608.02012
+====================================================
+Browser Feature Usage on the Modern Web (Peter Snyder - 20 May, 2016)
+We find that JavaScript features differ wildly in popularity, with over 50% of provided features never used in the Alexa 10k.
+Link: https://arxiv.org/abs/1605.06467
+====================================================
+Stealing PINs via Mobile Sensors: Actual Risk versus User Perception (Maryam Mehrnezhad - 18 April, 2017)
+In this attack, once the user visits a website controlled by an attacker, the JavaScript code embedded in the web page starts listening to the motion and orientation sensor streams without needing any permission from the user. Based on a test set of fifty 4-digit PINs, PINlogger.js is able to correctly identify PINs in the first attempt with a success rate of 74% which increases to 86 and 94% in the second and third attempts, respectively
+Link: https://arxiv.org/abs/1605.05549
+====================================================
+Factors and actors leading to the adoption of a JavaScript framework (Amantia Pano - 9 March, 2018)
+We interviewed 18 decision makers regarding the JavaScript framework selection, up to reaching theoretical saturation
+Link: https://arxiv.org/abs/1605.04303
+====================================================
+MARZ: Manual and Automatic Redshifting Software (Samuel R. Hinton - 30 March, 2016)
+Marz is an open-source, client-based, Javascript web-application which provides an intuitive interface and powerful automatic matching capabilities on spectra generated from the AAOmega spectrograph to produce high quality spectroscopic redshift measurements. Behind the scenes, a modified version of the Autoz cross-correlation algorithm is used to match input spectra against a variety of stellar and galaxy templates, and automatic matching performance for OzDES spectra has increased from 54% (Runz) to 91% (Marz)
+Link: https://arxiv.org/abs/1603.09438
+====================================================
+GeoGebra Tools with Proof Capabilities (ZoltÃ¡n KovÃ¡cs - 3 March, 2016)
+As a result, a number of elementary theorems can be proven by using GeoGebra's intuitive user interface on various computer architectures including native Java and web based systems with JavaScript. We also provide a test suite for benchmarking our results with 200 test cases.
+Link: https://arxiv.org/abs/1603.01228
+====================================================
+TouchSignatures: Identification of User Touch Actions and PINs Based on Mobile Sensor Data via JavaScript (Maryam Mehrnezhad - 12 February, 2016)
+Conforming to W3C specifications, mobile web browsers allow JavaScript code in a web page to access motion and orientation sensor data without the user's permission. In this work, for the first time, we show how user security can be compromised using these sensor data via browser, despite that the data rate is 3 to 5 times slower than what is available in app
+Link: https://arxiv.org/abs/1602.04115
+====================================================
+Exposing the Hidden Web: An Analysis of Third-Party HTTP Requests on 1 Million Websites (Timothy Libert - 2 November, 2015)
+Findings indicate that nearly 9 in 10 websites leak user data to parties of which the user is likely unaware; more than 6 in 10 websites spawn third- party cookies; and more than 8 in 10 websites load Javascript code from external parties onto users' computers. Finally, roughly 1 in 5 websites are potentially vulnerable to known National Security Agency spying techniques at the time of analysis.
+Link: https://arxiv.org/abs/1511.00619
+====================================================
+Drawing and Analyzing Causal DAGs with DAGitty (Johannes Textor - 19 August, 2015)
+The software should run in any web browser that supports modern JavaScript, HTML, and SVG. This is the user manual for DAGitty version 2.3
+Link: https://arxiv.org/abs/1508.04633
+====================================================
+Archiving Deferred Representations Using a Two-Tiered Crawling Approach (Justin F. Brunelle - 10 August, 2015)
+The archival difficulty is based on the use of client-side technologies (e.g., JavaScript) to change the client-side state of a representation after it has initially loaded. Heritrix crawled 2.065 URIs per second, 12.15 times faster than PhantomJS and 2.4 times faster than wget. However, PhantomJS discovered 531,484 URIs, 1.75 times more than Heritrix and 4.11 times more than wget. We show that this approach is 5.2 times faster than using only PhantomJS and creates a frontier (set of URIs to be crawled) 1.8 times larger than using only Heritrix.
+Link: https://arxiv.org/abs/1508.02315
+====================================================
+The Web for Under-Powered Mobile Devices: Lessons learned from Google Glass (Jagmohan Chauhan - 27 November, 2015)
+Our findings suggest that (a) performance of Glass compared to a smartphone in terms of power consumption and webpage load time deteriorates with increasing webpage complexity (b) execution time for popular JavaScript benchmarks is about 3-8 times higher on Glass compared to a smartphone, (c) WebP is more energy efficient image format than JPEG and PNG, and (d) seven out of 50 websites studied are optimized for content delivery to Glass.
+Link: https://arxiv.org/abs/1507.01677
+====================================================
+Implementation of a Practical Distributed Calculation System with Browsers and JavaScript, and Application to Distributed Deep Learning (Ken Miura - 19 March, 2015)
+Sukiyaki performs 30 times faster than a conventional JavaScript library for deep convolutional neural networks (deep CNNs) learning
+Link: https://arxiv.org/abs/1503.05743
+====================================================
+MILJS : Brand New JavaScript Libraries for Matrix Calculation and Machine Learning (Ken Miura - 20 February, 2015)
+MILJS is a collection of state-of-the-art, platform-independent, scalable, fast JavaScript libraries for matrix calculation and machine learning. Especially, our matrix multiplication is 177 times faster than the fastest JavaScript benchmark
+Link: https://arxiv.org/abs/1502.06064
+====================================================
+An Abstract Interpretation-based Model of Tracing Just-In-Time Compilation (Stefano Dissegna - 28 October, 2015)
+Tracing just-in-time compilation is a popular compilation technique for the efficient implementation of dynamic languages, which is commonly used for JavaScript, Python and PHP. We show that our framework is more general than the model of tracing compilation introduced by Guo and Palsberg [2011] based on operational bisimulations.
+Link: https://arxiv.org/abs/1411.7839
+====================================================
+Estimating the pattern frequency spectrum inside the browser (Matthijs van Leeuwen - 30 September, 2014)
+The demo is 100% JavaScript, and runs in all modern browsers
+Link: https://arxiv.org/abs/1409.7311
+====================================================
+GrayStar: A Web application for pedagogical stellar atmosphere and spectral line modelling and visualisation II: Methods (C. Ian Short - 5 September, 2014)
+GrayStar is a stellar atmospheric and spectral line modelling, post-processing, and visualisation code, suitable for classroom demonstrations and laboratory-style assignments, that has been developed in Java and deployed in JavaScript and HTML. Therefore, the code will run on any common PC or related X86 (-64) computer of the type that typically serves classroom data projectors, is found in undergraduate computer laboratories, or that students themselves own, including those with highly portable form-factors such as net-books and tablets
+Link: https://arxiv.org/abs/1409.1893
+====================================================
+GrayStar: A Web application for pedagogical stellar atmosphere and spectral line modelling and visualisation (C. Ian Short - 5 September, 2014)
+GrayStar is a stellar atmospheric and spectral line modelling, post-processing, and visualisation code, suitable for classroom demonstrations and laboratory-style assignments, that has been developed in Java and deployed in JavaScript and HTML. Therefore, the code will run on any common PC or related X86 (-64) computer of the type that typically serves classroom data projectors, is found in undergraduate computer laboratories, or that students themselves own, including those with highly portable form-factors such as net-books and tablets
+Link: https://arxiv.org/abs/1409.1891
+====================================================
+Adventures in the microlensing cloud: large datasets, eResearch tools, and GPUs (Georgios Vernardos - 2 June, 2014)
+We present a set of online analysis tools developed with PHP, JavaScript and WebGL to support access and analysis of GELRUMPH data in a Web browser. We discuss our use of graphics processing units (GPUs) to accelerate data production, and we release the core of the GPU-D direct inverse ray--shooting code (Thompson et al., 2010; Astrophysics Source Code Library, record ascl:1403.001) used to generate the magnification maps
+Link: https://arxiv.org/abs/1406.0559
+====================================================
+Pengines: Web Logic Programming Made Easy (TorbjÃ¶rn Lager - 14 May, 2014)
+The Pengines library is small (2000 lines Prolog, 150 lines JavaScript). Pengines are available as a standard package for SWI-Prolog 7.
+Link: https://arxiv.org/abs/1405.3953
+====================================================
+Design of Locally E-management System for Technical Education Foundation- Erbil (Ayad Ghany Ismaeel - 8 February, 2014)
+The software is represented by installing windows server to implement the proposal design of DLMS4TEF, PHP script is used as web programming that supports the server, where as the HTML and JavaScript are used to support the client side. The important conclusions and advantages of applying DLMS4TEF are making backup to DLMS4TEF's databases using the option (zipped) which allows them to reach the size of (3%) of the original database size, sufficient security techniques, through achieving levels of security, hidden access to the administrator section, and finally DLMS4TEF, when compared with the traditional methods and project of Oman, shows the same efficiency of some, if not better, features of Oman
+Link: https://arxiv.org/abs/1402.1880
+====================================================
+SafeJS: Hermetic Sandboxing for JavaScript (Damien Cassou - 16 September, 2013)
+Isolating program in dynamic languages such as JavaScript is even more challenging since reflective operations can circumvent simple mechanisms that could protect program parts. Our SafeJS implementation is currently being used in an industrial setting in the context of the Resilience FUI 12 project.
+Link: https://arxiv.org/abs/1309.3914
+====================================================
+Conscript Your Friends into Larger Anonymity Sets with JavaScript (Henry Corrigan-Gibbs - 4 September, 2013)
+Our implementation results demonstrate the practicality of ConScript: a workstation running our ConScript prototype JavaScript client generates a dummy message for a mix-net in 81 milliseconds and it generates a dummy message for a DoS-resistant DC-net in 156 milliseconds.
+Link: https://arxiv.org/abs/1309.0958
+====================================================
+Semantics and Security Issues in JavaScript (StÃ©phane Ducasse - 11 December, 2012)
+This document proposes an overview of the JavaScript language and the misleading semantic points in its design. It finishes by showing some coding patterns to avoid certain traps and presents some ECMAScript 5 new features.
+Link: https://arxiv.org/abs/1212.2341
+====================================================
+A comparison algorithm to check LTSA Layer 1 and SCORM compliance in e-Learning sites (Souvik Sengupta - 19 January, 2012)
+Sharable Content Object Reference Model (SCROM) is a collection of standards and specifications for content of web-based e-learning and specifies how JavaScript API can be used to integrate content development. The resultant graph as output helps us to analysis to what extent any LMS compliance LTSA layer 1 and SCORM specification.
+Link: https://arxiv.org/abs/1201.3981
+====================================================
+Arachne - A web-based event viewer for MINERvA (N. Tagg - 19 January, 2012)
+Data are retrieved from a central server via AJAX, and client-side JavaScript draws images into the user's browser window using the draft HTML 5 standard
+Link: https://arxiv.org/abs/1111.5315
+====================================================
+A Study of Language Usage Evolution in Open Source Software (Siim Karus - 10 February, 2011)
+Some of our findings can be summarized as follows: (1) JavaScript and CSS files most often co-evolve with XSL; (2) Most Java developers but only every second C/C++ developer work with XML; (3) and more generally, we observed a significant increase of usage of XML and XSL during recent years and found that Java or C are hardly ever the only language used by a developer. In fact, a developer works with more than 5 different artefact types (or 4 different languages) in a project on average.
+Link: https://arxiv.org/abs/1102.2262
+====================================================
+Deterministic Consistency: A Programming Model for Shared Memory Parallelism (Amittai Aviram - 1 February, 2010)
+We propose "deterministic consistency", a parallel programming model as easy to understand as the "parallel assignment" construct in sequential languages such as Perl and JavaScript, where concurrent threads always read their inputs before writing shared outputs. A preliminary prototype suggests that software-only implementations of DC can run applications written for popular parallel environments such as OpenMP with low (<10%) overhead for some applications.
+Link: https://arxiv.org/abs/0912.0926
+====================================================
+Master of Web Puppets: Abusing Web Browsers for Persistent and Stealthy Computation (Panagiotis Papadopoulos - 30 September, 2018)
+Recent JavaScript APIs, however, provide advanced capabilities that not only enable feature-rich web applications, but also allow attackers to perform malicious operations despite the confined nature of JavaScript code execution
+Link: https://arxiv.org/abs/1810.00464
+====================================================
+Coconut E-Petition Implementation (Jad Wahab - 28 September, 2018)
+As for the implementation, the client-side is done using JavaScript so that the client can trustlessly compute the cryptographic constructions individually, whereas the server-side is done using Node.js, but can easily be replaced by a more sophisticated and secure structure such as a permissionless blockchain platform.
+Link: https://arxiv.org/abs/1809.10956
+====================================================
+Using SWISH to realise interactive web based tutorials for logic based languages (Jan Wielemaker - 24 August, 2018)
+This article describes SWISH, a web front-end for Prolog that consists of a web server implemented in SWI-Prolog and a client web application written in JavaScript
+Link: https://arxiv.org/abs/1808.08042
+====================================================
+An Automata-based Abstract Semantics for String Manipulation Languages (Vincenzo Arceri - 17 August, 2018)
+In recent years, dynamic languages, such as JavaScript or Python, have faced an important increment of usage in a wide range of fields and applications
+Link: https://arxiv.org/abs/1808.07827
+====================================================
+CT-Wasm: Type-driven Secure Cryptography for the Web Ecosystem (Conrad Watt - 3 August, 2018)
+A significant amount of both client and server-side cryptography is implemented in JavaScript. With the new introduction of the WebAssembly bytecode language (Wasm) into the web ecosystem, we have a unique opportunity to advance a principled alternative to existing JavaScript cryptography use cases which does not compromise this convenience.
+Link: https://arxiv.org/abs/1808.01348
+====================================================
+Taint Tracking for WebAssembly (Aron Szanto - 22 July, 2018)
+In this work, we build the first WebAssembly virtual machine that runs in native JavaScript, and implement a novel taint tracking system that allows a user to run untrusted WebAssembly code while monitoring the flow of sensitive data through the application
+Link: https://arxiv.org/abs/1807.08349
+====================================================
+EAST Real-Time VOD System Based on MDSplus (J. Y. Xia - 24 June, 2018)
+The displaying process is implemented through B/S (Browser/Server) framework, it uses PHP and JavaScript to realize VOD function and read frames information from MDSplus
+Link: https://arxiv.org/abs/1807.03773
+====================================================
+Multi-Stage JavaScript (Anthony Savidis - 4 July, 2018)
+Hence, such JavaScript extensions are meant only for development-time, emitting pure JavaScript code that can be run in any browser. Finally, to enable debugging stages in any browser we implemented a pure JavaScript client, communicating with the extended Spider Monkey, and offering the necessary AST display and unparsing that a browser debugger does not provide.
+Link: https://arxiv.org/abs/1807.01611
+====================================================
+Josephine: Using JavaScript to safely manage the lifetimes of Rust data (Alan Jeffrey - 29 June, 2018)
+This work is related to mixed linear/non-linear programming, but the languages being mixed are Rust and JavaScript.
+Link: https://arxiv.org/abs/1807.00067
+====================================================
+Sustaining the Montage Image Mosaic Engine Since 2002 (G. Bruce Berriman - 11 June, 2018)
+The same code base now supports Windows, JavaScript and Python by taking advantage of recent advances in compilers
+Link: https://arxiv.org/abs/1806.04095
+====================================================
+BPjs --- a framework for modeling reactive systems using a scripting language and BP (Michael Bar-Sinai - 3 June, 2018)
+The model itself consists of a collection of small scripts written in JavaScript (hence "BPjs"). Additionally, as we learned from an experimental course we ran, the usage of JavaScript make practitioners more amenable to using this system and, thus, model checking and model driven engineering
+Link: https://arxiv.org/abs/1806.00842
+====================================================
+Linear tSNE optimization for the Web (Nicola Pezzotti - 28 May, 2018)
+This approximation allows us to reformulate the tSNE minimization problem as a series of tensor operation that are computed with TensorFlow.js, a JavaScript library for scalable tensor computations.
+Link: https://arxiv.org/abs/1805.10817
+====================================================
+Data Analytics Service Composition and Deployment on Edge Devices (Jianxin Zhao - 13 April, 2018)
+We present the Zoo system to address these two challenge: on one hand, it provides simple and concise domain-specific language to enable easy and and type-safe composition of different data analytics services; on the other, it utilises multiple deployment backends, including Docker container, JavaScript, and MirageOS, to accommodate the heterogeneous edge deployment environment
+Link: https://arxiv.org/abs/1805.05995
+====================================================
+In-Browser Split-Execution Support for Interactive Analytics in the Cloud (Kareem El Gebaly - 23 April, 2018)
+We show that, by taking advantage of typed arrays and asm.js, it is possible to build an analytical RDBMS in JavaScript that runs in a browser, achieving performance rivaling native databases
+Link: https://arxiv.org/abs/1804.08822
+====================================================
+Detecting Cross-Site Scripting Vulnerabilities through Automated Unit Testing (Mahmoud Mohammadi - 2 April, 2018)
+To balance security and functionality, encoders should be applied to match the web page context, such as HTML body, JavaScript, and style sheets
+Link: https://arxiv.org/abs/1804.00755
+====================================================
+Pando: a Volunteer Computing Platform for the Web (Erick Lavoie - 22 March, 2018)
+Moreover the approach is based on a simple programming model that should be both easy to use by itself by JavaScript programmers and as a compilation target by compiler writers
+Link: https://arxiv.org/abs/1803.08426
+====================================================
+Carnap: An Open Framework for Formal Reasoning in the Browser (Graham Leach-Krouse - 4 March, 2018)
+Carnap-based applications are written in Haskell, but can be compiled to JavaScript to run in standard web browsers
+Link: https://arxiv.org/abs/1803.03092
+====================================================
+A first look at browser-based Cryptojacking (Shayan Eskandari - 7 March, 2018)
+In this model, a user visiting a website will download a JavaScript code that executes client-side in her browser, mines a cryptocurrency, typically without her consent or knowledge, and pays out the seigniorage to the website
+Link: https://arxiv.org/abs/1803.02887
+====================================================
+A Semantic Framework for the Security Analysis of Ethereum smart contracts (Ilya Grishchenko - 23 April, 2018)
+Unfortunately, programming smart contracts is a delicate task that requires strong expertise: Ethereum smart contracts are written in Solidity, a dedicated language resembling JavaScript, and shipped over the blockchain in the EVM bytecode format
+Link: https://arxiv.org/abs/1802.08660
+====================================================
+An Empirical Study on README contents for JavaScript Packages (Shohei Ikeda - 26 February, 2018)
+To understand the contents of a README, we investigate the contents of 43,900 JavaScript packages
+Link: https://arxiv.org/abs/1802.08391
+====================================================
+WebEye - Automated Collection of Malicious HTTP Traffic (Johann Vierthaler - 16 February, 2018)
+We are using WebEye to collect malicious HTML and JavaScript and show how datasets created with WebEye can be used to train machine learning based malware detection algorithms
+Link: https://arxiv.org/abs/1802.06012
+====================================================
+Putting in All the Stops: Execution Control for JavaScript (Samuel Baxter - 15 April, 2018)
+Scores of compilers produce JavaScript, enabling programmers to use many languages on the Web, reuse existing code, and even use Web IDEs
+Link: https://arxiv.org/abs/1802.02974
+====================================================
+TaintAssembly: Taint-Based Information Flow Control Tracking for WebAssembly (William Fu - 3 February, 2018)
+As WebAssembly can interact freely with JavaScript libraries, this gives rise to a potential for undesirable behavior to occur. In this paper, we describe TaintAssembly, a taint tracking engine for interpreted WebAssembly, that we have created by modifying the V8 JavaScript engine
+Link: https://arxiv.org/abs/1802.01050
+====================================================
+ChromaStarPy: A stellar atmosphere and spectrum modeling and visualization lab in python (C. Ian Short - 22 January, 2018)
+ChromaStarPy is a direct port of the ChromaStarServer (CSServ) Java modeling code described in earlier papers in this series, and many of the associated JavaScript (JS) post-processing procedures have been ported and incorporated into CSPy so that students have access to ready-made "data products"
+Link: https://arxiv.org/abs/1801.07208
+====================================================
+A Formalization for Specifying and Implementing Correct Pull-Stream Modules (Erick Lavoie - 18 January, 2018)
+Pull-stream is a JavaScript demand-driven functional design pattern based on callback functions that enables the creation and easy composition of independent modules that are used to create streaming applications
+Link: https://arxiv.org/abs/1801.06144
+====================================================
+An anthropological account of the Vim text editor: features and tweaks after 10 years of usage (Renato Fabbri - 18 December, 2017)
+Python, C++, JavaScript, ChucK programs; \LaTeX, Markdown, HTML, RDF, Make and other markup files; % TTM binary files
+Link: https://arxiv.org/abs/1712.06933
+====================================================
+Real-time Video Processing in Web Applications (Cristian Ionita - 6 December, 2017)
+It analyses the WebGL performance across device types and compares it with the standard JavaScript and canvas performance.
+Link: https://arxiv.org/abs/1712.02438
+====================================================
+Search-based Tier Assignment for Optimising Offline Availability in Multi-tier Web Applications (Laure Philips - 4 December, 2017)
+Technologies for the different tiers of the application have to be selected: a server-side language, a combination of JavaScript, HTML and CSS for the client, and a database technology. Meeting the expectations of contemporary web applications requires even more effort from the developer: many state of the art libraries must be mastered and glued together
+Link: https://arxiv.org/abs/1712.01161
+====================================================
+The Graphical User Interface of the Operator of the Cherenkov Telescope Array (Iftach Sadeh - 19 October, 2017)
+Communication between Web server and clients is performed using Web Sockets, where graphics are generated with the d3.js Javascript library.
+Link: https://arxiv.org/abs/1710.07117
+====================================================
+An Empirical Comparison of Dependency Network Evolution in Seven Software Packaging Ecosystems (Alexandre Decan - 13 October, 2017)
+This manuscript uses the libraries.io dataset to carry out a quantitative empirical analysis of the similarities and differences between the evolution of package dependency networks for seven packaging ecosystems of varying sizes and ages: Cargo for Rust, CPAN for Perl, CRAN for R, npm for JavaScript, NuGet for the .NET platform, Packagist for PHP, and RubyGems for Ruby
+Link: https://arxiv.org/abs/1710.04936
+====================================================
+Extracting Insights from the Topology of the JavaScript Package Ecosystem (Nuttapon Lertwittayatrai - 1 October, 2017)
+Massive ecosystems like the JavaScript node package manager (npm) is evidence of how packages are readily available for use by software projects
+Link: https://arxiv.org/abs/1710.00446
+====================================================
+One Leak Will Sink A Ship: WebRTC IP Address Leaks (Nasser Mohammed Al-Fannah - 15 September, 2017)
+This API causes a range of client IP addresses to become available to a visited website via JavaScript even if a VPN is in use
+Link: https://arxiv.org/abs/1709.05395
+====================================================
+On the Impact of Micro-Packages: An Empirical Study of the npm JavaScript Ecosystem (Raula Gaikovina Kula - 14 September, 2017)
+In this paper, we investigate the impact of micro-packages in the npm JavaScript ecosystem. Specifically, we conducted an empirical in- vestigation with 169,964 JavaScript npm packages to understand (i) the widespread phenomena of micro-packages, (ii) the size dependencies inherited by a micro-package and (iii) the developer usage cost (ie., fetch, install, load times) of using a micro-package
+Link: https://arxiv.org/abs/1709.04638
+====================================================
+Fast and Precise Type Checking for JavaScript (Avik Chaudhuri - 30 August, 2017)
+Flow uses sophisticated type inference to understand common JavaScript idioms precisely. This helps it avoid introducing any latency in the usual edit-refresh cycle of rapid JavaScript development
+Link: https://arxiv.org/abs/1708.08021
+====================================================
+Deterministic Browser (Yinzhi Cao - 22 August, 2017)
+Specifically, a snippet of JavaScript, i.e., an observer in JavaScript reference frame, will always obtain the same, fixed timing information so that timing attacks are prevented; at contrast, a user, i.e., an oracle observer, will perceive the JavaScript differently and do not experience the performance slowdown
+Link: https://arxiv.org/abs/1708.06774
+====================================================
+Deployment of physics simulation apps using Easy JavaScript Simulations (FÃ©lix J. GarcÃ­a Clemente - 2 August, 2017)
+However, when using Easy JavaScript Simulation (EjsS) modeling toolkit, the instructor can be both the science educator and computer programmer, only needing to define the simulation variables, model and view, and the modeling toolkit can generate the computer codes for the physics simulation. The current version of EjsS provides instructors with an authoring tool that includes facilities for the creation of such JavaScript simulations as mobile apps, thus simplifying the purely programming aspects
+Link: https://arxiv.org/abs/1708.00778
+====================================================
+Digital Investigation of PDF Files: Unveiling Traces of Embedded Malware (Davide Maiorca - 17 July, 2017)
+PDF documents are among the major vectors used to convey malware, thanks to the flexibility of their structure and the ability of embedding different kinds of content, ranging from images to JavaScript code. In this paper, we provide an overview of the current attack techniques used to convey PDF malware, and discuss state-of-the-art PDF malware analysis tools that provide valuable support to digital forensic investigations
+Link: https://arxiv.org/abs/1707.05102
+====================================================
+One Tool, Many Languages: Language-Parametric Transformation with Incremental Parametric Syntax (James Koppel - 1 October, 2018)
+We implement this approach in Haskell in our Cubix system, and construct incremental parametric syntaxes for C, Java, JavaScript, Lua, and Python
+Link: https://arxiv.org/abs/1707.04600
+====================================================
+Refinable Function : An Object-oriented Approach to Procedure Modularity (Hiun Kim - 9 July, 2017)
+We introduce concepts of inheritance, encapsulation, and polymorphism of function for bringing object-orientation to procedure modularity and describe the design and implementation of Refinable Function in JavaScript to validate our approach to practical web application development
+Link: https://arxiv.org/abs/1707.02590
+====================================================
+WebPol: Fine-grained Information Flow Policies for Web Browsers (Abhishek Bichhawat - 26 June, 2017)
+Motivated by this gap, we propose WebPol, a policy mechanism that allows a website developer to include fine-grained policies on confidential application data in the familiar syntax of the JavaScript programming language. To specify the policies, we expose a small set of new native APIs in JavaScript
+Link: https://arxiv.org/abs/1706.06932
+====================================================
+AIXIjs: A Software Demo for General Reinforcement Learning (John Aslanides - 22 May, 2017)
+We present AIXIjs, a JavaScript implementation of these GRL agents
+Link: https://arxiv.org/abs/1705.07615
+====================================================
+DeepTingle (Ahmed Khalifa - 9 May, 2017)
+DeepTingle is realized as a web application based on LSTM networks and the GloVe word embedding, implemented in JavaScript with Keras-JS.
+Link: https://arxiv.org/abs/1705.03557
+====================================================
+Faster Base64 Encoding and Decoding Using AVX2 Instructions (Wojciech MuÅa - 14 June, 2018)
+Web developers use base64 formats to include images, fonts, sounds and other resources directly inside HTML, JavaScript, JSON and XML files. Compared to state-of-the-art implementations, we multiply the speeds of both the encoding (~10x) and the decoding (~7x)
+Link: https://arxiv.org/abs/1704.00605
+====================================================
+Not All Browsers Are Created Equal: Comparing Web Browser Fingerprintability (Nasser Mohammed Al-Fannah - 15 March, 2017)
+using JavaScript
+Link: https://arxiv.org/abs/1703.05066
+====================================================
+Web-based visualisation of head pose and facial expressions changes: monitoring human activity using depth data (Grigorios Kalliatakis - 16 March, 2017)
+After that, a lightweight data exchange format (JavaScript Object Notation-JSON) is employed, in order to manipulate the data extracted from the two aforementioned settings
+Link: https://arxiv.org/abs/1703.03949
+====================================================
+Cellulyzer - Automated analysis and interactive visualization/simulation of select cellular processes (Aliakbar Jafarpour - 6 March, 2017)
+Some programs are also available in other languages (C++ and Javascript) and may be run simply with a web-browser; even on a low-end Tablet or Smartphone
+Link: https://arxiv.org/abs/1703.02611
+====================================================
+Interactive Web Application for Exploring Matrices of Neural Connectivity (David J. Caldwell - 21 February, 2017)
+Here we present a client-side, mobile-compatible visualization tool written entirely in HTML5/JavaScript that allows in-browser manipulation of user-defined files for exploration of brain connectivity
+Link: https://arxiv.org/abs/1702.06405
+====================================================
+Development of JavaScript-based deep learning platform and application to distributed training (Masatoshi Hidaka - 27 March, 2017)
+In this work, we implement a matrix library and deep learning framework that uses JavaScript. Using JavaScript, deep learning can be accomplished in widely diverse environments without the necessity for software installation
+Link: https://arxiv.org/abs/1702.01846
+====================================================
+Vizic: A Jupyter-based Interactive Visualization Tool for Astronomical Catalogs (W. Yu - 6 May, 2017)
+The catalog data is stored in a non-relational database, and the interfaces were developed in JavaScript and Python to work within Jupyter Notebook, which allows to create custom widgets, user generated scripts to analyze and plot the data selected/displayed in the interactive map
+Link: https://arxiv.org/abs/1701.01222
+====================================================
+Transaction-based Sandboxing for JavaScript (Matthias Keil - 17 January, 2017)
+Today's JavaScript applications are composed of scripts from different origins that are loaded at run time
+Link: https://arxiv.org/abs/1612.00669
+====================================================
+Linking the X3D pathway to integral field spectrographs: YSNR 1E0102.2-7219 in the SMC as a case study (F. P. A. Vogt - 11 November, 2016)
+In particular, we present a set of javascript functions allowing the creation and interactive handling of clip planes, effectively allowing users to take measurements of distances and angles directly from the interactive model itself.
+Link: https://arxiv.org/abs/1611.03862
+====================================================
+Prioritized Garbage Collection: Explicit GC Support for Software Caches (Diogenes Nunez - 15 October, 2016)
+In managed languages like Java or JavaScript, however, this space-time tradeoff is complex
+Link: https://arxiv.org/abs/1610.04790
+====================================================
+Computing NodeTrix Representations of Clustered Graphs (Giordano Da Lozzo - 9 September, 2016)
+Building on such algorithms we develop a JavaScript library for NodeTrix representations aimed at reducing the crossings between edges incident to the same matrix.
+Link: https://arxiv.org/abs/1608.08952
+====================================================
+Type Inference for Static Compilation of JavaScript (Extended Version) (Satish Chandra - 18 October, 2016)
+We present a type system and inference algorithm for a rich subset of JavaScript equipped with objects, structural subtyping, prototype inheritance, and first-class methods
+Link: https://arxiv.org/abs/1608.07261
+====================================================
+A Vision for Online Verification-Validation (Matthew A. Hammer - 21 August, 2016)
+Specifically, dynamic languages permit software that is richly extensible (via dynamic code loading, dynamic object extension, and various forms of reflection), and today's programmers exploit this flexibility to "bring their own language features" to enrich extensible languages (e.g., by using common JavaScript libraries)
+Link: https://arxiv.org/abs/1608.06012
+====================================================
+Putting Down Roots: A Graphical Exploration of Community Attachment (Andee Kaplan - 16 August, 2016)
+We will explain the development and use of web-based interactive graphics, including an overview of the R package Shiny and the JavaScript library D3, focusing on the choices made in producing the visualizations and technical aspects of how they were created
+Link: https://arxiv.org/abs/1608.04843
+====================================================
+Prototyping the graphical user interface for the operator of the Cherenkov Telescope Array (Iftach Sadeh - 11 August, 2016)
+The prototype is based on Web technology; it incorporates a Python web server, Web Sockets and graphics generated with the d3.js Javascript library.
+Link: https://arxiv.org/abs/1608.03595
+====================================================
+Improving Testability and Reuse by Transitioning to Functional Programming (Morgan C. Benton - 21 June, 2016)
+The shift is subtle because it is happening within the context of multiparadigm programming languages such as JavaScript
+Link: https://arxiv.org/abs/1606.06704
+====================================================
+GrayStarServer: Server-side spectrum synthesis with a browser-based client-side user interface (C. Ian Short - 30 May, 2016)
+Unlike GS3, GSS carries out the physical modeling on the server side in Java, and communicates with the JavaScript and HTML client via an asynchronous HTTP request
+Link: https://arxiv.org/abs/1605.09368
+====================================================
+Afterburner: The Case for In-Browser Analytics (Kareem El Gebaly - 12 May, 2016)
+Our prototype, called Afterburner, generates compiled query plans that exploit typed arrays and asm.js, two relatively recent advances in JavaScript. This is an interesting finding in that it shows how far JavaScript has come as an efficient execution platform
+Link: https://arxiv.org/abs/1605.04035
+====================================================
+Just-in-Time Static Type Checking for Dynamic Languages (Brianna M. Ren - 12 April, 2016)
+Dynamic languages such as Ruby, Python, and JavaScript have many compelling benefits, but the lack of static types means subtle errors can remain latent in code for a long time
+Link: https://arxiv.org/abs/1604.03641
+====================================================
+Towards Seamless Tracking-Free Web: Improved Detection of Trackers via One-class Learning (Muhammad Ikram - 20 March, 2016)
+Numerous tools have been developed to aggressively block the execution of popular JavaScript programs (JS) in Web browsers
+Link: https://arxiv.org/abs/1603.06289
+====================================================
+ELATE: An open-source online application for analysis and visualization of elastic tensors (Romain Gaillac - 25 May, 2016)
+In particular, we focus on why a Python module is used to generate the HTML web page with embedded Javascript for dynamical plots.
+Link: https://arxiv.org/abs/1602.06175
+====================================================
+JSClassFinder: A Tool to Detect Class-like Structures in JavaScript (Leonardo Humberto Silva - 18 February, 2016)
+The tool has a parser that loads the AST (Abstract Syntax Tree) of a JavaScript application to model its structure. We also provide some examples with real JavaScript applications to evaluate the tool.
+Link: https://arxiv.org/abs/1602.05891
+====================================================
+Phylo.io: interactive viewing and comparison of large phylogenetic trees on the web (Oscar Robinson - 12 February, 2016)
+The code for the associated JavaScript library is available at https://github.com/DessimozLab/phylo-io under an MIT open source license.
+Link: https://arxiv.org/abs/1602.04258
+====================================================
+Adapting the Hypercube Model to Archive Deferred Representations and Their Descendants (Justin F. Brunelle - 19 January, 2016)
+Client-side technologies (e.g., JavaScript) enable interactions that can potentially change the client-side state of a representation. We refer to representations that load embedded resources via JavaScript as deferred representations
+Link: https://arxiv.org/abs/1601.05142
+====================================================
+NodIO, a JavaScript framework for volunteer-based evolutionary algorithms : first results (Juan-J. Merelo - 7 January, 2016)
+We present such an application for running distributed volunteer-based evolutionary algorithm experiments, and we make a series of measurements to establish the speed of JavaScript in evolutionary algorithms that can serve as a baseline for comparison with other distributed computing experiments. These experiments use different integer and floating point problems, and prove that the speed of JavaScript is actually competitive with other languages commonly used by the evolutionary algorithm practitioner.
+Link: https://arxiv.org/abs/1601.01607
+====================================================
+Transforming Javascript Event-Loop Into a Pipeline (Etienne Brodu - 22 December, 2015)
+We propose a compilation approach that transforms a Javascript, single-threaded real-time web application into a network of small independent parts communicating by message streams
+Link: https://arxiv.org/abs/1512.07067
+====================================================
+The Impact of Technical Domain Expertise on Search Behavior and Task Outcome (Julia Kiseleva - 22 December, 2015)
+We focus on Java and Javascript, yet we believe that our study and results are applicable for other expertise-sensitive search tasks
+Link: https://arxiv.org/abs/1512.07051
+====================================================
+Creating Electronic Books-Chapters for Computers and Tablets Using Easy Java/JavaScript Simulations, EjsS Modeling Tool (Loo Kang Wee - 16 May, 2016)
+This paper shares my journey (tools used, design principles derived and modeling pedagogy implemented) when creating electronic books-chapters (epub3 format) for computers and tablets using Easy Java/JavaScript Simulations, (old name EJS, new EjsS) Modeling Tool
+Link: https://arxiv.org/abs/1512.02295
+====================================================
+Occurrence Typing Modulo Theories (Andrew M. Kent - 4 October, 2016)
+We present a new type system combining occurrence typing, previously used to type check programs in dynamically-typed languages such as Racket, JavaScript, and Ruby, with dependent refinement types
+Link: https://arxiv.org/abs/1511.07033
+====================================================
+Interprocedural Type Specialization of JavaScript Programs Without Type Analysis (Maxime Chevalier-Boisvert - 9 November, 2015)
+Dynamically typed programming languages such as Python and JavaScript defer type checking to run time
+Link: https://arxiv.org/abs/1511.02956
+====================================================
+There is no fast lunch: an examination of the running speed of evolutionary algorithms in several languages (Juan-J. Merelo - 3 November, 2015)
+Despite speed being not everything needed to design a useful evolutionary algorithm application, in this paper we will measure the speed for several very basic evolutionary algorithm operations in several languages which use different virtual machines and approaches, and prove that, in fact, there is no big difference in speed between interpreted and compiled languages, and that in some cases, interpreted languages such as JavaScript or Python can be faster than compiled languages such as Scala, making them worthy of use for evolutionary algorithm experimentation.
+Link: https://arxiv.org/abs/1511.01088
+====================================================
+Towards More Security in Data Exchange: Defining Unparsers with Context-Sensitive Encoders for Context-Free Grammars (Lars Hermerschmidt - 30 October, 2015)
+Even for widely used languages such as HTML and JavaScript, there are few approaches that prevent injection attacks by context-sensitive encoding, and those approaches are tied to the language
+Link: https://arxiv.org/abs/1510.08979
+====================================================
+The Essence of JavaScript (Arjun Guha - 4 October, 2015)
+We explicate the desugaring process that turns JavaScript programs into ones in the core. We demonstrate faithfulness to JavaScript using real-world test suites
+Link: https://arxiv.org/abs/1510.00925
+====================================================
+grayStar3 - gray no more: More physical realism and a more intuitive interface - all still in a WWW browser (C. Ian Short - 22 September, 2015)
+The code integrates scientific modeling in JavaScript with output visualization HTML. gS3 effectively serves as a public library of generic JavaScript+HTML plotting routines that may be recycled by the community.
+Link: https://arxiv.org/abs/1509.06775
+====================================================
+NaDeA: A Natural Deduction Assistant with a Formalization in Isabelle (JÃ¸rgen Villadsen - 14 July, 2015)
+The tool is open source software developed in TypeScript / JavaScript and can thus be used directly in a browser without any further installation
+Link: https://arxiv.org/abs/1507.04002
+====================================================
+Extending Basic Block Versioning with Typed Object Shapes (Maxime Chevalier-Boisvert - 9 July, 2015)
+Typical JavaScript (JS) programs feature a large number of object property accesses
+Link: https://arxiv.org/abs/1507.02437
+====================================================
+ADsafety: Type-Based Verification of JavaScript Sandboxing (Joe Gibbs Politz - 25 June, 2015)
+The many entry-points of sandboxes and the subtleties of JavaScript demand robust verification of the actual sandbox source. We use a novel type system for JavaScript to encode and verify sandboxing properties
+Link: https://arxiv.org/abs/1506.07813
+====================================================
+Stickler: Defending Against Malicious CDNs in an Unmodified Browser (Amit Levy - 12 June, 2015)
+However, publishers who use CDNs today must trust their CDN not to modify the site's JavaScript, CSS, images or other media en route to end users. A CDN that violates this trust could inject ads into websites, downsample media to save bandwidth or, worse, inject malicious JavaScript code to steal user secrets it could not otherwise access
+Link: https://arxiv.org/abs/1506.04110
+====================================================
+TreatJS: Higher-Order Contracts for JavaScript (Matthias Keil - 30 April, 2015)
+TreatJS is a language embedded, higher-order contract system for JavaScript which enforces contracts by run-time monitoring
+Link: https://arxiv.org/abs/1504.08110
+====================================================
+Building the distributed WPS-services execution environment (Igor Bychkov - 26 March, 2015)
+The article describes the environment of WPS-based (Web Processing Service) distributed services, that uses scenarios in JavaScript programming language in order to integrate services with each other
+Link: https://arxiv.org/abs/1503.07626
+====================================================
+Modeling browser-based distributed evolutionary computation systems (Juan JuliÃ¡n Merelo-GuervÃ³s - 22 March, 2015)
+Fortunately, this coincides with the era of big data, cloud computing, and browsers that include JavaScript virtual machines. We will examine the setup needed to create a very simple distributed evolutionary algorithm using JavaScript and then find a model of how users react to it by collecting data from several experiments featuring different classical benchmark functions.
+Link: https://arxiv.org/abs/1503.06424
+====================================================
+Interactive molecular dynamics (Daniel V. Schroeder - 21 February, 2015)
+A working simulation code, in HTML5 and JavaScript for running within any modern Web browser, is provided as an online supplement.
+Link: https://arxiv.org/abs/1502.06169
+====================================================
+Malicious web script-based cyber attack protection technology (JongHun Jung - 12 February, 2015)
+Recent web-based cyber attacks are evolving into a new form of attacks such as private information theft and DDoS attack exploiting JavaScript within a web page. To cope with these issues, in this article, a proposal is made for techniques that are used to detect malicious scripts through real-time web content analysis and to automatically generate detection signatures for malicious JavaScript.
+Link: https://arxiv.org/abs/1502.03872
+====================================================
+IFC Inside: Retrofitting Languages with Dynamic Information Flow Control (Extended Version) (Stefan Heule - 16 January, 2015)
+Unfortunately existing fine-grained approaches to JavaScript IFC require modifications to the language semantics and its engine, a non-goal for browser applications. We then apply this formalism to server- and client-side JavaScript, show how it generalizes to the C programming language, and connect it to the Haskell LIO system
+Link: https://arxiv.org/abs/1501.04132
+====================================================
+Detecting Redundant CSS Rules in HTML5 Applications: A Tree-Rewriting Approach (Matthew Hague - 18 August, 2015)
+Most works on detecting redundant CSS rules in HTML5 applications do not consider the dynamic behaviors of HTML5 (specified in JavaScript); in fact, the only proposed method that takes these into account is dynamic analysis (a.k.a
+Link: https://arxiv.org/abs/1412.5143
+====================================================
+MLitB: Machine Learning in the Browser (Edward Meeds - 17 June, 2015)
+This paper introduces MLitB, a prototype ML framework written entirely in JavaScript, capable of performing large-scale distributed computing with heterogeneous classes of devices
+Link: https://arxiv.org/abs/1412.2432
+====================================================
+Mobile Agent based Market Basket Analysis on Cloud (Vijayata Waghmare - 25 November, 2014)
+The middle-ware level provides a web service to generate JSON (JavaScript Object Notation) output from the relational database
+Link: https://arxiv.org/abs/1411.6767
+====================================================
+Simple and Effective Type Check Removal through Lazy Basic Block Versioning (Maxime Chevalier-Boisvert - 29 May, 2015)
+Dynamically typed programming languages such as JavaScript and Python defer type checking to run time
+Link: https://arxiv.org/abs/1411.0352
+====================================================
+Code Injection Attacks on HTML5-based Mobile Apps (Xing Jin - 28 October, 2014)
+HTML5-based apps are implemented using the standard web technologies, including HTML5, JavaScript and CSS; they depend on some middlewares, such as PhoneGap, to interact with the underlying OS.
+Link: https://arxiv.org/abs/1410.7756
+====================================================
+Solar Lab Notebook (SLN): An Ultra-Portable Web-Based System for Heliophysics and High-Security Labs (Panagiotis G. Tsalaportas - 19 June, 2015)
+Furthermore, SLN leverages unique technologies offered by modern web browsers, such as the FileReader API, the Blob interface and Local Storage mechanism; it is coded entirely using HTML5, CSS3, and JavaScript, and powered by the extremely well documented XML file format
+Link: https://arxiv.org/abs/1410.5414
+====================================================
+On the Feasibility and Implications of Self-Contained Search Engines in the Browser (Jimmy Lin - 16 October, 2014)
+Can this processing power be harnessed for information retrieval? This paper explores the feasibility of building a JavaScript search engine that runs completely self-contained on the client side within the browser---this includes building the inverted index, gathering terms statistics for scoring, and performing query evaluation. Experiments show that although the performance of the JavaScript prototype falls far short of the open-source Lucene search engine, it is sufficiently responsive for interactive applications
+Link: https://arxiv.org/abs/1410.4500
+====================================================
+Studying Brazil-Nut Effect History Line using Disk-Formed Objects, Scanner, and Web Browser (Sparisoma Viridi - 7 August, 2014)
+Obtained images are then digitized using web browser running a HTML equipped with a JavaScript code, which is built mainly only for this work
+Link: https://arxiv.org/abs/1409.7611
+====================================================
+VoID-graph: Visualize Linked Datasets on the Web (Luca Matteis - 28 August, 2014)
+This makes it not only easy to use, as no installation or configuration is required, but also makes it more sustainable, as it is built using Open Web standards such as JavaScript and SVG.
+Link: https://arxiv.org/abs/1408.6691
+====================================================
+Mobile Device Identification via Sensor Fingerprinting (Hristo Bojinov - 6 August, 2014)
+Our accelerometer-based fingerprint is especially interesting because the accelerometer is accessible via JavaScript running in a mobile web browser without requesting any permissions or notifying the user
+Link: https://arxiv.org/abs/1408.1416
+====================================================
+FilterPlus: A real-time content filtering extension for Google Chrome (Bofin Babu - 14 July, 2014)
+By blocking JavaScript, Cookies and Popups, end users can ensure maximum protection from browser based attacks and vulnerabilities
+Link: https://arxiv.org/abs/1407.3820
+====================================================
+Bringing Web Time Travel to MediaWiki: An Assessment of the Memento MediaWiki Extension (Shawn M. Jones - 15 June, 2014)
+Seeing as much of our work focuses on producing the correct revision of a wiki page in response to a user's datetime input, we also examine the problem of finding the correct revisions of the embedded resources, including images, stylesheets, and JavaScript; identifying the issues and discussing whether or not MediaWiki must be changed to support this functionality.
+Link: https://arxiv.org/abs/1406.3876
+====================================================
+Evolutionary Robotics on the Web with WebGL and Javascript (Jared Moore - 10 July, 2014)
+Traditionally, physics-based simulations require a local installation and a high degree of user knowledge to configure an environment, but the emergence of Javascript-based physics engines enables complex simulations to be executed in web browsers
+Link: https://arxiv.org/abs/1406.3337
+====================================================
+From XML Schema to JSON Schema: Translation with CHR (Falco Nogatz - 9 June, 2014)
+Despite its rising popularity as data format especially for web services, the software ecosystem around the JavaScript Object Notation (JSON) is not as widely distributed as that of XML
+Link: https://arxiv.org/abs/1406.2125
+====================================================
+Data-flow Analysis of Programs with Associative Arrays (David Hauzar - 5 May, 2014)
+Dynamic programming languages, such as PHP, JavaScript, and Python, provide built-in data structures including associative arrays and objects with similar semantics-object properties can be created at run-time and accessed via arbitrary expressions
+Link: https://arxiv.org/abs/1405.1116
+====================================================
+LaTeXML 2012 - A Year of LaTeXML (Deyan Ginev - 25 April, 2014)
+Noteworthy enhancements include: increased coverage such as Wikipedia syntax; enhanced capabilities such as embeddable JavaScript and CSS resources and RDFa support; a web service for remote processing via web-sockets; along with general accuracy and reliability improvements.
+Link: https://arxiv.org/abs/1404.6549
+====================================================
+Analyzing Android Browser Apps for file:// Vulnerabilities (Daoyuan Wu - 1 September, 2014)
+In response to our reports, the developers concerned promptly patched their browsers by forbidding file:// access to private file zones, disabling JavaScript execution in file:// URLs, or even blocking external file:// URLs
+Link: https://arxiv.org/abs/1404.4553
+====================================================
+Montecarlo Techniques as a tool for teaching statistics (FM Alexander Bueno - 3 April, 2014)
+Finally, the use of new technologies, as Javascript and HTML is discussed.
+Link: https://arxiv.org/abs/1404.1844
+====================================================
+JSAI: Designing a Sound, Configurable, and Efficient Static Analyzer for JavaScript (Vineeth Kashyap - 17 March, 2014)
+We describe JSAI, an abstract interpreter for JavaScript. JSAI is designed to be provably sound with respect to a specific concrete semantics for JavaScript, which has been extensively tested against existing production-quality JavaScript implementations.
+Link: https://arxiv.org/abs/1403.3996
+====================================================
+The Web of Life (Miguel A. Fortuna - 11 March, 2014)
+Data can be downloaded in several common formats, and a data transmission webservice in JavaScript Object Notation is also provided.
+Link: https://arxiv.org/abs/1403.2575
+====================================================
+Information Flow Control in WebKit's JavaScript Bytecode (Abhishek Bichhawat - 21 January, 2014)
+Our IFC mechanism works at the level of JavaScript bytecode and hence leverages years of industrial effort on optimizing both the source to bytecode compiler and the bytecode interpreter. We explain how we address these challenges, formally model the JavaScript bytecode semantics and our instrumentation, prove the standard property of termination-insensitive non-interference, and present experimental results on an optimized prototype.
+Link: https://arxiv.org/abs/1401.4339
+====================================================
+Efficient Dynamic Access Analysis Using JavaScript Proxies (Matthias Keil - 11 December, 2013)
+JSConTest introduced the notions of effect monitoring and dynamic effect inference for JavaScript
+Link: https://arxiv.org/abs/1312.3184
+====================================================
+jQuery.Feyn: Drawing Feynman Diagrams with SVG (Zan Pan - 26 November, 2013)
+jQuery.Feyn is a tool for drawing Feynman diagrams with Scalable Vector Graphics (SVG), written in JavaScript and runs in modern browsers
+Link: https://arxiv.org/abs/1311.6712
+====================================================
+Model and Visualization of Ray Tracing using JavaScript and HTML5 for TIR Measurement System Equipped with Equilateral Right Angle Prism (Sparisoma Viridi - 11 October, 2013)
+Using JavaScript and HTML5 model and visualization of ray tracing deviated by an ERAP is perform and reported in this work. Keywords: deviation angle, equilateral right angle prism, total internal reflection, JavaScript, HTML5.
+Link: https://arxiv.org/abs/1310.3335
+====================================================
+Why It's Nice to be Quoted: Quasiquoting for Prolog (Jan Wielemaker - 19 August, 2013)
+When external languages, such as HTML, SQL or JavaScript enter the picture, operators no longer satisfy for embedding snippets of these languages into a Prolog source file
+Link: https://arxiv.org/abs/1308.3941
+====================================================
+How fast can we make interpreted Python? (Russell Power - 13 August, 2013)
+Unfortunately, Python's performance is quite poor when compared to modern implementations of languages such as Lua and JavaScript.
+Link: https://arxiv.org/abs/1306.6047
+====================================================
+Making Sense out of a Jungle of JavaScript Frameworks: towards a Practitioner-friendly Comparative Analysis (Daniel Graziotin - 7 June, 2013)
+A large number of JavaScript frameworks have been recently promoted. Practitioners applying the latest technologies need to choose a suitable JavaScript framework (JSF) in order to abstract the frustrating and complicated coding steps and to provide a cross-browser compatibility
+Link: https://arxiv.org/abs/1306.1773
+====================================================
+Type-based Dependency Analysis for JavaScript (Matthias Keil - 29 May, 2013)
+We have designed and implemented a dependency analysis for JavaScript
+Link: https://arxiv.org/abs/1305.6721
+====================================================
+A Comparison of Maps Application Programming Interfaces (Ana Isabel Fernandes - 15 May, 2013)
+We compare three different APIs: the Google Maps JavaScript API, the ArcGIS API for JavaScript, and the OpenLayers JavaScript Mapping Library
+Link: https://arxiv.org/abs/1305.3485
+====================================================
+Cookies Invading Our Privacy for Marketing Advertising and Security Issues (Sowmyan Jegatheesan - 10 May, 2013)
+Taking advantage of the lack of one unified body that could govern the online space with its strict and stringent rules certain websites use the text files called cookies in collecting data from users and using them for marketing them in advertisements networks and third party websites with the help of JavaScript and flash technologies
+Link: https://arxiv.org/abs/1305.2306
+====================================================
+Information Flow Analysis for a Dynamically Typed Functional Language with Staged Metaprogramming (Martin Lester - 13 February, 2013)
+Web applications written in JavaScript are regularly used for dealing with sensitive or personal data. We prove its soundness, implement it and test it on various examples designed to show its relevance to proving security properties, such as noninterference, in JavaScript
+Link: https://arxiv.org/abs/1302.3178
+====================================================
+Prototype Implementation of Web and Desktop Applications for ALMA Science Verification Data and the Lessons Learned (Satoshi Eguchi - 15 November, 2012)
+The former is written in JavaScript and HTML5 generated from Java codes by Google Web Toolkit, and the latter is in pure Java
+Link: https://arxiv.org/abs/1211.3790
+====================================================
+Lightweight compilation of (C)LP to JavaScript (Jose F. Morales - 10 October, 2012)
+We present an overview of the compilation process and a detailed description of the run-time system, including the support for modular compilation into separate JavaScript code. Finally, we validate our proposal by measuring the performance of some LP and CLP(FD) benchmarks running on top of major JavaScript engines.
+Link: https://arxiv.org/abs/1210.2864
+====================================================
+Social Cheesecake: An UX-driven designed interface for managing contacts (Alicia DÃ­ez - 4 September, 2012)
+The prototype was finally built using HTML5 and Javascript.
+Link: https://arxiv.org/abs/1209.0578
+====================================================
+An analysis of social network connect services (Antonio Tapiador - 23 July, 2012)
+Results show OAuth emerging as the authentication and authorization protocol, giving support to three types of APIs, client-side or Javascript, server-side or representational state transfer (REST) and streaming
+Link: https://arxiv.org/abs/1207.5545
+====================================================
+Lucretia - a type system for objects in languages with reflection (Viviana Bono - 22 June, 2012)
+Object-oriented scripting languages such as JavaScript or Python gain in popularity due to their flexibility
+Link: https://arxiv.org/abs/1206.5112
+====================================================
+IEAD: A Novel One-Line Interface to Query Astronomical Science Archives (Marco Lombardi - 27 February, 2012)
+The programming language chosen for its implementation, JavaScript, makes it possible to interact directly with the user and to provide real-time information on the parsing process, error messages, and the name resolution of targets; additionally, the same parsing engine is used for context-sensitive autocompletion
+Link: https://arxiv.org/abs/1202.5917
+====================================================
+Coupled one-dimensional dynamical systems (Chris Preston - 19 January, 2012)
+There is a JavaScript program available, accessible at www.math.uni-bielefeld.de/~preston/iterates.html, which can be used to `discover' more about these mappings
+Link: https://arxiv.org/abs/1201.4008
+====================================================
+Dependent Types for JavaScript (Ravi Chugh - 1 August, 2012)
+We present Dependent JavaScript (DJS), a statically-typed dialect of the imperative, object-oriented, dynamic language. With our implementation of DJS, we demonstrate that the type system is expressive enough to reason about a variety of tricky idioms found in small examples drawn from several sources, including the popular book JavaScript: The Good Parts and the SunSpider benchmark suite.
+Link: https://arxiv.org/abs/1112.4106
+====================================================
+Pushdown Abstractions of JavaScript (David Van Horn - 20 December, 2011)
+We do so by starting from an established reduction semantics for JavaScript and systematically deriving its intensional abstract interpretation. Our first step is to transform the semantics into an equivalent low-level abstract machine: the JavaScript Abstract Machine (JAM)
+Link: https://arxiv.org/abs/1109.4467
+====================================================
+Across Browsers SVG Implementation (Liang Wang - 31 December, 2010)
+In this work SVG will be translated into VML or HTML by using Javascript based on Backbase Client Framework
+Link: https://arxiv.org/abs/1101.0243
+====================================================
+Comparative Studies of 10 Programming Languages within 10 Diverse Criteria -- a Team 7 COMP6411-S10 Term Report (Sleiman Rabah - 1 September, 2010)
+In this paper, we will discuss ten programming languages: C++, C#, Java, Groovy, JavaScript, PHP, Schalar, Scheme, Haskell and AspectJ
+Link: https://arxiv.org/abs/1009.0305
+====================================================
+Comparative Studies of 10 Programming Languages within 10 Diverse Criteria - a Team 10 COMP6411-S10 Term Report (Rana Naim - 20 August, 2010)
+This is a survey on the programming languages: C++, JavaScript, AspectJ, C#, Haskell, Java, PHP, Scala, Scheme, and BPEL
+Link: https://arxiv.org/abs/1008.3561
+====================================================
+Script Handbook for Interactive Scientific Website Building (Chung-Lin Shan - 25 March, 2014)
+Some basic, often used commands of (X)HTML, CSS, JavaScript, HTML DOM, and PHP are also given in Appendix
+Link: https://arxiv.org/abs/1008.1143
+====================================================
+Youpi, a Web-based Astronomical Image Processing Pipeline (M. Monnerville - 5 June, 2010)
+On the client side, Ajax techniques are used along with the Prototype and script.aculo.us Javascript librairies.
+Link: https://arxiv.org/abs/1006.1074
+====================================================
+Browser-Based Covert Data Exfiltration (Kenton Born - 25 April, 2010)
+This paper explores novel methods of using a browser's JavaScript engine to exfiltrate documents over the Domain Name System (DNS) protocol without sending less covert Hypertext Transfer Protocol (HTTP) requests.
+Link: https://arxiv.org/abs/1004.4357
+====================================================
+Creating A Model HTTP Server Program Using java (Bala Dhandayuthapani Veerasamy - 7 March, 2010)
+This paper encompasses the creation of HTTP server program using java language, which is basically supporting for HTML and JavaScript.
+Link: https://arxiv.org/abs/1003.1497
+====================================================
+JSC : A JavaScript Object System (Artur Ventura - 15 December, 2009)
+The JSC language is a superset of JavaScript designed to ease the development of large web applications. This language extends JavaScripts own object system by isolating code in a class declaration, simplifying multiple inheritance and using method implementation agreements.
+Link: https://arxiv.org/abs/0912.2861
+====================================================
+SQL/JavaScript Hybrid Worms As Two-stage Quines (JosÃ© I. Orlicki - 24 September, 2009)
+Delving into present trends and anticipating future malware trends, a hybrid, SQL on the server-side, JavaScript on the client-side, self-replicating worm based on two-stage quines was designed and implemented on an ad-hoc scenario instantiating a very common software pattern. The proof of concept code combines techniques seen in the wild, in the form of SQL injections leading to cross-site scripting JavaScript inclusion, and seen in the laboratory, in the form of SQL quines propa- gated via RFIDs, resulting in a hybrid code injection
+Link: https://arxiv.org/abs/0909.4516
+====================================================
+Consideration Points Detecting Cross-Site Scripting (Suman Saha - 28 August, 2009)
+To augment the users experience many web applications are using client side scripting languages such as JavaScript but this growing of JavaScript is increasing serious security vulnerabilities in web application too, such as cross site scripting (XSS)
+Link: https://arxiv.org/abs/0908.4188
+====================================================
+WebNC: efficient sharing of web applications (Laurent Denoue - 24 August, 2009)
+WebNC uses a tile-based encoding to capture, transmit and deliver web applications, and relies only on dynamic HTML and JavaScript
+Link: https://arxiv.org/abs/0908.3361
+====================================================
+Adobe AIR, Bringing Rich Internet Applications to the Desktop (Valentin Vieriu - 4 June, 2009)
+Adobe AIR offers the possibility to create cross-platform desktop applications using popular Web technologies like HTML, JavaScript, Flash and Flex
+Link: https://arxiv.org/abs/0906.0869
+====================================================
+Middleware for Data Visualization in VO-enabled Data Archives (Ivan Zolotukhin - 12 November, 2007)
+It comprises: (1) PLASTIC-enabled Java control applet, integrated into archive web-pages and interacting with VO applications; (2) cross-browser compatible JavaScript part managing PLASTIC-aware VO Clients (launch, data manipulation) by means of Java LiveConnect
+Link: https://arxiv.org/abs/0711.1892
+====================================================
+Portlet Wrappers using JavaScript (Paul Fodor - 2 May, 2007)
+In this paper we extend the classical portal (with static portlets) design with HTML DOM Web clipping on the client browser using dynamic JavaScript portlets: the portal server supplies the user/passwords for all services through https and the client browser retrieves web pages and cuts/selects/changes the desired parts using paths (XPath) in the Web page structure
+Link: https://arxiv.org/abs/cs/0703069
+====================================================
+Seeing the sky through Hubble's eye: The COSMOS SkyWalker (K. Jahnke - 23 July, 2006)
+Using standard HTML and JavaScript, the application successively loads only those portions of the image at a time that are currently being viewed on the screen
+Link: https://arxiv.org/abs/astro-ph/0607529
+====================================================
+A JavaScript Passive Evolution Calculator (Pieter G. van Dokkum - 12 January, 2005)
+We present a JavaScript calculator which provides the redshift evolution of the luminosities and colors of passively evolving galaxies for a range of rest-frame filters
+Link: https://arxiv.org/abs/astro-ph/0501236
+====================================================

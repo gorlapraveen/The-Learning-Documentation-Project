@@ -1,0 +1,75 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Atherosclerotic carotid plaques on panoramic imaging: an automatic detection using deep learning with small dataset (Lazar Kats - 24 August, 2018)
+As these are one of the most common images performed for routine dental practice, they can be used as a source of available data for computerized methods of automatic detection in order to significantly increase timely diagnosis of ACPs. We aimed to assess the operation of the algorithm on a small database of 65 panoramic images. ACP was detected with a sensitivity of 75%, specificity of 80% and an accuracy of 83%. The ROC analysis showed a significant Area Under Curve (AUC) difference from 0.5
+Link: https://arxiv.org/abs/1808.08093
+====================================================
+A Tensor Factorization Method for 3D Super-Resolution with Application to Dental CT (Janka Hatvani - 26 July, 2018)
+In contrast to this comparative technique, the proposed reconstruction technique gives a 2-order-of-magnitude improvement in running time -- 2 minutes compared to 2 hours for a dental volume of 282$\times$266$\times$392 voxels
+Link: https://arxiv.org/abs/1807.10027
+====================================================
+Automatic segmenting teeth in X-ray images: Trends, a novel data set, benchmarking and future perspectives (Gil Jader - 8 February, 2018)
+This review presents an in-depth study of the literature on segmentation methods applied in dental imaging. We found that the literature has primarily focused on threshold-based segmentation methods (54%). 80% of the reviewed papers have used intra-oral X-ray images in their experiments, demonstrating preference to perform segmentation on images of already isolated parts of the teeth, rather than using extra-oral X-rays, which show tooth structure of the mouth and bones of the face. A statistical comparison of the results found with the 10 image segmentation methods over our proposed data set comprised of 1,500 images is also carried out, providing a more comprehensive source of performance assessment
+Link: https://arxiv.org/abs/1802.03086
+====================================================
+Detection of Tooth caries in Bitewing Radiographs using Deep Learning (Muktabh Mayank Srivastava - 23 November, 2017)
+We develop annotated dataset of more than 3000 bitewing radiographs and utilize it for developing a system for automated diagnosis of dental caries. Working example of our system is shown in Figure 1.
+Link: https://arxiv.org/abs/1711.07312
+====================================================
+Classification of Quantitative Light-Induced Fluorescence Images Using Convolutional Neural Network (Sultan Imangaliyev - 25 May, 2017)
+The deep neural network outperforms other state of the art shallow classification models in predicting labels derived from three different dental plaque assessment scores
+Link: https://arxiv.org/abs/1705.09193
+====================================================
+LiftUpp: Support to develop learner performance (Frans A. Oliehoek - 21 April, 2017)
+In this paper, we discuss these challenges and how they are being addressed by LiftUpp, a system that is now used in 70% of UK dental schools, and is finding wider applications in physiotherapy, medicine and veterinary science
+Link: https://arxiv.org/abs/1704.06549
+====================================================
+Robust and fully automated segmentation of mandible from CT scans (Neslisah Torosdagli - 22 February, 2017)
+Despite heavy CT artifacts and dental fillings, consisting half of the CT image data in our experiments, we have achieved highly accurate detection and delineation results. Specifically, detection accuracy more than 96% (measured by union of intersection (UoI)), the delineation accuracy of 91% (measured by dice similarity coefficient), and less than 1 mm in shape mismatch (Hausdorff Distance) were found.
+Link: https://arxiv.org/abs/1702.07059
+====================================================
+Computer Aided Detection of Oral Lesions on CT Images (Shaikat Galib - 29 November, 2016)
+In this study, a fully automatic method to detect oral lesions in mandibular region from dental CT images is proposed. The results were validated using a CT dataset of 52 patients, where 22 patients had abnormalities and 30 patients were normal. Using non-training dataset, CB detection algorithm yielded 71% sensitivity with 0.31 false positives per patient. Furthermore, OB detection algorithm achieved 100% sensitivity with 0.13 false positives per patient
+Link: https://arxiv.org/abs/1611.09769
+====================================================
+A Statistical Modeling Approach to Computer-Aided Quantification of Dental Biofilm (Awais Mansoor - 9 July, 2014)
+Several methods to quantify dental biofilm coverage have recently been reported in the literature, but at best they provide a semi-automated approach to quantification with significant input from a human grader that comes with the graders bias of what are foreground, background, biofilm, and tooth. Additionally, human assessment indices limit the resolution of the quantification scale; most commercial scales use five levels of quantification for biofilm coverage (0%, 25%, 50%, 75%, and 100%)
+Link: https://arxiv.org/abs/1407.2630
+====================================================
+BiofilmQuant: A Computer-Assisted Tool for Dental Biofilm Quantification (Awais Mansoor - 2 July, 2014)
+This initial segmentation has shown a high degree of consistency and precision on more than 200 test QLF dental scans
+Link: https://arxiv.org/abs/1407.0765
+====================================================
+Example Mining for Incremental Learning in Medical Imaging (Pratyush Kumar - 24 July, 2018)
+We develop our approach for incremental learning of our already under test model for detecting dental caries
+Link: https://arxiv.org/abs/1807.08942
+====================================================
+Building Anatomically Realistic Jaw Kinematics Model from Data (Wenwu Yang - 15 May, 2018)
+We obtain highly accurate 3D models of the teeth with a standard dental scanner and use these models to reconstruct the rigid body trajectories of the teeth from the videos (markerless tracking)
+Link: https://arxiv.org/abs/1805.05903
+====================================================
+Learning Beyond Human Expertise with Generative Models for Dental Restorations (Jyh-Jing Hwang - 30 March, 2018)
+In the dental industry, it takes a technician years of training to design synthetic crowns that restore the function and integrity of missing teeth. We develop a fully automatic approach that learns not only from human designs of dental crowns, but also from natural spatial profiles between opposing teeth
+Link: https://arxiv.org/abs/1804.00064
+====================================================
+Emerging basic, clinical and translational research fronts in dental biomaterials R&D (David Fajardo-Ortiz - 29 November, 2017)
+Our results suggest the possible relation between the technological complexity of the dental materials and the level of advance in terms of knowledge translation. This is the first time the structure and content of research on dental materials research is analyzed.
+Link: https://arxiv.org/abs/1711.11168
+====================================================
+Group Methodologies and Simulations for the Development of Transversal Skills: A Pilot Study on Health Sciences Higher Education (Laura San Martin Galindo - 21 May, 2016)
+In the teaching of odontology and stomatology, object of our research, dental assistance brings up situations where the professional must develop transversal skills, which improve the interaction with the patient and the dental treatment itself. The study sample is made out of dental students (n=80), all of them on the 4th year at the College of Dentistry (University of Seville, Spain)
+Link: https://arxiv.org/abs/1605.06658
+====================================================
+Speech animation using electromagnetic articulography as motion capture data (Ingmar Steiner - 30 October, 2013)
+The processing of the EMA data, its co-registration with 3D data from vocal tract magnetic resonance imaging (MRI) and dental scans, and the modeling workflow are presented in detail, and several issues discussed.
+Link: https://arxiv.org/abs/1310.8585
+====================================================
+MI image registration using prior knowledge (W. Jacquet - 19 June, 2007)
+We use this to develop new methodologies to successfully address specific registration problems, the follow-up of dental restorations, cephalometry, and the monitoring of implants.
+Link: https://arxiv.org/abs/0705.3593
+====================================================

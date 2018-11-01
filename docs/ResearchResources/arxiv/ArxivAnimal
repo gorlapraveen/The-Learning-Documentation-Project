@@ -1,0 +1,1327 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Realizing Learned Quadruped Locomotion Behaviors through Kinematic Motion Primitives (Abhik Singla - 9 October, 2018)
+Humans and animals are believed to use a very minimal set of trajectories to perform a wide variety of tasks including walking. Our main objective in this paper is two fold 1) Obtain an effective tool to realize these basic motion patterns for quadrupedal walking, called the kinematic motion primitives (kMPs), via trajectories learned from deep reinforcement learning (D-RL) and 2) Realize a set of behaviors, namely trot, walk, gallop and bound from these kinematic motion primitives in our custom four legged robot, called the 'Stoch'
+Link: https://arxiv.org/abs/1810.03842
+====================================================
+Episodic Curiosity through Reachability (Nikolay Savinov - 4 October, 2018)
+In particular, inspired by curious behaviour in animals, observing something novel could be rewarded with a bonus. In ViZDoom, our agent learns to successfully navigate to a distant goal at least 2 times faster than the state-of-the-art curiosity method ICM. In DMLab, our agent generalizes well to new procedurally generated levels of the game - reaching the goal at least 2 times more frequently than ICM on test mazes with very sparse reward.
+Link: https://arxiv.org/abs/1810.02274
+====================================================
+Cognitive Consistency Routing Algorithm of Capsule-network (Huayu Li - 19 September, 2018)
+Artificial Neural Networks (ANNs) are computational models inspired by the central nervous system (especially the brain) of animals and are used to estimate or generate unknown approximation functions relied on large amounts of inputs. Capsule Neural Network (Sabour S, et al.[2017]) is a novel structure of Convolutional Neural Networks which simulates the visual processing system of human brain
+Link: https://arxiv.org/abs/1808.09062
+====================================================
+Ensemble Learning Applied to Classify GPS Trajectories of Birds into Male or Female (Dewan Fayzur - 26 August, 2018)
+We describe our first-place solution to the Animal Behavior Challenge (ABC 2018) on predicting gender of bird from its GPS trajectory. We used ensemble of several variants of Gradient Boosting Classifier along with Gaussian Process Classifier and Support Vector Classifier after extensive feature engineering and we ranked first out of 74 registered teams
+Link: https://arxiv.org/abs/1808.08613
+====================================================
+Playing 20 Question Game with Policy-Based Reinforcement Learning (Huang Hu - 26 August, 2018)
+In the game, the answerer first thinks of an object such as a famous person or a kind of animal. Then the questioner tries to guess the object by asking 20 questions
+Link: https://arxiv.org/abs/1808.07645
+====================================================
+Moving Objects Analytics: Survey on Future Location & Trajectory Prediction Methods (Harris Georgiou - 11 July, 2018)
+This paper focuses on predictive analytics for moving objects (could be pedestrians, cars, vessels, planes, animals, etc.) and surveys the state-of-the-art in the context of future location and trajectory prediction. We provide an extensive review of over 50 works, also proposing a novel taxonomy of predictive algorithms over moving objects
+Link: https://arxiv.org/abs/1807.04639
+====================================================
+Detecting Mammals in UAV Images: Best Practices to address a substantially Imbalanced Dataset with Deep Learning (Benjamin Kellenberger - 29 June, 2018)
+Setting the requirements at 90% recall, our CNN allows to reduce the amount of data required for manual verification by three times, thus making it possible for rangers to screen all the data acquired efficiently and to detect almost all animals in the reserve automatically.
+Link: https://arxiv.org/abs/1806.11368
+====================================================
+Repetition Estimation (Tom F. H. Runia - 18 June, 2018)
+It appears in human activity (sports, cooking), animal behavior (a bee's waggle dance), natural phenomena (leaves in the wind) and in urban environments (flashing lights). For the 2D perception of 3D motion we consider the viewpoint relative to the motion; what follows are 18 cases of recurrent motion perception
+Link: https://arxiv.org/abs/1806.06984
+====================================================
+Foresee: Attentive Future Projections of Chaotic Road Environments with Online Training (Anil Sharma - 30 May, 2018)
+In the same direction, we investigate recurrent neural networks to understand the chaotic road environment which is shared by pedestrians, vehicles (cars, trucks, bicycles etc.), and sometimes animals as well. We train \emph{Foresee} in an unsupervised way and we use online training to project frames up to $0.5$ seconds in advance
+Link: https://arxiv.org/abs/1805.11861
+====================================================
+Intense Competition can Drive Selfish Explorers to Optimize Coverage (Simon Collet - 3 May, 2018)
+The motivating example is a group of animals that disperse over patches of food of different abundances. Typically, we assume that if > 1 individuals visit x then each receives at most f(x). Viewing the coverage measure as the social welfare, this policy thus enjoys a (Symmetric) Price of Anarchy of precisely 1, whereas, in fact, any other congestion policy has a price strictly greater than 1
+Link: https://arxiv.org/abs/1805.01319
+====================================================
+An information-theoretic on-line update principle for perception-action coupling (Zhen Peng - 16 April, 2018)
+Inspired by findings of sensorimotor coupling in humans and animals, there has recently been a growing interest in the interaction between action and perception in robotic systems [Bogh et al., 2016]. We follow [Genewein et al., 2015] and formulate a constrained optimization problem that maximizes utility under limited information-processing capacity in the two channels
+Link: https://arxiv.org/abs/1804.05906
+====================================================
+Cortex Neural Network: learning with Neural Network groups (Liyao Gao - 9 April, 2018)
+Cortex, as an important architecture in the brain, is important for animals to perform the complex cognitive task. Our experiments proved its ability on the Cortex Neural Network can reach accuracy by 98.32% on MNIST and 62% on CIFAR10 at the same time, which can promisingly reduce the loss by 40%.
+Link: https://arxiv.org/abs/1804.03313
+====================================================
+Markerless tracking of user-defined features with deep learning (Alexander Mathis - 9 April, 2018)
+In motor control studies, humans or other animals are often marked with reflective markers to assist with computer-based tracking, yet markers are intrusive (especially for smaller animals), and the number and location of the markers must be determined a priori. Remarkably, even when a small number of frames are labeled ($\approx 200$), the algorithm achieves excellent tracking performance on test frames that is comparable to human accuracy.
+Link: https://arxiv.org/abs/1804.03142
+====================================================
+Oncilla robot: a versatile open-source quadruped research robot with compliant pantograph legs (Alexander SprÃ¶witz - 16 June, 2018)
+Animal legged locomotion in rough terrain is clearly shaped by sensor feedback systems. Results with Oncilla robot show that agile and versatile locomotion is possible without sensory signals to some extend, and tracking becomes robust when feedback control is added (Ajaoolleian 2015)
+Link: https://arxiv.org/abs/1803.06259
+====================================================
+A Learning-Based Visual Saliency Prediction Model for Stereoscopic 3D Video (LBVS-3D) (Amin Banitalebi-Dehkordi - 13 March, 2018)
+This paper explores stereoscopic video saliency prediction by exploiting both low-level attributes such as brightness, color, texture, orientation, motion, and depth, as well as high-level cues such as face, person, vehicle, animal, text, and horizon. The performance of the proposed saliency model is evaluated against the results of an eye-tracking experiment, which involved 24 subjects and an in-house database of 61 captured stereoscopic videos
+Link: https://arxiv.org/abs/1803.04842
+====================================================
+idtracker.ai: Tracking all individuals in large collectives of unmarked animals (Francisco Romero-Ferrero - 12 March, 2018)
+Our understanding of collective animal behavior is limited by our ability to track each of the individuals. We describe an algorithm and software, idtracker.ai, that extracts from video all trajectories with correct identities at a high accuracy for collectives of up to 100 individuals
+Link: https://arxiv.org/abs/1803.04351
+====================================================
+Semi-parametric Topological Memory for Navigation (Nikolay Savinov - 1 March, 2018)
+We introduce a new memory architecture for navigation in previously unseen environments, inspired by landmark-based navigation in animals. Given only 5 minutes of footage of a previously unseen maze, an SPTM-based navigation agent can build a topological map of the environment and use it to confidently navigate towards goals
+Link: https://arxiv.org/abs/1803.00653
+====================================================
+Multi-resolution Tensor Learning for Large-Scale Spatial Data (Stephan Zheng - 28 February, 2018)
+When applied to two real-world large-scale spatial datasets for basketball player and animal behavior modeling, our approach demonstrate 3 key benefits: 1) it efficiently captures higher-order interactions (i.e., tensor latent factors), 2) it is orders of magnitude faster than fixed resolution learning and scales to very fine-grained spatial resolutions, and 3) it reliably yields accurate and interpretable models.
+Link: https://arxiv.org/abs/1802.06825
+====================================================
+Feature Based Framework to Detect Diseases, Tumor, and Bleeding in Wireless Capsule Endoscopy (Omid Haji Maghsoudi - 27 January, 2018)
+Studying animal locomotion improves our understanding of motor control and aids in the treatment of motor impairment. High frame rates (250 Hz) are needed to quantify the kinematics of these running rodents. The proposed method is validated in sixty 1,000 frame video sequences (4 seconds) captured by four cameras from five mice. The total sensitivity for tracking of the front and hind paw is 99.70% using the SVM classifier and 99.76% using the NN classifier
+Link: https://arxiv.org/abs/1802.02232
+====================================================
+Recovering from Random Pruning: On the Plasticity of Deep Convolutional Neural Networks (Deepak Mittal - 31 January, 2018)
+Further, we also evaluate a real world scenario where a CNN trained on all 1000 ImageNet classes needs to be tested on only a small set of classes at test time (say, only animals). We show that using a simple random pruning strategy we can achieve significant speed up in object detection (74$\%$ improvement in fps) while retaining the same accuracy as that of the original Faster RCNN model.
+Link: https://arxiv.org/abs/1801.10447
+====================================================
+Moments in Time Dataset: one million videos for event understanding (Mathew Monfort - 9 January, 2018)
+Modeling the spatial-audio-temporal dynamics even for actions occurring in 3 second videos poses many challenges: meaningful events do not include only people, but also objects, animals, and natural phenomena; visual and auditory events can be symmetrical or not in time ("opening" means "closing" in reverse order), and transient or sustained. We describe the annotation process of our dataset (each video is tagged with one action or activity label among 339 different classes), analyze its scale and diversity in comparison to other large-scale video datasets for action recognition, and report results of several baseline models addressing separately and jointly three modalities: spatial, temporal and auditory
+Link: https://arxiv.org/abs/1801.03150
+====================================================
+#Halal Culture on Instagram (Yelena Mejova - 20 November, 2017)
+We find a great variety in the use of halal within Arabic, English, and Indonesian-speaking populations, with animal trade emphasized in first (making up 61% of the language's stream), food in second (80%), and cosmetics and supplements in third (70%)
+Link: https://arxiv.org/abs/1711.07208
+====================================================
+A Deep Structured Learning Approach Towards Automating Connectome Reconstruction from 3D Electron Micrographs (Jan Funke - 24 September, 2017)
+We present results on three datasets (CREMI, FIB, and SegEM) of different imaging techniques and animals and achieve improvements over previous results of 27%, 15%, and 250%. The runtime of our method scales with $O(n)$ in the size of the volume and achieves a throughput of about 2.6 seconds per megavoxel, allowing processing of very large datasets.
+Link: https://arxiv.org/abs/1709.02974
+====================================================
+Scalable Annotation of Fine-Grained Categories Without Experts (Timnit Gebru - 7 September, 2017)
+In animals, there is a direct link between taxonomy and visual similarity: e.g. a 2011 Ford F-150 Supercrew-HD looks the same as a 2011 Ford F-150 Supercrew-LL but very different from a 2011 Ford F-150 Supercrew-SVT
+Link: https://arxiv.org/abs/1709.02482
+====================================================
+Adaptive SVM+: Learning with Privileged Information for Domain Adaptation (Nikolaos Sarafianos - 29 August, 2017)
+We demonstrate the effectiveness of our approach on the publicly available Animals with Attributes and INTERACT datasets and report state-of-the-art results in both of them.
+Link: https://arxiv.org/abs/1708.09083
+====================================================
+Automatic detection and decoding of honey bee waggle dances (Fernando Wario - 4 December, 2017)
+Most studies, therefore, regard only small numbers of animals in short periods of time. The proposed system performs with a detection accuracy of 90.07\%
+Link: https://arxiv.org/abs/1708.06590
+====================================================
+The iNaturalist Species Classification and Detection Dataset (Grant Van Horn - 10 April, 2018)
+To encourage further progress in challenging real world conditions we present the iNaturalist species classification and detection dataset, consisting of 859,000 images from over 5,000 different species of plants and animals. Results show that current non-ensemble based methods achieve only 67% top one classification accuracy, illustrating the difficulty of the dataset
+Link: https://arxiv.org/abs/1707.06642
+====================================================
+Zero-Shot Learning - A Comprehensive Evaluation of the Good, the Bad and the Ugly (Yongqin Xian - 9 August, 2018)
+Moreover, we propose a new zero-shot learning dataset, the Animals with Attributes 2 (AWA2) dataset which we make publicly available both in terms of image features and the images themselves
+Link: https://arxiv.org/abs/1707.00600
+====================================================
+MRI-PET Registration with Automated Algorithm in Pre-clinical Studies (Nathanael L. Baisa - 23 May, 2017)
+Therefore, a fully automatic registration algorithm which can register not only assumably rigid small animal volumes such as brain but also deformable organs such as kidney, cardiac and chest is developed using a combination of global affine and local B-spline transformation models in which mutual information is used as a similarity criterion. The global affine registration uses a multi-resolution pyramid on image volumes of 3 levels whereas in local B-spline registration, a multi-resolution scheme is applied on the B-spline grid of 2 levels on the finest resolution of the image volumes in which only the transform itself is affected rather than the image volumes
+Link: https://arxiv.org/abs/1705.07062
+====================================================
+Automatic Recognition of Mammal Genera on Camera-Trap Images using Multi-Layer Robust Principal Component Analysis and Mixture Neural Networks (Jhony-Heriberto Giraldo-Zuluaga - 7 May, 2017)
+The segmentation and classification of animals from camera-trap images is due to the conditions under which the images are taken, a difficult task. We obtained an accuracy of 92.65% classifying 8 mammal genera and a False Positive (FP) class, using automatic-segmented images. On the other hand, we reached 90.32% of accuracy classifying 10 mammal genera, using ground-truth images only
+Link: https://arxiv.org/abs/1705.02727
+====================================================
+Interspecies Knowledge Transfer for Facial Keypoint Detection (Maheen Rashid - 13 April, 2017)
+The warping network is then jointly finetuned with a pre-trained human facial keypoint detection network using an animal dataset. Additionally, we present a new dataset with 3717 images with horse face and facial keypoint annotations.
+Link: https://arxiv.org/abs/1704.04023
+====================================================
+What's in a Question: Using Visual Questions as a Form of Supervision (Siddha Ganju - 12 April, 2017)
+For instance, the question "what is the breed of the dog?" informs the AI that the animal in the scene is a dog and that there is only one dog present. We make three contributions: (1) providing an extensive qualitative and quantitative analysis of the information contained in human visual questions, (2) proposing two simple but surprisingly effective modifications to the standard visual question answering models that allow them to make use of weak supervision in the form of unanswered questions associated with images and (3) demonstrating that a simple data augmentation strategy inspired by our insights results in a 7.1% improvement on the standard VQA benchmark.
+Link: https://arxiv.org/abs/1704.03895
+====================================================
+Automatic Discovery, Association Estimation and Learning of Semantic Attributes for a Thousand Categories (Ziad Al-Halah - 11 April, 2017)
+Furthermore, we demonstrate that our model outperforms the state-of-the-art in zero-shot learning on three data sets: ImageNet, Animals with Attributes and aPascal/aYahoo
+Link: https://arxiv.org/abs/1704.03607
+====================================================
+Automatically identifying, counting, and describing wild animals in camera-trap images with deep learning (Mohammed Sadegh Norouzzadeh - 15 November, 2017)
+Having accurate, detailed, and up-to-date information about the location and behavior of animals in the wild would revolutionize our ability to study and conserve ecosystems. We train deep convolutional neural networks to identify, count, and describe the behaviors of 48 species in the 3.2-million-image Snapshot Serengeti dataset. Our deep neural networks automatically identify animals with over 93.8% accuracy, and we expect that number to improve rapidly in years to come. More importantly, if our system classifies only images it is confident about, our system can automate animal identification for 99.3% of the data while still performing at the same 96.6% accuracy as that of crowdsourced teams of human volunteers, saving more than 8.4 years (at 40 hours per week) of human labeling effort (i.e
+Link: https://arxiv.org/abs/1703.05830
+====================================================
+How Much Does Users' Psychology Matter in Engineering Mean-Field-Type Games (Giulia Rossi - 25 February, 2017)
+Until now mean-field-type game theory was not focused on cognitively-plausible models of choices in humans, animals, machines, robots, software-defined and mobile devices strategic interactions. The work conducts also an experiment with 47 people who have to decide whether to cooperate or not
+Link: https://arxiv.org/abs/1702.05355
+====================================================
+Camera-trap images segmentation using multi-layer robust principal component analysis (Jhony-Heriberto Giraldo-Zuluaga - 30 December, 2017)
+The segmentation of animals from camera-trap images is a difficult task. Our multi-layer RPCA reached 76.17 and 69.97% of average fine-grained F-measure for color and infrared sequences, respectively
+Link: https://arxiv.org/abs/1701.08180
+====================================================
+On-bird Sound Recordings: Automatic Acoustic Recognition of Activities and Contexts (Dan Stowell - 16 December, 2016)
+Results are comparable with the state of the art in sound scene analysis; we find that the current recognition quality level enables scalable automatic annotation of audio logger data, given partial annotation, but also find that individual differences between animals and/or their backpacks limit the generalisation from one individual to another
+Link: https://arxiv.org/abs/1612.05489
+====================================================
+Knowledge Completion for Generics using Guided Tensor Factorization (Hanie Sedghi - 28 March, 2018)
+Given a knowledge base or KB containing (noisy) facts about common nouns or generics, such as "all trees produce oxygen" or "some animals live in forests", we consider the problem of inferring additional such facts at a precision similar to that of the starting KB. First, our simple yet effective knowledge guided tensor factorization approach achieves state-of-the-art results on two generics KBs (80% precise) for science, doubling their size at 74%-86% precision. Second, our novel taxonomy guided, submodular, active learning method for collecting annotations about rare entities (e.g., oriole, a bird) is 6x more effective at inferring further new facts about them than multiple active learning baselines.
+Link: https://arxiv.org/abs/1612.03871
+====================================================
+Probabilistic Fluorescence-Based Synapse Detection (Anish K. Simhal - 16 November, 2016)
+In human brains and most animal nervous systems, synapses are very small and very densely packed: there are approximately 1 billion synapses per cubic millimeter of human cortex
+Link: https://arxiv.org/abs/1611.05479
+====================================================
+VR 'SPACE OPERA': Mimetic Spectralism in an Immersive Starlight Audification System (Benedict Carey - 9 November, 2016)
+In this scene music is generated, where the harmonic material is determined based on observations of light variation from pulsating stars, that would have theoretically been overhead on the 1st of October 8000 BC at 23:00 and animal calls based on the reliefs in the temple. Based on the observations of the stars V465 Per, HD 217860, 16 Lac, BG CVn and KIC 6382916, frequency collections were derived and applied to the generation of musical sound and notation sequences within a custom VR environment using a novel method incorporating spectralist techniques
+Link: https://arxiv.org/abs/1611.03081
+====================================================
+Semi-Supervised Recognition of the Diploglossus Millepunctatus Lizard Species using Artificial Vision Algorithms (Jhony-Heriberto Giraldo-Zuluaga - 8 November, 2016)
+The classical animal biometrics risk the animals' integrity, are expensive for numerous animals, and depend on expert criterion. A 82.87% of correct segmentation in average is reached. A performance of 92.99% on the top 1, and a 96.82% on the top 5 is reached
+Link: https://arxiv.org/abs/1611.02803
+====================================================
+Learning recurrent representations for hierarchical behavior modeling (Eyrun Eyjolfsdottir - 15 November, 2016)
+We propose a framework for detecting action patterns from motion sequences and modeling the sensory-motor relationship of animals, using a generative recurrent neural network. Our results show that 1) taking advantage of unlabeled sequences, by predicting future motion, significantly improves action detection performance when training labels are scarce, 2) the network learns to represent high level phenomena such as writer identity and fly gender, without supervision, and 3) simulated motion trajectories, generated by treating motion prediction as input to the network, look realistic and may be used to qualitatively evaluate whether the model has learnt generative control rules.
+Link: https://arxiv.org/abs/1611.00094
+====================================================
+Animal Classification System: A Block Based Approach (Y H Sharath Kumar - 6 September, 2016)
+To corroborate the efficacy of the proposed method, an experiment was conducted on our own data set of 25 classes of animals, which consisted of 4000 sample images
+Link: https://arxiv.org/abs/1609.01829
+====================================================
+Phase 4: DCL System Using Deep Learning Approaches for Land-Based or Ship-Based Real-Time Recognition and Localization of Marine Mammals - Distributed Processing and Big Data Applications (Peter J. Dugan - 5 May, 2016)
+While the animal bioacoustics community at large is collecting huge amounts of acoustic data at an unprecedented pace, processing these data is problematic. The focus of this early work was targeted to make significant progress in addressing big data systems and advanced algorithms over the duration of the grant from 2012 to 2015
+Link: https://arxiv.org/abs/1605.00982
+====================================================
+Comparing Fifty Natural Languages and Twelve Genetic Languages Using Word Embedding Language Divergence (WELD) as a Quantitative Measure of Language Distance (Ehsaneddin Asgari - 28 April, 2016)
+In addition to natural languages, we perform language comparison for the coding regions in the genomes of 12 different organisms (4 plants, 6 animals, and two human subjects)
+Link: https://arxiv.org/abs/1604.08561
+====================================================
+Animation and Chirplet-Based Development of a PIR Sensor Array for Intruder Classification in an Outdoor Environment (Raviteja Upadrashta - 13 April, 2016)
+Secondly, given the challenges of collecting data involving animal intrusion, an Animation-based Simulation tool for Passive Infra-Red sEnsor (ASPIRE) was developed that simulates signals corresponding to human and animal intrusion and some limited models of vegetative clutter. The average accuracy obtained for intruder detection and classification on real-world and simulated data sets was in excess of 97%.
+Link: https://arxiv.org/abs/1604.03829
+====================================================
+Capturing Dynamic Textured Surfaces of Moving Targets (Ruizhe Wang - 11 April, 2016)
+We present an end-to-end system for reconstructing complete watertight and textured models of moving subjects such as clothed humans and animals, using only three or four handheld sensors. We show that this algorithm reliably registers partial scans with as little as 15% overlap without requiring any initial correspondences, and outperforms alternative global registration algorithms
+Link: https://arxiv.org/abs/1604.02801
+====================================================
+PET: An Eye-tracking Dataset for Animal-centric PASCAL Object Classes (Syed Omer Gilani - 6 April, 2016)
+We present the Pascal animal classes Eye Tracking database. Our database comprises eye movement recordings compiled from forty users for the bird, cat, cow, dog, horse and sheep {trainval} sets from the VOC 2012 image set
+Link: https://arxiv.org/abs/1604.01574
+====================================================
+It's Moving! A Probabilistic Model for Causal Motion Segmentation in Moving Camera Videos (Pia Bideau - 1 April, 2016)
+We compare to five state-of-the-art methods on two established benchmarks, and a third new data set of camouflaged animals, which we introduce to push motion segmentation to the next level.
+Link: https://arxiv.org/abs/1604.00136
+====================================================
+Towards Automatic Wild Animal Monitoring: Identification of Animal Species in Camera-trap Images using Very Deep Convolutional Neural Networks (Alexander Gomez - 21 March, 2016)
+In this work, a method for animal species identification in the wild using very deep convolutional neural networks is presented. The method reached 88.9% of accuracy in Top-1 and 98.1% in Top-5 in the evaluation set using a residual network topology
+Link: https://arxiv.org/abs/1603.06169
+====================================================
+Automatic segmentation of lizard spots using an active contour model (Jhony Giraldo - 2 March, 2016)
+One important target in animal biometrics is to automate the segmentation process, so in this paper we propose a segmentation algorithm for extracting the spots of Diploglossus millepunctatus, an endangered lizard species. A 78.37 % of correct segmentation in average is reached.
+Link: https://arxiv.org/abs/1603.00841
+====================================================
+Bioinspired Visual Motion Estimation (Garrick Orchard - 31 October, 2015)
+Visual motion estimation is a computationally intensive, but important task for sighted animals. 25 years ago, in this very journal, Carver Mead outlined his argument for replicating biological processing in silicon circuits
+Link: https://arxiv.org/abs/1511.00096
+====================================================
+A Markov Random Field and Active Contour Image Segmentation Model for Animal Spots Patterns (Alexander GÃ³mez - 26 October, 2015)
+Non-intrusive biometrics of animals using images allows to analyze phenotypic populations and individuals with patterns like stripes and spots without affecting the studied subjects. The proposed method achieved a maximum efficiency of $91.11\%$.
+Link: https://arxiv.org/abs/1510.07474
+====================================================
+Where Is My Puppy? Retrieving Lost Dogs by Facial Features (Thierry Pinheiro Moreira - 1 August, 2016)
+Some measures help matching lost animals to their owners; but automated visual recognition is one that - although convenient, highly available, and low-cost - is surprisingly overlooked. Human facial recognizers perform poorly for dogs (up to 60.5% accuracy), showing that dog facial recognition is not a trivial extension of human facial recognition. The convolutional network solutions work much better, with BARK attaining up to 81.1% accuracy, and WOOF, 89.4%. The tests were conducted in two datasets: Flickr-dog, with 42 dogs of two breeds (pugs and huskies); and Snoopybook, with 18 mongrel dogs.
+Link: https://arxiv.org/abs/1510.02781
+====================================================
+An end-to-end generative framework for video segmentation and recognition (Hilde Kuehne - 17 March, 2016)
+Using a variety of video datasets ranging from human cooking activities to animal behaviors, our experiments demonstrate that the resulting architecture outperforms state-of-the-art approaches for larger datasets, i.e
+Link: https://arxiv.org/abs/1509.01947
+====================================================
+Automatic Identification of Animal Breeds and Species Using Bioacoustics and Artificial Neural Networks (Jaderick P. Pabico - 20 July, 2015)
+In this research endeavor, it was hypothesized that the sound produced by animals during their vocalizations can be used as identifiers of the animal breed or species even if they sound the same to unaided human ear. To test this hypothesis, three artificial neural networks (ANNs) were developed using bioacoustics properties as inputs for the respective automatic identification of 13 bird species, eight dog breeds, and 11 frog species. Tests show that the respective ANNs can correctly identify 71.43\% of the birds, 94.44\% of the dogs, and 90.91\% of the frogs
+Link: https://arxiv.org/abs/1507.05546
+====================================================
+A Batteryless Sensor ASIC for Implantable Bio-impedance Applications (Saul Rodriguez - 13 July, 2015)
+The prototype is validated by measuring the impedances of different combinations of discrete components, measuring the electrochemical impedance of physiological solution, and performing ex vivo measurements on animal organs. The proposed ASIC is able to extract complex impedances with around 1 Ohm resolution; therefore enabling accurate wireless tissue measurements.
+Link: https://arxiv.org/abs/1507.03388
+====================================================
+Histopathological Image Classification using Discriminative Feature-oriented Dictionary Learning (Tiep Huu Vu - 29 March, 2016)
+Experiments on three challenging real-world image databases: 1) histopathological images of intraductal breast lesions, 2) mammalian kidney, lung and spleen images provided by the Animal Diagnostics Lab (ADL) at Pennsylvania State University, and 3) brain tumor images from The Cancer Genome Atlas (TCGA) database, reveal the merits of our proposal over state-of-the-art alternatives
+Link: https://arxiv.org/abs/1506.05032
+====================================================
+Distributed Recurrent Neural Forward Models with Synaptic Adaptation for Complex Behaviors of Walking Robots (Sakyasingha Dasgupta - 11 June, 2015)
+Such predictions or planning ahead can be achieved by way of in- ternal models that are grounded in the overall behavior of the animal. The neural mechanisms consist of 1) central pattern generator based control for generating basic rhythmic patterns and coordinated movements, 2) distributed (at each leg) recurrent neural network based adaptive forward models with efference copies as internal models for sensory predictions and instantaneous state estimations, and 3) searching and elevation control for adapting the movement of an individual leg to deal with different environmental conditions
+Link: https://arxiv.org/abs/1506.03599
+====================================================
+Probabilistic Label Relation Graphs with Ising Models (Nan Ding - 22 December, 2015)
+A common example is hierarchical label spaces, corresponding to the case where one label subsumes another (e.g., animal subsumes dog). To jointly model hierarchy and exclusion relations, the notion of a HEX (hierarchy and exclusion) graph was introduced in [7]
+Link: https://arxiv.org/abs/1503.01428
+====================================================
+DFDL: Discriminative Feature-oriented Dictionary Learning for Histopathological Image Classification (Tiep H. Vu - 3 February, 2015)
+Experiments on three challenging real-world image databases: 1) histopathological images of intraductal breast lesions, 2) mammalian lung images provided by the Animal Diagnostics Lab (ADL) at Pennsylvania State University, and 3) brain tumor images from The Cancer Genome Atlas (TCGA) database, show the significance of DFDL model in a variety problems over state-of-the-art methods
+Link: https://arxiv.org/abs/1502.01032
+====================================================
+Semantic Part Segmentation using Compositional Model combining Shape and Appearance (Jianyu Wang - 18 December, 2014)
+Given part-level segmentation annotation, we develop a novel algorithm to learn a mixture of compositional models under various poses and viewpoints for certain animal classes. We evaluate our method for horse and cow using a newly annotated dataset on Pascal VOC 2010 which has pixelwise part labels
+Link: https://arxiv.org/abs/1412.6124
+====================================================
+Zero-Shot Object Recognition System based on Topic Model (Wai Lam Hoo - 14 October, 2014)
+We achieve comparable performance with state-of-the-art algorithms in four public datasets: PubFig (67.09%), Cifar-100 (54.85%), Caltech-256 (52.14%), and Animals with Attributes (49.65%) when unseen classes exist in the classification task.
+Link: https://arxiv.org/abs/1410.3748
+====================================================
+Evaluation of Output Embeddings for Fine-Grained Image Classification (Zeynep Akata - 28 August, 2015)
+We establish a substantially improved state-of-the-art on the Animals with Attributes and Caltech-UCSD Birds datasets
+Link: https://arxiv.org/abs/1409.8403
+====================================================
+Robots that can adapt like animals (Antoine Cully - 27 May, 2015)
+However, while animals can quickly adapt to a wide variety of injuries, current robots cannot "think outside the box" to find a compensatory behavior when damaged: they are limited to their pre-specified self-sensing abilities, can diagnose only anticipated failure modes, and require a pre-programmed contingency plan for every type of potential damage, an impracticality for complex robots. Experiments reveal successful adaptations for a legged robot injured in five different ways, including damaged, broken, and missing legs, and for a robotic arm with joints broken in 14 different ways
+Link: https://arxiv.org/abs/1407.3501
+====================================================
+Inferring Social Structure and Dominance Relationships Between Rhesus macaques using RFID Tracking Data (Hanuma Teja Maddali - 30 June, 2014)
+Automatic inference of the social structure in an animal group enables a number of important capabilities, including: 1) A verifiable measure of how the social structure is affected by an intervention such as a change in the environment, or the introduction of another animal, and 2) A potentially significant reduction in person hours normally used for assessing these changes
+Link: https://arxiv.org/abs/1407.0330
+====================================================
+Semantic Graph for Zero-Shot Learning (Zhen-Yong Fu - 3 June, 2015)
+We demonstrate the effectiveness and computational efficiency of the proposed method over the state-of-the-arts on the AwA (animals with attributes) dataset.
+Link: https://arxiv.org/abs/1406.4112
+====================================================
+CATOS: Computer Aided Training/Observing System (Jinook Oh - 25 April, 2014)
+1) Observation of certain species continuously, or for documenting specific events, which happen irregularly; 2) Longterm intensive training of animals in preparation for behavioral experiments; and 3) Training and testing of animals without human interference, to eliminate potential cues and biases induced by humans. The system was built in use for about 6 months, successfully training two cats. One cat learned to press a particular button, out of three buttons, to obtain the food reward with over 70 percent correctness.
+Link: https://arxiv.org/abs/1404.6384
+====================================================
+Outdoor flocking and formation flight with autonomous aerial robots (GÃ¡bor VÃ¡sÃ¡rhelyi - 4 July, 2014)
+Collective behavior is based on a decentralized control framework with bio-inspiration from statistical physical modelling of animal swarms. Using this framework we successfully implemented several fundamental collective flight tasks with up to 10 units: i) we achieved self-propelled flocking in a bounded area with self-organized object avoidance capabilities and ii) performed collective target tracking with stable formation flights (grid, rotating ring, straight line)
+Link: https://arxiv.org/abs/1402.3588
+====================================================
+Describing Textures in the Wild (Mircea Cimpoi - 15 November, 2013)
+Patterns and textures are defining characteristics of many natural objects: a shirt can be striped, the wings of a butterfly can be veined, and the skin of an animal can be scaly. We also show that the describable attributes are excellent texture descriptors, transferring between datasets and tasks; in particular, combined with IFV, they significantly outperform the state-of-the-art by more than 8 percent on both FMD and KTHTIPS-2b benchmarks
+Link: https://arxiv.org/abs/1311.3618
+====================================================
+A Study of Actor and Action Semantic Retention in Video Supervoxel Segmentation (Chenliang Xu - 13 November, 2013)
+Our study has human observers watching supervoxel segmentation videos and trying to discriminate both actor (human or animal) and action (one of eight everyday actions). We gather and analyze a large set of 640 human perceptions over 96 videos in 3 different supervoxel scales
+Link: https://arxiv.org/abs/1311.3318
+====================================================
+Computer simulations reveal complex distribution of haemodynamic forces in a mouse retina model of angiogenesis (Miguel O. Bernabeu - 15 July, 2014)
+In the current paper, we present an in silico method for the computation of the haemodynamic forces experienced by murine retinal vasculature (a widely used vascular development animal model) beyond what is measurable experimentally. We generate flow models from samples obtained at postnatal days (P) 5 and 6
+Link: https://arxiv.org/abs/1311.1640
+====================================================
+A Deterministic Construction of Projection matrix for Adaptive Trajectory Compression (Rajib Rana - 26 July, 2013)
+We analyze case studies of pedestrian and animal trajectory datasets including GPS trajectory data from 127 subjects
+Link: https://arxiv.org/abs/1307.6923
+====================================================
+Discriminating word senses with tourist walks in complex networks (Thiago C. Silva - 17 June, 2013)
+Patterns of topological arrangement are widely used for both animal and human brains in the learning process. In this paper, we apply a learning technique based on the structural organization of the data in the attribute space to the problem of discriminating the senses of 10 polysemous words
+Link: https://arxiv.org/abs/1306.3920
+====================================================
+Noise Influence on the Fuzzy-Linguistic Partitioning of Iris Code Space (Iulia M. Motoc - 27 September, 2012)
+The f-granulation is given by identifying in the iris code space the extensions of the fuzzy concepts wolves, goats, lambs and sheep (previously introduced by Doddington as 'animals' of the biometric menagerie) - which together form a partitioning of the iris code space. The results of 180 exhaustive (all-to-all) iris recognition tests are presented and commented here.
+Link: https://arxiv.org/abs/1209.6190
+====================================================
+Collaborative search on the plane without communication (Ofer Feinerman - 24 January, 2017)
+We generalize the classical cow-path problem [7, 14, 38, 39] into a question that is relevant for collective foraging in animal groups. Indeed, it is a straightforward observation that the time required for finding the treasure is $Î©$(D + D 2 /k), and we show in this paper that this bound can be matched if the agents have knowledge of k up to some constant approximation. On the other hand, we show that for every constant $Îµ\textgreater{} 0$, there exists a rather simple uniform search algorithm which is $O( \log^{1+Îµ} k)$-competitive. As a special case, this lower bound implies that for any constant $Îµ\textgreater{} 0$, if each agent is given a (one-sided) $k^Îµ$-approximation to k, then the competitiveness is $Î©$(log k)
+Link: https://arxiv.org/abs/1205.2170
+====================================================
+Evolution of sustained foraging in 3D environments with physics (Nicolas Chaumont - 21 December, 2011)
+Artificially evolving foraging behavior in simulated legged animals has proved to be a notoriously difficult task. Our best evolved foragers are able to reach multiple food sources over 90% of the time on average, a behavior that is key to any biologically realistic simulation where a self-sustaining population has to survive by collecting food sources in three-dimensional, physical environments.
+Link: https://arxiv.org/abs/1112.5116
+====================================================
+Multi-timescale Nexting in a Reinforcement Learning Robot (Joseph Modayil - 8 June, 2012)
+The term "nexting" has been used by psychologists to refer to the propensity of people and many other animals to continually predict what will happen next in an immediate, local, and personal sense. In this paper we present results with a robot that learns to next in real time, predicting thousands of features of the world's state, including all sensory inputs, at timescales from 0.1 to 8 seconds. We show that this approach is efficient enough to be practical, with most of the learning complete within 30 minutes
+Link: https://arxiv.org/abs/1112.1133
+====================================================
+Multi-camera Realtime 3D Tracking of Multiple Flying Animals (Andrew D. Straw - 24 January, 2010)
+The system operates with less than 40 msec latency and can track multiple animals simultaneously. In one implementation, an eleven camera system is capable of tracking three flies simultaneously at 60 frames per second using a gigabit network of nine standard Intel Pentium 4 and Core 2 Duo computers
+Link: https://arxiv.org/abs/1001.4297
+====================================================
+Prediction of Zoonosis Incidence in Human using Seasonal Auto Regressive Integrated Moving Average (SARIMA) (Adhistya Erna Permanasari - 8 October, 2009)
+The increasing number of zoonosis incidence makes the great losses to lives, including humans and animals, and also the impact in social economic. The result showed that the SARIMA(9,0,14)(12,1,24)12 is the fittest model. While in the measure of accuracy, the selected model achieved 0.062 of Theils U value
+Link: https://arxiv.org/abs/0910.0820
+====================================================
+Characterization of Flexible RF Microcoil Dedicated to Surface Mri (M. Woytasik - 21 November, 2007)
+Finally, the flexible coil is used in vivo to perform MRI with high spatial resolution on a mouse using a small animal dedicated scanner operating at in a 2.35 T.
+Link: https://arxiv.org/abs/0711.3326
+====================================================
+Fuzzy Modeling of Electrical Impedance Tomography Image of the Lungs (Harki Tanaka - 16 October, 2007)
+EIT data from an experimental animal model were collected during normal ventilation and apnea while an injection of hypertonic saline was used as a reference . EIT images treated by the fuzzy model were compared with the hypertonic saline injection method and CT-scan images, presenting good results in both qualitative (the image obtained by the model was very similar to that of the CT-scan) and quantitative (the ROC curve provided an area equal to 0.93) point of view
+Link: https://arxiv.org/abs/0710.3185
+====================================================
+The Dynamics of Differential Learning I: Information-Dynamics and Task Reachability (Alessandro Achille - 4 October, 2018)
+Our analysis also explains more complex phenomena where semantically similar tasks may be unreachable from one another, a phenomenon called Information Plasticity and observed in diverse learning systems such as animals and deep neural networks.
+Link: https://arxiv.org/abs/1810.02440
+====================================================
+Disrupting the Coming Robot Stampedes: Designing Resilient Information Ecologies (Philip Feldman - 2 October, 2018)
+In animals, this happens in constrained areas where stampedes can easily form
+Link: https://arxiv.org/abs/1810.01272
+====================================================
+Characterization of Visual Object Representations in Rat Primary Visual Cortex (Sebastiano Vascon - 2 October, 2018)
+For most animal species, quick and reliable identification of visual objects is critical for survival
+Link: https://arxiv.org/abs/1810.01193
+====================================================
+TacWhiskers: Biomimetic optical tactile whiskered robots (Nathan F. Lepora - 30 September, 2018)
+Furthermore, the biomimetic basis for the TacWhiskers fits well with building an embodied model of the rodent sensory system for investigating animal perception.
+Link: https://arxiv.org/abs/1810.00460
+====================================================
+A Two-Step Learning Method For Detecting Landmarks on Faces From Different Domains (Bruna Vieira Frade - 12 September, 2018)
+We evaluate our method on three different datasets composed of different animal faces (cats, dogs, and horses). The experiments show that our method performs better than state of the art and can use few annotated data to leverage the detection of landmarks reducing the demand for large volume of annotated data.
+Link: https://arxiv.org/abs/1809.04621
+====================================================
+Iris and periocular recognition in arabian race horses using deep convolutional neural networks (Mateusz Trokielewicz - 1 September, 2018)
+Identification of race horses is crucial for animal identity confirmation prior to racing. As this is usually done shortly before a race, fast and reliable methods that are friendly and inflict no harm upon animals are important
+Link: https://arxiv.org/abs/1809.00213
+====================================================
+Deep Portrait Image Completion and Extrapolation (Xian Wu - 23 August, 2018)
+animal images.
+Link: https://arxiv.org/abs/1808.07757
+====================================================
+Subitizing with Variational Autoencoders (Rijnder Wever - 1 August, 2018)
+Many animals develop the perceptual ability to subitize: the near-instantaneous identification of the numerosity in small sets of visual items
+Link: https://arxiv.org/abs/1808.00257
+====================================================
+Experience, Imitation and Reflection; Confucius' Conjecture and Machine Learning (Amir Ramezani Dooraki - 1 August, 2018)
+Having said that, the learning capability of artificial intelligence is still at its infancy comparing to the learning capability of human and many animals
+Link: https://arxiv.org/abs/1808.00222
+====================================================
+Transportation Modes Classification Using Feature Engineering (Mohammad Etemad - 27 July, 2018)
+Trajectory mining has applications including but not limited to transportation mode detection, tourism, traffic congestion, smart cities management, animal behaviour analysis, environmental preservation, and traffic dynamics are some of the trajectory mining applications
+Link: https://arxiv.org/abs/1807.10876
+====================================================
+Agent cognition through micro-simulations: Adaptive and tunable intelligence with NetLogo LevelSpace (Bryan Head - 27 July, 2018)
+As an illustrative example, we extend the Wolf Sheep Predation model (included with NetLogo) by using ACMCC to guide animal behavior, and analyze the impact on agent performance and model dynamics
+Link: https://arxiv.org/abs/1807.10847
+====================================================
+A Temporal Difference Reinforcement Learning Theory of Emotion: unifying emotion, cognition and adaptive behavior (Joost Broekens - 24 July, 2018)
+Evidence indicates that RL-like processes exist in many animal species. I propose a TDRL Theory of Emotion and discuss its ramifications for our understanding of emotions in humans, animals and machines, and present psychological, neurobiological and computational evidence in its support.
+Link: https://arxiv.org/abs/1807.08941
+====================================================
+Recognition in Terra Incognita (Sara Beery - 24 July, 2018)
+The challenge is learning recognition in a handful of locations, and generalizing animal detection and classification to new locations where no training data is available. In our experiments state-of-the-art algorithms show excellent performance when tested at the same location where they were trained
+Link: https://arxiv.org/abs/1807.04975
+====================================================
+Developing Brain Atlas through Deep Learning (Asim Iqbal - 9 July, 2018)
+To uncover the organizational principles governing the human brain, neuroscientists are in need of developing high-throughput methods that can explore the structure and function of distinct brain regions using animal models. The second step is to scale this approach to different animal ages, so as to also allow insights into normal and pathological brain development and aging
+Link: https://arxiv.org/abs/1807.03440
+====================================================
+Evolution of natural patterns from random fields (Lovrenc Å vegl - 6 July, 2018)
+The method could be of interest for manufacturing of textiles as well as for modeling of patterns on skin of various animals.
+Link: https://arxiv.org/abs/1807.02451
+====================================================
+Expressivity in Natural and Artificial Systems (Amy LaViers - 5 July, 2018)
+Roboticists are trying to replicate animal behavior in artificial systems. This work presents a way to analyze trends in animal behavior and shows that robots are not capable of the same multi-faceted behavior in rich, dynamic environments as natural systems.
+Link: https://arxiv.org/abs/1807.02016
+====================================================
+Beef Cattle Instance Segmentation Using Fully Convolutional Neural Network (Aram Ter-Sarkisov - 20 September, 2018)
+We introduce a conceptually simple framework that the network uses to output a single prediction for every animal. These results are a contribution towards behaviour analysis in winter finishing beef cattle for early detection of animal welfare-related problems.
+Link: https://arxiv.org/abs/1807.01972
+====================================================
+Robust pose tracking with a joint model of appearance and shape (Yuliang Guo - 28 June, 2018)
+We have found that deformable part models developed for humans, exemplified by the flexible mixture of parts (FMP) model, typically fail on challenging animal poses. We argue that beyond encoding appearance and spatial relations, shape is needed to overcome the lack of distinctive landmarks on laboratory animal bodies
+Link: https://arxiv.org/abs/1806.11011
+====================================================
+DeepTag: inferring all-cause diagnoses from clinical notes in under-resourced medical domain (Allen Nie - 3 September, 2018)
+It is also a major impediment to cross-species translational research, which relies on the ability to accurately identify patient cohorts with specific diagnostic criteria in humans and animals
+Link: https://arxiv.org/abs/1806.10722
+====================================================
+Using Nonlinear Normal Modes for Execution of Efficient Cyclic Motions in Soft Robots (Cosimo Della Santina - 21 June, 2018)
+With the aim of getting closer to the performance of the animal muscleskeletal system, elastic elements are purposefully introduced in the mechanical structure of soft robots. To this end, we leverage on the theory of oscillations in nonlinear dynamical systems, and we take inspiration from state of the art theories about how the human central nervous system manages the muscleskeletal system
+Link: https://arxiv.org/abs/1806.08389
+====================================================
+Term Definitions Help Hypernymy Detection (Wenpeng Yin - 12 June, 2018)
+Existing methods of hypernymy detection mainly rely on statistics over a big corpus, either mining some co-occurring patterns like "animals such as cats" or embedding words of interest into context-aware vectors. Consequently, our model, HyperDef, once trained on task-agnostic data, gets state-of-the-art results in multiple benchmarks
+Link: https://arxiv.org/abs/1806.04532
+====================================================
+Sheep identity recognition, age and weight estimation datasets (Aya Salama Abdelhady - 8 June, 2018)
+Such algorithms are crucial for disease management, animal assessment and ownership.
+Link: https://arxiv.org/abs/1806.04017
+====================================================
+Agents and Devices: A Relative Definition of Agency (Laurent Orseau - 31 May, 2018)
+Humans tend to find the physical stance more helpful for certain systems, such as planets orbiting a star, and the intentional stance for others, such as living animals
+Link: https://arxiv.org/abs/1805.12387
+====================================================
+How to Blend a Robot within a Group of Zebrafish: Achieving Social Acceptance through Real-time Calibration of a Multi-level Behavioural Model (Leo Cazenille - 29 May, 2018)
+This approach can be useful to form mixed-groups, and study animal individual and collective behaviour by using biomimetic autonomous robots capable of responding to the animals in long-standing experiments
+Link: https://arxiv.org/abs/1805.11371
+====================================================
+Teaching Multiple Concepts to a Forgetful Learner (Anette Hunziker - 9 October, 2018)
+We demonstrate the effectiveness of our algorithm using extensive simulations along with user studies in two concrete applications, namely (i) an educational app for online vocabulary teaching and (ii) an app for teaching novices how to recognize animal species from images.
+Link: https://arxiv.org/abs/1805.08322
+====================================================
+Understanding Self-Paced Learning under Concave Conjugacy Theory (Shiqi Liu - 21 May, 2018)
+By simulating the easy-to-hard learning manners of humans/animals, the learning regimes called curriculum learning~(CL) and self-paced learning~(SPL) have been recently investigated and invoked broad interests
+Link: https://arxiv.org/abs/1805.08096
+====================================================
+Reliable counting of weakly labeled concepts by a single spiking neuron model (Hannes Rapp - 19 May, 2018)
+It's crucial for animals during an escape behaviour or for autonomous cars during driving
+Link: https://arxiv.org/abs/1805.07569
+====================================================
+Deleting edges to restrict the size of an epidemic in temporal networks (Jessica Enright - 17 May, 2018)
+In such a temporal graph, vertices represent meaningful entities (such as animals or farms) and edges represent potentially infectious contacts between those entities
+Link: https://arxiv.org/abs/1805.06836
+====================================================
+Social Algorithms (Xin-She Yang - 22 April, 2018)
+Social algorithms use multiple agents and the social interactions to design rules for algorithms so as to mimic certain successful characteristics of the social/biological systems such as ants, bees, bats, birds and animals.
+Link: https://arxiv.org/abs/1805.05855
+====================================================
+Weakly and Semi Supervised Human Body Part Parsing via Pose-Guided Knowledge Transfer (Hao-Shu Fang - 11 May, 2018)
+Our approach is general and can be readily extended to other object/animal parsing task assuming that their anatomical similarity can be annotated by keypoints
+Link: https://arxiv.org/abs/1805.04310
+====================================================
+Cluster-based trajectory segmentation with local noise (Maria Luisa Damiani - 5 May, 2018)
+The ground truth consists of a set of trajectories of labeled points simulating animal movement
+Link: https://arxiv.org/abs/1805.02102
+====================================================
+Hierarchical Density Order Embeddings (Ben Athiwaratkun - 25 April, 2018)
+The uncertainty information can be particularly meaningful in capturing entailment relationships -- whereby general words such as "entity" correspond to broad distributions that encompass more specific words such as "animal" or "instrument". Our approach provides state-of-the-art performance on the WordNet hypernym relationship prediction task and the challenging HyperLex lexical entailment dataset -- while retaining a rich and interpretable density representation.
+Link: https://arxiv.org/abs/1804.09843
+====================================================
+Automated Mouse Organ Segmentation: A Deep Learning Based Solution (Naveen Ashish - 16 July, 2018)
+The analysis of animal cross section images, such as cross sections of laboratory mice, is critical in assessing the effect of experimental drugs such as the biodistribution of candidate compounds in preclinical drug development stage. Tissue distribution of radiolabeled candidate therapeutic compounds can be quantified using techniques like Quantitative Whole-Body Autoradiography (QWBA).QWBA relies, among other aspects, on the accurate segmentation or identification of key organs of interest in the animal cross section image such as the brain, spine, heart, liver and others
+Link: https://arxiv.org/abs/1804.09205
+====================================================
+Influencing Flock Formation in Low-Density Settings (Daniel Y. Fu - 23 April, 2018)
+Flocking is common among animal groups and might also be useful in robotic swarms
+Link: https://arxiv.org/abs/1804.08667
+====================================================
+QSAR Classification Modeling for Bioactivity of Molecular Structure via SPL-Logsum (Liang-Yong Xia - 28 April, 2018)
+SPL inspired by the learning process of humans and animals that gradually learns from easy samples(smaller losses) to hard samples(bigger losses) samples into training and Logsum regularization has capacity to select few meaningful and significant molecular descriptors, respectively
+Link: https://arxiv.org/abs/1804.08615
+====================================================
+A Robot to Shape your Natural Plant: The Machine Learning Approach to Model and Control Bio-Hybrid Systems (Mostafa Wahby - 19 April, 2018)
+In existing work, robots have mostly influenced group behaviors of animals
+Link: https://arxiv.org/abs/1804.06682
+====================================================
+Automatic Rain and Cicada Chorus Filtering of Bird Acoustic Data (Alexander Brown - 16 April, 2018)
+While some work has been done to remove stationary noise from environmental recordings, there has been little effort to remove noise from non-stationary sources, such as rain, wind, engines, and animal vocalisations that are not of interest.
+Link: https://arxiv.org/abs/1804.05502
+====================================================
+Simon's Anthill: Mapping and Navigating Belief Spaces (Philip Feldman - 15 April, 2018)
+With a large population of agents - human or animal - it should be possible to build a detailed map of a population's social and physical environment
+Link: https://arxiv.org/abs/1804.05409
+====================================================
+This One Simple Trick Disrupts Digital Communities (Philip Feldman - 26 June, 2018)
+Using insights from animal collective behavior, we are able to simulate and identify behavior patterns that are similar to nomadic, flocking and stampeding patterns of animal groups
+Link: https://arxiv.org/abs/1804.02251
+====================================================
+Deep Learning Object Detection Methods for Ecological Camera Trap Data (Stefan Schneider - 28 March, 2018)
+Ecological camera traps are a common approach for monitoring an ecosystem's animal population, as they provide continual insight into an environment without being intrusive. Here, we demonstrate their capabilities by training and comparing two deep learning object detection classifiers, Faster R-CNN and YOLO v2.0, to identify, quantify, and localize animal species within camera trap images using the Reconyx Camera Trap and the self-labeled Gold Standard Snapshot Serengeti data sets
+Link: https://arxiv.org/abs/1803.10842
+====================================================
+Unsupervised Predictive Memory in a Goal-Directed Agent (Greg Wayne - 28 March, 2018)
+Animals execute goal-directed behaviours despite the limited range and scope of their sensors. Recently, progress has been made with artificial intelligence (AI) agents that learn to perform tasks from sensory input, even at a human level, by merging reinforcement learning (RL) algorithms with deep neural networks, and the excitement surrounding these results has led to the pursuit of related ideas as explanations of non-human animal learning
+Link: https://arxiv.org/abs/1803.10760
+====================================================
+BioTracker: An Open-Source Computer Vision Framework for Visual Animal Tracking (Hauke JÃ¼rgen MÃ¶nck - 21 March, 2018)
+To date, several specialized software products exist to detect and track animals' positions in simple (laboratory) environments. Tracking animals in their natural environments, however, often requires substantial customization of the image processing algorithms to the problem-specific image characteristics
+Link: https://arxiv.org/abs/1803.07985
+====================================================
+Dancing Honey bee Robot Elicits Dance-Following and Recruits Foragers (Tim Landgraf - 19 March, 2018)
+The honey bee dance communication system is one of the most popular examples of animal communication
+Link: https://arxiv.org/abs/1803.07126
+====================================================
+A Dataset and Architecture for Visual Reasoning with a Working Memory (Guangyu Robert Yang - 20 July, 2018)
+Inspired by a rich tradition of visual reasoning and memory in cognitive psychology and neuroscience, we developed an artificial, configurable visual question and answer dataset (COG) to parallel experiments in humans and animals
+Link: https://arxiv.org/abs/1803.06092
+====================================================
+Taking Turing by Surprise? Designing Digital Computers for morally-loaded contexts (Sylvie Delacroix - 12 March, 2018)
+As lazy normative animals, we do need to be able to rely on authorities to simplify our reasoning: that is ok
+Link: https://arxiv.org/abs/1803.04548
+====================================================
+RF Energy Harvesting Sensor Networks for Healthcare of Animals: Opportunities and Challenges (Yu Luo - 28 February, 2018)
+This article explores the potential of applying RF-EHSNs to monitoring the health level of animals. The unique challenges and potential solutions at different layers of an RF-EHSN for animals' healthcare service are studied.
+Link: https://arxiv.org/abs/1803.00106
+====================================================
+Model-Based Identification and Control of a One-Legged Hopping Robot (Hasan Eftun Orhon - 26 February, 2018)
+Among the alternatives, spring-loaded inverted pendulum (SLIP) model has shown to be a very accurate descriptor of animal locomotion
+Link: https://arxiv.org/abs/1802.09634
+====================================================
+Continual Lifelong Learning with Neural Networks: A Review (German I. Parisi - 7 July, 2018)
+Humans and animals have the ability to continually acquire and fine-tune knowledge throughout their lifespan. This limitation represents a major drawback also for state-of-the-art deep and shallow neural network models that typically learn representations from stationary batches of training data, thus without accounting for situations in which the number of tasks is not known a priori and the information becomes incrementally available over time
+Link: https://arxiv.org/abs/1802.07569
+====================================================
+Structured Label Inference for Visual Understanding (Nelson Nauata - 18 February, 2018)
+The methods were evaluated on (i) the Animal with Attributes (AwA), Scene Understanding (SUN) and NUS-WIDE datasets for multi-label image classification, (ii) the first two releases of the YouTube-8M large scale dataset for multi-label video classification, and (iii) the THUMOS'14 and MultiTHUMOS video datasets for action detection
+Link: https://arxiv.org/abs/1802.06459
+====================================================
+Robotic design choice overview using co-simulation (Martin Peter Christiansen - 17 February, 2018)
+The collaborative modeling method is illustrated with a concrete example of collaborative model development of a mobile robot animal feeding system
+Link: https://arxiv.org/abs/1802.06299
+====================================================
+Prioritized Sweeping Neural DynaQ with Multiple Predecessors, and Hippocampal Replays (Lise Aubin - 13 August, 2018)
+We predict that, in animals, learning the world model should occur during rest periods, and that the corresponding replays should be shuffled.
+Link: https://arxiv.org/abs/1802.05594
+====================================================
+Mobility as an Alternative Communication Channel: A Survey (Benjamin Baron - 31 May, 2018)
+These entities can be either mobile by nature (e.g., human beings and animals) or mobile by design (e.g., trains, airplanes, and cars)
+Link: https://arxiv.org/abs/1802.04587
+====================================================
+Automatic localization and decoding of honeybee markers using deep convolutional neural networks (Benjamin Wild - 14 February, 2018)
+The honeybee is a fascinating model animal to investigate how collective behavior emerges from (inter-)actions of thousands of individuals
+Link: https://arxiv.org/abs/1802.04557
+====================================================
+Tracking all members of a honey bee colony over their lifetime (Franziska Boenisch - 15 March, 2018)
+We invite researchers to join the collective scientific effort to investigate this intriguing animal system
+Link: https://arxiv.org/abs/1802.03192
+====================================================
+Alleviating catastrophic forgetting using context-dependent gating and synaptic stabilization (Nicolas Y. Masse - 2 February, 2018)
+Humans and most animals can learn new tasks without forgetting old ones
+Link: https://arxiv.org/abs/1802.01569
+====================================================
+One-Shot Imitation from Observing Humans via Domain-Adaptive Meta-Learning (Tianhe Yu - 5 February, 2018)
+Humans and animals are capable of learning a new behavior by observing others perform the skill just once
+Link: https://arxiv.org/abs/1802.01557
+====================================================
+Deep Neural Network-based Cooperative Visual Tracking through Multiple Micro Aerial Vehicles (Eric Price - 5 February, 2018)
+Multi-camera full-body pose capture of humans and animals in outdoor environments is a highly challenging problem. Recent state-of-the-art methods based on deep neural networks (DNN) are highly promising in this context
+Link: https://arxiv.org/abs/1802.01346
+====================================================
+Anatomy of Leadership in Collective Behaviour (Joshua Garland - 26 April, 2018)
+The ability to infer this differential influence, or leadership, is critical to understanding group functioning in these collective animal systems. We believe this multifaceted approach to leadership will enable a broader understanding of leadership and its inference from data in mobile animal groups and beyond.
+Link: https://arxiv.org/abs/1802.01194
+====================================================
+Scalable Preprocessing of High Volume Bird Acoustic Data (Alexander Brown - 1 February, 2018)
+This work contributes to the research area of bioacoustic analysis, which is currently very active because of its potential to monitor animals quickly at low cost
+Link: https://arxiv.org/abs/1802.00535
+====================================================
+Curiosity-driven reinforcement learning with homeostatic regulation (Ildefons Magrans de Abril - 6 February, 2018)
+We propose a curiosity reward based on information theory principles and consistent with the animal instinct to maintain certain critical parameters within a bounded range
+Link: https://arxiv.org/abs/1801.07440
+====================================================
+A Reliability Theory of Truth (Karl Schlechta - 1 April, 2018)
+Our ideas can also be extended to value systems, and even actions, e.g., of animals.
+Link: https://arxiv.org/abs/1801.01788
+====================================================
+Deep convolutional neural networks for segmenting 3D in vivo multiphoton images of vasculature in Alzheimer disease mouse models (Mohammad Haft-Javaherian - 3 January, 2018)
+We found little difference in the distribution of capillary diameter or tortuosity between these groups, but did note a decrease in the number of longer capillary segments ($>75Î¼m$) in aged animals as compared to young, in both wild type and Alzheimer's disease mouse models.
+Link: https://arxiv.org/abs/1801.00880
+====================================================
+Personal Names in Modern Turkey (AmaÃ§ HerdaÄdelen - 14 January, 2018)
+Among males, names based on animals such as arslan and yunus (lion and dolphin, respectively) and names based on famous and/or historical figures such as mustafa kemal and oÄuz kaÄan (founder of the Turkish Republic and the founder of the Turks in Turkish mythology, respectively) are observed more frequently.
+Link: https://arxiv.org/abs/1801.00049
+====================================================
+How Intelligent is your Intelligent Robot? (Alan F. T. Winfield - 24 December, 2017)
+How intelligent is robot A compared with robot B? And how intelligent are robots A and B compared with animals (or plants) X and Y? These are both interesting and deeply challenging questions. A crude qualitative comparison of the intelligence graphs of animals and robots both exposes and helps to explain the chronic intelligence deficit of intelligent robots
+Link: https://arxiv.org/abs/1712.08878
+====================================================
+Rhythmic Representations: Learning Periodic Patterns for Scalable Place Recognition at a Sub-Linear Storage Cost (Litao Yu - 21 December, 2017)
+Robotic and animal mapping systems share many challenges and characteristics: they must function in a wide variety of environmental conditions, enable the robot or animal to navigate effectively to find food or shelter, and be computationally tractable from both a speed and storage perspective
+Link: https://arxiv.org/abs/1712.07315
+====================================================
+TrackerBots: Autonomous UAV for Real-Time Localization and Tracking of Multiple Radio-Tagged Animals (Hoa Van Nguyen - 19 September, 2018)
+This approach allows autonomous navigation of a UAV in a direction of maximum information gain to locate multiple mobile animals and reduce exploration time; and, consequently, conserve onboard battery power. We also employ the concept of a search termination criteria to maximize the number of located animals within power constraints of the aerial system
+Link: https://arxiv.org/abs/1712.01491
+====================================================
+Visual to Sound: Generating Natural Sound for Videos in the Wild (Yipin Zhou - 1 June, 2018)
+We evaluate our models on a dataset of videos containing a variety of sounds (such as ambient sounds and sounds from people/animals)
+Link: https://arxiv.org/abs/1712.01393
+====================================================
+Deep Learning Can Reverse Photon Migration for Diffuse Optical Tomography (Jaejun Yoo - 4 December, 2017)
+We show that our deep neural network, trained with only simulation data, can accurately recover the location of anomalies within biomimetic phantoms and live animals without the use of an exogenous contrast agent.
+Link: https://arxiv.org/abs/1712.00912
+====================================================
+Critical Learning Periods in Deep Neural Networks (Alessandro Achille - 15 May, 2018)
+Critical periods are phases in the early development of humans and animals during which experience can irreversibly affect the architecture of neuronal networks. Introducing well-characterized visual deficits, such as cataract-like blurring, in the early training phase of a standard deep neural network causes a permanent performance loss that closely mimics critical period behavior in humans and animal models
+Link: https://arxiv.org/abs/1711.08856
+====================================================
+Priming Neural Networks (Amir Rosenfeld - 16 November, 2017)
+Visual priming is known to affect the human visual system to allow detection of scene elements, even those that may have been near unnoticeable before, such as the presence of camouflaged animals
+Link: https://arxiv.org/abs/1711.05918
+====================================================
+A Prediction Model of the Project Life-span in Open Source Software Ecosystem (Zhifang Liao - 31 October, 2017)
+In nature ecosystems, animal life-spans are determined by genes and some other biological characteristics
+Link: https://arxiv.org/abs/1710.11540
+====================================================
+Wildbook: Crowdsourcing, computer vision, and data science for conservation (Tanya Y. Berger-Wolf - 24 October, 2017)
+Wildbook is an autonomous computational system that starts from massive collections of images and, by detecting various species of animals and identifying individuals, combined with sophisticated data management, turns them into high resolution information database, enabling scientific inquiry, conservation, and citizen science.
+Link: https://arxiv.org/abs/1710.08880
+====================================================
+Mental Sampling in Multimodal Representations (Jian-Qiao Zhu - 14 October, 2017)
+Second, the temporal structure of the sampling that humans and other animals produce have long-range, slowly decaying serial correlations characterized as $1/f$-like fluctuations
+Link: https://arxiv.org/abs/1710.05219
+====================================================
+Cluster-based Position Tracking of Mobile Sensors (Vikram Kumar - 12 September, 2017)
+Considering the existence of a reasonably stable group of mobile nodes like animals, birds, and mobile assets, we propose a cluster-based cooperative tracking algorithm, where cluster head centrally coordinates resource usage among cluster members
+Link: https://arxiv.org/abs/1710.04589
+====================================================
+Multiagent Coverage Problems: The Trade-off Between Anarchy and Stability (Vinod Ramaswamy - 26 July, 2018)
+Much of the research in networked systems is analytical, where the focus is on characterizing (and potentially influencing) the emergent collective behavior, e.g., predicting the distribution of animals and humans in a given ecological system
+Link: https://arxiv.org/abs/1710.01409
+====================================================
+Sketch-pix2seq: a Model to Generate Sketches of Multiple Categories (Yajing Chen - 12 September, 2017)
+The model achieved amazing results when asked to learn one category of object, such as an animal or a vehicle
+Link: https://arxiv.org/abs/1709.04121
+====================================================
+Detecting animals in African Savanna with UAVs and the crowds (Nicolas Rey - 6 September, 2017)
+It relies on an animal-detection system based on machine learning, trained with crowd-sourced annotations provided by volunteers who manually interpreted sub-decimeter resolution color images
+Link: https://arxiv.org/abs/1709.01722
+====================================================
+A novel agent-based simulation framework for sensing in complex adaptive environments (Muaz A. Niazi - 19 August, 2017)
+As proof of concept, we demonstrate the application of FABS to a boids model of self-organized flocking of animals monitored by a random deployment of proximity sensors.
+Link: https://arxiv.org/abs/1708.05875
+====================================================
+What does a convolutional neural network recognize in the moon? (Daigo Shoji - 21 August, 2017)
+Many people see a human face or animals in the pattern of the maria on the moon. In human recognition, before we find similarities between the lunar maria and objects such as animals, we may be persuaded in advance to see a particular image from our culture and environment and then adjust the lunar pattern to the shape of the imagined object.
+Link: https://arxiv.org/abs/1708.05636
+====================================================
+Agent based Tools for Modeling and Simulation of Self-Organization in Peer-to-Peer, Ad-Hoc and other Complex Networks (Muaz A. Niazi - 4 August, 2017)
+In this article, we evaluate how and if these tools can offer any value-addition in the modeling & simulation of complex networks such as pervasive computing, large-scale peer-to-peer systems, and networks involving considerable environment and human/animal/habitat interaction
+Link: https://arxiv.org/abs/1708.01599
+====================================================
+Adaptive Hierarchical Clustering Using Ordinal Queries (Ehsan Emamjomeh-Zadeh - 16 April, 2018)
+In many applications of clustering (for example, ontologies or clusterings of animal or plant species), hierarchical clusterings are more descriptive than a flat clustering
+Link: https://arxiv.org/abs/1708.00149
+====================================================
+Anisotropic EM Segmentation by 3D Affinity Learning and Agglomeration (Toufiq Parag - 3 August, 2018)
+The field of connectomics has recently produced neuron wiring diagrams from relatively large brain regions from multiple animals
+Link: https://arxiv.org/abs/1707.08935
+====================================================
+Recovering Dense Tissue Multispectral Signal from in vivo RGB Images (Jianyu Lin - 20 June, 2017)
+Multispectral data captured from porcine bowel and sheep/rabbit uteri in vivo has been used for training, and the algorithm has been validated using unseen in vivo animal experiments.
+Link: https://arxiv.org/abs/1707.03468
+====================================================
+Imitation from Observation: Learning to Imitate Behaviors from Raw Video via Context Translation (YuXuan Liu - 18 June, 2018)
+This stands in contrast to how humans and animals imitate: we observe another person performing some behavior and then figure out which actions will realize that behavior, compensating for changes in viewpoint, surroundings, object positions and types, and other factors
+Link: https://arxiv.org/abs/1707.03374
+====================================================
+Fast Estimation of Haemoglobin Concentration in Tissue Via Wavelet Decomposition (Geoffrey Jones - 22 June, 2017)
+We validate the method on animal models and on human data captured using a da Vinci stereo laparoscope.
+Link: https://arxiv.org/abs/1706.07263
+====================================================
+A Useful Motif for Flexible Task Learning in an Embodied Two-Dimensional Visual Environment (Kevin T. Feigelis - 21 June, 2017)
+Animals (especially humans) have an amazing ability to learn new tasks quickly, and switch between them flexibly
+Link: https://arxiv.org/abs/1706.07147
+====================================================
+Endoscopic Depth Measurement and Super-Spectral-Resolution Imaging (Jianyu Lin - 21 June, 2017)
+Validation and demonstration of this system is reported on ex vivo/in vivo animal/ human experiments.
+Link: https://arxiv.org/abs/1706.06081
+====================================================
+Where is my forearm? Clustering of body parts from simultaneous tactile and linguistic input using sequential mapping (Karla Stepanova - 8 June, 2017)
+Humans and animals are constantly exposed to a continuous stream of sensory information from different modalities
+Link: https://arxiv.org/abs/1706.02490
+====================================================
+Cooperative Learning with Visual Attributes (Tanmay Batra - 15 May, 2017)
+Our experiments in three domains -- objects, scenes, and animals -- demonstrate that our proposed cooperative learning approach improves the performance of both agents as compared to their performance if they were to learn in isolation
+Link: https://arxiv.org/abs/1705.05512
+====================================================
+A Biomimetic Vocalisation System for MiRo (Roger K. Moore - 15 May, 2017)
+However, in the majority of cases it is only the robot's physical appearance that mimics a given animal. This paper describes how MiRo's vocalisation system was designed, not using pre-recorded animal sounds, but based on the implementation of a real-time parametric general-purpose mammalian vocal synthesiser tailored to the specific physical characteristics of the robot
+Link: https://arxiv.org/abs/1705.05472
+====================================================
+Assembling sequences of DNA using an on-line algorithm based on DeBruijn graphs (Juan Manuel Ciro Restrepo - 24 May, 2017)
+The problem of assembling DNA fragments starting from imperfect strings given by a sequencer, classified as NP hard when trying to get perfect answers, has a huge importance in several fields, because of its relation with the possibility of detecting similarities between animals, dangerous pests in crops, and so on
+Link: https://arxiv.org/abs/1705.05105
+====================================================
+Motion Rectification for an Homeostasis-Enabling Wheel (Juan-Pablo Afman - 11 May, 2017)
+Another contribution of the proposed setup is to offer a plausible, yet untested, evolutionary path from today's living animals towards animals capable of wheeled locomotion.
+Link: https://arxiv.org/abs/1705.04399
+====================================================
+A Distributed Learning Dynamics in Social Groups (L. Elisa Celis - 8 May, 2017)
+We study a distributed learning process observed in human groups and other social animals
+Link: https://arxiv.org/abs/1705.03414
+====================================================
+Emotional Metaheuristics For in-situ Foraging Using Sensor Constrained Robot Swarms (Eshwaran Vijaya Kumar - 9 May, 2017)
+We present a new social animal inspired emotional swarm intelligence technique
+Link: https://arxiv.org/abs/1705.03175
+====================================================
+An Anthropic Argument against the Future Existence of Superintelligent Artificial Intelligence (Toby Pereira - 8 May, 2017)
+SSSSA is required for human observer-samples to be typical, given by how much non-human animals outnumber humans
+Link: https://arxiv.org/abs/1705.03078
+====================================================
+Marine Animal Classification with Correntropy Loss Based Multi-view Learning (Zheng Cao - 2 May, 2017)
+Depending on the quantity and properties of acquired imagery, the animals are characterized as either features (shape, color, texture, etc.), or dissimilarity matrices derived from different shape analysis methods (shape context, internal distance shape context, etc.). Results from simulated data and real-world marine animal imagery show that the proposed algorithms can effectively enhance classification rate, as well as suppress noise under different noise conditions.
+Link: https://arxiv.org/abs/1705.01217
+====================================================
+On Convergence Property of Implicit Self-paced Objective (Zilu Ma - 29 March, 2017)
+Self-paced learning (SPL) is a new methodology that simulates the learning principle of humans/animals to start learning easier aspects of a learning task, and then gradually take more complex examples into training
+Link: https://arxiv.org/abs/1703.09923
+====================================================
+ASP: Learning to Forget with Adaptive Synaptic Plasticity in Spiking Neural Networks (Priyadarshini Panda - 8 June, 2018)
+A fundamental feature of learning in animals is the "ability to forget" that allows an organism to perceive, model and make decisions from disparate streams of information and adapt to changing environments
+Link: https://arxiv.org/abs/1703.07655
+====================================================
+A heuristic approach to obtain signal envelope with a simple software implementation (Cecilia Jarne - 4 July, 2018)
+It is widely used to pre-process sound and other signals of physiological origin in human or animal studies
+Link: https://arxiv.org/abs/1703.06812
+====================================================
+I2T2I: Learning Text to Image Synthesis with Textual Data Augmentation (Hao Dong - 3 June, 2017)
+For example, animals and humans have many degrees of freedom, which means that they can take on many complex shapes. We demonstrate that %the capability of our method to understand the sentence descriptions, so as to I2T2I can generate better multi-categories images using MSCOCO than the state-of-the-art
+Link: https://arxiv.org/abs/1703.06676
+====================================================
+Learning Robust Visual-Semantic Embeddings (Yao-Hung Hubert Tsai - 19 March, 2017)
+We evaluate our method on Animals with Attributes and Caltech-UCSD Birds 200-2011 dataset with a wide range of applications, including zero and few-shot image recognition and retrieval, from inductive to transductive settings. Empirically, we show that our framework improves over the current state of the art on many of the considered tasks.
+Link: https://arxiv.org/abs/1703.05908
+====================================================
+Unsupervised Image-to-Image Translation Networks (Ming-Yu Liu - 22 July, 2018)
+We compare the proposed framework with competing approaches and present high quality image translation results on various challenging unsupervised image translation tasks, including street scene image translation, animal image translation, and face image translation. We also apply the proposed framework to domain adaptation and achieve state-of-the-art performance on benchmark datasets
+Link: https://arxiv.org/abs/1703.00848
+====================================================
+Multi-level computational methods for interdisciplinary research in the HathiTrust Digital Library (Jaimie Murdock - 7 June, 2017)
+Our test domain is the history and philosophy of scientific work on animal mind and cognition
+Link: https://arxiv.org/abs/1702.01090
+====================================================
+Automating Image Analysis by Annotating Landmarks with Deep Neural Networks (Mikhail Breslav - 2 February, 2017)
+In the community of scientists that use image and video analysis to study the 3D flight of animals, there has been a trend of developing more automated approaches for annotating landmarks, yet they fall short of being generally applicable. Inspired by the success of Deep Neural Networks (DNNs) on many problems in the field of computer vision, we investigate how suitable DNNs are for accurate and automatic annotation of landmarks in video datasets representative of those collected by scientists studying animals.
+Link: https://arxiv.org/abs/1702.00583
+====================================================
+A Kinematic Chain Space for Monocular Motion Capture (Bastian Wandt - 1 February, 2017)
+It is not only applicable to human skeletons but also to other kinematic chains for instance animals or industrial robots. We achieve state-of-the-art results on different benchmark data bases and real world scenes.
+Link: https://arxiv.org/abs/1702.00186
+====================================================
+Curved Surface Patches for Rough Terrain Perception (Dimitrios Kanoulas - 19 December, 2016)
+Attaining animal-like legged locomotion on rough outdoor terrain with sparse foothold affordances -a primary use-case for legs vs other forms of locomotion- is a largely open problem
+Link: https://arxiv.org/abs/1612.06164
+====================================================
+LÃ©vy robotics (M. Krivonosov - 12 December, 2016)
+Recently a new wave arrived bringing a specific type of random walks as a universal search strategy exploited by immune cells, insects, mussels, albatrosses, sharks, deers, and a dozen of other animals including humans
+Link: https://arxiv.org/abs/1612.03997
+====================================================
+The Emergence of Organizing Structure in Conceptual Representation (Brenden M. Lake - 21 November, 2017)
+While this approach can learn intuitive organizations, including a tree for animals and a ring for the color circle, it assumes a strong inductive bias that considers only these particular forms, and each form is explicitly provided as initial knowledge
+Link: https://arxiv.org/abs/1611.09384
+====================================================
+Did Evolution get it right? An evaluation of Near-Infrared imaging in semantic scene segmentation using deep learning (J. Rafid Siddiqui - 27 November, 2016)
+Animals have evolved to restrict their sensing capabilities to certain region of electromagnetic spectrum. The situation becomes even more intriguing when we find a sharp cutoff point at Near-infrared point whereby almost all animal vision systems seem to have a lower bound
+Link: https://arxiv.org/abs/1611.08815
+====================================================
+Fast Chirplet Transform to Enhance CNN Machine Listening - Validation on Animal calls and Speech (Herve Glotin - 22 January, 2017)
+We conclude on perspectives on tonotopic FCT deep machine listening, and inter-species bioacoustic transfer learning to generalise the representation of animal communication systems.
+Link: https://arxiv.org/abs/1611.08749
+====================================================
+3D Menagerie: Modeling the 3D shape and pose of animals (Silvia Zuffi - 12 April, 2017)
+Animal shapes can be sampled from the model, posed, animated, and fit to data. We demonstrate generalization by fitting it to images of real animals including species not seen in training.
+Link: https://arxiv.org/abs/1611.07700
+====================================================
+Byzantine Processors and Cuckoo Birds: Confining Maliciousness to the Outset (Danny Dolev - 14 November, 2016)
+Are there Byzantine Animals? A Fooling Behavior is exhibited by the Cuckoo bird
+Link: https://arxiv.org/abs/1611.04276
+====================================================
+Old Content and Modern Tools - Searching Named Entities in a Finnish OCRed Historical Newspaper Collection 1771-1910 (Kimmo Kettunen - 9 November, 2016)
+NER has been applied to many types of texts and different types of entities: newspapers, fiction, historical records, persons, locations, chemical compounds, protein families, animals etc
+Link: https://arxiv.org/abs/1611.02839
+====================================================
+RL$^2$: Fast Reinforcement Learning via Slow Reinforcement Learning (Yan Duan - 9 November, 2016)
+In contrast, animals can learn new tasks in just a few trials, benefiting from their prior knowledge about the world
+Link: https://arxiv.org/abs/1611.02779
+====================================================
+A review on application of data mining techniques to combat natural disasters (Saptarsi Goswami - 31 October, 2016)
+Thousands of human lives are lost every year around the globe, apart from significant damage on property, animal life, etc., due to natural disasters (e.g., earthquake, flood, tsunami, hurricane and other storms, landslides, cloudburst, heat wave, forest fire)
+Link: https://arxiv.org/abs/1610.09974
+====================================================
+Internet of Things Applications: Animal Monitoring with Unmanned Aerial Vehicle (Jun Xu - 20 October, 2016)
+Meanwhile, the UAV explores other areas as well to cover the entire network and detects changes in the animal positions. We first define the mathematical model underlying the animal monitoring problem in terms of the value of information (VoI) and rewards
+Link: https://arxiv.org/abs/1610.05287
+====================================================
+Recovering the Missing Link: Predicting Class-Attribute Associations for Unsupervised Zero-Shot Learning (Ziad Al-Halah - 15 October, 2016)
+We evaluate on two public data sets: Animals with Attributes and aPascal/aYahoo. Our approach outperforms state-of-the-art methods in both predicting class-attribute associations and unsupervised ZSL by a large margin.
+Link: https://arxiv.org/abs/1610.04787
+====================================================
+Numerical Inversion of SRNF Maps for Elastic Shape Analysis of Genus-Zero Surfaces (Hamid Laga - 14 October, 2016)
+human bodies and animals, that undergo significant deformations including bending and stretching
+Link: https://arxiv.org/abs/1610.04531
+====================================================
+Network Structure Inference, A Survey: Motivations, Methods, and Applications (Ivan Brugere - 19 January, 2018)
+In most cases, relationship between nodes are not directly observable and must be inferred: does one gene regulate the expression of another? Do two animals who physically co-locate have a social bond? Who infected whom in a disease outbreak in a population?
+Link: https://arxiv.org/abs/1610.00782
+====================================================
+Automated Visual Fin Identification of Individual Great White Sharks (Benjamin Hughes - 1 October, 2016)
+In order to recover animal identities from an image we first introduce an open contour stroke model, which extends multi-scale region segmentation to achieve robust fin detection. Exploiting this domain, we finally propose a non-linear model for individual animal recognition and combine all approaches into a fine-grained multi-instance framework
+Link: https://arxiv.org/abs/1609.06323
+====================================================
+Visual Stability Prediction and Its Application to Manipulation (Wenbin Li - 26 September, 2016)
+Understanding physical phenomena is a key competence that enables humans and animals to act and interact under uncertain perception in previously unseen environments containing novel objects and their configurations
+Link: https://arxiv.org/abs/1609.04861
+====================================================
+Lie-X: Depth Image Based Articulated Object Pose Estimation, Tracking, and Action Recognition on Lie Groups (Chi Xu - 13 September, 2016)
+Empirically it is evaluated on lab animals including mouse and fish, as well as on human hand. On these applications, it is shown to deliver competitive results compared to the state-of-the-arts, and non-trivial baselines including convolutional neural networks and regression forest methods.
+Link: https://arxiv.org/abs/1609.03773
+====================================================
+Smart Computing and Sensing Technologies for Animal Welfare: A Systematic Review (Admela Jukan - 1 September, 2016)
+We review smart technologies for domestic animals, indoor and outdoor animal farming, as well as animals in the wild and zoos. The findings of this review are expected to motivate future research and contribute to data, information and communication management as well as policy for animal welfare.
+Link: https://arxiv.org/abs/1609.00627
+====================================================
+Adapting Deep Network Features to Capture Psychological Representations (Joshua C. Peterson - 6 August, 2016)
+We find that deep features learned in service of object classification account for a significant amount of the variance in human similarity judgments for a set of animal images
+Link: https://arxiv.org/abs/1608.02164
+====================================================
+Adaptive foveated single-pixel imaging with dynamic super-sampling (David B. Phillips - 27 July, 2016)
+In this work we take a different approach and adopt a strategy inspired by the foveated vision systems found in the animal kingdom - a framework that exploits the spatio-temporal redundancy present in many dynamic scenes
+Link: https://arxiv.org/abs/1607.08236
+====================================================
+Conditional Image Generation with PixelCNN Decoders (Aaron van den Oord - 18 June, 2016)
+When conditioned on class labels from the ImageNet database, the model is able to generate diverse, realistic scenes representing distinct animals, objects, landscapes and structures. Additionally, the gated convolutional layers in the proposed model improve the log-likelihood of PixelCNN to match the state-of-the-art performance of PixelRNN on ImageNet, with greatly reduced computational cost.
+Link: https://arxiv.org/abs/1606.05328
+====================================================
+Unsupervised Non Linear Dimensionality Reduction Machine Learning methods applied to Multiparametric MRI in cerebral ischemia: Preliminary Results (Vishwa S. Parekh - 12 June, 2016)
+In this manuscript, we develop NLDR methods on high dimensional MRI data sets of preclinical animals and clinical patients with stroke
+Link: https://arxiv.org/abs/1606.03788
+====================================================
+Self-Paced Learning: an Implicit Regularization Perspective (Yanbo Fan - 18 September, 2016)
+Self-paced learning (SPL) mimics the cognitive mechanism of humans and animals that gradually learns from easy to hard samples
+Link: https://arxiv.org/abs/1606.00128
+====================================================
+Tensors in Power System Computation I: Distributed Computation for Optimal Power Flow, DC OPF (HyungSeon Oh - 22 May, 2016)
+A higher order generalized singular value decomposition technique successfully captures the common features of the same organ from multiple animals in genomic signal processing
+Link: https://arxiv.org/abs/1605.06735
+====================================================
+A Compositional Neuro-Controller for Advanced Motor Control Tasks (Kirill Makukhin - 18 May, 2016)
+Humans and animals developed a sophisticated motor control apparatus and there is much evidence that it has a modular structure
+Link: https://arxiv.org/abs/1605.05786
+====================================================
+Concept based Attention (Jie You - 11 May, 2016)
+Attention endows animals an ability to concentrate on the most relevant information among a deluge of distractors at any given time, either through volitionally 'top-down' biasing, or driven by automatically 'bottom-up' saliency of stimuli, in favour of advantageous competition in neural modulations for information processing. Nevertheless, instead of being limited to perceive simple features, human and other advanced animals adaptively learn the world into categories and abstract concepts from experiences, imparting the world meanings
+Link: https://arxiv.org/abs/1605.03416
+====================================================
+Effect of group organization on the performance of cooperative processes (Sandro M. Reia - 7 May, 2016)
+Problem-solving competence at group level is influenced by the structure of the social networks and so it may shed light on the organization patterns of gregarious animals
+Link: https://arxiv.org/abs/1605.02197
+====================================================
+How to Transfer? Zero-Shot Object Recognition via Hierarchical Transfer of Semantic Attributes (Ziad Al-Halah - 1 April, 2016)
+We evaluate our approach on three public datasets: aPascal, Animals with Attributes and CUB-200-2011 Birds. The experiments demonstrate the effectiveness of our model with significant improvement over state-of-the-art.
+Link: https://arxiv.org/abs/1604.00326
+====================================================
+To Fall Or Not To Fall: A Visual Approach to Physical Stability Prediction (Wenbin Li - 31 March, 2016)
+Understanding physical phenomena is a key competence that enables humans and animals to act and interact under uncertain perception in previously unseen environments containing novel object and their configurations
+Link: https://arxiv.org/abs/1604.00066
+====================================================
+Evolving Shepherding Behavior with Genetic Programming Algorithms (Joshua BrulÃ© - 19 March, 2016)
+We apply genetic programming techniques to the `shepherding' problem, in which a group of one type of animal (sheep dogs) attempts to control the movements of a second group of animals (sheep) obeying flocking behavior
+Link: https://arxiv.org/abs/1603.06141
+====================================================
+A Soft Electronics-Free robot (E. -F. Markus Henke - 16 March, 2016)
+Biomimetic entirely soft robots with animal-like behavior and integrated artificial nervous systems will open up totally new perspectives and applications
+Link: https://arxiv.org/abs/1603.05599
+====================================================
+Geometry of Interest (GOI): Spatio-Temporal Destination Extraction and Partitioning in GPS Trajectory Data (Seyed Morteza Mousavi - 16 May, 2016)
+movement trajectories of animals), adequate information about the POIs and their GOIs may not be available a priori, or they may not be publicly accessible and, therefore, they need to be derived from GPS trajectory data
+Link: https://arxiv.org/abs/1603.04110
+====================================================
+FLICA: A Framework for Leader Identification in Coordinated Activity (Chainarong Amornbunchornvej - 4 March, 2016)
+Leadership is an important aspect of social organization that affects the processes of group formation, coordination, and decision-making in human societies, as well as in the social system of many other animal species
+Link: https://arxiv.org/abs/1603.01570
+====================================================
+Network Unfolding Map by Edge Dynamics Modeling (Filipe Alves Neto Verri - 19 February, 2018)
+The emergence of collective dynamics in neural networks is a mechanism of the animal and human brain for information processing
+Link: https://arxiv.org/abs/1603.01182
+====================================================
+From quantum foundations via natural language meaning to a theory of everything (Bob Coecke - 22 February, 2016)
+Since meaning in natural language, depending on the subject domain, encompasses discussions within any scientific discipline, we obtain a template for theories such as social interaction, animal behaviour, and many others.
+Link: https://arxiv.org/abs/1602.07618
+====================================================
+Fast Computation of the Kinship Coefficients (Bonnie Kirkpatrick - 13 February, 2016)
+Historically, computations of the inbreeding coefficient were used to prohibit inbred marriages and prohibit breeding of some pairs of pedigree animals
+Link: https://arxiv.org/abs/1602.04368
+====================================================
+Exploring Dynamic Environments Using Stochastic Search Strategies (C. A. PiÃ±a-GarcÃ­a - 9 February, 2016)
+This study critically examines the role of animal searching behavior applied to random walk models using stochastic rules and kinesis or taxis
+Link: https://arxiv.org/abs/1602.03247
+====================================================
+Greedy reduction of navigation time in random search processes (Igor Trpevski - 26 January, 2016)
+Random search processes are instrumental in studying and understanding navigation properties of complex networks, food search strategies of animals, diffusion control of molecular processes in biological cells, and improving web search engines
+Link: https://arxiv.org/abs/1601.07009
+====================================================
+Implementing a Bayes Filter in a Neural Circuit: The Case of Unknown Stimulus Dynamics (Sacha Sokoloski - 6 June, 2017)
+In order to interact intelligently with objects in the world, animals must first transform neural population responses into estimates of the dynamic, unknown stimuli which caused them
+Link: https://arxiv.org/abs/1512.07839
+====================================================
+Zoom Better to See Clearer: Human and Object Parsing with Hierarchical Auto-Zoom Net (Fangting Xia - 28 March, 2016)
+humans and animals, into semantic parts (e.g
+Link: https://arxiv.org/abs/1511.06881
+====================================================
+Crowd Behavior Analysis: A Review where Physics meets Biology (Ven Jyn Kok - 20 November, 2015)
+Computer vision stud- ies related to crowd are observed to resonate with the understanding of the emergent behavior in physics (complex systems) and biology (animal swarm). Therefore, this survey provides the readers with a review of the state-of-the-art methods in crowd behavior analysis from the physics and biologically inspired perspectives
+Link: https://arxiv.org/abs/1511.06586
+====================================================
+eBear: An Expressive Bear-Like Robot (Xiao Zhang - 20 November, 2015)
+The facial emotions of the bear are designed based on the description of the Facial Action Coding System as well as some animal-like gestures described by Darwin
+Link: https://arxiv.org/abs/1511.06491
+====================================================
+What Objective Does Self-paced Learning Indeed Optimize? (Deyu Meng - 1 November, 2016)
+Self-paced learning (SPL) is a recently raised methodology designed through simulating the learning principle of humans/animals. Through applying SPL with this loss prior to the FCVID dataset, which is currently one of the biggest manually annotated video dataset, our method achieves state-of-the-art performance beyond previous methods, which further helps supports the proposed theoretical arguments.
+Link: https://arxiv.org/abs/1511.06049
+====================================================
+Topic Modeling of Behavioral Modes Using Sensor Data (Yehezkel S. Resheff - 16 November, 2015)
+These small electronic wearable devices are attached to animals free to roam in their natural habitats, and report back readings from multiple sensors, including GPS and accelerometer bursts
+Link: https://arxiv.org/abs/1511.05082
+====================================================
+Toward Biochemical Probabilistic Computation (Jacques Droulez - 9 November, 2015)
+However, the biological mechanisms allowing animals and humans to represent and to compute probability distributions are not known
+Link: https://arxiv.org/abs/1511.02623
+====================================================
+Towards a tracking algorithm based on the clustering of spatio-temporal clouds of points (Andrea Cavagna - 4 November, 2015)
+Recently, a major source of progress in 3D tracking has been the study of collective behaviour in biological systems, where the trajectories of individual animals moving within large and dense groups need to be reconstructed to understand the behavioural interaction rules
+Link: https://arxiv.org/abs/1511.01293
+====================================================
+Computational models: Bottom-up and top-down aspects (Laurent Itti - 26 October, 2015)
+We focus on {\em computational models of attention} as defined by Tsotsos \& Rothenstein \shortcite{Tsotsos_Rothenstein11}: Models which can process any visual stimulus (typically, an image or video clip), which can possibly also be given some task definition, and which make predictions that can be compared to human or animal behavioral or physiological responses elicited by the same stimulus and task
+Link: https://arxiv.org/abs/1510.07748
+====================================================
+Generalized Regressive Motion: a Visual Cue to Collision (Krzysztof Chalupka - 26 October, 2015)
+Looming has been proposed as the main monocular visual cue for detecting the approach of other animals and avoiding collisions with stationary obstacles. However, looming has not been analyzed in the context of collisions between two moving animals
+Link: https://arxiv.org/abs/1510.07573
+====================================================
+Quantifying Emergent Behavior of Autonomous Robots (Georg Martius - 6 October, 2015)
+Quantifying behaviors of robots which were generated autonomously from task-independent objective functions is an important prerequisite for objective comparisons of algorithms and movements of animals
+Link: https://arxiv.org/abs/1510.01495
+====================================================
+Technical Report on Intruder Detection and Alert System (Manish Kumar - 30 September, 2015)
+Using multiple sensors, this system can gauge the extent of danger exhibited by a person or animal in or around the home premises, and can forward certain critical information regarding the same to home owners as well as other specified persons such as relevant security authorities.
+Link: https://arxiv.org/abs/1509.09138
+====================================================
+Design and control of a soft, shape-changing, crawling robot (Vishesh Vikas - 24 September, 2015)
+Soft materials have many important roles in animal locomotion and object manipulation
+Link: https://arxiv.org/abs/1509.07569
+====================================================
+Central Pattern Generators for the control of robotic systems (Carlos Garcia-Saura - 8 September, 2015)
+These controllers are often based on loosely-coupled oscillators similar to those found in the neural circuits of many animal species, and can be more robust to uncertainty (i.e. This project provides an overview of the state-of-the-art in the field of CPGs, and in particular their applications within robotic systems
+Link: https://arxiv.org/abs/1509.02417
+====================================================
+AnimalCatcher: a digital camera to capture various reactions of animals (Koji Tsukada - 24 April, 2015)
+To solve this problem, we developed a new interaction technique, AnimalCatcher, which can attract animals' attention easily. The AnimalCatcher shoots various sounds using directional speaker to capture various reactions of animals
+Link: https://arxiv.org/abs/1508.03653
+====================================================
+iDART-Intruder Detection and Alert in Real Time (Manish Kumar - 14 August, 2015)
+Using multiple sensors, this system can gauge the extent of danger exhibited by a person or animal in or around the home premises, and can forward various critical information regarding the event to home owners as well as other specified entities, such as relevant security authorities.
+Link: https://arxiv.org/abs/1508.03479
+====================================================
+Queuing models for abstracting interactions in Bacterial communities (NicolÃ² Michelusi - 10 January, 2016)
+Microbial communities play a significant role in bioremediation,plant growth,human and animal digestion,global elemental cycles including the carbon-cycle,and water treatment.They are also posed to be the engines of renewable energy via microbial fuel cells which can reverse the process of electrosynthesis.Microbial communication regulates many virulence mechanisms used by bacteria.Thus,it is of fundamental importance to understand interactions in microbial communities and to develop predictive tools that help control them,in order to aid the design of systems exploiting bacterial capabilities.This position paper explores how abstractions from communications,networking and information theory can play a role in understanding and modeling bacterial interactions.In particular,two forms of interactions in bacterial systems will be examined:electron transfer and quorum sensing.While the diffusion of chemical signals has been heavily studied,electron transfer occurring in living cells and its role in cell-cell interaction is less understood.Recent experimental observations open up new frontiers in the design of microbial systems based on electron transfer,which may coexist with the more well-known interaction strategies based on molecular diffusion.In quorum sensing,the concentration of certain signature chemical compounds emitted by the bacteria is used to estimate the bacterial population size,so as to activate collective behaviors.In this position paper,queuing models for electron transfer are summarized and adapted to provide new models for quorum sensing.These models are stochastic,and thus capture the inherent randomness exhibited by cell colonies in nature.It is shown that queuing models allow the characterization of the state of a single cell as a function of interactions with other cells and the environment,while being amenable to complexity reduction.
+Link: https://arxiv.org/abs/1508.00942
+====================================================
+Learning 3D Deformation of Animals from 2D Images (Angjoo Kanazawa - 24 May, 2016)
+We demonstrate the effectiveness of our approach on cats and horses, which are highly deformable and articulated animals. Our framework produces new 3D models of animals that are significantly more plausible than methods without learned stiffness.
+Link: https://arxiv.org/abs/1507.07646
+====================================================
+Extending The Lossy Spring-Loaded Inverted Pendulum Model with a Slider-Crank Mechanism (H. Eftun Orhon - 5 June, 2015)
+Spring Loaded Inverted Pendulum (SLIP) model has a long history in describing running behavior in animals and humans as well as has been used as a design basis for robots capable of dynamic locomotion
+Link: https://arxiv.org/abs/1506.01808
+====================================================
+Delay-Tolerant Networking for Long-Term Animal Tracking (Philipp Sommer - 18 August, 2015)
+We present a hardware and software framework that offers robust data collection, adaptive execution of sensing tasks, and flexible remote reconfiguration of devices deployed on nomadic mobile objects such as animals. Based on our multi-year experience of applying this framework to animal tracking and monitoring applications, we present the main challenges that we have encountered, the design of software building blocks that address these challenges, and examples of the data we collected on flying foxes.
+Link: https://arxiv.org/abs/1506.01792
+====================================================
+Revolutionary Hybrid E-Books for Enhanced Higher Learning (R. D. Balaji - 8 April, 2015)
+Books are the best friends of human beings and make them a rational animal
+Link: https://arxiv.org/abs/1504.02092
+====================================================
+Label-Embedding for Image Classification (Zeynep Akata - 1 October, 2015)
+Results on the Animals With Attributes and Caltech-UCSD-Birds datasets show that the proposed framework outperforms the standard Direct Attribute Prediction baseline in a zero-shot learning scenario
+Link: https://arxiv.org/abs/1503.08677
+====================================================
+Universal Psychometrics Tasks: difficulty, composition and decomposition (Jose Hernandez-Orallo - 25 March, 2015)
+However, this alternate interaction does not accommodate well for some other tasks that are usual in artificial intelligence and, most especially, in animal and human evaluation
+Link: https://arxiv.org/abs/1503.07587
+====================================================
+Technical Analysis on Financial Forecasting (S. Gopal Krishna Patro - 10 March, 2015)
+PSO technique is introduced due to the swarming behavior of animals which is the collective behavior of similar size that aggregates together.
+Link: https://arxiv.org/abs/1503.03011
+====================================================
+Measuring and Understanding Sensory Representations within Deep Networks Using a Numerical Optimization Framework (Chuan-Yung Tsai - 17 February, 2015)
+However, while neurophysiologists have long been able to record the responses of neurons in awake, behaving animals, it is another matter entirely to say what a given neuron does
+Link: https://arxiv.org/abs/1502.04972
+====================================================
+A Social Spider Algorithm for Global Optimization (James J. Q. Yu - 9 February, 2015)
+Different from the previously proposed swarm intelligence algorithms, we introduce a new social animal foraging strategy model to solve optimization problems. The Social Spider Algorithm is evaluated by a series of widely-used benchmark functions, and our proposed algorithm has superior performance compared with other state-of-the-art metaheuristics.
+Link: https://arxiv.org/abs/1502.02407
+====================================================
+The Spatial Structure of Transnational Human Activity (Emanuel Deutschmann - 23 January, 2015)
+Recent studies have shown that the spatial structures of animal displacements and local-scale human motion follow LÃ©vy flights
+Link: https://arxiv.org/abs/1501.05921
+====================================================
+The Information-theoretic and Algorithmic Approach to Human, Animal and Artificial Cognition (Nicolas Gauvrit - 24 December, 2015)
+We survey concepts at the frontier of research connecting artificial, animal and human cognition to computation and information processing---from the Turing test to Searle's Chinese Room argument, from Integrated Information Theory to computational and algorithmic complexity
+Link: https://arxiv.org/abs/1501.04242
+====================================================
+Recovering Spatiotemporal Correspondence between Deformable Objects by Exploiting Consistent Foreground Motion in Video (Luca Del Pero - 16 August, 2016)
+Given unstructured videos of deformable objects, we automatically recover spatiotemporal correspondences to map one object to another (such as animals in the wild)
+Link: https://arxiv.org/abs/1412.0477
+====================================================
+Articulated motion discovery using pairs of trajectories (Luca Del Pero - 24 April, 2015)
+Results confirm that our proposed descriptor outperforms existing appearance- and trajectory-based descriptors (e.g., HOG and DTFs) on both datasets and enables us to segment unconstrained animal video into intervals containing single behaviors.
+Link: https://arxiv.org/abs/1411.7883
+====================================================
+Post-acquisition image based compensation for thickness variation in microscopy section series (Philipp Hanslovsky - 27 May, 2015)
+Section series imaged with Electron Microscopy are currently vital for the reconstruction of the synaptic connectivity of entire animal brains such as that of Drosophila melanogaster
+Link: https://arxiv.org/abs/1411.6970
+====================================================
+Global Practical Node and Edge Synchronization in Kuramoto Networks: A Submodular Optimization Framework (Andrew Clark - 30 October, 2015)
+Synchronization underlies phenomena including memory and perception in the brain, coordinated motion of animal flocks, and stability of the power grid
+Link: https://arxiv.org/abs/1411.5797
+====================================================
+Do Artificial Reinforcement-Learning Agents Matter Morally? (Brian Tomasik - 29 October, 2014)
+RL as used in computer science has striking parallels to reward and punishment learning in animal and human brains
+Link: https://arxiv.org/abs/1410.8233
+====================================================
+The Quantum Nature of Identity in Human Thought: Bose-Einstein Statistics for Conceptual Indistinguishability (Diederik Aerts - 24 October, 2014)
+In this paper, we investigate a novel type of concept combination were a number is combined with a noun, e.g., `Eleven Animals. Our aim is to study 'conceptual identity' and the effects of 'indistinguishability' - in the combination 'Eleven Animals', the 'animals' are identical and indistinguishable - on the mechanisms of conceptual combination
+Link: https://arxiv.org/abs/1410.6854
+====================================================
+Evolvability signatures of generative encodings: beyond standard performance benchmarks (Danesh Tarapore - 28 March, 2015)
+Evolutionary robotics is a promising approach to autonomously synthesize machines with abilities that resemble those of animals, but the field suffers from a lack of strong foundations
+Link: https://arxiv.org/abs/1410.4985
+====================================================
+A Novel Design of IEEE 802.15.4 and Solar Based Autonomous Water Quality Monitoring Prototype using ECHERP (Fredrick Romanus Ishengoma - 2 October, 2014)
+Moreover, the proposed prototype will help to study the behavior of aquatic animals in deployed water bodies.
+Link: https://arxiv.org/abs/1410.1773
+====================================================
+AI Evaluation: past, present and future (Jose Hernandez-Orallo - 21 August, 2016)
+We discuss several possibilities: the adaptation of cognitive tests used for humans and animals, the development of tests derived from algorithmic information theory or more general approaches under the perspective of universal psychometrics.
+Link: https://arxiv.org/abs/1408.6908
+====================================================
+Location Prediction: Communities Speak Louder than Friends (Jun Pang - 1 April, 2016)
+Humans are social animals, they interact with different communities of friends to conduct different activities
+Link: https://arxiv.org/abs/1408.1228
+====================================================
+RTI Goes Wild: Radio Tomographic Imaging for Outdoor People Detection and Localization (Cesare Alippi - 30 July, 2014)
+Radio Tomographic Imaging (RTI) is a technique that generates 2D images of the change in the electromagnetic field inside the area covered by the radio transceivers to spot the presence and movements of animates (e.g., people, large animals) or large metallic objects (e.g., cars). Experimental results demonstrate that the system accurately detects and tracks a person in real-time in a large forested area under varying environmental conditions, significantly reducing false positives, localization error and energy consumption compared to state-of-the-art RTI methods.
+Link: https://arxiv.org/abs/1407.8509
+====================================================
+A macro-level model for investigating the effect of directional bias on network coverage (Graeme Smith - 1 February, 2015)
+In nature, animals (such as ants) tend to follow correlated random walks, i.e., random walks that are biased towards their current heading
+Link: https://arxiv.org/abs/1407.5762
+====================================================
+$LCSk$++: Practical similarity metric for long strings (Filip PavetiÄ - 9 July, 2014)
+large genomes of plants and animals, classic algorithms such as Longest Common Subsequence (LCS) fail due to demanding computational complexity
+Link: https://arxiv.org/abs/1407.2407
+====================================================
+An optimization algorithm for multimodal functions inspired by collective animal behavior (Erik Cuevas - 30 June, 2014)
+Animal groups, such as schools of fish, flocks of birds, swarms of locusts and herds of wildebeest, exhibit a variety of behaviors including swarming about a food source, milling around a central location or migrating over large distances in aligned groups. In the proposed algorithm, searcher agents are a group of animals which interact to each other based on the biological laws of collective motion
+Link: https://arxiv.org/abs/1406.7811
+====================================================
+A swarm optimization algorithm inspired in the behavior of the social-spider (Erik Cuevas - 12 June, 2014)
+Swarm intelligence is a research field that models the collective behavior in swarms of insects or animals
+Link: https://arxiv.org/abs/1406.3282
+====================================================
+Detect What You Can: Detecting and Representing Objects using Holistic Models and Body Parts (Xianjie Chen - 8 June, 2014)
+We propose a novel approach to i) handle large deformations and partial occlusions in animals (as examples of highly deformable objects), ii) describe them in terms of body parts, and iii) detect them when their body parts are hard to detect (e.g., animals depicted at low resolution)
+Link: https://arxiv.org/abs/1406.2031
+====================================================
+Multi-ellipses detection on images inspired by collective animal behavior (Erik Cuevas - 20 May, 2014)
+The approach employs an evolutionary algorithm to mimic the way animals behave collectively assuming the overall detection process as a multi-modal optimization problem. In the algorithm, searcher agents emulate a group of animals that interact to each other using simple biological rules which are modeled as evolutionary operators
+Link: https://arxiv.org/abs/1405.5164
+====================================================
+Parallel computation using active self-assembly (Moya Chen - 5 September, 2014)
+The model generalises asynchronous cellular automata to have non-local movement where large assemblies of molecules can be pushed and pulled around, analogous to millions of molecular motors in animal muscle effecting the rapid movement of macroscale arms and legs
+Link: https://arxiv.org/abs/1405.0527
+====================================================
+Saliency Based Control in Random Feature Networks (John Baillieul - 6 August, 2014)
+The ability to rapidly focus attention and react to salient environmental features enables animals to move agiley through their habitats
+Link: https://arxiv.org/abs/1403.5462
+====================================================
+QTC3D: Extending the Qualitative Trajectory Calculus to Three Dimensions (Nikolaos Mavridis - 16 February, 2014)
+Spatial interactions between agents (humans, animals, or machines) carry information of high value to human or electronic observers
+Link: https://arxiv.org/abs/1402.3779
+====================================================
+Image Search Reranking (V Rajakumar - 10 February, 2014)
+While model learning needs manual labeling of the results for a some limited queries, the resulting model is query autonomous and therefore applicable to any other query .Examples are given for a selection of other classes like vehicles, animals and other classes.
+Link: https://arxiv.org/abs/1402.2232
+====================================================
+Multimodal Optimization by Sparkling Squid Populations (Videh Seksaria - 4 January, 2014)
+The swarm intelligence of animals is a natural paradigm to apply to optimization problems
+Link: https://arxiv.org/abs/1401.0858
+====================================================
+Can recursive neural tensor networks learn logical reasoning? (Samuel R. Bowman - 15 February, 2014)
+To evaluate this, I train a recursive model on a new corpus of constructed examples of logical reasoning in short sentences, like the inference of "some animal walks" from "some dog walks" or "some cat walks," given that dogs and cats are animals
+Link: https://arxiv.org/abs/1312.6192
+====================================================
+Strategic Control of Proximity Relationships in Heterogeneous Search and Rescue Teams (Eduardo Feo Flushing - 16 December, 2013)
+In the context of search and rescue, we consider the problem of mission planning for heterogeneous teams that can include human, robotic, and animal agents
+Link: https://arxiv.org/abs/1312.4601
+====================================================
+Abstraction in decision-makers with limited information processing capabilities (Tim Genewein - 19 December, 2013)
+A distinctive property of human and animal intelligence is the ability to form abstractions by neglecting irrelevant information which allows to separate structure from noise
+Link: https://arxiv.org/abs/1312.4353
+====================================================
+Typologies of Computation and Computational Models (Mark Burgin - 9 December, 2013)
+Intrinsic natural computation occurs on variety of levels of physical processes, containing the levels of computation of living organisms (including highly intelligent animals) as well as designed computational devices
+Link: https://arxiv.org/abs/1312.2447
+====================================================
+Perception and Steering Control in Paired Bat Flight (Zhaodan Kong - 15 November, 2013)
+Animals within groups need to coordinate their reactions to perceived environmental features and to each other in order to safely move from one point to another
+Link: https://arxiv.org/abs/1311.4419
+====================================================
+When "I cut, you choose" method implies intransitivity (Marcin Makowski - 20 September, 2014)
+There is a common belief that humans and many animals follow transitive inference (choosing A over C on the basis of knowing that A is better than B and B is better than C)
+Link: https://arxiv.org/abs/1311.0803
+====================================================
+MINT: Mutual Information based Transductive Feature Selection for Genetic Trait Prediction (Dan He - 6 October, 2013)
+Whole genome prediction of complex phenotypic traits using high-density genotyping arrays has attracted a great deal of attention, as it is relevant to the fields of plant and animal breeding and genetic epidemiology. We applied MINT on genetic trait prediction problems and showed that in general MINT is a better feature selection method than the state-of-the-art inductive method mRMR.
+Link: https://arxiv.org/abs/1310.1659
+====================================================
+The importance of stimulus noise analysis for self-motion studies (Alessandro Nesti - 30 October, 2014)
+The effect of simulator noise on animal/human motion sensitivity is discussed
+Link: https://arxiv.org/abs/1310.0312
+====================================================
+A Hybrid Model of a Genetic Regulatory Network in Mammalian Sclera (Qin Shu - 3 September, 2013)
+Myopia in human and animals is caused by the axial elongation of the eye and is closely linked to the thinning of the sclera which supports the eye tissue
+Link: https://arxiv.org/abs/1309.0873
+====================================================
+A Prototyping Environment for Integrated Artificial Attention Systems (Jan TÃ¼nnermann - 31 July, 2013)
+Artificial visual attention systems aim to support technical systems in visual tasks by applying the concepts of selective attention observed in humans and other animals
+Link: https://arxiv.org/abs/1307.8233
+====================================================
+Clustering of Complex Networks and Community Detection Using Group Search Optimization (G. Kishore Kumar - 19 August, 2013)
+It is very robust and efficient algorithm, which is inspired by animal searching behaviour
+Link: https://arxiv.org/abs/1307.1372
+====================================================
+RFID Technology Based Attendance Management System (Sumita Nainan - 23 June, 2013)
+A plethora of industries have leveraged the benefits of RFID technology for enhancements in sectors like military, sports, security, airline, animal farms, healthcare and other areas. Industry specific key applications of this technology include vehicle tracking, automated inventory management, animal monitoring, secure store checkouts, supply chain management, automatic payment, sport timing technologies, etc
+Link: https://arxiv.org/abs/1306.5381
+====================================================
+Fine-Grained Visual Classification of Aircraft (Subhransu Maji - 21 June, 2013)
+Compared to the domains usually considered in fine-grained visual classification (FGVC), for example animals, aircraft are rigid and hence less deformable
+Link: https://arxiv.org/abs/1306.5151
+====================================================
+Cannibal Animal Games: a new variant of Tic-Tac-Toe (Jean Cardinal - 20 June, 2013)
+An animal is a \emph{cannibal} if Bob has a winning strategy, and a \emph{non-cannibal} otherwise. This paper presents some new tools, such as the \emph{bounding strategy} and the \emph{punching lemma}, to classify animals into cannibals or non-cannibals
+Link: https://arxiv.org/abs/1306.4884
+====================================================
+Algorithms for Self-Healing Networks (Amitabh Trehan - 20 May, 2013)
+Modern reconfigurable networks have a complexity unprecedented in the history of engineering, resembling more a dynamic and evolving living animal rather than a structure of steel designed from a blueprint
+Link: https://arxiv.org/abs/1305.4675
+====================================================
+On the universality of cognitive tests (David L. Dowe - 8 May, 2013)
+The analysis of the adaptive behaviour of many different kinds of systems such as humans, animals and machines, requires more general ways of assessing their cognitive abilities
+Link: https://arxiv.org/abs/1305.1991
+====================================================
+Trajectory Grouping Structures (Kevin Buchin - 25 March, 2013)
+The collective motion of a set of moving entities like people, birds, or other animals, is characterized by groups arising, merging, splitting, and ending
+Link: https://arxiv.org/abs/1303.6127
+====================================================
+Optical Flow Sensing and the Inverse Perception Problem for Flying Bats (Zhaodan Kong - 12 March, 2013)
+The movements of birds, bats, and other flying species are governed by complex sensorimotor systems that allow the animals to react to stationary environmental features as well as to wind disturbances, other animals in nearby airspace, and a wide variety of unexpected challenges. Using an idealized geometry of bat eyes, we introduce the concept of time-to-transit, and recall some research that suggests that this quantity is computed by the animals' visual cortex
+Link: https://arxiv.org/abs/1303.3072
+====================================================
+Human-Recognizable Robotic Gestures (John-John Cabibihan - 26 December, 2012)
+We reviewed these gestures for their meaning from literatures in human and animal behavior
+Link: https://arxiv.org/abs/1212.6273
+====================================================
+The War of Attrition in the Limit of Infinitely Many Players (Peter Helgesson - 19 December, 2012)
+The "War of Attrition" is a classical game theoretic model that was first introduced to mathematically describe certain non-violent animal behavior
+Link: https://arxiv.org/abs/1212.5518
+====================================================
+Storing cycles in Hopfield-type networks with pseudoinverse learning rule: admissibility and network topology (Chuan Zhang - 28 April, 2013)
+Cyclic patterns of neuronal activity are ubiquitous in animal nervous systems, and partially responsible for generating and controlling rhythmic movements such as locomotion, respiration, swallowing and so on
+Link: https://arxiv.org/abs/1211.4520
+====================================================
+Power-laws and the Conservation of Information in discrete token systems: Part 2 The role of defect (Les Hatton - 7 September, 2012)
+The principle was also applied to show that average gene length should be constant in an animal kingdom where the same constraints appear to hold, the implication being that Conservation of Information plays a similar role in discrete token-based systems as the Conservation of Energy does in physical systems.
+Link: https://arxiv.org/abs/1209.1652
+====================================================
+A study on non-destructive method for detecting Toxin in pepper using Neural networks (M. Rajalakshmi - 10 August, 2012)
+Mycotoxin contamination in certain agricultural systems have been a serious concern for human and animal health
+Link: https://arxiv.org/abs/1208.2092
+====================================================
+The Social Will-Testing Game and its Solution (Leonid Gurvits - 26 June, 2012)
+We conjecture this solution could underlie some phenomena (like pecking orders) observed in animals.
+Link: https://arxiv.org/abs/1206.6148
+====================================================
+Stego-Image Generator (SIG) - Building Steganography Image Database (P. Thiyagarajan - 12 June, 2012)
+Images are chosen from board categories such as animals, nature, person to produce variety of Stego-Image.
+Link: https://arxiv.org/abs/1206.2586
+====================================================
+Group Foraging in Dynamic Environments (Michael E. Roberts - 16 April, 2012)
+Previous human foraging experiments have shown that human groups routinely undermatch environmental resources much like other animal species
+Link: https://arxiv.org/abs/1204.3673
+====================================================
+Neuroevolution Results in Emergence of Short-Term Memory for Goal-Directed Behavior (Konstantin Lakhman - 14 April, 2012)
+Animals behave adaptively in the environment with multiply competing goals
+Link: https://arxiv.org/abs/1204.3221
+====================================================
+Machine Cognition Models: EPAM and GPS (Ali Elouafiq - 7 April, 2012)
+It started with deploying animals to automate tasks in the field of agriculture(bulls), transportation (e.g
+Link: https://arxiv.org/abs/1204.1653
+====================================================
+Maximizing the Spread of Cascades Using Network Design (Daniel Sheldon - 15 March, 2012)
+Our motivating application is one in spatial conservation planning, where a cascade models the dispersal of wild animals through a fragmented landscape
+Link: https://arxiv.org/abs/1203.3514
+====================================================
+Combining Spatial and Telemetric Features for Learning Animal Movement Models (Berk Kapicioglu - 15 March, 2012)
+We introduce a new graphical model for tracking radio-tagged animals and learning their movement patterns. We conclude that integration of different data sources under a single statistical framework, coupled with appropriate parameter and state estimation procedures, produces both accurate location estimates and an interpretable statistical model of animal movement.
+Link: https://arxiv.org/abs/1203.3486
+====================================================
+Animal-Inspired Agile Flight Using Optical Flow Sensing (Kenneth Sebesta - 13 March, 2012)
+There is evidence that flying animals such as pigeons, goshawks, and bats use optical flow sensing to enable high-speed flight through forest clutter
+Link: https://arxiv.org/abs/1203.2816
+====================================================
+The implications of embodiment for behavior and cognition: animal and robotic case studies (Matej Hoffmann - 2 February, 2012)
+These involve animals and robots and are concentrated around locomotion, grasping, and visual perception
+Link: https://arxiv.org/abs/1202.0440
+====================================================
+POWERPLAY: Training an Increasingly General Problem Solver by Continually Searching for the Simplest Still Unsolvable Problem (JÃ¼rgen Schmidhuber - 4 November, 2012)
+I focus on automatically inventing or discovering problems in a way inspired by the playful behavior of animals and humans, to train a more and more general problem solver from scratch in an unsupervised fashion
+Link: https://arxiv.org/abs/1112.5309
+====================================================
+Supervised Generative Reconstruction: An Efficient Way To Flexibly Store and Recognize Patterns (Tsvi Achler - 23 June, 2012)
+Matching animal-like flexibility in recognition and the ability to quickly incorporate new information remains difficult
+Link: https://arxiv.org/abs/1112.2988
+====================================================
+Learning in embodied action-perception loops through exploration (Daniel Y. Little - 9 December, 2011)
+Although exploratory behaviors are ubiquitous in the animal kingdom, their computational underpinnings are still largely unknown. Exploration is seen as a means for an animal to gather sensory data useful for reducing its ignorance about the environment
+Link: https://arxiv.org/abs/1112.1125
+====================================================
+The BlueNetwork Concept (Reza Farrahi Moghaddam - 3 October, 2011)
+Although most of energy and resource consumption is the result of machines functioning and behavior (including domesticated animals such as cows), these behaviors themselves are actually in answer to humans demands and needs, and therefore, can be considered the indirect results of humans behavior
+Link: https://arxiv.org/abs/1110.0436
+====================================================
+Object-oriented semantics of English in natural language understanding system (Yuriy Ostapov - 27 September, 2011)
+English sentences are translated into set of predicates of a semantic database, which describe persons, occupations, organizations, projects, actions, events, messages, machines, things, animals, location and time of actions, relations between objects, thoughts, cause-and-effect relations, abstract objects
+Link: https://arxiv.org/abs/1109.5798
+====================================================
+Analysis of first prototype universal intelligence tests: evaluating and comparing AI algorithms and humans (Javier Insa-Cabrera - 23 September, 2011)
+This method not only focuses on measuring the intelligence of algorithms, but also to assess any intelligent system (human beings, animals, AI, aliens?,...), and letting us to place their results on the same scale and, therefore, to be able to compare them
+Link: https://arxiv.org/abs/1109.5072
+====================================================
+Evolutionary Foundations of Mathematics (Ruhi Tuncer - 23 March, 2011)
+We propose a simple cognitive model where qualitative and quantitative com- parisons enable animals to identify objects, associate them with their properties held in memory and make naive inference
+Link: https://arxiv.org/abs/1104.3525
+====================================================
+A simulation of the Neolithic transition in Western Eurasia (Carsten Lemmen - 12 August, 2011)
+Were it people who moved and outplaced the indigenous hunter- gatherer groups or admixed with them? Or was it just material and information that moved-the Neolithic Package-consisting of domesticated plants and animals and the knowledge of its use? The latter process is commonly referred to as cultural diffusion and the former as demic diffusion
+Link: https://arxiv.org/abs/1104.1905
+====================================================
+Modeling Dynamic Swarms (Bernard Ghanem - 7 February, 2011)
+Examples of DS abound in nature, e.g., herds of animals and flocks of birds
+Link: https://arxiv.org/abs/1102.1292
+====================================================
+Evidence Feed Forward Hidden Markov Model: A New Type of Hidden Markov Model (Michael DelRose - 4 February, 2011)
+The ability to predict the intentions of people based solely on their visual actions is a skill only performed by humans and animals
+Link: https://arxiv.org/abs/1102.0899
+====================================================
+Monitoring wild animal communities with arrays of motion sensitive camera traps (Roland Kays - 28 September, 2010)
+This paper describes our experience with a terrestrial animal monitoring system at Barro Colorado Island, Panama. We suggest that the continued development of these hardware, software, and analytical tools, in concert, offer an exciting sensor-network solution to monitoring of animal populations which could realistically scale over larger areas and time spans.
+Link: https://arxiv.org/abs/1009.5718
+====================================================
+Modular RADAR: An Immune System Inspired Search and Response Strategy for Distributed Systems (Soumya Banerjee - 17 June, 2010)
+Remarkably, NIS search and response times do not scale appreciably with the physical size of the animal in which its search is conducted
+Link: https://arxiv.org/abs/1006.3394
+====================================================
+An Interactive Zoo Guide: A Case Study of Collaborative Learning (Hao Shi - 4 June, 2010)
+The developed program allows its users to navigate through the Zoo via an interactive map and provides multimedia information of animals on hotspots at the 'Big Cats' section of the Zoo so that it enriches user experience at the Zoo
+Link: https://arxiv.org/abs/1006.0869
+====================================================
+A Study on the Interactive "HOPSCOTCH" Game for the Children Using Computer Music Techniques (Shing-Kwei Tzeng - 4 June, 2010)
+The innovated hopscotch music game involves the sound samples of various animals and the characters of cartoon, and the algorithmic composition via the development of the music technology based interactive game, to gradually make the children perceive the world of digits, sound, and music
+Link: https://arxiv.org/abs/1006.0866
+====================================================
+RFID Applications: An Introductory and Exploratory Study (Kamran Ahsan - 5 February, 2010)
+RFID is not a new technology and has passed through many decades of use in military, airline, library, security, healthcare, sports, animal farms and other areas
+Link: https://arxiv.org/abs/1002.1179
+====================================================
+Cheating for Problem Solving: A Genetic Algorithm with Social Interactions (Rafeal Lahoz-Beltra - 12 January, 2010)
+In biological populations, ie animals, even human beings and microorganisms, social interactions often affect the fitness of individuals
+Link: https://arxiv.org/abs/1001.1889
+====================================================
+Behavior Subtraction (P. M. Jodoin - 15 October, 2009)
+It is resilient to spurious background motion, such as one due to camera jitter, and is content-blind, i.e., it works equally well on humans, cars, animals, and other objects in both uncluttered and highly-cluttered scenes
+Link: https://arxiv.org/abs/0910.2917
+====================================================
+First Person Singular (Stevan Harnad - 12 April, 2009)
+No one can be sure which organisms feel, hence have minds, but it seems likely that one-celled organisms and plants do not, whereas animals do
+Link: https://arxiv.org/abs/0904.1889
+====================================================
+On Fodor on Darwin on Evolution (Stevan Harnad - 12 April, 2009)
+Hence Darwin's analogy with "artificial selection" by animal breeders was misleading and evolutionary explanation is nothing but post-hoc historical narrative
+Link: https://arxiv.org/abs/0904.1888
+====================================================
+ELASTICITY: Topological Characterization of Robustness in Complex Networks (Ali Sydney - 25 November, 2008)
+Just as a herd of animals relies on its robust social structure to survive in the wild, similarly robustness is a crucial characteristic for the survival of a complex network under attack
+Link: https://arxiv.org/abs/0811.4040
+====================================================
+Artificial Neural Networks and Support Vector Machines for Water Demand Time Series Forecasting (Ishmael S. Msiza - 7 May, 2007)
+Water plays a pivotal role in many physical processes, and most importantly in sustaining human life, animal life and plant life
+Link: https://arxiv.org/abs/0705.0969
+====================================================
+A Neural Network Assembly Memory Model Based on an Optimal Binary Signal Detection Theory (Petro M. Gopych - 21 September, 2003)
+BSDT could implement the "best neural code" used in nervous tissues of animals and humans.
+Link: https://arxiv.org/abs/cs/0309036
+====================================================
+Acquiring Knowledge from Encyclopedic Texts (Fernando Gomez - 4 November, 1994)
+The model has been implemented in a program, called SNOWY, that reads unedited texts from {\em The World Book Encyclopedia}, and acquires new concepts and conceptual relations about topics dealing with the dietary habits of animals, their classifications and habitats
+Link: https://arxiv.org/abs/cmp-lg/9411011
+====================================================

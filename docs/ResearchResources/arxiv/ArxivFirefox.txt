@@ -1,0 +1,175 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Timelines for In-Code Discovery of Zero-Day Vulnerabilities and Supply-Chain Attacks (Andrew J. Lohn - 31 August, 2018)
+We analyze the version-to-version changes in three types of open source software (Mozilla Firefox, GNU/Linus, and glibc) to understand the rate at which the various pieces of code are amended and find that much of the revision behavior can be captured with a simple intuitive model. We use that model and the data from over a billion unique lines of code in 87 different versions of software to specify the bounds for in-code discoverability of vulnerabilities - from expertly hidden to obviously observable.
+Link: https://arxiv.org/abs/1808.10062
+====================================================
+Reduction of Redundant Rules in Association Rule Mining-Based Bug Assignment (Meera Sharma - 23 July, 2018)
+We have extracted the association rules for top 5 assignees in each cluster.The proposed method has been empirically validated on 14696 bug reports of Mozilla open source software project, namely, Seamonkey, Firefox and Bugzilla
+Link: https://arxiv.org/abs/1807.08906
+====================================================
+Introduction to OXPath (Ruslan R. Fayzrakhmanov - 28 June, 2018)
+OXPath integrates Firefox for correct rendering of web pages and extends XPath 1.0 for the DOM node selection, interaction, and extraction
+Link: https://arxiv.org/abs/1806.10899
+====================================================
+Cost-aware Vulnerability Prediction: the HARMLESS Approach (Zhe Yu - 17 March, 2018)
+In experiments on a case study of Mozilla Firefox project, HARMLESS found 90, 95, 99% of known vulnerabilities by reviewing and testing 26, 33, 45% of the source code files, respectively.
+Link: https://arxiv.org/abs/1803.06545
+====================================================
+Understanding Quality of Experiences on Different Mobile Browsers: Measurements, Analysis, and Implications (Yun Ma - 30 November, 2017)
+In this paper, we collect 3-week consecutive traces of 337 popular webpages on three popular mobile browsers: Chrome, Firefox, and Opera
+Link: https://arxiv.org/abs/1711.11521
+====================================================
+Horcrux: A Password Manager for Paranoids (Hannah Li - 10 October, 2017)
+The prototype Horcrux client, implemented as a Firefox add-on, is split into two components, with code that has access to the user's master's password and any key material isolated into a small auditable component, separate from the complexity of managing the user interface. Our approach only works for websites that do not manipulate entered credentials in the browser client, so we conducted a large-scale experiment that found the technique appears to be compatible with over 98% of tested login forms.
+Link: https://arxiv.org/abs/1706.05085
+====================================================
+Source File Set Search for Clone-and-Own Reuse Analysis (Takashi Ishio - 26 April, 2017)
+To evaluate the effectiveness of this tool, we analyzed 75 cloned components in Firefox and Android source code. The tool took about two hours to report the original components from 10 million files in Debian GNU/Linux packages. Recall of the top-five components in the extracted lists is 0.907, while recall of a baseline using SHA-1 file hash is 0.773, according to the ground truth recorded in the source code repositories.
+Link: https://arxiv.org/abs/1704.08395
+====================================================
+Abnormal Working Hours: Effect of Rapid Releases and Implications to Work Content (MaÃ«lick Claes - 12 April, 2017)
+Firefox experiences proportionally more activity on weekends than Firefox OS (Cohen's d = 0.94). We find that switching to rapid releases has reduced weekend work (Cohen's d = 1.43) and working during the night (Cohen's d = 0.45). considering only individuals with Mozilla foundation email address, although, the effect sizes are smaller for weekends (Cohen's d = 0.64) and nights (Cohen's d = 0.23)
+Link: https://arxiv.org/abs/1704.03652
+====================================================
+The Joint Diffusion of a Digital Platform and its Complementary Goods: The Effects of Product Ratings and Observational Learning (Meisam Hejazi Nia - 16 November, 2016)
+To do so they extend the Bass Diffusion Model and apply it to a unique data set of 6 years of daily downloads of the Firefox browser and 52 of its add-ons
+Link: https://arxiv.org/abs/1701.06425
+====================================================
+Benchmarking Web-testing - Selenium versus Watir and the Choice of Programming Language and Browser (Miikka Kuutila - 2 November, 2016)
+We studied 5 programming language bindings (C#, Java, Python, and Ruby for Selenium, while Watir supports Ruby only) and 4 browsers (Google Chrome, Internet Explorer, Mozilla Firefox and Opera). The effect size of the difference between the slowest and fastest configuration was very high (Cohens d=41.5, 91% increase in execution time)
+Link: https://arxiv.org/abs/1611.00578
+====================================================
+A Decision Support System to Choose Optimal Release Cycle Length in Incremental Software Development Environments (Avnish Chandra Suman - 6 October, 2016)
+Best examples of success of this approach has been Ubuntu Operating system that has a 6 months release cycle and popular web browsers such as Google Chrome, Opera, Mozilla Firefox
+Link: https://arxiv.org/abs/1610.02127
+====================================================
+Tracking Protection in Firefox For Privacy and Performance (Georgios Kontaxis - 12 June, 2015)
+We present Tracking Protection in the Mozilla Firefox web browser. We evaluate our approach and demonstrate a 67.5% reduction in the number of HTTP cookies set during a crawl of the Alexa top 200 news sites. Since Firefox does not download and render content from tracking domains, Tracking Protection also enjoys performance benefits of a 44% median reduction in page load time and 39% reduction in data usage in the Alexa top 200 news sites.
+Link: https://arxiv.org/abs/1506.04104
+====================================================
+Analyzing Android Browser Apps for file:// Vulnerabilities (Daoyuan Wu - 1 September, 2014)
+Among them are the popular Firefox, Baidu and Maxthon browsers, and the more application-specific ones, including UC Browser HD for tablet users, Wikipedia Browser, and Kids Safe Browser. A detailed analysis of these browsers further shows that 26 browsers (23%) expose their browsing interfaces unintentionally
+Link: https://arxiv.org/abs/1404.4553
+====================================================
+Locating Crashing Faults based on Crash Stack Traces (Liang Gong - 15 April, 2014)
+Our approach permits developers to locate 63.9% crashing faults by examining only 5% Firefox 3.6 functions in the spectra.
+Link: https://arxiv.org/abs/1404.4100
+====================================================
+Facebook Applications' Installation and Removal: A Temporal Analysis (Dima Kagan - 16 September, 2013)
+Additionally, we found out that users who used our Firefox add-on become more aware of their security and privacy installing on average fewer new applications. Finally, we discovered that on average 86.4% of Facebook users install an additional application every 4.2 days.
+Link: https://arxiv.org/abs/1309.4067
+====================================================
+XSS-FP: Browser Fingerprinting using HTML Parser Quirks (Erwan Abgrall - 20 November, 2012)
+This paper presents and evaluates a novel fingerprinting technique to determine the exact nature (browser type and version, eg Firefox 15) of a web-browser, exploiting HTML parser quirks exercised through XSS. Our experiments show that the exact version of a web browser can be determined with 71% of accuracy, and that only 6 tests are sufficient to quickly determine the exact family a web browser belongs to.
+Link: https://arxiv.org/abs/1211.4812
+====================================================
+Scale-invariance underlying the logistic equation and its social applications (A. Hernando - 11 April, 2012)
+So as to assess the predictability-power of our present formalism, we advance a prediction, regarding the next 60 months, for the number of users of the three main web browsers (Explorer, Firefox and Chrome) popularly referred as "Browser Wars".
+Link: https://arxiv.org/abs/1204.2422
+====================================================
+How Open Should Open Source Be? (Adam Barth - 2 September, 2011)
+Using access-restricted bug reports linked from patch descriptions, security patches can be immediately identified for 260 out of 300 days of Firefox 3 development. In response to Mozilla obfuscating descriptions, we show that machine learning can exploit metadata such as patch author to search for security patches, extending the total window of vulnerability by 5 months in an 8 month period when examining up to two patches daily
+Link: https://arxiv.org/abs/1109.0507
+====================================================
+Show Me Your Cookie And I Will Tell You Who You Are (Vincent Toubiana - 30 August, 2011)
+We implemented a proof of concept of this attack on Firefox and Chrome Web browsers and conducted an experiment with ten volunteers. Thanks to this prototype we were able to recover up to 80% of the user's search click history.
+Link: https://arxiv.org/abs/1108.5864
+====================================================
+On the Feasibility of Fine-Grained TLS Security Configurations in Web Browsers Based on the Requested Domain Name (Eman Salem Alashwali - 15 September, 2018)
+We demonstrate the feasibility of our proposal by implementing a proof-of-concept as a Firefox browser extension. a button similar to the \quotes{Bookmark} button in Firefox browsers and as a standardised HTTP header, to augment browsers security.
+Link: https://arxiv.org/abs/1809.05686
+====================================================
+Measuring LDA Topic Stability from Clusters of Replicated Runs (Mika MÃ¤ntylÃ¤ - 24 August, 2018)
+Results: We provide an initial validation where our method is used for 270,000 Mozilla Firefox commit messages with k=20 and n=20
+Link: https://arxiv.org/abs/1808.08098
+====================================================
+Using Categorical Features in Mining Bug Tracking Systems to Assign Bug Reports (Mamdouh Alenezi - 9 April, 2018)
+The experimental evaluation is conducted using three projects namely NetBeans, Freedesktop, and Firefox
+Link: https://arxiv.org/abs/1804.07803
+====================================================
+Investigating Collaboration Within Online Communities: Software Development Vs. Artistic Creation (Giuseppe Iaffaldano - 21 March, 2018)
+Online creative communities have been able to develop large, open source software (OSS) projects like Linux and Firefox throughout the successful collaborations carried out over the Internet
+Link: https://arxiv.org/abs/1803.07856
+====================================================
+Do Programmers Work at Night or During the Weekend? (MaÃ«lick Claes - 14 February, 2018)
+In the Firefox case study, we found that hired developers work more during office hours while seniority, either in terms of number of commits or job status, did not impact working hours
+Link: https://arxiv.org/abs/1802.05084
+====================================================
+DeepTriage: Exploring the Effectiveness of Deep Learning for Bug Triaging (Senthil Mani - 4 January, 2018)
+Another contribution is to make this research reproducible by making the source code available and creating a public benchmark dataset of bug reports from three open source bug tracking system: Google Chromium (383,104 bug reports), Mozilla Core (314,388 bug reports), and Mozilla Firefox (162,307 bug reports)
+Link: https://arxiv.org/abs/1801.01275
+====================================================
+EffectiveSan: Type and Memory Error Detection using Dynamically Typed C/C++ (Gregory J. Duck - 19 April, 2018)
+We evaluate EffectiveSan against the SPEC2006 benchmark suite and the Firefox web browser, and detect several new type and memory errors
+Link: https://arxiv.org/abs/1710.06125
+====================================================
+Collaboration Success Factors in an Online Music Community (Fabio Calefato - 18 October, 2017)
+Online communities have been able to develop large, open-source software (OSS) projects like Linux and Firefox throughout the successful collaborations carried out by their members over the Internet
+Link: https://arxiv.org/abs/1710.00366
+====================================================
+Botnet in the Browser: Understanding Threats Caused by Malicious Browser Extensions (Raffaello Perrotta - 27 September, 2017)
+We systematically categorize, describe and implement these attacks against Chrome, Firefox and Firefox-for-Android, and verify experiments on Windows, Linux and Android systems
+Link: https://arxiv.org/abs/1709.09577
+====================================================
+Fluid Passwords - Mitigating the effects of password leaks at the user level (Michael Farcasin - 30 August, 2017)
+We implemented our algorithm as a Firefox add-on that automatically resets a user's password when they log in to their account, and stores the new password in the built-in Firefox password manager.
+Link: https://arxiv.org/abs/1708.09333
+====================================================
+Forensic Investigation of Social Media and Instant Messaging Services in Firefox OS: Facebook, Twitter, Google+, Telegram, OpenWapp and Line as Case Studies (Mohd Najwadi Yusoff - 25 June, 2017)
+In this chapter, we report the results of our investigation and analysis of social media and instant messaging services in Firefox OS. Our analysis may pave the way for future forensic investigators to trace and examine residual remnants of forensics value in FireFox OS.
+Link: https://arxiv.org/abs/1706.08062
+====================================================
+Network Traffic Forensics on Firefox Mobile OS: Facebook, Twitter and Telegram as Case Studies (Mohd Najwadi Yusoff - 25 June, 2017)
+We utilized a Firefox OS simulator to generate relevant traffic while all communication data were captured using network monitoring tools. This paper as the first focused study on mobile Firefox OS network traffic analysis should pave the way for the future research in this direction.
+Link: https://arxiv.org/abs/1706.08056
+====================================================
+Anvaya: An Algorithm and Case-Study on Improving the Goodness of Software Process Models generated by Mining Event-Log Data in Issue Tracking System (Prerna Juneja - 22 November, 2015)
+We apply process map discovery techniques to mine event trace data generated from ITS of open source Firefox browser project to generate and study process models
+Link: https://arxiv.org/abs/1511.07023
+====================================================
+The Case for a General and Interaction-based Third-party Cookie Policy (Istemi Ekin Akkus - 12 June, 2015)
+We implemented a proof-of-concept of our policy as browser extensions for Mozilla Firefox and Google Chrome
+Link: https://arxiv.org/abs/1506.04107
+====================================================
+Because we care: Privacy Dashboard on Firefox OS (Marta Piekarska - 12 June, 2015)
+We have implemented our solution on FirefoxOS and conducted user studies to verify the usefulness and usability of our tool
+Link: https://arxiv.org/abs/1506.04105
+====================================================
+Experience Report: Developing the Servo Web Browser Engine using Rust (Brian Anderson - 26 May, 2015)
+All modern web browsers - Internet Explorer, Firefox, Chrome, Opera, and Safari - have a core rendering engine written in C++
+Link: https://arxiv.org/abs/1505.07383
+====================================================
+A First Look at Firefox OS Security (Daniel Defreez - 28 October, 2014)
+With Firefox OS, Mozilla is making a serious push for an HTML5-based mobile platform. In order to assuage security concerns over providing hardware access to web applications, Mozilla has introduced a number of mechanisms that make the security landscape of Firefox OS distinct from both the desktop web and other mobile operating systems
+Link: https://arxiv.org/abs/1410.7754
+====================================================
+A Novel Approach for Canvas Accessibility Problem in HTML5 (Paniz Alipour Aghdam - 18 February, 2014)
+This paper utilizes the content-based image retrieval (CBIR) technique as well as code mapping embedded in a Firefox extension to present a novel approach in order to make Canvas interactive user interface accessible
+Link: https://arxiv.org/abs/1402.4410
+====================================================
+TrackMeNot-so-good-after-all (Rami Al-Rfou&#39; - 1 November, 2012)
+TrackMeNot is a Firefox plugin with laudable intentions - protecting your privacy
+Link: https://arxiv.org/abs/1211.0320
+====================================================
+SSL Enhancement (Fenil Kavathia - 17 September, 2012)
+In this article we depict this attack and to nullify it, we have proposed a technique cum practical solution to strengthen data security by developing mozilla-firefox add-on and servlet code which will strengthen our defense against the https hijacking attacks.
+Link: https://arxiv.org/abs/1209.3557
+====================================================
+Optimizing real world applications with GCC Link Time Optimization (T. Glek - 3 November, 2010)
+In particular we focus on Firefox web browser
+Link: https://arxiv.org/abs/1010.2196
+====================================================
+EphPub: Toward Robust Ephemeral Publishing (Claude Castelluccia - 18 October, 2011)
+Finally, we propose Firefox and Thunderbird extensions that provide ephemeral publishing capabilities, as well as a command-line tool to create ephemeral files.
+Link: https://arxiv.org/abs/1003.5510
+====================================================
+WebNC: efficient sharing of web applications (Laurent Denoue - 24 August, 2009)
+The resulting webcasts require very little bandwidth and are viewable on any modern web browser including Firefox and Internet Explorer as well as browsers on the iPhone and Android platforms.
+Link: https://arxiv.org/abs/0908.3361
+====================================================

@@ -1,0 +1,379 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Timelines for In-Code Discovery of Zero-Day Vulnerabilities and Supply-Chain Attacks (Andrew J. Lohn - 31 August, 2018)
+We analyze the version-to-version changes in three types of open source software (Mozilla Firefox, GNU/Linus, and glibc) to understand the rate at which the various pieces of code are amended and find that much of the revision behavior can be captured with a simple intuitive model. We use that model and the data from over a billion unique lines of code in 87 different versions of software to specify the bounds for in-code discoverability of vulnerabilities - from expertly hidden to obviously observable.
+Link: https://arxiv.org/abs/1808.10062
+====================================================
+oo7: Low-overhead Defense against Spectre Attacks via Binary Analysis (Guanhua Wang - 19 July, 2018)
+Due to the accuracy of our analysis, oo7 suggests inserting less fences, and is shown experimentally to impose acceptably low performance overheads; less than 2% performance overhead is observed in our experiments on GNU Core utilities. Moreover, the accuracy of the analysis allows oo7 to effectively detect fourteen (14) out of the fifteen (15) Spectre vulnerable code patterns proposed by Paul Kocher, a feat that could not be achieved by the Spectre mitigation in C/C++ compiler proposed by Microsoft
+Link: https://arxiv.org/abs/1807.05843
+====================================================
+Simultaneous Solving of Batched Linear Programs on a GPU (Amit Gurung - 21 February, 2018)
+The performance of the batched LP solver is compared against sequential solving in the CPU using the open source solver GLPK (GNU Linear Programming Kit) and the CPLEX solver from IBM. The evaluation on selected LP benchmarks from the Netlib repository displays a maximum speed-up of 95x and 5x with respect to CPLEX and GLPK solver respectively, for a batch of 1e5 LPs
+Link: https://arxiv.org/abs/1802.08557
+====================================================
+Deep Neural Network Architectures for Modulation Classification (Xiaoyu Liu - 5 January, 2018)
+Recently in [1], a framework has been introduced by generating a dataset using GNU radio that mimics the imperfections in a real wireless channel, and uses 10 different modulation types. Here, we follow the framework of [1] and find deep neural network architectures that deliver higher accuracy than the state of the art. We tested the architecture of [1] and found it to achieve an accuracy of approximately 75% of correctly recognizing the modulation type. We first tune the CNN architecture of [1] and find a design with four convolutional layers and two dense layers that gives an accuracy of approximately 83.8% at high SNR. We then develop architectures based on the recently introduced ideas of Residual Networks (ResNet [2]) and Densely Connected Networks (DenseNet [3]) to achieve high SNR accuracies of approximately 83.5% and 86.6%, respectively. Finally, we introduce a Convolutional Long Short-term Deep Neural Network (CLDNN [4]) to achieve an accuracy of approximately 88.5% at high SNR.
+Link: https://arxiv.org/abs/1712.00443
+====================================================
+BinPro: A Tool for Binary Source Code Provenance (Dhaval Miyani - 2 November, 2017)
+Enforcing open source licenses such as the GNU General Public License (GPL), analyzing a binary for possible vulnerabilities, and code maintenance are all situations where it is useful to be able to determine the source code provenance of a binary. Our experiments show that on average BinPro computes a similarity of 81% for matching binaries and source code of the same applications, and an average similarity of 25% for binaries and source code of similar but different applications
+Link: https://arxiv.org/abs/1711.00830
+====================================================
+A Novel Hybrid Quicksort Algorithm Vectorized using AVX-512 on Intel Skylake (Berenger Bramas - 12 March, 2018)
+Our results demonstrate that our approach is faster than two libraries of reference: the GNU \emph{C++} sort algorithm by a speedup factor of 4, and the Intel IPP library by a speedup factor of 1.4.
+Link: https://arxiv.org/abs/1704.08579
+====================================================
+Source File Set Search for Clone-and-Own Reuse Analysis (Takashi Ishio - 26 April, 2017)
+The tool took about two hours to report the original components from 10 million files in Debian GNU/Linux packages. Recall of the top-five components in the extracted lists is 0.907, while recall of a baseline using SHA-1 file hash is 0.773, according to the ground truth recorded in the source code repositories.
+Link: https://arxiv.org/abs/1704.08395
+====================================================
+Benchmarking the computing resources at the Instituto de AstrofÃ­sica de Canarias (Nicola Caon - 16 February, 2017)
+In particular, we run the "Polyhedron Fortran Benchmarks" suite, using three different compilers: GNU Fortran Compiler, Intel Fortran Compiler and the PGI Fortran Compiler; execution times are then normalized to the reference values published by Polyhedron. The same tests were run multiple times on a same PCs, and on 3 to 5 PCs of the same model (whenever possible) to check for repeatability and consistency of the results. We found that in general execution times, for a given PC model, are consistent within an uncertainty of about 10%, and show a gain in CPU speed of a factor of about 3 between the oldest PCs used at the IAC (7-8 years old) and the newest ones.
+Link: https://arxiv.org/abs/1702.04942
+====================================================
+Solving Batched Linear Programs on GPU and Multicore CPU (Amit Gurung - 26 September, 2016)
+The performance of the batched LP solver is compared against sequential solving in the CPU using an open source solver GLPK (GNU Linear Programming Kit). For the first type, we show a maximum speedup of $18.3\times$ when running a batch of $50k$ LPs of size $100$ ($100$ variables, $100$ constraints). For the second type, a maximum speedup of $12\times$ is obtained with a batch of $10k$ LPs of size $200$. For the third type, we show a significant speedup of $63\times$ in solving a batch of nearly $4$ million LPs of size 5 and $34\times$ in solving 6 million LPs of size $28$. The thread parallel GLPK implementation runs $9.6\times$ faster in solving a batch of $1e5$ LPs of size $100$, on a $12$-core Intel Xeon processor
+Link: https://arxiv.org/abs/1609.08114
+====================================================
+USBee: Air-Gap Covert-Channel via Electromagnetic Emission from USB (Mordechai Guri - 30 August, 2016)
+We evaluate the transmitter by building a receiver and demodulator using GNU Radio. Our evaluation shows that USBee can be used for transmitting binary data to a nearby receiver at a bandwidth of 20 to 80 BPS (bytes per second).
+Link: https://arxiv.org/abs/1608.08397
+====================================================
+Sound Static Deadlock Analysis for C/Pthreads (Extended Version) (Daniel Kroening - 23 July, 2016)
+In our experimental evaluation, we succeeded to prove deadlock-freedom for 262 programs from the Debian GNU/Linux distribution with in total 2.6 MLOC in less than 11 hours.
+Link: https://arxiv.org/abs/1607.06927
+====================================================
+Spectrum Occupancy Measurement: An Autocorrelation based Scanning Technique using USRP (Sriram Subramaniam - 3 July, 2016)
+The technique was implemented using Software Defined Radio units and GNU Radio software. The survey was conducted in Grand Forks, North Dakota, over a frequency range of 824 MHz to 5.8 GHz
+Link: https://arxiv.org/abs/1607.00590
+====================================================
+On-the-Fly TCP Acceleration with Miniproxy (Giuseppe Siracusano - 20 May, 2016)
+Miniproxy's connection handling performance is comparable to that of full-fledged GNU/Linux TCP proxy implementations, but its minimalistic footprint enables new use cases. Specifically, Miniproxy requires as little as 6 MB to run and boots in tens of milliseconds, enabling massive consolidation, on-the-fly instantiation and edge cloud computing scenarios
+Link: https://arxiv.org/abs/1605.06285
+====================================================
+A Dynamic Spectrum Access on SDR for IEEE 802.15.4 networks (Rafik Zitouni - 11 May, 2015)
+However, the algorithm and the energy-sensor have been implemented over GNU Radio and Universal Software Radio Peripheral (USRP) SDR. The obtained PSR is improved by 80\% when the SU accomplished DSA rather than a static access.
+Link: https://arxiv.org/abs/1505.02653
+====================================================
+Precision-Aware application execution for Energy-optimization in HPC node system (Radim VavÅÃ­k - 26 January, 2015)
+In this paper, we propose a HPC system running with a GNU/Linux OS and a Real Time Resource Manager (RTRM) that is aware and monitors the healthy of the platform. The paper shows a model execution which can improve the precision of results by 65% in average by increasing the number of iterations from 1e3 to 1e4. execution time is computed by the RTOS with the time overhead less than 10% against a native execution.
+Link: https://arxiv.org/abs/1501.04557
+====================================================
+Teaching Deep Convolutional Neural Networks to Play Go (Christopher Clark - 27 January, 2015)
+Our convolutional neural networks can consistently defeat the well known Go program GNU Go, indicating it is state of the art among programs that do not use Monte Carlo Tree Search
+Link: https://arxiv.org/abs/1412.3409
+====================================================
+Jabalin: a Comprehensive Computational Model of Modern Standard Arabic Verbal Morphology Based on Traditional Arabic Prosody (Alicia Gonzalez Martinez - 29 June, 2014)
+The generation system is also available under a GNU GPL 3 license.
+Link: https://arxiv.org/abs/1406.7483
+====================================================
+Kaggle LSHTC4 Winning Solution (Antti Puurula - 9 May, 2014)
+All code is open source, released under GNU GPL 2.0, and GPL 3.0 for Weka and Meka dependencies.
+Link: https://arxiv.org/abs/1405.0546
+====================================================
+Steganography - coding and intercepting the information from encoded pictures in the absence of any initial information (Monika Kwiatkowska - 2 February, 2014)
+Source code is available under GNU GPL v3 license and are available in a repository OLib [5].
+Link: https://arxiv.org/abs/1404.2237
+====================================================
+IEEE 802.15.4 transceiver for the 868/915 MHz band using Software Defined Radio (Rafik Zitouni - 30 April, 2013)
+The whole transmitter and receiver chain has been defined in software using the GNU Radio software project [4] and the USRP (Universal Software Radio Peripheral) platform from Ettus Research [5]
+Link: https://arxiv.org/abs/1304.8028
+====================================================
+Design, implementation and experiment of a YeSQL Web Crawler (Pierre Joulin - 21 December, 2012)
+We describe a novel, "focusable", scalable, distributed web crawler based on GNU/Linux and PostgreSQL that we designed to be easily extendible and which we have released under a GNU public licence. We also report a first use case related to an analysis of Twitter's streams about the french 2012 presidential elections and the URL's it contains.
+Link: https://arxiv.org/abs/1212.5633
+====================================================
+A Wireless Channel Sounding System for Rapid Propagation Measurements (Muhammad Nazmul Islam - 21 November, 2012)
+We design and implement a rapid wireless channel sounding system, using the Universal Software Radio Peripheral (USRP) and GNU Radio software, to address these demands. Our design can be used for both indoor and outdoor channel measurements in the frequency range of 1 MHz to 6 GHz
+Link: https://arxiv.org/abs/1211.4940
+====================================================
+PlotXY: a high quality plotting system for the Herschel Interactive Processing Environment (HIPE), and the astronomical community (Pasquale Panuzzo - 17 July, 2012)
+The entire code of HIPE is written in Java and is open source released under the GNU Lesser General Public License version 3
+Link: https://arxiv.org/abs/1207.3921
+====================================================
+TeXmacs-Reduce interface (Andrey Grozin - 12 April, 2012)
+This tutorial (based on the talk at the TeXmacs workshop in Faro, Portugal, February 26 - March 2, 2012) describes the new and improved Reduce plugin in GNU TeXmacs.
+Link: https://arxiv.org/abs/1204.3020
+====================================================
+FORM version 4.0 (J. Kuipers - 29 March, 2012)
+Lastly, FORM 4.0 has become available as open source under the GNU General Public License version 3.
+Link: https://arxiv.org/abs/1203.6543
+====================================================
+mlpy: Machine Learning Python (Davide Albanese - 1 March, 2012)
+mlpy is a Python Open Source Machine Learning library built on top of NumPy/SciPy and the GNU Scientific Libraries. mlpy is multiplatform, it works with Python 2 and 3 and it is distributed under GPL3 at the website http://mlpy.fbk.eu.
+Link: https://arxiv.org/abs/1202.6548
+====================================================
+A Topic Modeling Toolbox Using Belief Propagation (Jia Zeng - 5 April, 2012)
+The source codes are freely available under the GNU General Public Licence, Version 1.0 at https://mloss.org/software/view/399/.
+Link: https://arxiv.org/abs/1201.0838
+====================================================
+SAFIUS - A secure and accountable filesystem over untrusted storage (V Sriram - 16 March, 2008)
+SAFIUS has been implemented on a GNU/Linux based system modifying OpenGFS. Preliminary performance studies show that SAFIUS has a tolerable overhead for providing secure storage: while it has an overhead of about 50% of OpenGFS in data intensive workloads (due to the overhead of performing encryption/decryption in software), it is comparable (or better in some cases) to OpenGFS in metadata intensive workloads.
+Link: https://arxiv.org/abs/0803.2365
+====================================================
+FOSS-Based Grid Computing (A. Mani - 17 July, 2015)
+It is based on a technical report entitled 'Grid-Computing Using GNU/Linux' by the present author. This article was written in 2006 and should be of historical interest.
+Link: https://arxiv.org/abs/cs/0608122
+====================================================
+Architecture of an Open-Sourced, Extensible Data Warehouse Builder: InterBase 6 Data Warehouse Builder (IB-DWB) (Maurice HT Ling - 10 June, 2006)
+IB-DWB is currently being hosted by sourceforge.net (Project Unix Name: ib-dwb), licensed under GNU General Public License, Version 2.
+Link: https://arxiv.org/abs/cs/0307015
+====================================================
+Learning Embeddings of Directed Networks with Text-Associated Nodes---with Applications in Software Package Dependency Networks (Shudan Zhong - 11 September, 2018)
+We create two new labeled directed networks with text-associated node: The package dependency networks in two popular GNU/Linux distributions, Debian and Fedora
+Link: https://arxiv.org/abs/1809.02270
+====================================================
+Database Operations in D4M.jl (Lauren Milechin - 13 August, 2018)
+In this work, we extend D4M.jl to include many of the same database capabilities that the MATLAB(R)/GNU Octave implementation provides. Here we will describe the D4M.jl database connector, demonstrate how it can be used, and show that it has comparable or better performance to the original implementation in MATLAB(R)/GNU Octave.
+Link: https://arxiv.org/abs/1808.05138
+====================================================
+DLOPT: Deep Learning Optimization Library (AndrÃ©s Camero - 10 July, 2018)
+This is an open source project developed under the GNU GPL v3 license and it is freely available at https://github.com/acamero/dlopt
+Link: https://arxiv.org/abs/1807.03523
+====================================================
+Practical Decentralized Attribute-Based Delegation using Secure Name Systems (Martin Schanzenbach - 16 May, 2018)
+While current proposals often fail at the practicability, we show how attribute-based delegation can be realized on top of the secure GNU Name System (GNS) to solve an authorization problem in a real-world scenario.
+Link: https://arxiv.org/abs/1805.06398
+====================================================
+reclaimID: Secure, Self-Sovereign Identities using Name Systems and Attribute-Based Encryption (Martin Schanzenbach - 16 May, 2018)
+We present an implementation based on the decentralised GNU Name System (GNS) in combination with ciphertext-policy ABE using type-1 pairings
+Link: https://arxiv.org/abs/1805.06253
+====================================================
+Code Staging in GNU Guix (Ludovic CourtÃ¨s - 4 September, 2017)
+GNU Guix is a " functional " package manager that builds upon earlier work on Nix
+Link: https://arxiv.org/abs/1709.00833
+====================================================
+The MATLAB Toolbox SciXMiner: User's Manual and Programmer's Guide (Ralf Mikut - 11 April, 2017)
+It is licensed under the conditions of the GNU General Public License (GNU-GPL) of The Free Software Foundation.
+Link: https://arxiv.org/abs/1704.03298
+====================================================
+Automatically Tuning the GCC Compiler to Optimize the Performance of Applications Running on Embedded Systems (Craig Blackmore - 11 April, 2017)
+We begin by developing our approach on code compiled by the GNU C Compiler (GCC) for the ARM Cortex-M3 (CM3) processor; and we show how our method outperforms the industry standard -O3 optimization level across a diverse embedded benchmark suite. Although this is a time-consuming process, our approach constructs an optimized variation of -O3, which we call -Ocm3, that realizes nearly two thirds of known available gains on the CM3 and significantly outperforms a more complex state-of-the-art predictive method in cross-validation experiments
+Link: https://arxiv.org/abs/1703.08228
+====================================================
+High Performance Software in Multidimensional Reduction Methods for Image Processing with Application to Ancient Manuscripts (Corneliu T. C. Arsene - 18 July, 2018)
+For the purposes of comparing the computational times and the image results, a CVA method is also implemented in C programming language and using the GNU (GNUs Not Unix) Scientific Library (GSL) and the OpenCV (OPEN source Computer Vision) computer vision programming library.
+Link: https://arxiv.org/abs/1612.06457
+====================================================
+AdversariaLib: An Open-source Library for the Security Evaluation of Machine Learning Algorithms Under Attack (Igino Corona - 15 November, 2016)
+The package is distributed under the GNU General Public License v3, and it is available for download at http://sourceforge.net/projects/adversarialib.
+Link: https://arxiv.org/abs/1611.04786
+====================================================
+D2O - a distributed data object for parallel high-performance computing in Python (T. Steininger - 13 August, 2016)
+D2O is open-source software available under the GNU General Public License v3 (GPL-3) at https://gitlab.mpcdf.mpg.de/ift/D2O
+Link: https://arxiv.org/abs/1606.05385
+====================================================
+GNU Radio Signal Processing Models for Dynamic Multi-User Burst Modems (Timothy J O&#39;Shea - 28 April, 2016)
+Since burst modems are widely used for multi-user channel access and sharing in non-broadcast radio systems, this capability is critical to the development of numerous waveforms in GNU Radio. We use the GNU Radio Event Stream scheduler to demonstrate concise implementations of burst PSK and FSK modems in GNU Radio and compare this with alternate approaches which have been attempted in GNU Radio.
+Link: https://arxiv.org/abs/1604.08397
+====================================================
+Jansen-MIDAS: a multi-level photomicrograph segmentation software based on isotropic undecimated wavelets (Alexandre Fioravante de Siqueira - 25 May, 2016)
+This software is presented in two versions: a text-based version, for GNU Octave, and a graphical user interface (GUI) version, for MathWorks MATLAB
+Link: https://arxiv.org/abs/1604.05921
+====================================================
+Automatic Theorem Proving in Walnut (Hamoon Mousavi - 18 March, 2016)
+It is licensed under GNU General Public License.
+Link: https://arxiv.org/abs/1603.06017
+====================================================
+Multitasking Programming of OBDH Satellite Based On PC-104 (Haryono Haryono - 8 October, 2015)
+In order to do the above method, preparing the environment in our machine has been done, they are installing the Cross Tool Chain, U-Boot, GNU-Linux Kernel Source etc
+Link: https://arxiv.org/abs/1510.02552
+====================================================
+Retinex filtering of foggy images: generation of a bulk set with selection and ranking (Roberto Marazzato - 29 September, 2015)
+In this paper we are proposing the use of GIMP Retinex, a filter of the GNU Image Manipulation Program, for enhancing foggy images
+Link: https://arxiv.org/abs/1509.08715
+====================================================
+Reproducible and User-Controlled Software Environments in HPC with Guix (Ludovic CourtÃ¨s - 26 July, 2015)
+We present GNU Guix and the functional package management paradigm and show how it can improve reproducibility and sharing among researchers with representative use cases.
+Link: https://arxiv.org/abs/1506.02822
+====================================================
+Performance Evaluation of netfilter: A Study on the Performance Loss When Using netfilter as a Firewall (Raik Niemann - 19 February, 2015)
+Since GNU/Linux became a popular operating system on computer network routers, its packet routing mechanisms attracted more interest
+Link: https://arxiv.org/abs/1502.05487
+====================================================
+Twofold exp and log (Evgeny Latkin - 16 February, 2015)
+Performance allows assessing on-fly: twofold texp() over double is ~10x times faster than expq() by GNU quadmath.
+Link: https://arxiv.org/abs/1502.05216
+====================================================
+Estimating the effects of water-induced shallow landslides on soil erosion (Claudio Bosco - 23 January, 2015)
+This proposed methodology is based on the geospatial semantic array programming paradigm and has been implemented on a catchment scale methodology using Geographic Information Systems (GIS) spatial analysis tools and GNU Octave
+Link: https://arxiv.org/abs/1501.05739
+====================================================
+Image Encryption and Decryption in A Modification of ElGamal Cryptosystem in MATLAB (Hayder Raheem Hashim - 19 September, 2014)
+Since the ElGamal cryptosystem over a primitive root of a large prime is used in messages encryption in the free GNU Privacy Guard software, recent versions of PGP, and other cryptosystems
+Link: https://arxiv.org/abs/1412.8490
+====================================================
+Compression of high throughput sequencing data with probabilistic de Bruijn graph (GaÃ«tan Benoit - 18 December, 2014)
+Availability: Open source, under GNU affero GPL License, available for download at http://gatb.inria.fr/software/leon/
+Link: https://arxiv.org/abs/1412.5932
+====================================================
+ASTOR: Evolutionary Automatic Software Repair for Java (Matias Martinez - 24 October, 2014)
+The source code of Astor is licensed under the GNU General Public Licence (GPL v2).
+Link: https://arxiv.org/abs/1410.6651
+====================================================
+EnKF-C user guide (Pavel Sakov - 8 May, 2018)
+It is coded in C for GNU/Linux platform and can work either in EnKF or ensemble optimal interpolation (EnOI) mode.
+Link: https://arxiv.org/abs/1410.1233
+====================================================
+An Experimental Study of Cryptography Capability using Chained Key Exchange Scheme for Embedded Devices (Mohd Anuar Mat Isa - 29 August, 2014)
+To enable RasberberryPi system on chip (SoC) to perform cryptographic computation, we modified the GNU GMP Bignum library to support a simple primitive cryptographic computation in the UBOOT firmware
+Link: https://arxiv.org/abs/1409.0065
+====================================================
+GIMP and Wavelets for Medical Image Processing: Enhancing Images of the Fundus of the Eye (Amelia Carolina Sparavigna - 20 August, 2014)
+We will see in particular, that combining the use of GIMP, the GNU Image Manipulation Program, with the wavelet filter of Iris, a program well-known for processing astronomical images, the result is giving images which can be alternative of those obtained from segmentation.
+Link: https://arxiv.org/abs/1408.4703
+====================================================
+JIDT: An information-theoretic toolkit for studying the dynamics of complex systems (Joseph T. Lizier - 3 December, 2014)
+We introduce the Java Information Dynamics Toolkit (JIDT): a Google code project which provides a standalone, (GNU GPL v3 licensed) open-source code implementation for empirical estimation of information-theoretic measures from time-series data. Furthermore, while written in Java, the toolkit can be used directly in MATLAB, GNU Octave, Python and other environments
+Link: https://arxiv.org/abs/1408.3270
+====================================================
+A Report of a Significant Error On a Frequently Used Pseudo Random Number Generator (Ayse Ferhan Yesil - 7 August, 2014)
+Here, we introduce a simple Poisson process whose simulation gives systematic errors when the very commonly used random number generator of the GNU C Library (Glibc) is utilised
+Link: https://arxiv.org/abs/1408.1900
+====================================================
+An Efficient Thread Mapping Strategy for Multiprogramming on Manycore Processors (Ashkan Tousimojarad - 31 March, 2014)
+We show that our thread mapping scheme can outperform the native GNU/Linux thread scheduler in both single-programming and multiprogramming environments.
+Link: https://arxiv.org/abs/1403.8020
+====================================================
+Biological effects and equivalent doses in radiotherapy: a software solution (Cyril Voyant - 23 August, 2013)
+We therefore propose a calculation interface under the GNU license to be used for equivalent doses, biological doses, and normal tumor complication probability (Lyman model)
+Link: https://arxiv.org/abs/1308.5906
+====================================================
+FpSynt: a fixed-point datapath synthesis tool for embedded systems (Ilya Y. Zhbannikov - 31 July, 2013)
+FpSynt is available under the GNU General Public License from the following GitHub repository: http://github.com/izhbannikov/FPSYNT
+Link: https://arxiv.org/abs/1307.8401
+====================================================
+Functional Package Management with Guix (Ludovic CourtÃ¨s - 20 May, 2013)
+We describe the design and implementation of GNU Guix, a purely functional package manager designed to support a complete GNU/Linux distribution
+Link: https://arxiv.org/abs/1305.4584
+====================================================
+What really happened on September 15th 2008? Getting The Most from Your Personal Information with Memacs (Karl Voit - 4 April, 2013)
+Being elegantly simple and open, Memacs uses already existing visualization features of GNU Emacs and Org-mode to provide a promising platform for life-logging, Quantified Self movement, and people looking for advanced Personal Information Management (PIM) in general.
+Link: https://arxiv.org/abs/1304.1332
+====================================================
+ZKCM: a C++ library for multiprecision matrix computation with applications in quantum information (Akira SaiToh - 15 April, 2013)
+ZKCM is a C++ library developed for the purpose of multiprecision matrix computation, on the basis of the GNU MP and MPFR libraries
+Link: https://arxiv.org/abs/1303.6034
+====================================================
+`CodeAliker' - Plagiarism Detection on the Cloud (Nitish Upreti - 12 August, 2012)
+It has been made available under the GNU's General Public License as a Free and Open Source Software.
+Link: https://arxiv.org/abs/1208.2486
+====================================================
+PAGAI: a path sensitive static analyzer (Julien Henry - 17 July, 2012)
+We compared the time and precision of various combinations of analysis algorithms and abstract domains, with extensive experiments both on personal benchmarks and widely available GNU programs.
+Link: https://arxiv.org/abs/1207.3937
+====================================================
+C to O-O Translation: Beyond the Easy Stuff (Marco Trudel - 19 September, 2013)
+The translation is completely automatic and supports the entire C language (ANSI, as well as many GNU C Compiler extensions, through CIL) as used in practice, including its usage of native system libraries and inlined assembly code
+Link: https://arxiv.org/abs/1206.5648
+====================================================
+Collaboration for enhancing the system development process in open source diligence (Murtaza Hussain Shaikh - 8 February, 2012)
+Some of the issues also that are found in the development phase of the open source have been identified and a proposed solution by explaining Successful communities such as GNU, the Apache Software Foundation, and Eclipse Foundation is discusses in this research article
+Link: https://arxiv.org/abs/1202.1717
+====================================================
+Variations of images to increase their visibility (Amelia Carolina Sparavigna - 17 January, 2012)
+Before a numerical model, I propose an experimental approach, based on a tool of Gimp, GNU Image Manipulation Program, in order to visualize how the image variations can be
+Link: https://arxiv.org/abs/1201.3233
+====================================================
+Evolution of a Modular Software Network (Miguel A. Fortuna - 22 November, 2011)
+The Debian GNU/Linux operating system allows us to explore the evolution of a complex network in a novel way
+Link: https://arxiv.org/abs/1111.5251
+====================================================
+A multiprecision matrix calculation library and its extension library for a matrix-product-state simulation of quantum computing (Akira SaiToh - 14 November, 2011)
+A C++ library, named ZKCM, has been developed for the purpose of multiprecision matrix calculations, which is based on the GNU MP and MPFR libraries
+Link: https://arxiv.org/abs/1111.3124
+====================================================
+A New Vectorization Technique for Expression Templates in C++ (J. Progsch - 6 September, 2011)
+Benchmarks were conducted using the Intel C++ compiler and GNU Compiler Collection to assess the performance of our library relative to Intel's Math Kernel Library as well as the Eigen template library
+Link: https://arxiv.org/abs/1109.1264
+====================================================
+Aligning component upgrades (Roberto Di Cosmo - 1 September, 2011)
+Modern software systems, like GNU/Linux distributions or Eclipse-based development environment, are often deployed by selecting components out of large component repositories
+Link: https://arxiv.org/abs/1109.0456
+====================================================
+Proceedings Second Workshop on Logics for Component Configuration (Conrad Drescher - 30 August, 2011)
+Some well-known examples of complex systems of components in the world of Free and Open Source software are the different distributions for GNU/Linux, BSD, or Eclipse plugins
+Link: https://arxiv.org/abs/1108.6097
+====================================================
+Estudo de Viabilidade de uma Plataforma de Baixo Custo para Data Warehouse (Eduardo Cunha de Almeida - 2 August, 2011)
+We consider as a low cost platform the use of open source software like the PostgreSQL database system and the GNU/Linux operational system
+Link: https://arxiv.org/abs/1108.0729
+====================================================
+On the Implementation of GNU Prolog (Daniel Diaz - 15 December, 2010)
+GNU Prolog also includes an extensible and high-performance finite domain constraint solver, integrated with the Prolog language but implemented using independent lower-level mechanisms. This article discusses the main issues involved in designing and implementing GNU Prolog: requirements, system organization, performance and portability issues as well as its position with respect to other Prolog system implementations and the ISO standardization initiative.
+Link: https://arxiv.org/abs/1012.2496
+====================================================
+Channel Sounding for the Masses: Low Complexity GNU 802.11b Channel Impulse Response Estimation (Mohammad H. Firooz - 20 July, 2010)
+The system implementation, using the universal software radio peripheral (USRP) and GNU Radio, is described and compared to previous work
+Link: https://arxiv.org/abs/1007.3476
+====================================================
+Extending scientific computing system with structural quantum programming capabilities (P. Gawron - 8 June, 2010)
+We also present the implementation of introduced structures in GNU Octave language for scientific computing. This package allows also to incorporate high-level programming concepts into the simulation in GNU Octave and Matlab
+Link: https://arxiv.org/abs/1006.1549
+====================================================
+GEDI: Scalable Algorithms for Genotype Error Detection and Imputation (Justin Kennedy - 9 November, 2009)
+The open source C++ code of GEDI, released under the GNU General Public License, is available for download at http://dna.engr.uconn.edu/software/GEDI/
+Link: https://arxiv.org/abs/0911.1765
+====================================================
+Simulation of Resource Usage in Parallel Evolutionary Peptide Optimization using JavaSpaces Technology (Andias Wira-Alam - 13 September, 2009)
+This optimization process uses many software applications in a cluster running GNU/Linux Operating System that perform special tasks
+Link: https://arxiv.org/abs/0909.2297
+====================================================
+Solving package dependencies: from EDOS to Mancoosi (Ralf Treinen - 21 November, 2008)
+Mancoosi is the natural continuation of the EDOS project which has already contributed tools for distribution-wide quality assurance in Debian and other GNU/Linux distributions. The consortium behind the project consists of several European public and private research institutions as well as some commercial GNU/Linux distributions from Europe and South America
+Link: https://arxiv.org/abs/0811.3620
+====================================================
+A Call-Graph Profiler for GNU Octave (Muthiah Annamalai - 20 October, 2008)
+GNU Octave simplifies matrix computation for use in modeling or simulation. The profiler code provides clean interfaces to internals of GNU Octave, for other (newer) profiling tools on GNU Octave.
+Link: https://arxiv.org/abs/0810.3468
+====================================================
+Index wiki database: design and experiments (A. A. Krizhanovsky - 23 September, 2008)
+The entire source code of the indexing software and the generated index databases are freely available under GPL (GNU General Public License).
+Link: https://arxiv.org/abs/0808.1753
+====================================================
+Design and Implementation of a Tracer Driver: Easy and Efficient Dynamic Analyses of Constraint Logic Programs (Ludovic Langevine - 25 April, 2008)
+The proposed tracer driver has been designed in the context of constraint logic programming; experiments have been made within GNU-Prolog
+Link: https://arxiv.org/abs/0804.4116
+====================================================
+Preventing Coordinated Attacks Via Distributed Alert Exchange (Joaquin Garcia-Alfaro - 26 February, 2008)
+Furthermore, we present the design and implementation of our approach based on existing publish/subscribe middleware and evaluate our approach for GNU/Linux systems.
+Link: https://arxiv.org/abs/0802.3718
+====================================================
+Octave-GTK: A GTK binding for GNU Octave (Muthiah Annamalai - 28 April, 2006)
+This paper discusses the problems faced with interoperability between two programming languages, with respect to GNU Octave, and GTK API written in C, to provide the GTK API on Octave.Octave-GTK is the fusion of two different API's: one exported by GNU Octave [scientific computing tool] and the other GTK [GUI toolkit]; this enables one to use GTK primitives within GNU Octave, to build graphical front ends,at the same time using octave engine for number crunching power
+Link: https://arxiv.org/abs/cs/0604073
+====================================================
+A Fixed-Point Type for Octave (David Bateman - 10 April, 2006)
+This toolbox is released under the GNU Public License, and can be used to model the losses in algorithms implemented in hardware
+Link: https://arxiv.org/abs/cs/0604039
+====================================================
+Compact Approximation of Lattice Functions with Applications to Large-Alphabet Text Search (Paolo Boldi - 11 June, 2003)
+The ideas described in this paper have been implemented as free software under the GNU General Public License within the MG4J project (http://mg4j.dsi.unimi.it/).
+Link: https://arxiv.org/abs/cs/0306046
+====================================================
+CLPGUI: a generic graphical user interface for constraint logic programming over finite domains (Francois Fages - 11 July, 2002)
+We describe the current implementation of the annotations and of the interactive execution model in GNU-Prolog, and report some evaluation results.
+Link: https://arxiv.org/abs/cs/0207048
+====================================================
+Modernising the ESRF control system with GNU/Linux (A. Gotz - 9 November, 2001)
+The main frontend operating system will be GNU/Linux running on Intel/x86 and Motorola/68k. This poster describes how GNU/Linux is being used to modernise the control system and what problems have been encountered so far
+Link: https://arxiv.org/abs/cs/0111033
+====================================================
+TeXmacs interfaces to Maxima, MuPAD and REDUCE (A. G. Grozin - 31 July, 2001)
+GNU TeXmacs is a free wysiwyg word processor providing an excellent typesetting quality of texts and formulae
+Link: https://arxiv.org/abs/cs/0107036
+====================================================
+Value Withdrawal Explanation in CSP (Gerard Ferrand - 11 December, 2000)
+This work is devoted to constraint solving motivated by the debugging of constraint logic programs a la GNU-Prolog
+Link: https://arxiv.org/abs/cs/0012005
+====================================================
+C++ programming language for an abstract massively parallel SIMD architecture (Alessandro Lonardo - 19 May, 2000)
+The proposed language has been implemented as a porting of the GNU C++ Compiler on a SIMD supercomputer.
+Link: https://arxiv.org/abs/cs/0005023
+====================================================

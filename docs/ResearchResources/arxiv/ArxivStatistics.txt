@@ -1,0 +1,858 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+An Initial Step Towards Organ Transplantation Based on GitHub Repository (Shangwen Wang - 10 October, 2018)
+We analyze statistics from 12 representative GitHub projects and get the conclusion that 1) there are abundant practical organs existing in commits with add as a key word in the comments; 2) organs in this repository mainly possess four kinds of contents; 3) approximately 70% of the organs are easy-to-transplant. Implementing our transplantation strategy for different kinds of organs, we manually extract 30 organs in three different programming languages, namely Java, Python, and C, and make unit tests for them utilizing four testing tools (two for Java, one for Python, and one for C). All the 30 organs extracted by our strategy possess good performances in unit test with the highest passing rate reaching 97% and the lowest one still passing 80% and the three Java organs work well in the new system, providing three new functionalities for the host
+Link: https://arxiv.org/abs/1810.04825
+====================================================
+Leveraging local network communities to predict academic performance (David Burstein - 10 October, 2018)
+We evaluate the importance of these learning communities by predicting academic outcomes in an introductory college statistics course with 103 students. In particular, we observe that by including these learning community predictors, the resulting model is 68 times more likely to be the correct model than the current state-of-the-art centrality network models in the literature.
+Link: https://arxiv.org/abs/1810.04730
+====================================================
+On Tracking the Physicality of Wi-Fi: A Subspace Approach (Mohammed Alloulah - 9 October, 2018)
+Our results demonstrate that proposed channel statistics alone can robustly reproduce state of the art application-specific feature engineering baseline, however, across multiple usage scenarios
+Link: https://arxiv.org/abs/1810.04302
+====================================================
+Performance and sensitivities of home detection from mobile phone data (Maarten Vanhoof - 26 September, 2018)
+Large-scale location based traces, such as mobile phone data, have been identified as a promising data source to complement or even enrich official statistics. We analyze the validity of 9 different Home Detection Algorithms (HDAs), and we assess different sources of uncertainty. Based on 225 different set-ups for the home detection of around 18 million users we discuss different measures for validation and investigate sensitivity to user choices such as HDA parameter choice and observation period restriction. Our findings show that nation-wide performance of home detection is moderate at best, with correlations to ground truth maximizing at 0.60 only
+Link: https://arxiv.org/abs/1809.09911
+====================================================
+On-field player workload exposure and knee injury risk monitoring via deep learning (William R. Johnson - 21 September, 2018)
+Traditionally, this analysis has relied on captive laboratory force plates and associated downstream biomechanical modeling, and many researchers have approached the problem of portability by extrapolating models built on linear statistics. The strongest overall mean correlation to source modeling of 0.8895 was achieved over the initial 33 % of stance phase for sidestepping
+Link: https://arxiv.org/abs/1809.08016
+====================================================
+Assessing the quality of home detection from mobile phone data for official statistics (Maarten Vanhoof - 20 September, 2018)
+In this paper, we focus on arguably the most important problem hindering the application of mobile phone data in official statistics: detecting home locations. We support our argument by analysing the performance of five home detection algorithms (HDAs) that have been applied to a large, French, Call Detailed Record (CDR) dataset (~18 million users, 5 months). Our results show that criteria choice in HDAs influences the detection of home locations for up to about 40% of users, that HDAs perform poorly when compared with a validation dataset (the 35Â°-gap), and that their performance is sensitive to the time period and the duration of observation
+Link: https://arxiv.org/abs/1809.07567
+====================================================
+Power Systems Topology and State Estimation by Graph Blind Source Separation (Sivan Grotas - 17 September, 2018)
+The ML-BEST is shown to be only a function of the states second-order statistics. Since the topology recovery stage of the ML-BEST approach results in a high-complexity optimization problem, we propose two low-complexity methods to implement it 1) Two- phase topology recovery, which is based on solving the relaxed convex optimization and then finding the closest Laplacian matrix, and 2) Augmented Lagrangian topology recovery
+Link: https://arxiv.org/abs/1809.06161
+====================================================
+Graph Pattern Mining and Learning through User-defined Relations (Extended Version) (Carlos H. C. Teixeira - 13 September, 2018)
+R-GPM provides efficient estimators for these statistics by employing a MCMC sampling algorithm combined with several optimizations. Finally,we show that R-GPM is scalable, providing near-linear speedups on 44 cores in all of our tests.
+Link: https://arxiv.org/abs/1809.05241
+====================================================
+Flow Length and Size Distributions in Campus Internet Traffic (Piotr Jurkiewicz - 11 September, 2018)
+The statistics were calculated based on the real traffic traces comprising 4 billions of flows and collected at the Internet-facing interface of campus network
+Link: https://arxiv.org/abs/1809.03486
+====================================================
+Aesthetic Discrimination of Graph Layouts (Moritz Klammler - 4 September, 2018)
+The feature vectors used as inputs to the model are based on known graph drawing quality metrics, classical statistics, information-theoretical quantities, and two-point statistics inspired by methods of condensed matter physics. The mean prediction accuracy of our model is 95.70%, outperforming discriminators based on stress and on the linear combination of popular quality metrics by a statistically significant margin.
+Link: https://arxiv.org/abs/1809.01017
+====================================================
+Same Stats, Different Graphs (Graph Statistics and Why We Need Graph Drawings) (Hang Chen - 24 September, 2018)
+To study the relationships between different graph properties and statistics, we examine all low-order (<= 10) non-isomorphic graphs and provide a simple visual analytics system to explore correlations across multiple graph properties
+Link: https://arxiv.org/abs/1808.09913
+====================================================
+Creating a surrogate commuter network from Australian Bureau of Statistics census data (Kristopher M. Fair - 27 August, 2018)
+Between the 2011 and 2016 national censuses, the Australian Bureau of Statistics changed its anonymity policy compliance system for the distribution of census data. Here, we address this inconsistency with respect to the 2016 usual-residence to place-of-work travel data. We offer a surrogate high-resolution 2016 commuter database that reduces the discrepancy between commuter totals from ~30% to only ~7%, which is on the order of the discrepancy introduced by the privacy policy compliance system used in earlier years.
+Link: https://arxiv.org/abs/1808.09267
+====================================================
+Fog-enabled Edge Learning for Cognitive Content-Centric Networking in 5G (Gaolei Li - 28 August, 2018)
+By leveraging artificial intelligence (AI) to jointly processing sensed environmental data, dealing with the massive content statistics, and enforcing the mobility control at network edges, the FEL makes it possible for mobile users to cognitively share their data over the C-CCN in 5G. To validate the feasibility of proposed framework, we design two FEL-advanced cognitive services for C-CCN in 5G: 1) personalized network acceleration, 2) enhanced mobility management
+Link: https://arxiv.org/abs/1808.09141
+====================================================
+GLSE Precoders for Massive MIMO Systems: Analysis and Applications (Ali Bereyhi - 6 August, 2018)
+We show that the output symbols of these precoders are identically distributed and their statistics are described with an equivalent scalar GLSE precoder. Our investigations demonstrate that a computationally efficient GLSE precoder requires $41\%$ fewer active transmit antennas than conventional selection protocols in order to achieve a desired level of input-output distortion.
+Link: https://arxiv.org/abs/1808.01880
+====================================================
+Estimating Failure in Brittle Materials using Graph Theory (M. K. Mudunuru - 30 July, 2018)
+In brittle fracture applications, failure paths, regions where the failure occurs and damage statistics, are some of the key quantities of interest (QoI). A probabilistic evolution model for average damage in a system is also developed that is trained using 150 HOSS simulations and tested on 40 simulations. We show that for the proposed average damage evolution model, the prediction accuracy on the test data is more than 90\%
+Link: https://arxiv.org/abs/1807.11537
+====================================================
+A Preliminary Study On the Sustainability of Android Malware Detection (Haipeng Cai - 3 August, 2018)
+Our study reveals, during the long evolution, a consistent, clear differentiation between malware and benign apps regarding such accesses, measured by relative statistics of relevant method calls. Through an extensive evaluation, we showed that DroidSpan can not only effectively detect malware but sustain high detection accuracy (93% F1 measure) for four years (with 81% F1 for five years)
+Link: https://arxiv.org/abs/1807.08221
+====================================================
+Image Reconstruction via Variational Network for Real-Time Hand-Held Sound-Speed Imaging (Valery Vishnevskiy - 19 July, 2018)
+Our results indicate that the learned model presents good generalization ability, being able to reconstruct images with significantly different statistics compared to the training set. Complex inclusion geometries were shown to be successfully reconstructed, also improving over the prior-art by 23% in reconstruction error and by 10% in contrast on synthetic data. In a phantom study, we demonstrated the detection of multiple inclusions that were not distinguishable by prior-art reconstruction, meanwhile improving the contrast by 27% for a stiff inclusion and by 219% for a soft inclusion
+Link: https://arxiv.org/abs/1807.07416
+====================================================
+Mr. DLib's Living Lab for Scholarly Recommendations (Joeran Beel - 19 July, 2018)
+DLib's living lab as well as usage statistics on the first ten months of operating it. During this time, 970,517 recommendations were delivered with a mean click-through rate of 0.22%.
+Link: https://arxiv.org/abs/1807.07298
+====================================================
+Non-Gaussian Component Analysis using Entropy Methods (Navin Goyal - 15 August, 2018)
+Since its formulation in 2006, NGCA has attracted considerable attention in statistics and machine learning
+Link: https://arxiv.org/abs/1807.04936
+====================================================
+Sliding window order statistics in sublinear space (Dhruv Rohatgi - 11 July, 2018)
+We extend the multi-pass streaming model to sliding window problems, and address the problem of computing order statistics on fixed-size sliding windows, in the multi-pass streaming model as well as the closely related communication complexity model. In the $2$-pass streaming model, we show that on input of length $N$ with values in range $[0,R]$ and a window of length $K$, sliding window minimums can be computed in $\widetilde{O}(\sqrt{N})$
+Link: https://arxiv.org/abs/1807.04400
+====================================================
+Distributed Statistical Estimation of Matrix Products with Applications (David P. Woodruff - 2 July, 2018)
+We consider statistical estimations of a matrix product over the integers in a distributed setting, where we have two parties Alice and Bob; Alice holds a matrix $A$ and Bob holds a matrix $B$, and they want to estimate statistics of $A \cdot B$. We focus on the well-studied $\ell_p$-norm, distinct elements ($p = 0$), $\ell_0$-sampling, and heavy hitter problems
+Link: https://arxiv.org/abs/1807.00878
+====================================================
+Differentiable Learning-to-Normalize via Switchable Normalization (Ping Luo - 30 September, 2018)
+SN employs three distinct scopes to compute statistics (means and variances) including a channel, a layer, and a minibatch. 2 images/GPU)
+Link: https://arxiv.org/abs/1806.10779
+====================================================
+Equalizing Financial Impact in Supervised Learning (Govind Ramnarayan - 24 June, 2018)
+Notions of "fair classification" that have arisen in computer science generally revolve around equalizing certain statistics across protected groups. We pose a modification of one of the fairness criteria from Hardt, Price, and Srebro [NIPS, 2016] that makes a small step towards addressing this issue in the case of financial decisions like giving loans
+Link: https://arxiv.org/abs/1806.09211
+====================================================
+Novel Selectivity Estimation Strategy for Modern DBMS (Jun Hyung Shin - 21 June, 2018)
+Instead of existing database synopses and statistics not helpful for such cases, we introduce a new approach to compute the exact selectivity by running an aggregate query during the optimization phase. Our approach records constant and less than 30 millisecond overheads in any circumstances while running on GPU. The novel strategy successfully generates better query execution plans which result in performance improvement up to 4.8 times from TPC-H benchmark SF-50 queries and 7.3 times from star schema benchmark SF-80 queries.
+Link: https://arxiv.org/abs/1806.08384
+====================================================
+Reducibility and Computational Lower Bounds for Problems with Planted Sparse Structure (Matthew Brennan - 19 June, 2018)
+The prototypical high-dimensional statistics problem entails finding a structured signal in noise. A line of work initiated by Berthet and Rigollet in 2013 has aimed to explain these statistical-computational gaps by reducing from conjecturally hard average-case problems in computer science
+Link: https://arxiv.org/abs/1806.07508
+====================================================
+Online Absolute Ranking with Partial Information: A Bipartite Graph Matching Approach (Sinho Chewi - 18 June, 2018)
+the top 10% of all the candidates) and involves significantly fewer distributions than the order statistics
+Link: https://arxiv.org/abs/1806.06766
+====================================================
+Deep Learning with Convolutional Neural Network for Objective Skill Evaluation in Robot-assisted Surgery (Ziheng Wang - 14 June, 2018)
+With the advent of robot-assisted surgery, the role of data-driven approaches to integrate statistics and machine learning is growing rapidly with prominent interests in objective surgical skill assessment. Our proposed learning model achieved a competitive accuracy of 94.1%, 90.3%, and 86.8%, in the standard training tasks: Suturing, Needle-passing, and Knot-tying, respectively
+Link: https://arxiv.org/abs/1806.05796
+====================================================
+An Efficient Flow-based Multi-level Hybrid Intrusion Detection System for Software-Defined Networks (Majd Latah - 11 June, 2018)
+Therefore, in this paper, we propose a 5-level hybrid classification system based on flow statistics in order to attain an improvement in the overall accuracy of the system. In comparison with conventional supervised machine learning algorithms based on the NSL-KDD benchmark dataset, the experimental study showed that our system achieves the highest level of accuracy (84.29%)
+Link: https://arxiv.org/abs/1806.03875
+====================================================
+Unsupervised Disambiguation of Syncretism in Inflected Lexicons (Ryan Cotterell - 10 June, 2018)
+Lexical ambiguity makes it difficult to compute various useful statistics of a corpus. We discuss evaluation metrics for this novel task and report results on 5 languages.
+Link: https://arxiv.org/abs/1806.03740
+====================================================
+Nonparametric Density Flows for MRI Intensity Normalisation (Daniel C. Castro - 7 June, 2018)
+We further demonstrate that our method makes tissue intensity statistics substantially more compatible between images than a baseline affine transformation and is comparable to state-of-the-art while providing considerably smoother transformations
+Link: https://arxiv.org/abs/1806.02613
+====================================================
+Extended Diffix (Paul Francis - 6 June, 2018)
+A longstanding open problem is that of how to get high quality statistics through direct queries to databases containing information about individuals without revealing information specific to those individuals. This paper describes the version of Diffix used for bounty program sponsored by Aircloak starting December 2017.
+Link: https://arxiv.org/abs/1806.02075
+====================================================
+A Systematic Classification of Knowledge, Reasoning, and Context within the ARC Dataset (Michael Boratko - 1 June, 2018)
+Using ten annotators and a sophisticated annotation interface, we analyze the distribution of labels across the Challenge Set and statistics related to them. Evaluating with human-selected relevant sentences improves the performance of a neural machine comprehension model by 42 points.
+Link: https://arxiv.org/abs/1806.00358
+====================================================
+Regions, Innovation Systems, and the North-South Divide in Italy (Loet Leydesdorff - 30 May, 2018)
+Using firm-level data collected by Statistics Italy for 2008, 2011, and 2015, we examine the Triple-Helix synergy among geographical and size distributions of firms, and the NACE codes attributed to these firms, at the different levels of regional and national government. At which levels is innovation-systemness indicated? The contributions of regions to the Italian innovation system have increased, but synergy generation between regions and supra-regionally has remained at almost 45%
+Link: https://arxiv.org/abs/1805.11821
+====================================================
+Decision Making of Maximizers and Satisficers Based on Collaborative Explanations (Ludovik Coba - 29 May, 2018)
+Rating-based summary statistics are ubiquitous in e-commerce, and often are crucial components in personalized recommendation mechanisms. Results from over 200 participants indicate that users are primarily guided by the mean and the number of ratings and to a lesser degree by the variance, and the origin of a rating
+Link: https://arxiv.org/abs/1805.11537
+====================================================
+Compact and Computationally Efficient Representation of Deep Neural Networks (Simon Wiedemann - 27 May, 2018)
+In this paper we present new efficient data structures for representing matrices with low entropy statistics and show that these formats are especially suitable for representing neural networks. We experimentally show that we are able to attain up to x15 compression ratios, x1.7 speed ups and x20 energy savings when we lossless convert state-of-the-art networks such as AlexNet, VGG-16, ResNet152 and DenseNet into the new data structures.
+Link: https://arxiv.org/abs/1805.10692
+====================================================
+Enhanced-alignment Measure for Binary Foreground Map Evaluation (Deng-Ping Fan - 23 July, 2018)
+Our measure combines local pixel values with the image-level mean value in one term, jointly capturing image-level statistics and local pixel matching information. We demonstrate the superiority of our measure over the available measures on 4 popular datasets via 5 meta-measures, including ranking models for applications, demoting generic, random Gaussian noise maps, ground-truth switch, as well as human judgments. For instance, in terms of application ranking, we observe improvementrangingfrom9.08% to 19.65% compared with other popular measures.
+Link: https://arxiv.org/abs/1805.10421
+====================================================
+SNIPER: Efficient Multi-Scale Training (Bharat Singh - 18 June, 2018)
+Therefore it can benefit from batch-normalization during training without the need for synchronizing batch-normalization statistics across GPUs. Our implementation based on Faster-RCNN with a ResNet-101 backbone obtains an mAP of 47.6% on the COCO dataset for bounding box detection and can process 5 images per second with a single GPU
+Link: https://arxiv.org/abs/1805.09300
+====================================================
+Cost-aware Cascading Bandits (Ruida Zhou - 22 May, 2018)
+We study both the offline and online settings, depending on whether the state and cost statistics of the items are known beforehand. For the of- fline setting, we show that the Unit Cost Ranking with Threshold 1 (UCR-T1) policy is optimal
+Link: https://arxiv.org/abs/1805.08638
+====================================================
+Scheduling Policies for Age Minimization in Wireless Networks with Unknown Channel State (Rajat Talak - 15 May, 2018)
+We study the case where the channel statistics are known, but the current channel state is unknown. We prove that the virtual queue based policy is peak age optimal, up to an additive constant, while the age-based policy is at most factor 4 away from the optimal age
+Link: https://arxiv.org/abs/1805.06752
+====================================================
+Covariance Pooling For Facial Expression Recognition (Dinesh Acharya - 13 May, 2018)
+We believe that second-order statistics such as covariance is better able to capture such distortions in regional facial fea- tures. By doing so, we are able to achieve a recognition accuracy of 58.14% on the validation set of Static Facial Expressions in the Wild (SFEW 2.0) and 87.0% on the vali- dation set of Real-World Affective Faces (RAF) Database
+Link: https://arxiv.org/abs/1805.04855
+====================================================
+VAMS: Verifiable Auditing of Access to Confidential Data (Alexander Hicks - 3 September, 2018)
+Furthermore, our system protects the privacy of individuals and organizations, while allowing published statistics to be publicly verified. We find that while the one based on Hyperledger Fabric may have more favorable trust assumptions in certain settings, the one based on Trillian is more scalable, achieving up to 102 transactions per second, as opposed to Hyperledger's 40.
+Link: https://arxiv.org/abs/1805.04772
+====================================================
+Improving Network Intrusion Detection Classifiers by Non-payload-Based Exploit-Independent Obfuscations: An Adversarial Approach (Ivan Homoliak - 7 May, 2018)
+This allows us to generate modified network traffic for machine learning experiments employing features for assessing network statistics and behavior of TCP connections. Our experiments confirm the assumption that it is possible to evade the intrusion detection capability of all classifiers trained without prior knowledge about obfuscated attacks, causing an exacerbation of the TPR ranging from 7.8% to 66.8%. Further, when widening the training knowledge of the classifiers by a subset of obfuscated attacks, we achieve a significant improvement of the TPR by 4.21% - 73.3%, while the FPR is deteriorated only slightly (0.1% - 1.48%). Finally, we test the capability of an obfuscations-aware classifier to detect unknown obfuscated attacks, where we achieve over 90% detection rate on average for most of the obfuscations.
+Link: https://arxiv.org/abs/1805.02684
+====================================================
+Convergence Rate Analysis for Periodic Gossip Algorithms in Wireless Sensor Networks (S. Kouachi - 14 August, 2018)
+However, these algorithms converge to the global statistics after certain rounds of pair-wise communications. Unlike the existing methods in the literature, this is a direct method which avoids the theory of orthogonal polynomials [18]
+Link: https://arxiv.org/abs/1805.02430
+====================================================
+Collaborations on YouTube: From Unsupervised Detection to the Impact on Video and Channel Popularity (Christian Koch - 1 May, 2018)
+First, we collect a YouTube dataset covering video statistics over three months for 7,942 channels. Third, we analyze about 2.4 years of video content and use CATANA to answer research questions providing guidance for YouTubers and MCNs for efficient collaboration strategies. Our results show that collaborations are in many cases significantly beneficial in terms of viewers and newly attracted subscribers for both collaborating channels, showing often more than 100% popularity growth compared with non-collaboration videos.
+Link: https://arxiv.org/abs/1805.01887
+====================================================
+Spatial Heterogeneity, Scale, Data Character, and Sustainable Transport in the Big Data Era (Bin Jiang - 6 July, 2018)
+In light of the emergence of big data, I have advocated and argued for a paradigm shift from Tobler's law to scaling law, from Euclidean geometry to fractal geometry, from Gaussian statistics to Paretian statistics, and - more importantly - from Descartes' mechanistic thinking to Alexander's organic thinking. Fractal geometry falls under the third definition of fractal - that is, a set or pattern is fractal if the scaling of far more small things than large ones recurs multiple times (Jiang and Yin 2014) - rather than under the second definition of fractal, which requires a power law between scales and details (Mandelbrot 1982). 2012, p. 395), not only for understanding complexity, but also for creating complex or living structure (Alexander 2002-2005)
+Link: https://arxiv.org/abs/1805.00819
+====================================================
+Hybrid Point Cloud Attribute Compression Using Slice-based Layered Structure and Block-based Intra Prediction (Yiting Shao - 28 April, 2018)
+The Lagrange multiplier is off-line derived based on the statistics of color attribute coding. In intra-frame compression of point cloud color attributes, results demonstrate that our method performs better than the state-of-the-art region-adaptive hierarchical transform (RAHT) system, and on average a 29.37$\%$ BD-rate gain is achieved. Comparing with the test model for category 1 (TMC1) anchor's coding results, which were recently published by MPEG-3DG group on 121st meeting, a 16.37$\%$ BD-rate gain is obtained.
+Link: https://arxiv.org/abs/1804.10783
+====================================================
+Spatio-Temporal Neural Networks for Space-Time Series Forecasting and Relations Discovery (Ali Ziat - 23 April, 2018)
+The model is evaluated and compared to state-of-the-art baselines, on a variety of forecasting problems representative of different application areas: epidemiology, geo-spatial statistics and car-traffic prediction
+Link: https://arxiv.org/abs/1804.08562
+====================================================
+A sequential sampling strategy for extreme event statistics in nonlinear dynamical systems (Mustafa A. Mohamad - 19 April, 2018)
+We develop a method for the evaluation of extreme event statistics associated with nonlinear dynamical systems, using a small number of samples. order O(10)
+Link: https://arxiv.org/abs/1804.07240
+====================================================
+Mater certa est, pater numquam: What can Facebook Advertising Data Tell Us about Male Fertility Rates? (Francesco Rampazzo - 12 April, 2018)
+Our analysis indicates that fertility measures based on Facebook data are highly correlated with conventional indicators based on traditional data, for those countries for which we have statistics. For instance, the correlation of the MAC computed using Facebook and United Nations data is 0.47 (p = 4.02e-08) and 0.79 (p = 2.2e-15) for female and male respectively. Out of sample validation for a simple regression model indicates that the mean absolute percentage error is 2.3%
+Link: https://arxiv.org/abs/1804.04632
+====================================================
+Increased Prediction Accuracy in the Game of Cricket using Machine Learning (Kalpdrum Passi - 9 April, 2018)
+They analyze different characteristics and the statistics of the players to select the best playing 11 for each match
+Link: https://arxiv.org/abs/1804.04226
+====================================================
+Face Sketch Synthesis Style Similarity:A New Structure Co-occurrence Texture Measure (Deng-Ping Fan - 9 April, 2018)
+To solve this problem, we propose a novel and robust style similarity measure called Scoot-measure (Structure CO-Occurrence Texture Measure), which simultaneously evaluates "block-level" spatial structure and co-occurrence texture statistics. In addition, we further propose 4 new meta-measures and create 2 new datasets to perform a comprehensive evaluation of several widely-used FSS measures on two large databases. Specifically, the study indicated a higher degree (78.8%) of correlation between our measure and human judgment than the best prior measure (58.6%)
+Link: https://arxiv.org/abs/1804.02975
+====================================================
+Multi-scale Location-aware Kernel Representation for Object Detection (Hao Wang - 2 April, 2018)
+Our MLKP can be efficiently computed on a modified multi-scale feature map using a low-dimensional polynomial kernel approximation.Moreover, different from existing orderless global representations based on high-order statistics, our proposed MLKP is location retentive and sensitive so that it can be flexibly adopted to object detection. Through integrating into Faster R-CNN schema, the proposed MLKP achieves very competitive performance with state-of-the-art methods, and improves Faster R-CNN by 4.9% (mAP), 4.7% (mAP) and 5.0% (AP at IOU=[0.5:0.05:0.95]) on PASCAL VOC 2007, VOC 2012 and MS COCO benchmarks, respectively
+Link: https://arxiv.org/abs/1804.00428
+====================================================
+Logistic Regression: The Importance of Being Improper (Dylan J. Foster - 25 March, 2018)
+Learning linear predictors with the logistic loss---both in stochastic and online settings---is a fundamental task in learning and statistics, with direct connections to classification and boosting. This provides a positive resolution to a variant of the COLT 2012 open problem of McMahan and Streeter (2012) when improper learning is allowed
+Link: https://arxiv.org/abs/1803.09349
+====================================================
+Automated Detection of Acute Leukemia using K-mean Clustering Algorithm (Sachin Kumar - 6 March, 2018)
+Based on statistics it is found that the leukemia is one of the leading causes of death in men and women alike. The proposed algorithm achieved an accuracy of 92.8% and is tested with Nearest Neighbor (KNN) and Naive Bayes Classifier on the data-set of 60 samples.
+Link: https://arxiv.org/abs/1803.08544
+====================================================
+Group Normalization (Yuxin Wu - 11 June, 2018)
+However, normalizing along the batch dimension introduces problems --- BN's error increases rapidly when the batch size becomes smaller, caused by inaccurate batch statistics estimation. On ResNet-50 trained in ImageNet, GN has 10.6% lower error than its BN counterpart when using a batch size of 2; when using typical batch sizes, GN is comparably good with BN and outperforms other normalization variants
+Link: https://arxiv.org/abs/1803.08494
+====================================================
+Online Learning: Sufficient Statistics and the Burkholder Method (Dylan J. Foster - 20 March, 2018)
+We uncover a fairly general principle in online learning: If regret can be (approximately) expressed as a function of certain "sufficient statistics" for the data sequence, then there exists a special Burkholder function that 1) can be used algorithmically to achieve the regret bound and 2) only depends on these sufficient statistics, not the entire data sequence, so that the online strategy is only required to keep the sufficient statistics in memory
+Link: https://arxiv.org/abs/1803.07617
+====================================================
+A Simple Algorithm for Estimating Distribution Parameters from $n$-Dimensional Randomized Binary Responses (Staal A. Vinterbo - 13 July, 2018)
+However, recovering and analyzing statistics involving multiple dependent randomized binary attributes can be difficult, posing a significant barrier to use. We show that randomizers in this family transform multinomial distribution parameters by an iterated Kronecker product of an invertible and bisymmetric $2 \times 2$ matrix
+Link: https://arxiv.org/abs/1803.03981
+====================================================
+Online Deep Learning: Growing RBM on the fly (Savitha Ramasamy - 6 March, 2018)
+The online generative training begins with zero neurons in the hidden layer, adds and updates the neurons to adapt to statistics of streaming data in a single pass unsupervised manner, resulting in a feature representation best suited to the data. We then benchmark OGD-RBM performance to other machine learning, neural network and ClassRBM techniques for credit scoring applications using 3 public non-stationary two-class credit datasets with varying degrees of class-imbalance. We report that OGD-RBM improves accuracy by 2.5-3% over batch learning techniques while requiring at least 24%-70% fewer neurons and fewer training samples
+Link: https://arxiv.org/abs/1803.02043
+====================================================
+Moment-Based Quantile Sketches for Efficient High Cardinality Aggregation Queries (Edward Gan - 13 July, 2018)
+This data structure, which we refer to as the moments sketch, operates with a small memory footprint (200 bytes) and computationally efficient (50ns) merges by tracking only a set of summary statistics, notably the sample moments. Empirical evaluation on real-world datasets shows that the moments sketch can achieve less than 1 percent error with 15 times less merge overhead than comparable summaries, improving end query time in the MacroBase engine by up to 7 times and the Druid engine by up to 60 times.
+Link: https://arxiv.org/abs/1803.01969
+====================================================
+Model-Free Control for Distributed Stream Data Processing using Deep Reinforcement Learning (Teng Li - 2 March, 2018)
+Specifically, we, for the first time, propose to leverage emerging Deep Reinforcement Learning (DRL) for enabling model-free control in DSDPSs; and present design, implementation and evaluation of a novel and highly effective DRL-based control framework, which minimizes average end-to-end tuple processing time by jointly learning the system environment via collecting very limited runtime statistics data and making decisions under the guidance of powerful Deep Neural Networks. Extensive experimental results show 1) Compared to Storm's default scheduler and the state-of-the-art model-based method, the proposed framework reduces average tuple processing by 33.5% and 14.0% respectively on average
+Link: https://arxiv.org/abs/1803.01016
+====================================================
+Robust Actor-Critic Contextual Bandit for Mobile Health (mHealth) Interventions (Feiyun Zhu - 26 February, 2018)
+Such performance relies on two technologies: (1) the capped-$\ell_{2}$ norm; (2) a reliable method to set the thresholding hyper-parameter, which is inspired by one of the most fundamental techniques in the statistics
+Link: https://arxiv.org/abs/1802.09714
+====================================================
+Language Distribution Prediction based on Batch Markov Monte Carlo Simulation with Migration (XingYu Fu - 26 February, 2018)
+Next, when we construct Matrix T, there are some entries of T can be directly calculated from historical statistics while some entries of T is unknown. To achieve this, we first construct a 20 by 20 by 5 factor tensor X to characterize each entry of T
+Link: https://arxiv.org/abs/1802.09189
+====================================================
+Dimensionally Tight Bounds for Second-Order Hamiltonian Monte Carlo (Oren Mangoubi - 9 August, 2018)
+Hamiltonian Monte Carlo (HMC) is a widely deployed method to sample from high-dimensional distributions in Statistics and Machine learning. Our result compares favorably with the best available bounds for the class of strongly log-concave distributions, which grow like $d^{{1}/{2}}$ gradient evaluations with the dimension
+Link: https://arxiv.org/abs/1802.08898
+====================================================
+Improved Regularity Model-based EDA for Many-objective Optimization (Yanan Sun - 23 February, 2018)
+Estimation of distribution algorithms sample new solutions with a probabilistic model built from the statistics extracting over the existing solutions so as to mitigate the adverse impact of genetic operators. To measure the performance, NSGA-III, GrEA, MOEA/D, HypE, MBN-EDA, and RM-MEDA are selected to perform comparison experiments over DTLZ and DTLZ$^-$ test suites with $3$-, $5$-, $8$-, $10$-, and $15$-objective
+Link: https://arxiv.org/abs/1802.08788
+====================================================
+Online LZ77 Parsing and Matching Statistics with RLBWTs (Hideo Bannai - 13 April, 2018)
+Lempel-Ziv 1977 (LZ77) parsing, matching statistics and the Burrows-Wheeler Transform (BWT) are all fundamental elements of stringology. In a series of recent papers, Policriti and Prezza (DCC 2016 and Algorithmica, CPM 2017) showed how we can use an augmented run-length compressed BWT (RLBWT) of the reverse $T^R$ of a text $T$, to compute offline the LZ77 parse of $T$ in $O (n \log r)$ time and $O (r)$ space, where $n$ is the length of $T$ and $r$ is the number of runs in the BWT of $T^R$. Our experiments, using an extension of Ohno, Takabatake, I and Sakamoto's (IWOCA 2017) implementation of updating, show our approach is both time- and space-efficient for repetitive strings
+Link: https://arxiv.org/abs/1802.05906
+====================================================
+Calculating the similarity between words and sentences using a lexical database and corpus statistics (Atish Pawar - 20 February, 2018)
+In this paper, we present a methodology which deals with this issue by incorporating semantic similarity and corpus statistics. For word similarity, we obtained Pearson correlation coefficient of 0.8753 and for sentence similarity, the correlation obtained is 0.8794.
+Link: https://arxiv.org/abs/1802.05667
+====================================================
+Selecting the Best in GANs Family: a Post Selection Inference Framework (Yao-Hung Hubert Tsai - 23 June, 2018)
+To address this problem, we first propose an \emph{incomplete} U-statistics estimate of maximum mean discrepancy $\mathrm{MMD}_{inc}$ to measure the distribution discrepancy between generated and real images. In the experiments, we adopt the proposed framework on 7 GANs variants and compare their $\mathrm{MMD}_{inc}$ scores.
+Link: https://arxiv.org/abs/1802.05411
+====================================================
+Do Citations and Readership Identify Seminal Publications? (Drahomira Herrmannova - 13 February, 2018)
+We provide overview statistics of the dataset and propose to use it for validating research evaluation metrics. We show that citation counts help in distinguishing research that strongly influenced later developments from works that predominantly discuss the current state of the art with a degree of accuracy (63%, i.e. 10% over the random baseline)
+Link: https://arxiv.org/abs/1802.04853
+====================================================
+RAPPER: Ransomware Prevention via Performance Counters (Manaar Alam - 12 February, 2018)
+As per the latest statistics, more than half of malwares reported in Q1 of 2017 are ransomware and there is a potent threat of a novice cybercriminals accessing rasomware-as-a-service. The concept of public-key based data kidnapping and subsequent extortion was introduced in 1996
+Link: https://arxiv.org/abs/1802.03909
+====================================================
+Batch Kalman Normalization: Towards Training Deep Neural Networks with Micro-Batches (Guangrun Wang - 27 February, 2018)
+However, the effectiveness of BN would diminish with scenario of micro-batch (e.g., less than 10 samples in a mini-batch), since the estimated statistics in a mini-batch are not reliable with insufficient samples. On the image classification benchmark of ImageNet, using BKN powered networks we improve upon the best-published model-zoo results: reaching 74.0% top-1 val accuracy for InceptionV2. More importantly, using BKN achieves the comparable accuracy with extremely smaller batch size, such as 64 times smaller on CIFAR-10/100 and 8 times smaller on ImageNet.
+Link: https://arxiv.org/abs/1802.03133
+====================================================
+Mining Open Government Data Used in Scientific Research (An Yan - 24 March, 2018)
+We inductively develop a method for categorizing how OGD are used by different research communities, and provide descriptive statistics about the publication years, publication outlets, and OGD sources. Our results demonstrate that, 1. The use of OGD in research is steadily increasing from 2009 to 2016; 2. Researchers use OGD from 96 different open government data portals, with data.gov.uk and data.gov being the most frequent sources; and, 3.Contrary to previous findings, we provide evidence suggesting that OGD from developing nations, notably India and Kenya, are being frequently used to fuel scientific discoveries
+Link: https://arxiv.org/abs/1802.03074
+====================================================
+Universal Deep Neural Network Compression (Yoojin Choi - 6 February, 2018)
+Entropy coding schemes such as Huffman codes require prior calculation of source statistics, which is computationally consuming. Our experimental results show that the proposed universal DNN compression scheme achieves compression ratios of 124.80, 47.10 and 42.46 for LeNet5, 32-layer ResNet and AlexNet, respectively.
+Link: https://arxiv.org/abs/1802.02271
+====================================================
+Aligned to the Object, not to the Image: A Unified Pose-aligned Representation for Fine-grained Recognition (Pei Guo - 10 September, 2018)
+Dramatic appearance variation due to pose constitutes a great challenge in fine-grained recognition, one which recent methods using attention mechanisms or second-order statistics fail to adequately address. The proposed algorithm surpasses the performance of other approaches, increasing the state-of-the-art by nearly 2% on the widely-used CUB-200 dataset and by more than 8% on the much larger NABirds dataset
+Link: https://arxiv.org/abs/1801.09057
+====================================================
+Personal Names in Modern Turkey (AmaÃ§ HerdaÄdelen - 14 January, 2018)
+The name statistics are based on all Turkish citizens who were alive in 2014 and they cover 90% of all population. Female names have a greater diversity than male names (e.g., top 15 male names cover 25% of the male population, whereas top 28 female names cover 25% of the female population)
+Link: https://arxiv.org/abs/1801.00049
+====================================================
+A Data Colocation Grid Framework for Big Data Medical Image Processing - Backend Design (Shunxing Bao - 22 December, 2017)
+Our target criteria are (1) improving the framework's performance in a heterogeneous cluster, (2) performing population based summary statistics on large datasets, and (3) introducing a table design scheme for rapid NoSQL query. Briefly, 5153 T1 images were retrieved from a university secure database and used to empirically access an in-house grid with 224 heterogeneous CPU cores. Three empirical experiments results are presented and discussed: (1) load balancer wall-time improvement of 1.5-fold compared with a framework with built-in data allocation strategy, (2) a summary statistic model is empirically verified on grid framework and is compared with the cluster when deployed with a standard Sun Grid Engine, which reduces 8-fold of wall clock time and 14-fold of resource time, and (3) the proposed HBase table scheme improves MapReduce computation with 7 fold reduction of wall time compare with a naÃ¯ve scheme when datasets are relative small.
+Link: https://arxiv.org/abs/1712.08634
+====================================================
+A Fast Algorithm for Separated Sparsity via Perturbed Lagrangians (Aleksander MÄdry - 21 December, 2017)
+Sparsity-based methods are widely used in machine learning, statistics, and signal processing. In experiments, our new algorithms offer a 10$\times$ speed-up already on moderately-size inputs.
+Link: https://arxiv.org/abs/1712.08130
+====================================================
+Long-Term Mobile Traffic Forecasting Using Deep Spatio-Temporal Neural Networks (Chaoyun Zhang - 21 December, 2017)
+We then introduce a Double STN technique (D-STN), which uniquely combines the STN predictions with historical statistics, thereby making faithful long-term mobile traffic projections. Experiments we conduct with real-world mobile traffic data sets, collected over 60 days in both urban and rural areas, demonstrate that the proposed (D-)STN schemes perform up to 10-hour long predictions with remarkable accuracy, irrespective of the time of day when they are triggered. Specifically, our solutions achieve up to 61% smaller prediction errors as compared to widely used forecasting approaches, while operating with up to 600 times shorter measurement intervals.
+Link: https://arxiv.org/abs/1712.08083
+====================================================
+Optimal Discrete Spatial Compression for Beamspace Massive MIMO Signals (Zhiyuan Jiang - 20 December, 2017)
+In this paper, we first show that the traditional beamspace-MIMO suffers from spatial power leakage and imperfect channel statistics estimation. Link-level simulation results based on realistic channel models and long-term-evolution (LTE) parameters are presented which show that the proposed schemes can reduce the number of RF chains by up to $25\%$ with a one-bit digital phase-shifter-network.
+Link: https://arxiv.org/abs/1712.07590
+====================================================
+Short Packets over Block-Memoryless Fading Channels: Pilot-Assisted or Noncoherent Transmission? (Johan Ãstman - 18 December, 2017)
+Finally, we devise a PAT scheme based on punctured tail-biting quasi-cyclic codes and ordered statistics decoding, whose performance are close ($1$ dB gap at $10^{-3}$ packet error probability) to the ones predicted by our PAT lower bound
+Link: https://arxiv.org/abs/1712.06387
+====================================================
+Vulnerabilities in the use of similarity tables in combination with pseudonymisation to preserve data privacy in the UK Office for National Statistics' Privacy-Preserving Record Linkage (Chris Culnane - 3 December, 2017)
+In the course of a survey of privacy-preserving record linkage, we reviewed the approach taken by the UK Office for National Statistics (ONS) as described in their series of reports "Beyond 2011"
+Link: https://arxiv.org/abs/1712.00871
+====================================================
+Unsupervised Learning for Color Constancy (Nikola BaniÄ - 20 April, 2018)
+In terms of accuracy the proposed method outperforms all statistics-based and many learning-based methods. Additionally, a new high quality color constancy benchmark dataset with 1365 calibrated images is created, used for testing, and made publicly available
+Link: https://arxiv.org/abs/1712.00436
+====================================================
+Measuring the tendency of CNNs to Learn Surface Statistical Regularities (Jason Jo - 30 November, 2017)
+Our main finding is that CNNs exhibit a tendency to latch onto the Fourier image statistics of the training dataset, sometimes exhibiting up to a 28% generalization gap across the various test sets
+Link: https://arxiv.org/abs/1711.11561
+====================================================
+IoT based Platform as a Service for Provisioning of Concurrent Applications (Deepak kumar Aggarwal - 29 November, 2017)
+As per statistics of 2020, twenty billion devices will be connected to the Internet
+Link: https://arxiv.org/abs/1711.10685
+====================================================
+No Reference Stereoscopic Video Quality Assessment Using Joint Motion and Depth Statistics (Appina Balasubramanyam - 15 November, 2017)
+The proposed algorithm, dubbed Video QUality Evaluation using MOtion and DEpth Statistics (VQUEMODES) is shown to outperform the state of the art methods when evaluated over the IRCCYN and LFOVIA S3D subjective quality assessment databases.
+Link: https://arxiv.org/abs/1711.05480
+====================================================
+Detection of Wordpress Content Injection Vulnerability (Md. Maruf Hassan - 7 November, 2017)
+As per the statistics of Built with, 32% of the web applications are developed with WordPress(WP) among all other CMSs [1]. A recent research reveals that content injection vulnerability was found available in the above two versions of WP [2]. A tool, SAISAN has been implemented as per our anticipated model and conducted an examination on 176 WP developed web applications using SAISAN. We achieved the accuracy of 92% of the result of SAISAN as compared to manual black box testing outcome.
+Link: https://arxiv.org/abs/1711.02447
+====================================================
+Large-scale study of social network structure and team performance in a multiplayer online game (Antti Ukkonen - 31 October, 2017)
+In this paper we revisit this important question in a novel manner by employing game outcome statistics from Dota 2, a popular team-based multiplayer online game, combined with network data from Steam Community, a social networking service for gamers. We conduct a large-scale analysis of 4168 teams to study how network density, and the minimum and maximum degree of the within-team social network are associated with team performance, and determine how this association is moderated by team skill
+Link: https://arxiv.org/abs/1710.11507
+====================================================
+Stationarity Region of Mm-Wave Channel Based on Outdoor Microcellular Measurements at 28 GHz (R. Wang - 29 October, 2017)
+The stationarity region, i.e., the area in which the statistics of a propagation channel remain constant, is an important measure of the propagation channel, and essential for efficient system design. Using a novel 28 GHz phased-array sounder with high phase stability, we present results in an urban microcell LoS, and LOS to NLOS transition region scenario, for the stationarity region of shadowing, power delay profile, and the angular power spectrum
+Link: https://arxiv.org/abs/1710.10754
+====================================================
+Neuro Fuzzy Modelling for Prediction of Consumer Price Index (Godwin Ambukege - 9 October, 2017)
+The study establishes a matrix of monthly CPI data from secondary data source of Tanzania National Bureau of Statistics from January 2000 to December 2015 as case study and thereafter conducted simulation experiments on MATLAB whereby ninety five percent (95%) of data used to train the model and five percent (5%) for testing. The results show that the neuro fuzzy model have an architecture of 5:74:1 with Gaussian membership functions (2, 2, 2, 2, 2), provides RMSE of 0.44886 and MAPE 0.23384, which is far better compared to existing research studies.
+Link: https://arxiv.org/abs/1710.05944
+====================================================
+FlowCover: Low-cost Flow Monitoring Scheme in Software Defined Networks (Zhiyang Su - 16 October, 2017)
+The state-of-the-art approaches utilize sampling method, aggregation flow statistics and passive measurement techniques to reduce overheads. Extensive experiment results show that FlowCover reduces roughly 50% communication cost without loss of accuracy in most cases.
+Link: https://arxiv.org/abs/1710.05697
+====================================================
+User Modelling for Avoiding Overfitting in Interactive Knowledge Elicitation for Prediction (Pedram Daee - 8 March, 2018)
+Effective interaction often requires exposing the user to the training data or its statistics. We show, in a user study with 48 participants, that the method improves predictive performance in a sparse linear regression sentiment analysis task, where graded user knowledge on feature relevance is elicited
+Link: https://arxiv.org/abs/1710.04881
+====================================================
+On Data-Driven Saak Transform (C. -C. Jay Kuo - 14 October, 2017)
+The Saak transform consists of three steps: 1) building the optimal linear subspace approximation with orthonormal bases using the second-order statistics of input vectors, 2) augmenting each transform kernel with its negative, 3) applying the rectified linear unit (ReLU) to the transform output. The integration of Steps 2 and 3 is powerful since they resolve the sign confusion problem, remove the rectification loss and allow a straightforward implementation of the inverse Saak transform at the same time
+Link: https://arxiv.org/abs/1710.04176
+====================================================
+Bobtail: A Proof-of-Work Target that Minimizes Blockchain Mining Variance (Draft) (George Bissias - 19 October, 2017)
+Our algorithm, called Bobtail, generalizes the current algorithm by comparing the mean of the k lowest order statistics to a target. If our approach were applied to Bitcoin, about 80% of blocks would be found within 7 to 12 minutes, and nearly every block would be found within 5 to 18 minutes; the average inter-block time would remain at 10 minutes. For Bitcoin and Ethereum currently (k=1), an attacker with 40% of the mining power will succeed with 30% probability when the merchant sets up an embargo of 8 blocks; however, when k>=20, the probability of success falls to less than 1%. Similarly, for Bitcoin and Ethereum currently, a selfish miner with 40% of the mining power will claim about 66% of blocks; however, when k>=5, the same miner will find that selfish mining is less successful than honest mining
+Link: https://arxiv.org/abs/1709.08750
+====================================================
+A Comparison of Public Causal Search Packages on Linear, Gaussian Data with No Latent Variables (Joseph D. Ramsey - 16 September, 2017)
+We vary the number of variables, the number of samples, and the density of graph, for a total of 27 combinations, averaging all statistics over 10 runs, for a total of 270 datasets
+Link: https://arxiv.org/abs/1709.04240
+====================================================
+Context Based Visual Content Verification (Martin Lukac - 31 August, 2017)
+The co-occurrence statistics are in general used to determine relational properties between objects based on information collected from data. We show that the usage of context greatly improve the accuracy of verification with up to 16% improvement.
+Link: https://arxiv.org/abs/1709.00141
+====================================================
+Exploiting Semantic Contextualization for Interpretation of Human Activity in Videos (Sathyanarayanan N. Aakur - 11 August, 2017)
+One approach is to learn semantic relationships between objects and actions from training annotations of videos and as such, depend largely on statistics of the vocabulary in these annotations. Using three different publicly available datasets, Breakfast, CMU Kitchen and MSVD, whose distribution of possible interpretations span more than 150000 possible solutions for over 5000 videos, we show that the proposed model can generate video interpretations whose quality are comparable or better than those reported by approaches such as discriminative approaches, hidden Markov models, context free grammars, deep learning models, and prior pattern theory approaches, all of whom rely on learning from domain-specific training data.
+Link: https://arxiv.org/abs/1708.03725
+====================================================
+Statistics of Deep Generated Images (Yu Zeng - 16 June, 2018)
+Here, we explore the low-level statistics of images generated by state-of-the-art deep generative models
+Link: https://arxiv.org/abs/1708.02688
+====================================================
+Linguistically Motivated Vocabulary Reduction for Neural Machine Translation from Turkish to English (Duygu Ataman - 31 July, 2017)
+Conventional methods that aim to overcome this problem by using sub-word or character-level representations solely rely on statistics and disregard the linguistic properties of words, which leads to interruptions in the word structure and causes semantic and syntactic losses. Our method obtains a significant improvement of 2.3 BLEU points over the conventional vocabulary reduction technique, showing that it can provide better accuracy in open vocabulary translation of morphologically rich languages.
+Link: https://arxiv.org/abs/1707.09879
+====================================================
+Visual Relationship Detection with Internal and External Linguistic Knowledge Distillation (Ruichi Yu - 2 August, 2017)
+To overcome this, we use knowledge of linguistic statistics to regularize visual model learning. Our experimental results on the Visual Relationship Detection (VRD) and Visual Genome datasets suggest that with this linguistic knowledge distillation, our model outperforms the state-of-the-art methods significantly, especially when predicting unseen relationships (e.g., recall improved from 8.45% to 19.17% on VRD zero-shot testing set).
+Link: https://arxiv.org/abs/1707.09423
+====================================================
+The Topology of Statistical Verifiability (Konstantin Genin - 27 July, 2017)
+They have emerged in such diverse fields as domain theory [1, 16], formal learning theory [18], epistemology and philosophy of science [10, 15, 8, 9, 2], statistics [6, 7] and modal logic [17, 4]
+Link: https://arxiv.org/abs/1707.09378
+====================================================
+CAp 2017 challenge: Twitter Named Entity Recognition (CÃ©dric Lopez - 24 July, 2017)
+We provide statistics on the inter-annotator agreement, and we conclude the data description part with examples and statistics for the data. We, then, describe the participation in the challenge, where 8 teams participated, with a focus on the methods employed by the challenge participants and the scores achieved in terms of F$_1$ measure. Importantly, the constructed dataset comprising $\sim$6,000 tweets annotated for 13 types of entities, which to the best of our knowledge is the first such dataset in French, is publicly available at \url{http://cap2017.imag.fr/competition.html} .
+Link: https://arxiv.org/abs/1707.07568
+====================================================
+ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression (Jian-Hao Luo - 19 July, 2017)
+We formally establish filter pruning as an optimization problem, and reveal that we need to prune filters based on statistics information computed from its next layer, not the current layer, which differentiates ThiNet from existing methods. ThiNet achieves 3.31$\times$ FLOPs reduction and 16.63$\times$ compression on VGG-16, with only 0.52$\%$ top-5 accuracy drop. Similar experiments with ResNet-50 reveal that even for a compact network, ThiNet can also reduce more than half of the parameters and FLOPs, at the cost of roughly 1$\%$ top-5 accuracy drop
+Link: https://arxiv.org/abs/1707.06342
+====================================================
+Energy-Efficient Data Transfer Algorithms for HTTP-Based Services (Tevfik Kosar - 18 July, 2017)
+According to recent statistics, more than 1 zettabytes of data is moved over the Internet annually, which consumes several terawatt hours of electricity, and costs billions of US dollars to the world economy. HTTP protocol is used in the majority of these data transfers, accounting for 70% of the global Internet traffic. Our experimental results show that up to 80% energy savings can be achieved at the client and server hosts during HTTP data transfers and the end-to-end data throughput can be increased at the same time.
+Link: https://arxiv.org/abs/1707.05730
+====================================================
+Detecting Intentional Lexical Ambiguity in English Puns (Elena Mikhalkova - 18 July, 2017)
+The results we get correlate with the results of other teams at SemEval-2017 competition (Task 7 Detection and Interpretation of English Puns) considering effects of using supervised learning models and word statistics.
+Link: https://arxiv.org/abs/1707.05468
+====================================================
+Trump vs. Hillary: What went Viral during the 2016 US Presidential Election (Kareem Darwish - 11 July, 2017)
+Then we analyzed the tweets in each class for: general trends and statistics; the most frequently used hashtags, terms, and locations; the most retweeted accounts and tweets; and the most shared news and links. In all we analyzed the 3,450 most viral tweets that grabbed the most attention during the US election and were retweeted in total 26.3 million times accounting over 40% of the total tweet volume pertaining to the US election in the aforementioned period
+Link: https://arxiv.org/abs/1707.03375
+====================================================
+Leipzig Corpus Miner - A Text Mining Infrastructure for Qualitative Data Analysis (Andreas Niekler - 11 July, 2017)
+Therefore information retrieval systems, lexicometric statistics and machine learning procedures are combined in a coherent framework which enables qualitative data analysts to make use of state-of-the-art Natural Language Processing techniques on very large document collections
+Link: https://arxiv.org/abs/1707.03253
+====================================================
+Prepaid or Postpaid? That is the question. Novel Methods of Subscription Type Prediction in Mobile Phone Services (Yongjun Liao - 30 June, 2017)
+Based on these observations we provide methods to detect the subscription type of customers by using information about their personal call statistics, and also their egocentric networks simultaneously. Our experiments show that, by using both user attributes and relationships, the proposed graph labelling approach is able to achieve a classification accuracy of $\sim 87\%$, which outperforms by $\sim 7\%$ supervised learning methods using only user attributes
+Link: https://arxiv.org/abs/1706.10172
+====================================================
+Independent Motion Detection with Event-driven Cameras (Valentina Vasco - 4 July, 2017)
+Our method detects and tracks corners in the event stream and learns the statistics of their motion as a function of the robot's joint velocities when no independently moving objects are present. We achieve a precision of ~ 90 % and show that the method is robust to changes in speed of both the head and the target.
+Link: https://arxiv.org/abs/1706.08713
+====================================================
+Skill Learning by Autonomous Robotic Playing using Active Learning and Creativity (Simon Hangl - 26 June, 2017)
+We use success statistics gained during real-world experiments to simulate the convergence behaviour of our system. Experiments show that active improves the learning speed by around 9 percent in the book grasping scenario.
+Link: https://arxiv.org/abs/1706.08560
+====================================================
+Fundamental Limits of Universal Variable-to-Fixed Length Coding of Parametric Sources (Nematollah Iri - 31 July, 2017)
+The quantized type class of a sequence is based on partitioning the space of minimal sufficient statistics into cuboids. In particular, we show that the third-order coding rate of our scheme is $H\frac{d}{2}\frac{\log\log M}{\log M}$, where $H$ is the entropy of the source and $M$ is the dictionary size
+Link: https://arxiv.org/abs/1706.07582
+====================================================
+A Computer Vision Pipeline for Automated Determination of Cardiac Structure and Function and Detection of Disease by Two-Dimensional Echocardiography (Jeffrey Zhang - 12 January, 2018)
+Finally, we developed disease detection algorithms for hypertrophic cardiomyopathy and cardiac amyloidosis, with C-statistics of 0.93 and 0.84, respectively
+Link: https://arxiv.org/abs/1706.07342
+====================================================
+Learning Deep Representations for Scene Labeling with Semantic Context Guided Supervision (Zhe Wang - 9 June, 2017)
+Two types of semantic context, scene names of images and label map statistics of image patches, are exploited to create label hierarchies between the original classes and newly created subclasses as the learning supervisions. Our proposed method is evaluated extensively on four popular datasets, Stanford Background (8 classes), SIFTFlow (33 classes), Barcelona (170 classes) and LM+Sun datasets (232 classes) with 3 different networks structures, and show state-of-the-art performance
+Link: https://arxiv.org/abs/1706.02493
+====================================================
+The Odyssey Approach for Optimizing Federated SPARQL Queries (Gabriela Montoya - 2 November, 2017)
+In this paper, we present Odyssey, an approach that uses statistics that allow for a more accurate cost estimation for federated queries and therefore enables Odyssey to produce better query execution plans. Our experiments using the FedBench benchmark show execution time gains of at least 25 times on average.
+Link: https://arxiv.org/abs/1705.06135
+====================================================
+Fourth-order Tensors with Multidimensional Discrete Transforms (Xiao-Yang Liu - 3 May, 2017)
+The big data era is swamping areas including data analysis, machine/deep learning, signal processing, statistics, scientific computing, and cloud computing. For video compression, compared with the existing tSVD, the proposed $\mathcal{L}$-SVD achieves $3\sim 10$dB gains in RSE, while the running time is reduced by about $50\%$ and $87.5\%$, respectively. For one-shot face recognition, the recognition rate is increased by about $10\% \sim 20\%$.
+Link: https://arxiv.org/abs/1705.01576
+====================================================
+Single-Pass PCA of Large High-Dimensional Data (Wenjian Yu - 25 April, 2017)
+Principal component analysis (PCA) is a fundamental dimension reduction tool in statistics and machine learning. For a set of high-dimensional data stored as a 150 GB file, the proposed algorithm is able to compute the first 50 principal components in just 24 minutes on a typical 24-core computer, with less than 1 GB memory cost.
+Link: https://arxiv.org/abs/1704.07669
+====================================================
+Decision Stream: Cultivating Deep Decision Trees (Dmitry Ignatov - 3 September, 2017)
+Instead of building a tree structure during the learning process, we propose merging nodes from different branches based on their similarity that is estimated with two-sample test statistics, which leads to generation of a deep directed acyclic graph of decision rules that can consist of hundreds of levels. Our experimental results reveal that the proposed approach significantly outperforms the standard decision tree learning methods on both regression and classification tasks, yielding a prediction error decrease up to 35%.
+Link: https://arxiv.org/abs/1704.07657
+====================================================
+Global Relation Embedding for Relation Extraction (Yu Su - 19 April, 2018)
+To combat the wrong labeling problem of distant supervision, we propose to embed textual relations with global statistics of relations, i.e., the co-occurrence statistics of textual and knowledge base relations collected from the entire corpus. Most remarkably, for the top 1,000 relational facts discovered by the best existing model, the precision can be improved from 83.9% to 89.3%.
+Link: https://arxiv.org/abs/1704.05958
+====================================================
+Signaling on the Continuous Spectrum of Nonlinear Optical fiber (Iman Tavakkolnia - 21 September, 2017)
+Three different signaling techniques are proposed and analyzed based on the statistics of the noise added to CS after propagation along the nonlinear optical fiber. Moreover, by selecting the proper signaling method and design criteria a reach distance of 7100 km is reported by only singling on the CS at a rate of 9.6 Gbps.
+Link: https://arxiv.org/abs/1704.05537
+====================================================
+Satellite Based Positioning Signal Acquisition at Higher Order Cycle Frequency (Pengda Wong - 17 April, 2017)
+Using the cyclostatistics, the estimation of the initial phase and Doppler shift of the signal is presented respectively. The simulation and experiment results demonstrate that the proposed signal acquisition scheme achieves the detection probability of 0.9 at the CNR 28dBHz.
+Link: https://arxiv.org/abs/1704.05183
+====================================================
+Part of Speech Based Term Weighting for Information Retrieval (Christina Lioma - 5 April, 2017)
+We propose a new type of term weight that is computed from part of speech (POS) n-gram statistics. Experiments with two TREC collections and 300 queries, using TF-IDF & BM25 as baselines, show that integrating our POS-based term weights to retrieval always leads to gains (up to +33.7% from the baseline)
+Link: https://arxiv.org/abs/1704.01617
+====================================================
+Comparison of ontology alignment systems across single matching task via the McNemar's test (Majid Mohammadi - 20 April, 2018)
+However,it is substantially provocative to select one measure among others for comparison.On top of that, claiming if one system has a better performance than one another cannot be substantiated solely by comparing two scalars.In this paper,we propose the statistical procedures which enable us to theoretically favor one system over one another.The McNemar's test is the statistical means by which the comparison of two ontology alignment systems over one matching task is drawn.The test applies to a 2x2 contingency table which can be constructed in two different ways based on the alignments,each of which has their own merits/pitfalls.The ways of the contingency table construction and various apposite statistics from the McNemar's test are elaborated in minute detail.In the case of having more than two alignment systems for comparison, the family-wise error rate is expected to happen. Thus, the ways of preventing such an error are also discussed.A directed graph visualizes the outcome of the McNemar's test in the presence of multiple alignment systems.From this graph, it is readily understood if one system is better than one another or if their differences are imperceptible.The proposed statistical methodologies are applied to the systems participated in the OAEI 2016 anatomy track, and also compares several well-known similarity metrics for the same matching problem.
+Link: https://arxiv.org/abs/1704.00045
+====================================================
+Formation {Ã } distance et outils num{Ã©}riques pour l'enseignement sup{Ã©}rieur et la recherche en Asie-Pacifique (Cambodge, Laos, Vietnam). Partie 02 : recommandations et feuille de route (Mokhtar Ben Henda - 3 March, 2017)
+It is also based on a "worrying" statement in the terms of reference of this expert report 1, which states that "Asia enjoys a favourable technological context [in terms of equipment according to UN statistics]. Nevertheless, digital technology is still hardly present in the practices of the member institutions of the Agency and the francophone university community; So distance education is not well developed: there are currently no French-language distance training courses offered by an establishment in Asia; The region has only 14 enrolled in ODL over the period 2010 - 2014; Only three institutions have responded to the AUF's "Mooc" calls for projects over the last two years, etc.". The document provides concrete examples, such as the ASEAN Cyber   University (ACU) program run by South Korea and its e-learning centers in Cambodia, Laos, Vietnam and Myanmar, The Vietnamese language and the fablab set up in the region since 2014 without the Francophonie being involved
+Link: https://arxiv.org/abs/1703.09641
+====================================================
+SEGAN: Speech Enhancement Generative Adversarial Network (Santiago Pascual - 9 June, 2017)
+The majority of them tackle a limited number of noise conditions and rely on first-order statistics. In contrast to current techniques, we operate at the waveform level, training the model end-to-end, and incorporate 28 speakers and 40 different noise conditions into the same model, such that model parameters are shared across them. We evaluate the proposed model using an independent, unseen test set with two speakers and 20 alternative noise conditions
+Link: https://arxiv.org/abs/1703.09452
+====================================================
+A Study on the Extraction and Analysis of a Large Set of Eye Movement Features during Reading (Ioannis Rigas - 27 March, 2017)
+For the categories of features with multiple instances in a recording we extract corresponding feature subtypes by calculating descriptive statistics on the distributions of these instances. The analysis of feature values is performed using a large database of eye movement recordings from a normative population of 298 subjects
+Link: https://arxiv.org/abs/1703.09167
+====================================================
+Is Second-order Information Helpful for Large-scale Visual Recognition? (Peihua Li - 1 April, 2018)
+However, state-of-the-art works concentrate only on deeper or wider architecture design, while rarely exploring feature statistics higher than first-order. On the ImageNet 2012 validation set, by combining MPN-COV we achieve over 4%, 3% and 2.5% gains for AlexNet, VGG-M and VGG-16, respectively; integration of MPN-COV into 50-layer ResNet outperforms ResNet-101 and is comparable to ResNet-152
+Link: https://arxiv.org/abs/1703.08050
+====================================================
+Second-order Convolutional Neural Networks (Kaicheng Yu - 20 March, 2017)
+In this paper, we introduce a novel class of CNNs that exploit second-order statistics. Our experiments demonstrate the benefits of our new architecture, which outperform the first-order CNNs, while relying on up to 90% fewer parameters.
+Link: https://arxiv.org/abs/1703.06817
+====================================================
+Multi-sensor authentication to improve smartphone security (Wei-Han Lee - 9 March, 2017)
+Smartphone thefts account for the largest percentage of thefts in recent crime statistics. Experimental results show that our method is efficient, requiring less than 10 seconds to train the model and 20 seconds to detect the abnormal user, while achieving high accuracy (more than 90%)
+Link: https://arxiv.org/abs/1703.03378
+====================================================
+An investigation into machine learning approaches for forecasting spatio-temporal demand in ride-hailing service (IsmaÃ¯l Saadi - 7 March, 2017)
+With respect to the methodology, a single decision tree, bootstrap-aggregated (bagged) decision trees, random forest, boosted decision trees, and artificial neural network for regression have been adapted and systematically compared using various statistics, e.g. In the current study, 199,584 time-slots describing the spatio-temporal ride-hailing demand has been extracted with an aggregated-time interval of 10 mins. The results revealed that boosted decision trees provide the best prediction accuracy (RMSE=16.41), while avoiding the risk of over-fitting, followed by artificial neural network (20.09), random forest (23.50), bagged decision trees (24.29) and single decision tree (33.55).
+Link: https://arxiv.org/abs/1703.02433
+====================================================
+Scaling in Internet Traffic: a 14 year and 3 day longitudinal study, with multiscale analyses and random projections (Romain Fontugne - 6 March, 2017)
+In the mid-90's, it was shown that the statistics of aggregated time series from Internet traffic departed from those of traditional short range dependent models, and were instead characterized by asymptotic self-similarity. Second, we apply the methodology to a data set spanning an unusually long period: 14 years, from the MAWI traffic archive, thereby allowing an in-depth longitudinal analysis of the form, nature and evolutions of scaling in Internet traffic, as well as network mechanisms producing them
+Link: https://arxiv.org/abs/1703.02005
+====================================================
+An LP Approach for Solving Two-Player Zero-Sum Repeated Bayesian Games (Lichun Li - 7 November, 2017)
+Moreover, based on the existing results in [1], this paper shows that a player's sufficient statistics, which is independent of the strategy of the other player, consists of the belief over the player's own type, the regret with respect to the other player's type, and the stage
+Link: https://arxiv.org/abs/1703.01957
+====================================================
+Speckle Reduction with Trained Nonlinear Diffusion Filtering (Wensen Feng - 24 February, 2017)
+To solve this problem, we employed a new architecture derived from the proximal gradient descent method.} {Taking into account the speckle noise statistics, the diffusion process for the despeckling task is derived. As a consequence, for images of size $512 \times 512$, our GPU implementation takes less than 0.1 seconds to produce state-of-the-art despeckling performance.}
+Link: https://arxiv.org/abs/1702.07482
+====================================================
+Using Deep Learning and Google Street View to Estimate the Demographic Makeup of the US (Timnit Gebru - 2 March, 2017)
+The United States spends more than $1B each year on initiatives such as the American Community Survey (ACS), a labor-intensive door-to-door study that measures statistics relating to race, gender, education, occupation, unemployment, and other demographic factors. Here, we present a method that determines socioeconomic trends from 50 million images of street scenes, gathered in 200 American cities by Google Street View cars. Data from this census of motor vehicles, which enumerated 22M automobiles in total (8% of all automobiles in the US), was used to accurately estimate income, race, education, and voting patterns, with single-precinct resolution. (The average US precinct contains approximately 1000 people.) The resulting associations are surprisingly simple and powerful. For instance, if the number of sedans encountered during a 15-minute drive through a city is higher than the number of pickup trucks, the city is likely to vote for a Democrat during the next Presidential election (88% chance); otherwise, it is likely to vote Republican (82%)
+Link: https://arxiv.org/abs/1702.06683
+====================================================
+Scalable Spectrum Allocation for Large Networks Based on Sparse Optimization (Binnan Zhuang - 18 February, 2017)
+The objective is to optimize a network utility function such as average delay given traffic statistics collected over a slow timescale. Numerical results for a network with 100 APs serving several hundred users show the proposed method achieves a substantial increase in total throughput relative to benchmark schemes.
+Link: https://arxiv.org/abs/1702.05679
+====================================================
+Backpropagation Training for Fisher Vectors within Neural Networks (Patrick Wieschollek - 8 February, 2017)
+Fisher-Vectors (FV) encode higher-order statistics of a set of multiple local descriptors like SIFT features. Our proof of concept implementation improves the performance of FV on the Pascal Voc 2007 challenge in a multi-GPU setting in comparison to a default SVM setting
+Link: https://arxiv.org/abs/1702.02549
+====================================================
+Exploiting saliency for object segmentation from image level labels (Seong Joon Oh - 14 July, 2017)
+We propose using a saliency model as additional information and hereby exploit prior knowledge on the object extent and image statistics. We show how to combine both information sources in order to recover 80% of the fully supervised performance - which is the new state of the art in weakly supervised training for pixel-wise semantic labelling
+Link: https://arxiv.org/abs/1701.08261
+====================================================
+Predicting Demographics of High-Resolution Geographies with Geotagged Tweets (Omar Montasser - 22 January, 2017)
+While prior work has focused on predicting demographics and health statistics at relatively coarse geographic resolutions such as the county-level or state-level, we introduce an approach to predict demographics at finer geographic resolutions such as the blockgroup-level. For the task of predicting gender and race/ethnicity counts at the blockgroup-level, an approach adapted from prior work to our problem achieves an average correlation of 0.389 (gender) and 0.569 (race) on a held-out test dataset. Our approach outperforms this prior approach with an average correlation of 0.671 (gender) and 0.692 (race).
+Link: https://arxiv.org/abs/1701.06225
+====================================================
+Universal Audio Steganalysis Based on Calibration and Reversed Frequency Resolution of Human Auditory System (Hamzeh Ghasemzadeh - 18 September, 2017)
+Calibration and higher order statistics (HOS) are standard components of many image steganalysis systems. The system detects steghide at capacity of 0.06 bit per symbol (BPS) with sensitivity of 98.6% (music) and 78.5% (speech). These figures are respectively 7.1% and 27.5% higher than state-of-the-art results based on RMFCC.
+Link: https://arxiv.org/abs/1701.05614
+====================================================
+Synthetic to Real Adaptation with Generative Correlation Alignment Networks (Xingchao Peng - 18 March, 2017)
+However, the generated images are non-photorealistic and do not match real image statistics. Experimentally, we show training off-the-shelf classifiers on the newly generated data can significantly boost performance when testing on the real image domains (PASCAL VOC 2007 benchmark and Office dataset), improving upon several existing methods.
+Link: https://arxiv.org/abs/1701.05524
+====================================================
+Scalable Spectrum Allocation and User Association in Networks with Many Small Cells (Binnan Zhuang - 12 January, 2017)
+A scalable framework is developed to allocate radio resources across a large number of densely deployed small cells with given traffic statistics on a slow timescale. Numerical results demonstrate the proposed solution for a network with 100 APs and several hundred user equipments
+Link: https://arxiv.org/abs/1701.03247
+====================================================
+An $N \log N$ Parallel Fast Direct Solver for Kernel Matrices (Chenhan D. Yu - 9 January, 2017)
+Kernel matrices appear in machine learning and non-parametric statistics. As a highlight, we are able to approximately factorize a dense $11M\times11M$ kernel matrix in 2 minutes on 3,072 x86 "Haswell" cores and a $4.5M\times4.5M$ matrix in 1 minute using 4,352 "Knights Landing" cores.
+Link: https://arxiv.org/abs/1701.02324
+====================================================
+Estimation of Graphlet Statistics (Ryan A. Rossi - 28 February, 2017)
+In this work, we propose an unbiased graphlet estimation framework that is (a) fast with significant speedups compared to the state-of-the-art, (b) parallel with nearly linear-speedups, (c) accurate with <1% relative error, (d) scalable and space-efficient for massive networks with billions of edges, and (e) flexible for a variety of real-world settings, as well as estimating macro and micro-level graphlet statistics (e.g., counts) of both connected and disconnected graphlets. On 300 networks from 20 domains, we obtain <1% relative error for all graphlets
+Link: https://arxiv.org/abs/1701.01772
+====================================================
+Effect of Cell-Selection on the Effective Fading Distribution in a Downlink K-tier HetNet (Mustafa A. Kishk - 30 May, 2017)
+This paper characterizes the statistics of effective fading gain in multi-tier cellular networks with strongest base station (BS) cell association policy. Moreover, we show that in the case of Nakagami-$m$ fading channels (Gamma distribution), the distribution of the effective fading is also Gamma but with a gain of $\fracÎ±{2}$ in the shape parameter, where $Î±$ is the path-loss exponent.
+Link: https://arxiv.org/abs/1701.01164
+====================================================
+Neutron induced strike: On the likelihood of multiple bit-flips in logic circuits (Nanditha P. Rao - 15 June, 2017)
+We use post-layout circuit simulations and Monte Carlo sampling scheme to get accurate bit-flip statistics. We find that, amongst the erroneous outcomes, the probability of multiple bit-flips for 'gate-strike' cases was substantial and went up to 50%, where as those for 'register-strike' cases was just about 2%
+Link: https://arxiv.org/abs/1612.08239
+====================================================
+Compressed Control of Complex Wireless Networks (Beatriz Lorenzo - 15 December, 2016)
+Since the above parameters are mutually dependent, and simultaneously present in a network, for a given channel and traffic statistics, a joint optimization of technology and business model parameters is required. For typical example scenarios, the optimum offloading price varies by factor 3 for different traffic patterns which justifies the use of dynamic strategies in the decision process. Besides, if user availability increases by multi-operator cooperation, network capacity can be increased up to 50% and network throughput up to 30-40%.
+Link: https://arxiv.org/abs/1612.05274
+====================================================
+Joint Bayesian Gaussian discriminant analysis for speaker verification (Yiyan Wang - 19 January, 2017)
+1) In contrast to the EM iterations with approximated statistics in the original JB, the EM iterations with exact statistics are employed and give better performance. Extensive experiments are conducted on NIST SRE10 core condition 5, empirically validating the superiority of JB with faster convergence rate and 9-13% EER reduction compared with state-of-the-art PLDA.
+Link: https://arxiv.org/abs/1612.04056
+====================================================
+Minimum Rates of Approximate Sufficient Statistics (Masahito Hayashi - 16 November, 2017)
+By adopting a Shannon-theoretic approach in which we allow a small error in estimating the generating distribution, we construct various {\em approximate sufficient statistics} and show that the code length can be reduced to $\frac{d}{2}\log n+O(1)$. The latter means that even if the code is allowed to have a non-vanishing error, its length must still be at least $\frac{d}{2}\log n$.
+Link: https://arxiv.org/abs/1612.02542
+====================================================
+Correlations Between Human Mobility and Social Interaction Reveal General Activity Patterns (Anders Mollgaard - 29 November, 2017)
+We explore two central questions: Which underlying principles govern the formation of the activity patterns? Are the patterns specific to each individual or shared across the entire population? We find that statistics of the entire population allows us to successfully predict 71\% of the activity and 85\% of the inactivity involved in communication, mobility, and physical proximity
+Link: https://arxiv.org/abs/1611.08262
+====================================================
+SimAthens: A spatial microsimulation approach to the estimation and analysis of small-area income distributions and poverty rates in Athens, Greece (Anastasia Panori - 31 October, 2016)
+We then present the SimAthens model, based on a combination of small-area demographic and socioeconomic information available from the Greek census of population with data from the European Union Statistics on Income and Living Conditions (EU-SILC). The model is based on an iterative proportional fitting (IPF) algorithm, and is used to reweigh EU-SILC records to fit in small-area descriptions for Athens based on 2001 and 2011 censuses
+Link: https://arxiv.org/abs/1611.07824
+====================================================
+A dataset and exploration of models for understanding video data through fill-in-the-blank question-answering (Tegan Maharaj - 5 February, 2017)
+In addition to presenting statistics and a description of the dataset, we perform a detailed analysis of 5 different models' predictions, and compare these with human performance
+Link: https://arxiv.org/abs/1611.07810
+====================================================
+MAC Protocols for IEEE 802.11ax: Avoiding Collisions on Dense Networks (Rafael Araujo da Silva - 20 November, 2016)
+Statistics show that the global mobile Internet penetration should exceed 70\% until 2019. Founded on IEEE 802.11, this technology has a crucial impact in how we share broadband access both in domestic and corporate networks. Then, in particular, this article overviews the MAC protocols used in the IEEE 802.11 standard and discusses solutions to mitigate collisions
+Link: https://arxiv.org/abs/1611.06609
+====================================================
+Low-rank Bilinear Pooling for Fine-Grained Classification (Shu Kong - 29 November, 2016)
+Pooling second-order local feature statistics to form a high-dimensional bilinear feature has been shown to achieve state-of-the-art performance on a variety of fine-grained classification tasks
+Link: https://arxiv.org/abs/1611.05109
+====================================================
+The Fluctuating Two-Ray Fading Model: Statistical Characterization and Performance Analysis (Juan M. Romero-Jerez - 27 May, 2017)
+We also provide approximate closed-form expressions for the PDF and CDF in terms of a finite number of elementary functions, which allow for a simple evaluation of these statistics to an arbitrary level of precision. We show that the FTR fading model provides a much better fit than Rician fading for recent small-scale fading measurements in 28 GHz outdoor millimeter-wave channels
+Link: https://arxiv.org/abs/1611.05063
+====================================================
+Contradiction Detection for Rumorous Claims (Piroska Lendvai - 11 November, 2016)
+Corpus statistics reveal distribution differences for these features in contradictory as opposed to non-contradictory tweet relations, and the classifiers yield state of the art performance.
+Link: https://arxiv.org/abs/1611.02588
+====================================================
+FEAST: An Automated Feature Selection Framework for Compilation Tasks (Pai-Shun Ting - 29 October, 2016)
+Specifically, FEAST utilizes widely used statistics and machine-learning tools, including LASSO, sequential forward and backward selection, for automatic feature selection, and can in general be applied to any numerical feature set. Intensive experimental results demonstrate that, under the compiler parameter assignment task, FEAST can achieve comparable results with about 18% of features that are automatically selected from the entire feature pool
+Link: https://arxiv.org/abs/1610.09543
+====================================================
+Low-Delay Distributed Source Coding for Time-Varying Sources with Unknown Statistics (Fangzhou Chen - 26 October, 2016)
+Slepian-Wolf coding in its traditional form cannot be applied in our scenario, since the encoder requires the joint statistics of the observations and the associated decoding delay is very high. Having realized our schemes, we demonstrated that, even with a very low-complexity quantizer, a compression ratio of approximately 50% is achievable for lossless replication at the decoder, at an average delay of a few seconds.
+Link: https://arxiv.org/abs/1610.08482
+====================================================
+A recommender system for efficient discovery of new anomalies in large-scale access logs (Heju Jiang - 25 October, 2016)
+Then, we utilize rank statistics of entity rank and order categorical combinations for recommendation. Our experiments show Helios to be suitable for large-scale applications: from cold starts, in less than 60 minutes, Helios can analyze roughly 4.6 billion records in logs of 400GB with about 300 million potential categorical combinations, then generate ranked categorical combinations as recommended discoveries. We also show that, even with limited computing resources, Helios accelerates unknown and unseen anomaly discovery process for SPM by 1 to 3 orders of magnitude, depending on use cases
+Link: https://arxiv.org/abs/1610.08117
+====================================================
+Retrieving challenging vessel connections in retinal images by line co-occurrence statistics (Samaneh Abbasi-Sureshjani - 20 October, 2016)
+Furthermore, the probabilistic model is trained from the data via statistics and used for automated grouping of interrupted vessels in a spectral clustering based approach. On top of that, the best approximation of the statistical model with the symmetrized extension of the probabilistic model on the projective line bundle is found with a least square error smaller than 2%
+Link: https://arxiv.org/abs/1610.06368
+====================================================
+Harmonic Sum-based Method for Heart Rate Estimation using PPG Signals Affected with Motion Artifacts (Harishchandra Dubey - 3 October, 2016)
+General observation is that the motion artifacts change the statistics of the acquired PPG signal. The mean absolute error in HR estimates was 0.7359 beats per minute (BPM) with a standard deviation of 0.8328 BPM for 2015 IEEE Signal Processing (SP) cup data
+Link: https://arxiv.org/abs/1610.05112
+====================================================
+Content-Based Image Retrieval Using Multiresolution Analysis Of Shape-Based Classified Images (I. M. El-Henawy - 8 October, 2016)
+The first feature vector uses descriptive statistics to describe the distribution of data in each channel of RGB channels of the image. The second feature vector describes the texture using eigenvalues of the 39 sub-bands that are generated after applying four levels 2D DWT in each channel (red, green and blue channels) of the image. Experimental results on a private MYSQL database that consists of 10000 images, using color, texture, shape and stored relevance feedbacks, showed 96.4% average correct retrieval rate in an efficient recovery time.
+Link: https://arxiv.org/abs/1610.02509
+====================================================
+Technical Report: Graph-Structured Sparse Optimization for Connected Subgraph Detection (Baojian Zhou - 30 September, 2016)
+We apply our proposed algorithms to optimize several well-known graph scan statistics in several applications of connected subgraph detection as a case study, and the experimental results demonstrate that our proposed algorithms outperform state-of-the-art methods.
+Link: https://arxiv.org/abs/1609.09864
+====================================================
+Performance Comparison of Short-Length Error-Correcting Codes (J. Van Wonterghem - 7 November, 2016)
+We use a universal decoder that can decode any linear binary block code: Gaussian-elimination based Maximum-Likelihood decoder on the erasure channel and probabilistic Ordered Statistics Decoder on the Gaussian channel. The word error rate versus the channel parameter is found for LDPC, Reed-Muller, Polar, and BCH codes at length 256 bits
+Link: https://arxiv.org/abs/1609.07907
+====================================================
+Linear Support Tensor Machine: Pedestrian Detection in Thermal Infrared Images (Sujoy Kumar Biswas - 26 September, 2016)
+LSK is specifically designed to deal with intrinsic image noise and pixel level uncertainty by capturing local image geometry succinctly instead of collecting local orientation statistics (e.g., histograms in HOG). In addition, the proposed work also involves the release of our in-house annotations of pedestrians in more than 17000 frames of OSU Color Thermal database for the purpose of sharing with the research community.
+Link: https://arxiv.org/abs/1609.07878
+====================================================
+Poisson Noise Reduction with Higher-order Natural Image Prior Model (Wensen Feng - 19 September, 2016)
+Then we turn to an alternative modeling strategy by using the Anscombe transform and Gaussian statistics derived data term. For images of size $512 \times 512$, our GPU implementation takes less than 1 second to produce state-of-the-art Poisson denoising performance.
+Link: https://arxiv.org/abs/1609.05722
+====================================================
+Load-aware Performance Analysis of Cell Center/Edge Users in Random HetNets (Praful D. Mankar - 9 March, 2017)
+In heterogeneous networks (HetNets), the uncoordinated channel access by different types of base stations determine the interference statistics that further arbitrates the coverage probability. In this paper, the performance of CCUs and CEUs in a random two-tier network is studied for two spectrum allocation techniques namely: 1) co-channel (CSA), and 2) shared (SSA)
+Link: https://arxiv.org/abs/1609.05670
+====================================================
+Automated Dynamic Analysis of Ransomware: Benefits, Limitations and use for Detection (Daniele Sgandurra - 10 September, 2016)
+Recent statistics show that in 2015 more than 140 millions new malware samples have been found. Our tests over a dataset of 582 ransomware belonging to 11 families, and with 942 goodware applications, show that EldeRan achieves an area under the ROC curve of 0.995
+Link: https://arxiv.org/abs/1609.03020
+====================================================
+Image and Video Mining through Online Learning (Andrew Gilbert - 7 December, 2016)
+Our approach is based around the concept of an image signature which, unlike a standard bag of words model, can express co-occurrence statistics as well as symbol frequency. To demonstrate that the approach is agnostic to media type and features used, we evaluate on three image datasets (15 scene, Caltech101 and FG-NET), a mixed text and image dataset (ImageTag), a dataset used in active learning (Iris) and on three action recognition datasets (UCF11, KTH and Hollywood2). On the UCF11 video dataset, the accuracy is 86.7% despite using only 90 labelled examples from a dataset of over 1200 videos, instead of the standard 1122 training videos. The approach is both scalable and efficient, with a single iteration over the full UCF11 dataset of around 1200 videos taking approximately 1 minute on a standard desktop machine.
+Link: https://arxiv.org/abs/1609.02770
+====================================================
+Low-rank Multi-view Clustering in Third-Order Tensor Space (Ming Yin - 31 August, 2016)
+Despite some state-of-the-art subspace clustering approaches can numerically handle multi-view data, by simultaneously exploring all possible pairwise correlation within views, the high order statistics is often disregarded which can only be captured by simultaneously utilizing all views
+Link: https://arxiv.org/abs/1608.08336
+====================================================
+Hybrid CPU-GPU Framework for Network Motifs (Ryan A. Rossi - 27 October, 2016)
+In addition to the hybrid multi-core CPU-GPU framework, we also investigate single GPU methods (using multiple cores) and multi-GPU methods that leverage all available GPUs simultaneously for computing induced subgraph statistics. In particular, the methods are up to 300 times faster than the recent state-of-the-art method
+Link: https://arxiv.org/abs/1608.05138
+====================================================
+Face Alignment In-the-Wild: A Survey (Xin Jin - 15 August, 2016)
+In addition, we show performance statistics of the state of the art, and conclude this paper with several promising directions for future research.
+Link: https://arxiv.org/abs/1608.04188
+====================================================
+Mining and modeling character networks (Anthony Bonato - 30 September, 2016)
+Building on recent work of beveridge, we consider graph extraction, visualization, and network statistics for three novels: Twilight by Stephanie Meyer, Steven King's The Stand, and J.K. Coupling with 800 character networks from films found in the http://moviegalaxies.com/ database, we compare the data sets to simulations from various stochastic complex networks models including random graphs with given expected degrees (also known as the Chung-Lu model), the configuration model, and the preferential attachment model
+Link: https://arxiv.org/abs/1608.00646
+====================================================
+Phase Noise Influence in Optical OFDM Systems employing RF Pilot Tone for Phase Noise Cancellation (Gunnar Jacobsen - 19 July, 2016)
+Novel analytical results for the common phase error and for the (modulation dependent) inter carrier interference are evaluated based upon Gaussian statistics for the laser phase noise. Numerical results are presented for OFDM systems with 4 and 16 PSK modulation, 200 OFDM bins and baud rate of 1 GS/s. It is found that about 225 km transmission is feasible for the coherent 4PSK-OFDM system over normal (G.652) fiber.
+Link: https://arxiv.org/abs/1607.08791
+====================================================
+Efficient Hyperparameter Optimization of Deep Learning Algorithms Using Deterministic RBF Surrogates (Ilija Ilievski - 20 January, 2017)
+However, probabilistic surrogates require accurate estimates of sufficient statistics (e.g., covariance) of the error distribution and thus need many function evaluations with a sizeable number of hyperparameters. For instance, on average, HORD is more than 6 times faster than GP-EI in obtaining the best configuration of 19 hyperparameters.
+Link: https://arxiv.org/abs/1607.08316
+====================================================
+Forward-Mode Automatic Differentiation in Julia (Jarrett Revels - 26 July, 2016)
+According to our usage statistics, 41 unique repositories on GitHub depend on ForwardDiff, with users from diverse fields such as astronomy, optimization, finite element analysis, and statistics.
+Link: https://arxiv.org/abs/1607.07892
+====================================================
+Error-Resilient Machine Learning in Near Threshold Voltage via Classifier Ensemble (Sai Zhang - 3 July, 2016)
+Additionally, we propose an error weighted voting technique that incorporates the timing error statistics of the NTV circuit fabric to further enhance robustness. Simulation results confirm that the error weighted voting achieves a P_{det} that varies by only 1.4%, which is 12X lower compared to SVM.
+Link: https://arxiv.org/abs/1607.07804
+====================================================
+Rank Correlation Measure: A Representational Transformation for Biometric Template Protection (Zhe Jin - 23 July, 2016)
+Such a ranking based technique offers two major merits: 1) Resilient to noises/perturbations in numeric values; and 2) Highly nonlinear embedding based on partial order statistics
+Link: https://arxiv.org/abs/1607.06902
+====================================================
+Dial One for Scam: A Large-Scale Analysis of Technical Support Scams (Najmeh Miramirkhani - 19 March, 2017)
+Finally, by setting up a controlled, IRB-approved, experiment where we interact with 60 different scammers, we experience first-hand their social engineering tactics, while collecting detailed statistics of the entire process
+Link: https://arxiv.org/abs/1607.06891
+====================================================
+Accelerated Evaluation of Automated Vehicles in Car-Following Maneuvers (Ding Zhao - 19 February, 2017)
+The statistics of the HV behaviors are then modified to generate more intense interactions between HVs and AVs to accelerate the evaluation procedure. Results show that test duration is reduced by a factor of 300 to 100,000 compared with the non-accelerated (naturalistic) evaluation
+Link: https://arxiv.org/abs/1607.02687
+====================================================
+Neutrosophic Overset, Neutrosophic Underset, and Neutrosophic Offset. Similarly for Neutrosophic Over-/Under-/Off- Logic, Probability, and Statistics (Florentin Smarandache - 29 June, 2016)
+were extended to respectively Neutrosophic Over-/Under-/Off-Logic, -Measure, -Probability, -Statistics etc. [Smarandache, 2007].
+Link: https://arxiv.org/abs/1607.00234
+====================================================
+A permutation code preserving a double Eulerian bistatistic (Jean-Luc Baril - 25 June, 2016)
+This conjecture has been proved by Aas in 2014, and the generating function of the corresponding bistatistics is the double Eulerian polynomial. In this paper we define a permutation code (that is, a bijection between permutations and subexcedant sequences) and show the more general result that two $5$-tuples of set-valued statistics on the set of permutations and on the set of subexcedant sequences, respectively, are equidistributed
+Link: https://arxiv.org/abs/1606.07913
+====================================================
+Adaptive Local Window for Level Set Segmentation of CT and MRI Liver Lesions (Assaf Hoogi - 12 June, 2016)
+Global and local statistics are considered by calculating several gray level co-occurrence matrices. We demonstrate the capabilities of the method in the domain of medical imaging for segmenting 233 images with liver lesions. In case of complex lesions, such as low contrast lesions, heterogeneous lesions, or lesions with a noisy background, our method shows significantly better segmentation with an improvement of 0.25+- 0.13 in Dice similarity coefficient, compared with state of the art fixed-size local windows (Wilcoxon, p < 0.001).
+Link: https://arxiv.org/abs/1606.03765
+====================================================
+What is Learning Analytics about? A Survey of Different Methods Used in 2013-2015 (Mohammad Khalil - 9 June, 2016)
+It is a field that combines different disciplines such as computer science, statistics, psychology and pedagogy to achieve its intended objectives. This paper surveys publications from Learning Analytics and Knowledge conference from 2013 to 2015 and lists the significant research areas in this sphere
+Link: https://arxiv.org/abs/1606.02878
+====================================================
+Waddling Random Walk: Fast and Accurate Mining of Motif Statistics in Large Graphs (Guyue Han - 14 June, 2017)
+In addition, WRW achieves significantly higher accuracy (measured by the closeness of its estimate to the correct value) and higher precision (measured by the low variance in its estimations) than the current state-of-the-art algorithms for mining subgraph statistics
+Link: https://arxiv.org/abs/1605.09776
+====================================================
+Accelerated Evaluation of Automated Vehicles Safety in Lane Change Scenarios Based on Importance Sampling Techniques (Ding Zhao - 15 June, 2016)
+The cut-in scenarios are generated based on skewed statistics of collected human driver behaviors, which generate risky testing scenarios while preserving the statistical information so that the safety benefits of AVs in non-accelerated cases can be accurately estimated. In other words, in the accelerated simulations, driving for 1,000 miles will expose the AV with challenging scenarios that will take about 2 to 20 million miles of real-world driving to encounter
+Link: https://arxiv.org/abs/1605.04965
+====================================================
+The Generalized Degrees of Freedom Region of the MIMO Z-Interference Channel with Delayed CSIT (Kaniska Mohanty - 2 May, 2016)
+An achievability scheme based on block-Markov encoding and backward decoding is developed which uses interference quantization and digital multicasting to take advantage of the channel statistics of the cross-link, and the scheme is separately shown to be GDoF-optimal in both the weak ($Î±\leq1$) and strong ($Î±>1$) interference regimes
+Link: https://arxiv.org/abs/1605.00693
+====================================================
+Music transcription modelling and composition using deep learning (Bob L. Sturm - 29 April, 2016)
+We present results from three perspectives: 1) at the population level, comparing descriptive statistics of the set of training transcriptions and generated transcriptions; 2) at the individual level, examining how a generated transcription reflects the conventions of a music practice in the training transcriptions (Celtic folk); 3) at the application level, using the system for idea generation in music composition
+Link: https://arxiv.org/abs/1604.08723
+====================================================
+Precomputed Real-Time Texture Synthesis with Markovian Generative Adversarial Networks (Chuan Li - 15 April, 2016)
+Instead of a numerical deconvolution in previous work, we precompute a feed-forward, strided convolutional network that captures the feature statistics of Markovian patches and is able to directly generate outputs of arbitrary dimensions. As no optimization is required any longer at generation time, our run-time performance (0.25M pixel images at 25Hz) surpasses previous neural texture synthesizers by a significant margin (at least 500 times faster)
+Link: https://arxiv.org/abs/1604.04382
+====================================================
+Efficient Algorithms for Large-scale Generalized Eigenvector Computation and Canonical Correlation Analysis (Rong Ge - 27 May, 2016)
+These are two fundamental problems in data analysis and scientific computing with numerous applications in machine learning and statistics (Shi and Malik, 2000; Hardoon et al., 2004; Witten et al., 2009).
+Link: https://arxiv.org/abs/1604.03930
+====================================================
+DENSER Cities: A System for Dense Efficient Reconstructions of Cities (Michael Tanner - 13 April, 2016)
+We evaluate our system using the KITTI dataset and provide statistics for the metric errors in all surfaces created compared to those measured with 3D laser. Our regularizer reduces the median error by 40% in 3.4 km of dense reconstructions with a median accuracy of 6 cm. For subjective analysis, we provide a qualitative review of 6.1 km of our dense reconstructions in an attached video
+Link: https://arxiv.org/abs/1604.03734
+====================================================
+DCAN: Deep Contour-Aware Networks for Accurate Gland Segmentation (Hao Chen - 10 April, 2016)
+Accurate segmentation of glands from histology images is a crucial step to obtain reliable morphological statistics for quantitative diagnosis. Our method won the 2015 MICCAI Gland Segmentation Challenge out of 13 competitive teams, surpassing all the other methods by a significant margin.
+Link: https://arxiv.org/abs/1604.02677
+====================================================
+Next-Term Student Performance Prediction: A Recommender Systems Approach (Mack Sweeney - 6 April, 2016)
+National statistics indicate that most higher education institutions have four-year degree completion rates around 50 percent, or just half of their student populations
+Link: https://arxiv.org/abs/1604.01840
+====================================================
+Secret-Key Agreement with Public Discussion subject to an Amplitude Constraint (Marwen Zorgui - 31 March, 2016)
+The result is obtained by first transforming the secret-key channel model into an equivalent Gaussian wiretap channel with better noise statistics at the legitimate receiver and then using the fact that the optimal distribution of the Gaussian wiretap channel is discrete. Finally, when the amplitude constraint A is small ($A \to 0$), the secret-key capacity is proved to be asymptotically equal to the capacity of the legitimate user with an amplitude constraint A and no secrecy constraint.
+Link: https://arxiv.org/abs/1604.00107
+====================================================
+SciChallenge: Using Student-Generated Content and Contests to Enhance the Interest for Science Education and Careers (Sabri Pllana - 31 March, 2016)
+However, statistics still show that enrolment rates in STEM-based degree programs are decreasing. In cooperation with partner schools, teachers, and other youth-oriented institutions, the contest participants (individuals or groups) between the ages of 10 and 20 years generate creative digital materials (videos, slides, or infographics)
+Link: https://arxiv.org/abs/1603.09598
+====================================================
+Generalized Exponential Concentration Inequality for RÃ©nyi Divergence Estimation (Shashank Singh - 28 March, 2016)
+Although this is a fundamental problem in nonparametric statistics, to the best of our knowledge there has been no finite sample exponential inequality convergence bound derived for any divergence estimators. The main contribution of our work is to provide such a bound for an estimator of RÃ©nyi-$Î±$ divergence for a smooth HÃ¶lder class of densities on the $d$-dimensional unit cube $[0, 1]^d$
+Link: https://arxiv.org/abs/1603.08589
+====================================================
+Static and Dynamic Feature Selection in Morphosyntactic Analyzers (Bernd Bohnet - 21 March, 2016)
+We compare a static ordering of features to a dynamic ordering based on mutual information statistics, and we apply the techniques to standalone taggers as well as joint systems for tagging and parsing. Our final results represent a substantial improvement of the state of the art for several languages, while at the same time reducing both the number of features and the running time by up to 80% in some cases.
+Link: https://arxiv.org/abs/1603.06503
+====================================================
+DASA: Domain Adaptation in Stacked Autoencoders using Systematic Dropout (Abhijit Guha Roy - 19 March, 2016)
+Domain adaptation deals with adapting behaviour of machine learning based systems trained using samples in source domain to their deployment in target domain where the statistics of samples in both domains are dissimilar. The performance of SAE-DNN measured using $logloss$ in source domain is $0.19$, without and with adaptation are $0.40$ and $0.18$, and $0.39$ when trained exclusively with limited samples in target domain. The area under ROC curve is observed respectively as $0.90$, $0.86$, $0.92$ and $0.87$
+Link: https://arxiv.org/abs/1603.06060
+====================================================
+Towards using social media to identify individuals at risk for preventable chronic illness (Dane Bell - 11 March, 2016)
+First, we trained a random forest classifier on data gathered from (public) Twitter statuses and state-level statistics with state-of-the-art accuracy
+Link: https://arxiv.org/abs/1603.03784
+====================================================
+Revealing Utilization at Internet Interconnection Points (Nick Feamster - 4 September, 2016)
+One mechanism, developed by DeepField Networks, allows Internet service providers (ISPs) to gather and aggregate utilization information using network flow statistics, standardized in the Internet Engineering Task Force as IPFIX. This report (1) provides an overview of the method that DeepField Networks is using to measure the utilization of various interconnection links between content providers and ISPs or links over which traffic between content and ISPs flow; and (2) surveys the findings from five months of Internet utilization data provided by seven participating ISPs---Bright House Networks, Comcast, Cox, Mediacom, Midco, Suddenlink, and Time Warner Cable---whose access networks represent about 50% of all U.S. The dataset includes about 97% of the paid peering, settlement-free peering, and ISP-paid transit links of each of the participating ISPs. Initial analysis of the data---which comprises more than 1,000 link groups, representing the diverse and substitutable available routes---suggests that many interconnects have significant spare capacity, that this spare capacity exists both across ISPs in each region and in aggregate for any individual ISP, and that the aggregate utilization across interconnects interconnects is roughly 50% during peak periods.
+Link: https://arxiv.org/abs/1603.03656
+====================================================
+Differentiated latency in data center networks with erasure coded files through traffic engineering (Yu Xiang - 17 February, 2016)
+Due to limited bandwidth available at both top-of-the-rack and aggregation switches and tenants in different service classes need differentiated services, network bandwidth must be apportioned among different intra- and inter-rack data flows for different service classes in line with their traffic statistics. We develop an iterative algorithm which decouples and solves the joint optimization as 3 sub-problems, which are either convex or solvable via bipartite matching in polynomial time. The proposed algorithm is prototyped in an open-source, distributed file system, {\em Tahoe}, and evaluated on a cloud testbed with 16 separate physical hosts in an Openstack cluster using 48-port Cisco Catalyst switches
+Link: https://arxiv.org/abs/1602.05551
+====================================================
+Improved Dropout for Shallow and Deep Learning (Zhe Li - 4 December, 2016)
+By minimizing a sampling dependent factor in the risk bound, we obtain a distribution-dependent dropout with sampling probabilities dependent on the second order statistics of the data distribution. For example, on the CIFAR-100 data, the evolutional dropout achieves relative improvements over 10\% on the prediction performance and over 50\% on the convergence speed compared to the standard dropout.
+Link: https://arxiv.org/abs/1602.02220
+====================================================
+Joint Recognition and Segmentation of Actions via Probabilistic Integration of Spatio-Temporal Fisher Vectors (Johanna Carvajal - 4 October, 2016)
+Features from each window are represented as a Fisher vector, which captures first and second order statistics. On s-KTH, the proposed approach achieves an accuracy of 85.0%, significantly outperforming two recent approaches based on GMMs and HMMs which obtained 78.3% and 71.2%, respectively. On CMU-MMAC, the proposed approach achieves an accuracy of 40.9%, outperforming the GMM and HMM approaches which obtained 33.7% and 38.4%, respectively. Furthermore, the proposed system is on average 40 times faster than the GMM based approach.
+Link: https://arxiv.org/abs/1602.01601
+====================================================
+On Diffusion-restricted Social Network: A Measurement Study of WeChat Moments (Zhuqi Li - 17 March, 2016)
+In this paper, we conduct a measurement study on information diffusion in the WM network by crawling and analyzing the spreading statistics of more than 160,000 pages that involve approximately 40 million users
+Link: https://arxiv.org/abs/1602.00193
+====================================================
+Enhancing Energy Minimization Framework for Scene Text Recognition with Top-Down Cues (Anand Mishra - 12 January, 2016)
+These interactions are top-down cues obtained from a lexicon-based prior, i.e., language statistics. We evaluate our proposed algorithm extensively on a number of cropped scene text benchmark datasets, namely Street View Text, ICDAR 2003, 2011 and 2013 datasets, and IIIT 5K-word, and show better performance than comparable methods
+Link: https://arxiv.org/abs/1601.03128
+====================================================
+Outlier Detection In Large-scale Traffic Data By NaÃ¯ve Bayes Method and Gaussian Mixture Model Method (Philip Lam - 28 December, 2015)
+Traffic data was recorded in a video format, and converted to spatial-temporal (ST) traffic signals by statistics. Experimental results show that the NB algorithm with Triangle kernel and GMM method achieve up to 93.78% and 94.50% accuracies, respectively.
+Link: https://arxiv.org/abs/1512.08413
+====================================================
+Truncated Max-of-Convex Models (Pankaj Pansari - 3 December, 2016)
+However, by restricting the order of the potentials to be at most two, they fail to capture useful image statistics. By using m > 1, TMCM provides robustness towards errors in the definition of the cliques
+Link: https://arxiv.org/abs/1512.07815
+====================================================
+Probabilistic Programming with Gaussian Process Memoization (Ulrich Schaechtle - 5 January, 2016)
+Gaussian Processes (GPs) are widely used tools in statistics, machine learning, robotics, computer vision, and scientific computation. All applications share a single 50-line Python library and require fewer than 20 lines of probabilistic code each.
+Link: https://arxiv.org/abs/1512.05665
+====================================================
+Principal Component Analysis (PCA)-based Massive-MIMO Channel Feedback (Jingon Joung - 16 December, 2015)
+With the knowledge of the channel statistics, the transceiver can readily obtain the covariance matrix and KLT matrix. Numerical results verify that the proposed method is promising, which reduces significantly the feedback overhead of the massive-MIMO systems with marginal performance degradation from full-CSI feedback (e.g., feedback amount reduction by 80%, i.e., 1/5 of original CSI, with spectral efficiency reduction by only 2%)
+Link: https://arxiv.org/abs/1512.05068
+====================================================
+Approximating the Simplicial Depth (Peyman Afshani - 27 December, 2015)
+The simplicial depth is a notion of data depth with many applications in robust statistics and computational geometry. By combining these approaches, we compute a $(1+\varepsilon)$-approximation of the simplicial depth in time $\tilde{O}(n^{d/2 + 1})$ ignoring polylogarithmic factor. Furthermore, we present a simple strategy to compute the simplicial depth exactly in $O(n^d \log n)$ time, which provides the first improvement over the trivial $O(n^{d+1})$ time algorithm for $d>4$. Finally, we show that computing the simplicial depth exactly is #P-complete and W[1]-hard if the dimension is part of the input.
+Link: https://arxiv.org/abs/1512.04856
+====================================================
+Projection Theorems for the RÃ©nyi Divergence on $Î±$-Convex Sets (M. Ashok Kumar - 26 July, 2016)
+The forward projection on such a set is motivated by some works of Tsallis {\em et al.} in statistical physics, and the reverse projection is motivated by robust statistics. For $Î±\in (1, \infty)$, the proof relies on a new Apollonius theorem for the Hellinger divergence, and for $Î±\in (0,1)$, the proof relies on the Banach-Alaoglu theorem from functional analysis. These include a projection theorem on a specific $Î±$-convex set, which is termed an {\em $Î±$-linear family}, generalizing a result by CsiszÃ¡r for $Î±\neq 1$
+Link: https://arxiv.org/abs/1512.02515
+====================================================
+The precision of the arithmetic mean, geometric mean and percentiles for citation data: An experimental simulation modelling approach (Mike Thelwall - 5 December, 2015)
+This article compares the precision of these statistics using 97 trillion experimentally simulated citation counts from 6875 sets of different parameters (although all having the same scale parameter) based upon the discretised lognormal distribution with limits from 1000 repetitions for each parameter set. The results show that the geometric mean is the most precise, closely followed by the percentage of a country's articles in the top 50% most cited articles for a field, year and document type. The percentage of a country's articles in the top 1% most cited is a particularly imprecise indicator and is not recommended for international comparisons based on individual fields
+Link: https://arxiv.org/abs/1512.01688
+====================================================
+Staple: Complementary Learners for Real-Time Tracking (Luca Bertinetto - 13 April, 2016)
+Models based on colour statistics have complementary traits: they cope well with variation in shape, but suffer when illumination is not consistent throughout a sequence. In this paper, we show that a simple tracker combining complementary cues in a ridge regression framework can operate faster than 80 FPS and outperform not only all entries in the popular VOT14 competition, but also recent and far more sophisticated trackers according to multiple benchmarks.
+Link: https://arxiv.org/abs/1512.01355
+====================================================
+Large-Scale Approximate Kernel Canonical Correlation Analysis (Weiran Wang - 29 February, 2016)
+Kernel canonical correlation analysis (KCCA) is a nonlinear multi-view representation learning technique with broad applicability in statistics and machine learning. This approach allows us to run approximate KCCA on a speech dataset with $1.4$ million training samples and a random feature space of dimensionality $M=100000$ on a typical workstation.
+Link: https://arxiv.org/abs/1511.04773
+====================================================
+Detection of multiple and overlapping bidirectional communities within large, directed and weighted networks of neurons (Umberto Esposito - 13 November, 2015)
+We introduce a definition of community and we construct a statistics-based heuristic algorithm for directed and weighted networks aiming at identifying overlapping bidirectional communities in large networks. We carry out a systematic analysis of the algorithm's performance, showing excellent results over a wide range of parameters (successful detection percentages almost $100\%$ all the time)
+Link: https://arxiv.org/abs/1511.04467
+====================================================
+Fundamental Limits of Cache-Aided Wireless BC: Interplay of Coded-Caching and CSIT Feedback (Jingjing Zhang - 25 April, 2016)
+Building on the recent coded-caching breakthrough by Maddah-Ali and Niesen, the work here considers the $K$-user cache-aided wireless multi-antenna (MISO) symmetric broadcast channel (BC) with random fading and imperfect feedback, and analyzes the throughput performance as a function of feedback statistics and cache size. In this setting, our work identifies the optimal cache-aided degrees-of-freedom (DoF) within a factor of 4, by identifying near-optimal schemes that exploit the new synergy between coded caching and delayed CSIT, as well as by exploiting the unexplored interplay between caching and feedback-quality
+Link: https://arxiv.org/abs/1511.03961
+====================================================
+Fast and Accurate Poisson Denoising with Optimized Nonlinear Diffusion (Wensen Feng - 10 October, 2015)
+We retrain the model parameters, including the linear filters and influence functions by taking into account the Poisson noise statistics, and end up with an optimized nonlinear diffusion model specialized for Poisson denoising. For images of size $512 \times 512$, our GPU implementation takes less than 0.1 seconds to produce state-of-the-art Poisson denoising performance.
+Link: https://arxiv.org/abs/1510.02930

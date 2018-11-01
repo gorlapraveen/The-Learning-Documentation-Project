@@ -1,0 +1,115 @@
+If there are any errors
+please Abort, and run `arxiv_required` for required package installation, and start again
+Please wait while we phrase the requested information from global arxiv[arxiv.org] servers 
+------------>
+---------------------------->
+------------------------------------------------------>
+ 
+Diversity, Productivity, and Growth of Open Source Developer Communities (Qingye Jiang - 11 September, 2018)
+In particular, we analyze git repositories of 20 well-known open source projects, with over 3 million commit activities in total
+Link: https://arxiv.org/abs/1809.03725
+====================================================
+Splitting source code identifiers using Bidirectional LSTM Recurrent Neural Network (Vadim Markovtsev - 19 July, 2018)
+Such multi-part identifiers count for 97% of all naming tokens in the Public Git Archive - the largest dataset of Git repositories to date. We trained that network on 41.7 million distinct splittable identifiers collected from 182,014 open source projects in Public Git Archive, and show that it outperforms several other machine learning models
+Link: https://arxiv.org/abs/1805.11651
+====================================================
+Public Git Archive: a Big Code dataset for all (Vadim Markovtsev - 20 March, 2018)
+The Public Git Archive occupies 3.0 TB on disk and is an order of magnitude larger than the current source code datasets
+Link: https://arxiv.org/abs/1803.10144
+====================================================
+RefDiff: Detecting Refactorings in Version Histories (Danilo Silva - 5 April, 2017)
+In this paper, we present RefDiff, an automated approach that identifies refactorings performed between two code revisions in a git repository. RefDiff employs a combination of heuristics based on static analysis and code similarity to detect 13 well-known refactoring types. In an evaluation using an oracle of 448 known refactoring operations, distributed across seven Java projects, our approach achieved precision of 100% and recall of 88%
+Link: https://arxiv.org/abs/1704.01544
+====================================================
+Predicting the Popularity of GitHub Repositories (Hudson Borges - 14 July, 2016)
+Finally, we evaluate the ability to predict not the number of stars of a repository but its rank among the GitHub repositories. We found a very strong correlation between predicted and real rankings (Spearman's rho greater than 0.95).
+Link: https://arxiv.org/abs/1607.04342
+====================================================
+Fail Fast - Fail Often: Enhancing Agile Methodology using Dynamic Regression, Code Bisector and Code Quality in Continuous Integration (CI) (Sandeep Sivanandan - 29 June, 2015)
+The set of tools used for this analysis, design and development are Jenkins, Robot Framework [4], Perforce and Git.
+Link: https://arxiv.org/abs/1506.08725
+====================================================
+Git Loss for Deep Face Recognition (Alessandro Calefati - 28 July, 2018)
+We perform experiments on two popular face recognition benchmarks datasets and show that our proposed loss function achieves maximum separability between deep face features of different identities and achieves state-of-the-art accuracy on two major face recognition benchmark datasets: Labeled Faces in the Wild (LFW) and YouTube Faces (YTF). However, it should be noted that the major objective of Git loss is to achieve maximum separability between deep features of divergent identities.
+Link: https://arxiv.org/abs/1807.08512
+====================================================
+A Revision Control System for Image Editing in Collaborative Multimedia Design (Fabio Calefato - 20 July, 2018)
+To overcome these limitations, in this paper we present a revision control system for digital images that stores revisions in form of graphs. Besides, being integrated with Git, our revision control system also facilitates artistic creation processes in common image editing and digital painting workflows
+Link: https://arxiv.org/abs/1806.00263
+====================================================
+Decentralized Collaborative Knowledge Management using Git (Natanael Arndt - 5 June, 2018)
+In this paper, we present Quit Store, it was inspired by and it builds upon the successful Git system
+Link: https://arxiv.org/abs/1805.03721
+====================================================
+T-Reqs: Tool Support for Managing Requirements in Large-Scale Agile System Development (Eric Knauss - 20 July, 2018)
+T-Reqs is a text-based requirements management solution based on the git version control system. It combines useful conventions, templates and helper scripts with powerful existing solutions from the git ecosystem and provides a working solution to address some known requirements engineering challenges in large-scale agile system development
+Link: https://arxiv.org/abs/1805.02769
+====================================================
+A Framework for Blockchain-Based Applications (Ephraim Feig - 2 March, 2018)
+We define "blockchain" and "blockchain network", and then discuss two very different, well known classes of blockchain networks: cryptocurrencies and Git repositories
+Link: https://arxiv.org/abs/1803.00892
+====================================================
+A Quality Type-aware Annotated Corpus and Lexicon for Harassment Research (Mohammadreza Rezvan - 23 May, 2018)
+The instruction to acquire the corpus has been published on the Git repository.
+Link: https://arxiv.org/abs/1802.09416
+====================================================
+Roaring Bitmaps: Implementation of an Optimized Software Library (Daniel Lemire - 5 January, 2018)
+Compressed bitmap indexes are used in systems such as Git or Oracle to accelerate queries
+Link: https://arxiv.org/abs/1709.07821
+====================================================
+BDCI: Behavioral Driven Conflict Identification (Fabrizio Pastore - 4 August, 2017)
+The evidence collected by analyzing multiple versions of Git and Redis suggests that BDCIf can effectively detect higher-order conflicts and report how changes might interfere.
+Link: https://arxiv.org/abs/1708.01650
+====================================================
+Sciunits: Reusable Research Objects (Dai Hai Ton That - 11 September, 2017)
+When experiments include only datasets, they can be shared using Uniform Resource Identifiers (URIs) or Digital Object Identifiers (DOIs). We describe a Git-like client that efficiently creates, stores, and repeats sciunits
+Link: https://arxiv.org/abs/1707.05731
+====================================================
+Everware toolkit. Supporting reproducible science and challenge-driven education (Andrey Ustyuzhanin - 3 March, 2017)
+Version control systems like git help with the workflow and analysis scripts part. We present project Everware that seamlessly integrates git repository management systems such as Github or Gitlab, Docker and Jupyter helping with a) sharing results of real research and b) boosts education activities
+Link: https://arxiv.org/abs/1703.01200
+====================================================
+UStore: A Distributed Storage With Rich Semantics (Anh Dinh - 9 February, 2017)
+It is built around a data-structure similar to that of Git, a popular source code versioning system, but it also synthesizes many designs from distributed systems and databases. We port and evaluate four applications on top of UStore: a Git-like application, a collaborative data science application, a transaction management application, and a blockchain application
+Link: https://arxiv.org/abs/1702.02799
+====================================================
+Monocular LSD-SLAM Integration within AR System (Markus HÃ¶ll - 8 February, 2017)
+The AR stereo engine with Oculus Rift support can be accessed via the GIT repository https://github.com/MaXvanHeLL/ARift.git and the modified LSD-SLAM project used for the integration is available here https://github.com/MaXvanHeLL/LSD-SLAM.git.
+Link: https://arxiv.org/abs/1702.02514
+====================================================
+Auto-Documenation for Software Development (Thomas Zheng - 30 January, 2017)
+We also demonstrate the integration of Autodoc as an IDE plugin as well as a web hook from within software hosting platforms when submitting auto-documented code to user's Git repository.
+Link: https://arxiv.org/abs/1701.08485
+====================================================
+Ontohub: A semantic repository for heterogeneous ontologies (Mihai Codescu - 15 December, 2016)
+Ontohub repositories are organised as Git repositories, thus inheriting all features of this popular version control system
+Link: https://arxiv.org/abs/1612.05028
+====================================================
+ProvDB: A System for Lifecycle Management of Collaborative Analysis Workflows (Hui Miao - 16 October, 2016)
+We have implemented an initial prototype of our system, called ProvDB, on top of git (a version control system) and Neo4j (a graph database), and we describe its key features and capabilities.
+Link: https://arxiv.org/abs/1610.04963
+====================================================
+Augmented Reality Oculus Rift (Markus HÃ¶ll - 29 April, 2016)
+The project can be accessed via the git repository https://github.com/MaXvanHeLL/ARift.git.
+Link: https://arxiv.org/abs/1604.08848
+====================================================
+LevelMerge: Collaborative Game Level Editing by Merging Labeled Graphs (Christian Santoni - 2 March, 2016)
+Today this collaboration is established by using version control systems designed for text documents, such as Git, to manage different versions and share them amongst users
+Link: https://arxiv.org/abs/1603.00713
+====================================================
+Git4Voc: Git-based Versioning for Collaborative Vocabulary Development (Lavdim Halilaj - 11 January, 2016)
+Based on these insights we propose Git4Voc which comprises guidelines how Git can be adopted to vocabulary development. Finally, we demonstrate how Git hooks can be implemented to go beyond the plain functionality of Git by realizing vocabulary-specific features like syntactic validation and semantic diffs.
+Link: https://arxiv.org/abs/1601.02433
+====================================================
+DataHub: Collaborative Data Science & Dataset Version Management at Scale (Anant Bhardwaj - 2 September, 2014)
+Inspired by software version control systems like git, we propose (a) a dataset version control system, giving users the ability to create, branch, merge, difference and search large, divergent collections of datasets, and (b) a platform, DataHub, that gives users the ability to perform collaborative data analysis building on this version control system
+Link: https://arxiv.org/abs/1409.0798
+====================================================
+IPFS - Content Addressed, Versioned, P2P File System (Juan Benet - 14 July, 2014)
+In some ways, IPFS is similar to the Web, but IPFS could be seen as a single BitTorrent swarm, exchanging objects within one Git repository
+Link: https://arxiv.org/abs/1407.3561
+====================================================
+A Wiki for Mizar: Motivation, Considerations, and Initial Prototype (Josef Urban - 25 May, 2010)
+We describe a preliminary system for such collaborative development based on the Git DVCS
+Link: https://arxiv.org/abs/1005.4552
+====================================================
