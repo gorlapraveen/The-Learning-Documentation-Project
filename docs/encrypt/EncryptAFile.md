@@ -1,5 +1,5 @@
 ## Encrypt a file to send to your firend/other person using `gpg`
-
+ <center>GPG tool based encryption</center>
 
 
 **Note** : _*If you Would like to know about generation and usage of*_ `ssh/gpg` _*keys*_. _*please go to*_ [ssh/gpg](/docs/encrypt/ssh-gpg.md)
@@ -61,6 +61,8 @@
 
 
 ----------------------------------------------
+<center>Next part</center>
+<center>Openssl Encryption</center>
 
 ## Encrypting A file using Openssl -aes-256 : With password
 
@@ -77,7 +79,7 @@
 
 >>**Note** : Here `my_folder/` can be a folder or a simple file as `example.txt`.
  
-2. After issuing the above command, then the system prompts for password with which the file is to be protected by encrypting, the ouput dialogues includes in following way:
+2. After issuing the above command, then the system prompts for password with which the file is to be protected by encrypting, the output dialogues includes in following way:
 
           tar: Old option 'g' requires an argument.
           Try 'tar --help' or 'tar --usage' for more information.
@@ -105,7 +107,7 @@ More source regarding Open-ssl encryption at:
 
 
 
-
+<center>-- End of File --</center>
     
 
 
