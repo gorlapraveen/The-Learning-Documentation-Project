@@ -1,5 +1,4 @@
-## Encrypt a file to send to your firend/other person using## 
-`gpg`
+## Encrypt a file to send to your firend/other person using `gpg`
 
 
 
@@ -60,6 +59,53 @@
 
 --------------------------------------------------------------------------------------------------
 
+
+----------------------------------------------
+
+## Encrypting A file using Openssl -aes-256 : With password
+
+`openssl` `aes-256` based encryption of a folder/file
+
+
+
+1. For Open-SSL encryption : Issue the following command in your termianl.
+
+
+         tar cz my_folder/ | openssl enc -aes-256-cbc -e > encrypted.tar.gz.enc
+
+>>**Note** : Here `tar` and `cz`is for making a folder(`my_folder/`) or a file to compress and apply `open-ssl`  for encrypting a compressed file using `aes-256` algoritham to an output encrypted file as `encrypted.tar.gz.enc`.
+>>**Note** here `my_folder/` can be a folder or a simple file as `example.txt`.
+ 
+2. After issuing the above command, then the system prompts for password with which the file is to be protected by encrypting, the ouput dialogues includes in following way:
+
+          tar: Old option 'g' requires an argument.
+          Try 'tar --help' or 'tar --usage' for more information.
+          enter aes-256-cbc encryption password:
+          Verifying - enter aes-256-cbc encryption password:
+
+
+
+
+3. For OpenSSL Decryption:
+
+
+         openssl aes-256-cbc -d -in encrypted.tar.gz.enc | tar xz
+
+4. Enter the password(used while encrypting the same file) when its prompts for it. Then the file is decrypted.
+
+
+More source regarding Open-ssl encryption at:
+
+    https://zaiste.net/creating_password_protected_gzip_files_from_command_line/
+
+
+
+**Note** : Its better to choose `gpg` encryption over `openssl -aes-256`  because of high secure 4096 encryption in `gpg` using two differnet keys(such as public and private keys for encryption and decryption respectively)
+
+
+
+
+    
 
 
 
