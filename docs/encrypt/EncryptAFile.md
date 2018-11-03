@@ -73,7 +73,7 @@
 
          tar cz my_folder/ | openssl enc -aes-256-cbc -e > encrypted.tar.gz.enc
 
->>**Note** : Here `tar` and `cz`is for making a folder(`my_folder/`) or a file to compress and apply `open-ssl`  for encrypting a compressed file using `aes-256` algoritham to an output encrypted file as `encrypted.tar.gz.enc`.
+>**Note** : Here `tar` and `cz`is for making a folder(`my_folder/`) or a file to compress and apply `open-ssl`  for encrypting a compressed file using `aes-256` algoritham to an output encrypted file as `encrypted.tar.gz.enc`.
 
 >>**Note** here `my_folder/` can be a folder or a simple file as `example.txt`.
  
