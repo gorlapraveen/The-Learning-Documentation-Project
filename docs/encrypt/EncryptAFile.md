@@ -1,4 +1,7 @@
-## Encrypt a file to send to your firend/other person
+## Encrypt a file to send to your firend/other person using## 
+`gpg`
+
+
 
 **Note** : _*If you Would like to know about generation and usage of*_ `ssh/gpg` _*keys*_. _*please go to*_ [ssh/gpg](/docs/encrypt/ssh-gpg.md)
 -------------------------------------------------------
