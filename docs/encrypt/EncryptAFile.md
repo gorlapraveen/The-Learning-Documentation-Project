@@ -64,7 +64,7 @@
 
 ## Encrypting A file using Openssl -aes-256 : With password
 
-`openssl` `aes-256` based encryption of a folder/file
+`openssl` `aes-256` based encryption of a folder/file : Which doesn't need any keys to be generated. It just needs a password for encryption, whic is a password based encryption.
 
 
 
@@ -101,7 +101,7 @@ More source regarding Open-ssl encryption at:
 
 
 
-**Note** : Its better to choose `gpg` encryption over `openssl -aes-256`  because of high secure 4096 encryption in `gpg` using two differnet keys(such as public and private keys for encryption and decryption respectively)
+**Note** : Its better to choose `gpg` encryption over `openssl -aes-256`  because of high secure 4096 encryption in `gpg` using two different keys(such as public and private keys for encryption and decryption respectively)
 
 
 
