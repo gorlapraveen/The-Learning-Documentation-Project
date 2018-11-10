@@ -1,5 +1,10 @@
 # The Learning Documentation Project 
 
+[![Ststus](https://img.shields.io/badge/Status-Continues%20Update-brightgreen.svg)](#)
+[![Contibuting](https://img.shields.io/badge/Contributing-Guidelines-green.svg)](/CONTRIBUTING.md)
+[![Documentation License](https://img.shields.io/badge/Documentation-GNU%20Free%20Documentation%20License-blue.svg)](/LICENSE)
+[![Code License](https://img.shields.io/badge/Code-GPLv3-voilet.svg)](https://www.gnu.org/licenses/licenses.html#GPL)
+
 ------------------------------------------------------------------------------
 
 ## Documentation : ## 
