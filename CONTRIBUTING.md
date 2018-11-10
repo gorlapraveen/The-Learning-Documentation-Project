@@ -20,6 +20,9 @@ So, We are very glad to have everyone on this board to access or/and contribute 
   3.  Any Work that is adapted from other Sources (including text/images/Software Code) should have already been Licensed under either [1](#) or/and [2](#).
 * Contributors must obey our [Code of Conduct](/CodeOfConduct.md)
 
+**Note**: This repository is originally maintained by in [Github](https://github.com/gorlapraveen/The-Learning-Documentation-Project) 
+and [Gitlab](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject) Instances for maintaining multiple instances. You can contribute to this repository form 
+any instance(They pull and push eachother).
 
 
 
