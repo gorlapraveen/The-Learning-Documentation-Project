@@ -1,4 +1,9 @@
-gr-ieee802.11`: Installation should be done in master as GNU radio is installed as master.
+`gr-ieee802.11`: Installation should be done in `master` branch as GNU radio is installed as `master` branch.
+
+-------------------------------------
+
+Note : **For complete installation process of** `gr-ieee802.11`: please seek help at git [my repo](https://gitlab.com/gorlapraveen/gnu_radio_localization/blob/4ddcf0823f123496c95d53567037be65dee19a2f/README.md)
+------------------------------------------
 
 **Possible Errors:**
 
