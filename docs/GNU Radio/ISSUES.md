@@ -33,4 +33,4 @@ RuntimeError: gr::tuntap_pdu::make: tun_alloc failed (are you running as root?)
 ```
 
 
-2. Solution: Simply disable `TUNTAP`
+2. Solution: Simply disable `TUNTAP` in `wifi_transceiver.grc`
