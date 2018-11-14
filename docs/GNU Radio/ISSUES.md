@@ -26,3 +26,6 @@ RuntimeError: gr::tuntap_pdu::make: tun_alloc failed (are you running as root?)
 
 >>> Done
 ```
+
+
+2. Solution: Simply disable `TUNTAP`
