@@ -10,10 +10,9 @@ Solution:
        git gc
 
 
-It came down to a couple of items that I can see right now.
+Even when you have same error, then you need aggressive gc
 
         git gc --aggressive
-        Opening up file permissions to 777
 
-There has to be something else going on, but this was the things that clearly made the biggest impact.
-shareimprove this answer
+This is the things that clearly makes the biggest impact.
+
