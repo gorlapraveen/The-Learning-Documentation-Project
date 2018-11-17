@@ -1,9 +1,13 @@
 ## Git Issues :
 
-`error: insufficient permission for adding an object to repository database .git/objects`
 
 
+1. `error: insufficient permission for adding an object to repository database .git/objects`
 
+
+Solution: 
+   
+       git gc
 
 
 It came down to a couple of items that I can see right now.
