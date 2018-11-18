@@ -19,8 +19,8 @@ Note : *This documentation is mainly intend to reduce time consumption for solvi
 
 ---------------------------------------------------------------------------------------------------
 
-This repository which contains [documentation](#) is  Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) 
-Version 1.3, 3 November 2008 and [Software - Code (including Open Hardware design files)](#) is Licensed under [GNU General Public License](https://www.gnu.org/licenses/licenses.html#GPL).  Contributors, Please refer [Contributing Guidelines](/CONTRIBUTING.md)
+This repository which contains [documentation](#)(including text, links, Videos, Images) is  Licensed under [GNU Free Documentation License](https://www.gnu.org/licenses/fdl.txt) 
+Version 1.3, 3 November 2008, or/and [Creative Commons Attribution 4.0 International (CC BY 4.0) ](https://creativecommons.org/licenses/by/4.0/legalcode). And  [Software - Code (including Open Hardware design files)](#) is Licensed under [GNU General Public License](https://www.gnu.org/licenses/licenses.html#GPL).  Contributors, Please refer [Contributing Guidelines](/CONTRIBUTING.md)
 
 **[Contributors Note](/CONTRIBUTING.md)**: This repository is originally maintained by @gorlapraveen in [Github](https://github.com/gorlapraveen/The-Learning-Documentation-Project) 
 and [Gitlab](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject) Instances for maintaining multiple instances. You can contribute to this repository form 
