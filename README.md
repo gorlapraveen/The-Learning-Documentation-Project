@@ -24,7 +24,9 @@ Version 1.3, 3 November 2008, or/and [Creative Commons Attribution 4.0 Internati
 
 **[Contributors Note](/CONTRIBUTING.md)**: This repository is originally maintained by @gorlapraveen in [Github](https://github.com/gorlapraveen/The-Learning-Documentation-Project) 
 and [Gitlab](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject) Instances for maintaining multiple instances. You can contribute to this repository form 
-any instance(They pull and push eachother). 
+any instance(They pull and push eachother), fork and pull.
+
+                                                 -----Copy, Share and Contribute! Happy! Thankyou!-------
 
 ---------------------------------------------------------------------------------------------------
 
