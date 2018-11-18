@@ -3,7 +3,7 @@
 [![Ststus](https://img.shields.io/badge/Status-Continues%20Update-brightgreen.svg)](#)
 [![Contibuting](https://img.shields.io/badge/Contributing-Guidelines-green.svg)](/CONTRIBUTING.md)
 [![Documentation License](https://img.shields.io/badge/Documentation-GNU%20Free%20Documentation%20License-blue.svg)](/LICENSE)
-[![ or/and](https://img.shields.io/badge/or and-CCBY-green.svg)](https://creativecommons.org/licenses/by/4.0/legalcode)
+[![Documentation](https://img.shields.io/badge/-CCBY-blue.svg)](https://creativecommons.org/licenses/by/4.0/legalcode)
 [![Code License](https://img.shields.io/badge/Code-GPLv3-voilet.svg)](https://www.gnu.org/licenses/licenses.html#GPL)
 [![Chat](https://img.shields.io/badge/Chat%20-Gitter-orange.svg)](#)
 ------------------------------------------------------------------------------
