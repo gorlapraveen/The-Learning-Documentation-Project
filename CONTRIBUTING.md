@@ -25,5 +25,5 @@ So, We are very glad to have everyone on this board to access or/and contribute 
 and [Gitlab](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject) Instances for maintaining multiple instances. You can contribute to this repository form 
 any instance(They pull and push eachother).
 
-
+**------ Copy, Share and Contribute! Happy! Thankyou!----------**
 
