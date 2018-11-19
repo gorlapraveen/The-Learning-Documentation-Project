@@ -39,6 +39,7 @@ any instance(They pull and push eachother), fork and pull.
 
 | Topic [In this Repo]| Remarks |
 |:------|:------ |
+|[WritingCommons.org](https://writingcommons.org/) | Writing Commons, https://writingcommons.org, helps students improve their writing, critical thinking, and information literacy. Founded in 2008 by Joseph M. Moxley, Writing Commons is a viable alternative to expensive writing textbooks. Faculty may assign Writing Commons for their composition, business, technical,and creative writing courses. WritingCommons.org is currently crowdsourcing submissions via an academic, peer-review process (see [Contribute](https://writingcommons.org/about-us/guide-for-authors)). |
 | [GNU Standard Coding Guidelines](/docs/GNU_coding_standards.pdf) | GNU coding styles and guidelines|
 |[Linux Standard Command-Line Options : GNU Compatible](/docs/Linux_Standard_CLI_options.md#linux-standard-command-line-options-gnu-compatible) | Options along with commands, such as  `command_name -h` for `help` for `command_name` usage |
 |[Standarad Command Line : Table of Long Options](/docs/Linux_Standard_CLI_options.md#standard-command-line-table-of-long-options) |  More Options along with commands|
