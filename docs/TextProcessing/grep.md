@@ -110,3 +110,8 @@ Use the -l option to list file name whose contents mention main():
 
 Finally, you can force grep to display output in colors, enter:
        $ grep --color abc /etc/passwd
+       
+       
+       
+       
+For more https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/       
