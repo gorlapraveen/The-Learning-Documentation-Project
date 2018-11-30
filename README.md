@@ -37,6 +37,9 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  --------------------------------------------------------------------------
  
  ### Table of Contents
+ 
+ Tabel of contents range form **Education to Research**, **Philosophy to Psychology**, 
+ **Package Scripting to Technology Demonstration**,  **Writing/drawing  to reading**,  **Music to Speech-to-text Procesing tools**, **etc..** Use `ctrl-f` to search keywords! 
 
 | Topic [In this Repo]| Remarks |
 |:------|:------ |
