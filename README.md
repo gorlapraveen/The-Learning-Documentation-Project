@@ -32,11 +32,11 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
 ---------------------------------------------------------------------------------------------------
 
-### I). Advanced Used Linux Commnd - Utilization for scripting:
+### Table of Contents
 
  --------------------------------------------------------------------------
  
- ### Table of Contents
+
  
  Tabel of contents range form **Education to Research**, **Philosophy to Psychology**, 
  **Package Scripting to Technology Demonstration**,  **Writing/drawing  to reading**,  **Music to Speech-to-text Procesing tools**, **etc..** Use `ctrl-f` to search keywords! 
@@ -78,7 +78,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
 --------------------------------------------------------------------------------------------------
 --------------
-### IV). Articles :
+### Articles :
 
 Articles at [Medium Page][Medium Page] and [Medium Publication - Open Thinking and Open Research][Medium Publication] 
 
