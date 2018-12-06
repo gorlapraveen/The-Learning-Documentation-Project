@@ -1,5 +1,4 @@
 
-
 **Issues Related:** `The 'grub-efi-amd64-signed' package failed to install target/ [duplicate]` , `No Bootable device founs, insert bootable device found` , `error: /dev/sda1/ I/O error`
 
 **Tags**: `ubuntu`, `debian`
@@ -57,7 +56,7 @@ Try this if it makes sense to you:
 9. Reboot the system.
 
 ----------------------------------------------
-https://askubuntu.com/questions/1028703/the-grub-efi-amd64-signed-package-failed-to-install-target#1028709
-Orginally Published at 
+Orginally Published at   https://askubuntu.com/questions/1028703/the-grub-efi-amd64-signed-package-failed-to-install-target#1028709
+
 
 

@@ -3,6 +3,16 @@
 The awk command is used like this:
 
       $ awk options program file
+      
+
+  **AWK Command:**
+  
+        For eaxmple to extract substring in a string .
+
+            Ex: str1 =abcdefgh
+  `awk substr($str1,2,4)`:output = `bcdef`
+ 
+       
 
 **Awk can take the following options:**
 
