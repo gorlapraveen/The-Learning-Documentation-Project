@@ -55,6 +55,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | CLI Brightness : [Blacklight Deb Packages](https://salsa.debian.org/gorlapraveen-guest/blacklight-deb-packages) | Command Line Brightness adjust, `.deb` Package |
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts) | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `Bash Script`
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
+| Encryption : Why we need? | In [simple format](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/blob/master/docs/encrypt/Encrypt.pdf) and in [detail](https://medium.com/open-thinking-and-open-research/what-why-and-how-to-encrypt-an-email-conversation-eb441dc91763) |
 | Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
 | Encrypt a File :[GPG Encryption](/docs/encrypt/EncryptAFile.md) | and send to other person |
 | GPG : [Revocation Certificates](/docs/encrypt/generate-gpg-revocation-certificate.md) | Generation, and using them to revoke your keys|
