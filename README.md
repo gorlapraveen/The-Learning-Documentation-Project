@@ -69,6 +69,13 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
 
 
+ ----------------------------------------------------------------------------------------------------------------
+
+| Topic | Remarks |
+|:------|:------ |
+| [GNU Packages](https://www.gnu.org/manual/manual.html) | `List` of all the `GNU Software Packages` with `Categorical` Classification |
+
+ ----------------------------------------
 
  -------------------------------------------------------------------------------------------------
  
