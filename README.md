@@ -77,7 +77,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  ----------------------------------------------------------------------------------------------------
 
 <p align="center">
-<img src="images/Knowledge_Transfer_Diagram.png" text="Logo" width="80%" />
+<center><img src="images/Knowledge_Transfer_Diagram.png" text="Logo" width="50%" /></center>
 </p>
 
 --------------------------------------------------------------------------------------------------
