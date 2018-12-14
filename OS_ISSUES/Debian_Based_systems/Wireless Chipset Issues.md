@@ -11,4 +11,7 @@ When you Download thorugh [uploads](https://gitlab.com/gorlapraveen/TheLearningD
 
 2. `Wired Unmanned` in Debian systems, LAN will not be working.
   
- Solution: In `/etc/NetworkManager/NetworkManager.conf` change `managed=false` to `managed=true`
+ Solution: In `/etc/NetworkManager/NetworkManager.conf` change `managed=false` to `managed=true`.
+
+**Optional Hint:** Use `nmtui` command to Add/Edit/Delete unnecessary Wireless I
+nterfaces, icase of more duplicate `LAN` interfaces while in `Wired Unmanaged`
