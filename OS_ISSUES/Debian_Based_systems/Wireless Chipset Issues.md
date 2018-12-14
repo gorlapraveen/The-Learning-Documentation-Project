@@ -13,5 +13,4 @@ When you Download thorugh [uploads](https://gitlab.com/gorlapraveen/TheLearningD
   
  Solution: In `/etc/NetworkManager/NetworkManager.conf` change `managed=false` to `managed=true`.
 
-**Optional Hint:** Use `nmtui` command to Add/Edit/Delete unnecessary Wireless I
-nterfaces, icase of more duplicate `LAN` interfaces while in `Wired Unmanaged`
+**Optional Hint:** Use `nmtui` command to Add/Edit/Delete unnecessary Wireless Interfaces, incase of more duplicate `LAN` interfaces while in `Wired Unmanaged`
