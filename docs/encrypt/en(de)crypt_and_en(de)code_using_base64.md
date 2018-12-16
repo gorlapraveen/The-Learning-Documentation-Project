@@ -1,4 +1,3 @@
-
 Encrypt and decrypt using a standard encryption algorithm (from a library), and encode the encrypted sting using base 64 (from the base64 module).
 
 **Your workflow becomes:**
@@ -9,9 +8,10 @@ Encrypt and decrypt using a standard encryption algorithm (from a library), and 
     Decrypt the ciphertext using a crypto library (gives you the plaintext back)
 
 A few encryption libraries:
+[m2crypto](http://chandlerproject.org/Projects/MeTooCrypto)
 
-    [m2crypto](http://chandlerproject.org/Projects/MeTooCrypto)
-    [pycrypto](https://www.dlitz.net/software/pycrypto/)
-    [pynacl](https://pynacl.readthedocs.org/en/latest/)
+[pycrypto](https://www.dlitz.net/software/pycrypto/)
+
+[pynacl](https://pynacl.readthedocs.org/en/latest/)
 
 Source - https://stackoverflow.com/questions/19369154/encrypting-and-decrypting-in-python-without-using-special-characters
