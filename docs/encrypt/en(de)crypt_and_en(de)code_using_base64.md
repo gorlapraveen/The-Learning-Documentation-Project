@@ -15,3 +15,20 @@ A few encryption libraries:
 [pynacl](https://pynacl.readthedocs.org/en/latest/)
 
 Source - https://stackoverflow.com/questions/19369154/encrypting-and-decrypting-in-python-without-using-special-characters
+
+------------------------------------------
+
+1. In general for gpg encryption(decryption) see my repo [docs](/docs/encrypt/ssh-gpg.md)
+
+To encode text to base64, use the following syntax:
+
+     $ echo -n 'scottlinux.com rocks' | base64
+     
+    c2NvdHRsaW51eC5jb20gcm9ja3MK
+
+To decode, use base64 -d. To decode base64, use a syntax like the following:
+
+    $ echo -n c2NvdHRsaW51eC5jb20gcm9ja3MK | base64 -d
+    
+    scottlinux.com rocks
+
