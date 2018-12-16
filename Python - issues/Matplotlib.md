@@ -22,3 +22,7 @@ Or when connect to server use `ssh -X` ... command to use Xwindows.
 Also you may try to export display: `export DISPLAY=mymachine.com:0.0`
 
 And look through this page: [Generating a PNG with matplotlib when DISPLAY is undefined](https://stackoverflow.com/questions/2801882/generating-a-png-with-matplotlib-when-display-is-undefined)
+
+https://github.com/matplotlib/matplotlib/issues/3466/
+
+Install `tkinter` `tk-devl` https://stacks1.wordpress.com/2017/01/31/issue-with-tkinter-python-and-seaborn-_tkinter-tclerror-no-display-name-and-no-display-environment-variable/
