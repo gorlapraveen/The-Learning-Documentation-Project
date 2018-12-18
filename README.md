@@ -1,4 +1,7 @@
 # The Learning Documentation Project 
+<p align="center">
+<img src="/images/tldp_logo_transparent_background_boarder.png" text="Logo" width="25%" />
+</p>
 
 [![Ststus](https://img.shields.io/badge/Status-Continues%20Update-brightgreen.svg)](#)
 [![Contibuting](https://img.shields.io/badge/Contributing-Guidelines-green.svg)](/CONTRIBUTING.md)
