@@ -77,6 +77,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | Topic | Remarks |
 |:------|:------ |
 | [GNU Packages](https://www.gnu.org/manual/manual.html) | `List` of all the `GNU Software Packages` with `Categorical` Classification |
+| [Radio Communications for Internet Access](https://github.com/gorlapraveen/firefox_b2b_comm_radio_addon) | `On Going`, `Partial Systemlevel Implementation` To design a system for ease of Individual Internet access and circumventing Individual censorship while working with open communities. Establishing the Radio communication between two or more systems by establishing communication between two or more open browsers within the Radio frequency range with the helpful combination of GNU radio-Software Defined Radio(SDR software + RF Hardware) with Firefox web browser addon |
 
  ----------------------------------------
 
