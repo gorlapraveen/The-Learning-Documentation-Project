@@ -1,6 +1,5 @@
 
 
-
 ## Searx
 
 **Install `searx` in your local system and make `firefox` to use it through your localhost for browsing Internet**
@@ -18,3 +17,8 @@ By Default searx is available at `localhost:8888`
  1. Go to firefox
  2. Enter `localhost:8888` in the search bar
  3. `searx` search engine is available as shown below and you can search the web. 
+ 
+
+<p align="center">
+<center><img src="images/searx-1.png" text="Logo" width="50%" /></center>
+</p>
