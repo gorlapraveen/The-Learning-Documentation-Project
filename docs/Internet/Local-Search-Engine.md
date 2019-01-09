@@ -45,7 +45,7 @@ Name the script as `searx` (or anyname) and place it in `/usr/bin/` (in Debian B
 ----------------------------------------------------
 
 
-## But If you want to run the loacl `searx` engine at the sart up and avoid issuing commands to start, you the following script**
+## But If you want to make `searx` local engine available from at the time of  `system startup` by default, and to avoid issuing commands to start, you the following script**
 
 ```#!/bin/bash
 bash -c "sudo lsof -t -i tcp:8888 -s tcp:listen | sudo xargs kill -KILL"
