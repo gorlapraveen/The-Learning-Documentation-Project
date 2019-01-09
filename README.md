@@ -57,7 +57,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | CLI Brightness : [Brightness Bash Shell](https://salsa.debian.org/gorlapraveen-guest/brightness_bashshell_script) | Command Line Brightness adjustment, `Bash shell` script |
 | CLI Brightness : [Blacklight Deb Packages](https://salsa.debian.org/gorlapraveen-guest/blacklight-deb-packages) | Command Line Brightness adjust, `.deb` Package |
 | CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/Arxiv-Daily-updates-Shell_scripts) | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `Bash Script`
-| CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-guest/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
+| CLI : [Arxiv Daily Research](https://salsa.debian.org/gorlapraveen-gues/docs/Internet/Local-Search-Engine.mdt/arxivdailydebianpackage) `Deb Package` | Commandline Interface for phrasing newsupdated list of  research papers from Arxiv repository, `.deb` package 
 | Encryption : [Why we need ?](https://medium.com/open-thinking-and-open-research/what-why-and-how-to-encrypt-an-email-conversation-eb441dc91763) | In [simple format](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/blob/master/docs/encrypt/Encrypt.pdf) and in [detail](https://medium.com/open-thinking-and-open-research/what-why-and-how-to-encrypt-an-email-conversation-eb441dc91763) |
 | Encryption : [ssh/gpg](/docs/encrypt/ssh-gpg.md) | Keys Generation and usgae |
 | Encrypt a File :[GPG Encryption](/docs/encrypt/EncryptAFile.md) | and send to other person |
@@ -79,6 +79,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | [GNU Packages](https://www.gnu.org/manual/manual.html) | `List` of all the `GNU Software Packages` with `Categorical` Classification |
 | [Radio Communications for Internet Access](https://github.com/gorlapraveen/firefox_b2b_comm_radio_addon) | `On Going`, `Partial Systemlevel Implementation` To design a system for ease of Individual Internet access and circumventing Individual censorship while working with open communities. Establishing the Radio communication between two or more systems by establishing communication between two or more open browsers within the Radio frequency range with the helpful combination of GNU radio-Software Defined Radio(SDR software + RF Hardware) with Firefox web browser addon |
 | System Configuration (My Own) | Exclusively with Debian at https://gitlab.com/gorlapraveen/system-configuration|
+| [searx](/docs/Internet/Local-Search-Engine.md) : Local search engine | Find [how to install it locally](/docs/Internet/Local-Search-Engine.md) and use in on firefox browser and Protect your Digital life from tracking you |
  ----------------------------------------
 
  -------------------------------------------------------------------------------------------------
