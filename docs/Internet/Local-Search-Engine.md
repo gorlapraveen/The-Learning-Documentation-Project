@@ -1,7 +1,7 @@
 ## Searx
 A `privacy-respecting`, `hackable` `metasearch` engine. Pronunciation: `səːks`
 
-**Install `searx` in your local system and make `firefox` to use it through your localhost for browsing Internet**
+**Install `searx` in your local system and make `firefox` to use it through your localhost for browsing Internet** : `Minimalistic installation`
 
 Initially I followed basic installation as described in https://github.com/asciimoo/searx . It includes
 
