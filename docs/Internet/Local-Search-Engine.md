@@ -1,4 +1,5 @@
 ## Searx
+A `privacy-respecting`, `hackable` `metasearch` engine. Pronunciation: `səːks`
 
 **Install `searx` in your local system and make `firefox` to use it through your localhost for browsing Internet**
 
@@ -20,8 +21,12 @@ By Default `searx` search is runs in your local system and available to you at `
  
 
 <p align="center">
-<center><img src="images/searx-1.png" text="Logo" width="50%" /></center>
+<center><img src="images/searx-1.png" text="Logo" width="60%" /></center>
 </p>
+
+
+---------------------------------------------------------
+
 
 
 **But I thought of Automate the process So, I did the following**
