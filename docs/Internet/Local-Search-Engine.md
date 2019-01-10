@@ -35,7 +35,8 @@ By Default `searx` search is runs in your local system and available to you at `
 4. In order to make your local `serax` as your default search engine in `firefox`,   vist your loal `searx` page at `localhost:8888`. After that at the search bar, fint `page options` >> `Add Search engine`
  . **But Everytime you need to go to the directory where you have cloned and need run `python searx/webapp.py ` to access your local `searx` engine in firefox (or any other browser through `localhost:8888`)**. Instead you can automate the process just by issuing the command in your termianl from any directory with the following script. 
 
-```#!/bin/bash
+```
+#!/bin/bash
  bash -c "sudo lsof -t -i tcp:8888 -s tcp:listen | sudo xargs kill -KILL" #to kill the proper process on 8888 port.
  bash -c "python /path_to_searx/searx/webapp.py"
 ```
@@ -48,7 +49,8 @@ Name the script as `searx` (or anyname) and place it in `/usr/bin/` (in Debian B
 
 ## But If you want to make `searx` local engine available from at the time of  `system startup` by default, and to avoid issuing commands to start, you the following script**
 
-```#!/bin/bash
+```
+#!/bin/bash
 bash -c "sudo lsof -t -i tcp:8888 -s tcp:listen | sudo xargs kill -KILL"
 bash -c "python /Path_to_search/searx/searx/webapp.py" #Change the path to where your searx is cloned
 ./etc/init.d/searx
