@@ -111,7 +111,7 @@ exit $?
 
 **`Note:`** In the code change `/Path_to_search/` Change the path to where your searx is cloned.
 
-6. Save the file in `\etc\init.d\` as `searx` and
+6. Save the file in `/etc/init.d/` as `searx` and
 7. run `update-rc.d searx defaults` , this will update the init.d scripts at system start level.
 8. Restart the system, and now your `searx` local search engine is always available at `localhost:8888` and you can directly search `firefox` search bar(If you set default search engine as `searx` as said in `(4)` , else you need to go to `localhost:8888` and browse the engine) for any thing.
 
