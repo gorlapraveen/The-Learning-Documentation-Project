@@ -7,12 +7,13 @@ Initially I followed basic installation as described in https://github.com/ascii
 
 ## Installation
 
-clone source: `git clone https://github.com/asciimoo/searx.git && cd searx`
+1. clone source: `git clone https://github.com/asciimoo/searx.git && cd searx`
 
-install dependencies: `./manage.sh update_packages`
+2. install dependencies: `./manage.sh update_packages`
 
-edit your settings.yml (set your secret_key!) ##Actuall no need, unless you host this as online for others user to access, you can give any arbitary key as described in https://github.com/asciimoo/searx/issues/1473 
-run `python searx/webapp.py` to start the application
+3. edit your settings.yml (set your secret_key!) ##Actuall no need, unless you host this as online for others user to access, you can give any arbitary key as described in https://github.com/asciimoo/searx/issues/1473 
+
+4. run `python searx/webapp.py` to start the application
 
 By Default `searx` search is runs in your local system and available to you at `localhost:8888` 
  1. Go to firefox
