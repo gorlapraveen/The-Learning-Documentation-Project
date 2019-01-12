@@ -71,31 +71,62 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | Psychology [Myers–Briggs Type Indicator](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator) | |
 
 
+.
+
+.
+
+.
+
+.
+
+.
 
  ----------------------------------------------------------------------------------------------------------------
 
 | Topic | Remarks |
 |:----- |:------- |
 | [Wget](/docs/Command tools/Wget-Usage.md) |  It comman [usage](/docs/Command%20tools/Wget-Usage.md#iusage) for recursive and specific file download and [Issues](/docs/Command%20tools/Wget-Usage.md#iiissues)|
-
+| [Bash-Scripting](/docs/Bash/Bash-Scripting-Cheat-Codes.md) - [Cheat-sheet](/docs/Bash/Bash-Scripting-Cheat-Codes.md) | Most comphrensive list for almost everything.Find [here](/docs/Bash/Bash-Scripting-Cheat-Codes.md) 
 
  ---------------------------------------------------------------------------------------------------------------
  
+
+.
+
+.
+
+.
+
+.
+
+.
+
 -----------------------------------------------------------------------------------------------------------------
+
 | Topic | Remarks |
 |:------|:------ |
 | [GNU Packages](https://www.gnu.org/manual/manual.html) | `List` of all the `GNU Software Packages` with `Categorical` Classification |
 | [Radio Communications for Internet Access](https://github.com/gorlapraveen/firefox_b2b_comm_radio_addon) | `On Going`, `Partial Systemlevel Implementation` To design a system for ease of Individual Internet access and circumventing Individual censorship while working with open communities. Establishing the Radio communication between two or more systems by establishing communication between two or more open browsers within the Radio frequency range with the helpful combination of GNU radio-Software Defined Radio(SDR software + RF Hardware) with Firefox web browser addon |
 | System Configuration (My Own) | Exclusively with Debian at https://gitlab.com/gorlapraveen/system-configuration|
 | [searx](/docs/Internet/Local-Search-Engine.md) : Local search engine | Find [how to install it locally](/docs/Internet/Local-Search-Engine.md) and use in on firefox browser and Protect your Digital life from tracking you |
+
  ----------------------------------------
 
+.
 
+.
+
+.
+
+.
+
+.
 
  -------------------------------------------------------------------------------------------------
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
 /docs/Command tools/Wget-Usage.md
+
  ----------------------------------------------------------------------------------------------------
 
 <p align="center">
