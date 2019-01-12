@@ -1,3 +1,6 @@
+## Bash Scripting 
+---
+**Credits to:** rstacruz,  This is a forked upload copy from https://github.com/rstacruz/cheatsheets/blob/master/bash.md and/or https://devhints.io/bash
 ---
 title: Bash scripting
 category: CLI
