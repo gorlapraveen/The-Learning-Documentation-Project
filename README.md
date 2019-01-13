@@ -88,6 +88,8 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | [Wget](/docs/Command tools/Wget-Usage.md) |  Its common [usage](/docs/Command%20tools/Wget-Usage.md#iusage) for recursive and specific file download and [Issues](/docs/Command%20tools/Wget-Usage.md#iiissues)|
 | [Bash-Scripting](/docs/Bash/Bash-Scripting-Cheat-Codes.md) - [Cheat-sheet](/docs/Bash/Bash-Scripting-Cheat-Codes.md) | Most comphrensive list for almost everything.Find [here](/docs/Bash/Bash-Scripting-Cheat-Codes.md) 
 | [Bash Shell Commands](/docs/Bash/bash_cheat_sheet.pdf) | A `3 page` pdf version.  |
+| [cmake ..](/docs/Command tools/cmake...md) | What does [cmake ..](/docs/Command tools/cmake...md) mean? |
+
  ---------------------------------------------------------------------------------------------------------------
  
 
