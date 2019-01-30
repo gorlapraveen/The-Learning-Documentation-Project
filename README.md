@@ -106,7 +106,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  ---------------------------------------------------------------------------------
  | Topic | Remarks|
  |:----- |:-----  |
- | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` in gitlab-ci |
+ | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` using gitlab-ci |
  
  
  
