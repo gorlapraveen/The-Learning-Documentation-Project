@@ -1,3 +1,6 @@
+Create `.gitlab-ci.yml` in your repository, with the following code.
+
+
 ```
 compile_pdf:
   image: aergus/latex
