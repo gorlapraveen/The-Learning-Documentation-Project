@@ -1,4 +1,5 @@
-```compile_pdf:
+```
+compile_pdf:
   image: aergus/latex
   script:
     - latexmk -pdf main.tex
