@@ -34,7 +34,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
                                                  -----Copy, Share and Contribute! Happy! Thankyou!-------
 
 ---------------------------------------------------------------------------------------------------
-
+\textless 
 ### Table of Contents
 
  --------------------------------------------------------------------------
@@ -106,7 +106,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  ---------------------------------------------------------------------------------
  | Topic | Remarks|
  |:----- |:-----  |
- | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build latex in gitlab-ci |
+ | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` in gitlab-ci |
  
  
  
@@ -154,7 +154,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
 /docs/Command tools/Wget-Usage.md
-
+\textless 
  ----------------------------------------------------------------------------------------------------
 
 <p align="center">
