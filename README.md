@@ -86,7 +86,8 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  
  | Topic | Remarks |
  |:------|:--------|
- |[Block Host](https://github.com/jmdugan/blocklists)| System Level blocking of host. Add entry list in `etc/hosts`to block domins related to ad, malware such as facebook , google etc.. Find the list at https://github.com/jmdugan/blocklists |
+ |[Block Host](https://github.com/jmdugan/blocklists)| System Level blocking of host. Add entry list in `/etc/hosts`to block domins related to ad, malware such as facebook , google etc.. Find the list at https://github.com/jmdugan/blocklists |
+ 
  .
  
  .
