@@ -11,7 +11,7 @@
 [![Chat](https://img.shields.io/badge/Chat%20-Gitter-orange.svg)](#)
 ------------------------------------------------------------------------------
 
-## Documentation : ## 
+## Documentation : ## https://github.com/evilneuro/FreeContributor
 
 **Documentation started:** *02-oct-2018*
 
@@ -87,6 +87,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  | Topic | Remarks |
  |:------|:--------|
  |[Block Host](https://github.com/jmdugan/blocklists)| System Level blocking of host. Add entry list in `/etc/hosts`to block domins related to ad, malware such as facebook , google etc.. Find the list at https://github.com/jmdugan/blocklists |
+ | [FreeContributor](https://github.com/evilneuro/FreeContributor)-Project | A Dnsmasq file, that uses local DNS resolver to block ad and other malware domains. Find more at https://github.com/evilneuro/FreeContributor |
  
  .
  
