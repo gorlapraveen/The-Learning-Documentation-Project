@@ -183,8 +183,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  -------------------------------------------------------------------------------------------------
  
  For more explicit details, please visit  **The Linux Dcoumentation Project** ([tldp.org](https://tldp.org)) which includes manual & guides for Linux and Bash Command Line Interface (CLI) scripting at [tldp.org/guides.html](http://tldp.org/guides.html)
-/docs/Command tools/Wget-Usage.md
-\textless 
+ 
  ----------------------------------------------------------------------------------------------------
 <div>
 <p align="center">
