@@ -11,7 +11,7 @@
 [![Chat](https://img.shields.io/badge/Chat%20-Gitter-orange.svg)](#)
 ------------------------------------------------------------------------------
 
-## Documentation : ## https://github.com/evilneuro/FreeContributor
+## Documentation : ## 
 
 **Documentation started:** *02-oct-2018*
 
@@ -136,6 +136,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  | Topic | Remarks|
  |:----- |:-----  |
  | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` using gitlab-ci |
+ |[Academic Observation and Prposed Guidelines](/)| Academic Observation and Proposed Guidelines]
  
  
  
@@ -188,6 +189,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
 <p align="center">
 <center><img src="images/Knowledge_Transfer_Diagram.png" text="Logo" width="50%" /></center>
+
 </p>
 
 --------------------------------------------------------------------------------------------------
