@@ -34,10 +34,10 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
                                                  -----Copy, Share and Contribute! Happy! Thankyou!-------
 
 ---------------------------------------------------------------------------------------------------
-\textless 
+
 ### Table of Contents
 
- --------------------------------------------------------------------------gorlapraveen@gmail.com
+ --------------------------------------------------------------------------
  
 
  
