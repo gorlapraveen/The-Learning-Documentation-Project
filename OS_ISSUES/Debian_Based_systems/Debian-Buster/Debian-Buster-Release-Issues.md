@@ -1,8 +1,5 @@
-1.
-
-I am experiencing problems to start Gnome Files (Nautilus) on Debian Testing (Buster). I noticed that after an upgrade (I don't know which) Nautilus started to delay some seconds to run.
-
-Running from console I found this error messages:
+1. I am experiencing problems to start Gnome Files (Nautilus) on Debian Testing (Buster). I noticed that after an upgrade (I don't know which) Nautilus started to delay some seconds to run.
+   Running from console I found this error messages:
 
     ** (nautilus:23814): WARNING **: 18:19:23.023: Error on getting connection: Failed to load SPARQL backend: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
     
