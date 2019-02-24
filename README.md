@@ -115,6 +115,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  | Topic : `Documents`, `Text`, `Processing`| Remarks` |
  |:------|:--------|
  | [pdfx](https://github.com/metachris/pdfx) : References Extractor  |   Extract references (pdf, url, doi, arxiv) and metadata from a PDF; optionally download all referenced PDFs, get it at https://github.com/metachris/pdfx|
+ | odspy | Python based processing of Open Document Sheet `ODS` http://simple-odspy.sourceforge.net/ |
  
  .
  
@@ -163,7 +164,8 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  | Topic : `Academic`, `Research`| Remarks|
  |:----- |:-----  |
  | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` using gitlab-ci |
- |[Academic Observation and Prposed Guidelines](/)| Academic Observation and Proposed Guidelines]
+ |[Academic Observation and Prposed Guidelines](/)| Academic Observation and Proposed Guidelines |
+ | Matplotlib | Academic and research - Python based plotting of graphs similar to Amtlab , at [matplotlib](https://matplotlib.org/) 
  
  
  
