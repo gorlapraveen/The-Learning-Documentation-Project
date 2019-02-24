@@ -44,7 +44,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  Tabel of contents range form **Education to Research**, **Philosophy to Psychology**, 
  **Package Scripting to Technology Demonstration**,  **Writing/drawing  to reading**,  **Music to Speech-to-text Procesing tools**, **etc..** Use `ctrl-f` to search keywords! 
 
-| Topic [In this Repo]| Remarks |
+| Topic: `All` [In this Repo]| Remarks |
 |:------|:------ |
 |[WritingCommons.org](https://writingcommons.org/) | Writing Commons, https://writingcommons.org, helps students improve their writing, critical thinking, and information literacy. Founded in 2008 by Joseph M. Moxley, Writing Commons is a viable alternative to expensive writing textbooks. Faculty may assign Writing Commons for their composition, business, technical,and creative writing courses. WritingCommons.org is currently crowdsourcing submissions via an academic, peer-review process (see [Contribute](https://writingcommons.org/about-us/guide-for-authors)). |
 | [Draw.io](https://www.draw.io) | Flow chart drawing - online, save in cloud, offline |
@@ -64,7 +64,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 | GPG : [Revocation Certificates](/docs/encrypt/generate-gpg-revocation-certificate.md) | Generation, and using them to revoke your keys|
 | [Wireshark-tsahrk](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/tree/master/docs/Wireshark-tshark) | Commandline usage for processing pcap files, which is the Netwrok analyser kind of out put |
 | [MAT2](https://gitlab.com/gorlapraveen/mat2/tree/master) : Meta Data | Python Based Meta Data Removal Tool with CLI and GUI. Find [more tools](https://freedom.press/training/everything-you-wanted-know-about-media-metadata-were-afraid-ask/) to remove MetaData for different formats.|
-| [Wireless Chipset Issues](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/blob/0cef4563fe690050a3d8a2f6018ebacec0e7f5cd/OS_ISSUES/Debian_Based_systems/Wireless%20Chipset%20Issues.md) | Debian based -Qualcomm Wireless issuess and solution modules |
+| [Wireless Chipset Issues](https://gitlab.com/gorlapravhttps://about.een/TheLearningDocumentationProject/blob/0cef4563fe690050a3d8a2f6018ebacec0e7f5cd/OS_ISSUES/Debian_Based_systems/Wireless%20Chipset%20Issues.md) | Debian based -Qualcomm Wireless issuess and solution modules |
 | Research Resources : [Arxiv Research](/docs/ResearchResources/arxiv) | List of Updated research abstracts and links form varius domains ex: `Software`, `Processors`, `Networks`, `Cloud`, `Agriculture`, `Medical`, `GNUradio`, `Cryptography`, `Surveillance`, `Dental`, `Arts` , etc.. It also contains Research papers on Localization of  `Spoken Languages` such as `Chinese`, `Japanese`, `English` and [60 Indian](https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers_in_India#List_of_mother_tongues_by_number_of_speakers) Languages.  It includes more than `150` research categories |
 | Psychology [16personalities](https://www.16personalities.com/articles/our-theory) |  “**It’s so incredible to finally be understood.**” Take our Personality Test and get a 'freakishly accurate' description of who you are and why you do things the way you do.|
 | Psychology [Psychological Types](https://en.wikipedia.org/wiki/Psychological_Types) | |
@@ -84,10 +84,36 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
  ---------------------------------------------------------------------------------------------------------------
  
- | Topic | Remarks |
+ | Topic : `Networks`| Remarks |
  |:------|:--------|
  |[Block Host](https://github.com/jmdugan/blocklists)| System Level blocking of host. Add entry list in `/etc/hosts`to block domins related to ad, malware such as facebook , google etc.. Find the list at https://github.com/jmdugan/blocklists |
  | [FreeContributor](https://github.com/evilneuro/FreeContributor)-Project | A Dnsmasq file, that uses local DNS resolver to block ad and other malware domains. Find more at https://github.com/evilneuro/FreeContributor |
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ .
+ 
+ 
+ 
+ 
+ 
+ 
+ | Topic : `Documents`, `Text`, `Processing`| Remarks` |
+ |:------|:--------|
  | [pdfx](https://github.com/metachris/pdfx) : References Extractor  |   Extract references (pdf, url, doi, arxiv) and metadata from a PDF; optionally download all referenced PDFs, get it at https://github.com/metachris/pdfx|
  
  .
@@ -113,7 +139,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 
  ----------------------------------------------------------------------------------------------------------------
 
-| Topic | Remarks |
+| Topic : `shell`, `Commands`, `shell-packages`| Remarks |
 |:----- |:------- |
 | [Wget](/docs/Command tools/Wget-Usage.md) |  Its common [usage](/docs/Command%20tools/Wget-Usage.md#iusage) for recursive and specific file download and [Issues](/docs/Command%20tools/Wget-Usage.md#iiissues)|
 | [Bash-Scripting](/docs/Bash/Bash-Scripting-Cheat-Codes.md) - [Cheat-sheet](/docs/Bash/Bash-Scripting-Cheat-Codes.md) | Most comphrensive list for almost everything.Find [here](/docs/Bash/Bash-Scripting-Cheat-Codes.md) 
@@ -134,7 +160,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
 .
 
  ---------------------------------------------------------------------------------
- | Topic | Remarks|
+ | Topic : `Academic`, `Research`| Remarks|
  |:----- |:-----  |
  | [Git Latex Build](/latex/gitlab-ci.md) | A 5 line script to compile/build `latex` and generate `pdf` using gitlab-ci |
  |[Academic Observation and Prposed Guidelines](/)| Academic Observation and Proposed Guidelines]
