@@ -115,7 +115,10 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  | Topic : `Documents`, `Text`, `Processing`| Remarks` |
  |:------|:--------|
  | [pdfx](https://github.com/metachris/pdfx) : References Extractor  |   Extract references (pdf, url, doi, arxiv) and metadata from a PDF; optionally download all referenced PDFs, get it at https://github.com/metachris/pdfx|
- | odspy | Python based processing of Open Document Sheet `ODS` http://simple-odspy.sourceforge.net/ |
+ | `odspy` | Python based processing of Libreoffice such as`ODS` http://simple-odspy.sourceforge.net/ |
+ | `odfpy` | Python based processing of Libreoffice such as`ODS` https://github.com/marcoconti83/read-ods-with-odfpy |
+ | `ezodf` |  Python based processing of Libreoffice such as`ODS`  https://github.com/T0ha/ezodf |
+ | `pyexcel-ods`  | Python based processing of Libreoffice such as`ODS`  https://github.com/pyexcel/pyexcel-ods|
  
  .
  
