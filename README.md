@@ -220,13 +220,17 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  ----------------------------------------------------------------------------------------------------
 <div>
 <p>
-<img src="images/Knowledge_Transfer_Diagram.png" text="Logo" width="50%" align="left" /> “Your effort should not go in vain”
+<img src="images/Knowledge_Transfer_Diagram.png" text="Logo" width="50%" align="left" /> 
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525492.svg)](https://doi.org/10.5281/zenodo.2525492)
+
+“Your effort should not go in vain”
 
 We do share our knowledge with our fellow beings but how far we are successful in delivering our efforts to make others understand well!. In fact, it is not only about delivering but also about how far it can reach from one to one with collective sharing!
 
 So, we do also represent this topic as a cognitive mapping diagram for better understanding it.  Every piece of effort made by you ( for the community) must be reused, your efforts should not go in vain. You should need not to be a direct promoter of your knowledge, it should be a flow from one to other. In fact, it should be the propagation of multiplicative addition of the previous result which eventually reduces the effort for the repetitive tasks.</p>
 </div>
-<p align="left"> </p>
+
 
 --------------------------------------------------------------------------------------------------
 --------------
