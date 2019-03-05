@@ -1,7 +1,9 @@
-# The Learning Documentation Project 
+# The Learning Documentation Project [![DOI](https://zenodo.org/badge/151516132.svg)](https://zenodo.org/badge/latestdoi/151516132)
+
 <p align="center">
 <img src="/images/tldp_logo_transparent_background_boarder.png" text="Logo" width="25%" />
 </p>
+
 
 [![Ststus](https://img.shields.io/badge/Status-Continues%20Update-brightgreen.svg)](#)
 [![pipeline status](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/badges/master/pipeline.svg)](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/commits/master)
