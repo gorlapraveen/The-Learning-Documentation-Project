@@ -5,7 +5,7 @@ Create `.gitlab-ci.yml` in your repository, with the following code.
 compile_pdf:
   image: aergus/latex
   script:
-    - latexmk -pdf main.tex
+    - latexmk -pdf Thesis_progress_proposal_copy/main.tex
   artifacts:
     paths:
       - main.pdf
