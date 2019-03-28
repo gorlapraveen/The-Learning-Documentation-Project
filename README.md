@@ -42,7 +42,12 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  --------------------------------------------------------------------------
  
  
- Note : Code shown/contributed/used are somtime exculsively with `Debian`. 
+ --------------------------------------------------------------------
+ 
+ **Note** : Code shown/contributed/used are somtimse exculsively with `Debian GNU/Linux` and may not work with other `Debian based systmes` or other  `Linux distributions`. 
+ 
+ -----------------------------------------------------------------------
+ 
 
  
  Tabel of contents range form **Education to Research**, **Philosophy to Psychology**, 
