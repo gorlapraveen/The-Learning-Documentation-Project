@@ -44,7 +44,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  
  --------------------------------------------------------------------
  
- **Note** : Code shown/contributed/used are somtimse exculsively with `Debian GNU/Linux` and may not work with other `Debian based systmes` or other  `Linux distributions`. 
+ **Note** : Code shown/contributed/used are somtimes exculsively with `Debian GNU/Linux` and may not work with other `Debian based systmes` or other  `Linux distributions`. 
  
  -----------------------------------------------------------------------
  
