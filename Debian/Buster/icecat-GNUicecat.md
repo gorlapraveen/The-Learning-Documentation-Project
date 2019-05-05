@@ -1,6 +1,6 @@
 # GNU icecat
 
-GNUzilla is the GNU version of the Mozilla suite, and GNU IceCat is the GNU versionof the Firefox browser. Its main advantage is an ethical one: it is entirely [free software](http://www.gnu.org/philosophy/free-sw.html). While the Firefox source code from the Mozilla project is free software, they distribute and recommend non-free software as plug-ins and addons. 
+GNUzilla is the GNU version of the Mozilla suite, and GNU IceCat is the GNU version of the Firefox browser. Its main advantage is an ethical one: it is entirely [free software](http://www.gnu.org/philosophy/free-sw.html). While the Firefox source code from the Mozilla project is free software, they distribute and recommend non-free software as plug-ins and addons. 
 Also their trademark license imposes requirements for the distribution of modified versions that make it inconvenient to exercise freedom 3.
 
 
@@ -10,14 +10,13 @@ Also their trademark license imposes requirements for the distribution of modifi
 
 If you want to install icecat (GNU icecat) on your Debian, you can do it by following those steps.
 
-    * Download the GNU Icecat version that you want directly from the [official website](https://www.gnu.org/software/gnuzilla/)
-    
-    * Uncompress the archives in the */opt* folder if you want to install it system-wide (you will need to have root privilege) or in your home folder if you only want to install it for your current user.
-    * Create a .desktop file named *icecat.desktop* (replace *icecat* with the name of your choice, preferably *icecat-your_version* ) in */usr/share/applications* if you want to install it system-wide (you will need to have root privilege) or in *.local/share/applications* if you only want to install it for your current user. 
+1. Download the GNU Icecat version that you want directly from the [official website](https://www.gnu.org/software/gnuzilla/)
+2. Uncompress the archives in the `*/opt/*` folder if you want to install it system-wide (you will need to have root privilege) or in your home folder if you only want to install it for your current user.
+3. Create a .desktop file named *icecat.desktop* (replace *icecat* with the name of your choice, preferably *icecat-your_version* ) in `*/usr/share/applications/*` if you want to install it system-wide (you will need to have root privilege) or in `*.local/share/applications/*` if you only want to install it for your current user. 
 
 **Creating a .desktop file for icecat**
 
-Here is an example of a .desktop file
+Here is an example of a `.desktop` file
 
 ```
 [Desktop Entry]
