@@ -95,6 +95,7 @@ any instance(They pull and push eachother), fork and pull. **Contributors** and 
  
  | Topic : `Networks`| Remarks |
  |:------|:--------|
+ |[GNU Icecat](/Debian/Buster/icecat-GNUicecat.md) | GNU IceCat is the GNU version of the Firefox browser. Its main advantage is an ethical one: it is entirely free software.. Find how to install it in Debian at [here](/Debian/Buster/icecat-GNUicecat.md)
  | [GNUnet](https://gnunet.org) | **The Internet of tomorrow needs GNUnet today-** GNUnet is a `new network protocol` stack for building secure, distributed, and privacy-preserving applications. `With strong roots in academic research`, our goal is to `replace` the `old insecure` `Internet protocol stack`.  GNUnet is typically run as an overlay network on top of the the existing Internet infrastructure forming the basis of a hybrid peer-to-peer mesh and relay backbone for applications to run on. It could just as well be run independently of the Internet, over dedicated radio and cable. |
  | [Advertisement Block List](uploads/hosts) | This list conatins a root file `/etc/hosts` exclusively with `Debian` for blocking the `Advertisement` `Domain list` including `GAFAM`, You can use the [same file](uploads/hosts) and copy it to `/etc/hosts` for blocking the list mentioned in file.|
  |[Block Host](https://github.com/jmdugan/blocklists)| System Level blocking of host. Add entry list in `/etc/hosts`to block domins related to ad, malware such as facebook , google etc.. Find the list at https://github.com/jmdugan/blocklists |
