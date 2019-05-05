@@ -34,3 +34,6 @@ MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vn
 StartupWMClass=Icecat
 StartupNotify=true
 ```
+
+
+Note: In the above `.desktop` file, you can replace `''Your verion''` with any choice of your text, preferably icecat version.
