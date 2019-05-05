@@ -10,7 +10,7 @@ Also their trademark license imposes requirements for the distribution of modifi
 
 If you want to install icecat (GNU icecat) on your Debian, you can do it by following those steps.
 
-1. Download the GNU Icecat version that you want directly from the [official website](https://www.gnu.org/software/gnuzilla/)
+1. Download the GNU Icecat version that you want directly from the GNU [official website](https://www.gnu.org/software/gnuzilla/)
 2. Uncompress the archives in the `*/opt/*` folder if you want to install it system-wide (you will need to have root privilege) or in your home folder if you only want to install it for your current user.
 3. Create a .desktop file named *icecat.desktop* (replace *icecat* with the name of your choice, preferably *icecat-your_version* ) in `*/usr/share/applications/*` if you want to install it system-wide (you will need to have root privilege) or in `*.local/share/applications/*` if you only want to install it for your current user. 
 
