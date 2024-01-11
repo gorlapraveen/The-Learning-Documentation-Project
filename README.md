@@ -3,7 +3,7 @@
 <p align="center">
 <img src="/images/tldp_logo_transparent_background_boarder.png" text="Logo" width="25%" />
 </p>
-
+## Update: This repo will be in archive and updates to this documentation is only available at [this Gitlab repo](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject)
 
 [![Ststus](https://img.shields.io/badge/Status-Continues%20Update-brightgreen.svg)](#)
 [![pipeline status](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/badges/master/pipeline.svg)](https://gitlab.com/gorlapraveen/TheLearningDocumentationProject/commits/master)
